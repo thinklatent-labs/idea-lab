@@ -1,0 +1,72 @@
+---
+id: VI-005
+slug: self-healing
+title: "Self-healing model system"
+aliases: ["self-healing", "gap-closing system", "the healer"]
+type: Capability
+parent: null
+themes: ["T-001"]
+stage: "Graduated"
+stage_since: null
+horizon: "H1"
+stream: null
+appetite_weeks: null
+appetite_ends: null
+owner: "VI team; interface owner to be named"
+score: null
+score_status: none
+doc_url: "https://claude.ai/artifact/9wU5GVJYZW5CoBik1xU5Gz"
+standard: "v1"
+last_touched: 2026-11-01
+sensitivity: none
+critique_recorded: null
+next_step: "VI team reviews gap-report interface v0.1; name the interface owner and the outside auditor"
+next_step_due: null
+---
+
+# Self-healing model system
+
+<!-- generated:start -->
+## Lab record
+
+**VI-005 self-healing** · Capability · Graduated (built by the VI team; gap-report interface v0.1 drafted 2026-11-01, pending VI team review) · H1
+
+Owner: VI team; interface owner to be named. Appetite: not set. Score: not scored .
+
+Next step: VI team reviews gap-report interface v0.1; name the interface owner and the outside auditor
+
+Production surface: not named (reads as an H3 experiment).
+
+Governance: not recorded.
+
+### Decisions due
+- Name the interface owner
+- Name who runs the quarterly wall audit, outside both programmes
+
+### Hypotheses
+_None recorded._
+
+### Kill signals
+_None recorded._
+
+### Open questions
+| Question | Owner | Blocking |
+| --- | --- | --- |
+| Does the self-healing system's current input match this schema, or does it need an adapter? | VI team interface owner | Yes, for VAI Phase 1 |
+| Which skill taxonomy is canonical: VAI's skill-tandem terms or the healer's own gap labels? | Index lead with VI team | Yes |
+| Who runs the quarterly wall audit, outside both programmes? | Head of VI | Yes, before the first heal batch |
+| Fingerprint method and threshold for near-duplicates | Harness and platform lead | No, until Phase 1 |
+| Is the domain_hint reviewed by a person or by a check, and by whom? | Index lead | No |
+
+### Links
+_None recorded._
+
+### Decision log
+| ID | Date | Decision | By | Status |
+| --- | --- | --- | --- | --- |
+| D-012 | 2026-11-01 | Capability record created; gap-report interface v0.1 drafted (item-free gap reports, heal return, fingerprint check, quarterly outside audit) | Thinking partner, pending VI team and Jithin | proposed |
+<!-- generated:end -->
+
+## Notes
+
+_Session notes and the idea card's prose live here; the register row and the generated block above are rewritten by `scripts/render-ideas.mjs`, this section is kept._

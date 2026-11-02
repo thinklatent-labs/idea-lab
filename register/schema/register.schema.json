@@ -1,0 +1,1588 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idea-lab/register.schema.json",
+  "title": "Idea Lab register data contract",
+  "description": "register.json, exported from the live Idea Register and the idea docs' lab records. The register is the source; this file is a read-only snapshot. Everything derived (days in stage, stale, lane, blocked, health missing, conflicts) is computed by the reader, never stored here. Contract version 1.2, 2026-11-02: stages Building and Shipped added (funded by default at Proposal; rejection is a decision type); stream, appetite in engineer-weeks, governance field, production surface and shipped record per idea. Version 1.1 (2026-11-01): adds optional fields for health per session, decision ids/status/door/review dates, next-step due dates, appetite end dates, kill signals, hypothesis evidence and confidence, stage history, outcomes, rules, audiences, mentions and the snapshot history index.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "asOf",
+    "generatedBy",
+    "source",
+    "standardVersion",
+    "weights",
+    "stalenessWindows",
+    "portfolioBar",
+    "themes",
+    "ideas",
+    "links",
+    "capabilities",
+    "sessions",
+    "decisions",
+    "syncLog"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "enum": [
+        "1.0",
+        "1.1",
+        "1.2"
+      ]
+    },
+    "asOf": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this snapshot was taken. The page shows it first and warns when it is older than 36 hours."
+    },
+    "generatedBy": {
+      "type": "string",
+      "description": "Who or what produced the file: 'nightly lab sync' or a manual run named by session."
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registerUrl",
+        "registerRev"
+      ],
+      "properties": {
+        "registerUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "registerRev": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "operatingModelUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "standardVersion": {
+      "type": "string",
+      "description": "Idea doc standard in force, e.g. v1"
+    },
+    "weights": {
+      "$ref": "#/$defs/weights",
+      "description": "Rubric weights in force this quarter. Must sum to 1."
+    },
+    "proposedWeights": {
+      "$ref": "#/$defs/weights",
+      "description": "Weights proposed but not yet in force (a Portfolio session draft)."
+    },
+    "portfolioBar": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Composite below which an idea does not proceed to Proposal without a stated reason. null until set."
+    },
+    "proposedPortfolioBar": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 5
+    },
+    "stalenessWindows": {
+      "type": "object",
+      "description": "Days a row may go untouched per stage before it is flagged. null means no window (Graduated, Killed) or per re-check date (Parked).",
+      "additionalProperties": false,
+      "properties": {
+        "Seed": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "Shaping": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "Stress test": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "Proposal": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "Graduated": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "Parked": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "Killed": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "Building": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "null: governed by the appetite end date"
+        },
+        "Shipped": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+    "themes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^T-[0-9]{3}$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ideas": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/idea"
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/link"
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/capability"
+      }
+    },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "date",
+          "scope",
+          "mode",
+          "outcome",
+          "docsTouched"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "ideaIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/ideaId"
+            }
+          },
+          "mode": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "docsTouched": {
+            "type": "string"
+          },
+          "health": {
+            "enum": [
+              "on-track",
+              "at-risk",
+              "off-track",
+              null
+            ],
+            "description": "The thinking partner's call at session end on the idea the session was scoped to."
+          },
+          "healthNote": {
+            "type": "string"
+          },
+          "nextStepDue": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          }
+        }
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "date",
+          "ideaId",
+          "decision",
+          "by"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "ideaId": {
+            "$ref": "#/$defs/ideaId"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "by": {
+            "type": "string"
+          },
+          "pending": {
+            "type": "boolean",
+            "description": "true when the line says 'pending Jithin' or similar and no later line resolves it."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^D-[0-9]{3,}$"
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "accepted",
+              "superseded"
+            ]
+          },
+          "door": {
+            "enum": [
+              "one-way",
+              "two-way",
+              null
+            ]
+          },
+          "infoLevel": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Rough share of the information in hand when decided, as Amazon's 70 percent rule."
+          },
+          "reviewOn": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "supersedes": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^D-[0-9]{3,}$"
+          },
+          "type": {
+            "enum": [
+              "decision",
+              "rejection",
+              "gate",
+              "retro",
+              null
+            ],
+            "description": "rejection = Jithin's explicit no (kills the row); gate = a stage change record; retro = a retrospective result"
+          }
+        }
+      }
+    },
+    "syncLog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "date",
+          "run",
+          "docsScanned",
+          "rowsChanged",
+          "flags"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "run": {
+            "type": "string"
+          },
+          "docsScanned": {
+            "type": "string"
+          },
+          "rowsChanged": {
+            "type": "string"
+          },
+          "flags": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "portfolio": {
+      "type": "object",
+      "description": "The latest Portfolio session's view. status says whether it is in force or only proposed.",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "asOf"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "in force",
+            "proposed"
+          ]
+        },
+        "asOf": {
+          "type": "string",
+          "format": "date"
+        },
+        "now": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ideaId"
+          }
+        },
+        "next": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ideaId"
+          }
+        },
+        "later": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ideaId"
+          }
+        },
+        "capabilitiesToWatch": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ideaId"
+          }
+        },
+        "horizonMixNote": {
+          "type": "string"
+        },
+        "diagnosis": {
+          "type": "string"
+        },
+        "spine": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "winningAspiration": {
+              "type": "string"
+            },
+            "whereToPlay": {
+              "type": "string"
+            },
+            "howToWin": {
+              "type": "string"
+            },
+            "capabilitiesRequired": {
+              "type": "string"
+            },
+            "managementSystems": {
+              "type": "string"
+            }
+          }
+        },
+        "digest": {
+          "type": "string"
+        },
+        "redTeam": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "role",
+              "attacks"
+            ],
+            "properties": {
+              "role": {
+                "type": "string"
+              },
+              "attacks": {
+                "type": "string"
+              },
+              "why": {
+                "type": "string"
+              },
+              "person": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "history": {
+      "type": "object",
+      "description": "Where dated snapshots live. The page diffs the current file against the latest earlier snapshot.",
+      "additionalProperties": false,
+      "required": [
+        "indexUrl"
+      ],
+      "properties": {
+        "indexUrl": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "description": "The lab's alert rules. The page evaluates them; the fixed staleness windows are the defaults.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "kind"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "untouched",
+              "no-session",
+              "high-score-idle",
+              "pending-decision",
+              "proposal-without-critique",
+              "parked-recheck",
+              "appetite",
+              "kill-signal",
+              "next-step-due",
+              "review-due",
+              "no-theme",
+              "no-owner",
+              "standard-behind",
+              "dependency-conflict",
+              "building-gate",
+              "governance-blocked"
+            ]
+          },
+          "stages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/stage"
+            }
+          },
+          "minScore": {
+            "type": "number"
+          },
+          "warnDays": {
+            "type": "integer"
+          },
+          "alertDays": {
+            "type": "integer"
+          },
+          "pendingDays": {
+            "type": "integer"
+          },
+          "escalate": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "audiences": {
+      "type": "array",
+      "description": "Field presets per audience. The page hides the listed sections and flagged rows for a preset.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "hide"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "hide": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "hideFlaggedRows": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "mentions": {
+      "type": "array",
+      "description": "Unlinked mentions of a slug or alias found in idea docs by the sync; empty until the sync scans docs.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ideaId",
+          "inIdeaId",
+          "snippet"
+        ],
+        "properties": {
+          "ideaId": {
+            "$ref": "#/$defs/ideaId"
+          },
+          "inIdeaId": {
+            "$ref": "#/$defs/ideaId"
+          },
+          "snippet": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    "streams": {
+      "type": "array",
+      "description": "Delivery streams: one engineer plus a coding agent each.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^S-[A-Z]$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "owner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "focus": {
+            "type": "string"
+          },
+          "startsWeek": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "endsWeek": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "slackPct": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "phases": {
+      "type": "array",
+      "description": "Programme phases with their gates.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "weeks",
+          "gate"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "weeks": {
+            "type": "string"
+          },
+          "gate": {
+            "type": "string"
+          },
+          "streams": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "enum": [
+              "planned",
+              "active",
+              "passed",
+              "failed"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "ideaId": {
+      "type": "string",
+      "pattern": "^VI-[0-9]{3}$"
+    },
+    "capabilityId": {
+      "type": "string",
+      "pattern": "^CAP-[0-9]{3}$"
+    },
+    "stage": {
+      "enum": [
+        "Seed",
+        "Shaping",
+        "Stress test",
+        "Proposal",
+        "Building",
+        "Shipped",
+        "Graduated",
+        "Parked",
+        "Killed"
+      ]
+    },
+    "nodeType": {
+      "enum": [
+        "Theme",
+        "Idea",
+        "Feature",
+        "Capability",
+        "Experiment"
+      ]
+    },
+    "horizon": {
+      "enum": [
+        "H1",
+        "H2",
+        "H3"
+      ]
+    },
+    "linkType": {
+      "enum": [
+        "serves",
+        "feature-of",
+        "depends-on",
+        "enables",
+        "reuses",
+        "creates",
+        "competes-with",
+        "supersedes",
+        "evidence-for",
+        "related-to"
+      ]
+    },
+    "criterion": {
+      "enum": [
+        "strategicFit",
+        "evidenceOfNeed",
+        "differentiation",
+        "feasibility",
+        "valueAtStake",
+        "governanceExposure",
+        "reversibility",
+        "compounding"
+      ]
+    },
+    "weights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "strategicFit",
+        "evidenceOfNeed",
+        "differentiation",
+        "feasibility",
+        "valueAtStake",
+        "governanceExposure",
+        "reversibility",
+        "compounding"
+      ],
+      "properties": {
+        "strategicFit": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidenceOfNeed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "differentiation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "feasibility": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "valueAtStake": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "governanceExposure": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reversibility": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "compounding": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "composite",
+        "status"
+      ],
+      "properties": {
+        "composite": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5
+        },
+        "status": {
+          "enum": [
+            "none",
+            "proposed",
+            "set"
+          ]
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "criteria": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "strategicFit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "evidenceOfNeed": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "differentiation": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "feasibility": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "valueAtStake": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "governanceExposure": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "reversibility": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "compounding": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            }
+          }
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "idea": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "slug",
+        "title",
+        "type",
+        "parentId",
+        "themeIds",
+        "stage",
+        "horizon",
+        "owner",
+        "score",
+        "docUrl",
+        "standardVersion",
+        "lastTouched",
+        "nextStep",
+        "sensitivity",
+        "decisionsDue",
+        "flags"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ideaId"
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "title": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "type": {
+          "$ref": "#/$defs/nodeType"
+        },
+        "parentId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ideaId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "themeIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^T-[0-9]{3}$"
+          }
+        },
+        "stage": {
+          "$ref": "#/$defs/stage"
+        },
+        "stageNote": {
+          "type": "string",
+          "description": "The qualifier the register keeps in the stage cell, e.g. 'own Project' or 'stress test recorded 2026-11-01'."
+        },
+        "stageSince": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date",
+          "description": "Date the stage was entered. null when the register does not record it (a known gap in the register's columns)."
+        },
+        "horizon": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/horizon"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "appetite": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "score": {
+          "$ref": "#/$defs/score"
+        },
+        "docUrl": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "docTitle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "standardVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lastTouched": {
+          "type": "string",
+          "format": "date"
+        },
+        "nextStep": {
+          "type": "string"
+        },
+        "sensitivity": {
+          "enum": [
+            "none",
+            "flagged"
+          ]
+        },
+        "priority": {
+          "anyOf": [
+            {
+              "enum": [
+                "P0",
+                "P1",
+                "P2"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "For features: how the parent ranks it. null when not recorded."
+        },
+        "critiqueRecorded": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "capabilityId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/capabilityId"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "For Capability-type rows: the catalogue row this idea is."
+        },
+        "graduatedTo": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "recheckDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date",
+          "description": "Parked rows only."
+        },
+        "decisionsDue": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Decisions waiting on Jithin, in his words where the register has them."
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Audit flags from the nightly sync."
+        },
+        "hypotheses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "claim",
+              "measurement",
+              "confirmedIf",
+              "refutedIf"
+            ],
+            "properties": {
+              "claim": {
+                "type": "string"
+              },
+              "measurement": {
+                "type": "string"
+              },
+              "confirmedIf": {
+                "type": "string"
+              },
+              "refutedIf": {
+                "type": "string"
+              },
+              "evidence": {
+                "enum": [
+                  0,
+                  1,
+                  2,
+                  null
+                ],
+                "description": "0 opinion, 1 one experiment, 2 repeated"
+              },
+              "confidence": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 100
+              },
+              "resolveBy": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "result": {
+                "enum": [
+                  "confirmed",
+                  "refuted",
+                  "open",
+                  null
+                ]
+              }
+            }
+          }
+        },
+        "openQuestions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "question",
+              "owner",
+              "blocking"
+            ],
+            "properties": {
+              "question": {
+                "type": "string"
+              },
+              "owner": {
+                "type": "string"
+              },
+              "blocking": {
+                "type": "string",
+                "description": "As recorded: 'Yes', 'No', 'Yes, for Proposal' ..."
+              }
+            }
+          }
+        },
+        "killCriteria": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "criterion",
+              "checked",
+              "action"
+            ],
+            "properties": {
+              "criterion": {
+                "type": "string"
+              },
+              "checked": {
+                "type": "string"
+              },
+              "action": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "phases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "summary"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "exitGate": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "nextStepDue": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "nextStepOrigin": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The decision id that created the next step."
+        },
+        "appetiteEnds": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date",
+          "description": "The circuit breaker: when the appetite expires the idea returns to Shaping."
+        },
+        "createdOn": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "stageHistory": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "stage",
+              "since"
+            ],
+            "properties": {
+              "stage": {
+                "$ref": "#/$defs/stage"
+              },
+              "since": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        },
+        "killSignals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "signal",
+              "status"
+            ],
+            "properties": {
+              "signal": {
+                "type": "string"
+              },
+              "by": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "status": {
+                "enum": [
+                  "open",
+                  "fired",
+                  "lapsed",
+                  "cleared"
+                ]
+              },
+              "action": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "outcome": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "proposalSnapshot": {
+              "type": "string"
+            },
+            "delivered": {
+              "type": "string"
+            },
+            "retroAt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "retroResult": {
+              "type": "string"
+            }
+          }
+        },
+        "streamId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^S-[A-Z]$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "appetiteWeeks": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Appetite in engineer-weeks (one engineer plus agent)."
+        },
+        "productionSurface": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "users": {
+              "type": "string"
+            },
+            "system": {
+              "type": "string"
+            },
+            "metric": {
+              "type": "string"
+            }
+          },
+          "description": "Named at Shaping: who uses it, where it lives, the number that moves. Missing means an H3 experiment."
+        },
+        "governance": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "review": {
+              "type": "string"
+            },
+            "owner": {
+              "type": "string"
+            },
+            "expectedWeeks": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "not needed",
+                "not started",
+                "in review",
+                "cleared",
+                "blocked"
+              ]
+            },
+            "criticalPath": {
+              "type": "boolean"
+            }
+          },
+          "description": "Handled by a separate team; tracked here only as a dependency."
+        },
+        "shipped": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "date": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "firstUser": {
+              "type": "string"
+            },
+            "metricRead": {
+              "type": "string"
+            },
+            "metricDate": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            }
+          }
+        },
+        "rejectedBy": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The decision id that rejected the row, when Killed by rejection."
+        },
+        "buildingGate": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "ownerNamed": {
+              "type": "boolean"
+            },
+            "streamNamed": {
+              "type": "boolean"
+            },
+            "appetiteSet": {
+              "type": "boolean"
+            },
+            "startedOn": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            }
+          },
+          "description": "Computed by the page too; stored when the sync records a start."
+        }
+      }
+    },
+    "link": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fromId",
+        "type",
+        "toId",
+        "toLabel"
+      ],
+      "properties": {
+        "fromId": {
+          "$ref": "#/$defs/ideaId"
+        },
+        "type": {
+          "$ref": "#/$defs/linkType"
+        },
+        "toId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ideaId"
+            },
+            {
+              "$ref": "#/$defs/capabilityId"
+            },
+            {
+              "type": "string",
+              "pattern": "^T-[0-9]{3}$"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "null when the register names something not in the catalogue yet; toLabel carries the name."
+        },
+        "toLabel": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "maturity",
+        "createdBy",
+        "reusedBy",
+        "reusedByIds",
+        "demand"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/capabilityId"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "Platform",
+            "Data",
+            "Process",
+            "Evidence",
+            "People"
+          ]
+        },
+        "maturity": {
+          "enum": [
+            "Idea",
+            "Proposed",
+            "Building",
+            "Built",
+            "In production",
+            "Retiring"
+          ]
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdById": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ideaId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ideaId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ideaId"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "The register row this capability also is (VI-005 self-healing)."
+        },
+        "reusedBy": {
+          "type": "string",
+          "description": "As written in the catalogue."
+        },
+        "reusedByIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ideaId"
+          }
+        },
+        "demand": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "demandNote": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

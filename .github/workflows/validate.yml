@@ -1,0 +1,21 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: dashboard/package-lock.json
+      - run: cd dashboard && npm ci --legacy-peer-deps
+      - run: node dashboard/scripts/validate-register.mjs register/register.json
+      - run: cd dashboard && npx tsc --noEmit && npx vitest run
+      - run: node scripts/render-ideas.mjs && git diff --exit-code -- ideas/ || (echo "ideas/ is out of date: run scripts/render-ideas.mjs" && exit 1)

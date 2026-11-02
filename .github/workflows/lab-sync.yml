@@ -1,0 +1,41 @@
+name: Lab sync
+
+# Nightly at 03:41 UTC (22:41 US Eastern in winter), and on demand. Validates the register, snapshots it,
+# renders the idea docs, rebuilds the dashboard into docs/ and pushes. Private repo: Pages stays private
+# (org members only) or off; the artifact republish is done by the Claude session.
+on:
+  schedule:
+    - cron: '41 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'register/**'
+      - 'dashboard/src/**'
+      - 'ideas/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lab-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: dashboard/package-lock.json
+      - name: Configure git
+        run: |
+          git config user.name "lab-sync"
+          git config user.email "lab-sync@users.noreply.github.com"
+      - name: Run the lab sync
+        run: scripts/lab-sync.sh --message "nightly lab sync $(date -u +%F)"

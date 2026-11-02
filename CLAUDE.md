@@ -1,0 +1,46 @@
+# Idea Lab
+
+The nursery for initiatives at Vanguard's VI (Vanguard Proprietary Intelligence Systems) organisation before they become Projects of their own. Jithin Pradeep, Head of VI, owns the lab. This repository is the lab's source of truth; the claude.ai Idea Lab Project reads and writes it, Jithin's laptop reads it.
+
+## Who writes
+
+Only the Claude session in the Idea Lab Project writes to this repository (through `scripts/lab-sync.sh`). Jithin reads on his laptop and makes changes by asking Claude. The nightly GitHub Action rebuilds and pushes, it does not author content. This single-writer rule is what keeps the register and the docs from drifting.
+
+## Layout
+
+- `register/register.json`: the single list of every idea, link, capability, decision, session and sync run (contract v1.2, `register/schema/register.schema.json`). Read it first, update it last, every session.
+- `register/history/`: one dated snapshot per export plus `index.json`; the dashboard diffs the two most recent.
+- `ideas/VI-###-slug.md`: one doc per idea. Frontmatter and the block between `<!-- generated:start -->` and `<!-- generated:end -->` are rendered from the register by `scripts/render-ideas.mjs`; write prose under `## Notes` and the headings after it.
+- `dashboard/`: the React dashboard (Vite, TypeScript). `npm test`, `npm run build`. It reads `register/` through `scripts/sync-data.mjs`.
+- `docs/`: the built dashboard, for a private GitHub Pages site or for publishing as a claude.ai artifact.
+- `scripts/lab-sync.sh`: validate, snapshot, render, build, commit, push. Run it at the end of every session.
+
+## Lifecycle
+
+Seed, Shaping, Stress test, Proposal, Building, Shipped, Graduated, Parked, Killed.
+
+- Proposal is funded by default; Jithin rejects explicitly with a decision of type `rejection`, everything else proceeds.
+- The Building gate: an owner who is not Jithin, a stream, an appetite in engineer-weeks. No owner, no stream or no appetite means no start (VAI's rule, generalised).
+- Shipped means a first user in production and the metric read. Retrospectives measure Shipped, not Graduated.
+- Governance is handled by a separate team; it is a row-level dependency (`governance` field), flagged only when on the critical path.
+- Staleness: Seed 60, Shaping 30, Stress test 21, Proposal 14, Shipped 30 days; Building by its appetite (the circuit breaker, never extended); Parked by its re-check date.
+- Five streams (S-A to S-E), one engineer plus a coding agent each; `streams` and `phases` in the register.
+
+## Modes
+
+Brainstorm, Critic, Scout, Spec, Portfolio, Comms. Match the session to the stage: Seed and Shaping take Brainstorm, Stress test takes Critic, Proposal and Building take Spec, Shipped and Graduated take Critic (the retrospective), Parked and Killed take Portfolio. Honest critique is the default in every mode.
+
+## Every session
+
+1. Open with the session line: `Lab session · VI-### slug · Mode`, and read the row's last decision and next step back before acting.
+2. One chat, one scope: a single idea, a Portfolio session, or Lab operations. Lab-operations sessions change the Operating Model, the register's structure, standards and scheduled tasks, never an idea's stage, score or doc. Idea sessions write only their own idea's row, doc and links.
+3. Do not advance an idea past Stress test without a critique pass recorded.
+4. At the end: update the register row (stage, score, next step with a due date, links), add a decision-log line (immutable; a reversal is a new line that supersedes the old), add a Sessions row with a health call (on-track, at-risk, off-track), bump `asOf` and `source.registerRev`, then run `scripts/lab-sync.sh`.
+
+## Rules in the register
+
+Alert rules live in `register.json` under `rules` (R-01 to R-18) and are evaluated by the dashboard, not hard-coded. The rubric has eight criteria weighted per quarter (`weights`, `proposedWeights`), with a portfolio bar. Links are typed: serves, feature-of, depends-on, enables, reuses, creates, competes-with, supersedes, evidence-for, related-to. Capabilities reused by three or more ideas are platform priorities.
+
+## Privacy
+
+Everything in the thinklatent-labs organisation is private. Never make this repository, its Pages site or any artifact built from it public. The register holds internal strategy and no client data; rows flagged `sensitivity: flagged` are hidden from every audience preset but Jithin's.
