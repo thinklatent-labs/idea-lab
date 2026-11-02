@@ -20,8 +20,8 @@ import {
 import { neighbourhood, layoutGraph } from '../src/lib/graph';
 
 const read = (rel: string) => JSON.parse(readFileSync(fileURLToPath(new URL(rel, import.meta.url)), 'utf8')) as Register;
-const reg = read('../../register/register.json');
-const prev = read('../../register/history/2026-11-01T1645.json');
+const reg = read('./fixtures/register-v1.3.json');
+const prev = read('./fixtures/2026-11-01T1645.json');
 const NOW = new Date('2026-11-01T13:00:00Z');
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x)) as T;
 
@@ -73,7 +73,7 @@ describe('weights and ranking', () => {
 
 describe('snapshot diff', () => {
   it('finds the next-step change and the logged decisions between the two seeds', () => {
-    const fixed = read('../../register/history/2026-11-02T0915.json');
+    const fixed = read('./fixtures/2026-11-02T0915.json');
     const d = diffSnapshots(prev, fixed);
     expect(d.changes.some((c) => c.ideaId === 'VI-007' && c.what === 'next step')).toBe(true);
     expect(d.decisionsAdded.length).toBe(4);

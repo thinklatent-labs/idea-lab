@@ -17,10 +17,10 @@ score: null
 score_status: none
 doc_url: "https://claude.ai/artifact/WFSu2rXsSAFzS6tqsDvHH8"
 standard: "v1"
-last_touched: 2026-11-01
+last_touched: 2026-11-02
 sensitivity: none
 critique_recorded: true
-next_step: "Lab-operations chat: lifecycle change, sync export with snapshots, register columns, process rules; first Shipped read when Jithin runs a weekly triage from the page"
+next_step: "Lab-operations chat: amend the Operating Model with the approved lifecycle (Building and Shipped, rejection decisions, the Building gate), point the nightly sync at the repo, add the register columns, name the five stream engineers; 30-day review on 2026-12-01"
 next_step_due: "2026-12-01"
 ---
 
@@ -33,14 +33,14 @@ next_step_due: "2026-12-01"
 
 Owner: Thinking partner (owner and builder under S-A until the stream engineer is named); Jithin sponsor. Appetite: 1.5 engineer-weeks, ends 2026-12-01. Score: not scored .
 
-Next step: Lab-operations chat: lifecycle change, sync export with snapshots, register columns, process rules; first Shipped read when Jithin runs a weekly triage from the page (due 2026-12-01)
+Next step: Lab-operations chat: amend the Operating Model with the approved lifecycle (Building and Shipped, rejection decisions, the Building gate), point the nightly sync at the repo, add the register columns, name the five stream engineers; 30-day review on 2026-12-01 (due 2026-12-01)
 
 Production surface: Jithin, weekly triage and the monthly portfolio review · A private claude.ai artifact fed by the nightly sync · Decisions per month that cite a dashboard flag (H2)
 
 Governance (separate team): not needed, None: internal strategy, no client data
 
 ### Decisions due
-- Approve the lifecycle change (Building and Shipped stages, rejection as a decision type) and the register columns (quick call on the dashboard: Approve; amend the Operating Model in a Lab-operations chat / Discuss in chat)
+_None._
 
 ### Hypotheses
 | Claim | Confirmed if | Refuted if | Evidence | Confidence | Result |
@@ -83,6 +83,7 @@ Governance (separate team): not needed, None: internal strategy, no client data
 | D-020 | 2026-11-01 | All three waves ordered for build, one after the other; wave 2 and 3 views ship against the contract with not-recorded states until the register carries the fields | Jithin | accepted |
 | D-022 | 2026-11-02 | Dashboard moved to Building under S-A (owner, stream and appetite present); contract v1.2 built: new stages, rejection decisions, streams and phases, production surface, governance dependency, shipped record | Thinking partner, per Jithin's order | accepted |
 | D-023 | 2026-11-02 | Decision inbox: quick calls are made on the dashboard (fixed options, stored in the artifact's database), anything needing input goes to the chat; Claude applies quick calls at session open and in a morning pickup, then syncs to GitHub. Contract v1.3 | Jithin | accepted |
+| D-029 | 2026-11-02 | Approve the lifecycle change and the register columns: Approve; amend the Operating Model in a Lab-operations chat (decided on the dashboard 2026-11-02) | Jithin (dashboard) | accepted |
 <!-- generated:end -->
 
 ## Notes

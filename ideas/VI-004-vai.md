@@ -13,11 +13,11 @@ stream: "S-B"
 appetite_weeks: null
 appetite_ends: null
 owner: "Head of VI (sponsor); index lead and harness lead to be named"
-score: 4
-score_status: proposed
+score: 3.95
+score_status: set
 doc_url: "https://claude.ai/artifact/4pwnZVstw8ZpcAP6sofN4U"
 standard: "v1"
-last_touched: 2026-11-01
+last_touched: 2026-11-02
 sensitivity: none
 critique_recorded: true
 next_step: "Name the index and harness leads and set the appetite so the four-week decision spike can start (S-B); share with the team"
@@ -31,7 +31,7 @@ next_step_due: "2026-11-15"
 
 **VI-004 vai** · Feature of VI-003 · Proposal (Funded by default; Building gate not passed: leads unnamed, appetite unset) · H1 · S-B
 
-Owner: Head of VI (sponsor); index lead and harness lead to be named. Appetite: Two quarters to the first quarterly index report (Phase 0 to Phase 2). Score: 4 (proposed).
+Owner: Head of VI (sponsor); index lead and harness lead to be named. Appetite: Two quarters to the first quarterly index report (Phase 0 to Phase 2). Score: 3.95 (set).
 
 Next step: Name the index and harness leads and set the appetite so the four-week decision spike can start (S-B); share with the team (due 2026-11-15)
 
@@ -41,7 +41,6 @@ Governance (separate team): not started, Judge-panel location and training-data 
 
 ### Decisions due
 - Name the index lead and the harness lead (the Building gate; nothing starts without them) (needs the chat)
-- Set the rubric score (4.0 proposed) (quick call on the dashboard: Set 4.0 as proposed / Set 3.95 (proposed quarter weights) / Discuss in chat)
 - Set the appetite in engineer-weeks for the spike and Phase 0 (needs the chat)
 
 ### Hypotheses
@@ -99,7 +98,8 @@ Governance (separate team): not started, Judge-panel location and training-data 
 | D-002 | 2026-11-01 | Core hypothesis pre-registered: sufficiency over size; specialists beat generalists in Vanguard context; frontier upgrades do not move Vanguard metrics | Jithin | accepted |
 | D-003 | 2026-11-01 | Proposal drafted for team review; two candidate pillars (visual and chart understanding, UI generation) proposed for the pillar council | Jithin | accepted |
 | D-004 | 2026-11-01 | Registered as VI-004 with a lab record; rubric composite 4.1 proposed, pending Jithin; stress-test critique log to be recorded before team review | Thinking partner, pending Jithin | superseded |
-| D-009 | 2026-11-01 | Stress test recorded in the proposal: critique log, pre-mortem, kill criteria; four-week decision spike added before Phase 0; Phase 1 exit gate now requires one real model decision and one governance approval through the index; rubric revised to 4.0 proposed. Open: business partners, judge location, index and harness leads | Thinking partner, pending Jithin | proposed |
+| D-009 | 2026-11-01 | Stress test recorded in the proposal: critique log, pre-mortem, kill criteria; four-week decision spike added before Phase 0; Phase 1 exit gate now requires one real model decision and one governance approval through the index; rubric revised to 4.0 proposed. Open: business partners, judge location, index and harness leads | Thinking partner, pending Jithin | superseded |
+| D-026 | 2026-11-02 | Set the rubric score: Set 3.95 (proposed quarter weights) (decided on the dashboard 2026-11-02) | Jithin (dashboard) | accepted |
 <!-- generated:end -->
 
 ## Notes

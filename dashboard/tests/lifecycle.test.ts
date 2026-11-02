@@ -6,8 +6,8 @@ import { deriveAll, laneOf, readiness, stageCounts } from '../src/lib/derive';
 import { buildingGate, dependencyConflicts, diffSnapshots, evaluateRules, funnel } from '../src/lib/derive2';
 
 const read = (rel: string) => JSON.parse(readFileSync(fileURLToPath(new URL(rel, import.meta.url)), 'utf8')) as Register;
-const reg = read('../../register/register.json');
-const prev = read('../../register/history/2026-11-01T1805.json');
+const reg = read('./fixtures/register-v1.3.json');
+const prev = read('./fixtures/2026-11-01T1805.json');
 const NOW = new Date('2026-11-02T04:00:00Z');
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x)) as T;
 

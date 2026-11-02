@@ -1,24 +1,14 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-02T15:10:00+05:30",
-  "generatedBy": "Session VI-007 lab-dashboard (2026-11-02, decision inbox), register rev 32.",
+  "asOf": "2026-11-02T15:20:00+05:30",
+  "generatedBy": "Session VI-007 lab-dashboard (2026-11-02, dashboard decisions applied), register rev 33.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 32,
+    "registerRev": 33,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
   "weights": {
-    "strategicFit": 0.125,
-    "evidenceOfNeed": 0.125,
-    "differentiation": 0.125,
-    "feasibility": 0.125,
-    "valueAtStake": 0.125,
-    "governanceExposure": 0.125,
-    "reversibility": 0.125,
-    "compounding": 0.125
-  },
-  "proposedWeights": {
     "strategicFit": 0.2,
     "evidenceOfNeed": 0.15,
     "differentiation": 0.15,
@@ -28,8 +18,8 @@
     "reversibility": 0.05,
     "compounding": 0.05
   },
-  "portfolioBar": null,
-  "proposedPortfolioBar": 3.5,
+  "portfolioBar": 3.5,
+  "proposedPortfolioBar": null,
   "stalenessWindows": {
     "Seed": 60,
     "Shaping": 30,
@@ -197,7 +187,7 @@
       "stageNote": "Idea card drafted 2026-11-01",
       "stageSince": "2026-11-01",
       "horizon": "H2",
-      "appetite": "One quarter proposed, pending Jithin",
+      "appetite": "One quarter",
       "owner": "Head of VI (sponsor); portal product lead to be named",
       "score": {
         "composite": null,
@@ -209,7 +199,7 @@
       "docUrl": "https://claude.ai/artifact/QtTppN7KFdEDvjX7RRkEFn",
       "docTitle": "VI Portal (vi-portal) — Idea card",
       "standardVersion": "v1",
-      "lastTouched": "2026-11-01",
+      "lastTouched": "2026-11-02",
       "nextStep": "Jithin sets appetite and beachhead business line; Scout pass for overlapping internal systems (Risk model inventory, developer portal); then Stress test",
       "sensitivity": "none",
       "priority": null,
@@ -219,43 +209,9 @@
       "recheckDate": null,
       "decisionsDue": [
         {
-          "id": "VI-003-q1",
-          "text": "Set the appetite (one quarter proposed)",
-          "kind": "quick",
-          "options": [
-            {
-              "id": "accept-quarter",
-              "label": "Accept one quarter (about 9 engineer-weeks under S-C)",
-              "effect": "appetiteWeeks 9; appetite \"One quarter\"; decision line accepted"
-            },
-            {
-              "id": "defer",
-              "label": "Decide at the next Portfolio session",
-              "effect": "next step notes the deferral; item stays due"
-            }
-          ]
-        },
-        {
           "id": "VI-003-q2",
           "text": "Name the beachhead business line for the first journey",
           "kind": "input"
-        },
-        {
-          "id": "VI-003-q3",
-          "text": "Approve or amend the idea card",
-          "kind": "quick",
-          "options": [
-            {
-              "id": "approve",
-              "label": "Approve the idea card as drafted",
-              "effect": "decision line accepted; D-011 marked accepted"
-            },
-            {
-              "id": "amend",
-              "label": "Amend it with me in chat",
-              "effect": "item becomes input-needed"
-            }
-          ]
         }
       ],
       "flags": [],
@@ -345,7 +301,7 @@
       "killSignals": [],
       "outcome": null,
       "streamId": "S-C",
-      "appetiteWeeks": null,
+      "appetiteWeeks": 9,
       "productionSurface": {
         "users": "A team in one business line requesting a model for one workflow",
         "system": "The VI Portal: request, approved access, served model",
@@ -384,9 +340,9 @@
       "appetite": "Two quarters to the first quarterly index report (Phase 0 to Phase 2)",
       "owner": "Head of VI (sponsor); index lead and harness lead to be named",
       "score": {
-        "composite": 4.0,
-        "status": "proposed",
-        "date": "2026-11-01",
+        "composite": 3.95,
+        "status": "set",
+        "date": "2026-11-02",
         "criteria": {
           "strategicFit": 5,
           "evidenceOfNeed": 3,
@@ -397,12 +353,12 @@
           "reversibility": 4,
           "compounding": 5
         },
-        "note": "4.0 proposed after the stress test, pending Jithin; 3.95 on the proposed quarter weights"
+        "note": "3.95 set by Jithin on the quarter weights (2026-11-02)"
       },
       "docUrl": "https://claude.ai/artifact/4pwnZVstw8ZpcAP6sofN4U",
       "docTitle": "Vanguard AI Index (vai) — Project Proposal",
       "standardVersion": "v1",
-      "lastTouched": "2026-11-01",
+      "lastTouched": "2026-11-02",
       "nextStep": "Name the index and harness leads and set the appetite so the four-week decision spike can start (S-B); share with the team",
       "sensitivity": "none",
       "priority": null,
@@ -415,28 +371,6 @@
           "id": "VI-004-q1",
           "text": "Name the index lead and the harness lead (the Building gate; nothing starts without them)",
           "kind": "input"
-        },
-        {
-          "id": "VI-004-q2",
-          "text": "Set the rubric score (4.0 proposed)",
-          "kind": "quick",
-          "options": [
-            {
-              "id": "accept-4-0",
-              "label": "Set 4.0 as proposed",
-              "effect": "score status set, composite 4.0"
-            },
-            {
-              "id": "accept-3-95",
-              "label": "Set 3.95 (proposed quarter weights)",
-              "effect": "score status set, composite 3.95"
-            },
-            {
-              "id": "discuss",
-              "label": "Discuss in chat",
-              "effect": "item becomes input-needed"
-            }
-          ]
         },
         {
           "id": "VI-004-q3",
@@ -788,7 +722,7 @@
       "docUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF",
       "docTitle": "Idea Lab (idea-lab) — Operating Model",
       "standardVersion": "v1",
-      "lastTouched": "2026-11-01",
+      "lastTouched": "2026-11-02",
       "nextStep": "Jithin: approve or amend Portfolio session 1; name the red-team roster",
       "sensitivity": "none",
       "priority": null,
@@ -798,43 +732,9 @@
       "recheckDate": null,
       "decisionsDue": [
         {
-          "id": "VI-006-q1",
-          "text": "Approve or amend Portfolio session 1 (strategy spine, weights, bar 3.5, Now/Next/Later)",
-          "kind": "quick",
-          "options": [
-            {
-              "id": "approve",
-              "label": "Approve as drafted",
-              "effect": "portfolio status in force; proposed weights and bar 3.5 become the weights in force"
-            },
-            {
-              "id": "amend",
-              "label": "Amend it with me in chat",
-              "effect": "item becomes input-needed"
-            }
-          ]
-        },
-        {
           "id": "VI-006-q2",
           "text": "Name the red-team roster",
           "kind": "input"
-        },
-        {
-          "id": "VI-006-q3",
-          "text": "Set the Project's memory to connected",
-          "kind": "quick",
-          "options": [
-            {
-              "id": "done",
-              "label": "Done",
-              "effect": "item cleared; decision line accepted"
-            },
-            {
-              "id": "not-yet",
-              "label": "Not yet",
-              "effect": "item stays due"
-            }
-          ]
         }
       ],
       "flags": [
@@ -903,33 +803,15 @@
       "docUrl": "https://claude.ai/artifact/WFSu2rXsSAFzS6tqsDvHH8",
       "docTitle": "Idea Lab dashboard (lab-dashboard) — Idea card",
       "standardVersion": "v1",
-      "lastTouched": "2026-11-01",
-      "nextStep": "Lab-operations chat: lifecycle change, sync export with snapshots, register columns, process rules; first Shipped read when Jithin runs a weekly triage from the page",
+      "lastTouched": "2026-11-02",
+      "nextStep": "Lab-operations chat: amend the Operating Model with the approved lifecycle (Building and Shipped, rejection decisions, the Building gate), point the nightly sync at the repo, add the register columns, name the five stream engineers; 30-day review on 2026-12-01",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
       "capabilityId": null,
       "graduatedTo": null,
       "recheckDate": null,
-      "decisionsDue": [
-        {
-          "id": "VI-007-q1",
-          "text": "Approve the lifecycle change (Building and Shipped stages, rejection as a decision type) and the register columns",
-          "kind": "quick",
-          "options": [
-            {
-              "id": "approve",
-              "label": "Approve; amend the Operating Model in a Lab-operations chat",
-              "effect": "decision line accepted; Operating Model amendment queued for Lab operations"
-            },
-            {
-              "id": "discuss",
-              "label": "Discuss in chat",
-              "effect": "item becomes input-needed"
-            }
-          ]
-        }
-      ],
+      "decisionsDue": [],
       "flags": [
         "Serves no theme (inherited from VI-006)",
         "S-A engineer not yet named: the thinking partner holds the row until the Lab-operations chat names one"
@@ -1584,6 +1466,21 @@
       "health": "on-track",
       "healthNote": "Inbox live; first pickup tomorrow morning",
       "nextStepDue": "2026-12-01"
+    },
+    {
+      "date": "2026-11-02",
+      "scope": "Decision inbox",
+      "ideaIds": [
+        "VI-003",
+        "VI-004",
+        "VI-006",
+        "VI-007"
+      ],
+      "mode": "Apply",
+      "outcome": "Six dashboard quick calls applied: portal appetite and idea card, VAI score 3.95, Portfolio session 1 in force, memory setting, lifecycle approval",
+      "docsTouched": "register",
+      "health": null,
+      "nextStepDue": null
     }
   ],
   "decisions": [
@@ -1704,9 +1601,9 @@
       "ideaId": "VI-004",
       "decision": "Stress test recorded in the proposal: critique log, pre-mortem, kill criteria; four-week decision spike added before Phase 0; Phase 1 exit gate now requires one real model decision and one governance approval through the index; rubric revised to 4.0 proposed. Open: business partners, judge location, index and harness leads",
       "by": "Thinking partner, pending Jithin",
-      "pending": true,
+      "pending": false,
       "id": "D-009",
-      "status": "proposed",
+      "status": "superseded",
       "door": null,
       "infoLevel": null,
       "reviewOn": null,
@@ -1732,9 +1629,9 @@
       "ideaId": "VI-003",
       "decision": "Idea card drafted in Shaping: problem statement, hypotheses P1 to P4, feature map, one-journey first version, governance story; one-quarter appetite proposed",
       "by": "Thinking partner, pending Jithin",
-      "pending": true,
+      "pending": false,
       "id": "D-011",
-      "status": "proposed",
+      "status": "superseded",
       "door": null,
       "infoLevel": null,
       "reviewOn": null,
@@ -1760,9 +1657,9 @@
       "ideaId": "VI-006",
       "decision": "Portfolio session 1 drafted: strategy spine, weights, bar 3.5, Now/Next/Later, red-team roles",
       "by": "Thinking partner, pending Jithin",
-      "pending": true,
+      "pending": false,
       "id": "D-013",
-      "status": "proposed",
+      "status": "superseded",
       "door": null,
       "infoLevel": null,
       "reviewOn": null,
@@ -1908,6 +1805,90 @@
       "reviewOn": "2026-12-01",
       "supersedes": null,
       "type": "decision"
+    },
+    {
+      "id": "D-024",
+      "ideaId": "VI-003",
+      "date": "2026-11-02",
+      "decision": "Set the appetite: Accept one quarter (about 9 engineer-weeks under S-C) (decided on the dashboard 2026-11-02)",
+      "by": "Jithin (dashboard)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-025",
+      "ideaId": "VI-003",
+      "date": "2026-11-02",
+      "decision": "Approve or amend the idea card: Approve the idea card as drafted (decided on the dashboard 2026-11-02)",
+      "by": "Jithin (dashboard)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": "D-011",
+      "type": "decision"
+    },
+    {
+      "id": "D-026",
+      "ideaId": "VI-004",
+      "date": "2026-11-02",
+      "decision": "Set the rubric score: Set 3.95 (proposed quarter weights) (decided on the dashboard 2026-11-02)",
+      "by": "Jithin (dashboard)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": "D-009",
+      "type": "decision"
+    },
+    {
+      "id": "D-027",
+      "ideaId": "VI-006",
+      "date": "2026-11-02",
+      "decision": "Approve Portfolio session 1: Approve as drafted (decided on the dashboard 2026-11-02)",
+      "by": "Jithin (dashboard)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": "D-013",
+      "type": "decision"
+    },
+    {
+      "id": "D-028",
+      "ideaId": "VI-006",
+      "date": "2026-11-02",
+      "decision": "Set the Project's memory to connected: Done (decided on the dashboard 2026-11-02)",
+      "by": "Jithin (dashboard)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-029",
+      "ideaId": "VI-007",
+      "date": "2026-11-02",
+      "decision": "Approve the lifecycle change and the register columns: Approve; amend the Operating Model in a Lab-operations chat (decided on the dashboard 2026-11-02)",
+      "by": "Jithin (dashboard)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
     }
   ],
   "syncLog": [
@@ -1920,7 +1901,7 @@
     }
   ],
   "portfolio": {
-    "status": "proposed",
+    "status": "in force",
     "asOf": "2026-11-01",
     "now": [
       "VI-004"

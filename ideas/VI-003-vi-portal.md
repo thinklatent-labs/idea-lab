@@ -10,14 +10,14 @@ stage: "Shaping"
 stage_since: "2026-11-01"
 horizon: "H2"
 stream: "S-C"
-appetite_weeks: null
+appetite_weeks: 9
 appetite_ends: null
 owner: "Head of VI (sponsor); portal product lead to be named"
 score: null
 score_status: none
 doc_url: "https://claude.ai/artifact/QtTppN7KFdEDvjX7RRkEFn"
 standard: "v1"
-last_touched: 2026-11-01
+last_touched: 2026-11-02
 sensitivity: none
 critique_recorded: false
 next_step: "Jithin sets appetite and beachhead business line; Scout pass for overlapping internal systems (Risk model inventory, developer portal); then Stress test"
@@ -31,7 +31,7 @@ next_step_due: null
 
 **VI-003 vi-portal** · Idea · Shaping (Idea card drafted 2026-11-01) · H2 · S-C
 
-Owner: Head of VI (sponsor); portal product lead to be named. Appetite: One quarter proposed, pending Jithin. Score: not scored .
+Owner: Head of VI (sponsor); portal product lead to be named. Appetite: 9 engineer-weeks. Score: not scored .
 
 Next step: Jithin sets appetite and beachhead business line; Scout pass for overlapping internal systems (Risk model inventory, developer portal); then Stress test
 
@@ -40,9 +40,7 @@ Production surface: A team in one business line requesting a model for one workf
 Governance (separate team): not started, Usage-approval record aligned with Risk's model inventory — on the critical path
 
 ### Decisions due
-- Set the appetite (one quarter proposed) (quick call on the dashboard: Accept one quarter (about 9 engineer-weeks under S-C) / Decide at the next Portfolio session)
 - Name the beachhead business line for the first journey (needs the chat)
-- Approve or amend the idea card (quick call on the dashboard: Approve the idea card as drafted / Amend it with me in chat)
 
 ### Hypotheses
 | Claim | Confirmed if | Refuted if | Evidence | Confidence | Result |
@@ -83,7 +81,9 @@ _None recorded._
 ### Decision log
 | ID | Date | Decision | By | Status |
 | --- | --- | --- | --- | --- |
-| D-011 | 2026-11-01 | Idea card drafted in Shaping: problem statement, hypotheses P1 to P4, feature map, one-journey first version, governance story; one-quarter appetite proposed | Thinking partner, pending Jithin | proposed |
+| D-011 | 2026-11-01 | Idea card drafted in Shaping: problem statement, hypotheses P1 to P4, feature map, one-journey first version, governance story; one-quarter appetite proposed | Thinking partner, pending Jithin | superseded |
+| D-024 | 2026-11-02 | Set the appetite: Accept one quarter (about 9 engineer-weeks under S-C) (decided on the dashboard 2026-11-02) | Jithin (dashboard) | accepted |
+| D-025 | 2026-11-02 | Approve or amend the idea card: Approve the idea card as drafted (decided on the dashboard 2026-11-02) | Jithin (dashboard) | accepted |
 <!-- generated:end -->
 
 ## Notes

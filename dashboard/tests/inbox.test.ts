@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { dueItems, type Register } from '../src/lib/types';
 import { deriveAll } from '../src/lib/derive';
 
-const reg = JSON.parse(readFileSync(fileURLToPath(new URL('../../register/register.json', import.meta.url)), 'utf8')) as Register;
+const reg = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/register-v1.3.json', import.meta.url)), 'utf8')) as Register;
 
 describe('due items (contract v1.3)', () => {
   it('splits quick calls from input-needed items, every quick call with options and effects', () => {

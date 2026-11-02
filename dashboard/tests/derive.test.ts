@@ -7,7 +7,7 @@ import { layoutGraph, neighbourhood } from '../src/lib/graph';
 import { parseHash, toHash } from '../src/lib/context';
 import { fmtDate, fmtDateTime } from '../src/lib/format';
 
-const reg = JSON.parse(readFileSync(fileURLToPath(new URL('../../register/register.json', import.meta.url)), 'utf8')) as Register;
+const reg = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/register-v1.3.json', import.meta.url)), 'utf8')) as Register;
 const NOW = new Date('2026-11-01T12:00:00Z');
 
 function clone<T>(x: T): T {

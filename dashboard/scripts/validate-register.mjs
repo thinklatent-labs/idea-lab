@@ -41,8 +41,9 @@ for (const i of data.ideas) {
   if (i.score.criteria) {
     const vals = Object.values(i.score.criteria);
     if (vals.length === 8 && i.score.composite != null) {
+      const w = Object.entries(i.score.criteria).reduce((a, [k, v]) => a + v * (data.weights[k] ?? 0), 0);
       const mean = vals.reduce((a, b) => a + b, 0) / 8;
-      if (Math.abs(mean - i.score.composite) > 0.051) problems.push(`${i.id}: composite ${i.score.composite} does not match the equal-weight mean ${mean.toFixed(2)}`);
+      if (Math.abs(w - i.score.composite) > 0.051 && Math.abs(mean - i.score.composite) > 0.051) problems.push(`${i.id}: composite ${i.score.composite} matches neither the weights in force (${w.toFixed(2)}) nor the equal-weight mean (${mean.toFixed(2)})`);
     }
   }
 }
