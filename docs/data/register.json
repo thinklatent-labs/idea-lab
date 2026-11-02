@@ -1,10 +1,10 @@
 {
-  "schemaVersion": "1.2",
-  "asOf": "2026-11-02T09:15:00+05:30",
-  "generatedBy": "Manual seed in session VI-007 lab-dashboard (2026-11-02, third export at register rev 31). The nightly lab sync does not export this file yet; until it does, the as-of date will age.",
+  "schemaVersion": "1.3",
+  "asOf": "2026-11-02T15:10:00+05:30",
+  "generatedBy": "Session VI-007 lab-dashboard (2026-11-02, decision inbox), register rev 32.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 31,
+    "registerRev": 32,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -218,9 +218,45 @@
       "graduatedTo": null,
       "recheckDate": null,
       "decisionsDue": [
-        "Set the appetite (one quarter proposed)",
-        "Name the beachhead business line for the first journey",
-        "Approve or amend the idea card"
+        {
+          "id": "VI-003-q1",
+          "text": "Set the appetite (one quarter proposed)",
+          "kind": "quick",
+          "options": [
+            {
+              "id": "accept-quarter",
+              "label": "Accept one quarter (about 9 engineer-weeks under S-C)",
+              "effect": "appetiteWeeks 9; appetite \"One quarter\"; decision line accepted"
+            },
+            {
+              "id": "defer",
+              "label": "Decide at the next Portfolio session",
+              "effect": "next step notes the deferral; item stays due"
+            }
+          ]
+        },
+        {
+          "id": "VI-003-q2",
+          "text": "Name the beachhead business line for the first journey",
+          "kind": "input"
+        },
+        {
+          "id": "VI-003-q3",
+          "text": "Approve or amend the idea card",
+          "kind": "quick",
+          "options": [
+            {
+              "id": "approve",
+              "label": "Approve the idea card as drafted",
+              "effect": "decision line accepted; D-011 marked accepted"
+            },
+            {
+              "id": "amend",
+              "label": "Amend it with me in chat",
+              "effect": "item becomes input-needed"
+            }
+          ]
+        }
       ],
       "flags": [],
       "hypotheses": [
@@ -375,9 +411,38 @@
       "graduatedTo": null,
       "recheckDate": null,
       "decisionsDue": [
-        "Name the index lead and the harness lead (the Building gate; nothing starts without them)",
-        "Set the rubric score (4.0 proposed)",
-        "Set the appetite in engineer-weeks for the spike and Phase 0"
+        {
+          "id": "VI-004-q1",
+          "text": "Name the index lead and the harness lead (the Building gate; nothing starts without them)",
+          "kind": "input"
+        },
+        {
+          "id": "VI-004-q2",
+          "text": "Set the rubric score (4.0 proposed)",
+          "kind": "quick",
+          "options": [
+            {
+              "id": "accept-4-0",
+              "label": "Set 4.0 as proposed",
+              "effect": "score status set, composite 4.0"
+            },
+            {
+              "id": "accept-3-95",
+              "label": "Set 3.95 (proposed quarter weights)",
+              "effect": "score status set, composite 3.95"
+            },
+            {
+              "id": "discuss",
+              "label": "Discuss in chat",
+              "effect": "item becomes input-needed"
+            }
+          ]
+        },
+        {
+          "id": "VI-004-q3",
+          "text": "Set the appetite in engineer-weeks for the spike and Phase 0",
+          "kind": "input"
+        }
       ],
       "flags": [],
       "hypotheses": [
@@ -637,8 +702,16 @@
       "graduatedTo": "Built and run by the VI team",
       "recheckDate": null,
       "decisionsDue": [
-        "Name the interface owner",
-        "Name who runs the quarterly wall audit, outside both programmes"
+        {
+          "id": "VI-005-q1",
+          "text": "Name the interface owner",
+          "kind": "input"
+        },
+        {
+          "id": "VI-005-q2",
+          "text": "Name who runs the quarterly wall audit, outside both programmes",
+          "kind": "input"
+        }
       ],
       "flags": [],
       "openQuestions": [
@@ -724,9 +797,45 @@
       "graduatedTo": "Idea Lab Project",
       "recheckDate": null,
       "decisionsDue": [
-        "Approve or amend Portfolio session 1 (strategy spine, weights, bar 3.5, Now/Next/Later)",
-        "Name the red-team roster",
-        "Set the Project's memory to connected"
+        {
+          "id": "VI-006-q1",
+          "text": "Approve or amend Portfolio session 1 (strategy spine, weights, bar 3.5, Now/Next/Later)",
+          "kind": "quick",
+          "options": [
+            {
+              "id": "approve",
+              "label": "Approve as drafted",
+              "effect": "portfolio status in force; proposed weights and bar 3.5 become the weights in force"
+            },
+            {
+              "id": "amend",
+              "label": "Amend it with me in chat",
+              "effect": "item becomes input-needed"
+            }
+          ]
+        },
+        {
+          "id": "VI-006-q2",
+          "text": "Name the red-team roster",
+          "kind": "input"
+        },
+        {
+          "id": "VI-006-q3",
+          "text": "Set the Project's memory to connected",
+          "kind": "quick",
+          "options": [
+            {
+              "id": "done",
+              "label": "Done",
+              "effect": "item cleared; decision line accepted"
+            },
+            {
+              "id": "not-yet",
+              "label": "Not yet",
+              "effect": "item stays due"
+            }
+          ]
+        }
       ],
       "flags": [
         "Serves no theme (a flag, not a failure)"
@@ -803,7 +912,23 @@
       "graduatedTo": null,
       "recheckDate": null,
       "decisionsDue": [
-        "Approve the lifecycle change (Building and Shipped stages, rejection as a decision type) and the register columns in a Lab-operations chat"
+        {
+          "id": "VI-007-q1",
+          "text": "Approve the lifecycle change (Building and Shipped stages, rejection as a decision type) and the register columns",
+          "kind": "quick",
+          "options": [
+            {
+              "id": "approve",
+              "label": "Approve; amend the Operating Model in a Lab-operations chat",
+              "effect": "decision line accepted; Operating Model amendment queued for Lab operations"
+            },
+            {
+              "id": "discuss",
+              "label": "Discuss in chat",
+              "effect": "item becomes input-needed"
+            }
+          ]
+        }
       ],
       "flags": [
         "Serves no theme (inherited from VI-006)",
@@ -1446,6 +1571,19 @@
       "health": "on-track",
       "healthNote": "Lifecycle in the contract; Operating Model amendment waits on the Lab-operations chat",
       "nextStepDue": "2026-12-01"
+    },
+    {
+      "date": "2026-11-02",
+      "scope": "VI-007 lab-dashboard",
+      "ideaIds": [
+        "VI-007"
+      ],
+      "mode": "Spec; build",
+      "outcome": "Repo thinklatent-labs/idea-lab created and pushed; decision inbox built: quick calls on the dashboard, input-needed items routed to chat, morning pickup",
+      "docsTouched": "Repo; register; dashboard",
+      "health": "on-track",
+      "healthNote": "Inbox live; first pickup tomorrow morning",
+      "nextStepDue": "2026-12-01"
     }
   ],
   "decisions": [
@@ -1756,6 +1894,20 @@
       "reviewOn": "2026-12-01",
       "supersedes": null,
       "type": "gate"
+    },
+    {
+      "id": "D-023",
+      "ideaId": "VI-007",
+      "date": "2026-11-02",
+      "decision": "Decision inbox: quick calls are made on the dashboard (fixed options, stored in the artifact's database), anything needing input goes to the chat; Claude applies quick calls at session open and in a morning pickup, then syncs to GitHub. Contract v1.3",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": 70,
+      "reviewOn": "2026-12-01",
+      "supersedes": null,
+      "type": "decision"
     }
   ],
   "syncLog": [

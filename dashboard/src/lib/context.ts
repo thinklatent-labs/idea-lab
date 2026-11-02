@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react';
 import type { Audience, Register } from './types';
 import type { Derived } from './derive';
+import type { Inbox } from './inbox';
 
 export type View = 'pulse' | 'queue' | 'register' | 'board' | 'graph' | 'log' | 'catalogue' | 'scores' | 'changes';
 export const VIEWS: View[] = ['pulse', 'queue', 'register', 'board', 'graph', 'catalogue', 'scores', 'changes', 'log'];
@@ -22,6 +23,7 @@ export interface LabState {
   visibleIdeas: Register['ideas'];
   previous: Register | null; // the latest earlier snapshot, when the history index lists one
   previousLabel: string | null;
+  inbox: Inbox;
 }
 
 export const LabContext = createContext<LabState | null>(null);

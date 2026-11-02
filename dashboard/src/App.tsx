@@ -14,6 +14,7 @@ import Catalogue from './views/Catalogue';
 import Scores from './views/Scores';
 import Changes from './views/Changes';
 import DetailPanel from './components/DetailPanel';
+import { useInbox } from './lib/inbox';
 
 const DATA_URL = 'data/register.json';
 
@@ -44,6 +45,7 @@ export default function App() {
     return prev;
   });
   const now = useMemo(() => new Date(), []);
+  const inbox = useInbox();
 
   useEffect(() => {
     let alive = true;
@@ -51,7 +53,7 @@ export default function App() {
       .then(async (r) => {
         if (!r.ok) throw new Error(`register.json: HTTP ${r.status}`);
         const reg = (await r.json()) as Register;
-        const known = ['1.0', '1.1', '1.2'];
+        const known = ['1.0', '1.1', '1.2', '1.3'];
         if (!known.includes(reg.schemaVersion)) throw new Error(`register.json schema ${reg.schemaVersion} is not one of ${known.join(', ')}; rebuild the page or re-export`);
         if (alive) setLoad({ status: 'ready', reg });
         if (reg.history?.indexUrl) {
@@ -182,6 +184,7 @@ export default function App() {
         visibleIdeas,
         previous: previous?.reg ?? null,
         previousLabel: previous?.label ?? null,
+        inbox,
       }}
     >
       <div className="app">

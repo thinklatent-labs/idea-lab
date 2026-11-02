@@ -68,7 +68,7 @@ for (const i of reg.ideas) {
     i.governance ? `Governance (separate team): ${i.governance.status ?? 'not started'}${i.governance.review ? `, ${i.governance.review}` : ''}${i.governance.criticalPath ? ' — on the critical path' : ''}` : 'Governance: not recorded.',
     '',
     `### Decisions due`,
-    i.decisionsDue.length ? i.decisionsDue.map((d) => `- ${d}`).join('\n') : '_None._',
+    i.decisionsDue.length ? i.decisionsDue.map((d) => (typeof d === 'string' ? `- ${d}` : `- ${d.text} (${d.kind === 'quick' ? `quick call on the dashboard: ${d.options.map((o) => o.label).join(' / ')}` : 'needs the chat'})`)).join('\n') : '_None._',
     '',
     `### Hypotheses`,
     table(i.hypotheses, [['Claim', (h) => h.claim], ['Confirmed if', (h) => h.confirmedIf], ['Refuted if', (h) => h.refutedIf], ['Evidence', (h) => (h.evidence == null ? 'not set' : ['opinion', 'one experiment', 'repeated'][h.evidence])], ['Confidence', (h) => (h.confidence == null ? 'not set' : `${h.confidence}%`)], ['Result', (h) => h.result ?? 'open']]),

@@ -32,7 +32,7 @@ Brainstorm, Critic, Scout, Spec, Portfolio, Comms. Match the session to the stag
 
 ## Every session
 
-1. Open with the session line: `Lab session · VI-### slug · Mode`, and read the row's last decision and next step back before acting.
+1. Apply any waiting dashboard decisions first (lab-decisions skill). Then open with the session line: `Lab session · VI-### slug · Mode`, and read the row's last decision and next step back before acting.
 2. One chat, one scope: a single idea, a Portfolio session, or Lab operations. Lab-operations sessions change the Operating Model, the register's structure, standards and scheduled tasks, never an idea's stage, score or doc. Idea sessions write only their own idea's row, doc and links.
 3. Do not advance an idea past Stress test without a critique pass recorded.
 4. At the end: update the register row (stage, score, next step with a due date, links), add a decision-log line (immutable; a reversal is a new line that supersedes the old), add a Sessions row with a health call (on-track, at-risk, off-track), bump `asOf` and `source.registerRev`, then run `scripts/lab-sync.sh`.
@@ -44,3 +44,7 @@ Alert rules live in `register.json` under `rules` (R-01 to R-18) and are evaluat
 ## Privacy
 
 Everything in the thinklatent-labs organisation is private. Never make this repository, its Pages site or any artifact built from it public. The register holds internal strategy and no client data; rows flagged `sensitivity: flagged` are hidden from every audience preset but Jithin's.
+
+## Decisions on the dashboard
+
+Due items are either quick calls (fixed options, decided by Jithin on the claude.ai dashboard and stored in the artifact's `inbox` collection) or input-needed (decided in a chat). Claude applies quick calls with the lab-decisions skill at the start of every session and in the morning pickup, then syncs. The GitHub copy of the dashboard is read-only and cannot take decisions.

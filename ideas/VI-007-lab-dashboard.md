@@ -40,7 +40,7 @@ Production surface: Jithin, weekly triage and the monthly portfolio review · A 
 Governance (separate team): not needed, None: internal strategy, no client data
 
 ### Decisions due
-- Approve the lifecycle change (Building and Shipped stages, rejection as a decision type) and the register columns in a Lab-operations chat
+- Approve the lifecycle change (Building and Shipped stages, rejection as a decision type) and the register columns (quick call on the dashboard: Approve; amend the Operating Model in a Lab-operations chat / Discuss in chat)
 
 ### Hypotheses
 | Claim | Confirmed if | Refuted if | Evidence | Confidence | Result |
@@ -82,6 +82,7 @@ Governance (separate team): not needed, None: internal strategy, no client data
 | D-019 | 2026-11-01 | Feature backlog recorded in the idea card: 23 candidates in three waves; wave 1 proposed as the next build; twelve process rules proposed for the Lab-operations chat; wave 3 not before mid-2027 | Thinking partner, pending Jithin | proposed |
 | D-020 | 2026-11-01 | All three waves ordered for build, one after the other; wave 2 and 3 views ship against the contract with not-recorded states until the register carries the fields | Jithin | accepted |
 | D-022 | 2026-11-02 | Dashboard moved to Building under S-A (owner, stream and appetite present); contract v1.2 built: new stages, rejection decisions, streams and phases, production surface, governance dependency, shipped record | Thinking partner, per Jithin's order | accepted |
+| D-023 | 2026-11-02 | Decision inbox: quick calls are made on the dashboard (fixed options, stored in the artifact's database), anything needing input goes to the chat; Claude applies quick calls at session open and in a morning pickup, then syncs to GitHub. Contract v1.3 | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLab } from '../lib/context';
-import { CRITERIA, type Idea } from '../lib/types';
+import { CRITERIA, dueItems, type Idea } from '../lib/types';
+import DueCard from './DueCard';
 import { MODES, defaultMode, readiness, relatedIdeas, sessionLine, capabilityPriority, type Mode } from '../lib/derive';
 import { canonicalId } from '../lib/graph';
 import { healthOf, updateState, appetiteState, buildingGate } from '../lib/derive2';
@@ -37,7 +38,7 @@ function nameOf(reg: ReturnType<typeof useLab>['reg'], id: string | null, label:
 }
 
 function IdeaDetail({ idea }: { idea: Idea }) {
-  const { reg, derived, now, select, lastVisit, hidden } = useLab();
+  const { reg, derived, now, select, lastVisit, hidden, inbox } = useLab();
   const d = derived.get(idea.id)!;
   const health = healthOf(reg, idea.id);
   const upd = updateState(reg, idea, now);
@@ -99,14 +100,15 @@ function IdeaDetail({ idea }: { idea: Idea }) {
       {(idea.decisionsDue.length > 0 || idea.score.status === 'proposed') && (
         <section className="due">
           <h3>Needs your decision</h3>
-          <ol>
-            {idea.score.status === 'proposed' && !idea.decisionsDue.some((x) => /score|rubric/i.test(x)) && (
-              <li>Set the rubric composite ({idea.score.composite} proposed{idea.score.date ? ` on ${fmtDate(idea.score.date)}` : ''}).</li>
-            )}
-            {idea.decisionsDue.map((x, i) => (
-              <li key={i}>{x}</li>
+          {idea.score.status === 'proposed' && !dueItems(idea).some((x) => /score|rubric/i.test(x.text)) && (
+            <p className="small">Set the rubric composite ({idea.score.composite} proposed{idea.score.date ? ` on ${fmtDate(idea.score.date)}` : ''}).</p>
+          )}
+          <div className="duelist">
+            {dueItems(idea).map((item) => (
+              <DueCard key={item.id} idea={idea} item={item} />
             ))}
-          </ol>
+          </div>
+          {inbox.error && <p className="small" style={{ color: 'var(--crit)', marginTop: 6 }}>{inbox.error}</p>}
         </section>
       )}
 

@@ -2,7 +2,8 @@ import { useMemo } from 'react';
 import { useLab } from '../lib/context';
 import { alerts, attentionQueue, stageCounts } from '../lib/derive';
 import { evaluateRules, healthOf, openNextSteps, updateState, decisionIndex, dependencyConflicts, funnel, type RuleHit } from '../lib/derive2';
-import { STAGES, type Stage } from '../lib/types';
+import { STAGES, dueItems, type Stage } from '../lib/types';
+import DueCard from '../components/DueCard';
 import { fmtDate, fmtDateTime, plural } from '../lib/format';
 import { Section } from '../components/ui';
 
@@ -19,7 +20,7 @@ const STAGE_VAR: Record<Stage, string> = {
 };
 
 export default function Pulse() {
-  const { reg, derived, now, go, select, setQueueFilter, lastVisit, hidden, visibleIdeas } = useLab();
+  const { reg, derived, now, go, select, setQueueFilter, lastVisit, hidden, visibleIdeas, inbox } = useLab();
   const counts = useMemo(() => stageCounts(visibleIdeas), [visibleIdeas]);
   const queue = useMemo(() => attentionQueue(reg, derived), [reg, derived]);
   const due = queue.filter((i) => derived.get(i.id)!.needsDecision);
@@ -65,6 +66,10 @@ export default function Pulse() {
   const funMax = Math.max(1, ...fun.map((f) => f.entered));
   const withHistory = reg.ideas.filter((i) => (i.stageHistory ?? []).length > 0).length;
 
+  const allDue = visibleIdeas.filter((i) => i.stage !== 'Killed').flatMap((i) => dueItems(i).map((item) => ({ idea: i, item })));
+  const quickOpen = allDue.filter(({ item }) => item.kind === 'quick' && inbox.docs.get(item.id)?.status !== 'applied');
+  const quickPending = quickOpen.filter(({ item }) => !inbox.docs.has(item.id)).length;
+  const inputDue = allDue.filter(({ item }) => item.kind === 'input');
   const toQueue = (f: string) => {
     setQueueFilter(f);
     go('queue');
@@ -105,6 +110,36 @@ export default function Pulse() {
           <span className="sub">{conflicts.length ? `${conflicts.length} dependency conflict${conflicts.length === 1 ? '' : 's'}` : blocked.length ? blocked.map((i) => i.slug).join(', ') : 'no dependency chains waiting'}</span>
         </button>
       </div>
+
+      {allDue.length > 0 && (
+        <div className="card pad">
+          <Section title="Your decisions" aside={`${quickPending} quick ${quickPending === 1 ? 'call' : 'calls'} to make, ${inputDue.length} for the chat`}>
+            {quickOpen.length > 0 && (
+              <div className="duelist">
+                {quickOpen.map(({ idea, item }) => (
+                  <DueCard key={item.id} idea={idea} item={item} showIdea />
+                ))}
+              </div>
+            )}
+            {inputDue.length > 0 && (
+              <details style={{ marginTop: 10 }}>
+                <summary>
+                  Needs the chat <small>{inputDue.length}</small>
+                </summary>
+                <div className="duelist" style={{ marginTop: 8 }}>
+                  {inputDue.map(({ idea, item }) => (
+                    <DueCard key={item.id} idea={idea} item={item} showIdea />
+                  ))}
+                </div>
+              </details>
+            )}
+            {inbox.error && <p className="small" style={{ color: 'var(--crit)', marginTop: 6 }}>{inbox.error}</p>}
+            <p className="faint small" style={{ marginTop: 8 }}>
+              A quick call is recorded here and applied by Claude at the next session or the morning pickup, then synced to GitHub. Anything that needs your input goes to the chat.
+            </p>
+          </Section>
+        </div>
+      )}
 
       <div className="card pad">
         <Section title="Health of active rows" aside={`${active.length} rows`}>

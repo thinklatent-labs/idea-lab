@@ -40,9 +40,9 @@ Production surface: A team in one business line requesting a model for one workf
 Governance (separate team): not started, Usage-approval record aligned with Risk's model inventory — on the critical path
 
 ### Decisions due
-- Set the appetite (one quarter proposed)
-- Name the beachhead business line for the first journey
-- Approve or amend the idea card
+- Set the appetite (one quarter proposed) (quick call on the dashboard: Accept one quarter (about 9 engineer-weeks under S-C) / Decide at the next Portfolio session)
+- Name the beachhead business line for the first journey (needs the chat)
+- Approve or amend the idea card (quick call on the dashboard: Approve the idea card as drafted / Amend it with me in chat)
 
 ### Hypotheses
 | Claim | Confirmed if | Refuted if | Evidence | Confidence | Result |

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://idea-lab/register.schema.json",
   "title": "Idea Lab register data contract",
-  "description": "register.json, exported from the live Idea Register and the idea docs' lab records. The register is the source; this file is a read-only snapshot. Everything derived (days in stage, stale, lane, blocked, health missing, conflicts) is computed by the reader, never stored here. Contract version 1.2, 2026-11-02: stages Building and Shipped added (funded by default at Proposal; rejection is a decision type); stream, appetite in engineer-weeks, governance field, production surface and shipped record per idea. Version 1.1 (2026-11-01): adds optional fields for health per session, decision ids/status/door/review dates, next-step due dates, appetite end dates, kill signals, hypothesis evidence and confidence, stage history, outcomes, rules, audiences, mentions and the snapshot history index.",
+  "description": "register.json, exported from the live Idea Register and the idea docs' lab records. The register is the source; this file is a read-only snapshot. Everything derived (days in stage, stale, lane, blocked, health missing, conflicts) is computed by the reader, never stored here. Contract version 1.3, 2026-11-02: decisionsDue items may be objects with an id, a kind (quick = decided on the dashboard, input = needs the chat) and fixed options; quick calls land in the dashboard's decision inbox and are applied by Claude. Version 1.2: stages Building and Shipped added (funded by default at Proposal; rejection is a decision type); stream, appetite in engineer-weeks, governance field, production surface and shipped record per idea. Version 1.1 (2026-11-01): adds optional fields for health per session, decision ids/status/door/review dates, next-step due dates, appetite end dates, kill signals, hypothesis evidence and confidence, stage history, outcomes, rules, audiences, mentions and the snapshot history index.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -27,7 +27,8 @@
       "enum": [
         "1.0",
         "1.1",
-        "1.2"
+        "1.2",
+        "1.3"
       ]
     },
     "asOf": {
@@ -1078,9 +1079,16 @@
         "decisionsDue": {
           "type": "array",
           "items": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/dueItem"
+              }
+            ]
           },
-          "description": "Decisions waiting on Jithin, in his words where the register has them."
+          "description": "Decisions waiting on Jithin. Strings are legacy (treated as input-needed)."
         },
         "flags": {
           "type": "array",
@@ -1581,6 +1589,56 @@
         },
         "demandNote": {
           "type": "string"
+        }
+      }
+    },
+    "dueItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^VI-[0-9]{3}-q[0-9]+$"
+        },
+        "text": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "quick",
+            "input"
+          ],
+          "description": "quick: Jithin picks an option on the dashboard; input: needs the chat"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "label",
+              "effect"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+$"
+              },
+              "label": {
+                "type": "string"
+              },
+              "effect": {
+                "type": "string",
+                "description": "What Claude writes to the register when this option is picked"
+              }
+            }
+          }
         }
       }
     }

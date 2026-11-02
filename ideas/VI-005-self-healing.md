@@ -40,8 +40,8 @@ Production surface: not named (reads as an H3 experiment).
 Governance: not recorded.
 
 ### Decisions due
-- Name the interface owner
-- Name who runs the quarterly wall audit, outside both programmes
+- Name the interface owner (needs the chat)
+- Name who runs the quarterly wall audit, outside both programmes (needs the chat)
 
 ### Hypotheses
 _None recorded._

@@ -40,9 +40,9 @@ Production surface: Head of VI, model owners, Risk reviewers · The VI Portal's 
 Governance (separate team): not started, Judge-panel location and training-data wall sign-off
 
 ### Decisions due
-- Name the index lead and the harness lead (the Building gate; nothing starts without them)
-- Set the rubric score (4.0 proposed)
-- Set the appetite in engineer-weeks for the spike and Phase 0
+- Name the index lead and the harness lead (the Building gate; nothing starts without them) (needs the chat)
+- Set the rubric score (4.0 proposed) (quick call on the dashboard: Set 4.0 as proposed / Set 3.95 (proposed quarter weights) / Discuss in chat)
+- Set the appetite in engineer-weeks for the spike and Phase 0 (needs the chat)
 
 ### Hypotheses
 | Claim | Confirmed if | Refuted if | Evidence | Confidence | Result |

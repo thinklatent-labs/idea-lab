@@ -1476,3 +1476,55 @@ table.matrix td.cell {
     min-width: 600px;
   }
 }
+
+/* ---------- decision inbox ---------- */
+.duelist {
+  display: grid;
+  gap: 8px;
+}
+.duecard {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+.duecard[data-kind='quick'][data-status='open'] {
+  border-color: var(--accent-line);
+}
+.duecard[data-status='applied'] {
+  opacity: 0.75;
+}
+.duehead {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.duetext {
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+.dueopts {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.btn.opt {
+  border-color: var(--accent-line);
+  color: var(--ink);
+}
+.btn.opt:hover:not(:disabled) {
+  background: var(--accent-soft);
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.duestate {
+  margin-top: 6px;
+  font-size: 0.88rem;
+}
+.due .duecard {
+  background: var(--surface);
+}

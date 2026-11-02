@@ -40,9 +40,9 @@ Production surface: not named (reads as an H3 experiment).
 Governance: not recorded.
 
 ### Decisions due
-- Approve or amend Portfolio session 1 (strategy spine, weights, bar 3.5, Now/Next/Later)
-- Name the red-team roster
-- Set the Project's memory to connected
+- Approve or amend Portfolio session 1 (strategy spine, weights, bar 3.5, Now/Next/Later) (quick call on the dashboard: Approve as drafted / Amend it with me in chat)
+- Name the red-team roster (needs the chat)
+- Set the Project's memory to connected (quick call on the dashboard: Done / Not yet)
 
 ### Hypotheses
 _None recorded._

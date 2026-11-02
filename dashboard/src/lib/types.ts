@@ -114,6 +114,25 @@ export interface Mention {
   date?: string;
 }
 
+export interface DueOption {
+  id: string;
+  label: string;
+  effect: string;
+}
+
+/** A decision waiting on Jithin. quick: picked on the dashboard; input: needs the chat. */
+export interface DueItem {
+  id: string;
+  text: string;
+  kind: 'quick' | 'input';
+  options?: DueOption[];
+}
+
+/** Legacy string items are input-needed. */
+export function dueItems(idea: { id: string; decisionsDue: (string | DueItem)[] }): DueItem[] {
+  return idea.decisionsDue.map((d, n) => (typeof d === 'string' ? { id: `${idea.id}-q${n + 1}`, text: d, kind: 'input' as const } : d));
+}
+
 export type Health = 'on-track' | 'at-risk' | 'off-track';
 
 export interface Stream {
@@ -199,7 +218,7 @@ export interface Idea {
   capabilityId?: string | null;
   graduatedTo?: string | null;
   recheckDate?: string | null;
-  decisionsDue: string[];
+  decisionsDue: (string | DueItem)[];
   flags: string[];
   nextStepDue?: string | null;
   nextStepOrigin?: string | null;
@@ -305,7 +324,7 @@ export interface Portfolio {
 }
 
 export interface Register {
-  schemaVersion: '1.0' | '1.1' | '1.2';
+  schemaVersion: '1.0' | '1.1' | '1.2' | '1.3';
   asOf: string;
   generatedBy: string;
   source: { registerUrl: string; registerRev: number; operatingModelUrl?: string };

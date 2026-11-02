@@ -73,7 +73,8 @@ describe('weights and ranking', () => {
 
 describe('snapshot diff', () => {
   it('finds the next-step change and the logged decisions between the two seeds', () => {
-    const d = diffSnapshots(prev, reg);
+    const fixed = read('../../register/history/2026-11-02T0915.json');
+    const d = diffSnapshots(prev, fixed);
     expect(d.changes.some((c) => c.ideaId === 'VI-007' && c.what === 'next step')).toBe(true);
     expect(d.decisionsAdded.length).toBe(4);
     expect(d.sessionsAdded).toBe(2);
