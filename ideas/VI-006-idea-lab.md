@@ -55,7 +55,10 @@ _None recorded._
 _None recorded._
 
 ### Artifacts
-_None recorded._
+| Artifact | Kind | In this repo | Live | Exported |
+| --- | --- | --- | --- | --- |
+| Idea Register | doc | [artifacts/VI-006-idea-lab/idea-register.md](../artifacts/VI-006-idea-lab/idea-register.md) | [claude.ai](https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h) | 2026-11-04 |
+| Idea Lab — Operating Model and Project Instructions | doc | [artifacts/VI-006-idea-lab/operating-model.md](../artifacts/VI-006-idea-lab/operating-model.md) | [claude.ai](https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF) | 2026-11-04 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

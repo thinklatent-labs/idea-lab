@@ -59,7 +59,9 @@ _None recorded._
 | related-to | VI-008 harness-served | Adds model classes beside the VGLM4 Core, Distil and Domain tiers; all served on the same vLLM stack |
 
 ### Artifacts
-_None recorded._
+| Artifact | Kind | In this repo | Live | Exported |
+| --- | --- | --- | --- | --- |
+| VGLM model mix (model-mix) — Idea card | doc | [artifacts/VI-014-model-mix/idea-card.md](../artifacts/VI-014-model-mix/idea-card.md) | [claude.ai](https://claude.ai/artifact/LEufPZM5G332V5Co5oDk8X) | 2026-11-04 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

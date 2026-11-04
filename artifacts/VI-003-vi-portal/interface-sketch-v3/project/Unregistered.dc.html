@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Unregistered usage: traffic no record explains, and the side door</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F4F5F7;font-family:Inter,system-ui,sans-serif;color:#1B1F24}
+a{color:#0B5E4C}a:hover{color:#08463A}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column; font-family: Inter, system-ui, sans-serif; color: #1B1F24; background: #F4F5F7">
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E1E4E8">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; min-height: 56px">
+      <a href="Catalogue.dc.html" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #1B1F24; font-weight: 600; font-size: 15px; min-height: 44px">
+        <span style="display: inline-block; width: 22px; height: 22px; border-radius: 6px; background: {{accent}}"></span>
+        VI Portal
+      </a>
+      <nav aria-label="Primary" style="display: flex; align-items: center; gap: 4px; flex: 1 1 320px; min-width: 0; font-size: 14px">
+        <a href="Catalogue.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Models</a>
+        <a href="UseCases.dc.html" style="padding: 10px 12px; text-decoration: none; color: #1B1F24; font-weight: 600; border-bottom: 2px solid {{accent}}">Use cases</a>
+        <a href="Index.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Index</a>
+        <a href="Training.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Training</a>
+        <a href="Blueprints.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Blueprints</a>
+        <a href="Assistant.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Get started</a>
+      </nav>
+      <a href="Assistant.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 8px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 14px">Start a use case</a>
+    </div>
+  </header>
+
+  <main style="flex: 1 1 auto; width: 100%; max-width: 1280px; margin: 0 auto; padding: 32px 32px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+
+    <section style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-end">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 780px">
+        <nav aria-label="Breadcrumb" style="font-size: 13px; color: #57606A"><a href="UseCases.dc.html" style="text-decoration: none; color: #57606A">Use cases</a> <span aria-hidden="true">/</span> <span style="color: #1B1F24; font-weight: 500">Unregistered usage</span> <span style="margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: #EEF1F4; color: #3C4651; font-size: 11px; font-weight: 600">VI operations</span></nav>
+        <h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.01em">Unregistered usage</h1>
+        <p style="margin: 0; font-size: 15px; color: #57606A; line-height: 1.5">Traffic the gateway and the egress proxy can see that no record explains: calls without a use case, calls missing the required tags, prompt ids nobody registered, and teams going straight to a vendor API. The portal's job is to make the front door cheaper than the side door; this page measures whether it is working.</p>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap">
+        <button style="min-height: 44px; padding: 0 16px; border-radius: 8px; border: 1px solid #C9CED4; background: #FFFFFF; color: #1B1F24; font: 500 14px Inter, system-ui, sans-serif; cursor: pointer">Notify all owners</button>
+        <button style="min-height: 44px; padding: 0 16px; border-radius: 8px; border: 1px solid #C9CED4; background: #FFFFFF; color: #1B1F24; font: 500 14px Inter, system-ui, sans-serif; cursor: pointer">Export for Risk</button>
+      </div>
+    </section>
+
+    <section aria-label="Headline numbers" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #57606A">Calls without a record</span>
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]%</span>
+        <span style="font-size: 13px; color: #57606A">of gateway traffic, 7 days · [—] keys · trend [—]</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #57606A">Calls missing required tags</span>
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]%</span>
+        <span style="font-size: 13px; color: #57606A">registered use cases, incomplete tags · worst: [use case]</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #57606A">Unknown prompt ids</span>
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]</span>
+        <span style="font-size: 13px; color: #57606A">distinct ids on [—]% of calls · prompts edited outside the library</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #57606A">Side door</span>
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—] teams</span>
+        <span style="font-size: 13px; color: #57606A">calling vendor APIs directly, seen at egress · [—] requests a day</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="list-h" style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 id="list-h" style="margin: 0; font-size: 16px; font-weight: 600">What the portal cannot explain</h2>
+          <span style="font-size: 13px; color: #57606A">Grouped by key and endpoint. The likely team comes from who the key was issued to; "claim" turns a row into a record in one step.</span>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <label for="f-kind" style="position: absolute; left: -9999px">Kind</label>
+          <select id="f-kind" style="min-height: 40px; padding: 0 10px; border-radius: 8px; border: 1px solid #C9CED4; font: 400 13px Inter, system-ui, sans-serif; background: #FFFFFF; color: #1B1F24"><option>All kinds</option><option>No record</option><option>Tags missing</option><option>Unknown prompt</option><option>Vendor direct</option></select>
+          <label for="f-sort" style="position: absolute; left: -9999px">Sort</label>
+          <select id="f-sort" style="min-height: 40px; padding: 0 10px; border-radius: 8px; border: 1px solid #C9CED4; font: 400 13px Inter, system-ui, sans-serif; background: #FFFFFF; color: #1B1F24"><option>By volume</option><option>By age</option><option>By team</option></select>
+        </div>
+      </div>
+      <div style="overflow-x: auto">
+        <table style="width: 100%; min-width: 960px; border-collapse: collapse; font-size: 13px">
+          <thead><tr style="text-align: left; color: #57606A; font-size: 12px">
+            <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Source</th>
+            <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Kind</th>
+            <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Volume, 7 days</th>
+            <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">First seen</th>
+            <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Likely team</th>
+            <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Grace</th>
+            <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500"></th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace">key …7f2a</span> → vglm4-shared</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 2px 8px; border-radius: 999px; background: #FBE9E7; color: #8A2A1B; font-size: 11px; font-weight: 600">No record</span></td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] calls · [—] tokens</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">[date] · 23 days</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">[team] · [name]</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #B7791F; font-weight: 500">7 days left</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; white-space: nowrap"><a href="Assistant.dc.html" style="font-weight: 500">Claim into a record</a> · <a href="#" style="font-weight: 500">notify</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><a href="Main.dc.html" style="text-decoration: none; font-weight: 500">Call summary to CRM</a> · one client build</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 2px 8px; border-radius: 999px; background: #FBF1DD; color: #6B4A0B; font-size: 11px; font-weight: 600">Tags missing</span></td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]% of its calls · end_user absent</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">[date] · 4 days</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">known · [eng contact]</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">finding open on the record</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; white-space: nowrap"><a href="UC-Record.dc.html" style="font-weight: 500">Finding</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace">prompt_id summary-v3-local</span></td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 2px 8px; border-radius: 999px; background: #FBF1DD; color: #6B4A0B; font-size: 11px; font-weight: 600">Unknown prompt</span></td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] calls</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">[date] · 11 days</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">[team]</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">advisory</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; white-space: nowrap"><a href="Prompts.dc.html" style="font-weight: 500">Register as a version</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">egress → <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace">api.[vendor].com</span></td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 2px 8px; border-radius: 999px; background: #EEF1F4; color: #3C4651; font-size: 11px; font-weight: 600">Vendor direct</span></td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] requests a day · [—] estimated spend</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">[date] · 60+ days</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">[team] (by network zone)</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">policy: approved vendor, untracked</td>
+              <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; white-space: nowrap"><a href="Blueprints.dc.html" style="font-weight: 500">Offer the blueprint</a> · <a href="#" style="font-weight: 500">talk to them</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 11px 8px">egress → <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace">[unapproved host]</span></td>
+              <td style="padding: 11px 8px"><span style="padding: 2px 8px; border-radius: 999px; background: #FBE9E7; color: #8A2A1B; font-size: 11px; font-weight: 600">Vendor direct</span></td>
+              <td style="padding: 11px 8px; color: #8C959F">[—] requests a day</td>
+              <td style="padding: 11px 8px; color: #57606A">[date] · 2 days</td>
+              <td style="padding: 11px 8px">[team] (by network zone)</td>
+              <td style="padding: 11px 8px; color: #8A2A1B; font-weight: 500">not an approved vendor</td>
+              <td style="padding: 11px 8px; white-space: nowrap"><a href="#" style="font-weight: 500">Escalate to Risk</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-size: 16px; font-weight: 600">Front door against side door, by month</h2>
+          <span style="font-size: 13px; color: #57606A">Requests through the gateway with a record, against requests to vendor APIs seen at egress. The gap closing is the adoption number that matters most.</span>
+        </div>
+        <svg viewBox="0 0 560 200" role="img" aria-label="Placeholder lines of registered gateway requests rising and direct vendor requests falling over months" style="width: 100%; height: auto; display: block">
+          <line x1="40" y1="160" x2="540" y2="160" stroke="#E1E4E8"></line>
+          <polyline fill="none" stroke="{{accent}}" stroke-width="2.5" points="40,120 123,110 206,96 289,80 372,62 455,50 540,40"></polyline>
+          <polyline fill="none" stroke="#8A2A1B" stroke-width="2" stroke-dasharray="5 4" points="40,70 123,76 206,84 289,88 372,98 455,110 540,118"></polyline>
+          <text x="44" y="28" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">shape only</text>
+          <text x="420" y="34" font-size="12" fill="#0B5E4C" font-family="Inter, system-ui, sans-serif">front door</text>
+          <text x="430" y="136" font-size="12" fill="#8A2A1B" font-family="Inter, system-ui, sans-serif">side door</text>
+          <text x="40" y="184" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">[month]</text>
+          <text x="500" y="184" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">[month]</text>
+        </svg>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; font-size: 13px">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Side-door share</span><span style="font-weight: 600; color: #8C959F">[—]%</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Converted this quarter</span><span style="font-weight: 600; color: #8C959F">[—] teams</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Median time from first contact to a record</span><span style="font-weight: 600; color: #8C959F">[—] days</span></div>
+        </div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-size: 16px; font-weight: 600">Grace policy</h2>
+          <span style="font-size: 13px; color: #57606A">The portal earns compliance before it enforces it. Enforcement steps are dated on the record and visible to the team in advance.</span>
+        </div>
+        <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13px">
+          <li style="display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span style="font-weight: 600; color: #0B5E4C">Day 0</span><span>Seen. The likely team is told what the portal saw and offered the assistant or a blueprint; nothing changes for them.</span></li>
+          <li style="display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span style="font-weight: 600; color: #B7791F">Day 14</span><span>Tags required. Calls without use_case and stage get a warning header; the digest names the share.</span></li>
+          <li style="display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span style="font-weight: 600; color: #8A2A1B">Day 30</span><span>Record required. Unregistered keys lose production endpoints and keep the sandbox; the owner is told a week ahead.</span></li>
+          <li style="display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span style="font-weight: 600; color: #3C4651">Vendor direct</span><span>Approved vendors stay reachable; the team is shown the same blueprint with the vendor behind the alias, so tracking costs them nothing. Unapproved hosts go to Risk the day they appear.</span></li>
+        </ol>
+        <span style="font-size: 12px; color: #57606A">Policy approved by the Head of VI on 2026-11-02; Risk concurrence pending. Enforcement dates and exceptions are approvals on the record; VI cannot block a key on its own.</span>
+      </div>
+    </section>
+
+    <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px; color: #57606A">
+      <span>Sources: gateway request log (key, alias, tags, prompt_id); egress proxy logs by destination host and network zone; the record store. Volumes only, never content.</span>
+      <a href="UseCases.dc.html" style="font-weight: 500">Adoption funnel on Use cases</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"$preview":{"width":1280,"height":1560}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#0B5E4C' };
+  }
+}
+</script>
+</body>
+</html>

@@ -83,7 +83,12 @@ _None recorded._
 | related-to | VI-013 design-kit | Variants are compared on the index; task mining reads the telemetry store; the trained variant goes through self-healing; the comparison card takes the kit's language |
 
 ### Artifacts
-_None recorded._
+| Artifact | Kind | In this repo | Live | Exported |
+| --- | --- | --- | --- | --- |
+| Agent portfolio (agent-portfolio) — Idea card: Idea card | doc | [artifacts/VI-012-agent-portfolio/idea-card.md](../artifacts/VI-012-agent-portfolio/idea-card.md) | [claude.ai](https://claude.ai/artifact/T5rhguUBWXiUtPamFxxELT) | 2026-11-04 |
+| Agent portfolio (agent-portfolio) — Idea card: The 40 agents | doc | [artifacts/VI-012-agent-portfolio/the-40-agents.md](../artifacts/VI-012-agent-portfolio/the-40-agents.md) | [claude.ai](https://claude.ai/artifact/T5rhguUBWXiUtPamFxxELT) | 2026-11-04 |
+| scout-brief-agent-portfolio.md | brief | [artifacts/VI-012-agent-portfolio/scout-brief-agent-portfolio.md](../artifacts/VI-012-agent-portfolio/scout-brief-agent-portfolio.md) | [claude.ai](project-knowledge:claude/scout-brief-agent-portfolio.md) | 2026-11-04 |
+| agent-portfolio-seed.md | brief | [artifacts/VI-012-agent-portfolio/agent-portfolio-seed.md](../artifacts/VI-012-agent-portfolio/agent-portfolio-seed.md) | [claude.ai](project-knowledge:claude/agent-portfolio-seed.md) | 2026-11-04 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

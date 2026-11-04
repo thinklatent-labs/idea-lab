@@ -70,7 +70,9 @@ _None recorded._
 | enables | VI-003 vi-portal improvement loop | The 'train a specialist in N hours' step produces Domain-tier adapters; VI-011 is the content of that loop |
 
 ### Artifacts
-_None recorded._
+| Artifact | Kind | In this repo | Live | Exported |
+| --- | --- | --- | --- | --- |
+| scout-brief-domain-model-portfolio.md | brief | [artifacts/VI-011-domain-model-portfolio/scout-brief-domain-model-portfolio.md](../artifacts/VI-011-domain-model-portfolio/scout-brief-domain-model-portfolio.md) | [claude.ai](project-knowledge:claude/scout-brief-domain-model-portfolio.md) | 2026-11-04 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VI Portal use cases: the portfolio across models</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F4F5F7;font-family:Inter,system-ui,sans-serif;color:#1B1F24}
+a{color:#0B5E4C}a:hover{color:#08463A}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column; font-family: Inter, system-ui, sans-serif; color: #1B1F24; background: #F4F5F7">
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E1E4E8">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; min-height: 56px">
+      <a href="Catalogue.dc.html" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #1B1F24; font-weight: 600; font-size: 15px; min-height: 44px">
+        <span style="display: inline-block; width: 22px; height: 22px; border-radius: 6px; background: {{accent}}"></span>
+        VI Portal
+      </a>
+      <nav aria-label="Primary" style="display: flex; align-items: center; gap: 4px; flex: 1 1 320px; min-width: 0; font-size: 14px">
+        <a href="Catalogue.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Models</a>
+        <a href="UseCases.dc.html" style="padding: 10px 12px; text-decoration: none; color: #1B1F24; font-weight: 600; border-bottom: 2px solid {{accent}}">Use cases</a>
+        <a href="Index.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Index</a>
+        <a href="Training.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Training</a>
+        <a href="Blueprints.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Blueprints</a>
+        <a href="Assistant.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Get started</a>
+      </nav>
+      <a href="Assistant.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 8px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 14px">Start a use case</a>
+    </div>
+  </header>
+
+  <main style="flex: 1 1 auto; width: 100%; max-width: 1280px; margin: 0 auto; padding: 32px 32px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+
+    <section style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-end">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 720px">
+        <h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.01em">Use cases</h1>
+        <p style="margin: 0; font-size: 15px; color: #57606A; line-height: 1.5">Every use case on a Vanguard model, across generations, with the numbers that decide where attention goes. Pilots and POCs are listed but kept out of the production totals.</p>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; font-size: 13px">
+        <a href="Usage.dc.html" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #C9CED4; background: #FFFFFF; text-decoration: none; color: #1B1F24; font-weight: 500">Usage and limits</a>
+        <a href="Unregistered.dc.html" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #C9CED4; background: #FFFFFF; text-decoration: none; color: #1B1F24; font-weight: 500">Unregistered usage <span style="margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: #EEF1F4; color: #3C4651; font-size: 11px; font-weight: 600">VI</span></a>
+      </div>
+    </section>
+
+    <section aria-label="Portfolio numbers" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #57606A">In production · active in the last 28 days</span>
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em">5 <span style="font-size: 18px; color: #8C959F">· [—]</span></span>
+        <span style="font-size: 13px; color: #57606A">pilots [n] · POCs [n] · [—] teams building</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #57606A">Time to first call, median <span style="margin-left: 6px; padding: 2px 8px; border-radius: 999px; background: #E6F2EE; color: #0B5E4C; font-size: 11px; font-weight: 600">north star</span></span>
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—] days</span>
+        <span style="font-size: 13px; color: #57606A">target 1 day with a blueprint · stalled over 10 days: [n] teams</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #57606A">Value ledger, this month</span>
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]</span>
+        <span style="font-size: 13px; color: #57606A">vendor-equivalent avoided · [—] hours saved, declared by owners</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #57606A">Approvals pending</span>
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]</span>
+        <span style="font-size: 13px; color: #57606A">median review [—] days</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="table-h" style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+        <h2 id="table-h" style="margin: 0; font-size: 16px; font-weight: 600">All use cases</h2>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <label for="f-stage" style="position: absolute; left: -9999px">Stage</label>
+          <select id="f-stage" style="min-height: 40px; padding: 0 10px; border-radius: 8px; border: 1px solid #C9CED4; font: 400 13px Inter, system-ui, sans-serif; background: #FFFFFF; color: #1B1F24"><option>All stages</option><option>Production</option><option>Pilot</option><option>POC</option></select>
+          <label for="f-model" style="position: absolute; left: -9999px">Model</label>
+          <select id="f-model" style="min-height: 40px; padding: 0 10px; border-radius: 8px; border: 1px solid #C9CED4; font: 400 13px Inter, system-ui, sans-serif; background: #FFFFFF; color: #1B1F24"><option>All models</option><option>VGLM4</option><option>VGLM3</option></select>
+          <label for="f-line" style="position: absolute; left: -9999px">Business line</label>
+          <select id="f-line" style="min-height: 40px; padding: 0 10px; border-radius: 8px; border: 1px solid #C9CED4; font: 400 13px Inter, system-ui, sans-serif; background: #FFFFFF; color: #1B1F24"><option>All business lines</option></select>
+        </div>
+      </div>
+      <div style="overflow-x: auto">
+        <table style="width: 100%; min-width: 900px; border-collapse: collapse; font-size: 14px">
+          <thead>
+            <tr style="text-align: left; color: #57606A; font-size: 12px">
+              <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Use case</th>
+              <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Model</th>
+              <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Stage</th>
+              <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Tokens per minute</th>
+              <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">SLO, 30 days</th>
+              <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Cost per 1k</th>
+              <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Quality</th>
+              <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Loop</th>
+              <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Approval</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><a href="Main.dc.html" style="text-decoration: none; font-weight: 600">Call summary to CRM</a><div style="font-size: 12px; color: #57606A">[business line]</div></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">VGLM4</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 3px 9px; border-radius: 999px; background: #E3F5EE; color: #0B5E4C; font-size: 12px; font-weight: 500">Production</span></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">1.7M in · 170k out</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]%</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">step 2 waiting</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #B7791F">pending</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="font-weight: 600">[use case 2]</span><div style="font-size: 12px; color: #57606A">[business line]</div></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">VGLM4</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 3px 9px; border-radius: 999px; background: #E3F5EE; color: #0B5E4C; font-size: 12px; font-weight: 500">Production</span></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]%</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">not started</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">[status]</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="font-weight: 600">[use case 3]</span><div style="font-size: 12px; color: #57606A">[business line]</div></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">VGLM4</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 3px 9px; border-radius: 999px; background: #E3F5EE; color: #0B5E4C; font-size: 12px; font-weight: 500">Production</span></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]%</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">not started</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">[status]</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="font-weight: 600">[use case 4]</span><div style="font-size: 12px; color: #57606A">[business line]</div></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">VGLM4</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 3px 9px; border-radius: 999px; background: #E3F5EE; color: #0B5E4C; font-size: 12px; font-weight: 500">Production</span></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]%</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">not started</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">[status]</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="font-weight: 600">[use case 5]</span><div style="font-size: 12px; color: #57606A">[business line]</div></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">VGLM4</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 3px 9px; border-radius: 999px; background: #E3F5EE; color: #0B5E4C; font-size: 12px; font-weight: 500">Production</span></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]%</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">not started</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">[status]</td>
+            </tr>
+            <tr style="color: #57606A">
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="font-weight: 600">[pilot]</span><div style="font-size: 12px">[business line]</div></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">VGLM4</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 3px 9px; border-radius: 999px; background: #EEF1F4; color: #3C4651; font-size: 12px; font-weight: 500">Pilot</span></td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">out of totals</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">—</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">—</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">—</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">—</td>
+              <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">evaluation outside</td>
+            </tr>
+            <tr style="color: #57606A">
+              <td style="padding: 14px 8px"><span style="font-weight: 600">[POC]</span><div style="font-size: 12px">[business line]</div></td>
+              <td style="padding: 14px 8px">VGLM4</td>
+              <td style="padding: 14px 8px"><span style="padding: 3px 9px; border-radius: 999px; background: #EEF1F4; color: #3C4651; font-size: 12px; font-weight: 500">POC</span></td>
+              <td style="padding: 14px 8px">out of totals</td>
+              <td style="padding: 14px 8px">—</td>
+              <td style="padding: 14px 8px">—</td>
+              <td style="padding: 14px 8px">—</td>
+              <td style="padding: 14px 8px">—</td>
+              <td style="padding: 14px 8px">record only</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-size: 16px; font-weight: 600">Adoption funnel, this quarter</h2>
+          <span style="font-size: 13px; color: #57606A">From a visit to production; the drop-off between stages is where to put office hours.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px">
+          <div style="display: flex; align-items: center; gap: 12px"><span style="width: 150px; color: #57606A">Visitors outside VI</span><div style="flex: 1 1 auto; height: 18px; border-radius: 4px; background: #EEF1F4"><div style="width: 100%; height: 18px; border-radius: 4px; background: {{accent}}; opacity: 0.35"></div></div><span style="width: 40px; text-align: right; color: #8C959F">[—]</span></div>
+          <div style="display: flex; align-items: center; gap: 12px"><span style="width: 150px; color: #57606A">Intake started</span><div style="flex: 1 1 auto; height: 18px; border-radius: 4px; background: #EEF1F4"><div style="width: 55%; height: 18px; border-radius: 4px; background: {{accent}}; opacity: 0.5"></div></div><span style="width: 40px; text-align: right; color: #8C959F">[—]</span></div>
+          <div style="display: flex; align-items: center; gap: 12px"><span style="width: 150px; color: #57606A">Record created</span><div style="flex: 1 1 auto; height: 18px; border-radius: 4px; background: #EEF1F4"><div style="width: 36%; height: 18px; border-radius: 4px; background: {{accent}}; opacity: 0.65"></div></div><span style="width: 40px; text-align: right; color: #8C959F">[—]</span></div>
+          <div style="display: flex; align-items: center; gap: 12px"><span style="width: 150px; color: #57606A">Key issued</span><div style="flex: 1 1 auto; height: 18px; border-radius: 4px; background: #EEF1F4"><div style="width: 28%; height: 18px; border-radius: 4px; background: {{accent}}; opacity: 0.8"></div></div><span style="width: 40px; text-align: right; color: #8C959F">[—]</span></div>
+          <div style="display: flex; align-items: center; gap: 12px"><span style="width: 150px; color: #57606A">First call</span><div style="flex: 1 1 auto; height: 18px; border-radius: 4px; background: #EEF1F4"><div style="width: 22%; height: 18px; border-radius: 4px; background: {{accent}}; opacity: 0.9"></div></div><span style="width: 40px; text-align: right; color: #8C959F">[—]</span></div>
+          <div style="display: flex; align-items: center; gap: 12px"><span style="width: 150px; color: #57606A">Production</span><div style="flex: 1 1 auto; height: 18px; border-radius: 4px; background: #EEF1F4"><div style="width: 10%; height: 18px; border-radius: 4px; background: {{accent}}"></div></div><span style="width: 40px; text-align: right; color: #8C959F">[—]</span></div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; font-size: 12px; color: #57606A; padding-top: 6px; border-top: 1px solid #EEF1F4">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span>Stalled at a stage over 10 days</span><span style="font-weight: 600; color: #B7791F">[n] teams · nudged</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span>Reached first call within 1 day</span><span style="font-weight: 600; color: #8C959F">[—]% (blueprint) · [—]% (from scratch)</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span>Still calling after 28 days</span><span style="font-weight: 600; color: #8C959F">[—]% of first callers</span></div>
+        </div>
+        <span style="font-size: 12px; color: #57606A">Illustrative shape. A team that goes quiet for 10 days at any stage gets a message from a champion, not a form.</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-size: 16px; font-weight: 600">Where people get stuck</h2>
+          <span style="font-size: 13px; color: #57606A">Signals that feed the roadmap and the documentation.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; font-size: 13px">
+          <div style="padding: 14px; border: 1px solid #E1E4E8; border-radius: 10px; display: flex; flex-direction: column; gap: 4px"><span style="color: #57606A">Unanswered assistant questions</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—]</span><span style="color: #57606A">reviewed weekly</span></div>
+          <div style="padding: 14px; border: 1px solid #E1E4E8; border-radius: 10px; display: flex; flex-direction: column; gap: 4px"><span style="color: #57606A">Office-hours attendance</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—]</span><span style="color: #57606A">this month</span></div>
+          <div style="padding: 14px; border: 1px solid #E1E4E8; border-radius: 10px; display: flex; flex-direction: column; gap: 4px"><span style="color: #57606A">Model requests</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—]</span><span style="color: #57606A">three asks move the roadmap</span></div>
+          <div style="padding: 14px; border: 1px solid #E1E4E8; border-radius: 10px; display: flex; flex-direction: column; gap: 4px"><span style="color: #57606A">Blueprint demand</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—]</span><span style="color: #57606A">asks and forks</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px">
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600">Value ledger</h2>
+            <span style="font-size: 13px; color: #57606A">Two columns nobody can argue with and one the owner declares. The method is versioned with Finance; the declared column is attested quarterly.</span>
+          </div>
+          <a href="Usage.dc.html" style="font-size: 13px; font-weight: 500">Monthly statement</a>
+        </div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; border-collapse: collapse; font-size: 13px">
+            <thead><tr style="text-align: left; color: #57606A; font-size: 12px"><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Use case</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Cost to run</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Vendor-equivalent avoided</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Hours saved (declared)</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Attested</th></tr></thead>
+            <tbody>
+              <tr><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; font-weight: 500">Call summary to CRM</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #0B5E4C; font-weight: 500">[—]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] h / month · [—] min per call × 120k calls</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">[name] · [date]</td></tr>
+              <tr><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; font-weight: 500">[use case 2]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #0B5E4C; font-weight: 500">[—]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #B7791F">due [date]</td></tr>
+              <tr><td style="padding: 10px 8px; font-weight: 500">[use case 3]</td><td style="padding: 10px 8px; color: #8C959F">[—]</td><td style="padding: 10px 8px; color: #0B5E4C; font-weight: 500">[—]</td><td style="padding: 10px 8px; color: #57606A">not declared</td><td style="padding: 10px 8px; color: #57606A">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <span style="font-size: 12px; color: #57606A">Totals roll up to the front door and the quarterly report. Declared hours are shown with the owner's name beside them, never as a VI claim.</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-size: 16px; font-weight: 600">Champions</h2>
+          <span style="font-size: 13px; color: #57606A">People outside VI who have shipped a use case and agreed to be asked. Stalled teams are paired with one.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px">
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span><span style="font-weight: 600">[name]</span> · [team]<div style="color: #57606A">shipped Call summary to CRM · helped [n] teams</div></span><a href="#" style="font-weight: 500">ask</a></div>
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span><span style="font-weight: 600">[name]</span> · [team]<div style="color: #57606A">shipped [use case 2] · retrieval blueprint maintainer</div></span><a href="#" style="font-weight: 500">ask</a></div>
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span><span style="font-weight: 600">[name]</span> · [team]<div style="color: #57606A">first VGLM3 → VGLM4 migration · office hours host</div></span><a href="#" style="font-weight: 500">ask</a></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 6px; border-top: 1px solid #EEF1F4; font-size: 12px; color: #57606A">
+          <span>Office hours [day and time] · [—] attended last month · questions the assistant could not answer go here first.</span>
+          <a href="Assistant.dc.html" style="font-weight: 500">Become a champion</a>
+        </div>
+      </div>
+    </section>
+
+    <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px; color: #57606A">
+      <span>Rows come from use-case records; numbers from the telemetry contract, the index, the funnel events and the gateway log.</span>
+      <a href="Index.dc.html" style="font-weight: 500">Compare the models these run on</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"$preview":{"width":1280,"height":1860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#0B5E4C' };
+  }
+}
+</script>
+</body>
+</html>

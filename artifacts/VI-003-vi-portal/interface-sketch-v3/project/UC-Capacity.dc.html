@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Use case capacity: goodput, error budget, saturation, cache</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F4F5F7;font-family:Inter,system-ui,sans-serif;color:#1B1F24}
+a{color:#0B5E4C}a:hover{color:#08463A}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column; font-family: Inter, system-ui, sans-serif; color: #1B1F24; background: #F4F5F7">
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E1E4E8">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; min-height: 56px">
+      <a href="Catalogue.dc.html" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #1B1F24; font-weight: 600; font-size: 15px; min-height: 44px">
+        <span style="display: inline-block; width: 22px; height: 22px; border-radius: 6px; background: {{accent}}"></span>
+        VI Portal
+      </a>
+      <nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #57606A; flex: 1 1 320px; min-width: 0">
+        <a href="UseCases.dc.html" style="text-decoration: none; color: #57606A">Use cases</a>
+        <span aria-hidden="true">/</span>
+        <a href="Model.dc.html" style="text-decoration: none; color: #57606A">VGLM4</a>
+        <span aria-hidden="true">/</span>
+        <a href="Main.dc.html" style="text-decoration: none; color: #57606A">Call summary to CRM</a>
+        <span aria-hidden="true">/</span>
+        <span style="color: #1B1F24; font-weight: 500">Capacity</span>
+      </nav>
+      <a href="Assistant.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 8px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 14px">Ask the assistant</a>
+    </div>
+  </header>
+
+  <div style="flex: 1 1 auto; width: 100%; max-width: 1280px; margin: 0 auto; padding: 32px 32px 56px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+
+    <nav aria-label="Use case pages" style="flex: 0 1 200px; display: flex; flex-direction: column; gap: 4px; font-size: 14px">
+      <a href="Main.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Overview</a>
+      <a href="UC-Traffic.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Traffic</a>
+      <a href="UC-Capacity.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #1B1F24; font-weight: 600; background: #FFFFFF; border: 1px solid #E1E4E8">Capacity</a>
+      <a href="UC-Models.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Models</a>
+      <a href="UC-Quality.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Quality</a>
+      <a href="UC-Improve.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Improve</a>
+      <a href="UC-Record.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Record</a>
+      <span style="margin-top: 14px; padding: 0 12px; font-size: 11px; color: #8C959F; text-transform: uppercase; letter-spacing: 0.06em">Workbench</span>
+      <a href="Prompts.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Prompts</a>
+      <a href="Datasets.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Datasets and queues</a>
+      <a href="Alerts.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Alerts and digest</a>
+      <span style="margin-top: 16px; padding: 10px 12px; font-size: 12px; color: #57606A; line-height: 1.5">SLO: TTFT p95 under [target] · completion p95 under [target] · 99.5% over 30 days</span>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.01em">Capacity</h1>
+        <p style="margin: 0; font-size: 15px; color: #57606A; max-width: 720px; line-height: 1.5">How much this use case can take before its service level breaks, in units that respect the SLO rather than raw throughput, and how far today's traffic sits from that line.</p>
+      </section>
+
+      <section aria-label="Headline numbers" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Goodput</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—] req/s</span>
+          <span style="font-size: 13px; color: #57606A">requests meeting TTFT, ITL and completion SLOs at once; raw throughput [—]</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Error budget left, 30 days</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]%</span>
+          <span style="font-size: 13px; color: #57606A">burn rate now [—]x · pages at 14x over 1 h, tickets at 1x over 3 d</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Capacity line at SLO</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—] tok/min in</span>
+          <span style="font-size: 13px; color: #57606A">[—] tok/min out · today's peak [—]% of it</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Headroom</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—] days</span>
+          <span style="font-size: 13px; color: #57606A">seasonal forecast of peak against the capacity line</span>
+        </div>
+      </section>
+
+      <section aria-labelledby="curve-h" style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+          <h2 id="curve-h" style="margin: 0; font-size: 16px; font-weight: 600">Throughput against interactivity</h2>
+          <span style="font-size: 13px; color: #57606A">From periodic benchmark sweeps of this endpoint; the dot is where today's traffic sits.</span>
+        </div>
+        <svg viewBox="0 0 900 300" role="img" aria-label="Placeholder curve of tokens per second per GPU against tokens per second per user, with the SLO line and the current operating point" style="width: 100%; height: auto; display: block">
+          <line x1="60" y1="250" x2="860" y2="250" stroke="#C9CED4" stroke-width="1"></line>
+          <line x1="60" y1="30" x2="60" y2="250" stroke="#C9CED4" stroke-width="1"></line>
+          <path d="M 70 60 C 250 70, 450 110, 600 170 S 800 240, 860 246" fill="none" stroke="{{accent}}" stroke-width="2.5"></path>
+          <line x1="520" y1="30" x2="520" y2="250" stroke="#B7791F" stroke-width="1.5" stroke-dasharray="6 5"></line>
+          <text x="528" y="44" font-size="12" fill="#6B4A0B" font-family="Inter, system-ui, sans-serif">SLO: [—] tok/s per user</text>
+          <circle cx="400" cy="100" r="8" fill="#1B1F24"></circle>
+          <text x="414" y="96" font-size="12" fill="#1B1F24" font-family="Inter, system-ui, sans-serif">today's operating point</text>
+          <text x="60" y="276" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">more interactive (tokens per second per user)</text>
+          <text x="66" y="44" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">more throughput (tokens per second per GPU)</text>
+        </svg>
+        <span style="font-size: 12px; color: #57606A">Shape only. Moving right of the SLO line trades throughput for latency; the gap between the dot and the line is the headroom before the SLO breaks, read in tokens per minute above.</span>
+      </section>
+
+      <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600">Saturation</h2>
+            <span style="font-size: 13px; color: #57606A">Busy-window peaks; the 80% and 90% lines are the thresholds serving routers act on.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px">
+            <div style="display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: space-between"><span>KV-cache usage, p95</span><span style="color: #8C959F">[—]%</span></div><div style="position: relative; height: 12px; border-radius: 6px; background: #EEF1F4"><div style="height: 12px; width: 62%; border-radius: 6px; background: {{accent}}"></div><div style="position: absolute; top: -3px; left: 80%; width: 2px; height: 18px; background: #B7791F"></div><div style="position: absolute; top: -3px; left: 90%; width: 2px; height: 18px; background: #A32D2D"></div></div></div>
+            <div style="display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: space-between"><span>Running against waiting requests, p95</span><span style="color: #8C959F">[—] · [—]</span></div><div style="display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: #EEF1F4"><div style="width: 70%; background: {{accent}}"></div><div style="width: 10%; background: #B7791F"></div></div></div>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding-top: 4px">
+              <div style="padding: 12px; border: 1px solid #E1E4E8; border-radius: 10px; display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Pre-emptions per minute</span><span style="font-size: 18px; font-weight: 600; color: #8C959F">[—]</span></div>
+              <div style="padding: 12px; border: 1px solid #E1E4E8; border-radius: 10px; display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Queue time p99</span><span style="font-size: 18px; font-weight: 600; color: #8C959F">[—] ms</span></div>
+              <div style="padding: 12px; border: 1px solid #E1E4E8; border-radius: 10px; display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Batch tokens per step</span><span style="font-size: 18px; font-weight: 600; color: #8C959F">[—]</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600">Prefix cache by session depth</h2>
+            <span style="font-size: 13px; color: #57606A">Hit rate and first-token time by hit or miss. This is the measure the session cache-reuse hypothesis stands or falls on.</span>
+          </div>
+          <div style="overflow-x: auto">
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px">
+              <thead><tr style="text-align: left; color: #57606A; font-size: 12px"><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Depth</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Hit rate</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">TTFT hit</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">TTFT miss</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">GPU-s saved</th></tr></thead>
+              <tbody>
+                <tr><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4">turn 1</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]%</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td></tr>
+                <tr><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4">turns 2 to 3</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]%</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td></tr>
+                <tr><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4">turns 4 to 7</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]%</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td></tr>
+                <tr><td style="padding: 10px 8px">8 turns or more</td><td style="padding: 10px 8px; color: #8C959F">[—]%</td><td style="padding: 10px 8px; color: #8C959F">[—]</td><td style="padding: 10px 8px; color: #8C959F">[—]</td><td style="padding: 10px 8px; color: #8C959F">[—]</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <span style="font-size: 12px; color: #57606A">Pre-registered: hit rate should rise with depth and the hit-miss gap widen with prompt length. Flat hit rate across depth, or worse ITL on affinity pods, refutes it.</span>
+        </div>
+      </section>
+
+      <section style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 13px; color: #57606A">Dedicated machines</span>
+          <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #8C959F">[n] GPUs</span>
+          <span style="font-size: 13px; color: #57606A; line-height: 1.5">utilised [—]% · idle-allocated [—]% outside the busy window</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 13px; color: #57606A">Cost per million tokens on this capacity</span>
+          <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #8C959F">[—]</span>
+          <span style="font-size: 13px; color: #57606A; line-height: 1.5">server cost over tokens at the SLO line; vendor-equivalent [—]</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 13px; color: #57606A">If moved to shared serving as an adapter</span>
+          <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #8C959F">[—] saved per month</span>
+          <span style="font-size: 13px; color: #57606A; line-height: 1.5">where the governance tier allows; the loop's specialists serve this way</span>
+        </div>
+      </section>
+
+      <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px; color: #57606A">
+        <span>Goodput and the error budget from request events; saturation and cache from the serving engine's counters; the curve from scheduled sweeps.</span>
+        <a href="UC-Traffic.dc.html" style="font-weight: 500">Request shapes and latency live on Traffic</a>
+      </footer>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"$preview":{"width":1280,"height":1760}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#0B5E4C' };
+  }
+}
+</script>
+</body>
+</html>

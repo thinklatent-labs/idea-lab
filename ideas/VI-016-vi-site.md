@@ -68,7 +68,9 @@ _None recorded._
 | creates | second-consumer evidence for the kit | Catalogue rows at Idea maturity |
 
 ### Artifacts
-_None recorded._
+| Artifact | Kind | In this repo | Live | Exported |
+| --- | --- | --- | --- | --- |
+| VI site (vi-site) — Idea card | doc | [artifacts/VI-016-vi-site/idea-card.md](../artifacts/VI-016-vi-site/idea-card.md) | [claude.ai](https://claude.ai/artifact/9ZtoVU9roiRiACFjqe5nJu) | 2026-11-04 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

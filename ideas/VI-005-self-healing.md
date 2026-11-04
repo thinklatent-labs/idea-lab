@@ -62,7 +62,9 @@ _None recorded._
 _None recorded._
 
 ### Artifacts
-_None recorded._
+| Artifact | Kind | In this repo | Live | Exported |
+| --- | --- | --- | --- | --- |
+| Self-healing model system (self-healing) — Capability record | doc | [artifacts/VI-005-self-healing/capability-record.md](../artifacts/VI-005-self-healing/capability-record.md) | [claude.ai](https://claude.ai/artifact/9wU5GVJYZW5CoBik1xU5Gz) | 2026-11-04 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

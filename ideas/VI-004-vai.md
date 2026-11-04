@@ -92,7 +92,9 @@ Governance (separate team): not started, Judge-panel location and training-data 
 | serves | T-001 Sovereign AI | VAI inherits the theme from its parent |
 
 ### Artifacts
-_None recorded._
+| Artifact | Kind | In this repo | Live | Exported |
+| --- | --- | --- | --- | --- |
+| Vanguard AI Index — Project Definition | doc | [artifacts/VI-004-vai/proposal.md](../artifacts/VI-004-vai/proposal.md) | [claude.ai](https://claude.ai/artifact/4pwnZVstw8ZpcAP6sofN4U) | 2026-11-04 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

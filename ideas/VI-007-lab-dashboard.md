@@ -75,7 +75,10 @@ _None._
 | related-to | Weekly lab digest (VI-006 operations) | Same data contract; the digest answers the decision and staleness questions without a page |
 
 ### Artifacts
-_None recorded._
+| Artifact | Kind | In this repo | Live | Exported |
+| --- | --- | --- | --- | --- |
+| Idea Lab dashboard (lab-dashboard) — Idea card | doc | [artifacts/VI-007-lab-dashboard/idea-card.md](../artifacts/VI-007-lab-dashboard/idea-card.md) | [claude.ai](https://claude.ai/artifact/WFSu2rXsSAFzS6tqsDvHH8) | 2026-11-04 |
+| Idea Lab dashboard | page | [docs/index.html](../docs/index.html) | [claude.ai](https://claude.ai/artifact/X1ebYqg9d1QRr1GYJkaLMr) | 2026-11-04 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

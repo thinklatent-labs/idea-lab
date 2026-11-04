@@ -88,7 +88,17 @@ _None recorded._
 | reuses | VI-013 design-kit | First consumer and proving ground; the sketch's implicit language (Inter, one accent, tiles of four, one exhibit, honest placeholders, intervals, engineering view as a layer) is the kit's starting point |
 
 ### Artifacts
-_None recorded._
+| Artifact | Kind | In this repo | Live | Exported |
+| --- | --- | --- | --- | --- |
+| VI Portal (vi-portal) — Idea card | doc | [artifacts/VI-003-vi-portal/idea-card.md](../artifacts/VI-003-vi-portal/idea-card.md) | [claude.ai](https://claude.ai/artifact/QtTppN7KFdEDvjX7RRkEFn) | 2026-11-04 |
+| VI Portal playground | page | [artifacts/VI-003-vi-portal/playground/index.html](../artifacts/VI-003-vi-portal/playground/index.html) | [claude.ai](https://claude.ai/artifact/LHMeaT54htG3mzg914N7Ew) | 2026-11-04 |
+| VI Portal (vi-portal) — Interface sketch v3 | design | [artifacts/VI-003-vi-portal/interface-sketch-v3/project/canvas.json](../artifacts/VI-003-vi-portal/interface-sketch-v3/project/canvas.json) | [claude.ai](https://claude.ai/artifact/JuvPWSqT6SZFuyuxWv1Wn8) | 2026-11-04 |
+| scout-brief-vi-portal.md | brief | [artifacts/VI-003-vi-portal/scout-brief-vi-portal.md](../artifacts/VI-003-vi-portal/scout-brief-vi-portal.md) | [claude.ai](project-knowledge:claude/scout-brief-vi-portal.md) | 2026-11-04 |
+| scout-brief-kpis-feedback.md | brief | [artifacts/VI-003-vi-portal/scout-brief-kpis-feedback.md](../artifacts/VI-003-vi-portal/scout-brief-kpis-feedback.md) | [claude.ai](project-knowledge:claude/scout-brief-kpis-feedback.md) | 2026-11-04 |
+| scout-brief-adoption.md | brief | [artifacts/VI-003-vi-portal/scout-brief-adoption.md](../artifacts/VI-003-vi-portal/scout-brief-adoption.md) | [claude.ai](project-knowledge:claude/scout-brief-adoption.md) | 2026-11-04 |
+| scout-brief-eval-governance.md | brief | [artifacts/VI-003-vi-portal/scout-brief-eval-governance.md](../artifacts/VI-003-vi-portal/scout-brief-eval-governance.md) | [claude.ai](project-knowledge:claude/scout-brief-eval-governance.md) | 2026-11-04 |
+| scout-brief-platform-features.md | brief | [artifacts/VI-003-vi-portal/scout-brief-platform-features.md](../artifacts/VI-003-vi-portal/scout-brief-platform-features.md) | [claude.ai](project-knowledge:claude/scout-brief-platform-features.md) | 2026-11-04 |
+| scout-brief-serving-telemetry.md | brief | [artifacts/VI-003-vi-portal/scout-brief-serving-telemetry.md](../artifacts/VI-003-vi-portal/scout-brief-serving-telemetry.md) | [claude.ai](project-knowledge:claude/scout-brief-serving-telemetry.md) | 2026-11-04 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

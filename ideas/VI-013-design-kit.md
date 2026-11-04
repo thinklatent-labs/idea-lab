@@ -65,7 +65,13 @@ _None recorded._
 | reuses | Lucide | Permissive licences only; flags in the brief (axe-core MPL, Pa11y LGPL, Atlassian licence, Highcharts behind Salt charts) |
 
 ### Artifacts
-_None recorded._
+| Artifact | Kind | In this repo | Live | Exported |
+| --- | --- | --- | --- | --- |
+| VI design kit (design-kit) — Idea card: Design DNA | doc | [artifacts/VI-013-design-kit/design-dna.md](../artifacts/VI-013-design-kit/design-dna.md) | [claude.ai](https://claude.ai/artifact/UyE1iU6au9kWBcVRoyangw) | 2026-11-04 |
+| VI design kit (design-kit) — Idea card: Idea card | doc | [artifacts/VI-013-design-kit/idea-card.md](../artifacts/VI-013-design-kit/idea-card.md) | [claude.ai](https://claude.ai/artifact/UyE1iU6au9kWBcVRoyangw) | 2026-11-04 |
+| VI design kit (design-kit) — Idea card: Inventory | doc | [artifacts/VI-013-design-kit/inventory.md](../artifacts/VI-013-design-kit/inventory.md) | [claude.ai](https://claude.ai/artifact/UyE1iU6au9kWBcVRoyangw) | 2026-11-04 |
+| VI design kit — kit-test screens v3 (Steel on Graphite) | design | [artifacts/VI-013-design-kit/kit-test-screens-v3/project/canvas.json](../artifacts/VI-013-design-kit/kit-test-screens-v3/project/canvas.json) | [claude.ai](https://claude.ai/artifact/U3eDnJ7sLzNb6AvBhA92up) | 2026-11-04 |
+| scout-brief-design-kit.md | brief | [artifacts/VI-013-design-kit/scout-brief-design-kit.md](../artifacts/VI-013-design-kit/scout-brief-design-kit.md) | [claude.ai](project-knowledge:claude/scout-brief-design-kit.md) | 2026-11-04 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

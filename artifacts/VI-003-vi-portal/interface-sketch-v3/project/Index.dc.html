@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vanguard AI Index: domain scorecard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F4F5F7;font-family:Inter,system-ui,sans-serif;color:#1B1F24}
+a{color:#0B5E4C}a:hover{color:#08463A}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column; font-family: Inter, system-ui, sans-serif; color: #1B1F24; background: #F4F5F7">
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E1E4E8">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; min-height: 56px">
+      <a href="Catalogue.dc.html" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #1B1F24; font-weight: 600; font-size: 15px; min-height: 44px">
+        <span style="display: inline-block; width: 22px; height: 22px; border-radius: 6px; background: {{accent}}"></span>
+        VI Portal
+      </a>
+      <nav aria-label="Primary" style="display: flex; align-items: center; gap: 4px; flex: 1 1 320px; min-width: 0; font-size: 14px">
+        <a href="Catalogue.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Models</a>
+        <a href="UseCases.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Use cases</a>
+        <a href="Index.dc.html" style="padding: 10px 12px; text-decoration: none; color: #1B1F24; font-weight: 600; border-bottom: 2px solid {{accent}}">Index</a>
+        <a href="Training.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Training</a>
+        <a href="Blueprints.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Blueprints</a>
+        <a href="Assistant.dc.html" style="padding: 10px 12px; text-decoration: none; color: #57606A; font-weight: 500">Get started</a>
+      </nav>
+      <a href="Registry.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 8px; border: 1px solid #C9CED4; background: #FFFFFF; color: #1B1F24; text-decoration: none; font-weight: 500; font-size: 14px">Model registry</a>
+    </div>
+  </header>
+
+  <main style="flex: 1 1 auto; width: 100%; max-width: 1280px; margin: 0 auto; padding: 32px 32px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+
+    <section style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-end">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 760px">
+        <h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.01em">Vanguard AI Index</h1>
+        <p style="margin: 0; font-size: 15px; color: #57606A; line-height: 1.5">Which models are sufficient for which Vanguard jobs, and at what cost. Scores by pillar, bars that a workflow must clear, and the same questions asked of frontier models for comparison. The hypothesis on the line: sufficiency over size.</p>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; font-size: 13px; align-items: center">
+        <div role="group" aria-label="Run kind" style="display: flex; gap: 4px; padding: 4px; background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 10px">
+          <button style="min-height: 36px; padding: 0 12px; border-radius: 7px; border: 0; background: {{accent}}; color: #FFFFFF; font: 500 13px Inter, system-ui, sans-serif; cursor: pointer">Official</button>
+          <button style="min-height: 36px; padding: 0 12px; border-radius: 7px; border: 0; background: transparent; color: #57606A; font: 500 13px Inter, system-ui, sans-serif; cursor: pointer">Practice</button>
+        </div>
+        <span style="padding: 6px 12px; border-radius: 8px; border: 1px solid #E1E4E8; background: #FFFFFF; color: #57606A">Release [version] · evaluated [date] · [—] items</span>
+        <span style="padding: 6px 12px; border-radius: 8px; border: 1px solid #E1E4E8; background: #FFFFFF; color: #57606A">Judge agreement with humans: [—] overall</span>
+      </div>
+    </section>
+    <p style="margin: -12px 0 0; font-size: 13px; color: #57606A; max-width: 900px; line-height: 1.5"><span style="font-weight: 600; color: #1B1F24">Official</span> runs are pinned (items, judge version, decoding settings, endpoint) and are the only ones a record may cite. <span style="font-weight: 600; color: #1B1F24">Practice</span> runs are anyone's experiments: visible, comparable, never evidence.</p>
+
+    <section aria-labelledby="score-h" style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 id="score-h" style="margin: 0; font-size: 16px; font-weight: 600">Domain scorecard</h2>
+          <span style="font-size: 13px; color: #57606A">Rows are pillars (domains and skills), columns are models. A filled cell clears the bar for that pillar; an outlined cell does not. Cells show score ± 95% interval on n = [—] items; "too few" when n is below [—]. Click a cell for the items behind it.</span>
+        </div>
+        <div role="group" aria-label="View" style="display: flex; gap: 4px; padding: 4px; background: #F4F5F7; border: 1px solid #E1E4E8; border-radius: 10px">
+          <button style="min-height: 40px; padding: 0 14px; border-radius: 7px; border: 0; background: #FFFFFF; color: #1B1F24; font: 500 13px Inter, system-ui, sans-serif; cursor: pointer">Score</button>
+          <button style="min-height: 40px; padding: 0 14px; border-radius: 7px; border: 0; background: transparent; color: #57606A; font: 500 13px Inter, system-ui, sans-serif; cursor: pointer">Bars cleared</button>
+          <button style="min-height: 40px; padding: 0 14px; border-radius: 7px; border: 0; background: transparent; color: #57606A; font: 500 13px Inter, system-ui, sans-serif; cursor: pointer">Cost per unit</button>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 200px repeat(6, minmax(0, 1fr)); gap: 6px; font-size: 13px">
+        <div style="padding: 8px; color: #57606A; font-size: 12px">pillar · model</div>
+        <div style="padding: 8px; text-align: center; font-weight: 500">VGLM4 Core</div>
+        <div style="padding: 8px; text-align: center; font-weight: 500">VGLM4 Distil</div>
+        <div style="padding: 8px; text-align: center; font-weight: 500">Specialist [task]</div>
+        <div style="padding: 8px; text-align: center; font-weight: 500; color: #57606A">VGLM3</div>
+        <div style="padding: 8px; text-align: center; font-weight: 500; color: #57606A">[frontier A]</div>
+        <div style="padding: 8px; text-align: center; font-weight: 500; color: #57606A">[frontier B]</div>
+
+        <div style="padding: 10px 8px; font-weight: 500; display: flex; align-items: center">Customer-care NLP</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.8); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.55); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px dashed #C9CED4; color: #57606A">not yet</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.3); color: #1B1F24; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.7); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.75); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+
+        <div style="padding: 10px 8px; font-weight: 500; display: flex; align-items: center">Financial data processing</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.7); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.45); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px dashed #C9CED4; color: #57606A">not yet</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #C9CED4; color: #57606A">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.75); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.7); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+
+        <div style="padding: 10px 8px; font-weight: 500; display: flex; align-items: center">Compliance and regulatory</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.75); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.4); color: #1B1F24; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px dashed #C9CED4; color: #57606A">not yet</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #C9CED4; color: #57606A">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.6); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.65); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+
+        <div style="padding: 10px 8px; font-weight: 500; display: flex; align-items: center">Sensitive entity recognition</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.85); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.6); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px dashed #C9CED4; color: #57606A">not yet</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.35); color: #1B1F24; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.5); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.55); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+
+        <div style="padding: 10px 8px; font-weight: 500; display: flex; align-items: center">Judging and scoring</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.6); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #C9CED4; color: #57606A">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px dashed #C9CED4; color: #57606A">not yet</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #C9CED4; color: #57606A">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.8); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.75); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+
+        <div style="padding: 10px 8px; font-weight: 500; display: flex; align-items: center">Agent skills</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.45); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #C9CED4; color: #57606A">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px dashed #C9CED4; color: #57606A">not yet</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #C9CED4; color: #57606A">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.85); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+        <div style="min-height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: rgba(11,94,76,0.8); color: #FFFFFF; font-weight: 500">[—] ± [—]</div>
+      </div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 12px; color: #57606A">
+        <span>Illustrative shape; scores, bars and pillar names come from the index release. Frontier columns are for comparison only.</span>
+        <span>Pillars here are the five MVP pillars plus candidates from the pillar council.</span>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-size: 16px; font-weight: 600">Sufficiency over size</h2>
+          <span style="font-size: 13px; color: #57606A">Each dot is a model; up is quality on Vanguard tasks, right is cost per million tokens. The bar is the line a job must clear.</span>
+        </div>
+        <svg viewBox="0 0 560 300" role="img" aria-label="Placeholder scatter of model quality against cost per million tokens, with a sufficiency bar" style="width: 100%; height: auto; display: block">
+          <line x1="50" y1="250" x2="540" y2="250" stroke="#C9CED4" stroke-width="1"></line>
+          <line x1="50" y1="30" x2="50" y2="250" stroke="#C9CED4" stroke-width="1"></line>
+          <line x1="50" y1="120" x2="540" y2="120" stroke="#B7791F" stroke-width="1.5" stroke-dasharray="6 5"></line>
+          <text x="440" y="112" font-size="12" fill="#6B4A0B" font-family="Inter, system-ui, sans-serif">bar for this job</text>
+          <circle cx="110" cy="98" r="9" fill="{{accent}}"></circle>
+          <text x="124" y="94" font-size="12" fill="#1B1F24" font-family="Inter, system-ui, sans-serif">Specialist [task]</text>
+          <circle cx="170" cy="88" r="9" fill="{{accent}}"></circle>
+          <text x="184" y="84" font-size="12" fill="#1B1F24" font-family="Inter, system-ui, sans-serif">VGLM4 Core</text>
+          <circle cx="130" cy="150" r="9" fill="#85B7A6"></circle>
+          <text x="144" y="166" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">VGLM4 Distil</text>
+          <circle cx="90" cy="200" r="9" fill="#C9CED4"></circle>
+          <text x="104" y="216" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">VGLM3</text>
+          <circle cx="420" cy="60" r="9" fill="#C9CED4"></circle>
+          <text x="434" y="56" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">[frontier A]</text>
+          <circle cx="490" cy="72" r="9" fill="#C9CED4"></circle>
+          <text x="440" y="96" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">[frontier B]</text>
+          <text x="50" y="276" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">lower cost</text>
+          <text x="470" y="276" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">higher cost</text>
+          <text x="56" y="44" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">quality on Vanguard tasks</text>
+        </svg>
+        <span style="font-size: 12px; color: #57606A">Illustrative positions. The claim it tests: an owned model that clears the bar at a fraction of the cost beats a frontier model that clears it by more.</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-size: 16px; font-weight: 600">Compare</h2>
+          <span style="font-size: 13px; color: #57606A">Any two columns of the scorecard, pillar by pillar, with the use cases each one is sufficient for.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="cmp-a" style="font-size: 12px; color: #57606A">Model A</label><select id="cmp-a" style="min-height: 44px; padding: 0 10px; border-radius: 8px; border: 1px solid #C9CED4; font: 400 14px Inter, system-ui, sans-serif; background: #FFFFFF; color: #1B1F24"><option>VGLM4 Core</option><option>VGLM4 Distil</option><option>Specialist [task]</option><option>VGLM3</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="cmp-b" style="font-size: 12px; color: #57606A">Model B</label><select id="cmp-b" style="min-height: 44px; padding: 0 10px; border-radius: 8px; border: 1px solid #C9CED4; font: 400 14px Inter, system-ui, sans-serif; background: #FFFFFF; color: #1B1F24"><option>[frontier A]</option><option>[frontier B]</option><option>VGLM4 Core</option></select></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+          <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Pillars where A clears the bar and B does not</span><span style="color: #8C959F">[—]</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Pillars where B clears and A does not</span><span style="color: #8C959F">[—]</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Cost per million tokens, A against B</span><span style="color: #8C959F">[—] · [—]</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Use cases A is sufficient for</span><span style="color: #8C959F">[n] of [m]</span></div>
+        </div>
+        <a href="Registry.dc.html" style="font-size: 14px; font-weight: 500">Open either model in the registry</a>
+      </div>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-size: 16px; font-weight: 600">Is the judge trustworthy, by pillar</h2>
+          <span style="font-size: 13px; color: #57606A">Agreement between the judge model and human labels on a held-out set per pillar. Below the floor, that pillar's judged scores are greyed out and a finding opens.</span>
+        </div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; border-collapse: collapse; font-size: 13px">
+            <thead><tr style="text-align: left; color: #57606A; font-size: 12px"><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Pillar</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Agreement κ</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Bias</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Labelled n</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Last calibrated</th></tr></thead>
+            <tbody>
+              <tr><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4">Customer-care NLP</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[date]</td></tr>
+              <tr><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4">Financial data processing</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[date]</td></tr>
+              <tr><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4">Compliance and regulatory <span style="margin-left: 6px; padding: 2px 8px; border-radius: 999px; background: #FBF1DD; color: #6B4A0B; font-size: 11px; font-weight: 600">stale</span></td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[date]</td></tr>
+              <tr><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4">Sensitive entity recognition</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">exact match, no judge</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">—</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">—</td></tr>
+              <tr><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4">Judging and scoring</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 9px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[date]</td></tr>
+              <tr><td style="padding: 9px 8px">Agent skills</td><td style="padding: 9px 8px; color: #8C959F">[—]</td><td style="padding: 9px 8px; color: #8C959F">[—]</td><td style="padding: 9px 8px; color: #8C959F">[—]</td><td style="padding: 9px 8px; color: #8C959F">[date]</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <span style="font-size: 12px; color: #57606A">Floor: κ [—]. Calibration re-runs on every judge version and every index release.</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-size: 16px; font-weight: 600">What changed in release [version]</h2>
+          <span style="font-size: 13px; color: #57606A">The diff between this release and the last, so a score that moved can be traced to items, judge or models, not guessed at.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; font-size: 13px">
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px; border-radius: 8px; background: #F4F5F7"><span style="color: #57606A">Items added / retired</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—] / [—]</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px; border-radius: 8px; background: #F4F5F7"><span style="color: #57606A">Judge version</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">v[—]</span><span style="color: #57606A">from v[—]</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px; border-radius: 8px; background: #F4F5F7"><span style="color: #57606A">Bars moved</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—]</span></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px">
+          <span style="font-weight: 600">Cells that flipped</span>
+          <div style="display: flex; justify-content: space-between; gap: 12px; padding: 9px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>VGLM4 Distil · Compliance and regulatory</span><span style="color: #8A2A1B; font-weight: 500">cleared → below bar (bar moved)</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 12px; padding: 9px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>VGLM4 Core · Agent skills</span><span style="color: #0B5E4C; font-weight: 500">below bar → cleared (items added)</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 12px; padding: 9px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>[frontier A] · Financial data processing</span><span style="color: #57606A">score moved inside its interval</span></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: #57606A; padding-top: 6px; border-top: 1px solid #EEF1F4">
+          <span><span style="font-weight: 600; color: #3C4651">Pinned for every Official row:</span> item set hash, judge version, decoding settings (temperature, max tokens), endpoint and model version, date. Shown on hover of any cell; exported with the audit pack.</span>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 600">Line items by use case</h2>
+        <span style="font-size: 13px; color: #57606A">Every production use case has its own line item: its tasks, evaluated on its own data, against its own bars.</span>
+      </div>
+      <div style="overflow-x: auto">
+        <table style="width: 100%; min-width: 860px; border-collapse: collapse; font-size: 14px">
+          <thead><tr style="text-align: left; color: #57606A; font-size: 12px"><th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Use case</th><th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Tasks</th><th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Labels (n)</th><th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Incumbent</th><th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Best candidate</th><th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Run</th><th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Last evaluated</th></tr></thead>
+          <tbody>
+            <tr><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><a href="UC-Quality.dc.html" style="text-decoration: none; font-weight: 600">Call summary to CRM</a></td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">4</td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4">curated · [—]</td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ± [—]</td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">none yet</td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 2px 8px; border-radius: 999px; background: #E6F2EE; color: #0B5E4C; font-size: 11px; font-weight: 600">Official [id]</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[date]</td></tr>
+            <tr><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; font-weight: 600">[use case 2]</td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">none; evaluated outside</td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">—</td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">—</td><td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[date]</td></tr>
+            <tr><td style="padding: 14px 8px; font-weight: 600">[use case 3]</td><td style="padding: 14px 8px; color: #8C959F">[—]</td><td style="padding: 14px 8px">curated · [—]</td><td style="padding: 14px 8px; color: #8C959F">[—] ± [—]</td><td style="padding: 14px 8px; color: #57606A">—</td><td style="padding: 14px 8px"><span style="padding: 2px 8px; border-radius: 999px; background: #EEF1F4; color: #3C4651; font-size: 11px; font-weight: 600">Practice only</span></td><td style="padding: 14px 8px; color: #8C959F">[date]</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section style="background: #FFFBF2; border: 1px solid #F0DDB2; border-radius: 12px; padding: 20px 24px; display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0; font-size: 15px; font-weight: 600; color: #6B4A0B">What this index cannot tell you</h2>
+      <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #6B4A0B; line-height: 1.6; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 24px">
+        <li>Whether a model is good at a task the pillars do not cover; a use case's own line item is the evidence for that.</li>
+        <li>Anything about traffic outside the item set's languages, lengths and formats; drift on the Quality page says when production has left the set.</li>
+        <li>Fine differences inside an interval; two models whose intervals overlap are tied here, whatever the ranking order suggests.</li>
+        <li>Judge-scored pillars are only as good as the calibration above; exact-match pillars do not have this problem.</li>
+        <li>Frontier columns are run through the same items from outside the boundary and may be days older than the owned columns.</li>
+        <li>A Practice run proves nothing to Risk; only an Official run is evidence on a record.</li>
+      </ul>
+    </section>
+
+    <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px; color: #57606A">
+      <span>The index runs against endpoints, so a model is scored exactly as it is served, with whatever sits inside the endpoint. Contributed datasets seed new pillars.</span>
+      <span>Quarterly report · Contribute a dataset or a use-case evaluation</span>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"$preview":{"width":1280,"height":2500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#0B5E4C' };
+  }
+}
+</script>
+</body>
+</html>
