@@ -61,10 +61,14 @@ _None recorded._
 ### Links
 _None recorded._
 
+### Artifacts
+_None recorded._
+
 ### Decision log
 | ID | Date | Decision | By | Status |
 | --- | --- | --- | --- | --- |
 | D-012 | 2026-11-01 | Capability record created; gap-report interface v0.1 drafted (item-free gap reports, heal return, fingerprint check, quarterly outside audit) | Thinking partner, pending VI team and Jithin | proposed |
+| D-032 | 2026-11-02 | (sync) reconciled owner from doc: VI team; interface owner to be named | Nightly sync | accepted |
 <!-- generated:end -->
 
 ## Notes

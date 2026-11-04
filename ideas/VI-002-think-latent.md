@@ -54,6 +54,9 @@ _None recorded._
 ### Links
 _None recorded._
 
+### Artifacts
+_None recorded._
+
 ### Decision log
 _None recorded._
 <!-- generated:end -->

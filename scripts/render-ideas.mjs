@@ -12,6 +12,11 @@ const reg = JSON.parse(readFileSync(path.join(root, 'register', 'register.json')
 const outDir = path.join(root, 'ideas');
 mkdirSync(outDir, { recursive: true });
 
+// artifacts/index.json lists each idea's exported claude.ai artifacts and scout briefs (written by the
+// session's artifact export); every idea page links its own.
+const artIndexFile = path.join(root, 'artifacts', 'index.json');
+const artifacts = existsSync(artIndexFile) ? JSON.parse(readFileSync(artIndexFile, 'utf8')) : [];
+
 const yaml = (v) => (v == null ? 'null' : typeof v === 'string' ? JSON.stringify(v) : Array.isArray(v) ? (v.length ? `[${v.map((x) => JSON.stringify(x)).join(', ')}]` : '[]') : JSON.stringify(v));
 const GEN_START = '<!-- generated:start -->';
 const GEN_END = '<!-- generated:end -->';
@@ -81,6 +86,9 @@ for (const i of reg.ideas) {
     '',
     `### Links`,
     table(reg.links.filter((l) => l.fromId === i.id), [['Link', (l) => l.type], ['To', (l) => l.toLabel], ['Note', (l) => l.note ?? '']]),
+    '',
+    `### Artifacts`,
+    table(artifacts.filter((a) => a.ideaId === i.id), [['Artifact', (a) => a.title], ['Kind', (a) => a.kind], ['In this repo', (a) => (a.path ? `[${a.path}](../${a.path})` : (a.note ?? 'not exported'))], ['Live', (a) => (a.sourceUrl ? `[claude.ai](${a.sourceUrl})` : '')], ['Exported', (a) => (a.exportedAt ?? '').slice(0, 10)]]),
     '',
     `### Decision log`,
     table(reg.decisions.filter((d) => d.ideaId === i.id), [['ID', (d) => d.id ?? ''], ['Date', (d) => d.date], ['Decision', (d) => d.decision], ['By', (d) => d.by], ['Status', (d) => d.status ?? (d.pending ? 'proposed' : 'accepted')]]),

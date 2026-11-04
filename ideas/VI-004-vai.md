@@ -91,6 +91,9 @@ Governance (separate team): not started, Judge-panel location and training-data 
 | creates | Skill-tandem records | Catalogue row at Proposed maturity |
 | serves | T-001 Sovereign AI | VAI inherits the theme from its parent |
 
+### Artifacts
+_None recorded._
+
 ### Decision log
 | ID | Date | Decision | By | Status |
 | --- | --- | --- | --- | --- |

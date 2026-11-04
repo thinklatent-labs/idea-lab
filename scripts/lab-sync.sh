@@ -19,6 +19,11 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+echo "0/5 install dependencies"
+# The validator needs ajv from dashboard/node_modules, so install before validating (a fresh CI
+# checkout has no node_modules; validating first failed every nightly run from 2026-11-02).
+( cd dashboard && { npm ci --no-audit --no-fund --legacy-peer-deps >/dev/null 2>&1 || npm install --no-audit --no-fund --legacy-peer-deps >/dev/null 2>&1; } )
+
 echo "1/5 validate"
 node dashboard/scripts/validate-register.mjs register/register.json
 
@@ -29,7 +34,7 @@ echo "3/5 render idea docs"
 node scripts/render-ideas.mjs
 
 echo "4/5 build dashboard"
-( cd dashboard && npm ci --no-audit --no-fund --legacy-peer-deps >/dev/null 2>&1 || npm install --no-audit --no-fund --legacy-peer-deps >/dev/null 2>&1; npm run -s build )
+( cd dashboard && npm run -s build )
 mkdir -p docs
 cp dashboard/dist/index.html docs/index.html
 rm -rf docs/data && cp -r dashboard/public/data docs/data

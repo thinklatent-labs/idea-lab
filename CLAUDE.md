@@ -11,6 +11,7 @@ Only the Claude session in the Idea Lab Project writes to this repository (throu
 - `register/register.json`: the single list of every idea, link, capability, decision, session and sync run (contract v1.2, `register/schema/register.schema.json`). Read it first, update it last, every session.
 - `register/history/`: one dated snapshot per export plus `index.json`; the dashboard diffs the two most recent.
 - `ideas/VI-###-slug.md`: one doc per idea. Frontmatter and the block between `<!-- generated:start -->` and `<!-- generated:end -->` are rendered from the register by `scripts/render-ideas.mjs`; write prose under `## Notes` and the headings after it.
+- `artifacts/VI-###-slug/`: read-only mirrors of each idea's claude.ai artifacts (idea card and its tabs as markdown, sketches, canvases and playgrounds as HTML) and its scout briefs from project knowledge, listed in `artifacts/index.json`. The live versions stay on claude.ai and win; edit there, then re-export. Every session that creates or changes an artifact re-exports it here before `scripts/lab-sync.sh`, and the nightly sync re-exports anything whose revision moved.
 - `dashboard/`: the React dashboard (Vite, TypeScript). `npm test`, `npm run build`. It reads `register/` through `scripts/sync-data.mjs`.
 - `docs/`: the built dashboard, for a private GitHub Pages site or for publishing as a claude.ai artifact.
 - `scripts/lab-sync.sh`: validate, snapshot, render, build, commit, push. Run it at the end of every session.
@@ -35,7 +36,7 @@ Brainstorm, Critic, Scout, Spec, Portfolio, Comms. Match the session to the stag
 1. Apply any waiting dashboard decisions first (lab-decisions skill). Then open with the session line: `Lab session · VI-### slug · Mode`, and read the row's last decision and next step back before acting.
 2. One chat, one scope: a single idea, a Portfolio session, or Lab operations. Lab-operations sessions change the Operating Model, the register's structure, standards and scheduled tasks, never an idea's stage, score or doc. Idea sessions write only their own idea's row, doc and links.
 3. Do not advance an idea past Stress test without a critique pass recorded.
-4. At the end: update the register row (stage, score, next step with a due date, links), add a decision-log line (immutable; a reversal is a new line that supersedes the old), add a Sessions row with a health call (on-track, at-risk, off-track), bump `asOf` and `source.registerRev`, then run `scripts/lab-sync.sh`.
+4. At the end: update the register row (stage, score, next step with a due date, links), add a decision-log line (immutable; a reversal is a new line that supersedes the old), add a Sessions row with a health call (on-track, at-risk, off-track), bump `asOf` and `source.registerRev`, re-export any artifact the session created or changed into `artifacts/` (with its `index.json` entry), then run `scripts/lab-sync.sh`. GitHub must match the live register and artifacts at the end of every session; a session that cannot push says so in its closing reply.
 
 ## Rules in the register
 

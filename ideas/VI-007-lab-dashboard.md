@@ -74,6 +74,9 @@ _None._
 | creates | Register data contract (register.json, JSON Schema, sync export step) | Catalogue row at Proposed maturity once the contract is written; demand already 3 (weekly digest, portfolio deck, nightly sync) |
 | related-to | Weekly lab digest (VI-006 operations) | Same data contract; the digest answers the decision and staleness questions without a page |
 
+### Artifacts
+_None recorded._
+
 ### Decision log
 | ID | Date | Decision | By | Status |
 | --- | --- | --- | --- | --- |
@@ -84,6 +87,7 @@ _None._
 | D-022 | 2026-11-02 | Dashboard moved to Building under S-A (owner, stream and appetite present); contract v1.2 built: new stages, rejection decisions, streams and phases, production surface, governance dependency, shipped record | Thinking partner, per Jithin's order | accepted |
 | D-023 | 2026-11-02 | Decision inbox: quick calls are made on the dashboard (fixed options, stored in the artifact's database), anything needing input goes to the chat; Claude applies quick calls at session open and in a morning pickup, then syncs to GitHub. Contract v1.3 | Jithin | accepted |
 | D-029 | 2026-11-02 | Approve the lifecycle change and the register columns: Approve; amend the Operating Model in a Lab-operations chat (decided on the dashboard 2026-11-02) | Jithin (dashboard) | accepted |
+| D-030 | 2026-11-02 | Moved to Building under S-A (owner, stream and appetite of 1.5 engineer-weeks present); version 3 published with the lifecycle, streams and phases, production surface, governance dependency and Shipped record | Thinking partner, per Jithin's order | accepted |
 <!-- generated:end -->
 
 ## Notes

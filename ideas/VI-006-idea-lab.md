@@ -54,6 +54,9 @@ _None recorded._
 ### Links
 _None recorded._
 
+### Artifacts
+_None recorded._
+
 ### Decision log
 | ID | Date | Decision | By | Status |
 | --- | --- | --- | --- | --- |
@@ -69,6 +72,7 @@ _None recorded._
 | D-021 | 2026-11-02 | Lifecycle changed: Funded is the default at Proposal (rejection is Jithin's explicit decision); stages Building and Shipped added; the Building gate is VAI's rule generalised (no owner, stream or appetite, no start); retrospectives measure Shipped; governance is a row-level dependency handled by a separate team; five streams of one engineer plus a coding agent; Proposal window 14 days, Building by appetite, Shipped 30 days to the metric read | Jithin | accepted |
 | D-027 | 2026-11-02 | Approve Portfolio session 1: Approve as drafted (decided on the dashboard 2026-11-02) | Jithin (dashboard) | accepted |
 | D-028 | 2026-11-02 | Set the Project's memory to connected: Done (decided on the dashboard 2026-11-02) | Jithin (dashboard) | accepted |
+| D-045 | 2026-11-02 | IDs come from an ID counter at the top of the register (next: VI-013), claimed with a guarded edit immediately before registering; never by counting rows; IDs never reused. Nightly sync now flags duplicate IDs, row-to-doc ID mismatches and a counter not above the highest ID, without renumbering. Prompted by the VI-012 double registration | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
