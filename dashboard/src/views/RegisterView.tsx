@@ -1,15 +1,35 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type KeyboardEvent, type ReactNode } from 'react';
+import { LayoutGroup, motion } from 'motion/react';
+import { ArrowDown, ArrowUp, ArrowUpRight, Search } from 'lucide-react';
+import { Status } from '@vi/kit';
+import { Badge } from '@vi/ui/components/badge';
+import { Button } from '@vi/ui/components/button';
+import { Input } from '@vi/ui/components/input';
+import { NativeSelect, NativeSelectOption } from '@vi/ui/components/native-select';
+import { cn } from '@vi/ui/lib/utils';
 import { useLab } from '../lib/context';
 import { STAGES, NODE_TYPES, HORIZONS, type Idea, type Stage } from '../lib/types';
-import { fmtDate } from '../lib/format';
-import { Horizon, NewChip, StageMark, TypeBadge } from '../components/ui';
+import { fmtDate, plural } from '../lib/format';
 import { healthOf, updateState } from '../lib/derive2';
+import { Dash, EmptyNote, HealthTag, IdLink, Segmented, StageTag } from '../vi/parts';
+import { spring } from '../vi/motion';
 
 type SortKey = 'id' | 'stage' | 'score' | 'touched' | 'attention';
 const STAGE_ORDER: Record<Stage, number> = { Seed: 0, Shaping: 1, 'Stress test': 2, Proposal: 3, Building: 4, Shipped: 5, Graduated: 6, Parked: 7, Killed: 8 };
+const SORTS: { value: SortKey; label: string }[] = [
+  { value: 'id', label: 'ID' },
+  { value: 'stage', label: 'Stage' },
+  { value: 'score', label: 'Score' },
+  { value: 'touched', label: 'Touched' },
+  { value: 'attention', label: 'Attention' },
+];
+// ID · title and next step · stage · in stage · health · score · stream and horizon · touched
+const COLS = 'lg:grid-cols-[150px_minmax(0,1fr)_118px_100px_124px_92px_96px_96px]';
+const COLS_NO_SCORE = 'lg:grid-cols-[150px_minmax(0,1fr)_118px_100px_124px_96px_96px]';
 
+/** Every row as the register holds it: search, filter, sort, and the row's record one tap away. */
 export default function RegisterView() {
-  const { reg, derived, now, selectedId, select, lastVisit, visibleIdeas, hidden } = useLab();
+  const { reg, derived, visibleIdeas, hidden } = useLab();
   const [stalledOnly, setStalledOnly] = useState(false);
   const [q, setQ] = useState('');
   const [type, setType] = useState('');
@@ -18,11 +38,17 @@ export default function RegisterView() {
   const [theme, setTheme] = useState('');
   const [sort, setSort] = useState<SortKey>('id');
   const [asc, setAsc] = useState(true);
+  const showScore = !hidden('rubric');
+
+  const isStalled = (i: Idea) => {
+    const d = derived.get(i.id)!;
+    return d.stale || (d.window != null && (d.daysInStage ?? 0) > d.window);
+  };
 
   const rows = useMemo(() => {
     const needle = q.trim().toLowerCase();
-    let list = visibleIdeas.filter((i) => {
-      if (stalledOnly && !(derived.get(i.id)!.stale || (derived.get(i.id)!.window != null && (derived.get(i.id)!.daysInStage ?? 0) > derived.get(i.id)!.window!))) return false;
+    const list = visibleIdeas.filter((i) => {
+      if (stalledOnly && !isStalled(i)) return false;
       if (type && i.type !== type) return false;
       if (stage && i.stage !== stage) return false;
       if (horizon && i.horizon !== horizon) return false;
@@ -47,159 +73,299 @@ export default function RegisterView() {
           return a.id.localeCompare(b.id);
       }
     };
-    list = [...list].sort((a, b) => (asc ? cmp(a, b) : -cmp(a, b)));
-    return list;
+    return [...list].sort((a, b) => (asc ? cmp(a, b) : -cmp(a, b)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visibleIdeas, derived, q, type, stage, horizon, theme, sort, asc, stalledOnly]);
 
-  const head = (key: SortKey, label: string) => (
-    <th
-      onClick={() => {
-        if (sort === key) setAsc(!asc);
-        else {
-          setSort(key);
-          setAsc(true);
-        }
-      }}
-      aria-sort={sort === key ? (asc ? 'ascending' : 'descending') : 'none'}
-    >
-      {label}
-      {sort === key ? (asc ? ' ↑' : ' ↓') : ''}
-    </th>
+  const sortBy = (key: SortKey) => {
+    if (sort === key) setAsc(!asc);
+    else {
+      setSort(key);
+      setAsc(true);
+    }
+  };
+  const filtersOn = !!(q || type || stage || horizon || theme || stalledOnly);
+  const clear = () => {
+    setQ('');
+    setType('');
+    setStage('');
+    setHorizon('');
+    setTheme('');
+    setStalledOnly(false);
+  };
+  const w = reg.stalenessWindows;
+
+  const head = (key: SortKey | null, label: string, className?: string) =>
+    key ? (
+      <button type="button" onClick={() => sortBy(key)} aria-sort={sort === key ? (asc ? 'ascending' : 'descending') : 'none'} className={cn('vi-caption inline-flex items-center gap-1 text-left uppercase tracking-wider hover:text-foreground', sort === key && 'text-foreground', className)}>
+        {label}
+        {sort === key && (asc ? <ArrowUp className="size-3" /> : <ArrowDown className="size-3" />)}
+      </button>
+    ) : (
+      <span className={cn('vi-caption uppercase tracking-wider', className)}>{label}</span>
+    );
+
+  return (
+    <div className="flex flex-col gap-5">
+      <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
+        <div className="min-w-0">
+          <div className="vi-caption">
+            Register · rev {reg.source.registerRev} · {plural(visibleIdeas.length, 'row')} · standard {reg.standardVersion}
+          </div>
+          <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">Register</h1>
+          <p className="mt-1.5 max-w-[760px] text-sm text-muted-foreground">Every row as the live register holds it. Tap a row for its lab record, links, decisions and next step.</p>
+        </div>
+        <div className="flex max-w-full min-w-0 flex-wrap items-center gap-2">
+          <span className="vi-caption">Sort</span>
+          <Segmented id="register-sort" size="sm" options={SORTS} value={sort} onChange={(v) => sortBy(v)} />
+          <Button size="icon-sm" variant="outline" className="rounded-full bg-background/60" aria-label={asc ? 'Ascending; switch to descending' : 'Descending; switch to ascending'} onClick={() => setAsc(!asc)}>
+            {asc ? <ArrowUp /> : <ArrowDown />}
+          </Button>
+        </div>
+      </header>
+
+      {/* Filters */}
+      <div className="flex flex-wrap items-center gap-2">
+        <label className="flex h-9 min-w-0 flex-1 basis-full items-center gap-2 rounded-full border border-foreground/15 bg-background/70 px-3.5 backdrop-blur sm:basis-auto sm:max-w-[360px]">
+          <Search className="size-4 shrink-0 text-muted-foreground" />
+          <Input id="reg-search" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search id, slug, title, alias, owner…" aria-label="Search the register" className="h-8 border-0 bg-transparent p-0 shadow-none focus-visible:ring-0 dark:bg-transparent" />
+        </label>
+        <Filter id="reg-type" label="Type" value={type} onChange={setType} all="All types">
+          {NODE_TYPES.map((t) => (
+            <NativeSelectOption key={t} value={t}>
+              {t}
+            </NativeSelectOption>
+          ))}
+        </Filter>
+        <Filter id="reg-stage" label="Stage" value={stage} onChange={setStage} all="All stages">
+          {STAGES.map((s) => (
+            <NativeSelectOption key={s} value={s}>
+              {s}
+            </NativeSelectOption>
+          ))}
+        </Filter>
+        <Filter id="reg-horizon" label="Horizon" value={horizon} onChange={setHorizon} all="All horizons">
+          {HORIZONS.map((h) => (
+            <NativeSelectOption key={h} value={h}>
+              {h}
+            </NativeSelectOption>
+          ))}
+        </Filter>
+        <Filter id="reg-theme" label="Theme" value={theme} onChange={setTheme} all="All themes">
+          {reg.themes.map((t) => (
+            <NativeSelectOption key={t.id} value={t.id}>
+              {t.id} {t.name.split(':')[0]}
+            </NativeSelectOption>
+          ))}
+          <NativeSelectOption value="none">No theme</NativeSelectOption>
+        </Filter>
+        <Button variant="outline" aria-pressed={stalledOnly} onClick={() => setStalledOnly(!stalledOnly)} className={cn('h-9 rounded-full bg-background/60', stalledOnly && 'border-transparent bg-primary text-primary-foreground hover:bg-primary/85 hover:text-primary-foreground')}>
+          Stalled only
+        </Button>
+        {filtersOn && (
+          <Button variant="ghost" className="h-9 rounded-full" onClick={clear}>
+            Clear filters
+          </Button>
+        )}
+      </div>
+
+      {/* Column heads, wide screens only; small screens get stacked cards. */}
+      <div className={cn('hidden items-center gap-3.5 px-4 lg:grid', showScore ? COLS : COLS_NO_SCORE)}>
+        {head('id', 'ID')}
+        {head(null, 'Row and next step')}
+        {head('stage', 'Stage')}
+        {head(null, 'In stage')}
+        {head(null, 'Health')}
+        {showScore && head('score', 'Score')}
+        {head(null, 'Stream')}
+        {head('touched', 'Touched')}
+      </div>
+
+      {rows.length === 0 ? (
+        <EmptyNote>
+          No row matches these filters.{' '}
+          <button type="button" className="underline underline-offset-4" onClick={clear}>
+            Clear them
+          </button>
+          .
+        </EmptyNote>
+      ) : (
+        <LayoutGroup>
+          <div className="flex flex-col gap-2">
+            {rows.map((i, n) => (
+              <RegisterRow key={i.id} idea={i} index={n} showScore={showScore} stalled={isStalled(i)} />
+            ))}
+          </div>
+        </LayoutGroup>
+      )}
+
+      <p className="px-1 text-xs text-muted-foreground">
+        {rows.length} of {plural(visibleIdeas.length, 'row')}. Standard in force: {reg.standardVersion}. Staleness windows: Seed {w.Seed ?? '—'}, Shaping {w.Shaping ?? '—'}, Stress test {w['Stress test'] ?? '—'}, Proposal {w.Proposal ?? '—'}
+        {w.Shipped != null ? `, Shipped ${w.Shipped}` : ''} days; Building runs by its appetite; Parked by its re-check date.
+      </p>
+    </div>
+  );
+}
+
+function Filter({ id, label, value, onChange, all, children }: { id: string; label: string; value: string; onChange: (v: string) => void; all: string; children: ReactNode }) {
+  return (
+    <NativeSelect id={id} aria-label={label} value={value} onChange={(e) => onChange(e.target.value)} className={cn('[&_select]:h-9 [&_select]:rounded-full [&_select]:bg-background/70 [&_select]:pl-3.5', value && '[&_select]:border-foreground/40')}>
+      <NativeSelectOption value="">{all}</NativeSelectOption>
+      {children}
+    </NativeSelect>
+  );
+}
+
+function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index: number; showScore: boolean; stalled: boolean }) {
+  const { reg, derived, now, select, selectedId, lastVisit } = useLab();
+  const d = derived.get(i.id)!;
+  const isNew = !!lastVisit && i.lastTouched > lastVisit;
+  const ended = i.stage === 'Graduated' || i.stage === 'Killed';
+  const h = healthOf(reg, i.id);
+  const u = updateState(reg, i, now);
+  const open = () => select(i.id);
+  const onKey = (e: KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      open();
+    }
+  };
+  const stop = (e: { stopPropagation: () => void }) => e.stopPropagation();
+
+  const health = ended ? <Dash reason="not applicable" /> : <HealthTag health={h?.health} missing={u.level === 'warn' || u.level === 'alert'} />;
+  const inStage =
+    d.daysInStage != null ? (
+      <span>
+        <span className="vi-num">{d.daysInStage}</span> <span className="text-xs text-muted-foreground">days</span>
+      </span>
+    ) : (
+      <Dash reason="not recorded" />
+    );
+  const score =
+    i.score.composite != null ? (
+      <span title={i.score.note ?? i.score.status}>
+        <span className="vi-num">{i.score.composite.toFixed(2)}</span>
+        <span className="block text-[11px] text-muted-foreground">{i.score.status}</span>
+      </span>
+    ) : (
+      <Dash reason="not scored" />
+    );
+  const stream = (
+    <span className="flex flex-wrap items-center gap-1">
+      {i.streamId ? <Badge variant="secondary" className="rounded-full vi-num">{i.streamId}</Badge> : null}
+      {i.horizon ? (
+        <Badge variant="outline" className="rounded-full">
+          {i.horizon}
+        </Badge>
+      ) : null}
+      {!i.streamId && !i.horizon && <span className="text-xs text-muted-foreground">—</span>}
+    </span>
+  );
+  const touched = (
+    <span className="text-xs">
+      <span className="vi-num">{fmtDate(i.lastTouched)}</span>
+      {i.docUrl ? (
+        <a href={i.docUrl} target="_blank" rel="noreferrer" onClick={stop} className="mt-0.5 flex items-center gap-0.5 text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
+          doc <ArrowUpRight className="size-3" />
+        </a>
+      ) : (
+        <span className="mt-0.5 block truncate text-muted-foreground" title={i.docTitle ?? undefined}>
+          {i.docTitle ? 'doc pending' : 'no doc'}
+        </span>
+      )}
+    </span>
+  );
+  const stageCell = (
+    <span className="flex flex-col items-start gap-1">
+      <StageTag stage={i.stage} note={i.stageNote} />
+      {d.stale ? <Status tone="warning" word="Stale" /> : stalled ? <Status tone="warning" word="Stalled" /> : null}
+    </span>
   );
 
   return (
-    <>
-      <div className="view-title">
-        <div>
-          <h2>Register</h2>
-          <p>Every row as the live register holds it. Tap a row for its lab record, links, decisions and next step.</p>
+    <motion.div
+      layout="position"
+      layoutId={`reg-${i.id}`}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ ...spring.layout, opacity: { duration: 0.25, delay: Math.min(index, 14) * 0.025 }, y: { ...spring.soft, delay: Math.min(index, 14) * 0.025 } }}
+      role="button"
+      tabIndex={0}
+      onClick={open}
+      onKeyDown={onKey}
+      aria-current={selectedId === i.id ? 'true' : undefined}
+      className={cn('lab-row cursor-pointer px-4 py-3.5 transition-shadow outline-none hover:shadow-[0_8px_28px_rgba(0,0,0,0.06)] focus-visible:ring-2 focus-visible:ring-ring', selectedId === i.id && 'ring-2 ring-[var(--vi-brand)]')}
+    >
+      {/* Wide: one grid row. */}
+      <div className={cn('hidden items-center gap-3.5 lg:grid', showScore ? COLS : COLS_NO_SCORE)}>
+        <div className="min-w-0">
+          <div className="vi-num text-sm font-medium">{i.id}</div>
+          <div className="truncate text-xs text-muted-foreground">{i.slug}</div>
+          {isNew && <Status tone="info" word="Changed" className="mt-1" />}
         </div>
+        <div className="min-w-0">
+          <div className="truncate text-sm font-medium" title={i.title}>
+            {i.title}
+          </div>
+          <Meta idea={i} />
+          <div className="mt-1 line-clamp-1 text-xs text-muted-foreground" title={i.nextStep}>
+            Next: {i.nextStep}
+          </div>
+        </div>
+        <div>{stageCell}</div>
+        <div className="text-sm">{inStage}</div>
+        <div>{health}</div>
+        {showScore && <div className="text-sm">{score}</div>}
+        <div>{stream}</div>
+        <div>{touched}</div>
       </div>
-      <div className="row">
-        <input id="reg-search" type="search" placeholder="Search id, slug, title, alias, owner…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search the register" />
-        <select id="reg-type" value={type} onChange={(e) => setType(e.target.value)} aria-label="Type">
-          <option value="">All types</option>
-          {NODE_TYPES.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
-        <select id="reg-stage" value={stage} onChange={(e) => setStage(e.target.value)} aria-label="Stage">
-          <option value="">All stages</option>
-          {STAGES.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </select>
-        <select id="reg-horizon" value={horizon} onChange={(e) => setHorizon(e.target.value)} aria-label="Horizon">
-          <option value="">All horizons</option>
-          {HORIZONS.map((h) => (
-            <option key={h} value={h}>
-              {h}
-            </option>
-          ))}
-        </select>
-        <select id="reg-theme" value={theme} onChange={(e) => setTheme(e.target.value)} aria-label="Theme">
-          <option value="">All themes</option>
-          {reg.themes.map((t) => (
-            <option key={t.id} value={t.id}>
-              {t.id} {t.name.split(':')[0]}
-            </option>
-          ))}
-          <option value="none">No theme</option>
-        </select>
-        <button type="button" className="chip toggle" aria-pressed={stalledOnly} onClick={() => setStalledOnly(!stalledOnly)}>
-          Stalled only
-        </button>
-        <select id="reg-sort" value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label="Sort">
-          <option value="id">Sort: ID</option>
-          <option value="stage">Sort: stage</option>
-          <option value="score">Sort: score</option>
-          <option value="touched">Sort: last touched</option>
-          <option value="attention">Sort: attention</option>
-        </select>
+
+      {/* Phone and tablet: a stacked card with the same facts. */}
+      <div className="lg:hidden">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <span className="vi-num text-sm font-medium">{i.id}</span>
+          <span className="text-xs text-muted-foreground">{i.slug}</span>
+          {stageCell}
+          {isNew && <Status tone="info" word="Changed" />}
+        </div>
+        <p className="mt-1.5 text-[15px] leading-snug font-medium">{i.title}</p>
+        <Meta idea={i} />
+        <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">Next: {i.nextStep}</p>
+        <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2.5 sm:grid-cols-4">
+          <Cell label="In stage">{inStage}</Cell>
+          <Cell label="Health">{health}</Cell>
+          {showScore && <Cell label="Score">{score}</Cell>}
+          <Cell label="Stream, horizon">{stream}</Cell>
+          <Cell label="Touched">{touched}</Cell>
+        </dl>
       </div>
-      <div className="table-wrap">
-        <table className="register">
-          <thead>
-            <tr>
-              {head('id', 'ID')}
-              <th>Title</th>
-              <th>Type</th>
-              <th>Parent</th>
-              <th>Stream</th>
-              {head('stage', 'Stage')}
-              <th>In stage</th>
-              <th>Health</th>
-              <th>Horizon</th>
-              {!hidden('rubric') && head('score', 'Score')}
-              <th>Owner</th>
-              <th>Doc</th>
-              {head('touched', 'Touched')}
-              <th>Next step</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((i) => {
-              const d = derived.get(i.id)!;
-              return (
-                <tr key={i.id} aria-current={selectedId === i.id ? 'true' : undefined} onClick={() => select(i.id)}>
-                  <td className="lead" data-label="ID">
-                    <span className="id">{i.id}</span> <span className="slug">{i.slug}</span>
-                    <NewChip show={!!lastVisit && i.lastTouched > lastVisit} />
-                  </td>
-                  <td className="lead" data-label="Title">
-                    {i.title}
-                  </td>
-                  <td data-label="Type">
-                    <TypeBadge type={i.type} />
-                  </td>
-                  <td data-label="Parent">{i.parentId ?? '—'}</td>
-                  <td data-label="Stream">{i.streamId ?? '—'}</td>
-                  <td data-label="Stage">
-                    <StageMark stage={i.stage} note={i.stageNote} />
-                    {d.stale && <span className="chip stale" style={{ marginLeft: 6 }}>stale</span>}
-                  </td>
-                  <td data-label="In stage">{d.daysInStage != null ? `${d.daysInStage} d` : 'not recorded'}{d.window != null && d.daysInStage != null && d.daysInStage > d.window ? <span className="chip warn" style={{ marginLeft: 6 }}>stalled</span> : null}</td>
-                  <td data-label="Health">
-                    {(() => {
-                      const h = healthOf(reg, i.id);
-                      const u = updateState(reg, i, now);
-                      if (i.stage === 'Graduated' || i.stage === 'Killed') return <span className="faint">—</span>;
-                      if (u.level === 'warn' || u.level === 'alert') return <span className="health" data-h="missing">update missing</span>;
-                      return h ? <span className="health" data-h={h.health}>{h.health.replace('-', ' ')}</span> : <span className="faint">no call yet</span>;
-                    })()}
-                  </td>
-                  <td data-label="Horizon">
-                    <Horizon h={i.horizon} />
-                  </td>
-                  {!hidden('rubric') && <td data-label="Score">{i.score.composite != null ? `${i.score.composite.toFixed(1)} ${i.score.status}` : '—'}</td>}
-                  <td data-label="Owner">{i.owner}</td>
-                  <td data-label="Doc">
-                    {i.docUrl ? (
-                      <a href={i.docUrl} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
-                        open
-                      </a>
-                    ) : (
-                      (i.docTitle ?? '—')
-                    )}
-                  </td>
-                  <td data-label="Touched">{fmtDate(i.lastTouched)}</td>
-                  <td className="next" data-label="Next">
-                    {i.nextStep}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-      <p className="faint small">
-        {rows.length} of {visibleIdeas.length} rows. Standard in force: {reg.standardVersion}. Staleness windows: Seed {reg.stalenessWindows.Seed}, Shaping {reg.stalenessWindows.Shaping}, Stress test{' '}
-        {reg.stalenessWindows['Stress test']}, Proposal {reg.stalenessWindows.Proposal}{reg.stalenessWindows.Shipped != null ? `, Shipped ${reg.stalenessWindows.Shipped}` : ''} days; Building by its appetite; Parked by its re-check date.
-      </p>
-    </>
+    </motion.div>
+  );
+}
+
+function Cell({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div className="min-w-0">
+      <dt className="vi-caption">{label}</dt>
+      <dd className="mt-0.5 text-sm">{children}</dd>
+    </div>
+  );
+}
+
+/** Type, parent and owner under the title. */
+function Meta({ idea: i }: { idea: Idea }) {
+  const { select } = useLab();
+  return (
+    <div className="mt-0.5 flex min-w-0 items-center gap-x-1.5 text-xs whitespace-nowrap text-muted-foreground">
+      <span className="shrink-0">{i.type}</span>
+      {i.parentId && (
+        <span className="shrink-0" onClick={(e) => e.stopPropagation()}>
+          of <IdLink id={i.parentId} onOpen={select} className="text-xs" />
+        </span>
+      )}
+      <span className="min-w-0 truncate" title={i.owner}>
+        · {i.owner}
+      </span>
+    </div>
   );
 }

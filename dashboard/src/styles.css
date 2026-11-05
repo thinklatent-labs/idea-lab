@@ -1,0 +1,135 @@
+/* Idea Lab on VI Kit. The kit (vendor/vi-kit, never edited) brings Tailwind, shadcn on Base UI, the VI theme and glass.
+   This file is the product layer: stage hues, the fields behind the glass, the dark dot grid and the Jarvis orb,
+   all from the kit's tokens. */
+@import "../vendor/vi-kit/packages/vi-kit/styles/index.css";
+@source "./";
+
+:root {
+  /* Stage hues: always beside the stage word, never the only cue. */
+  --lab-stage-seed: var(--vi-neutral-500);
+  --lab-stage-shaping: var(--vi-categorical-5);
+  --lab-stage-stress: var(--vi-status-warning-hue-light);
+  --lab-stage-proposal: var(--vi-categorical-3);
+  --lab-stage-building: var(--vi-brand-green-500);
+  --lab-stage-shipped: var(--vi-brand-teal-600);
+  --lab-stage-graduated: var(--vi-brand-green-800);
+  --lab-stage-parked: var(--vi-neutral-400);
+  --lab-stage-killed: var(--vi-brand-red-500);
+  --lab-good: var(--vi-status-good-hue-light);
+  --lab-warn: var(--vi-status-warning-hue-light);
+  --lab-crit: var(--vi-status-critical-hue-light);
+  --lab-info: var(--vi-status-info-hue-light);
+  --lab-row: rgba(255, 255, 255, 0.7);
+  --lab-row-border: rgba(255, 255, 255, 0.8);
+  --lab-track: var(--vi-role-light-track);
+  --lab-field-1: color-mix(in oklab, var(--vi-brand-green-500) 55%, transparent);
+  --lab-field-2: color-mix(in oklab, var(--vi-brand-teal-600) 60%, transparent);
+  --lab-field-3: color-mix(in oklab, var(--vi-brand-green-200) 50%, transparent);
+  --lab-dot: transparent;
+}
+
+.dark {
+  --lab-stage-seed: var(--vi-neutral-500);
+  --lab-stage-shaping: #b3aec6;
+  --lab-stage-stress: var(--vi-status-warning-hue-dark);
+  --lab-stage-proposal: var(--vi-status-info-hue-dark);
+  --lab-stage-building: var(--vi-brand-green-300);
+  --lab-stage-shipped: var(--vi-brand-teal-300);
+  --lab-stage-graduated: var(--vi-brand-green-400);
+  --lab-stage-parked: var(--vi-neutral-600);
+  --lab-stage-killed: var(--vi-brand-red-dark);
+  --lab-good: var(--vi-status-good-hue-dark);
+  --lab-warn: var(--vi-status-warning-hue-dark);
+  --lab-crit: var(--vi-status-critical-hue-dark);
+  --lab-info: var(--vi-status-info-hue-dark);
+  --lab-row: rgba(255, 255, 255, 0.05);
+  --lab-row-border: rgba(255, 255, 255, 0.1);
+  --lab-track: var(--vi-role-dark-track);
+  --lab-dot: rgba(255, 255, 255, 0.07);
+}
+
+/* Dark is black with a dot grid; light is the off-white canvas with colour fields behind the glass. */
+body {
+  background-color: var(--background);
+  background-image: radial-gradient(var(--lab-dot) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  min-height: 100dvh;
+}
+.lab-fields {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 760px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.lab-fields > i {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(48px);
+}
+.lab-fields > i:nth-child(1) { left: 14%; top: -140px; width: 600px; height: 600px; background: radial-gradient(closest-side, var(--lab-field-1), transparent); }
+.lab-fields > i:nth-child(2) { left: 44%; top: 30px; width: 720px; height: 720px; background: radial-gradient(closest-side, var(--lab-field-2), transparent); }
+.lab-fields > i:nth-child(3) { left: 70%; top: -100px; width: 560px; height: 560px; background: radial-gradient(closest-side, var(--lab-field-3), transparent); }
+.dark .lab-fields { display: none; }
+
+/* Floating rows (the kit's DataRows look) for lists the product renders itself. */
+.lab-row {
+  background: var(--lab-row);
+  border: 1px solid var(--lab-row-border);
+  border-radius: 20px;
+}
+.lab-track { background: var(--lab-track); }
+
+/* Stage dot and the stage word: hue plus word, never hue alone. */
+.lab-stage-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--lab-stage, currentColor); flex: none; }
+
+/* Scroll rows that should not show a bar (the phone dock, chip rows). */
+.lab-noscroll { scrollbar-width: none; }
+.lab-noscroll::-webkit-scrollbar { display: none; }
+
+/* Jarvis orb: the green and the teal of the VI logo blending, turning faster while Jarvis thinks and pulsing as it speaks. */
+@property --lab-orb-a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.jarvis-orb {
+  position: relative;
+  border-radius: 999px;
+  isolation: isolate;
+  background: conic-gradient(from var(--lab-orb-a), var(--vi-brand-green-300), var(--vi-brand-teal-300), var(--vi-brand-green-500), var(--vi-brand-teal-600), var(--vi-brand-green-200), var(--vi-brand-green-300));
+  animation: lab-orb-turn 9s linear infinite;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 6px 22px color-mix(in oklab, var(--vi-brand-green-500) 40%, transparent);
+}
+.jarvis-orb::before {
+  content: "";
+  position: absolute;
+  inset: 14%;
+  border-radius: inherit;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.15) 45%, transparent 70%);
+  mix-blend-mode: soft-light;
+}
+.jarvis-orb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 120%, color-mix(in oklab, var(--vi-brand-green-900) 55%, transparent), transparent 60%);
+}
+.jarvis-orb[data-state="thinking"] { animation-duration: 1.6s; }
+.jarvis-orb[data-state="speaking"] { animation-duration: 3s; }
+@keyframes lab-orb-turn { to { --lab-orb-a: 360deg; } }
+
+.lab-ring-pulse { animation: lab-ring 2.4s ease-out infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes lab-ring {
+  0% { opacity: 0.75; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.16, 1.3); }
+}
+
+/* Streaming text caret while Jarvis writes. */
+.lab-caret::after { content: ""; display: inline-block; width: 0.5em; height: 1em; margin-left: 2px; vertical-align: -0.15em; border-radius: 2px; background: currentColor; opacity: 0.45; animation: lab-blink 1s steps(2) infinite; }
+@keyframes lab-blink { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .jarvis-orb, .lab-ring-pulse, .lab-caret::after { animation: none; }
+}

@@ -16,6 +16,8 @@ export interface InboxDoc {
   decidedAt: string;
   decidedBy: string | null;
   status: InboxStatus;
+  /** "request": a request for the next lab chat that Jarvis drafted and Jithin queued; never applied as a quick call. */
+  kind?: 'quick' | 'request';
   appliedAt?: string;
   appliedNote?: string;
   decisionId?: string;
@@ -25,7 +27,8 @@ export interface Inbox {
   state: 'loading' | 'ready' | 'unavailable' | 'slow';
   canWrite: boolean;
   docs: Map<string, InboxDoc>;
-  decide: (doc: Omit<InboxDoc, 'decidedAt' | 'decidedBy' | 'status'>) => Promise<void>;
+  decide: (doc: Omit<InboxDoc, 'decidedAt' | 'decidedBy' | 'status'>) => Promise<boolean>;
+  request: (ideaId: string | null, text: string) => Promise<boolean>;
   withdraw: (itemId: string) => Promise<void>;
   error: string | null;
 }
@@ -88,12 +91,37 @@ export function useInbox(): Inbox {
   }, []);
 
   const decide: Inbox['decide'] = async (d) => {
-    if (!api) return;
+    if (!api) return false;
     setError(null);
     try {
-      await api.db.collection('inbox').doc(d.itemId).set({ ...d, decidedAt: new Date().toISOString(), decidedBy: api.uid, status: 'waiting' });
+      await api.db.collection('inbox').doc(d.itemId).set({ kind: 'quick', ...d, decidedAt: new Date().toISOString(), decidedBy: api.uid, status: 'waiting' });
+      return true;
     } catch (e: any) {
       setError(e?.code === 'invalid_argument' ? 'Only the dashboard owner can record decisions.' : 'The decision was not saved; try again.');
+      return false;
+    }
+  };
+  const request: Inbox['request'] = async (ideaId, text) => {
+    if (!api) return false;
+    setError(null);
+    const itemId = `REQ-${Date.now().toString(36)}`;
+    try {
+      await api.db.collection('inbox').doc(itemId).set({
+        kind: 'request',
+        itemId,
+        ideaId: ideaId ?? '',
+        itemText: text,
+        optionId: 'request',
+        optionLabel: 'Request for the next lab chat',
+        effect: `needs-chat: ${text}`,
+        decidedAt: new Date().toISOString(),
+        decidedBy: api.uid,
+        status: 'waiting',
+      });
+      return true;
+    } catch {
+      setError('The request was not queued; try again.');
+      return false;
     }
   };
   const withdraw: Inbox['withdraw'] = async (itemId) => {
@@ -104,5 +132,5 @@ export function useInbox(): Inbox {
       setError('The decision was not withdrawn; try again.');
     }
   };
-  return { state, canWrite, docs, decide, withdraw, error };
+  return { state, canWrite, docs, decide, request, withdraw, error };
 }

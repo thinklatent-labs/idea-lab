@@ -1,14 +1,22 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
+import { MessageSquareText } from 'lucide-react';
+import { Status } from '@vi/kit';
+import { Button } from '@vi/ui/components/button';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@vi/ui/components/tooltip';
 import { useLab } from '../lib/context';
 import { sessionLine, defaultMode } from '../lib/derive';
 import type { DueItem, Idea } from '../lib/types';
 import { fmtDate } from '../lib/format';
-import { CopyButton } from './ui';
+import { CopyLine, StageTag } from '../vi/parts';
+import { spring } from '../vi/motion';
+import { useJarvis } from '../jarvis/useJarvis';
 
-/** One decision waiting on Jithin. Quick calls get their options as buttons; input-needed items
- *  point to the chat with a copyable session line. */
+/** One decision waiting on Jithin. A quick call shows its options as pills; an input-needed item hands over to a
+ *  chat with the session line, or to Jarvis to prepare it. */
 export default function DueCard({ idea, item, showIdea = false }: { idea: Idea; item: DueItem; showIdea?: boolean }) {
   const { inbox, select } = useLab();
+  const jarvis = useJarvis();
   const rec = inbox.docs.get(item.id);
   const [changing, setChanging] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
@@ -25,74 +33,86 @@ export default function DueCard({ idea, item, showIdea = false }: { idea: Idea; 
   };
 
   return (
-    <div className="duecard" data-kind={item.kind} data-status={rec?.status ?? 'open'}>
-      <div className="duehead">
+    <motion.div layout transition={spring.layout} className="lab-row px-4 py-3.5">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
         {showIdea && (
-          <button type="button" className="link" onClick={() => select(idea.id)}>
-            {idea.id} {idea.slug}
+          <button type="button" onClick={() => select(idea.id)} className="inline-flex items-center gap-2 text-xs font-medium hover:underline">
+            <span className="vi-num">{idea.id}</span>
+            <span className="text-muted-foreground">{idea.slug}</span>
           </button>
         )}
-        <span className={`chip ${quick ? 'decision' : ''}`}>{quick ? 'quick call' : 'needs the chat'}</span>
+        {showIdea && <StageTag stage={idea.stage} />}
+        <span className="ml-auto">{quick ? <Status tone="critical" word="Quick call" /> : <Status tone="info" word="Needs the chat" />}</span>
       </div>
-      <p className="duetext">{item.text}</p>
+      <p className="mt-2 text-sm leading-snug">{item.text}</p>
 
       {quick && rec && !changing ? (
-        <div className="duestate">
+        <div className="mt-3 flex flex-wrap items-center gap-2">
           {rec.status === 'waiting' && (
             <>
-              <strong>Decided: {rec.optionLabel}.</strong> <span className="faint small">Recorded {fmtDate(rec.decidedAt)}; Claude applies it at the next session or the morning pickup.</span>
+              <Status tone="good" word={`Decided: ${rec.optionLabel}`} />
+              <span className="text-xs text-muted-foreground">Recorded {fmtDate(rec.decidedAt)}; Claude applies it at the next lab chat or the morning pickup.</span>
               {canPick && (
-                <div className="row" style={{ marginTop: 6 }}>
-                  <button type="button" className="btn small" onClick={() => setChanging(true)}>
+                <span className="ml-auto flex gap-1.5">
+                  <Button size="sm" variant="outline" className="rounded-full" onClick={() => setChanging(true)}>
                     Change
-                  </button>
-                  <button type="button" className="btn small ghost" onClick={() => inbox.withdraw(item.id)}>
+                  </Button>
+                  <Button size="sm" variant="ghost" className="rounded-full" onClick={() => inbox.withdraw(item.id)}>
                     Withdraw
-                  </button>
-                </div>
+                  </Button>
+                </span>
               )}
             </>
           )}
           {rec.status === 'applied' && (
             <>
-              <strong>Applied: {rec.optionLabel}.</strong> <span className="faint small">{rec.appliedNote ?? ''}{rec.decisionId ? ` (${rec.decisionId})` : ''} The register on this page refreshes at the next sync.</span>
+              <Status tone="good" word={`Applied: ${rec.optionLabel}`} />
+              <span className="text-xs text-muted-foreground">
+                {rec.appliedNote ?? ''}
+                {rec.decisionId ? ` (${rec.decisionId})` : ''} The register here refreshes at the next sync.
+              </span>
             </>
           )}
           {rec.status === 'needs-chat' && (
-            <>
-              <strong>Claude needs you in the chat.</strong> <span className="faint small">{rec.appliedNote ?? 'Something changed since you decided.'}</span>
-              <div style={{ marginTop: 6 }}>
-                <CopyButton text={sessionLine(idea, defaultMode(idea.stage))} label="Copy session line" />
-              </div>
-            </>
+            <div className="w-full space-y-2">
+              <Status tone="warning" word="Claude needs you in the chat" />
+              <p className="text-xs text-muted-foreground">{rec.appliedNote ?? 'Something changed since you decided.'}</p>
+              <CopyLine text={sessionLine(idea, defaultMode(idea.stage))} label="Copy session line" />
+            </div>
           )}
         </div>
       ) : quick ? (
         <>
-          <div className="dueopts">
+          <div className="mt-3 flex flex-wrap gap-2">
             {item.options!.map((o) => (
-              <button key={o.id} type="button" className="btn opt" disabled={!canPick || !!busy} title={`Applies: ${o.effect}`} onClick={() => pick(o.id)}>
-                {busy === o.id ? 'Saving…' : o.label}
-              </button>
+              <Tooltip key={o.id}>
+                <TooltipTrigger
+                  render={
+                    <Button size="sm" variant="outline" className="h-8 rounded-full px-3.5 data-[busy=true]:opacity-70" data-busy={busy === o.id} disabled={!canPick || !!busy} onClick={() => pick(o.id)}>
+                      {busy === o.id ? 'Saving…' : o.label}
+                    </Button>
+                  }
+                />
+                <TooltipContent className="max-w-xs">Applies: {o.effect}</TooltipContent>
+              </Tooltip>
             ))}
             {changing && (
-              <button type="button" className="btn small ghost" onClick={() => setChanging(false)}>
+              <Button size="sm" variant="ghost" className="h-8 rounded-full" onClick={() => setChanging(false)}>
                 Keep {rec?.optionLabel}
-              </button>
+              </Button>
             )}
           </div>
-          {!live && (
-            <p className="faint small" style={{ marginTop: 6 }}>
-              {inbox.state === 'loading' ? 'Connecting to the decision inbox…' : 'Decisions can be made only on the claude.ai dashboard; this copy is read-only.'}
-            </p>
-          )}
-          {live && !inbox.canWrite && <p className="faint small" style={{ marginTop: 6 }}>Only Jithin records decisions here.</p>}
+          {!live && <p className="mt-2 text-xs text-muted-foreground">{inbox.state === 'loading' ? 'Connecting to the decision inbox…' : 'Decisions are made on the claude.ai dashboard; this copy is read-only.'}</p>}
+          {live && !inbox.canWrite && <p className="mt-2 text-xs text-muted-foreground">Only Jithin records decisions here.</p>}
         </>
       ) : (
-        <div style={{ marginTop: 6 }}>
-          <CopyButton text={sessionLine(idea, defaultMode(idea.stage))} label="Copy session line" />
+        <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
+          <CopyLine className="min-w-0 flex-1" text={sessionLine(idea, defaultMode(idea.stage))} label="Copy session line" />
+          <Button size="sm" variant="outline" className="h-9 rounded-full" onClick={() => jarvis.ask(`Help me prepare this decision for ${idea.id} ${idea.slug}: "${item.text}". What does the register say, what are the options, and what would you recommend?`)}>
+            <MessageSquareText /> Prepare with Jarvis
+          </Button>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

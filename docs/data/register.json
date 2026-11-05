@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-05T17:33:00+05:30",
-  "generatedBy": "Session VI-007 lab-dashboard (2026-11-02, dashboard decisions applied), register rev 33.",
+  "asOf": "2026-11-05T21:35:00+05:30",
+  "generatedBy": "Session VI-007 lab-dashboard (2026-11-05, VI Kit, command center and Jarvis), register rev 223.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 216,
+    "registerRev": 223,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -788,7 +788,7 @@
       "parentId": "VI-006",
       "themeIds": [],
       "stage": "Building",
-      "stageNote": "Building under S-A; waves 1 to 3 shipped to a private artifact; first user read pending",
+      "stageNote": "Building under S-A; rebuilt on VI Kit (969f885) with spring motion, the command center and Jarvis, the register assistant through Claude on claude.ai; first user read pending",
       "stageSince": "2026-11-01",
       "horizon": "H1",
       "appetite": "Three sessions (one research and contract, two build), then a 30-day review",
@@ -803,8 +803,8 @@
       "docUrl": "https://claude.ai/artifact/WFSu2rXsSAFzS6tqsDvHH8",
       "docTitle": "Idea Lab dashboard (lab-dashboard) — Idea card",
       "standardVersion": "v1",
-      "lastTouched": "2026-11-02",
-      "nextStep": "Lab-operations chat: amend the Operating Model with the approved lifecycle (Building and Shipped, rejection decisions, the Building gate), point the nightly sync at the repo, add the register columns, name the five stream engineers; 30-day review on 2026-12-01",
+      "lastTouched": "2026-11-05",
+      "nextStep": "Jithin runs the week from the command center and Jarvis; H1 (weekly use), H2 (decisions citing a flag) and H5 (Jarvis use) are read at the 30-day review on 2026-12-01. The Lab-operations chat still owes the Operating Model lifecycle amendment, the register columns and the five stream engineers (S-A's engineer takes this row)",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -856,6 +856,16 @@
           "confidence": 60,
           "resolveBy": "2027-01-15",
           "result": "open"
+        },
+        {
+          "claim": "H5 Jarvis: Jithin works the lab through Jarvis",
+          "measurement": "Conversations he starts, and cards confirmed from Jarvis in the decision inbox",
+          "confirmedIf": "Twice a week, and at least one confirmed card a month, over 8 weeks",
+          "refutedIf": "Fewer than one conversation a fortnight after the first month",
+          "evidence": 0,
+          "confidence": 50,
+          "resolveBy": "2027-01-15",
+          "result": "open"
         }
       ],
       "openQuestions": [
@@ -893,7 +903,7 @@
         }
       ],
       "nextStepDue": "2026-12-01",
-      "nextStepOrigin": "D-020",
+      "nextStepOrigin": "D-111",
       "appetiteEnds": "2026-12-01",
       "createdOn": "2026-11-01",
       "stageHistory": [
@@ -938,6 +948,12 @@
           "by": null,
           "status": "open",
           "action": "Kill"
+        },
+        {
+          "signal": "Jarvis unused for 30 days after the first month",
+          "by": "2027-01-05",
+          "status": "open",
+          "action": "Remove the Jarvis panel and the sample capability; keep the brief the page writes from the rule table"
         }
       ],
       "outcome": null,
@@ -1175,7 +1191,7 @@
       "docTitle": "VI design kit (design-kit) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-05",
-      "nextStep": "In the VI-013 chat: Jithin reviews the component playground and picks the first components to adopt into @vi/kit, starting with the AI pieces the VI Portal's agent conversation needs (conversation, message, composer, reasoning, tool, confirmation, sources, context meter); adoption strips demo copy, types props for VI, moves Radix pieces to Base UI and restricts markdown image and link prefixes to VI origins. Jithin decides whether the Animate UI and React Bits licences go to Vanguard legal. Then: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts). Jithin, when he has access: verify the colour system against the brand guide and the logo tones; branch protection when a third person joins; then decisions 1 and 4 and inventory from row 31. From VI-016 (2026-11-04): the site is the kit's second consumer and needs a first tagged release to pin to; its light system is a candidate addition to the kit's light mode, and the pattern generator belongs in packages/vi-kit/assets",
+      "nextStep": "In the VI-013 chat: Jithin reviews the component playground and picks the first components to adopt into @vi/kit, starting with the AI pieces the VI Portal's agent conversation needs (conversation, message, composer, reasoning, tool, confirmation, sources, context meter); adoption strips demo copy, types props for VI, moves Radix pieces to Base UI and restricts markdown image and link prefixes to VI origins. Jithin decides whether the Animate UI and React Bits licences go to Vanguard legal. Then: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts). Jithin, when he has access: verify the colour system against the brand guide and the logo tones; branch protection when a third person joins; then decisions 1 and 4 and inventory from row 31. From VI-016 (2026-11-04): the site is the kit's second consumer and needs a first tagged release to pin to; its light system is a candidate addition to the kit's light mode, and the pattern generator belongs in packages/vi-kit/assets. From VI-007 (2026-11-05): the lab dashboard is the kit's third consumer, pinned to 969f885; its wrappers in dashboard/src/vi (spring motion, Shell D, the record sheet, the segmented control) and the Jarvis panel are candidates to upstream into @vi/kit",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -2133,6 +2149,27 @@
       "toId": "VI-003",
       "toLabel": "VI-003 vi-portal",
       "note": "The site links into the portal for the ten handed-over features and all evaluation; it carries outcome summaries and static images only"
+    },
+    {
+      "fromId": "VI-007",
+      "type": "reuses",
+      "toId": "VI-013",
+      "toLabel": "VI-013 design-kit",
+      "note": "VI Kit vendored at 969f885 into dashboard/vendor/vi-kit; the lab dashboard is the kit's third consumer"
+    },
+    {
+      "fromId": "VI-007",
+      "type": "creates",
+      "toId": "CAP-030",
+      "toLabel": "Register assistant (Jarvis)",
+      "note": "Claude through the artifact's sample capability, five page tools, propose-only cards into the decision inbox"
+    },
+    {
+      "fromId": "VI-007",
+      "type": "reuses",
+      "toId": "CAP-026",
+      "toLabel": "Propose-only harness policy",
+      "note": "Jarvis proposes; Jithin confirms every card"
     }
   ],
   "capabilities": [
@@ -2504,12 +2541,13 @@
       "createdBy": "VI-012",
       "createdById": "VI-012",
       "ideaId": "VI-012",
-      "reusedBy": "VI-008 default policy for every agent it serves",
+      "reusedBy": "VI-008 default policy for every agent it serves; VI-007 Jarvis (it proposes, Jithin confirms every card)",
       "reusedByIds": [
-        "VI-008"
+        "VI-008",
+        "VI-007"
       ],
-      "demand": 1,
-      "demandNote": "1"
+      "demand": 2,
+      "demandNote": "2"
     },
     {
       "id": "CAP-027",
@@ -2554,6 +2592,19 @@
       ],
       "demand": 1,
       "demandNote": "1"
+    },
+    {
+      "id": "CAP-030",
+      "name": "Register assistant (Jarvis): Claude through an artifact's sample capability, page tools, propose-only cards into a decision inbox",
+      "kind": "Platform",
+      "maturity": "Built",
+      "createdBy": "VI-007",
+      "createdById": "VI-007",
+      "ideaId": "VI-007",
+      "reusedBy": "None yet",
+      "reusedByIds": [],
+      "demand": 0,
+      "demandNote": "0"
     }
   ],
   "sessions": [
@@ -3118,6 +3169,19 @@
       "docsTouched": "VI-013 Idea card; vi-kit repo (7f7bfd5, 969f885); component playground v2 and v3; kit-test playground v9 and v10; this register",
       "health": "on-track",
       "nextStepDue": null
+    },
+    {
+      "date": "2026-11-05",
+      "scope": "VI-007 lab-dashboard",
+      "ideaIds": [
+        "VI-007"
+      ],
+      "mode": "Spec (build: the whole UI on VI Kit, the command center and Jarvis)",
+      "outcome": "On Jithin's order the dashboard was rebuilt on VI Kit 969f885, vendored at a pinned commit (kit-pull, with a check that fails on a locally edited kit file) and extended in dashboard/src/vi: Shell D with the dock inside the frame, spring motion throughout, and all nine views in the kit's language, Pulse now the command center (orient, judge, decide, act, trace; the pipeline as its one exhibit). Jarvis added: it answers through Claude on Jithin's account, reads the register, opens views and rows, reads a row in full and searches; it proposes quick calls and drafts requests for the next lab chat, which wait for his confirmation; it reads answers aloud with the device's own voices and does not listen. Google Fonts dropped for bundled Inter. 57 tests pass; the host check matches the plain page pixel for pixel in light and dark (D-107); the dashboard is republished with the sample capability. The lab-decisions skill now raises queued requests and never applies them",
+      "docsTouched": "VI-007 Idea card; Idea Lab dashboard (artifact); idea-lab repo (dashboard, lab-decisions skill, CLAUDE.md); this register",
+      "health": "on-track",
+      "healthNote": "Built and checked; the first-use read waits on Jithin using it",
+      "nextStepDue": "2026-12-01"
     }
   ],
   "decisions": [
@@ -4617,6 +4681,34 @@
       "infoLevel": null,
       "reviewOn": null,
       "supersedes": "D-106",
+      "type": "decision"
+    },
+    {
+      "id": "D-110",
+      "ideaId": "VI-007",
+      "date": "2026-11-05",
+      "decision": "The dashboard is built on VI Kit, vendored at a pinned commit (969f885) and never edited in the product: kit-pull refreshes it and refuses when a kit file was changed locally; the product's own wrappers (Shell D, spring motion, the command center, the record sheet) live in dashboard/src/vi and are candidates to upstream",
+      "by": "Jithin (order); thinking partner (build)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-111",
+      "ideaId": "VI-007",
+      "date": "2026-11-05",
+      "decision": "Jarvis joins the dashboard: it answers through Claude on Jithin's own account and reads only the register and the page; it proposes quick calls and drafts requests for the next lab chat, and nothing reaches the decision inbox until Jithin confirms a card; it never writes the register; it speaks with the device's own voices and does not listen (a claude.ai page has no microphone, and browser dictation would send the audio to a third party)",
+      "by": "Jithin (order); thinking partner (build)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": "2026-12-01",
+      "supersedes": null,
       "type": "decision"
     }
   ],

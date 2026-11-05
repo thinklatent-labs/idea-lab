@@ -15,15 +15,15 @@ VI-007 is a feature of the lab itself, at Shaping, unscored until its critique p
 | Type | Feature |
 | Parent | VI-006 idea-lab |
 | Theme served | None: inherited from VI-006, which serves no theme (a flag, not a failure) |
-| Stage | Shaping (P0 built and published 2026-11-01; a critique pass before Stress test) |
+| Stage | Building (under S-A since 2026-11-02; rebuilt on VI Kit with the command center and Jarvis 2026-11-05) |
 | Horizon | H1 |
 | Appetite | Three sessions (one research and contract, two build), then a 30-day review |
-| Owner | Jithin (sponsor); the thinking partner builds |
+| Owner | The thinking partner builds and holds the row under S-A until the stream engineer is named; Jithin sponsor |
 | Rubric composite | Not scored; proposed at the critique pass before the build |
-| Links | feature-of VI-006 idea-lab; reuses Idea Register, scheduled-task and brief patterns, Idea doc standard v1; creates Register data contract (register.json and schema); related-to the weekly lab digest |
+| Links | feature-of VI-006 idea-lab; reuses Idea Register, scheduled-task and brief patterns, Idea doc standard v1, VI-013 design-kit (VI Kit at 969f885) and the propose-only harness policy; creates Register data contract (register.json and schema) and the register assistant (Jarvis); related-to the weekly lab digest |
 | Sensitivity | None in this doc; the dashboard honours the register's sensitivity flag |
 | Standard version | v1 |
-| Last reviewed | 2026-11-01 |
+| Last reviewed | 2026-11-05 |
 | Register | [Idea Register](https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h) |
 
 ## Problem
@@ -52,6 +52,7 @@ Four claims, pre-registered before anything is built. H2 is the one that matters
 | H2 Decisions: the dashboard changes decisions | Decision log lines that cite a dashboard flag (stale, blocked, decision due) | At least one park, kill or booked session a month traced to a flag | Two monthly reviews pass with none |
 | H3 Pipeline: the nightly sync exports register.json without manual repair | Sync log rows | 27 of 30 nights clean | The export breaks twice in a month for structural reasons |
 | H4 Reach: a read-only snapshot is enough | Edits Jithin wants to make in the page but cannot | Fewer than one a week | Write-back asked for in two consecutive reviews |
+| H5 Jarvis: Jithin works the lab through Jarvis | Conversations he starts, and cards confirmed from Jarvis in the decision inbox | Twice a week, and at least one confirmed card a month, over 8 weeks | Fewer than one conversation a fortnight after the first month |
 
 ## Why now, why us
 
@@ -264,6 +265,15 @@ What changed in the page and the contract: two stages and their colours; a rejec
 
 What the seed says today under the new rules: VAI is funded and cannot start (leads unnamed, appetite unset; next step due 15 Nov); the portal's governance is on the critical path; the dashboard is Building under S-A with the thinking partner as owner until the stream engineer is named; every stream owner is to be named. Checks: 43 unit tests (lanes, the gate on VAI and the dashboard, a sponsor not counting as an owner, R-17 and R-18, the 14-day Proposal window, Shipped as a graduation gate, the snapshot diff seeing the stage change, the funnel through Building and Shipped), a type check, one render pass.
 
+**VI Kit, the command center and Jarvis (2026-11-05).** On Jithin's order the whole UI moved onto VI Kit (commit 969f885), vendored under dashboard/vendor/vi-kit and never edited there: `npm run kit:pull` refreshes it and refuses when a kit file was changed locally. The product's own wrappers live in dashboard/src/vi.
+
+- Shell D on every view: the floating pill bar with the day's agenda, the dock inside the frame (a top strip on phones), one sage pill springing between items; light is off-white with colour fields behind the glass, dark is black with a dot grid.
+- Motion on springs: segmented controls, count-ups, staggered arrivals, the record sheet (draggable on a phone), cards moving between Board lanes; all of it off under reduced motion.
+- Pulse became the command center, in the kit's order: orient (greeting, revision, live rows), judge (Jarvis's brief and four tiles), the pipeline as the one exhibit, decide (quick calls and questions for the chat), act (streams with appetite burn, due this week), trace (decisions since the last visit, health and alerts, portfolio).
+- Jarvis answers through Claude on Jithin's account (the artifact's sample capability), reading a digest of the register. It opens views and rows, reads a row in full, searches, and proposes quick calls or drafts requests for the next lab chat as cards Jithin confirms; nothing reaches the decision inbox before he does. Every answer carries its basis, a confidence line and its sources. It reads aloud with the device's own voices and does not listen. Off claude.ai it navigates by command only.
+- Checks: 57 unit tests; the host check (D-107) matches the plain page pixel for pixel in light and dark; Google Fonts dropped for bundled Inter, so the page calls nothing outside claude.ai at runtime.
+- Kill signal for Jarvis: unused for 30 days after the first month; then remove the panel and the sample capability and keep the brief the page writes from the rule table.
+
 ## Scout, second pass: how others run such sessions, and what to build next
 
 Three things recur across the eight practices below: the strongest systems fix the revisit date at the moment of decision, pre-registration is what makes killing cheap, and only the engineering practice (ADRs) treats the decision record itself as the asset. The lab's rules already lean the right way; the gaps are a date on every next step, an evidence column beside the score, and a decision log that never overwrites.
@@ -401,6 +411,7 @@ Decided 2026-11-01: Jithin accepted the recommendations (read-only v1, his own a
 | 2026-11-01 | Scout, second pass: 23-item backlog in three waves; wave 1 proposed as the next build; twelve process rules for the Lab-operations chat; wave 3 not before mid-2027 | Thinking partner, pending Jithin |
 | 2026-11-01 | All three waves ordered and built; contract v1.1 with optional fields; version 2 published with a first snapshot in data/history; the register columns, the sync export and the process rules remain a Lab-operations decision | Jithin (order); thinking partner (build) |
 | 2026-11-02 | Lifecycle change built into contract v1.2 and version 3: Building and Shipped stages, rejection as a decision type, the Building gate, production surface, governance as a dependency, streams and phases; dashboard moved to Building under S-A | Jithin (order); thinking partner (build) |
+| 2026-11-05 | Rebuilt on VI Kit 969f885 (vendored, pinned, never edited in the product) with spring motion, the command center and Jarvis; Jarvis proposes and Jithin confirms; H5 pre-registered | Jithin (order); thinking partner (build) |
 
 ## Sources
 

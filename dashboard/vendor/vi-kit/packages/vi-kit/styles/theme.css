@@ -1,0 +1,80 @@
+/* VI theme: maps shadcn's semantic variables to VI role tokens (built from packages/tokens).
+   Load after @vi/ui/styles/index.css. Light = off-white canvas; dark = black, nothing else. */
+@import "../../tokens/dist/css/vi.css";
+
+:root {
+  --background: var(--vi-role-light-canvas);
+  --foreground: var(--vi-role-light-ink);
+  --card: #ffffff;
+  --card-foreground: var(--vi-role-light-ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--vi-role-light-ink);
+  --primary: var(--vi-brand-green-800);
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f2;
+  --secondary-foreground: var(--vi-role-light-ink);
+  --muted: #f4f4f2;
+  --muted-foreground: var(--vi-role-light-secondary);
+  --accent: #e4e4e2;
+  --accent-foreground: var(--vi-role-light-ink);
+  --destructive: var(--vi-brand-red-500);
+  --border: var(--vi-role-light-hairline);
+  --input: var(--vi-role-light-hairline);
+  --ring: var(--vi-brand-green-300);
+  --chart-1: var(--vi-categorical-1);
+  --chart-2: var(--vi-categorical-2);
+  --chart-3: var(--vi-categorical-3);
+  --chart-4: var(--vi-categorical-4);
+  --chart-5: var(--vi-categorical-5);
+  --radius: 1rem;
+  --sidebar: transparent;
+  --sidebar-foreground: var(--vi-role-light-secondary);
+  --sidebar-primary: var(--vi-brand-green-500);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e4e4e2;
+  --sidebar-accent-foreground: var(--vi-role-light-ink);
+  --sidebar-border: transparent;
+  --sidebar-ring: var(--vi-brand-green-500);
+  /* VI-only */
+  --vi-brand: var(--vi-brand-green-300);
+  --vi-brand-fg: var(--vi-brand-green-900);
+  --vi-companion: var(--vi-brand-teal-600);
+  --vi-decision: var(--vi-brand-red-500);
+  --vi-lit: var(--vi-brand-green-300);
+  --vi-glass-tint: rgba(108, 183, 105, 0.22);
+}
+
+.dark {
+  --background: #000000;
+  --foreground: var(--vi-role-dark-text);
+  --card: rgba(16, 16, 16, 0.62);
+  --card-foreground: var(--vi-role-dark-text);
+  --popover: rgba(16, 16, 16, 0.86);
+  --popover-foreground: var(--vi-role-dark-text);
+  --primary: var(--vi-role-dark-anchor);
+  --primary-foreground: var(--vi-role-dark-anchor-fg);
+  --secondary: rgba(255, 255, 255, 0.08);
+  --secondary-foreground: var(--vi-role-dark-text);
+  --muted: rgba(255, 255, 255, 0.06);
+  --muted-foreground: var(--vi-role-dark-secondary);
+  --accent: rgba(255, 255, 255, 0.08);
+  --accent-foreground: var(--vi-role-dark-text);
+  --destructive: var(--vi-brand-red-dark);
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: var(--vi-brand-green-100);
+  --sidebar: transparent;
+  --sidebar-foreground: var(--vi-role-dark-secondary);
+  --sidebar-primary: var(--vi-brand-green-500);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 255, 255, 0.08);
+  --sidebar-accent-foreground: var(--vi-role-dark-text);
+  --sidebar-border: transparent;
+  --sidebar-ring: var(--vi-brand-green-100);
+  --vi-brand: var(--vi-brand-green-300);
+  --vi-brand-fg: var(--vi-brand-green-900);
+  --vi-companion: var(--vi-brand-teal-500);
+  --vi-decision: var(--vi-brand-red-dark);
+  --vi-lit: var(--vi-brand-green-300);
+  --vi-glass-tint: rgba(16, 16, 16, 0.6);
+}

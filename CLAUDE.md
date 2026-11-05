@@ -12,7 +12,7 @@ Only the Claude session in the Idea Lab Project writes to this repository (throu
 - `register/history/`: one dated snapshot per export plus `index.json`; the dashboard diffs the two most recent.
 - `ideas/VI-###-slug.md`: one doc per idea. Frontmatter and the block between `<!-- generated:start -->` and `<!-- generated:end -->` are rendered from the register by `scripts/render-ideas.mjs`; write prose under `## Notes` and the headings after it.
 - `artifacts/VI-###-slug/`: read-only mirrors of each idea's claude.ai artifacts (idea card and its tabs as markdown, sketches, canvases and playgrounds as HTML) and its scout briefs from project knowledge, listed in `artifacts/index.json`. The live versions stay on claude.ai and win; edit there, then re-export. Every session that creates or changes an artifact re-exports it here before `scripts/lab-sync.sh`, and the nightly sync re-exports anything whose revision moved.
-- `dashboard/`: the React dashboard (Vite, TypeScript). `npm test`, `npm run build`. It reads `register/` through `scripts/sync-data.mjs`.
+- `dashboard/`: the React dashboard (Vite, TypeScript) on VI Kit. The kit is vendored under `dashboard/vendor/vi-kit` at a pinned commit by `npm run kit:pull` (a vi-kit checkout next to idea-lab); never edit it there, `npm run kit:check` fails if anyone did. Product wrappers live in `dashboard/src/vi`, Jarvis in `dashboard/src/jarvis`. `npm test`, `npm run build`, then `node scripts/host-check.cjs` before publishing (D-107). It reads `register/` through `scripts/sync-data.mjs`.
 - `docs/`: the built dashboard, for a private GitHub Pages site or for publishing as a claude.ai artifact.
 - `scripts/lab-sync.sh`: validate, snapshot, render, build, commit, push. Run it at the end of every session.
 
@@ -48,4 +48,4 @@ Everything in the thinklatent-labs organisation is private. Never make this repo
 
 ## Decisions on the dashboard
 
-Due items are either quick calls (fixed options, decided by Jithin on the claude.ai dashboard and stored in the artifact's `inbox` collection) or input-needed (decided in a chat). Claude applies quick calls with the lab-decisions skill at the start of every session and in the morning pickup, then syncs. The GitHub copy of the dashboard is read-only and cannot take decisions.
+Due items are either quick calls (fixed options, decided by Jithin on the claude.ai dashboard and stored in the artifact's `inbox` collection) or input-needed (decided in a chat). Claude applies quick calls with the lab-decisions skill at the start of every session and in the morning pickup, then syncs. Jarvis, the dashboard's assistant, answers through Claude on claude.ai (the artifact's `sample` capability) and can queue requests for the next lab chat (`kind: request` in the inbox); the lab-decisions skill raises them and never applies them. The GitHub copy of the dashboard is read-only and cannot take decisions or reach Claude.

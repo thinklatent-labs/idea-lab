@@ -6,6 +6,7 @@ export interface Prefs {
   showFlagged?: boolean;
   queueFilter?: string;
   audience?: string;
+  theme?: 'light' | 'dark';
 }
 
 export function readLastVisit(): string | null {

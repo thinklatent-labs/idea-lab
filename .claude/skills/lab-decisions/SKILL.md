@@ -10,6 +10,7 @@ The dashboard artifact (https://claude.ai/artifact/X1ebYqg9d1QRr1GYJkaLMr) keeps
 ## Steps
 
 1. List the inbox: `ArtifactData` action `list`, collection `inbox`, on the artifact URL above. Keep only `status: "waiting"`. None waiting: say so in one line and stop.
+   - A document with `kind: "request"` (id `REQ-…`) is a request Jarvis drafted on the dashboard and Jithin queued for the next lab chat: `itemText` is the request, `ideaId` the row it concerns (empty for the lab as a whole). Never apply it as a quick call. Raise it at the top of the session's brief as a request from Jithin, act on it only inside the scope its row allows (an idea's request belongs to that idea's chat; capture it as one line in that row's next step otherwise), then update the document to `status: "needs-chat"` with `appliedNote` saying where it was raised. Requests are not register changes, so they need no decision line of their own.
 2. For each waiting document, find the item in `register/register.json`: the idea `ideaId`, a `decisionsDue` entry with the same `id`, an option with the same `optionId`.
    - Not found, or the idea has moved stage since `decidedAt` in a way that makes the option meaningless: do not apply. Update the inbox document to `status: "needs-chat"` with `appliedNote` saying what changed, and tell Jithin.
 3. Apply the option's `effect` to the register, exactly as written (for example "score status set, composite 4.0"; "appetiteWeeks 9"). Then:
