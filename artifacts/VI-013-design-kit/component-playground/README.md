@@ -1,9 +1,9 @@
 <!-- Pointer to a claude.ai artifact, exported 2026-11-05. Read-only; the live page and the vi-kit source are the source. -->
 # VI component playground (VI-013 design-kit)
 
-Live page: https://claude.ai/artifact/JRE7gG189EucQ2xWPDxkvv (version 1793873087-b420, published 2026-11-05)
+Live page: https://claude.ai/artifact/JRE7gG189EucQ2xWPDxkvv (version 1793877082-0d4a, version 2, published 2026-11-05)
 
-Not copied here: the built app is 233 files and 31 MB of generated code, rebuilt from source on every change. It is reproducible from the private repository thinklatent-labs/vi-kit at commit 82cd081:
+Not copied here: the built app is 234 files and 31 MB of generated code, rebuilt from source on every change. It is reproducible from the private repository thinklatent-labs/vi-kit at commit 7f7bfd5:
 
     pnpm install
     pnpm --filter catalog build      # needs ~6.6 GB of memory; output in apps/catalog/dist
@@ -16,5 +16,7 @@ Every component VI can legally copy, vendored into vi-kit as local source and re
 - Browse by group (VI kit, AI and chat, Animated, Component sets), by library or by kind; search; each component's page shows its demos and its import line.
 - Render status on every card, from a headless walk of all 2,543 entries (scripts/catalog-walk.mjs): 2,243 render on their own, 205 show nothing alone, 92 need props, 3 building blocks or heavy WebGL. Zero external requests.
 - "Left out, and why": the 48 components not copied because they reach the network or need code from a library's website. Animate UI and React Bits carry the Commons Clause (legal check before product use). Aceternity, Skiper UI and Hover.dev are not included (their licences forbid copying the source).
+
+Version 2 (2026-11-05): version 1 showed a blank page on claude.ai because its asset paths were absolute (/assets/...), which point nowhere when the page is served under a path. Built with relative paths now, and the first load is 46 files (6 MB) instead of 129 (13 MB). Checked headless with the host's page wrapper, under a path, in a cross-origin frame, with storage blocked and a strict CSP.
 
 Decision record: VI-013 idea card, decision log 2026-11-05; scout-brief-animated-libraries.md beside this folder.

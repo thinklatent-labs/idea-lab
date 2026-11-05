@@ -91,7 +91,7 @@ _None recorded._
 | Artifact | Kind | In this repo | Live | Exported |
 | --- | --- | --- | --- | --- |
 | VI Portal (vi-portal) — Idea card | doc | [artifacts/VI-003-vi-portal/idea-card.md](../artifacts/VI-003-vi-portal/idea-card.md) | [claude.ai](https://claude.ai/artifact/QtTppN7KFdEDvjX7RRkEFn) | 2026-11-04 |
-| VI Portal playground | page | [artifacts/VI-003-vi-portal/playground/README.md](../artifacts/VI-003-vi-portal/playground/README.md) | [claude.ai](https://claude.ai/artifact/LHMeaT54htG3mzg914N7Ew) | 2026-11-05 |
+| VI Portal playground | page | [artifacts/VI-003-vi-portal/playground/index.html](../artifacts/VI-003-vi-portal/playground/index.html) | [claude.ai](https://claude.ai/artifact/LHMeaT54htG3mzg914N7Ew) | 2026-11-05 |
 | VI Portal (vi-portal) — Interface sketch v3 | design | [artifacts/VI-003-vi-portal/interface-sketch-v3/project/canvas.json](../artifacts/VI-003-vi-portal/interface-sketch-v3/project/canvas.json) | [claude.ai](https://claude.ai/artifact/JuvPWSqT6SZFuyuxWv1Wn8) | 2026-11-04 |
 | scout-brief-vi-portal.md | brief | [artifacts/VI-003-vi-portal/scout-brief-vi-portal.md](../artifacts/VI-003-vi-portal/scout-brief-vi-portal.md) | [claude.ai](project-knowledge:claude/scout-brief-vi-portal.md) | 2026-11-04 |
 | scout-brief-kpis-feedback.md | brief | [artifacts/VI-003-vi-portal/scout-brief-kpis-feedback.md](../artifacts/VI-003-vi-portal/scout-brief-kpis-feedback.md) | [claude.ai](project-knowledge:claude/scout-brief-kpis-feedback.md) | 2026-11-04 |

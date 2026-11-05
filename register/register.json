@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-05T16:55:00+05:30",
+  "asOf": "2026-11-05T16:56:00+05:30",
   "generatedBy": "Session VI-007 lab-dashboard (2026-11-02, dashboard decisions applied), register rev 33.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 207,
+    "registerRev": 209,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1175,7 +1175,7 @@
       "docTitle": "VI design kit (design-kit) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-05",
-      "nextStep": "In the VI-013 chat: Jithin reviews the component playground and picks the first components to adopt into @vi/kit, starting with the AI pieces the VI Portal's agent conversation needs (conversation, message, composer, reasoning, tool, confirmation, sources, context meter); adoption strips demo copy, types props for VI, moves Radix pieces to Base UI and restricts markdown image and link prefixes to VI origins. Jithin decides whether the Animate UI and React Bits licences go to Vanguard legal. Then: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); republish the kit-test playground without its Motion and AI pages. Jithin, when he has access: verify the colour system against the brand guide and the logo tones; branch protection when a third person joins; then decisions 1 and 4 and inventory from row 31. From VI-016 (2026-11-04): the site is the kit's second consumer and needs a first tagged release to pin to; its light system is a candidate addition to the kit's light mode, and the pattern generator belongs in packages/vi-kit/assets",
+      "nextStep": "In the VI-013 chat: Jithin reviews the component playground and picks the first components to adopt into @vi/kit, starting with the AI pieces the VI Portal's agent conversation needs (conversation, message, composer, reasoning, tool, confirmation, sources, context meter); adoption strips demo copy, types props for VI, moves Radix pieces to Base UI and restricts markdown image and link prefixes to VI origins. Jithin decides whether the Animate UI and React Bits licences go to Vanguard legal. Then: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts). Jithin, when he has access: verify the colour system against the brand guide and the logo tones; branch protection when a third person joins; then decisions 1 and 4 and inventory from row 31. From VI-016 (2026-11-04): the site is the kit's second consumer and needs a first tagged release to pin to; its light system is a candidate addition to the kit's light mode, and the pattern generator belongs in packages/vi-kit/assets",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -3106,6 +3106,18 @@
       "docsTouched": "VI-013 Idea card; vi-kit repo (ed6edc0, d63e4da, 82cd081); component playground (new); this register",
       "health": "on-track",
       "nextStepDue": "2026-11-12"
+    },
+    {
+      "date": "2026-11-05",
+      "scope": "VI-013 design-kit (continued, evening)",
+      "ideaIds": [
+        "VI-013"
+      ],
+      "mode": "Spec (build fix: published playgrounds)",
+      "outcome": "Component playground showed a blank page on claude.ai: both playgrounds were built with absolute /assets/ paths, which point nowhere when the host serves the page under a path. Rebuilt with relative paths and republished: component playground version 2 (first load 46 files, 6 MB, down from 129 files, 13 MB), kit-test playground version 9 without its Motion and AI pages (10 files, down from 394). Headless check under host-like conditions: renders in about a second, 36 of 36 sampled pages, zero external requests; not yet seen in the claude.ai viewer itself",
+      "docsTouched": "VI-013 Idea card; vi-kit repo (7f7bfd5); component playground v2; kit-test playground v9; this register",
+      "health": "on-track",
+      "nextStepDue": null
     }
   ],
   "decisions": [
@@ -4578,6 +4590,20 @@
       "reviewOn": null,
       "supersedes": null,
       "type": "decision"
+    },
+    {
+      "id": "D-106",
+      "ideaId": "VI-013",
+      "date": "2026-11-05",
+      "decision": "Published pages use relative asset paths (Vite base './') and count as published only after a headless check under the artifact host's conditions: its page wrapper, served under a path, in a cross-origin frame, with storage blocked",
+      "by": "Thinking partner (after Jithin found the component playground blank)",
+      "pending": false,
+      "status": "accepted",
+      "door": null,
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
     }
   ],
   "syncLog": [
@@ -4622,6 +4648,13 @@
       "docsScanned": "The live register exported whole (rev 206); VI-013 Idea card (rev 51), kit-test canvas (new version, files unchanged), kit-test playground (version 7), component playground (version 1, new), scout-brief-animated-libraries.md (new)",
       "rowsChanged": "register.json brought to the live register: 14 Sessions rows, 19 decision lines (D-087 to D-105), 1 link (VI-016 depends-on VI-003), the 2026-11-05 nightly row and this row; Last touched, next step and stage note copied for VI-003, VI-004, VI-006, VI-013, VI-014 and VI-016. VI-013's live row: stage note and Doc links brought up to date",
       "flags": "GitHub: pushed (thinklatent-labs/idea-lab attached to this session with Jithin's approval). Not reconciled, left for a Lab-operations session: the VI-005 and VI-007 rows differ between this register and register.json from before 2026-11-04 (next step, stage note), and the decision lines of 2026-11-01 and 2026-11-02 for VI-006 and VI-007 carry later wording here than D-019 to D-021. Built playgrounds are mirrored as pointers to their vi-kit source (233 and 393 files), not copied"
+    },
+    {
+      "date": "2026-11-05",
+      "run": "Manual, in session (VI-013)",
+      "docsScanned": "VI-013 Idea card (rev 52), component playground (version 2), kit-test playground (version 9), this register",
+      "rowsChanged": "register.json: 1 Sessions row, 1 decision line (D-106), VI-013 next step (kit-test republish done, item removed) and this row. Mirrors: component playground pointer moved to version 2; kit-test playground built files mirrored again (10 files) now that its Motion and AI pages are gone",
+      "flags": "GitHub: pushed. Open from the row above, unchanged: the VI-005 and VI-007 rows and the D-019 to D-021 wording, left for a Lab-operations session"
     }
   ],
   "portfolio": {
