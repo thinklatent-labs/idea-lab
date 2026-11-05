@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-05T21:35:00+05:30",
+  "asOf": "2026-11-05T22:31:00+05:30",
   "generatedBy": "Session VI-007 lab-dashboard (2026-11-05, VI Kit, command center and Jarvis), register rev 223.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 223,
+    "registerRev": 224,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -3182,6 +3182,18 @@
       "health": "on-track",
       "healthNote": "Built and checked; the first-use read waits on Jithin using it",
       "nextStepDue": "2026-12-01"
+    },
+    {
+      "date": "2026-11-05",
+      "scope": "VI-013 design-kit (continued, night)",
+      "ideaIds": [
+        "VI-013"
+      ],
+      "mode": "Spec (build: one name on screen)",
+      "outcome": "Jithin confirmed the components look right, and asked for one name in the UI: the VI kit. The component playground no longer shows library names, licence labels, upstream commits or source paths; it is browsed by group (Core, AI and chat, Animated, Everyday components) and by kind; text inside vendored components and demos is shown under the kit's name by a build transform that leaves the source files as vendored. Checked headless inside the viewer's wrapper across every page and all 2,543 component pages: no library name or licence label on screen. Component playground version 4",
+      "docsTouched": "VI-013 Idea card; vi-kit repo (8f055c6); component playground v4; this register",
+      "health": "on-track",
+      "nextStepDue": null
     }
   ],
   "decisions": [
@@ -4710,6 +4722,20 @@
       "reviewOn": "2026-12-01",
       "supersedes": null,
       "type": "decision"
+    },
+    {
+      "id": "D-112",
+      "ideaId": "VI-013",
+      "date": "2026-11-05",
+      "decision": "Everything on screen is the VI kit: no source library names, licence labels or source paths in the playground or in products. Provenance (folders, manifests, licence files) stays in the repo, and a legal check stays visible, without naming the source, where a licence needs one",
+      "by": "Jithin (one name); thinking partner (mechanism)",
+      "pending": false,
+      "status": "accepted",
+      "door": null,
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
     }
   ],
   "syncLog": [
@@ -4768,6 +4794,13 @@
       "docsScanned": "VI-013 Idea card (rev 53), component playground (version 3), kit-test playground (version 10), this register",
       "rowsChanged": "register.json: 1 decision line (D-107, supersedes D-106), the evening Sessions row extended, and this row. Mirrors: component playground pointer moved to version 3; kit-test playground files refreshed (version 10)",
       "flags": "GitHub: pushed. Left for the VI-003 chat's own sync: its live changes this evening (VI-003's row, its Sessions row and its decision 11), so the two sessions don't number the same decision line twice"
+    },
+    {
+      "date": "2026-11-05",
+      "run": "Manual, in session (VI-013)",
+      "docsScanned": "VI-013 Idea card (rev 54), component playground (version 4), this register",
+      "rowsChanged": "register.json: 1 decision line (D-112), 1 Sessions row and this row. Mirror: component playground pointer moved to version 4",
+      "flags": "GitHub: pushed. The new line takes D-112 because D-108 and D-109 are unused in register.json after the VI-007 sync (they may be held for the VI-003 chat's lines)"
     }
   ],
   "portfolio": {

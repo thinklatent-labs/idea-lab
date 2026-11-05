@@ -1,9 +1,9 @@
 <!-- Pointer to a claude.ai artifact, exported 2026-11-05. Read-only; the live page and the vi-kit source are the source. -->
 # VI component playground (VI-013 design-kit)
 
-Live page: https://claude.ai/artifact/JRE7gG189EucQ2xWPDxkvv (version 1793880065-9852, version 3, published 2026-11-05)
+Live page: https://claude.ai/artifact/JRE7gG189EucQ2xWPDxkvv (version 1793898049-bb72, version 4, published 2026-11-05)
 
-Not copied here: the built app is 234 files and 31 MB of generated code, rebuilt from source on every change. It is reproducible from the private repository thinklatent-labs/vi-kit at commit 969f885:
+Not copied here: the built app is 234 files and 31 MB of generated code, rebuilt from source on every change. It is reproducible from the private repository thinklatent-labs/vi-kit at commit 8f055c6:
 
     pnpm install
     pnpm --filter catalog build      # needs ~6.6 GB of memory; output in apps/catalog/dist
@@ -22,3 +22,5 @@ Version 2 (2026-11-05): version 1 showed a blank page on claude.ai because its a
 Version 3 (2026-11-05): dark mode showed dark cards on a white page with black text in the claude.ai viewer, whose page wrapper sets its own background, text colour and font outside any CSS layer. The kit now states the page canvas, ink and type the same way, so the viewer's styles no longer win; inside a copy of the wrapper the page matches the plain render pixel for pixel, light and dark.
 
 Decision record: VI-013 idea card, decision log 2026-11-05; scout-brief-animated-libraries.md beside this folder.
+
+Version 4 (2026-11-05): one name on screen. The playground shows everything as the VI kit: no library names, licence labels, upstream commits or source paths; it is browsed by group (Core, AI and chat, Animated, Everyday components) and by kind. Text inside vendored components and demos is shown under the kit's name by a build transform; the vendored source files and their provenance (folders, manifests, licence files) are unchanged in the repo. The list above names the sources for the record; the playground itself does not.
