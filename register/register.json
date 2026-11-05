@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-05T16:56:00+05:30",
+  "asOf": "2026-11-05T17:33:00+05:30",
   "generatedBy": "Session VI-007 lab-dashboard (2026-11-02, dashboard decisions applied), register rev 33.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 209,
+    "registerRev": 216,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -3114,8 +3114,8 @@
         "VI-013"
       ],
       "mode": "Spec (build fix: published playgrounds)",
-      "outcome": "Component playground showed a blank page on claude.ai: both playgrounds were built with absolute /assets/ paths, which point nowhere when the host serves the page under a path. Rebuilt with relative paths and republished: component playground version 2 (first load 46 files, 6 MB, down from 129 files, 13 MB), kit-test playground version 9 without its Motion and AI pages (10 files, down from 394). Headless check under host-like conditions: renders in about a second, 36 of 36 sampled pages, zero external requests; not yet seen in the claude.ai viewer itself",
-      "docsTouched": "VI-013 Idea card; vi-kit repo (7f7bfd5); component playground v2; kit-test playground v9; this register",
+      "outcome": "Component playground showed a blank page on claude.ai: both playgrounds were built with absolute /assets/ paths, which point nowhere when the host serves the page under a path. Rebuilt with relative paths and republished: component playground version 2 (first load 46 files, 6 MB, down from 129 files, 13 MB), kit-test playground version 9 without its Motion and AI pages (10 files, down from 394). Headless check under host-like conditions: renders in about a second, 36 of 36 sampled pages, zero external requests; Jithin confirmed it renders in the claude.ai viewer. Then dark mode: the viewer's page wrapper overrode the kit's canvas, ink and type (white page, black text, system font); the kit now states them outside any layer, both playgrounds republished (component playground v3, kit-test playground v10), and the hosted render matches the plain page pixel for pixel in light and dark",
+      "docsTouched": "VI-013 Idea card; vi-kit repo (7f7bfd5, 969f885); component playground v2 and v3; kit-test playground v9 and v10; this register",
       "health": "on-track",
       "nextStepDue": null
     }
@@ -4604,6 +4604,20 @@
       "reviewOn": null,
       "supersedes": null,
       "type": "decision"
+    },
+    {
+      "id": "D-107",
+      "ideaId": "VI-013",
+      "date": "2026-11-05",
+      "decision": "Supersedes the line above: a published page counts as published only when a headless render inside the host's page wrapper (served under a path, in a cross-origin frame, with storage blocked) matches the plain page pixel for pixel in light and dark; the kit states its page canvas, ink and type outside any layer so a host's own styles cannot override them",
+      "by": "Thinking partner (after Jithin found dark mode broken)",
+      "pending": false,
+      "status": "accepted",
+      "door": null,
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": "D-106",
+      "type": "decision"
     }
   ],
   "syncLog": [
@@ -4655,6 +4669,13 @@
       "docsScanned": "VI-013 Idea card (rev 52), component playground (version 2), kit-test playground (version 9), this register",
       "rowsChanged": "register.json: 1 Sessions row, 1 decision line (D-106), VI-013 next step (kit-test republish done, item removed) and this row. Mirrors: component playground pointer moved to version 2; kit-test playground built files mirrored again (10 files) now that its Motion and AI pages are gone",
       "flags": "GitHub: pushed. Open from the row above, unchanged: the VI-005 and VI-007 rows and the D-019 to D-021 wording, left for a Lab-operations session"
+    },
+    {
+      "date": "2026-11-05",
+      "run": "Manual, in session (VI-013)",
+      "docsScanned": "VI-013 Idea card (rev 53), component playground (version 3), kit-test playground (version 10), this register",
+      "rowsChanged": "register.json: 1 decision line (D-107, supersedes D-106), the evening Sessions row extended, and this row. Mirrors: component playground pointer moved to version 3; kit-test playground files refreshed (version 10)",
+      "flags": "GitHub: pushed. Left for the VI-003 chat's own sync: its live changes this evening (VI-003's row, its Sessions row and its decision 11), so the two sessions don't number the same decision line twice"
     }
   ],
   "portfolio": {

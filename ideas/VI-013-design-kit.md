@@ -92,6 +92,7 @@ _None recorded._
 | D-103 | 2026-11-05 | All AI and chat components come in as @vi/ai, local source only; Radix is allowed inside @vi/ai as a compatibility layer and is removed piece by piece as components are adopted into @vi/kit on Base UI | Jithin (scope); thinking partner (mechanism) | accepted |
 | D-105 | 2026-11-05 | Every free component library VI can legally copy is vendored into vi-kit (16 sources) and reviewed in one component playground in the VI look; adoption into @vi/kit is chosen from there. Commons Clause libraries (Animate UI, React Bits) are in for review only until Vanguard legal clears them | Jithin (scope); thinking partner (mechanism) | accepted |
 | D-106 | 2026-11-05 | Published pages use relative asset paths (Vite base './') and count as published only after a headless check under the artifact host's conditions: its page wrapper, served under a path, in a cross-origin frame, with storage blocked | Thinking partner (after Jithin found the component playground blank) | accepted |
+| D-107 | 2026-11-05 | Supersedes the line above: a published page counts as published only when a headless render inside the host's page wrapper (served under a path, in a cross-origin frame, with storage blocked) matches the plain page pixel for pixel in light and dark; the kit states its page canvas, ink and type outside any layer so a host's own styles cannot override them | Thinking partner (after Jithin found dark mode broken) | accepted |
 <!-- generated:end -->
 
 ## Notes
