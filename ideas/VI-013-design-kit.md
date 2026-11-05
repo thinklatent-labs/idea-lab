@@ -17,10 +17,10 @@ score: null
 score_status: none
 doc_url: "https://claude.ai/artifact/UyE1iU6au9kWBcVRoyangw"
 standard: "v1"
-last_touched: 2026-11-03
+last_touched: 2026-11-05
 sensitivity: none
 critique_recorded: null
-next_step: "In the VI-013 chat: Jithin reviews the three kit screens and rules on 'below target' (below the target, or by more than the interval); then compact density and the AA contrast run to close H2, decision 3 (ECharts) to unblock the large-chart wrapper, Storybook; Jithin, when he has access: verify the colour system against the brand guide and the logo tones; branch protection when a third person joins; then decisions 1 and 4 and inventory from row 31"
+next_step: "In the VI-013 chat: Jithin reviews the component playground and picks the first components to adopt into @vi/kit, starting with the AI pieces the VI Portal's agent conversation needs (conversation, message, composer, reasoning, tool, confirmation, sources, context meter); adoption strips demo copy, types props for VI, moves Radix pieces to Base UI and restricts markdown image and link prefixes to VI origins. Jithin decides whether the Animate UI and React Bits licences go to Vanguard legal. Then: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); republish the kit-test playground without its Motion and AI pages. Jithin, when he has access: verify the colour system against the brand guide and the logo tones; branch protection when a third person joins; then decisions 1 and 4 and inventory from row 31. From VI-016 (2026-11-04): the site is the kit's second consumer and needs a first tagged release to pin to; its light system is a candidate addition to the kit's light mode, and the pattern generator belongs in packages/vi-kit/assets"
 next_step_due: null
 ---
 
@@ -29,11 +29,11 @@ next_step_due: null
 <!-- generated:start -->
 ## Lab record
 
-**VI-013 design-kit** · Capability · Shaping (idea card 2026-11-02; decision 2 taken: shadcn on Base UI, not forked; inventory of 85 components with rows 1 to 30 decided; decisions 1, 3, 4 and row 7 open) · H1
+**VI-013 design-kit** · Capability · Shaping (idea card 2026-11-02; decision 2 taken: shadcn on Base UI, not forked; look, navigation and colour system v1.1 fixed; the kit runs as code in the kit-test playground; every free component library vendored and reviewed in the component playground, 2026-11-05; open: decisions 1, 3, 4, H2's compact density and AA contrast run, inventory from row 31) · H1
 
 Owner: Head of VI (sponsor); kit core team of two to three to be named. Appetite: not set. Score: not scored .
 
-Next step: In the VI-013 chat: Jithin reviews the three kit screens and rules on 'below target' (below the target, or by more than the interval); then compact density and the AA contrast run to close H2, decision 3 (ECharts) to unblock the large-chart wrapper, Storybook; Jithin, when he has access: verify the colour system against the brand guide and the logo tones; branch protection when a third person joins; then decisions 1 and 4 and inventory from row 31
+Next step: In the VI-013 chat: Jithin reviews the component playground and picks the first components to adopt into @vi/kit, starting with the AI pieces the VI Portal's agent conversation needs (conversation, message, composer, reasoning, tool, confirmation, sources, context meter); adoption strips demo copy, types props for VI, moves Radix pieces to Base UI and restricts markdown image and link prefixes to VI origins. Jithin decides whether the Animate UI and React Bits licences go to Vanguard legal. Then: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); republish the kit-test playground without its Motion and AI pages. Jithin, when he has access: verify the colour system against the brand guide and the logo tones; branch protection when a third person joins; then decisions 1 and 4 and inventory from row 31. From VI-016 (2026-11-04): the site is the kit's second consumer and needs a first tagged release to pin to; its light system is a candidate addition to the kit's light mode, and the pattern generator belongs in packages/vi-kit/assets
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -68,10 +68,12 @@ _None recorded._
 | Artifact | Kind | In this repo | Live | Exported |
 | --- | --- | --- | --- | --- |
 | VI design kit (design-kit) — Idea card: Design DNA | doc | [artifacts/VI-013-design-kit/design-dna.md](../artifacts/VI-013-design-kit/design-dna.md) | [claude.ai](https://claude.ai/artifact/UyE1iU6au9kWBcVRoyangw) | 2026-11-04 |
-| VI design kit (design-kit) — Idea card: Idea card | doc | [artifacts/VI-013-design-kit/idea-card.md](../artifacts/VI-013-design-kit/idea-card.md) | [claude.ai](https://claude.ai/artifact/UyE1iU6au9kWBcVRoyangw) | 2026-11-04 |
+| VI design kit (design-kit) — Idea card: Idea card | doc | [artifacts/VI-013-design-kit/idea-card.md](../artifacts/VI-013-design-kit/idea-card.md) | [claude.ai](https://claude.ai/artifact/UyE1iU6au9kWBcVRoyangw) | 2026-11-05 |
 | VI design kit (design-kit) — Idea card: Inventory | doc | [artifacts/VI-013-design-kit/inventory.md](../artifacts/VI-013-design-kit/inventory.md) | [claude.ai](https://claude.ai/artifact/UyE1iU6au9kWBcVRoyangw) | 2026-11-04 |
-| VI design kit — kit-test screens v3 (Steel on Graphite) | design | [artifacts/VI-013-design-kit/kit-test-screens-v3/project/canvas.json](../artifacts/VI-013-design-kit/kit-test-screens-v3/project/canvas.json) | [claude.ai](https://claude.ai/artifact/U3eDnJ7sLzNb6AvBhA92up) | 2026-11-04 |
+| VI design kit — kit-test screens v3 (Steel on Graphite) | design | [artifacts/VI-013-design-kit/kit-test-screens-v3/project/canvas.json](../artifacts/VI-013-design-kit/kit-test-screens-v3/project/canvas.json) | [claude.ai](https://claude.ai/artifact/U3eDnJ7sLzNb6AvBhA92up) | 2026-11-05 |
 | scout-brief-design-kit.md | brief | [artifacts/VI-013-design-kit/scout-brief-design-kit.md](../artifacts/VI-013-design-kit/scout-brief-design-kit.md) | [claude.ai](project-knowledge:claude/scout-brief-design-kit.md) | 2026-11-04 |
+| scout-brief-animated-libraries.md | brief | [artifacts/VI-013-design-kit/scout-brief-animated-libraries.md](../artifacts/VI-013-design-kit/scout-brief-animated-libraries.md) | [claude.ai](project-knowledge:claude/scout-brief-animated-libraries.md) | 2026-11-05 |
+| VI component playground | page | [artifacts/VI-013-design-kit/component-playground/README.md](../artifacts/VI-013-design-kit/component-playground/README.md) | [claude.ai](https://claude.ai/artifact/JRE7gG189EucQ2xWPDxkvv) | 2026-11-05 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -86,6 +88,9 @@ _None recorded._
 | D-080 | 2026-11-04 | v4 is the look (command center, pill nav, dock D); VI colour system v1 adopted: VI Green brand, Sea Teal companion, Vanguard Red #C4262E as the decision colour, off-white light, black dark; vi-kit repo live on GitHub with the tokens and artboards | Jithin | accepted |
 | D-084 | 2026-11-04 | shadcn on Base UI is in the vi-kit codebase via the CLI; tokens, theme map, glass layer and first VI components landed; the command center runs on the kit in both modes; the kit test is drafted by the thinking partner for the team to critique | Jithin | accepted |
 | D-086 | 2026-11-04 | Kit test built as code: the three screens run on vi-kit in both modes; H2 has first evidence (Base UI at comfortable density renders all three), compact density and AA contrast still open | Jithin | accepted |
+| D-102 | 2026-11-05 | Third-party animated components enter vi-kit only as vendored MIT source at a pinned commit, with no runtime connection to the vendor (CI network audit, zero external requests) and the VI look imposed by a palette bridge; products use adopted @vi/kit wrappers. kokonutui done (@vi/motion); Magic UI, Motion Primitives and Cult UI next; Commons Clause libraries (Animate UI, React Bits) wait for legal | Jithin (constraint); thinking partner (mechanism) | accepted |
+| D-103 | 2026-11-05 | All AI and chat components come in as @vi/ai, local source only; Radix is allowed inside @vi/ai as a compatibility layer and is removed piece by piece as components are adopted into @vi/kit on Base UI | Jithin (scope); thinking partner (mechanism) | accepted |
+| D-105 | 2026-11-05 | Every free component library VI can legally copy is vendored into vi-kit (16 sources) and reviewed in one component playground in the VI look; adoption into @vi/kit is chosen from there. Commons Clause libraries (Animate UI, React Bits) are in for review only until Vanguard legal clears them | Jithin (scope); thinking partner (mechanism) | accepted |
 <!-- generated:end -->
 
 ## Notes

@@ -17,7 +17,7 @@ score: null
 score_status: none
 doc_url: "https://claude.ai/artifact/LEufPZM5G332V5Co5oDk8X"
 standard: "v1"
-last_touched: 2026-11-03
+last_touched: 2026-11-04
 sensitivity: none
 critique_recorded: null
 next_step: "Name the first use case and owner for the typed-decision dataset and settle whether 50 ms is model time or end-to-end; confirm multi-LoRA on vLLM 0.26; then build the dataset, run the first LoRA, and run the latency curve and index shadow test on the 0.26 interim path while VI-008 provides the 0.32+ environment"

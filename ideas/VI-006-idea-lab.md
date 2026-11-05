@@ -17,7 +17,7 @@ score: null
 score_status: none
 doc_url: "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
 standard: "v1"
-last_touched: 2026-11-02
+last_touched: 2026-11-04
 sensitivity: none
 critique_recorded: null
 next_step: "Jithin: approve or amend Portfolio session 1; name the red-team roster"
@@ -76,6 +76,7 @@ _None recorded._
 | D-027 | 2026-11-02 | Approve Portfolio session 1: Approve as drafted (decided on the dashboard 2026-11-02) | Jithin (dashboard) | accepted |
 | D-028 | 2026-11-02 | Set the Project's memory to connected: Done (decided on the dashboard 2026-11-02) | Jithin (dashboard) | accepted |
 | D-045 | 2026-11-02 | IDs come from an ID counter at the top of the register (next: VI-013), claimed with a guarded edit immediately before registering; never by counting rows; IDs never reused. Nightly sync now flags duplicate IDs, row-to-doc ID mismatches and a counter not above the highest ID, without renumbering. Prompted by the VI-012 double registration | Jithin | accepted |
+| D-087 | 2026-11-04 | GitHub mirror made complete and self-maintaining: thinklatent-labs/idea-lab caught up to register rev 171 (VI-008 to VI-016 added; it had stopped at VI-007 on 2026-11-02); every idea's artifacts mirrored under artifacts/VI-###-slug (27 items, index.json); the nightly GitHub job fixed (dependencies installed before validation); the nightly sync now pushes to GitHub and re-exports changed artifacts; every session re-exports what it changed and syncs before it closes | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes

@@ -17,10 +17,10 @@ score: null
 score_status: none
 doc_url: "https://claude.ai/artifact/QtTppN7KFdEDvjX7RRkEFn"
 standard: "v1"
-last_touched: 2026-11-03
+last_touched: 2026-11-05
 sensitivity: none
 critique_recorded: false
-next_step: "Jithin walks sketch v3.3 (20 screens on the canvas; Feature plan v2 adopted in full as decision 6; the Training page is now a trainer, decision 8) and marks what to cut, keep or change, and decides whether a compare-with-base playground sits in the engineering view. Then: name the portal product lead and run the Langfuse capture audit (VI-009). Governance sits outside the design sessions for now (Jithin, 2026-11-02): the SR 11-7 verification and Risk's concurrence on the grace policy are parked, listed as assumptions on the card, and come back at Stress test. Then the Stress test session (critique log, kill criteria, scout briefs answered, rubric score) with the sketch as the critique object. From VI-012 (2026-11-02): the agent library is proposed as part of VI-012 (its publish step and agent record), shown as a portal page the way the index is; the portal supplies the page"
+next_step: "Jithin walks the requirements doc (12 sections, 46 screen requirements, nine epics on six tracks, and a Gap backlog tab of 114 gaps with 12 P1 and 11 fixes) and interface v5 (48 screens on the kit) with the team and divides the work by track: Platform (E0, E9), Serving (E1), Product showroom (E2), Product workbench (E3), Training (E4), Evaluation and governance (E5), Data (E6), Intelligence (E7), Agents (E8); each screen id is one backlog item. Then: name the portal product lead; run the Langfuse capture audit (VI-009); port the v5 boards to routes in the kit playground. Parked for Stress test: Risk's concurrence on the grace policy, the SR 11-7 verification, the open decisions in section 12 of the requirements doc. From VI-012: the agent library is the portal's A1 page. From VI-010: Blueprints are retired in favour of the agent library (recorded in the requirements doc; VI-010's own chat to confirm)."
 next_step_due: null
 ---
 
@@ -29,11 +29,11 @@ next_step_due: null
 <!-- generated:start -->
 ## Lab record
 
-**VI-003 vi-portal** · Idea · Shaping (Idea card v2, 2026-11-02; decisions 1 to 8 taken; sketch v3.3 built; Stress test next) · H2 · S-C
+**VI-003 vi-portal** · Idea · Shaping (Idea card v2, 2026-11-02; decisions 1 to 9 taken; sketch v3.3 built; requirements v1 and interface v5 on the VI kit built 2026-11-05, decision 10; Stress test next) · H2 · S-C
 
 Owner: Head of VI (sponsor); portal product lead to be named. Appetite: 9 engineer-weeks. Score: not scored .
 
-Next step: Jithin walks sketch v3.3 (20 screens on the canvas; Feature plan v2 adopted in full as decision 6; the Training page is now a trainer, decision 8) and marks what to cut, keep or change, and decides whether a compare-with-base playground sits in the engineering view. Then: name the portal product lead and run the Langfuse capture audit (VI-009). Governance sits outside the design sessions for now (Jithin, 2026-11-02): the SR 11-7 verification and Risk's concurrence on the grace policy are parked, listed as assumptions on the card, and come back at Stress test. Then the Stress test session (critique log, kill criteria, scout briefs answered, rubric score) with the sketch as the critique object. From VI-012 (2026-11-02): the agent library is proposed as part of VI-012 (its publish step and agent record), shown as a portal page the way the index is; the portal supplies the page
+Next step: Jithin walks the requirements doc (12 sections, 46 screen requirements, nine epics on six tracks, and a Gap backlog tab of 114 gaps with 12 P1 and 11 fixes) and interface v5 (48 screens on the kit) with the team and divides the work by track: Platform (E0, E9), Serving (E1), Product showroom (E2), Product workbench (E3), Training (E4), Evaluation and governance (E5), Data (E6), Intelligence (E7), Agents (E8); each screen id is one backlog item. Then: name the portal product lead; run the Langfuse capture audit (VI-009); port the v5 boards to routes in the kit playground. Parked for Stress test: Risk's concurrence on the grace policy, the SR 11-7 verification, the open decisions in section 12 of the requirements doc. From VI-012: the agent library is the portal's A1 page. From VI-010: Blueprints are retired in favour of the agent library (recorded in the requirements doc; VI-010's own chat to confirm).
 
 Production surface: A team in one business line requesting a model for one workflow · The VI Portal: request, approved access, served model · Days from request to approved access on the first five workflows
 
@@ -91,7 +91,7 @@ _None recorded._
 | Artifact | Kind | In this repo | Live | Exported |
 | --- | --- | --- | --- | --- |
 | VI Portal (vi-portal) — Idea card | doc | [artifacts/VI-003-vi-portal/idea-card.md](../artifacts/VI-003-vi-portal/idea-card.md) | [claude.ai](https://claude.ai/artifact/QtTppN7KFdEDvjX7RRkEFn) | 2026-11-04 |
-| VI Portal playground | page | [artifacts/VI-003-vi-portal/playground/index.html](../artifacts/VI-003-vi-portal/playground/index.html) | [claude.ai](https://claude.ai/artifact/LHMeaT54htG3mzg914N7Ew) | 2026-11-04 |
+| VI Portal playground | page | [artifacts/VI-003-vi-portal/playground/README.md](../artifacts/VI-003-vi-portal/playground/README.md) | [claude.ai](https://claude.ai/artifact/LHMeaT54htG3mzg914N7Ew) | 2026-11-05 |
 | VI Portal (vi-portal) — Interface sketch v3 | design | [artifacts/VI-003-vi-portal/interface-sketch-v3/project/canvas.json](../artifacts/VI-003-vi-portal/interface-sketch-v3/project/canvas.json) | [claude.ai](https://claude.ai/artifact/JuvPWSqT6SZFuyuxWv1Wn8) | 2026-11-04 |
 | scout-brief-vi-portal.md | brief | [artifacts/VI-003-vi-portal/scout-brief-vi-portal.md](../artifacts/VI-003-vi-portal/scout-brief-vi-portal.md) | [claude.ai](project-knowledge:claude/scout-brief-vi-portal.md) | 2026-11-04 |
 | scout-brief-kpis-feedback.md | brief | [artifacts/VI-003-vi-portal/scout-brief-kpis-feedback.md](../artifacts/VI-003-vi-portal/scout-brief-kpis-feedback.md) | [claude.ai](project-knowledge:claude/scout-brief-kpis-feedback.md) | 2026-11-04 |
@@ -120,6 +120,9 @@ _None recorded._
 | D-048 | 2026-11-02 | Governance sits outside the design sessions for now: the SR 11-7 rescission check and Risk's concurrence on the grace policy are parked as recorded assumptions, not blockers, and return at Stress test | Jithin | accepted |
 | D-071 | 2026-11-03 | Training surface benchmarked against Unsloth Studio; sketch v3.2 adds the engineering trainer view, recipe, run history, job controls, Train-as and the Datasets bring-data-in flow; weight export outside the boundary, business-user hyperparameter dials and one-click routing to production deliberately not copied | Thinking partner, pending Jithin | proposed |
 | D-076 | 2026-11-03 | Decision 8: users train models on the portal's own UI; Unsloth is a feature reference only (not hosted, not a dependency); the reuse question is closed; sketch v3.3 adds the New training run card to the Training page | Jithin | accepted |
+| D-099 | 2026-11-05 | Decision 9: the portal hosts the ten features handed over from the VI site and every VAI evaluation surface (results page, index page, annual report hub, corrections log, leaderboard, source and as-of on every number); VAI is built separately but its evaluation is visible only in the portal; the site links in | Jithin | accepted |
+| D-101 | 2026-11-05 | Decision 10: the portal is specified in a requirements document (12 sections, 46 screen requirements, nine epics on six parallel tracks) and built as interface v5 on the VI kit (48 screens) so the team can divide the work; the sixth scout brief's four behaviours adopted (dependents graph with retirement notices, budget cap that pauses and checkpoints, three-level agent evals with pass^k, production health in the stage gate); kit-test artboards dropped as references | Jithin | accepted |
+| D-104 | 2026-11-05 | Features from earlier canvases and documents that interface v5 lacks are recorded as backlog, not built: a Gap backlog tab in the requirements doc with 114 gaps (12 P1, 66 P2, 36 P3), 11 fixes where v5 or the requirements contradict a decision, and 6 items dropped on purpose | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
