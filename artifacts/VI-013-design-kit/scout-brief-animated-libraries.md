@@ -1,4 +1,4 @@
-<!-- Exported from Idea Lab project knowledge (claude/scout-brief-animated-libraries.md, created 2026-11-05T08:07:00.785452Z, updated 2026-11-05) on 2026-11-05. Read-only mirror; edit the project doc, not this file. -->
+<!-- Exported from Idea Lab project knowledge (claude/scout-brief-animated-libraries.md, created 2026-11-05T08:07:00.785452Z, updated 2026-11-06) on 2026-11-06. Read-only mirror; edit the project doc, not this file. -->
 # Scout brief: animated component libraries for vi-kit (VI-013 design-kit)
 
 Date: 2026-11-05 · Mode: Scout · Idea: VI-013 design-kit · Updated the same afternoon (see "Outcome" at the end)
@@ -59,7 +59,7 @@ How it holds:
 - Playground (`apps/catalog`, published): 2,524 components from 16 libraries, 1,141 demos. Walk result: 2,243 render on their own, 205 show nothing alone, 92 need props, 3 building blocks or heavy WebGL.
 - Not copied: Aceternity, Skiper UI, Hover.dev (licences forbid copying the source).
 
-Open: Vanguard legal on the Commons Clause (Animate UI, React Bits) before any product use; adoption into @vi/kit starts with the VI Portal's agent conversation pieces.
+Open: adoption into @vi/kit starts with the VI Portal's agent conversation pieces. Licence review (including the Commons Clause on Animate UI and React Bits) is VI's own process at Vanguard before any product use, outside the kit (decided 2026-11-06, D-113).
 
 ## What would change this
 - Legal says MIT vendoring into a private repo needs a review step: add a LICENSES manifest and route each library through it.

@@ -1,9 +1,9 @@
 <!-- Pointer to a claude.ai artifact, exported 2026-11-05. Read-only; the live page and the vi-kit source are the source. -->
 # VI component playground (VI-013 design-kit)
 
-Live page: https://claude.ai/artifact/JRE7gG189EucQ2xWPDxkvv (version 1793898049-bb72, version 4, published 2026-11-05)
+Live page: https://claude.ai/artifact/JRE7gG189EucQ2xWPDxkvv (version 1793937433-4032, version 5, published 2026-11-06)
 
-Not copied here: the built app is 234 files and 31 MB of generated code, rebuilt from source on every change. It is reproducible from the private repository thinklatent-labs/vi-kit at commit 8f055c6:
+Not copied here: the built app is 234 files and 31 MB of generated code, rebuilt from source on every change. It is reproducible from the private repository thinklatent-labs/vi-kit at commit 10fc4d8:
 
     pnpm install
     pnpm --filter catalog build      # needs ~6.6 GB of memory; output in apps/catalog/dist
@@ -24,3 +24,5 @@ Version 3 (2026-11-05): dark mode showed dark cards on a white page with black t
 Decision record: VI-013 idea card, decision log 2026-11-05; scout-brief-animated-libraries.md beside this folder.
 
 Version 4 (2026-11-05): one name on screen. The playground shows everything as the VI kit: no library names, licence labels, upstream commits or source paths; it is browsed by group (Core, AI and chat, Animated, Everyday components) and by kind. Text inside vendored components and demos is shown under the kit's name by a build transform; the vendored source files and their provenance (folders, manifests, licence files) are unchanged in the repo. The list above names the sources for the record; the playground itself does not.
+
+Version 5 (2026-11-06): AI components and demos show VI's own models (the VGLM line) instead of other providers' models, and a placeholder VI mark for intelligence stands in for AI provider icons, inside components only; it is not VI's logo. No legal-check marker: licence review is VI's own process at Vanguard before any product use, outside the kit.

@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-05T22:31:00+05:30",
+  "asOf": "2026-11-06T09:29:00+05:30",
   "generatedBy": "Session VI-007 lab-dashboard (2026-11-05, VI Kit, command center and Jarvis), register rev 223.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 224,
+    "registerRev": 231,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1190,8 +1190,8 @@
       "docUrl": "https://claude.ai/artifact/UyE1iU6au9kWBcVRoyangw",
       "docTitle": "VI design kit (design-kit) — Idea card",
       "standardVersion": "v1",
-      "lastTouched": "2026-11-05",
-      "nextStep": "In the VI-013 chat: Jithin reviews the component playground and picks the first components to adopt into @vi/kit, starting with the AI pieces the VI Portal's agent conversation needs (conversation, message, composer, reasoning, tool, confirmation, sources, context meter); adoption strips demo copy, types props for VI, moves Radix pieces to Base UI and restricts markdown image and link prefixes to VI origins. Jithin decides whether the Animate UI and React Bits licences go to Vanguard legal. Then: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts). Jithin, when he has access: verify the colour system against the brand guide and the logo tones; branch protection when a third person joins; then decisions 1 and 4 and inventory from row 31. From VI-016 (2026-11-04): the site is the kit's second consumer and needs a first tagged release to pin to; its light system is a candidate addition to the kit's light mode, and the pattern generator belongs in packages/vi-kit/assets. From VI-007 (2026-11-05): the lab dashboard is the kit's third consumer, pinned to 969f885; its wrappers in dashboard/src/vi (spring motion, Shell D, the record sheet, the segmented control) and the Jarvis panel are candidates to upstream into @vi/kit",
+      "lastTouched": "2026-11-06",
+      "nextStep": "In the VI-013 chat: Jithin reviews the component playground and picks the first components to adopt into @vi/kit, starting with the AI pieces the VI Portal's agent conversation needs (conversation, message, composer, reasoning, tool, confirmation, sources, context meter); adoption strips demo copy, types props for VI, moves Radix pieces to Base UI and restricts markdown image and link prefixes to VI origins. Then: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts). Jithin, when he has access: verify the colour system against the brand guide and the logo tones; branch protection when a third person joins; then decisions 1 and 4 and inventory from row 31. From VI-016 (2026-11-04): the site is the kit's second consumer and needs a first tagged release to pin to; its light system is a candidate addition to the kit's light mode, and the pattern generator belongs in packages/vi-kit/assets. From VI-007 (2026-11-05): the lab dashboard is the kit's third consumer, pinned to 969f885; its wrappers in dashboard/src/vi (spring motion, Shell D, the record sheet, the segmented control) and the Jarvis panel are candidates to upstream into @vi/kit",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -3194,6 +3194,18 @@
       "docsTouched": "VI-013 Idea card; vi-kit repo (8f055c6); component playground v4; this register",
       "health": "on-track",
       "nextStepDue": null
+    },
+    {
+      "date": "2026-11-06",
+      "scope": "VI-013 design-kit (continued, morning)",
+      "ideaIds": [
+        "VI-013"
+      ],
+      "mode": "Spec (build: VGLM names and a VI mark in AI components)",
+      "outcome": "Jithin settled licence review: his team reviews components through VI's process at Vanguard before use, outside the kit; the legal-check marker and the kit's legal notes are gone. AI components and demos in the playground now show the VGLM line instead of other providers' models, and a placeholder VI mark for intelligence replaces AI provider icons inside components. Checked headless: no library, model or provider name and no legal marker on screen; hosted and plain renders match in light and dark. Component playground version 5",
+      "docsTouched": "VI-013 Idea card; vi-kit repo (10fc4d8); component playground v5; this register",
+      "health": "on-track",
+      "nextStepDue": null
     }
   ],
   "decisions": [
@@ -4736,6 +4748,34 @@
       "reviewOn": null,
       "supersedes": null,
       "type": "decision"
+    },
+    {
+      "id": "D-113",
+      "ideaId": "VI-013",
+      "date": "2026-11-06",
+      "decision": "Licence review sits outside the kit: components are reviewed through VI's process at Vanguard before any product use; the kit and its playground carry no legal marker or legal guidance, while licence files and source folders stay in the repo. Supersedes the legal-check clause of the line above",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": null,
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": "D-112",
+      "type": "decision"
+    },
+    {
+      "id": "D-114",
+      "ideaId": "VI-013",
+      "date": "2026-11-06",
+      "decision": "AI components show VI's own models: in the playground, other providers' model and provider names read as the VGLM line, and a placeholder VI mark for intelligence stands in for AI provider icons, inside components only (it is not VI's logo)",
+      "by": "Jithin (VGLM names, placeholder mark); thinking partner (mapping, mark)",
+      "pending": false,
+      "status": "accepted",
+      "door": null,
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
     }
   ],
   "syncLog": [
@@ -4801,6 +4841,13 @@
       "docsScanned": "VI-013 Idea card (rev 54), component playground (version 4), this register",
       "rowsChanged": "register.json: 1 decision line (D-112), 1 Sessions row and this row. Mirror: component playground pointer moved to version 4",
       "flags": "GitHub: pushed. The new line takes D-112 because D-108 and D-109 are unused in register.json after the VI-007 sync (they may be held for the VI-003 chat's lines)"
+    },
+    {
+      "date": "2026-11-06",
+      "run": "Manual, in session (VI-013)",
+      "docsScanned": "VI-013 Idea card (rev 55), component playground (version 5), this register",
+      "rowsChanged": "register.json: 2 decision lines (D-113, D-114), 1 Sessions row, VI-013 next step (the licence question removed: decided) and this row. Mirror: component playground pointer moved to version 5",
+      "flags": "GitHub: pushed for VI-013. Still not in GitHub from the 2026-11-06 nightly (which could not push): VI-003's row and its sync line, and the VI-003, VI-007 and VI-016 doc mirrors; left for a Lab-operations sync, outside this chat's scope"
     }
   ],
   "portfolio": {
