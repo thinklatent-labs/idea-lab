@@ -27,10 +27,10 @@ describe('dates', () => {
 });
 
 describe('composite', () => {
-  it('matches the register for VAI on equal and proposed weights', () => {
-    const vai = reg.ideas.find((i) => i.id === 'VI-004')!;
-    expect(compositeWith(vai.score.criteria, reg.weights)).toBe(4);
-    expect(compositeWith(vai.score.criteria, reg.proposedWeights!)).toBe(3.95);
+  it('matches the register for the TL Index on equal and proposed weights', () => {
+    const index = reg.ideas.find((i) => i.id === 'TL-004')!;
+    expect(compositeWith(index.score.criteria, reg.weights)).toBe(4);
+    expect(compositeWith(index.score.criteria, reg.proposedWeights!)).toBe(3.95);
   });
   it('is null unless all eight criteria are present', () => {
     expect(compositeWith({ strategicFit: 5 }, reg.weights)).toBeNull();
@@ -40,7 +40,7 @@ describe('composite', () => {
 
 describe('lanes and modes', () => {
   it('follows the Operating Model rule', () => {
-    const base = reg.ideas.find((i) => i.id === 'VI-003')!;
+    const base = reg.ideas.find((i) => i.id === 'TL-003')!;
     const at = (stage: Idea['stage'], type: Idea['type'] = 'Idea'): Idea => ({ ...clone(base), stage, type });
     expect(laneOf(at('Proposal'))).toBe('Next');
     expect(laneOf(at('Building'))).toBe('Now');
@@ -56,31 +56,31 @@ describe('lanes and modes', () => {
   it('picks the session mode by stage and writes the session line as the register spells it', () => {
     expect(defaultMode('Stress test')).toBe('Critic');
     expect(defaultMode('Proposal')).toBe('Spec');
-    expect(sessionLine({ id: 'VI-004', slug: 'vai' }, 'Critic')).toBe('Lab session · VI-004 vai · Critic');
+    expect(sessionLine({ id: 'TL-004', slug: 'index' }, 'Critic')).toBe('Lab session · TL-004 index · Critic');
   });
 });
 
 describe('derive on the seed register', () => {
   const d = deriveAll(reg, NOW);
   it('flags decisions due and proposed scores as needing a decision', () => {
-    expect(d.get('VI-004')!.needsDecision).toBe(true);
-    expect(d.get('VI-003')!.needsDecision).toBe(true);
-    expect(d.get('VI-001')!.needsDecision).toBe(false);
+    expect(d.get('TL-004')!.needsDecision).toBe(true);
+    expect(d.get('TL-003')!.needsDecision).toBe(true);
+    expect(d.get('TL-001')!.needsDecision).toBe(false);
   });
-  it('finds the dependency chain portal -> VAI', () => {
-    expect(d.get('VI-003')!.blockedBy).toEqual(['VI-004']);
-    expect(d.get('VI-004')!.blocks).toEqual(['VI-003']);
-    expect(d.get('VI-004')!.blockedBy).toEqual([]); // self-healing is graduated
+  it('finds the dependency chain portal -> The TL Index', () => {
+    expect(d.get('TL-003')!.blockedBy).toEqual(['TL-004']);
+    expect(d.get('TL-004')!.blocks).toEqual(['TL-003']);
+    expect(d.get('TL-004')!.blockedBy).toEqual([]); // self-healing is graduated
   });
   it('is not stale on the day of the snapshot', () => {
     for (const i of reg.ideas) expect(d.get(i.id)!.stale).toBe(false);
   });
   it('ranks the queue with decisions first and leaves settled rows out', () => {
     const q = attentionQueue(reg, d);
-    expect(q[0].id).toBe('VI-004'); // three decisions due and a proposed score
-    expect(q.slice(0, 3).map((i) => i.id)).toEqual(['VI-004', 'VI-003', 'VI-006']); // decisions due, then by weight
-    expect(q.map((i) => i.id)).not.toContain('VI-001');
-    expect(q.map((i) => i.id)).not.toContain('VI-002');
+    expect(q[0].id).toBe('TL-004'); // three decisions due and a proposed score
+    expect(q.slice(0, 3).map((i) => i.id)).toEqual(['TL-004', 'TL-003', 'TL-006']); // decisions due, then by weight
+    expect(q.map((i) => i.id)).not.toContain('TL-001');
+    expect(q.map((i) => i.id)).not.toContain('TL-002');
   });
   it('counts stages', () => {
     const c = stageCounts(reg.ideas);
@@ -95,29 +95,29 @@ describe('staleness and parking a month later', () => {
   const later = new Date('2026-12-05T12:00:00Z');
   const d = deriveAll(reg, later);
   it('marks Shaping rows stale past 30 days and Proposal rows past 30 days', () => {
-    expect(d.get('VI-003')!.stale).toBe(true);
-    expect(d.get('VI-003')!.overdueDays).toBe(34 - 30);
-    expect(d.get('VI-004')!.stale).toBe(true);
-    expect(d.get('VI-001')!.stale).toBe(false); // graduated: no window
+    expect(d.get('TL-003')!.stale).toBe(true);
+    expect(d.get('TL-003')!.overdueDays).toBe(34 - 30);
+    expect(d.get('TL-004')!.stale).toBe(true);
+    expect(d.get('TL-001')!.stale).toBe(false); // graduated: no window
   });
   it('flags a parked row past its re-check date', () => {
     const r = clone(reg);
-    const idea = r.ideas.find((i) => i.id === 'VI-003')!;
+    const idea = r.ideas.find((i) => i.id === 'TL-003')!;
     idea.stage = 'Parked';
     idea.recheckDate = '2026-11-20';
     const dd = deriveAll(r, later);
-    expect(dd.get('VI-003')!.parkedOverdue).toBe(true);
-    expect(dd.get('VI-003')!.lane).toBe('Later');
+    expect(dd.get('TL-003')!.parkedOverdue).toBe(true);
+    expect(dd.get('TL-003')!.lane).toBe('Later');
   });
   it('flags a P0 feature still Shaping under a parent at Proposal', () => {
     const r = clone(reg);
-    const parent = r.ideas.find((i) => i.id === 'VI-003')!;
+    const parent = r.ideas.find((i) => i.id === 'TL-003')!;
     parent.stage = 'Proposal';
-    const child = r.ideas.find((i) => i.id === 'VI-004')!;
+    const child = r.ideas.find((i) => i.id === 'TL-004')!;
     child.stage = 'Shaping';
     child.priority = 'P0';
     const dd = deriveAll(r, later);
-    expect(dd.get('VI-004')!.blocksParent).toBe(true);
+    expect(dd.get('TL-004')!.blocksParent).toBe(true);
     expect(alerts(r, dd, later).some((a) => a.rule === 'feature-blocks-parent')).toBe(true);
   });
   it('raises a freshness alert when the snapshot is old', () => {
@@ -129,8 +129,8 @@ describe('staleness and parking a month later', () => {
 
 describe('readiness', () => {
   it('reads the graduation gates off the record', () => {
-    const vai = reg.ideas.find((i) => i.id === 'VI-004')!;
-    const g = readiness(vai, reg);
+    const index = reg.ideas.find((i) => i.id === 'TL-004')!;
+    const g = readiness(index, reg);
     expect(g.find((x) => x.label === 'Idea doc exists')!.met).toBe(true);
     expect(g.find((x) => x.label === 'Critique pass recorded')!.met).toBe(true);
     expect(g.find((x) => x.label === 'Owner named')!.met).toBe(false);
@@ -144,8 +144,8 @@ describe('graph layout', () => {
   it('is deterministic and draws every row once', () => {
     const again = layoutGraph(reg);
     expect(JSON.stringify(again)).toBe(JSON.stringify(g));
-    expect(g.nodes.filter((n) => n.id === 'VI-005')).toHaveLength(1);
-    expect(g.nodes.some((n) => n.id === 'CAP-004')).toBe(false); // drawn as VI-005
+    expect(g.nodes.filter((n) => n.id === 'TL-005')).toHaveLength(1);
+    expect(g.nodes.some((n) => n.id === 'CAP-004')).toBe(false); // drawn as TL-005
   });
   it('keeps every node inside the frame', () => {
     for (const n of g.nodes) {
@@ -154,22 +154,22 @@ describe('graph layout', () => {
       expect(n.y + n.h).toBeLessThanOrEqual(g.height);
     }
   });
-  it('routes VAI\'s reuse of self-healing to the register row', () => {
-    const e = g.edges.find((x) => x.from === 'VI-004' && x.type === 'reuses' && x.to === 'VI-005');
+  it('routes the TL Index\'s reuse of self-healing to the register row', () => {
+    const e = g.edges.find((x) => x.from === 'TL-004' && x.type === 'reuses' && x.to === 'TL-005');
     expect(e).toBeDefined();
-    const nb = neighbourhood(g, 'VI-005');
-    expect(nb.nodes.has('VI-004')).toBe(true);
-    expect(nb.nodes.has('VI-003')).toBe(true);
+    const nb = neighbourhood(g, 'TL-005');
+    expect(nb.nodes.has('TL-004')).toBe(true);
+    expect(nb.nodes.has('TL-003')).toBe(true);
   });
 });
 
 describe('hash routing', () => {
   it('round-trips plain names only', () => {
-    expect(parseHash('#queue-VI-004')).toEqual({ view: 'queue', id: 'VI-004' });
+    expect(parseHash('#queue-TL-004')).toEqual({ view: 'queue', id: 'TL-004' });
     expect(parseHash('#graph-CAP-005')).toEqual({ view: 'graph', id: 'CAP-005' });
     expect(parseHash('#nonsense/path')).toEqual({ view: 'pulse', id: null });
     expect(toHash('board', null)).toBe('#board');
-    expect(toHash('register', 'VI-007')).toBe('#register-VI-007');
+    expect(toHash('register', 'TL-007')).toBe('#register-TL-007');
   });
 });
 

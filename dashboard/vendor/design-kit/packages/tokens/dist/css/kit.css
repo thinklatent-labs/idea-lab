@@ -1,0 +1,113 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --kit-neutral-0: #ffffff;
+  --kit-neutral-50: #f7f7f5;
+  --kit-neutral-100: #f2f2ef;
+  --kit-neutral-150: #efefec;
+  --kit-neutral-200: #e6e6e2;
+  --kit-neutral-250: #e3e3e0;
+  --kit-neutral-300: #d9d9d5;
+  --kit-neutral-400: #cfcfcb;
+  --kit-neutral-500: #9a9a96;
+  --kit-neutral-600: #6b6b68;
+  --kit-neutral-700: #3a3a38;
+  --kit-neutral-800: #1a1a19;
+  --kit-neutral-900: #0e0e0d;
+  --kit-surface-light-frame: rgba(243, 241, 245, 0.62);
+  --kit-surface-light-content: rgba(255, 255, 255, 0.8);
+  --kit-surface-light-raised: rgba(255, 255, 255, 0.48);
+  --kit-surface-light-overlay: rgba(255, 255, 255, 0.58);
+  --kit-surface-dark-frame: rgba(12, 12, 12, 0.55);
+  --kit-surface-dark-content: rgba(16, 16, 16, 0.62);
+  --kit-surface-dark-raised: rgba(255, 255, 255, 0.04);
+  --kit-surface-dark-overlay: rgba(16, 16, 16, 0.6);
+  --kit-surface-dark-lit: inset 0 1px 0 rgba(111,169,187,0.35), 0 0 0 1px rgba(111,169,187,0.55), 0 0 28px rgba(111,169,187,0.35); /** The only thing that glows: selected node, active edge, series below target, newest critical */
+  --kit-status-warning-hue-light: #d08a4a;
+  --kit-status-warning-hue-dark: #d08a4a;
+  --kit-status-info-hue-light: #477c8b;
+  --kit-status-info-hue-dark: #5e9bad;
+  --kit-status-neutral-hue-light: #8a8a88;
+  --kit-status-neutral-hue-dark: #9a9a9a;
+  --kit-radius-control: 12px;
+  --kit-radius-container: 16px;
+  --kit-radius-frame: 24px;
+  --kit-radius-pill: 999px;
+  --kit-space-base: 4px;
+  --kit-space-gutter: 16px;
+  --kit-space-section: 24px;
+  --kit-space-comfortable-row: 44px;
+  --kit-space-compact-row: 32px;
+  --kit-shell-topbar: 48px;
+  --kit-shell-target: 44px; /** Minimum touch target in the shell; 24px minimum elsewhere (WCAG 2.2 2.5.8) */
+  --kit-motion-layout: 150ms;
+  --kit-motion-overlay: 200ms;
+  --kit-role-light-canvas: #ececea;
+  --kit-role-light-tile: rgba(255, 255, 255, 0.72);
+  --kit-role-light-ink: #1a1a1a;
+  --kit-role-light-anchor: #1a1a1a;
+  --kit-role-light-secondary: #5c5c5a;
+  --kit-role-light-muted: #8a8a88;
+  --kit-role-light-hairline: #dadad8;
+  --kit-role-light-track: #dadad8;
+  --kit-role-light-glass-tint: rgba(108, 183, 105, 0.22); /** sage at 22% over the canvas; blur 22; white hairline */
+  --kit-role-light-tint: #f4f4f2;
+  --kit-role-dark-canvas: #000000;
+  --kit-role-dark-panel: rgba(16, 16, 16, 0.62);
+  --kit-role-dark-panel-border: rgba(255, 255, 255, 0.12);
+  --kit-role-dark-text: #ececec;
+  --kit-role-dark-secondary: #9a9a9a;
+  --kit-role-dark-muted: #8a8a88;
+  --kit-role-dark-anchor: #e2e2e2;
+  --kit-role-dark-anchor-fg: #1a1a1a;
+  --kit-role-dark-track: #2a2a2a;
+  --kit-brand-green-100: #79f181; /** lit, the glow in dark */
+  --kit-brand-green-200: #68e78e; /** mint, light glass tint */
+  --kit-brand-green-300: #6cb769; /** sage (added 2026-11-05); fills, tints, lit edges in light; not a text colour */
+  --kit-brand-green-400: #4ca66a; /** bars, progress */
+  --kit-brand-green-500: #3e9a5c; /** Brand Green, the brand */
+  --kit-brand-green-700: #2e6b3c;
+  --kit-brand-green-800: #1b5128; /** forest (added 2026-11-05); dark gradient mid, selected item */
+  --kit-brand-green-900: #0c3f09; /** deepest; dark gradient base */
+  --kit-brand-teal-300: #5fd3b5;
+  --kit-brand-teal-500: #3e8f7e;
+  --kit-brand-teal-600: #2f7a6d; /** Sea Teal, companion */
+  --kit-brand-teal-800: #1f4a44;
+  --kit-brand-red-500: #c4262e; /** Decision Red, site crimson, sampled 2026-11-04 */
+  --kit-brand-red-700: #9a1b22; /** wordmark */
+  --kit-brand-red-dark: #d9434c;
+  --kit-categorical-3: #477c8b;
+  --kit-categorical-4: #c9663a;
+  --kit-categorical-5: #8c86a0;
+  --kit-categorical-6: #1a1a1a; /** ink in light, white in dark */
+  --kit-surface-light-backdrop: var(--kit-role-light-canvas);
+  --kit-surface-light-anchor: var(--kit-role-light-anchor);
+  --kit-surface-light-anchor-fg: var(--kit-neutral-0);
+  --kit-surface-dark-backdrop: var(--kit-role-dark-canvas);
+  --kit-surface-dark-anchor: var(--kit-role-dark-anchor);
+  --kit-surface-dark-anchor-fg: var(--kit-role-dark-anchor-fg);
+  --kit-text-light-primary: var(--kit-role-light-ink);
+  --kit-text-light-secondary: var(--kit-role-light-secondary);
+  --kit-text-light-muted: var(--kit-role-light-muted);
+  --kit-text-dark-primary: var(--kit-role-dark-text);
+  --kit-text-dark-secondary: var(--kit-role-dark-secondary);
+  --kit-text-dark-muted: var(--kit-role-dark-muted);
+  --kit-status-good-hue-light: var(--kit-brand-teal-600);
+  --kit-status-good-hue-dark: var(--kit-brand-teal-300);
+  --kit-status-critical-hue-light: var(--kit-brand-red-500);
+  --kit-status-critical-hue-dark: var(--kit-brand-red-dark);
+  --kit-role-light-brand: var(--kit-brand-green-500);
+  --kit-role-light-accent: var(--kit-brand-green-300); /** sage: active dock item, calendar pill, active bars, the lit dot; text on it is green 900 */
+  --kit-role-light-companion: var(--kit-brand-teal-600);
+  --kit-role-light-decision: var(--kit-brand-red-500);
+  --kit-role-light-accent-fg: var(--kit-brand-green-900);
+  --kit-role-light-primary: var(--kit-brand-green-800); /** forest: primary buttons and the selected pill (was ink) */
+  --kit-role-dark-brand: var(--kit-brand-green-500);
+  --kit-role-dark-lit: var(--kit-brand-green-300); /** sage; the one thing that glows (was mint) */
+  --kit-role-dark-companion: var(--kit-brand-teal-500);
+  --kit-role-dark-decision: var(--kit-brand-red-dark);
+  --kit-categorical-1: var(--kit-brand-green-500);
+  --kit-categorical-2: var(--kit-brand-teal-600);
+}

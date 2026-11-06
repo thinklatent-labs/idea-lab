@@ -1,4 +1,4 @@
-// Type-checks the dashboard. The vendored kit (vendor/vi-kit) is compiled with the kit's own strictness, which does
+// Type-checks the dashboard. The vendored kit (vendor/design-kit) is compiled with the kit's own strictness, which does
 // not include noUnusedLocals, so "declared but never read" in vendor files is not ours to fix (we never edit them);
 // every other diagnostic, in our code or the kit's, fails the check.
 import { spawnSync } from 'node:child_process';
@@ -12,4 +12,4 @@ if (real.length) {
   console.error(real.join('\n'));
   process.exit(1);
 }
-console.log(`typecheck clean${skipped ? ` (${skipped} unused-import notes in vendor/vi-kit ignored)` : ''}`);
+console.log(`typecheck clean${skipped ? ` (${skipped} unused-import notes in vendor/design-kit ignored)` : ''}`);

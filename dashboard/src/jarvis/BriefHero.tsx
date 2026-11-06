@@ -1,13 +1,13 @@
 import { motion } from 'motion/react';
 import { MessageSquareText, Sparkles, Square, Volume2 } from 'lucide-react';
-import { Status, Surface } from '@vi/kit';
-import { Button } from '@vi/ui/components/button';
+import { Status, Surface } from '@kit/kit';
+import { Button } from '@kit/ui/components/button';
 import { useLab } from '../lib/context';
 import { localBrief, parseReply } from './brain';
 import { JarvisOrb } from './Orb';
 import { useJarvis } from './useJarvis';
 import { Answer } from './JarvisPanel';
-import { CountUp, TypeIn } from '../vi/motion';
+import { CountUp, TypeIn } from '../kit/motion';
 
 /** The command center's hero: Jarvis's brief. The page writes the first one itself from the rule table (no model,
  *  instant, free); "Brief me" asks Claude for the narrative, streams it in and, with voice on, reads it aloud. */
@@ -33,11 +33,11 @@ export function BriefHero() {
     <Surface surface="coloured" className="flex h-full min-h-[340px] flex-col justify-between gap-6">
       <div>
         <div className="flex items-center justify-between gap-3">
-          <span className="vi-caption inline-flex items-center gap-2 text-current/80">
+          <span className="kit-caption inline-flex items-center gap-2 text-current/80">
             <JarvisOrb size={26} state={writing ? 'thinking' : j.orb === 'speaking' ? 'speaking' : 'idle'} rings />
             Jarvis · {b ? `Claude, ${b.tierApplied === 'complex' ? 'deep' : b.tierApplied === 'quick' ? 'fast' : 'thorough'}` : 'from the rule table, no model'}
           </span>
-          <span className="vi-num text-xs text-current/70">{b ? new Date(b.at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : `rev ${reg.source.registerRev}`}</span>
+          <span className="kit-num text-xs text-current/70">{b ? new Date(b.at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : `rev ${reg.source.registerRev}`}</span>
         </div>
         {b && (b.text || writing) ? (
           <div className="mt-5 max-w-[620px] text-[17px] leading-relaxed">
@@ -74,11 +74,11 @@ export function BriefHero() {
       </div>
 
       <div>
-        <div className="vi-caption mb-2.5 text-current/75">Contributing</div>
+        <div className="kit-caption mb-2.5 text-current/75">Contributing</div>
         <div className="grid grid-cols-3 gap-2.5">
           {cells.map((c) => (
             <motion.button key={c.filter} type="button" onClick={() => toQueue(c.filter)} whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }} className="min-w-0 rounded-[18px] border border-white/20 bg-white/15 px-3.5 py-3 text-left backdrop-blur-sm">
-              <div className="vi-display text-[30px]">
+              <div className="kit-display text-[30px]">
                 <CountUp value={c.n} />
               </div>
               <div className="mt-1.5 text-xs leading-snug opacity-80">{c.label}</div>
@@ -87,11 +87,11 @@ export function BriefHero() {
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
           {writing ? (
-            <Button className="rounded-full bg-white text-[var(--vi-role-light-ink)] hover:bg-white/90" onClick={j.stop}>
+            <Button className="rounded-full bg-white text-[var(--kit-role-light-ink)] hover:bg-white/90" onClick={j.stop}>
               <Square className="fill-current" /> Stop
             </Button>
           ) : (
-            <Button className="rounded-full bg-white text-[var(--vi-role-light-ink)] hover:bg-white/90" onClick={j.brief}>
+            <Button className="rounded-full bg-white text-[var(--kit-role-light-ink)] hover:bg-white/90" onClick={j.brief}>
               <Sparkles /> {b ? 'Brief me again' : 'Brief me'}
             </Button>
           )}

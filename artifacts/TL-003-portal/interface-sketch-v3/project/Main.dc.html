@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Use case overview: Call summary to CRM</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F4F5F7;font-family:Inter,system-ui,sans-serif;color:#1B1F24}
+a{color:#0B5E4C}a:hover{color:#08463A}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column; font-family: Inter, system-ui, sans-serif; color: #1B1F24; background: #F4F5F7">
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E1E4E8">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; min-height: 56px">
+      <a href="Catalogue.dc.html" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #1B1F24; font-weight: 600; font-size: 15px; min-height: 44px">
+        <span style="display: inline-block; width: 22px; height: 22px; border-radius: 6px; background: {{accent}}"></span>
+        ThinkLatent Portal
+      </a>
+      <nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #57606A; flex: 1 1 320px; min-width: 0">
+        <a href="UseCases.dc.html" style="text-decoration: none; color: #57606A">Use cases</a>
+        <span aria-hidden="true">/</span>
+        <a href="Model.dc.html" style="text-decoration: none; color: #57606A">TLM4</a>
+        <span aria-hidden="true">/</span>
+        <span style="color: #1B1F24; font-weight: 500">Call summary to CRM</span>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+        <button onClick="{{toggleEngineering}}" aria-pressed="{{engineering}}" style="min-height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #C9CED4; background: {{engineeringBg}}; color: {{engineeringFg}}; font: 500 14px Inter, system-ui, sans-serif; cursor: pointer">Engineering view: {{engineeringLabel}}</button>
+        <a href="Assistant.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 8px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 14px">Ask the assistant</a>
+      </div>
+    </div>
+  </header>
+
+  <div style="flex: 1 1 auto; width: 100%; max-width: 1280px; margin: 0 auto; padding: 32px 32px 56px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+
+    <nav aria-label="Use case pages" style="flex: 0 1 200px; display: flex; flex-direction: column; gap: 4px; font-size: 14px">
+      <a href="Main.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #1B1F24; font-weight: 600; background: #FFFFFF; border: 1px solid #E1E4E8">Overview</a>
+      <a href="UC-Traffic.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Traffic</a>
+      <a href="UC-Capacity.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Capacity</a>
+      <a href="UC-Models.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Models</a>
+      <a href="UC-Quality.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Quality</a>
+      <a href="UC-Improve.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Improve</a>
+      <a href="UC-Record.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Record</a>
+      <span style="margin-top: 14px; padding: 0 12px; font-size: 11px; color: #8C959F; text-transform: uppercase; letter-spacing: 0.06em">Workbench</span>
+      <a href="Prompts.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Prompts</a>
+      <a href="Datasets.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Datasets and queues</a>
+      <a href="Alerts.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Alerts and digest</a>
+      <span style="margin-top: 16px; padding: 10px 12px; font-size: 12px; color: #57606A; line-height: 1.5">Production · Tier 2 · owner [product owner]</span>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+
+      <section style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 480px; min-width: 0">
+          <h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.01em">Call summary to CRM</h1>
+          <p style="margin: 0; font-size: 15px; color: #57606A; max-width: 640px; line-height: 1.5">Summarises every recorded client call, extracts the facts that matter and writes them back to the CRM. The first TLM4 use case in production.</p>
+        </div>
+        <div role="group" aria-label="Time window" style="display: flex; gap: 4px; padding: 4px; background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 10px">
+          <button style="min-height: 40px; padding: 0 14px; border-radius: 7px; border: 0; background: {{accent}}; color: #FFFFFF; font: 500 14px Inter, system-ui, sans-serif; cursor: pointer">Live</button>
+          <button style="min-height: 40px; padding: 0 14px; border-radius: 7px; border: 0; background: transparent; color: #3C4651; font: 500 14px Inter, system-ui, sans-serif; cursor: pointer">24h</button>
+          <button style="min-height: 40px; padding: 0 14px; border-radius: 7px; border: 0; background: transparent; color: #3C4651; font: 500 14px Inter, system-ui, sans-serif; cursor: pointer">7d</button>
+          <button style="min-height: 40px; padding: 0 14px; border-radius: 7px; border: 0; background: transparent; color: #3C4651; font: 500 14px Inter, system-ui, sans-serif; cursor: pointer">30d</button>
+        </div>
+      </section>
+
+      <section aria-label="Headline numbers" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Tokens per minute</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em">1.7M in</span>
+          <span style="font-size: 13px; color: #57606A">170k out · <span style="color: #8C959F">[—]% vs previous window</span></span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Calls processed per day</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em">120k</span>
+          <span style="font-size: 13px; color: #57606A">10-hour window, about 20 min a call · <span style="color: #8C959F">[—]% vs previous</span></span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Goodput, 30 days</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]%</span>
+          <span style="font-size: 13px; color: #57606A">requests inside the SLO · error budget [—]% left</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Acceptance and cost</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]%</span>
+          <span style="font-size: 13px; color: #57606A">[—] per 1,000 · <span style="color: #0B5E4C; font-weight: 500">vendor-equivalent avoided [—] a month</span></span>
+        </div>
+      </section>
+
+      <section aria-labelledby="noticed-h" style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+          <h2 id="noticed-h" style="margin: 0; font-size: 16px; font-weight: 600">What the portal noticed this week</h2>
+          <span style="font-size: 12px; color: #57606A">derived from the pages behind the rail · dismiss or act · also in the weekly digest</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; font-size: 13px">
+          <a href="UC-Improve.dc.html" style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid #E1E4E8; border-radius: 10px; text-decoration: none; color: inherit"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; border-radius: 50%; background: {{accent}}; margin-top: 6px"></span><span style="line-height: 1.5"><span style="font-weight: 600">A smaller model could carry 58% of this traffic.</span> "Summarise a call" scores within the interval on Distil [size] at an estimated [—]% lower cost per 1,000. Start a specialist from Improve.</span></a>
+          <a href="UC-Traffic.dc.html" style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid #E1E4E8; border-radius: 10px; text-decoration: none; color: inherit"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; border-radius: 50%; background: #B7791F; margin-top: 6px"></span><span style="line-height: 1.5"><span style="font-weight: 600">Truncation is creeping up.</span> Finish reason "length" rose [—] points; inputs over 16k grew [—]%. The record's warning threshold is [—] points.</span></a>
+          <a href="UC-Capacity.dc.html" style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid #E1E4E8; border-radius: 10px; text-decoration: none; color: inherit"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; border-radius: 50%; background: #B7791F; margin-top: 6px"></span><span style="line-height: 1.5"><span style="font-weight: 600">Error budget burning faster than the month.</span> [—]% used with [—] days left; the 14:00 to 15:00 hour is the cause. Capacity shows the saturation strip.</span></a>
+          <a href="UC-Quality.dc.html" style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid #E1E4E8; border-radius: 10px; text-decoration: none; color: inherit"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; border-radius: 50%; background: {{accent}}; margin-top: 6px"></span><span style="line-height: 1.5"><span style="font-weight: 600">A new topic appeared.</span> "Tax-form questions ahead of filing" is new since the last run, [n] calls, judge score below the use case's average. Add it to the dataset from Quality.</span></a>
+        </div>
+      </section>
+
+      <section aria-labelledby="chart-h" style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+          <h2 id="chart-h" style="margin: 0; font-size: 16px; font-weight: 600">Tokens over the window</h2>
+          <div style="display: flex; gap: 16px; font-size: 12px; color: #57606A">
+            <span style="display: inline-flex; align-items: center; gap: 6px"><span style="display: inline-block; width: 14px; height: 2px; background: {{accent}}"></span>input</span>
+            <span style="display: inline-flex; align-items: center; gap: 6px"><span style="display: inline-block; width: 14px; height: 2px; background: #8C959F"></span>output</span>
+          </div>
+        </div>
+        <svg viewBox="0 0 900 220" role="img" aria-label="Placeholder chart of input and output tokens per minute over the window" style="width: 100%; height: auto; display: block">
+          <line x1="40" y1="180" x2="880" y2="180" stroke="#E1E4E8" stroke-width="1"></line>
+          <line x1="40" y1="120" x2="880" y2="120" stroke="#F1F3F5" stroke-width="1"></line>
+          <line x1="40" y1="60" x2="880" y2="60" stroke="#F1F3F5" stroke-width="1"></line>
+          <polyline fill="none" stroke="{{accent}}" stroke-width="2.5" points="40,160 110,156 180,130 250,118 320,80 390,70 460,62 530,66 600,54 670,58 740,66 810,74 880,82"></polyline>
+          <polyline fill="none" stroke="#8C959F" stroke-width="2" stroke-dasharray="5 4" points="40,172 110,171 180,166 250,164 320,156 390,154 460,152 530,153 600,150 670,151 740,152 810,154 880,156"></polyline>
+          <text x="44" y="30" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">shape only; live values from the contract</text>
+          <text x="40" y="204" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">08:00</text>
+          <text x="850" y="204" font-size="12" fill="#57606A" font-family="Inter, system-ui, sans-serif">18:00</text>
+        </svg>
+      </section>
+
+      <section style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+        <a href="UC-Traffic.dc.html" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <span style="font-size: 13px; color: #57606A">Request shapes</span>
+          <span style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em">Most input 2k to 4k</span>
+          <span style="font-size: 13px; color: #57606A; line-height: 1.5">Length matrix, TTFT split, stalls, finish reasons.</span>
+          <span style="font-size: 13px; color: {{accent}}; font-weight: 500; margin-top: auto">Open Traffic</span>
+        </a>
+        <a href="UC-Capacity.dc.html" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <span style="font-size: 13px; color: #57606A">Capacity</span>
+          <span style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em; color: #8C959F">headroom [—]%</span>
+          <span style="font-size: 13px; color: #57606A; line-height: 1.5">Goodput, error budget, saturation by hour, cache by session depth.</span>
+          <span style="font-size: 13px; color: {{accent}}; font-weight: 500; margin-top: auto">Open Capacity</span>
+        </a>
+        <a href="UC-Models.dc.html" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <span style="font-size: 13px; color: #57606A">Serving now</span>
+          <span style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em">1 model · 100%</span>
+          <span style="font-size: 13px; color: #57606A; line-height: 1.5">TLM4 behind the alias; prompt v[—] in prod; no canary.</span>
+          <span style="font-size: 13px; color: {{accent}}; font-weight: 500; margin-top: auto">Open Models</span>
+        </a>
+        <a href="UC-Quality.dc.html" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <span style="font-size: 13px; color: #57606A">Quality</span>
+          <span style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em; color: #8C959F">judge [—] ± [—]</span>
+          <span style="font-size: 13px; color: #57606A; line-height: 1.5">4 tasks behind one model; annotation queue [—]; one new cluster.</span>
+          <span style="font-size: 13px; color: {{accent}}; font-weight: 500; margin-top: auto">Open Quality</span>
+        </a>
+      </section>
+
+      <sc-if value="{{engineering}}" hint-placeholder-val="{{ false }}">
+        <section aria-label="Engineering strip" style="background: #FFFBF2; border: 1px solid #F0DDB2; border-radius: 12px; padding: 16px 20px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; font-size: 13px">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #6B4A0B">Utilisation, dedicated machines</span><span style="font-weight: 600; font-size: 18px">[—]%</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #6B4A0B">Prefix-cache hit rate</span><span style="font-weight: 600; font-size: 18px">[—]%</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #6B4A0B">Speculative acceptance</span><span style="font-weight: 600; font-size: 18px">[—]%</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #6B4A0B">Behind the alias</span><span style="font-weight: 600; font-size: 14px">Core 27B · endpoint build none</span></div>
+        </section>
+      </sc-if>
+
+      <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px; color: #57606A">
+        <span>Data: Langfuse telemetry through the use-case contract v0.1 · updated [time] · every number compares with the previous window of the same length</span>
+        <a href="Alerts.dc.html" style="font-weight: 500">Alerts to [channel]; weekly digest on Mondays</a>
+      </footer>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"startEngineering":{"editor":"boolean","default":false},"$preview":{"width":1280,"height":1760}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { engineering: !!(props && props.startEngineering) };
+  }
+  renderVals() {
+    const engineering = this.state.engineering;
+    return {
+      accent: this.props.accent ?? '#0B5E4C',
+      engineering: engineering,
+      engineeringLabel: engineering ? 'on' : 'off',
+      engineeringBg: engineering ? '#FBF1DD' : '#FFFFFF',
+      engineeringFg: engineering ? '#6B4A0B' : '#3C4651',
+      toggleEngineering: () => this.setState({ engineering: !this.state.engineering })
+    };
+  }
+}
+</script>
+</body>
+</html>

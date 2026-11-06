@@ -1,50 +1,50 @@
-/* Idea Lab on VI Kit. The kit (vendor/vi-kit, never edited) brings Tailwind, shadcn on Base UI, the VI theme and glass.
+/* Idea Lab on ThinkLatent kit. The kit (vendor/design-kit, never edited) brings Tailwind, shadcn on Base UI, the ThinkLatent theme and glass.
    This file is the product layer: stage hues, the fields behind the glass, the dark dot grid and the Jarvis orb,
    all from the kit's tokens. */
-@import "../vendor/vi-kit/packages/vi-kit/styles/index.css";
+@import "../vendor/design-kit/packages/design-kit/styles/index.css";
 @source "./";
 
 :root {
   /* Stage hues: always beside the stage word, never the only cue. */
-  --lab-stage-seed: var(--vi-neutral-500);
-  --lab-stage-shaping: var(--vi-categorical-5);
-  --lab-stage-stress: var(--vi-status-warning-hue-light);
-  --lab-stage-proposal: var(--vi-categorical-3);
-  --lab-stage-building: var(--vi-brand-green-500);
-  --lab-stage-shipped: var(--vi-brand-teal-600);
-  --lab-stage-graduated: var(--vi-brand-green-800);
-  --lab-stage-parked: var(--vi-neutral-400);
-  --lab-stage-killed: var(--vi-brand-red-500);
-  --lab-good: var(--vi-status-good-hue-light);
-  --lab-warn: var(--vi-status-warning-hue-light);
-  --lab-crit: var(--vi-status-critical-hue-light);
-  --lab-info: var(--vi-status-info-hue-light);
+  --lab-stage-seed: var(--kit-neutral-500);
+  --lab-stage-shaping: var(--kit-categorical-5);
+  --lab-stage-stress: var(--kit-status-warning-hue-light);
+  --lab-stage-proposal: var(--kit-categorical-3);
+  --lab-stage-building: var(--kit-brand-green-500);
+  --lab-stage-shipped: var(--kit-brand-teal-600);
+  --lab-stage-graduated: var(--kit-brand-green-800);
+  --lab-stage-parked: var(--kit-neutral-400);
+  --lab-stage-killed: var(--kit-brand-red-500);
+  --lab-good: var(--kit-status-good-hue-light);
+  --lab-warn: var(--kit-status-warning-hue-light);
+  --lab-crit: var(--kit-status-critical-hue-light);
+  --lab-info: var(--kit-status-info-hue-light);
   --lab-row: rgba(255, 255, 255, 0.7);
   --lab-row-border: rgba(255, 255, 255, 0.8);
-  --lab-track: var(--vi-role-light-track);
-  --lab-field-1: color-mix(in oklab, var(--vi-brand-green-500) 55%, transparent);
-  --lab-field-2: color-mix(in oklab, var(--vi-brand-teal-600) 60%, transparent);
-  --lab-field-3: color-mix(in oklab, var(--vi-brand-green-200) 50%, transparent);
+  --lab-track: var(--kit-role-light-track);
+  --lab-field-1: color-mix(in oklab, var(--kit-brand-green-500) 55%, transparent);
+  --lab-field-2: color-mix(in oklab, var(--kit-brand-teal-600) 60%, transparent);
+  --lab-field-3: color-mix(in oklab, var(--kit-brand-green-200) 50%, transparent);
   --lab-dot: transparent;
 }
 
 .dark {
-  --lab-stage-seed: var(--vi-neutral-500);
+  --lab-stage-seed: var(--kit-neutral-500);
   --lab-stage-shaping: #b3aec6;
-  --lab-stage-stress: var(--vi-status-warning-hue-dark);
-  --lab-stage-proposal: var(--vi-status-info-hue-dark);
-  --lab-stage-building: var(--vi-brand-green-300);
-  --lab-stage-shipped: var(--vi-brand-teal-300);
-  --lab-stage-graduated: var(--vi-brand-green-400);
-  --lab-stage-parked: var(--vi-neutral-600);
-  --lab-stage-killed: var(--vi-brand-red-dark);
-  --lab-good: var(--vi-status-good-hue-dark);
-  --lab-warn: var(--vi-status-warning-hue-dark);
-  --lab-crit: var(--vi-status-critical-hue-dark);
-  --lab-info: var(--vi-status-info-hue-dark);
+  --lab-stage-stress: var(--kit-status-warning-hue-dark);
+  --lab-stage-proposal: var(--kit-status-info-hue-dark);
+  --lab-stage-building: var(--kit-brand-green-300);
+  --lab-stage-shipped: var(--kit-brand-teal-300);
+  --lab-stage-graduated: var(--kit-brand-green-400);
+  --lab-stage-parked: var(--kit-neutral-600);
+  --lab-stage-killed: var(--kit-brand-red-dark);
+  --lab-good: var(--kit-status-good-hue-dark);
+  --lab-warn: var(--kit-status-warning-hue-dark);
+  --lab-crit: var(--kit-status-critical-hue-dark);
+  --lab-info: var(--kit-status-info-hue-dark);
   --lab-row: rgba(255, 255, 255, 0.05);
   --lab-row-border: rgba(255, 255, 255, 0.1);
-  --lab-track: var(--vi-role-dark-track);
+  --lab-track: var(--kit-role-dark-track);
   --lab-dot: rgba(255, 255, 255, 0.07);
 }
 
@@ -87,7 +87,7 @@ body {
 .lab-noscroll { scrollbar-width: none; }
 .lab-noscroll::-webkit-scrollbar { display: none; }
 
-/* Jarvis orb: the green and the teal of the VI logo blending, turning faster while Jarvis thinks and pulsing as it speaks. */
+/* Jarvis orb: the green and the teal of the ThinkLatent logo blending, turning faster while Jarvis thinks and pulsing as it speaks. */
 @property --lab-orb-a {
   syntax: "<angle>";
   inherits: false;
@@ -97,9 +97,9 @@ body {
   position: relative;
   border-radius: 999px;
   isolation: isolate;
-  background: conic-gradient(from var(--lab-orb-a), var(--vi-brand-green-300), var(--vi-brand-teal-300), var(--vi-brand-green-500), var(--vi-brand-teal-600), var(--vi-brand-green-200), var(--vi-brand-green-300));
+  background: conic-gradient(from var(--lab-orb-a), var(--kit-brand-green-300), var(--kit-brand-teal-300), var(--kit-brand-green-500), var(--kit-brand-teal-600), var(--kit-brand-green-200), var(--kit-brand-green-300));
   animation: lab-orb-turn 9s linear infinite;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 6px 22px color-mix(in oklab, var(--vi-brand-green-500) 40%, transparent);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 6px 22px color-mix(in oklab, var(--kit-brand-green-500) 40%, transparent);
 }
 .jarvis-orb::before {
   content: "";
@@ -114,7 +114,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(circle at 50% 120%, color-mix(in oklab, var(--vi-brand-green-900) 55%, transparent), transparent 60%);
+  background: radial-gradient(circle at 50% 120%, color-mix(in oklab, var(--kit-brand-green-900) 55%, transparent), transparent 60%);
 }
 .jarvis-orb[data-state="thinking"] { animation-duration: 1.6s; }
 .jarvis-orb[data-state="speaking"] { animation-duration: 3s; }

@@ -1,18 +1,18 @@
 import { useMemo, useState, type KeyboardEvent, type ReactNode } from 'react';
 import { LayoutGroup, motion } from 'motion/react';
 import { ArrowDown, ArrowUp, ArrowUpRight, Search } from 'lucide-react';
-import { Status } from '@vi/kit';
-import { Badge } from '@vi/ui/components/badge';
-import { Button } from '@vi/ui/components/button';
-import { Input } from '@vi/ui/components/input';
-import { NativeSelect, NativeSelectOption } from '@vi/ui/components/native-select';
-import { cn } from '@vi/ui/lib/utils';
+import { Status } from '@kit/kit';
+import { Badge } from '@kit/ui/components/badge';
+import { Button } from '@kit/ui/components/button';
+import { Input } from '@kit/ui/components/input';
+import { NativeSelect, NativeSelectOption } from '@kit/ui/components/native-select';
+import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
 import { STAGES, NODE_TYPES, HORIZONS, type Idea, type Stage } from '../lib/types';
 import { fmtDate, plural } from '../lib/format';
 import { healthOf, updateState } from '../lib/derive2';
-import { Dash, EmptyNote, HealthTag, IdLink, Segmented, StageTag } from '../vi/parts';
-import { spring } from '../vi/motion';
+import { Dash, EmptyNote, HealthTag, IdLink, Segmented, StageTag } from '../kit/parts';
+import { spring } from '../kit/motion';
 
 type SortKey = 'id' | 'stage' | 'score' | 'touched' | 'attention';
 const STAGE_ORDER: Record<Stage, number> = { Seed: 0, Shaping: 1, 'Stress test': 2, Proposal: 3, Building: 4, Shipped: 5, Graduated: 6, Parked: 7, Killed: 8 };
@@ -97,26 +97,26 @@ export default function RegisterView() {
 
   const head = (key: SortKey | null, label: string, className?: string) =>
     key ? (
-      <button type="button" onClick={() => sortBy(key)} aria-sort={sort === key ? (asc ? 'ascending' : 'descending') : 'none'} className={cn('vi-caption inline-flex items-center gap-1 text-left uppercase tracking-wider hover:text-foreground', sort === key && 'text-foreground', className)}>
+      <button type="button" onClick={() => sortBy(key)} aria-sort={sort === key ? (asc ? 'ascending' : 'descending') : 'none'} className={cn('kit-caption inline-flex items-center gap-1 text-left uppercase tracking-wider hover:text-foreground', sort === key && 'text-foreground', className)}>
         {label}
         {sort === key && (asc ? <ArrowUp className="size-3" /> : <ArrowDown className="size-3" />)}
       </button>
     ) : (
-      <span className={cn('vi-caption uppercase tracking-wider', className)}>{label}</span>
+      <span className={cn('kit-caption uppercase tracking-wider', className)}>{label}</span>
     );
 
   return (
     <div className="flex flex-col gap-5">
       <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
         <div className="min-w-0">
-          <div className="vi-caption">
+          <div className="kit-caption">
             Register · rev {reg.source.registerRev} · {plural(visibleIdeas.length, 'row')} · standard {reg.standardVersion}
           </div>
           <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">Register</h1>
           <p className="mt-1.5 max-w-[760px] text-sm text-muted-foreground">Every row as the live register holds it. Tap a row for its lab record, links, decisions and next step.</p>
         </div>
         <div className="flex max-w-full min-w-0 flex-wrap items-center gap-2">
-          <span className="vi-caption">Sort</span>
+          <span className="kit-caption">Sort</span>
           <Segmented id="register-sort" size="sm" options={SORTS} value={sort} onChange={(v) => sortBy(v)} />
           <Button size="icon-sm" variant="outline" className="rounded-full bg-background/60" aria-label={asc ? 'Ascending; switch to descending' : 'Descending; switch to ascending'} onClick={() => setAsc(!asc)}>
             {asc ? <ArrowUp /> : <ArrowDown />}
@@ -236,7 +236,7 @@ function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index
   const inStage =
     d.daysInStage != null ? (
       <span>
-        <span className="vi-num">{d.daysInStage}</span> <span className="text-xs text-muted-foreground">days</span>
+        <span className="kit-num">{d.daysInStage}</span> <span className="text-xs text-muted-foreground">days</span>
       </span>
     ) : (
       <Dash reason="not recorded" />
@@ -244,7 +244,7 @@ function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index
   const score =
     i.score.composite != null ? (
       <span title={i.score.note ?? i.score.status}>
-        <span className="vi-num">{i.score.composite.toFixed(2)}</span>
+        <span className="kit-num">{i.score.composite.toFixed(2)}</span>
         <span className="block text-[11px] text-muted-foreground">{i.score.status}</span>
       </span>
     ) : (
@@ -252,7 +252,7 @@ function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index
     );
   const stream = (
     <span className="flex flex-wrap items-center gap-1">
-      {i.streamId ? <Badge variant="secondary" className="rounded-full vi-num">{i.streamId}</Badge> : null}
+      {i.streamId ? <Badge variant="secondary" className="rounded-full kit-num">{i.streamId}</Badge> : null}
       {i.horizon ? (
         <Badge variant="outline" className="rounded-full">
           {i.horizon}
@@ -263,7 +263,7 @@ function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index
   );
   const touched = (
     <span className="text-xs">
-      <span className="vi-num">{fmtDate(i.lastTouched)}</span>
+      <span className="kit-num">{fmtDate(i.lastTouched)}</span>
       {i.docUrl ? (
         <a href={i.docUrl} target="_blank" rel="noreferrer" onClick={stop} className="mt-0.5 flex items-center gap-0.5 text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
           doc <ArrowUpRight className="size-3" />
@@ -294,12 +294,12 @@ function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index
       onClick={open}
       onKeyDown={onKey}
       aria-current={selectedId === i.id ? 'true' : undefined}
-      className={cn('lab-row cursor-pointer px-4 py-3.5 transition-shadow outline-none hover:shadow-[0_8px_28px_rgba(0,0,0,0.06)] focus-visible:ring-2 focus-visible:ring-ring', selectedId === i.id && 'ring-2 ring-[var(--vi-brand)]')}
+      className={cn('lab-row cursor-pointer px-4 py-3.5 transition-shadow outline-none hover:shadow-[0_8px_28px_rgba(0,0,0,0.06)] focus-visible:ring-2 focus-visible:ring-ring', selectedId === i.id && 'ring-2 ring-[var(--kit-brand)]')}
     >
       {/* Wide: one grid row. */}
       <div className={cn('hidden items-center gap-3.5 lg:grid', showScore ? COLS : COLS_NO_SCORE)}>
         <div className="min-w-0">
-          <div className="vi-num text-sm font-medium">{i.id}</div>
+          <div className="kit-num text-sm font-medium">{i.id}</div>
           <div className="truncate text-xs text-muted-foreground">{i.slug}</div>
           {isNew && <Status tone="info" word="Changed" className="mt-1" />}
         </div>
@@ -323,7 +323,7 @@ function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index
       {/* Phone and tablet: a stacked card with the same facts. */}
       <div className="lg:hidden">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-          <span className="vi-num text-sm font-medium">{i.id}</span>
+          <span className="kit-num text-sm font-medium">{i.id}</span>
           <span className="text-xs text-muted-foreground">{i.slug}</span>
           {stageCell}
           {isNew && <Status tone="info" word="Changed" />}
@@ -346,7 +346,7 @@ function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index
 function Cell({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="min-w-0">
-      <dt className="vi-caption">{label}</dt>
+      <dt className="kit-caption">{label}</dt>
       <dd className="mt-0.5 text-sm">{children}</dd>
     </div>
   );

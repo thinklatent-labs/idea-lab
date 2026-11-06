@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal — Model record, TLM4 Core</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;background-image:radial-gradient(760px 480px at 92% 18%,rgba(145,179,185,.28),rgba(145,179,185,0) 60%),radial-gradient(900px 600px at 55% 100%,rgba(71,124,139,.16),rgba(71,124,139,0) 60%),radial-gradient(600px 400px at 8% 0%,rgba(71,124,139,.08),rgba(71,124,139,0) 60%);background-attachment:fixed;font-family:Inter,system-ui,sans-serif;color:#17151C;font-size:14px;line-height:1.45;font-feature-settings:"tnum" 1}
+a{color:#17151C}a:hover{color:#000}
+.num{font-variant-numeric:tabular-nums}
+.cap{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#45404F;font-weight:500}
+.sub{font-size:12px;color:#45404F}
+.pill{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:999px;border:1px solid #C6C0CD;background:#FFF;font-size:12px;font-weight:500;color:#17151C;white-space:nowrap}
+.pill.dark{background:#292531;color:#FFF;border-color:#17151C}
+.chip{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:#F2F0F4;font-size:12px;color:#2E4538;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:999px;border:1px solid #C6C0CD;background:#FFF;font:inherit;font-weight:500;font-size:13px;color:#17151C;cursor:pointer;text-decoration:none}
+.btn.primary{background:#292531;color:#FFF;border-color:#17151C}
+.btn.sm{height:30px;padding:0 12px;font-size:12px}
+.card{background:rgba(255,255,255,.80);backdrop-filter:blur(14px) saturate(1.1);-webkit-backdrop-filter:blur(14px) saturate(1.1);border:1px solid rgba(255,255,255,.85);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 0 rgba(0,0,0,.04);border-radius:16px}
+.raised{background:rgba(255,255,255,.48);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(5,22,26,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.8);border-radius:16px}
+.glass{background:rgba(255,255,255,.58);backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2);border:1px solid rgba(5,22,26,.09);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 0 0 1px rgba(0,0,0,.03),0 8px 32px rgba(20,20,19,.08)}
+.ico{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.sq{width:28px;height:28px;border-radius:8px;background:#292531;color:#FFF;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.sq.lt{background:#F2F0F4;color:#17151C;border:1px solid #ECE9EF}
+.av{width:24px;height:24px;border-radius:999px;background:#C6C0CD;color:#17151C;font-size:10px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.bar{height:6px;border-radius:999px;background:#ECE9EF;overflow:hidden}
+.bar i{display:block;height:100%;background:#477C8B;border-radius:999px}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #F2F0F4;font-size:13px}
+.kv:last-child{border-bottom:0}
+.kv span:first-child{color:#45404F}
+.tab{height:40px;display:inline-flex;align-items:center;gap:6px;padding:0 4px;margin-right:20px;border-bottom:2px solid transparent;font-size:13px;font-weight:500;color:#45404F;text-decoration:none}
+.tab.on{color:#17151C;border-color:#17151C}
+.navitem{height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 16px;border-radius:14px;border:0;background:transparent;font:inherit;font-size:13px;font-weight:500;color:#2E4538;cursor:pointer;text-decoration:none}
+.navitem.on{background:#477C8B;color:#FFF}
+.navitem:hover{background:rgba(0,0,0,.05)}
+.navitem.on:hover{background:#292531}
+.dockbtn{width:44px;height:44px;border-radius:12px;border:0;background:transparent;display:flex;align-items:center;justify-content:center;color:#2E4538;position:relative;cursor:pointer;text-decoration:none}
+.dockbtn.on{background:#477C8B;color:#FFF;box-shadow:0 0 0 1px rgba(71,124,139,.35),0 6px 18px rgba(71,124,139,.30)}
+.badge{position:absolute;top:4px;right:4px;min-width:16px;height:16px;padding:0 4px;border-radius:999px;background:#292531;color:#FFF;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+.ph{color:#45404F;border-bottom:1px dotted #716879;cursor:help}
+</style>
+</helmet>
+
+<div style="position: relative; min-height: 100vh; padding: 16px; box-sizing: border-box; display: flex; flex-direction: column">
+
+  
+
+  <main style="position: relative; flex: 1; background: rgba(250,250,248,.62); backdrop-filter: blur(28px) saturate(1.15); -webkit-backdrop-filter: blur(28px) saturate(1.15); border: 1px solid rgba(255,255,255,.8); box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 24px 60px rgba(20,20,19,.10); border-radius: 24px; display: flex; flex-direction: column; min-width: 0">
+
+    <header class="glass" style="height: 48px; border-radius: 24px 24px 0 0; background: rgba(255,255,255,.42); box-shadow: inset 0 1px 0 rgba(255,255,255,.95); display: flex; align-items: center; gap: 16px; padding: 0 16px; border-width: 0 0 1px 0">
+      <span class="sq" style="width:32px;height:32px;border-radius:9px;font-size:11px;font-weight:700;margin-right:4px;background:#96151D;color:#fff">ThinkLatent</span><label for="q2" style="display:flex; align-items:center; gap: 8px; height: 32px; width: 320px; padding: 0 12px; border-radius: 999px; background: #FFF; border: 1px solid #ECE9EF; color: #45404F; font-size: 13px">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q2" type="search" placeholder="Search models, use cases, ids" style="flex:1; border:0; outline:0; background:transparent; font:inherit; color:#17151C">
+        <span class="chip" style="height:18px;padding:0 6px;font-size:11px">⌘K</span>
+      </label>
+      <div style="flex:1; display:flex; justify-content:center"><span class="pill"><span style="width:6px;height:6px;border-radius:999px;background:#292531"></span>Monitoring · 6 agents · 3 approvals</span></div>
+      <div style="display:flex; align-items:center; gap: 6px">
+        <button type="button" class="btn sm" aria-label="Theme: follows system">Theme</button>
+        <button type="button" class="btn sm" aria-label="Density: comfortable">Comfortable</button>
+        <button type="button" class="btn sm" aria-label="Engineering view off">Engineering</button>
+        <span class="av" style="width:30px;height:30px;font-size:11px;margin-left:6px">JP</span>
+      </div>
+    </header>
+
+    <nav aria-label="Primary" class="glass" style="position: absolute; left: 12px; top: 64px; width: 60px; padding: 8px; border-radius: 20px; display: flex; flex-direction: column; gap: 4px; align-items: center; z-index: 5">
+    <a href="Main.dc.html" aria-label="Home" class="dockbtn" style="text-decoration:none"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></a>
+    <a href="Record.dc.html" aria-label="Models" class="dockbtn on" style="text-decoration:none"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></a>
+    <button type="button" aria-label="Use cases" class="dockbtn"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></button>
+    <a href="ChatHome.dc.html" aria-label="Agents" class="dockbtn" style="text-decoration:none"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="7" width="14" height="11" rx="3"/><path d="M12 4v3M9 12h.01M15 12h.01M3 12h2M19 12h2"/></svg></a>
+    <button type="button" aria-label="Evidence" class="dockbtn"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></button>
+    <a href="Approval.dc.html" aria-label="Approvals" class="dockbtn" style="text-decoration:none"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><span class="badge" aria-hidden="true">3</span></a>
+  </nav>
+    <div style="padding: 24px 32px 32px 100px; display: flex; flex-direction: column; gap: 20px">
+
+      <!-- Page header (row 9) -->
+      <section style="display:flex; flex-direction:column; gap: 10px">
+        <span class="cap">Models / TLM4 / Core</span>
+        <div style="display:flex; align-items:center; gap: 14px; flex-wrap: wrap">
+          <a href="Main.dc.html" aria-label="Back" class="btn sm" style="width:30px;padding:0;justify-content:center;border-radius:999px"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M15 6l-6 6 6 6"/></svg></a>
+          <span class="sq" style="width:44px;height:44px;border-radius:12px"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></span>
+          <h1 style="margin:0; font-size: 28px; font-weight: 600; letter-spacing:-0.01em">TLM4 Core</h1>
+          <span class="pill"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Approved</span>
+          <span class="chip">Foundation team view</span>
+          <div style="margin-left:auto; display:flex; gap: 8px"><button type="button" class="btn">Message owner</button><button type="button" class="btn">Model brief</button><button type="button" class="btn primary">Request usage</button></div>
+        </div>
+        <p style="margin:0; color:#45404F">General Core model for Enterprise tasks; the base for the Domain tier.</p>
+      </section>
+
+      <section style="display:grid; grid-template-columns: 300px minmax(0,1fr); gap: 24px; align-items:start">
+
+        <!-- Left column: key-value groups -->
+        <aside class="card" style="padding: 20px; display:flex; flex-direction:column; gap: 18px">
+          <div>
+            <div class="cap">Model health</div>
+            <div style="display:flex; align-items:baseline; gap: 8px; margin: 6px 0 8px"><span class="num" style="font-size:34px;font-weight:600;line-height:1">86</span><span class="sub">/ 100 · Healthy</span></div>
+            <div style="display:grid; grid-template-columns: repeat(10, minmax(0,1fr)); gap: 3px" aria-hidden="true"><i style="height:6px;border-radius:2px;background:#477C8B"></i><i style="height:6px;border-radius:2px;background:#477C8B"></i><i style="height:6px;border-radius:2px;background:#477C8B"></i><i style="height:6px;border-radius:2px;background:#477C8B"></i><i style="height:6px;border-radius:2px;background:#477C8B"></i><i style="height:6px;border-radius:2px;background:#477C8B"></i><i style="height:6px;border-radius:2px;background:#477C8B"></i><i style="height:6px;border-radius:2px;background:#477C8B"></i><i style="height:6px;border-radius:2px;background:#ECE9EF"></i><i style="height:6px;border-radius:2px;background:#ECE9EF"></i></div>
+            <div class="sub" style="margin-top:6px">Up 3 since the October release</div>
+          </div>
+          <div>
+            <div class="kv"><span>Owner</span><span style="display:flex;align-items:center;gap:6px"><span class="av" style="width:20px;height:20px;font-size:9px">AM</span>Anita Menon</span></div>
+            <div class="kv"><span>Generation</span><span>TLM4</span></div>
+            <div class="kv"><span>Released</span><span>14 Oct 2026</span></div>
+            <div class="kv"><span>Lineage</span><span>TLM4 → Core</span></div>
+            <div class="kv"><span>Serving</span><span>HyperPod · 2 endpoints</span></div>
+            <div class="kv"><span>Validated</span><span>14 Oct 2026</span></div>
+            <div class="kv"><span>Next review</span><span>Mar 2027</span></div>
+            <div class="kv"><span>Energy per 1k tasks</span><span class="ph" title="Not yet run: metering lands with TL-009">—</span></div>
+          </div>
+          <div>
+            <div class="cap" style="margin-bottom:8px">Contacts</div>
+            <div style="display:flex; flex-direction:column; gap: 10px; font-size:13px">
+              <div style="display:flex; align-items:center; gap: 8px"><span class="av">AM</span><div><div style="font-weight:500">Anita Menon</div><div class="sub">Model owner · Foundation team</div></div><span class="chip" style="margin-left:auto">Primary</span></div>
+              <div style="display:flex; align-items:center; gap: 8px"><span class="av">RK</span><div><div style="font-weight:500">Rohan Khanna</div><div class="sub">Approver · Governance</div></div></div>
+              <div style="display:flex; align-items:center; gap: 8px"><span class="av">DS</span><div><div style="font-weight:500">Dev Sharma</div><div class="sub">Serving · Platform</div></div></div>
+            </div>
+          </div>
+          <div>
+            <div class="cap" style="margin-bottom:8px">Top use cases · 30 days</div>
+            <div style="display:flex; flex-direction:column; gap: 8px; font-size:13px">
+              <div><div style="display:flex;justify-content:space-between"><span>Advisor summary</span><span class="num sub">41k calls</span></div><div class="bar" style="margin-top:4px"><i style="width:80%"></i></div></div>
+              <div><div style="display:flex;justify-content:space-between"><span>Compliance pre-review</span><span class="num sub">28k calls</span></div><div class="bar" style="margin-top:4px"><i style="width:55%"></i></div></div>
+              <div><div style="display:flex;justify-content:space-between"><span>Servicing triage</span><span class="num sub">17k calls</span></div><div class="bar" style="margin-top:4px"><i style="width:33%"></i></div></div>
+            </div>
+          </div>
+          <div>
+            <div class="cap" style="margin-bottom:8px">Documents · 6</div>
+            <div class="kv"><span>Model card</span><span class="sub">v4.2</span></div>
+            <div class="kv"><span>Validation report</span><span class="sub">14 Oct</span></div>
+          </div>
+        </aside>
+
+        <!-- Right: tabs, brief, exhibit, tiles, lists -->
+        <div style="display:flex; flex-direction:column; gap: 20px; min-width:0">
+          <nav aria-label="Record sections" style="border-bottom:1px solid #ECE9EF; display:flex; flex-wrap: wrap">
+            <a href="#overview" class="tab on">Overview</a>
+            <a href="#evaluations" class="tab">Evaluations <span class="chip">312</span></a>
+            <a href="#usecases" class="tab">Use cases <span class="chip">18</span></a>
+            <a href="#documents" class="tab">Documents <span class="chip">6</span></a>
+            <a href="#approvals" class="tab">Approvals <span class="chip">2</span></a>
+            <a href="#history" class="tab">History</a>
+          </nav>
+
+          <article id="overview" class="raised" style="padding: 20px; display:flex; flex-direction:column; gap: 14px">
+            <span class="cap" style="display:flex;align-items:center;gap:8px"><span class="sq" style="width:20px;height:20px;border-radius:6px"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:12px;height:12px"><rect x="5" y="7" width="14" height="11" rx="3"/><path d="M12 4v3"/></svg></span>Index agent · model brief · updated 11:56</span>
+            <p style="margin:0; font-size: 17px; line-height:1.4; font-weight:500">Core is above target on seven of nine pillars; <span style="font-weight:400;color:#45404F">compliance and entity recognition sit below target after the October data refresh.</span></p>
+            <div style="display:flex; gap: 8px; flex-wrap: wrap"><span class="chip">7 of 9 pillars above target</span><span class="chip num">0.81 ± 0.02 sufficiency</span><span class="chip">18 active use cases</span><span class="chip">2 pillars below target</span></div>
+            <div style="background:#FFF; border:1px solid #ECE9EF; border-radius: 12px; padding: 12px 14px; display:flex; justify-content:space-between; align-items:center; gap: 16px">
+              <div><div class="cap">Opportunity</div><div style="font-size:13px; margin-top:4px">A compliance adapter would lift the two weak pillars; evidence from 3 use cases.</div></div>
+              <a href="#evaluations" class="sub" style="white-space:nowrap">View analysis →</a>
+            </div>
+            <div style="display:flex; gap: 8px; flex-wrap: wrap"><button type="button" class="btn sm primary">Open pillar detail</button><button type="button" class="btn sm">Propose adapter</button><button type="button" class="btn sm">Schedule review</button></div>
+          </article>
+
+          <div style="display:grid; grid-template-columns: minmax(0,3fr) minmax(0,2fr); gap: 20px">
+            <section class="card" style="padding: 20px; display:flex; flex-direction:column; gap: 12px">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap: 12px">
+                <div><div style="font-weight:600">Sufficiency by pillar · 90 days</div><div class="sub">target 0.85 · the two pillars below target drawn with weight</div></div>
+                <div style="display:flex; gap: 6px"><span class="pill">30d</span><span class="pill dark">90d</span><span class="pill">1y</span></div>
+              </div>
+              <svg role="img" aria-label="Nine pillar lines over 90 days; compliance and entity recognition below the 0.85 target" viewBox="0 0 640 220" style="width:100%; height:220px">
+                <g stroke="#F2F0F4"><line x1="36" y1="30" x2="630" y2="30"/><line x1="36" y1="90" x2="630" y2="90"/><line x1="36" y1="150" x2="630" y2="150"/></g>
+                <g fill="#45404F" font-size="11" font-family="Inter"><text x="0" y="34">0.95</text><text x="0" y="94">0.85</text><text x="0" y="154">0.75</text></g>
+                <line x1="36" y1="90" x2="630" y2="90" stroke="#1A1A19" stroke-dasharray="4 4"/><text x="630" y="84" text-anchor="end" font-size="11" fill="#1A1A19" font-family="Inter">Target 0.85</text>
+                <g fill="none" stroke="#C6C0CD" stroke-width="1.5">
+                  <polyline points="36,60 136,58 236,62 336,55 436,57 536,52 630,50"/><polyline points="36,70 136,66 236,68 336,64 436,66 536,60 630,58"/><polyline points="36,48 136,50 236,46 336,44 436,48 536,44 630,42"/><polyline points="36,76 136,74 236,78 336,72 436,70 536,68 630,66"/><polyline points="36,64 136,68 236,60 336,62 436,58 536,62 630,56"/><polyline points="36,80 136,78 236,82 336,76 436,78 536,74 630,72"/><polyline points="36,56 136,54 236,58 336,52 436,54 536,50 630,48"/>
+                </g>
+                <polyline fill="none" stroke="#477C8B" stroke-width="2.5" points="36,86 136,84 236,88 336,92 436,118 536,124 630,120"/>
+                <polyline fill="none" stroke="#477C8B" stroke-width="2.5" stroke-dasharray="6 3" points="36,92 136,90 236,94 336,98 436,126 536,132 630,128"/>
+                <text x="630" y="160" text-anchor="end" font-size="11" fill="#477C8B" font-family="Inter">Compliance 0.79 · Entity recognition 0.77</text>
+                <g fill="#45404F" font-size="11" font-family="Inter"><text x="36" y="200">5 Aug</text><text x="330" y="200">20 Sep</text><text x="630" y="200" text-anchor="end">3 Nov</text></g>
+              </svg>
+            </section>
+            <section style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px">
+              <div class="raised" style="padding: 16px"><div class="cap">Active use cases</div><div class="num" style="font-size:26px;font-weight:600;margin:6px 0 2px">18</div><div class="sub">3 onboarded this quarter</div></div>
+              <div class="raised" style="padding: 16px"><div class="cap">Evaluation runs</div><div class="num" style="font-size:26px;font-weight:600;margin:6px 0 2px">312</div><div class="sub">last 30 days</div></div>
+              <div class="raised" style="padding: 16px"><div class="cap">Cost per 1k tasks</div><div class="num" style="font-size:26px;font-weight:600;margin:6px 0 2px">$1<span style="font-weight:400;color:#45404F">.42</span></div><div class="sub">down 4% after quantisation</div></div>
+              <div class="raised" style="padding: 16px"><div class="cap">Latency p95</div><div class="num" style="font-size:26px;font-weight:600;margin:6px 0 2px">410 <span style="font-size:14px;font-weight:400;color:#45404F">ms</span></div><div class="sub">inside the 500 ms target</div></div>
+            </section>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px">
+            <section id="evaluations" class="card" style="padding: 16px 20px; display:flex; flex-direction:column; gap: 8px">
+              <div style="display:flex; justify-content:space-between; align-items:center"><span style="font-weight:600">Recent evaluations</span><a href="#evaluations" class="sub" style="text-decoration:none">All 312 →</a></div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding: 10px 0; border-bottom:1px solid #F2F0F4; font-size:13px"><div><div style="font-weight:500">Compliance pillar · 2026.11 release</div><div class="sub">today 09:40 · n = 1,412</div></div><div style="display:flex;align-items:center;gap:10px"><span class="num">0.79 ± 0.03</span><span class="pill"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M12 3l9 16H3z"/><path d="M12 10v4"/></svg>Warning</span></div></div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding: 10px 0; border-bottom:1px solid #F2F0F4; font-size:13px"><div><div style="font-weight:500">Advice pillar · 2026.11 release</div><div class="sub">today 09:12 · n = 2,080</div></div><div style="display:flex;align-items:center;gap:10px"><span class="num">0.88 ± 0.02</span><span class="pill"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Good</span></div></div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding: 10px 0; font-size:13px"><div><div style="font-weight:500">Servicing pillar · 2026.11 release</div><div class="sub">yesterday 17:05 · n = 960</div></div><div style="display:flex;align-items:center;gap:10px"><span class="num">0.86 ± 0.03</span><span class="pill"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Good</span></div></div>
+            </section>
+            <section class="card" style="padding: 16px 20px; display:flex; flex-direction:column; gap: 8px">
+              <div style="display:flex; justify-content:space-between; align-items:center"><span style="font-weight:600">Conversations about this model</span><a href="#history" class="sub" style="text-decoration:none">Open inbox →</a></div>
+              <div style="display:flex; gap: 10px; padding: 10px 0; border-bottom:1px solid #F2F0F4; font-size:13px"><span class="av">PN</span><div style="min-width:0"><div style="display:flex;justify-content:space-between"><span style="font-weight:500">Priya Nair</span><span class="sub">11:41</span></div><div class="sub">Advice · UC-0142</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Can we keep v2 live until the retrain clears the threshold?</div></div></div>
+              <div style="display:flex; gap: 10px; padding: 10px 0; font-size:13px"><span class="av">RK</span><div style="min-width:0"><div style="display:flex;justify-content:space-between"><span style="font-weight:500">Rohan Khanna</span><span class="sub">09:05</span></div><div class="sub">Governance · UA-0291</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">One policy check routed to a human; see the approval page.</div></div></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

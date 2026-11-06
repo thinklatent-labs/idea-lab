@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { AnimatePresence, MotionConfig, motion } from 'motion/react';
 import { Boxes, Columns3, Gauge, GitCompareArrows, LayoutDashboard, ListChecks, ScrollText, Table2, Waypoints } from 'lucide-react';
-import { Status } from '@vi/kit';
+import { Status } from '@kit/kit';
 import type { Audience, Register, SnapshotIndex } from './lib/types';
 import { deriveAll, attentionQueue, hoursBetween } from './lib/derive';
 import { openNextSteps } from './lib/derive2';
@@ -9,8 +9,8 @@ import { ALL_AUDIENCE, LabContext, parseHash, toHash, useLab, VIEWS, type View }
 import { fmtDateTime, relHours } from './lib/format';
 import { readLastVisit, writeLastVisit, readPrefs, writePrefs } from './lib/storage';
 import { useInbox } from './lib/inbox';
-import { Shell, type AgendaChip, type DockItem } from './vi/shell';
-import { spring } from './vi/motion';
+import { Shell, type AgendaChip, type DockItem } from './kit/shell';
+import { spring } from './kit/motion';
 import { JarvisProvider, useJarvis } from './jarvis/useJarvis';
 import { JarvisPanel } from './jarvis/JarvisPanel';
 import { localBrief, whenText } from './jarvis/brain';
@@ -162,7 +162,7 @@ export default function App() {
   if (load.status === 'error')
     return (
       <div className="flex min-h-dvh items-center justify-center p-6">
-        <div className="vi-surface-content max-w-lg p-6">
+        <div className="kit-surface-content max-w-lg p-6">
           <Status tone="critical" word="The register could not be loaded" />
           <p className="mt-2 text-sm text-muted-foreground">{load.message}. The page reads data/register.json next to it; republish the data file from the nightly sync or the last export.</p>
         </div>

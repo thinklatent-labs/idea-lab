@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Use case prompts: versions, aliases, diffs, hygiene</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F4F5F7;font-family:Inter,system-ui,sans-serif;color:#1B1F24}
+a{color:#0B5E4C}a:hover{color:#08463A}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column; font-family: Inter, system-ui, sans-serif; color: #1B1F24; background: #F4F5F7">
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E1E4E8">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; min-height: 56px">
+      <a href="Catalogue.dc.html" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #1B1F24; font-weight: 600; font-size: 15px; min-height: 44px">
+        <span style="display: inline-block; width: 22px; height: 22px; border-radius: 6px; background: {{accent}}"></span>
+        ThinkLatent Portal
+      </a>
+      <nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #57606A; flex: 1 1 320px; min-width: 0">
+        <a href="UseCases.dc.html" style="text-decoration: none; color: #57606A">Use cases</a>
+        <span aria-hidden="true">/</span>
+        <a href="Model.dc.html" style="text-decoration: none; color: #57606A">TLM4</a>
+        <span aria-hidden="true">/</span>
+        <a href="Main.dc.html" style="text-decoration: none; color: #57606A">Call summary to CRM</a>
+        <span aria-hidden="true">/</span>
+        <span style="color: #1B1F24; font-weight: 500">Prompts</span>
+      </nav>
+      <a href="Assistant.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 8px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 14px">Ask the assistant</a>
+    </div>
+  </header>
+
+  <div style="flex: 1 1 auto; width: 100%; max-width: 1280px; margin: 0 auto; padding: 32px 32px 56px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+
+    <nav aria-label="Use case pages" style="flex: 0 1 200px; display: flex; flex-direction: column; gap: 4px; font-size: 14px">
+      <a href="Main.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Overview</a>
+      <a href="UC-Traffic.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Traffic</a>
+      <a href="UC-Capacity.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Capacity</a>
+      <a href="UC-Models.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Models</a>
+      <a href="UC-Quality.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Quality</a>
+      <a href="UC-Improve.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Improve</a>
+      <a href="UC-Record.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Record</a>
+      <span style="margin-top: 14px; padding: 0 12px; font-size: 11px; color: #8C959F; text-transform: uppercase; letter-spacing: 0.06em">Workbench</span>
+      <a href="Prompts.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #1B1F24; font-weight: 600; background: #FFFFFF; border: 1px solid #E1E4E8">Prompts</a>
+      <a href="Datasets.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Datasets and queues</a>
+      <a href="Alerts.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Alerts and digest</a>
+      <span style="margin-top: 16px; padding: 10px 12px; font-size: 12px; color: #57606A; line-height: 1.5">A prompt change is a release: versioned, evaluated, aliased, logged on the record.</span>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+
+      <section style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-start">
+        <div style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 480px; min-width: 0">
+          <h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.01em">Prompts</h1>
+          <p style="margin: 0; font-size: 15px; color: #57606A; max-width: 700px; line-height: 1.5">Every prompt this use case sends, as versions behind an alias. Most quality regressions in production come from a prompt edit nobody evaluated, so the portal treats a prompt like a model: it has a version, a score, a share of traffic and an owner.</p>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap">
+          <button style="min-height: 44px; padding: 0 16px; border-radius: 8px; border: 1px solid #C9CED4; background: #FFFFFF; color: #1B1F24; font: 500 14px Inter, system-ui, sans-serif; cursor: pointer">Propose a version</button>
+          <button style="min-height: 44px; padding: 0 16px; border-radius: 8px; border: 1px solid #C9CED4; background: #FFFFFF; color: #1B1F24; font: 500 14px Inter, system-ui, sans-serif; cursor: pointer">Compare two versions</button>
+        </div>
+      </section>
+
+      <section aria-label="Headline numbers" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">In production</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em">v8</span>
+          <span style="font-size: 13px; color: #57606A">alias prod since [date] · cleared by Official run [id]</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Registered calls</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]%</span>
+          <span style="font-size: 13px; color: #57606A">carry a known prompt_id · the rest are on <a href="Unregistered.dc.html" style="font-weight: 500">Unregistered usage</a></span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Input tokens per call, prod</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]</span>
+          <span style="font-size: 13px; color: #57606A">system prompt [—] of them · cacheable prefix [—]%</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Proposals open</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em">2</span>
+          <span style="font-size: 13px; color: #57606A">one in canary, one awaiting a Practice run</span>
+        </div>
+      </section>
+
+      <section aria-labelledby="versions-h" style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+          <h2 id="versions-h" style="margin: 0; font-size: 16px; font-weight: 600">Versions</h2>
+          <span style="font-size: 13px; color: #57606A">Newest first. Aliases move through the same approvals as model weights; retired versions stay readable for Audit.</span>
+        </div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 860px; border-collapse: collapse; font-size: 13px">
+            <thead><tr style="text-align: left; color: #57606A; font-size: 12px">
+              <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Version</th>
+              <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Alias</th>
+              <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">What changed</th>
+              <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Author</th>
+              <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Evaluation</th>
+              <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Tokens</th>
+              <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Traffic</th>
+              <th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500"></th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; font-family: ui-monospace, SFMono-Regular, Menlo, monospace">v9</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 2px 8px; border-radius: 999px; background: #FBF1DD; color: #6B4A0B; font-size: 11px; font-weight: 600">canary</span></td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">Shorter system prompt; examples moved to a cached prefix</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">[name]</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">Practice: [—] ± [—] · Official pending</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #0B5E4C; font-weight: 500">−18%</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">5%</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><a href="UC-Models.dc.html" style="font-weight: 500">Judgement</a></td>
+              </tr>
+              <tr style="background: #F8FAF9">
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600">v8</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 2px 8px; border-radius: 999px; background: #E6F2EE; color: #0B5E4C; font-size: 11px; font-weight: 600">prod</span></td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">Tightened the next-step instruction; amount formatting rule</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">[name]</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">Official [id]: [—] ± [—]</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">95%</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><a href="#" style="font-weight: 500">Open</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; font-family: ui-monospace, SFMono-Regular, Menlo, monospace">v7</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4"><span style="padding: 2px 8px; border-radius: 999px; background: #EEF1F4; color: #3C4651; font-size: 11px; font-weight: 600">previous</span></td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">Added the disclosure sentence required by Compliance</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">[name]</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">Official [id]: [—] ± [—]</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">0%</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">rollback target</td>
+              </tr>
+              <tr>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; font-family: ui-monospace, SFMono-Regular, Menlo, monospace">v6 draft</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">—</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">Proposal: ask for a one-line "client mood" field</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4">[name]</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">not run · <a href="Index.dc.html" style="font-weight: 500">run Practice</a></td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">+[—]</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">0%</td>
+                <td style="padding: 11px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">proposal</td>
+              </tr>
+              <tr>
+                <td style="padding: 11px 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #57606A">v1 to v5</td>
+                <td style="padding: 11px 8px; color: #57606A">retired</td>
+                <td style="padding: 11px 8px; color: #57606A">POC era; readable, not servable</td>
+                <td style="padding: 11px 8px; color: #57606A">—</td>
+                <td style="padding: 11px 8px; color: #57606A">—</td>
+                <td style="padding: 11px 8px; color: #57606A">—</td>
+                <td style="padding: 11px 8px; color: #57606A">0%</td>
+                <td style="padding: 11px 8px; color: #57606A"><a href="#" style="font-weight: 500">history</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600">What v9 changes against v8</h2>
+            <span style="font-size: 13px; color: #57606A">Line diff of the system prompt, with the evaluation that goes with it. Removed on the left, added on the right.</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; font: 12px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace">
+            <div style="padding: 12px; border-radius: 8px; background: #FBE9E7; color: #5A1F15; min-width: 0; white-space: pre-wrap">− You are an assistant that summarises calls between an Enterprise advisor and a client. Follow these twelve rules exactly: …
+− Example 1 … Example 2 … Example 3 …</div>
+            <div style="padding: 12px; border-radius: 8px; background: #E6F2EE; color: #0B3D32; min-width: 0; white-space: pre-wrap">+ Summarise the call for the CRM: facts, amounts, decisions, next step.
++ [examples moved to cached prefix: prefix-id summ-ex-3]</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; font-size: 13px">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Judge score</span><span style="font-weight: 600; color: #8C959F">Δ [—] ± [—]</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Input tokens per call</span><span style="font-weight: 600; color: #0B5E4C">−18%</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Finish reason: length</span><span style="font-weight: 600; color: #8C959F">Δ [—] pts</span></div>
+          </div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600">Prompt hygiene</h2>
+            <span style="font-size: 13px; color: #57606A">Checks the portal runs on every version before it can be aliased; the same checks are advice on a draft.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px">
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 9px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Required disclosure sentence present</span><span style="color: #0B5E4C; font-weight: 600">pass</span></div>
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 9px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>No client identifiers in examples</span><span style="color: #0B5E4C; font-weight: 600">pass</span></div>
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 9px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Static prefix ahead of variable content (cacheable)</span><span style="color: #B7791F; font-weight: 600">v8: 41% · v9: 83%</span></div>
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 9px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Output schema declared and validated</span><span style="color: #0B5E4C; font-weight: 600">pass</span></div>
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 9px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Instructions duplicated or contradictory</span><span style="color: #B7791F; font-weight: 600">2 found in v8</span></div>
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 9px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Within the model card's recommended length</span><span style="color: #0B5E4C; font-weight: 600">pass</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 6px; border-top: 1px solid #EEF1F4; font-size: 13px; color: #3C4651">
+            <span style="font-weight: 600">Change alerts</span>
+            <span>Owner and engineering contact on any alias move; approver on prod; ThinkLatent evaluation when a version runs without an Official score for more than 7 days at over 10% of traffic.</span>
+          </div>
+        </div>
+      </section>
+
+      <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px; color: #57606A">
+        <span>Versions are stored with the record; prompt_id on every call joins traffic, quality and cost to a version. A missing prompt_id counts against tag completeness on the record.</span>
+        <a href="UC-Record.dc.html" style="font-weight: 500">Thresholds and tag rules on the record</a>
+      </footer>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"$preview":{"width":1280,"height":1700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#0B5E4C' };
+  }
+}
+</script>
+</body>
+</html>

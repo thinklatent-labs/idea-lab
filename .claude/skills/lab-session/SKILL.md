@@ -1,6 +1,6 @@
 ---
 name: lab-session
-description: Open or close an Idea Lab session on one idea: read the register row back, declare the mode, and at the end write the row, decision line and sessions row before syncing. Use whenever a chat names a VI-### id or slug.
+description: Open or close an Idea Lab session on one idea: read the register row back, declare the mode, and at the end write the row, decision line and sessions row before syncing. Use whenever a chat names a TL-### id or slug.
 ---
 
 # Lab session
@@ -8,8 +8,8 @@ description: Open or close an Idea Lab session on one idea: read the register ro
 ## Opening
 
 1. Read `register/register.json`; find the row by id, slug or alias.
-2. Reply first with `Lab session · VI-### slug · Mode` (mode by stage unless Jithin names one) and restate the row's last decision-log line and next step. Wait for a yes before acting on anything else.
-3. Read `ideas/VI-###-slug.md` for the prose.
+2. Reply first with `Lab session · TL-### slug · Mode` (mode by stage unless Jithin names one) and restate the row's last decision-log line and next step. Wait for a yes before acting on anything else.
+3. Read `ideas/TL-###-slug.md` for the prose.
 
 ## Closing
 

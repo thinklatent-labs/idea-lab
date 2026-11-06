@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { MessageSquareText } from 'lucide-react';
-import { Status } from '@vi/kit';
-import { Button } from '@vi/ui/components/button';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@vi/ui/components/tooltip';
+import { Status } from '@kit/kit';
+import { Button } from '@kit/ui/components/button';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@kit/ui/components/tooltip';
 import { useLab } from '../lib/context';
 import { sessionLine, defaultMode } from '../lib/derive';
 import type { DueItem, Idea } from '../lib/types';
 import { fmtDate } from '../lib/format';
-import { CopyLine, StageTag } from '../vi/parts';
-import { spring } from '../vi/motion';
+import { CopyLine, StageTag } from '../kit/parts';
+import { spring } from '../kit/motion';
 import { useJarvis } from '../jarvis/useJarvis';
 
 /** One decision waiting on Jithin. A quick call shows its options as pills; an input-needed item hands over to a
@@ -37,7 +37,7 @@ export default function DueCard({ idea, item, showIdea = false }: { idea: Idea; 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
         {showIdea && (
           <button type="button" onClick={() => select(idea.id)} className="inline-flex items-center gap-2 text-xs font-medium hover:underline">
-            <span className="vi-num">{idea.id}</span>
+            <span className="kit-num">{idea.id}</span>
             <span className="text-muted-foreground">{idea.slug}</span>
           </button>
         )}

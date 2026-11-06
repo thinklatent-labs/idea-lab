@@ -1,11 +1,11 @@
-// Pulls VI Kit (thinklatent-labs/vi-kit) into vendor/vi-kit, pinned to the kit's commit, and builds its tokens.
+// Pulls ThinkLatent kit (thinklatent-labs/design-kit) into vendor/design-kit, pinned to the kit's commit, and builds its tokens.
 //
-//   node scripts/kit-pull.mjs                  pull from ../../vi-kit (a vi-kit checkout next to idea-lab)
+//   node scripts/kit-pull.mjs                  pull from ../../design-kit (a design-kit checkout next to idea-lab)
 //   node scripts/kit-pull.mjs --from <path>    pull from another checkout
-//   node scripts/kit-pull.mjs --check          verify vendor/vi-kit still matches KIT.json (CI runs this)
+//   node scripts/kit-pull.mjs --check          verify vendor/design-kit still matches KIT.json (CI runs this)
 //   node scripts/kit-pull.mjs --force          overwrite files that were edited here (ejected)
 //
-// The vendored kit is never edited in this repo. Product extensions live in src/vi and src/jarvis and wrap the
+// The vendored kit is never edited in this repo. Product extensions live in src/kit and src/jarvis and wrap the
 // kit; a vendored file whose hash no longer matches KIT.json has been ejected, and this script says so.
 import { createHash } from 'node:crypto';
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
@@ -15,18 +15,18 @@ import { fileURLToPath } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const dashboard = path.resolve(here, '..');
-const vendor = path.join(dashboard, 'vendor', 'vi-kit');
+const vendor = path.join(dashboard, 'vendor', 'design-kit');
 const kitJson = path.join(vendor, 'KIT.json');
 const args = process.argv.slice(2);
 const flag = (f) => args.includes(f);
 const opt = (f, d) => (args.includes(f) ? args[args.indexOf(f) + 1] : d);
 
-// What a product needs from the kit: the shadcn layer, the VI layer, the bridge it imports, and the tokens.
+// What a product needs from the kit: the shadcn layer, the ThinkLatent layer, the bridge it imports, and the tokens.
 const SETS = [
   'packages/ui/src',
   'packages/ui/UPSTREAM.json',
-  'packages/vi-kit/src',
-  'packages/vi-kit/styles',
+  'packages/design-kit/src',
+  'packages/design-kit/styles',
   'packages/motion/styles/bridge.css',
   'packages/tokens/src',
   'packages/tokens/sd.config.mjs',
@@ -57,27 +57,27 @@ function audit() {
 if (flag('--check')) {
   const { pinned, ejected, added, missing } = audit();
   if (!pinned) {
-    console.error('vendor/vi-kit has no KIT.json; run node scripts/kit-pull.mjs');
+    console.error('vendor/design-kit has no KIT.json; run node scripts/kit-pull.mjs');
     process.exit(1);
   }
   const bad = [...ejected.map((f) => `edited here (ejected): ${f}`), ...added.map((f) => `not from the kit: ${f}`), ...missing.map((f) => `missing: ${f}`)];
   if (bad.length) {
-    console.error(`vendor/vi-kit differs from VI Kit ${pinned.commit.slice(0, 7)}:\n  ${bad.join('\n  ')}\nExtend the kit in src/vi instead; to take the kit back, run kit-pull --force.`);
+    console.error(`vendor/design-kit differs from ThinkLatent kit ${pinned.commit.slice(0, 7)}:\n  ${bad.join('\n  ')}\nExtend the kit in src/kit instead; to take the kit back, run kit-pull --force.`);
     process.exit(1);
   }
-  console.log(`vendor/vi-kit matches VI Kit ${pinned.commit.slice(0, 7)} (${Object.keys(pinned.files).length} files)`);
+  console.log(`vendor/design-kit matches ThinkLatent kit ${pinned.commit.slice(0, 7)} (${Object.keys(pinned.files).length} files)`);
   process.exit(0);
 }
 
-const from = path.resolve(opt('--from', path.join(dashboard, '..', '..', 'vi-kit')));
-if (!existsSync(path.join(from, 'packages', 'vi-kit'))) {
-  console.error(`No vi-kit checkout at ${from}. Clone thinklatent-labs/vi-kit next to idea-lab, or pass --from <path>.`);
+const from = path.resolve(opt('--from', path.join(dashboard, '..', '..', 'design-kit')));
+if (!existsSync(path.join(from, 'packages', 'design-kit'))) {
+  console.error(`No design-kit checkout at ${from}. Clone thinklatent-labs/design-kit next to idea-lab, or pass --from <path>.`);
   process.exit(1);
 }
 
 const { ejected, added } = audit();
 if ((ejected.length || added.length) && !flag('--force')) {
-  console.error(`Not pulling: files in vendor/vi-kit were changed here.\n  ${[...ejected.map((f) => `ejected: ${f}`), ...added.map((f) => `added: ${f}`)].join('\n  ')}\nMove the change into src/vi (a wrapper or variant), or upstream it to vi-kit; --force overwrites.`);
+  console.error(`Not pulling: files in vendor/design-kit were changed here.\n  ${[...ejected.map((f) => `ejected: ${f}`), ...added.map((f) => `added: ${f}`)].join('\n  ')}\nMove the change into src/kit (a wrapper or variant), or upstream it to design-kit; --force overwrites.`);
   process.exit(1);
 }
 
@@ -88,9 +88,9 @@ let subject = null;
 try {
   commit = git('rev-parse', 'HEAD');
   [commitDate, subject] = git('log', '-1', '--format=%cI%x09%s').split('\t');
-  if (git('status', '--porcelain', '--', 'packages')) console.warn('Warning: the vi-kit checkout has uncommitted changes under packages/; KIT.json pins the commit, not those changes.');
+  if (git('status', '--porcelain', '--', 'packages')) console.warn('Warning: the design-kit checkout has uncommitted changes under packages/; KIT.json pins the commit, not those changes.');
 } catch {
-  console.warn('Warning: the vi-kit checkout is not a git repository; KIT.json records no commit.');
+  console.warn('Warning: the design-kit checkout is not a git repository; KIT.json records no commit.');
 }
 
 rmSync(vendor, { recursive: true, force: true });
@@ -119,16 +119,16 @@ writeFileSync(
   kitJson,
   `${JSON.stringify(
     {
-      source: 'thinklatent-labs/vi-kit',
+      source: 'thinklatent-labs/design-kit',
       commit,
       commitDate,
       subject,
       pulledAt: new Date().toISOString(),
-      note: 'Vendored by scripts/kit-pull.mjs. Never edit these files: extend the kit in src/vi. kit-pull --check fails when a file here changes.',
+      note: 'Vendored by scripts/kit-pull.mjs. Never edit these files: extend the kit in src/kit. kit-pull --check fails when a file here changes.',
       files,
     },
     null,
     2,
   )}\n`,
 );
-console.log(`vendor/vi-kit: VI Kit ${commit.slice(0, 7)}${subject ? ` (${subject})` : ''}, ${Object.keys(files).length} files, tokens built`);
+console.log(`vendor/design-kit: ThinkLatent kit ${commit.slice(0, 7)}${subject ? ` (${subject})` : ''}, ${Object.keys(files).length} files, tokens built`);

@@ -143,15 +143,15 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
     return buildDigest({ reg: l.reg, derived: l.derived, now: l.now, inbox: l.inbox.docs, lastVisit: l.lastVisit, visibleIdeas: l.visibleIdeas });
   };
 
-  /** Commands Jarvis carries out on the page without Claude: "open VI-004", "show the board", a bare ID. */
+  /** Commands Jarvis carries out on the page without Claude: "open TL-004", "show the board", a bare ID. */
   const localIntent = (text: string): string | null => {
     const l = labRef.current;
     const t = text.trim();
-    const bare = /^(VI|CAP|T)-\d{3}$/i.exec(t);
+    const bare = /^(TL|CAP|T)-\d{3}$/i.exec(t);
     const m = bare ? [t, '', t] : /^(?:open|show(?: me)?|go to|take me to|pull up|bring up)\s+(?:the\s+)?(.+?)\s*[.!]?$/i.exec(t);
     if (!m) return null;
     const target = m[2].trim();
-    const id = /^((?:VI|CAP|T)-\d{3})$/i.exec(target)?.[1]?.toUpperCase() ?? l.reg.ideas.find((i) => i.slug.toLowerCase() === target.toLowerCase() || (i.aliases ?? []).some((a) => a.toLowerCase() === target.toLowerCase()))?.id ?? null;
+    const id = /^((?:TL|CAP|T)-\d{3})$/i.exec(target)?.[1]?.toUpperCase() ?? l.reg.ideas.find((i) => i.slug.toLowerCase() === target.toLowerCase() || (i.aliases ?? []).some((a) => a.toLowerCase() === target.toLowerCase()))?.id ?? null;
     if (id) {
       const known = l.reg.ideas.some((i) => i.id === id) || l.reg.capabilities.some((c) => c.id === id) || l.reg.themes.some((x) => x.id === id);
       if (!known) return `There is no ${id} in the register.`;
@@ -173,8 +173,8 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
     return [
       {
         name: 'open_view',
-        description: 'Show a view of the dashboard, optionally with one record open (a row VI-###, a capability CAP-### or a theme T-###). Returns what is now on screen.',
-        inputSchema: { type: 'object', properties: { view: { type: 'string', enum: [...VIEW_NAMES] }, id: { type: 'string', description: 'VI-###, CAP-### or T-###; omit to show the view alone' } }, required: ['view'] },
+        description: 'Show a view of the dashboard, optionally with one record open (a row TL-###, a capability CAP-### or a theme T-###). Returns what is now on screen.',
+        inputSchema: { type: 'object', properties: { view: { type: 'string', enum: [...VIEW_NAMES] }, id: { type: 'string', description: 'TL-###, CAP-### or T-###; omit to show the view alone' } }, required: ['view'] },
         execute: (input: Record<string, unknown>) => {
           const view = String(input.view) as View;
           if (!VIEWS.includes(view)) throw new Error(`No view "${view}". Views: ${VIEWS.join(', ')}`);
@@ -188,7 +188,7 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
       {
         name: 'get_idea',
         description: "One register row in full, as JSON: hypotheses, kill signals, open questions, phases, links in and out, the row's decisions and sessions, its health call and the Building gate.",
-        inputSchema: { type: 'object', properties: { id: { type: 'string', description: 'VI-###' } }, required: ['id'] },
+        inputSchema: { type: 'object', properties: { id: { type: 'string', description: 'TL-###' } }, required: ['id'] },
         execute: (input: Record<string, unknown>) => {
           const id = String(input.id).toUpperCase();
           const { reg, derived } = l();
@@ -230,7 +230,7 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
       {
         name: 'propose_quick_call',
         description: 'Put one quick call that is listed under "decisions due" in front of Jithin with the option you recommend, as a card he confirms or dismisses. Nothing is recorded until he confirms.',
-        inputSchema: { type: 'object', properties: { itemId: { type: 'string', description: 'the due item id, e.g. VI-004-q2' }, optionId: { type: 'string' }, why: { type: 'string', description: 'one sentence' } }, required: ['itemId', 'optionId', 'why'] },
+        inputSchema: { type: 'object', properties: { itemId: { type: 'string', description: 'the due item id, e.g. TL-004-q2' }, optionId: { type: 'string' }, why: { type: 'string', description: 'one sentence' } }, required: ['itemId', 'optionId', 'why'] },
         execute: (input: Record<string, unknown>) => {
           const itemId = String(input.itemId);
           const { reg, inbox } = l();
@@ -248,8 +248,8 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
       },
       {
         name: 'draft_request',
-        description: 'Draft a request for the next lab chat (for example "move VI-009 to Shaping" or "book a Critic session on VI-004") as a card Jithin can queue. Queued requests are raised at the start of the next lab chat; nothing changes until then.',
-        inputSchema: { type: 'object', properties: { ideaId: { type: 'string', description: 'VI-### it concerns, if one' }, text: { type: 'string', description: 'the request, one or two sentences, imperative' } }, required: ['text'] },
+        description: 'Draft a request for the next lab chat (for example "move TL-009 to Shaping" or "book a Critic session on TL-004") as a card Jithin can queue. Queued requests are raised at the start of the next lab chat; nothing changes until then.',
+        inputSchema: { type: 'object', properties: { ideaId: { type: 'string', description: 'TL-### it concerns, if one' }, text: { type: 'string', description: 'the request, one or two sentences, imperative' } }, required: ['text'] },
         execute: (input: Record<string, unknown>) => {
           const ideaId = input.ideaId ? String(input.ideaId).toUpperCase() : null;
           if (ideaId && !l().reg.ideas.some((i) => i.id === ideaId)) throw new Error(`No row ${ideaId}`);
@@ -305,8 +305,8 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
         availability === 'checking'
           ? 'Still connecting to Claude; ask again in a moment.'
           : availability === 'blocked'
-            ? 'Claude is not available to Jarvis on this page any more (permission or account). I can still open views and rows: try "open VI-004" or "show the board".'
-            : 'I answer through Claude on claude.ai, and this copy of the dashboard cannot reach it. I can still open views and rows: try "open VI-004" or "show the board".';
+            ? 'Claude is not available to Jarvis on this page any more (permission or account). I can still open views and rows: try "open TL-004" or "show the board".'
+            : 'I answer through Claude on claude.ai, and this copy of the dashboard cannot reach it. I can still open views and rows: try "open TL-004" or "show the board".';
       setMsgs((ms) => [...ms, userMsg, { id: uid(), role: 'jarvis', text: why, at: now, kind: 'notice', status: 'done' }]);
       return;
     }

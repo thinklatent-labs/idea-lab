@@ -465,7 +465,7 @@ export interface GateCheck {
   missing: string[];
 }
 
-/** The Building gate: VAI's rule generalised. No owner, no stream or no appetite means no start. */
+/** The Building gate: the TL Index's rule generalised. No owner, no stream or no appetite means no start. */
 export function buildingGate(idea: Idea): GateCheck {
   // The sponsor is not an owner; a segment that says "to be named" is unmet; anything left that is not Jithin counts.
   const segments = idea.owner.split(/[;,]/).map((x) => x.trim()).filter(Boolean);

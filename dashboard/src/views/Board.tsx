@@ -1,14 +1,14 @@
 import { useMemo, useState } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
-import { Status } from '@vi/kit';
-import { Badge } from '@vi/ui/components/badge';
-import { cn } from '@vi/ui/lib/utils';
+import { Status } from '@kit/kit';
+import { Badge } from '@kit/ui/components/badge';
+import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
 import type { Lane } from '../lib/derive';
 import { HORIZONS, type Idea } from '../lib/types';
 import { relDays, plural } from '../lib/format';
-import { EmptyNote, ReasonTags, Segmented, StageTag } from '../vi/parts';
-import { spring } from '../vi/motion';
+import { EmptyNote, ReasonTags, Segmented, StageTag } from '../kit/parts';
+import { spring } from '../kit/motion';
 
 type LaneKey = Lane | 'Unplaced';
 type Lens = 'lifecycle' | 'portfolio';
@@ -65,7 +65,7 @@ export default function Board() {
     <div className="flex flex-col gap-5">
       <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
         <div className="min-w-0">
-          <div className="vi-caption">
+          <div className="kit-caption">
             Portfolio board · {plural(visibleIdeas.length, 'row')}
             {p ? ` · portfolio session ${p.status}` : ''}
           </div>
@@ -116,11 +116,11 @@ export default function Board() {
           {lanes.map((lane) => {
             const rows = byLane(lane.key);
             return (
-              <motion.section key={lane.key} layout transition={spring.layout} className="vi-surface-frame flex min-w-0 flex-col gap-3 p-3.5" aria-label={`${lane.label} lane`}>
+              <motion.section key={lane.key} layout transition={spring.layout} className="kit-surface-frame flex min-w-0 flex-col gap-3 p-3.5" aria-label={`${lane.label} lane`}>
                 <div className="flex items-baseline justify-between gap-2 px-1">
                   <h2 className="text-[17px] font-medium">{lane.label}</h2>
                   <span className="text-xs text-muted-foreground">
-                    <span className="vi-num text-foreground">{rows.length}</span> {rows.length === 1 ? 'row' : 'rows'}
+                    <span className="kit-num text-foreground">{rows.length}</span> {rows.length === 1 ? 'row' : 'rows'}
                   </span>
                 </div>
                 {rows.length === 0 ? (
@@ -133,7 +133,7 @@ export default function Board() {
                     if (group.length === 0) return null;
                     return (
                       <motion.div key={h ?? 'none'} layout transition={spring.layout} className="flex flex-col gap-2">
-                        <span className="vi-caption px-1">{h ?? 'No horizon'}</span>
+                        <span className="kit-caption px-1">{h ?? 'No horizon'}</span>
                         <AnimatePresence initial={true} mode="popLayout">
                           {group.map((i, k) => (
                             <BoardCard key={i.id} idea={i} index={k} />
@@ -152,10 +152,10 @@ export default function Board() {
         {(caps.length > 0 || killed.length > 0) && (
           <div className="grid gap-3 md:grid-cols-2 2xl:grid-cols-4">
             {caps.length > 0 && (
-              <motion.section layout className="vi-surface-frame flex min-w-0 flex-col gap-2 p-3.5" aria-label="Capabilities to watch">
+              <motion.section layout className="kit-surface-frame flex min-w-0 flex-col gap-2 p-3.5" aria-label="Capabilities to watch">
                 <div className="flex items-baseline justify-between px-1">
                   <h2 className="text-[17px] font-medium">Capabilities to watch</h2>
-                  <span className="vi-num text-xs text-muted-foreground">{caps.length}</span>
+                  <span className="kit-num text-xs text-muted-foreground">{caps.length}</span>
                 </div>
                 <AnimatePresence mode="popLayout">
                   {caps.map((i, k) => (
@@ -165,10 +165,10 @@ export default function Board() {
               </motion.section>
             )}
             {killed.length > 0 && (
-              <motion.section layout className="vi-surface-frame flex min-w-0 flex-col gap-2 p-3.5" aria-label="Killed">
+              <motion.section layout className="kit-surface-frame flex min-w-0 flex-col gap-2 p-3.5" aria-label="Killed">
                 <div className="flex items-baseline justify-between px-1">
                   <h2 className="text-[17px] font-medium">Killed</h2>
-                  <span className="vi-num text-xs text-muted-foreground">{killed.length}</span>
+                  <span className="kit-num text-xs text-muted-foreground">{killed.length}</span>
                 </div>
                 <p className="px-1 text-xs text-muted-foreground">Kept with their reasons; killed ideas are evidence for later ones.</p>
                 <AnimatePresence mode="popLayout">
@@ -208,10 +208,10 @@ function BoardCard({ idea, index, quiet = false }: { idea: Idea; index: number; 
       whileTap={{ scale: 0.98 }}
       onClick={() => select(idea.id)}
       aria-current={selectedId === idea.id ? 'true' : undefined}
-      className={cn('lab-row w-full px-3.5 py-3 text-left', selectedId === idea.id && 'ring-2 ring-[var(--vi-brand)]')}
+      className={cn('lab-row w-full px-3.5 py-3 text-left', selectedId === idea.id && 'ring-2 ring-[var(--kit-brand)]')}
     >
       <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-        <span className="vi-num text-xs font-medium">{idea.id}</span>
+        <span className="kit-num text-xs font-medium">{idea.id}</span>
         <span className="min-w-0 truncate text-xs text-muted-foreground">{idea.slug}</span>
         <StageTag stage={idea.stage} note={idea.stageNote} className="ml-auto" />
       </div>
@@ -219,7 +219,7 @@ function BoardCard({ idea, index, quiet = false }: { idea: Idea; index: number; 
       <div className="mt-2 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11px] text-muted-foreground">
         {idea.score.composite != null && (
           <span>
-            score <span className="vi-num text-foreground">{idea.score.composite.toFixed(2)}</span> {idea.score.status}
+            score <span className="kit-num text-foreground">{idea.score.composite.toFixed(2)}</span> {idea.score.status}
           </span>
         )}
         {idea.streamId && (

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Use case quality: acceptance, judge, annotation, drift, clusters</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F4F5F7;font-family:Inter,system-ui,sans-serif;color:#1B1F24}
+a{color:#0B5E4C}a:hover{color:#08463A}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column; font-family: Inter, system-ui, sans-serif; color: #1B1F24; background: #F4F5F7">
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E1E4E8">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; min-height: 56px">
+      <a href="Catalogue.dc.html" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #1B1F24; font-weight: 600; font-size: 15px; min-height: 44px">
+        <span style="display: inline-block; width: 22px; height: 22px; border-radius: 6px; background: {{accent}}"></span>
+        ThinkLatent Portal
+      </a>
+      <nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #57606A; flex: 1 1 320px; min-width: 0">
+        <a href="UseCases.dc.html" style="text-decoration: none; color: #57606A">Use cases</a>
+        <span aria-hidden="true">/</span>
+        <a href="Model.dc.html" style="text-decoration: none; color: #57606A">TLM4</a>
+        <span aria-hidden="true">/</span>
+        <a href="Main.dc.html" style="text-decoration: none; color: #57606A">Call summary to CRM</a>
+        <span aria-hidden="true">/</span>
+        <span style="color: #1B1F24; font-weight: 500">Quality</span>
+      </nav>
+      <a href="Assistant.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 8px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 14px">Ask the assistant</a>
+    </div>
+  </header>
+
+  <div style="flex: 1 1 auto; width: 100%; max-width: 1280px; margin: 0 auto; padding: 32px 32px 56px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+
+    <nav aria-label="Use case pages" style="flex: 0 1 200px; display: flex; flex-direction: column; gap: 4px; font-size: 14px">
+      <a href="Main.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Overview</a>
+      <a href="UC-Traffic.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Traffic</a>
+      <a href="UC-Capacity.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Capacity</a>
+      <a href="UC-Models.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Models</a>
+      <a href="UC-Quality.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #1B1F24; font-weight: 600; background: #FFFFFF; border: 1px solid #E1E4E8">Quality</a>
+      <a href="UC-Improve.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Improve</a>
+      <a href="UC-Record.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Record</a>
+      <span style="margin-top: 14px; padding: 0 12px; font-size: 11px; color: #8C959F; text-transform: uppercase; letter-spacing: 0.06em">Workbench</span>
+      <a href="Prompts.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Prompts</a>
+      <a href="Datasets.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Datasets and queues</a>
+      <a href="Alerts.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Alerts and digest</a>
+      <span style="margin-top: 16px; padding: 10px 12px; font-size: 12px; color: #57606A; line-height: 1.5">Window: 30 days · compared with the 30 before. Tier [tier] decides who sees the clusters panel.</span>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.01em">Quality</h1>
+        <p style="margin: 0; font-size: 15px; color: #57606A; max-width: 720px; line-height: 1.5">Is the model good at this job, and do we actually know. Four sources, in order of trust: what people did with the output, what people said about it, what the judge model scored, and what the prompts themselves reveal.</p>
+      </section>
+
+      <section aria-label="Headline numbers" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Acceptance</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]%</span>
+          <span style="font-size: 13px; color: #57606A">used as written [—]% · edited [—]% · discarded [—]%</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Persistence</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]%</span>
+          <span style="font-size: 13px; color: #57606A">still in the CRM record after 7 days, unchanged</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Judge score</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—] ± [—]</span>
+          <span style="font-size: 13px; color: #57606A">daily sample n = [—] · agreement with humans [—]</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Explicit feedback</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]</span>
+          <span style="font-size: 13px; color: #57606A">coverage [—]% of requests · trend [—]</span>
+        </div>
+      </section>
+
+      <section aria-labelledby="tasks-h" style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+          <h2 id="tasks-h" style="margin: 0; font-size: 16px; font-weight: 600">Tasks hiding behind one model</h2>
+          <span style="font-size: 13px; color: #57606A">Mined from prompts, checked against the per-call task tag. Each row is a candidate line item in the index and a candidate specialist.</span>
+        </div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px">
+            <thead>
+              <tr style="text-align: left; color: #57606A; font-size: 12px">
+                <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Task</th>
+                <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Share of requests</th>
+                <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Typical shape</th>
+                <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Acceptance</th>
+                <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Judge ± interval</th>
+                <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">vs last month</th>
+                <th style="padding: 10px 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; font-weight: 500">Summarise a call</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><div style="display: flex; align-items: center; gap: 8px"><div style="width: 90px; height: 8px; border-radius: 4px; background: #EEF1F4"><div style="width: 58%; height: 8px; border-radius: 4px; background: {{accent}}"></div></div><span style="color: #8C959F">[share]</span></div></td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">long in, short out</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]%</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ± [—]</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><a href="UC-Improve.dc.html" style="font-weight: 500">Specialise</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; font-weight: 500">Extract facts to CRM fields</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><div style="display: flex; align-items: center; gap: 8px"><div style="width: 90px; height: 8px; border-radius: 4px; background: #EEF1F4"><div style="width: 24%; height: 8px; border-radius: 4px; background: {{accent}}"></div></div><span style="color: #8C959F">[share]</span></div></td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">long in, structured out</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]%</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ± [—]</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><a href="UC-Improve.dc.html" style="font-weight: 500">Specialise</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; font-weight: 500">Redact PII before storage</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><div style="display: flex; align-items: center; gap: 8px"><div style="width: 90px; height: 8px; border-radius: 4px; background: #EEF1F4"><div style="width: 12%; height: 8px; border-radius: 4px; background: {{accent}}"></div></div><span style="color: #8C959F">[share]</span></div></td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #57606A">short in, short out</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]%</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ± [—]</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EEF1F4"><a href="UC-Improve.dc.html" style="font-weight: 500">Specialise</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 14px 8px; font-weight: 500">Compliance pre-check <span style="margin-left: 6px; padding: 2px 8px; border-radius: 999px; background: #E6F2EE; color: #0B5E4C; font-size: 11px; font-weight: 600">NEW</span></td>
+                <td style="padding: 14px 8px"><div style="display: flex; align-items: center; gap: 8px"><div style="width: 90px; height: 8px; border-radius: 4px; background: #EEF1F4"><div style="width: 6%; height: 8px; border-radius: 4px; background: {{accent}}"></div></div><span style="color: #8C959F">[share]</span></div></td>
+                <td style="padding: 14px 8px; color: #57606A">short in, yes or no</td>
+                <td style="padding: 14px 8px; color: #8C959F">[—]%</td>
+                <td style="padding: 14px 8px; color: #8C959F">too few to say (n = [—])</td>
+                <td style="padding: 14px 8px; color: #8C959F">not seen last month</td>
+                <td style="padding: 14px 8px"><a href="UC-Improve.dc.html" style="font-weight: 500">Specialise</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600">Is the judge trustworthy</h2>
+            <span style="font-size: 13px; color: #57606A">The judge model is scored against human labels before its scores are shown anywhere. When agreement slips, the judge number greys out.</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; font-size: 13px">
+            <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px; border-radius: 8px; background: #F4F5F7"><span style="color: #57606A">Agreement with humans</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—]</span><span style="color: #57606A">Cohen's κ, last 200 labelled</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px; border-radius: 8px; background: #F4F5F7"><span style="color: #57606A">Bias</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—]</span><span style="color: #57606A">judge minus human, mean</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px; border-radius: 8px; background: #F4F5F7"><span style="color: #57606A">Last calibrated</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[date]</span><span style="color: #57606A">judge TLM4 Judge v[—]</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px">
+            <div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: #3C4651">Where the judge and humans disagree most</span><span style="color: #57606A">[—] items</span></div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <div style="display: flex; align-items: center; gap: 10px"><span style="flex: 0 0 160px; color: #3C4651">Numbers and amounts</span><div style="flex: 1; height: 8px; border-radius: 4px; background: #EEF1F4"><div style="width: 62%; height: 8px; border-radius: 4px; background: #B7791F"></div></div><span style="color: #8C959F; flex: 0 0 40px; text-align: right">[—]</span></div>
+              <div style="display: flex; align-items: center; gap: 10px"><span style="flex: 0 0 160px; color: #3C4651">Omitted next steps</span><div style="flex: 1; height: 8px; border-radius: 4px; background: #EEF1F4"><div style="width: 41%; height: 8px; border-radius: 4px; background: #B7791F"></div></div><span style="color: #8C959F; flex: 0 0 40px; text-align: right">[—]</span></div>
+              <div style="display: flex; align-items: center; gap: 10px"><span style="flex: 0 0 160px; color: #3C4651">Tone and hedging</span><div style="flex: 1; height: 8px; border-radius: 4px; background: #EEF1F4"><div style="width: 23%; height: 8px; border-radius: 4px; background: #B7791F"></div></div><span style="color: #8C959F; flex: 0 0 40px; text-align: right">[—]</span></div>
+            </div>
+          </div>
+          <a href="Index.dc.html" style="font-size: 13px; font-weight: 500">Calibration per index pillar</a>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+          <div style="display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; flex-wrap: wrap">
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <h2 style="margin: 0; font-size: 16px; font-weight: 600">Annotation queue</h2>
+              <span style="font-size: 13px; color: #57606A">A daily sample plus everything the thresholds flagged. Reviewers claim an item, score it on the rubric, and write the correction; corrections become training data.</span>
+            </div>
+            <button style="min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #C9CED4; background: #FFFFFF; color: #1B1F24; font: 500 13px Inter, system-ui, sans-serif; cursor: pointer">Claim next item</button>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; font-size: 13px">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">In queue</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—]</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Claimed</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—]</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Done this week</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—]</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #57606A">Corrections captured</span><span style="font-size: 20px; font-weight: 600; color: #8C959F">[—]</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px">
+            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Flagged: judge below baseline · <span style="color: #57606A">rubric: call summary v[—]</span></span><span style="color: #57606A">claimed by [name]</span><span style="padding: 2px 8px; border-radius: 999px; background: #FBF1DD; color: #6B4A0B; font-size: 11px; font-weight: 600">in review</span></div>
+            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Daily sample · <span style="color: #57606A">rubric: call summary v[—]</span></span><span style="color: #57606A">unclaimed</span><span style="padding: 2px 8px; border-radius: 999px; background: #EEF1F4; color: #3C4651; font-size: 11px; font-weight: 600">open</span></div>
+            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Discarded by user, no reason · <span style="color: #57606A">rubric: extraction v[—]</span></span><span style="color: #57606A">[name]</span><span style="padding: 2px 8px; border-radius: 999px; background: #E6F2EE; color: #0B5E4C; font-size: 11px; font-weight: 600">corrected</span></div>
+          </div>
+          <span style="font-size: 12px; color: #57606A">Rubric: faithfulness, completeness, next step, tone; 1 to 5 each with a reason. Two reviewers on 10% for inter-rater agreement.</span>
+        </div>
+      </section>
+
+      <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600">What is flowing through</h2>
+            <span style="font-size: 13px; color: #57606A">Clusters above the minimum-user threshold, compared with the last run; titles written by our model without private details and checked automatically.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Retirement account consolidation questions</span><span style="color: #57606A; white-space: nowrap; font-size: 13px">[n] calls · <span style="color: #0B5E4C">▲ [—]%</span></span><a href="#" style="font-size: 13px; font-weight: 500; white-space: nowrap">Add to dataset</a></div>
+            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Beneficiary changes after a life event</span><span style="color: #57606A; white-space: nowrap; font-size: 13px">[n] calls · flat</span><a href="#" style="font-size: 13px; font-weight: 500; white-space: nowrap">Add to dataset</a></div>
+            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Tax-form questions ahead of filing <span style="margin-left: 6px; padding: 2px 8px; border-radius: 999px; background: #E6F2EE; color: #0B5E4C; font-size: 11px; font-weight: 600">NEW</span></span><span style="color: #57606A; white-space: nowrap; font-size: 13px">[n] calls · not in last run</span><a href="#" style="font-size: 13px; font-weight: 500; white-space: nowrap">Add to dataset</a></div>
+            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid #E1E4E8; border-radius: 8px"><span>Fee explanations</span><span style="color: #57606A; white-space: nowrap; font-size: 13px">[n] calls · <span style="color: #8A2A1B">▼ [—]%</span></span><a href="#" style="font-size: 13px; font-weight: 500; white-space: nowrap">Add to dataset</a></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px dashed #C9CED4; border-radius: 8px; color: #57606A"><span>[k] smaller clusters hidden</span><span style="white-space: nowrap">below threshold</span></div>
+          </div>
+          <span style="font-size: 12px; color: #57606A">Last run [date] · next run [date] · a cluster that is new and poorly scored is the first candidate for the curated set.</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600">Has the input changed</h2>
+            <span style="font-size: 13px; color: #57606A">Drift of what comes in against the month the baseline was approved. Warning at 0.10, critical at 0.25, as set on the record.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px">
+            <div style="display: flex; align-items: center; gap: 10px"><span style="flex: 0 0 150px; color: #3C4651">Topic mix</span><div style="flex: 1; height: 10px; border-radius: 5px; background: #EEF1F4; position: relative"><div style="width: 34%; height: 10px; border-radius: 5px; background: {{accent}}"></div><span style="position: absolute; left: 40%; top: -3px; width: 2px; height: 16px; background: #B7791F"></span><span style="position: absolute; left: 100%; top: -3px; width: 2px; height: 16px; background: #8A2A1B; margin-left: -2px"></span></div><span style="color: #8C959F; flex: 0 0 56px; text-align: right">PSI [—]</span></div>
+            <div style="display: flex; align-items: center; gap: 10px"><span style="flex: 0 0 150px; color: #3C4651">Input length</span><div style="flex: 1; height: 10px; border-radius: 5px; background: #EEF1F4; position: relative"><div width="0" style="width: 52%; height: 10px; border-radius: 5px; background: #B7791F"></div><span style="position: absolute; left: 40%; top: -3px; width: 2px; height: 16px; background: #B7791F"></span><span style="position: absolute; left: 100%; top: -3px; width: 2px; height: 16px; background: #8A2A1B; margin-left: -2px"></span></div><span style="color: #8C959F; flex: 0 0 56px; text-align: right">PSI [—]</span></div>
+            <div style="display: flex; align-items: center; gap: 10px"><span style="flex: 0 0 150px; color: #3C4651">Speakers per call</span><div style="flex: 1; height: 10px; border-radius: 5px; background: #EEF1F4; position: relative"><div style="width: 18%; height: 10px; border-radius: 5px; background: {{accent}}"></div><span style="position: absolute; left: 40%; top: -3px; width: 2px; height: 16px; background: #B7791F"></span><span style="position: absolute; left: 100%; top: -3px; width: 2px; height: 16px; background: #8A2A1B; margin-left: -2px"></span></div><span style="color: #8C959F; flex: 0 0 56px; text-align: right">PSI [—]</span></div>
+            <div style="display: flex; align-items: center; gap: 10px"><span style="flex: 0 0 150px; color: #3C4651">Language</span><div style="flex: 1; height: 10px; border-radius: 5px; background: #EEF1F4; position: relative"><div style="width: 8%; height: 10px; border-radius: 5px; background: {{accent}}"></div><span style="position: absolute; left: 40%; top: -3px; width: 2px; height: 16px; background: #B7791F"></span><span style="position: absolute; left: 100%; top: -3px; width: 2px; height: 16px; background: #8A2A1B; margin-left: -2px"></span></div><span style="color: #8C959F; flex: 0 0 56px; text-align: right">PSI [—]</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 6px; border-top: 1px solid #EEF1F4">
+            <span style="font-size: 13px; font-weight: 600">Where to look first</span>
+            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px">
+              <div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: #3C4651">Long transcripts truncated before the close</span><span style="color: #57606A">[n] poor · opens finding</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: #3C4651">Amounts transcribed wrong from speech</span><span style="color: #57606A">[n] poor</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: #3C4651">Next step missing when the caller hung up early</span><span style="color: #57606A">[n] poor</span></div>
+            </div>
+          </div>
+          <div style="padding: 12px 14px; border-radius: 8px; background: #F4F5F7; font-size: 13px; color: #57606A; line-height: 1.5">Session intelligence lands here as endpoints gain it: context reused per session, session depth, what the endpoint prepared before the next turn, and the checks that ran in the background. Applications see none of the machinery, only the results.</div>
+        </div>
+      </section>
+
+      <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px; color: #57606A">
+        <span>Acceptance and persistence from the application's outcome events (contract v0.1); explicit feedback from the Relay feedback call; judge scores from the judge model, calibrated; clusters from prompt mining with privacy thresholds.</span>
+        <a href="UC-Improve.dc.html" style="font-weight: 500">Turn a task into a specialist</a>
+      </footer>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"$preview":{"width":1280,"height":2080}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#0B5E4C' };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,17 +1,17 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { motion } from 'motion/react';
 import { FlaskConical, Gauge, Target } from 'lucide-react';
-import { Bars, DotGrid, Status, Surface, Tile } from '@vi/kit';
-import { Slider } from '@vi/ui/components/slider';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@vi/ui/components/tooltip';
-import { cn } from '@vi/ui/lib/utils';
+import { Bars, DotGrid, Status, Surface, Tile } from '@kit/kit';
+import { Slider } from '@kit/ui/components/slider';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@kit/ui/components/tooltip';
+import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
 import { rankUnder, evidenceMap, predictionLedger, calibration } from '../lib/derive2';
 import { fmtDate, plural } from '../lib/format';
 import { CRITERIA, type Criterion, type Weights } from '../lib/types';
 import { RUBRIC } from '../lib/rubric';
-import { Dash, EmptyNote, IdLink, SectionHead, Segmented } from '../vi/parts';
-import { CountUp, Stagger, StaggerItem, spring } from '../vi/motion';
+import { Dash, EmptyNote, IdLink, SectionHead, Segmented } from '../kit/parts';
+import { CountUp, Stagger, StaggerItem, spring } from '../kit/motion';
 
 type Preset = 'in-force' | 'proposed' | 'scenario';
 const EVIDENCE = ['opinion', 'one experiment', 'repeated'] as const;
@@ -30,7 +30,7 @@ function ViewHeader({ kicker, title, caption, actions }: { kicker: ReactNode; ti
   return (
     <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
       <div className="min-w-0">
-        <div className="vi-caption">{kicker}</div>
+        <div className="kit-caption">{kicker}</div>
         <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">{title}</h1>
         <p className="mt-1.5 max-w-[720px] text-sm text-muted-foreground">{caption}</p>
       </div>
@@ -138,10 +138,10 @@ export default function Scores() {
           caption={`${preset === 'in-force' ? 'The weights in force this quarter' : preset === 'proposed' ? 'The weights proposed for the quarter' : 'A trial set, unsaved'}; normalised to sum to 1. Hover a criterion for what a 5 and a 1 mean.`}
         />
         <div className="mt-4 hidden grid-cols-[minmax(0,190px)_1fr_150px_64px] items-center gap-4 px-4 pb-1 md:grid">
-          <span className="vi-caption">Criterion</span>
-          <span className="vi-caption">Trial weight</span>
-          <span className="vi-caption">In force and proposed</span>
-          <span className="vi-caption text-right">Trial</span>
+          <span className="kit-caption">Criterion</span>
+          <span className="kit-caption">Trial weight</span>
+          <span className="kit-caption">In force and proposed</span>
+          <span className="kit-caption text-right">Trial</span>
         </div>
         <div className="mt-2 space-y-1.5 md:mt-0">
           {CRITERIA.map((c, k) => {
@@ -155,7 +155,7 @@ export default function Scores() {
                     A 5 is “{RUBRIC[c].five}”; a 1 is “{RUBRIC[c].one}”
                   </TooltipContent>
                 </Tooltip>
-                <span className="vi-display vi-num text-right text-[22px] md:order-last">{pct(normalised[c])}</span>
+                <span className="kit-display kit-num text-right text-[22px] md:order-last">{pct(normalised[c])}</span>
                 <Slider className="col-span-2 md:col-span-1" min={0} max={40} step={1} value={[Math.round(trial[c] * 100)]} onValueChange={(v) => setOne(c, (Array.isArray(v) ? Number(v[0]) : Number(v)) / 100)} aria-label={`${RUBRIC[c].name} trial weight`} />
                 <div className="col-span-2 space-y-1 md:col-span-1">
                   <PairBar label="in force" value={f} delay={0.03 * k} />
@@ -179,14 +179,14 @@ export default function Scores() {
           <div className="lab-noscroll -mx-2 mt-4 overflow-x-auto px-2">
             <div className="min-w-[780px]">
               <div className="grid grid-cols-[minmax(150px,1.3fr)_repeat(8,46px)_minmax(170px,1fr)_64px] items-end gap-2 px-3.5 pb-2">
-                <span className="vi-caption">Idea</span>
+                <span className="kit-caption">Idea</span>
                 {CRITERIA.map((c) => (
-                  <span key={c} className="vi-caption text-center" title={RUBRIC[c].name}>
+                  <span key={c} className="kit-caption text-center" title={RUBRIC[c].name}>
                     {SHORT[c]}
                   </span>
                 ))}
-                <span className="vi-caption">Composite</span>
-                <span className="vi-caption text-right">Rank</span>
+                <span className="kit-caption">Composite</span>
+                <span className="kit-caption text-right">Rank</span>
               </div>
               <Stagger className="space-y-1.5" gap={0.04}>
                 {rows.map(({ i, a, b }) => {
@@ -196,7 +196,7 @@ export default function Scores() {
                       <button type="button" onClick={() => select(i.id)} className="lab-row grid w-full grid-cols-[minmax(150px,1.3fr)_repeat(8,46px)_minmax(170px,1fr)_64px] items-center gap-2 px-3.5 py-2.5 text-left transition-transform active:scale-[0.995]">
                         <span className="min-w-0">
                           <span className="block truncate text-sm">
-                            <span className="vi-num font-medium">{i.id}</span> {i.slug}
+                            <span className="kit-num font-medium">{i.id}</span> {i.slug}
                           </span>
                           <span className="block text-[11px] text-muted-foreground">
                             {i.score.status}
@@ -206,24 +206,24 @@ export default function Scores() {
                         {CRITERIA.map((c) => {
                           const v = i.score.criteria?.[c];
                           return (
-                            <span key={c} className="vi-num relative flex h-8 items-center justify-center rounded-[10px] text-xs" title={`${RUBRIC[c].name}: ${v ?? 'not scored'}`}>
-                              <span className="absolute inset-0 rounded-[10px] bg-[var(--vi-brand)]" style={{ opacity: v == null ? 0 : 0.08 + (v / 5) * 0.5 }} />
+                            <span key={c} className="kit-num relative flex h-8 items-center justify-center rounded-[10px] text-xs" title={`${RUBRIC[c].name}: ${v ?? 'not scored'}`}>
+                              <span className="absolute inset-0 rounded-[10px] bg-[var(--kit-brand)]" style={{ opacity: v == null ? 0 : 0.08 + (v / 5) * 0.5 }} />
                               <span className="relative">{v ?? '—'}</span>
                             </span>
                           );
                         })}
                         <span className="min-w-0">
                           <span className="flex items-baseline justify-between gap-2">
-                            <span className="vi-num text-sm font-medium">{b.composite?.toFixed(2) ?? '—'}</span>
+                            <span className="kit-num text-sm font-medium">{b.composite?.toFixed(2) ?? '—'}</span>
                             <span className="truncate text-[11px] text-muted-foreground">{below ? 'below the bar' : a.composite != null && a.composite !== b.composite ? `in force ${a.composite.toFixed(2)}` : ''}</span>
                           </span>
                           <span className="lab-track relative mt-1.5 block h-1.5 rounded-full">
-                            <motion.span className="absolute inset-y-0 left-0 rounded-full" style={{ background: below ? 'var(--vi-decision)' : 'currentColor' }} initial={{ width: 0 }} animate={{ width: `${((b.composite ?? 0) / 5) * 100}%` }} transition={spring.soft} />
+                            <motion.span className="absolute inset-y-0 left-0 rounded-full" style={{ background: below ? 'var(--kit-decision)' : 'currentColor' }} initial={{ width: 0 }} animate={{ width: `${((b.composite ?? 0) / 5) * 100}%` }} transition={spring.soft} />
                             {bar != null && <span className="absolute -top-1 h-3.5 w-px bg-foreground/60" style={{ left: `${(bar / 5) * 100}%` }} title={`Portfolio bar ${bar}`} />}
                           </span>
                         </span>
                         <span className="text-right">
-                          <span className="vi-num text-sm font-medium">{b.rank != null ? `#${b.rank}` : '—'}</span>
+                          <span className="kit-num text-sm font-medium">{b.rank != null ? `#${b.rank}` : '—'}</span>
                           {a.rank != null && b.rank != null && a.rank !== b.rank && <span className="block text-[11px] text-muted-foreground">was #{a.rank}</span>}
                         </span>
                       </button>
@@ -267,26 +267,26 @@ export default function Scores() {
           <div className="mt-4 space-y-1.5">
             <div className="hidden grid-cols-[72px_1fr_96px_120px_104px_110px] gap-3 px-4 pb-1 md:grid">
               {['Idea', 'Claim', 'Confidence', 'Evidence', 'Resolve by', 'Result'].map((h) => (
-                <span key={h} className="vi-caption">
+                <span key={h} className="kit-caption">
                   {h}
                 </span>
               ))}
             </div>
             {ledger.map((r, n) => (
               <div key={n} className="lab-row grid gap-x-3 gap-y-1.5 px-4 py-3 md:grid-cols-[72px_1fr_96px_120px_104px_110px] md:items-center">
-                <IdLink id={r.ideaId} onOpen={select} className="vi-num w-fit text-xs" />
+                <IdLink id={r.ideaId} onOpen={select} className="kit-num w-fit text-xs" />
                 <p className="text-sm leading-snug">{r.claim}</p>
                 <span className="text-sm">
                   {r.confidence != null ? (
                     <>
-                      <span className="vi-num font-medium">{r.confidence}%</span> <span className="text-[11px] text-muted-foreground md:block">confident</span>
+                      <span className="kit-num font-medium">{r.confidence}%</span> <span className="text-[11px] text-muted-foreground md:block">confident</span>
                     </>
                   ) : (
                     <Dash reason="not recorded" />
                   )}
                 </span>
                 <span className="text-sm">{r.evidence != null ? EVIDENCE[r.evidence] : <Dash reason="not recorded" />}</span>
-                <span className="vi-num text-sm">{r.resolveBy ? fmtDate(r.resolveBy) : <Dash reason="not due" />}</span>
+                <span className="kit-num text-sm">{r.resolveBy ? fmtDate(r.resolveBy) : <Dash reason="not due" />}</span>
                 <span>
                   <Status tone={r.result === 'confirmed' ? 'good' : r.result === 'refuted' ? 'critical' : 'neutral'} word={r.result ? `${r.result[0].toUpperCase()}${r.result.slice(1)}` : 'Open'} />
                 </span>
@@ -295,18 +295,18 @@ export default function Scores() {
           </div>
         )}
         <div className="mt-4">
-          <div className="vi-caption mb-2">Calibration by confidence band</div>
+          <div className="kit-caption mb-2">Calibration by confidence band</div>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             {cal.map((b) => (
               <div key={b.band} className="lab-row px-3.5 pt-3 pb-2.5">
-                <div className="vi-caption">{b.band}% confident</div>
+                <div className="kit-caption">{b.band}% confident</div>
                 {b.n === 0 ? (
                   <div className="mt-1.5 text-sm">
                     <Dash reason="not measured" />
                   </div>
                 ) : (
                   <>
-                    <div className="vi-display mt-1.5 text-[26px]">
+                    <div className="kit-display mt-1.5 text-[26px]">
                       {b.confirmed}
                       <span className="ml-1 text-sm tracking-normal opacity-60">of {b.n}</span>
                     </div>
@@ -329,9 +329,9 @@ function PairBar({ label, value, brand, delay }: { label: string; value: number;
     <div className="grid grid-cols-[58px_1fr_34px] items-center gap-2 text-[11px] text-muted-foreground">
       <span>{label}</span>
       <span className="lab-track block h-1.5 overflow-hidden rounded-full">
-        <motion.span className={cn('block h-full rounded-full', brand ? 'bg-[var(--vi-brand)]' : 'bg-foreground')} initial={{ width: 0 }} animate={{ width: `${Math.min(1, value / 0.4) * 100}%` }} transition={{ ...spring.soft, delay }} />
+        <motion.span className={cn('block h-full rounded-full', brand ? 'bg-[var(--kit-brand)]' : 'bg-foreground')} initial={{ width: 0 }} animate={{ width: `${Math.min(1, value / 0.4) * 100}%` }} transition={{ ...spring.soft, delay }} />
       </span>
-      <span className="vi-num text-right text-foreground/80">{pct(value)}</span>
+      <span className="kit-num text-right text-foreground/80">{pct(value)}</span>
     </div>
   );
 }
@@ -371,7 +371,7 @@ function EvidenceChart({ points, onPick }: { points: ReturnType<typeof evidenceM
         const r = 7 + (p.sessions / maxS) * 15;
         return (
           <g key={p.ideaId} className="cursor-pointer" onClick={() => onPick(p.ideaId)} role="button" tabIndex={0} aria-label={`${p.ideaId}: score ${p.score}, evidence ${p.evidence!.toFixed(1)}, ${p.sessions} sessions`} onKeyDown={(ev) => (ev.key === 'Enter' || ev.key === ' ') && onPick(p.ideaId)}>
-            <motion.circle cx={x(p.evidence!)} cy={y(p.score!)} initial={{ r: 0 }} animate={{ r }} transition={{ ...spring.soft, delay: 0.1 + k * 0.05 }} style={{ fill: 'var(--vi-brand)', fillOpacity: 0.3, stroke: 'var(--vi-brand)' }} strokeWidth={1.5}>
+            <motion.circle cx={x(p.evidence!)} cy={y(p.score!)} initial={{ r: 0 }} animate={{ r }} transition={{ ...spring.soft, delay: 0.1 + k * 0.05 }} style={{ fill: 'var(--kit-brand)', fillOpacity: 0.3, stroke: 'var(--kit-brand)' }} strokeWidth={1.5}>
               <title>{`${p.ideaId}: score ${p.score}, evidence ${p.evidence!.toFixed(1)}, ${p.sessions} sessions`}</title>
             </motion.circle>
             <text x={x(p.evidence!)} y={y(p.score!) - r - 5} textAnchor="middle" fontSize={11} fontWeight={600} style={{ fill: 'var(--foreground)' }}>

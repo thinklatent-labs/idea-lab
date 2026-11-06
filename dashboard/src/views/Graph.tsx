@@ -1,16 +1,16 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { motion } from 'motion/react';
-import { Surface } from '@vi/kit';
-import { Button } from '@vi/ui/components/button';
-import { Slider } from '@vi/ui/components/slider';
-import { cn } from '@vi/ui/lib/utils';
+import { Surface } from '@kit/kit';
+import { Button } from '@kit/ui/components/button';
+import { Slider } from '@kit/ui/components/slider';
+import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
 import { layoutGraph, neighbourhood, type GEdge, type GNode } from '../lib/graph';
 import { fmtDate, plural } from '../lib/format';
 import { LINK_MEANING } from '../lib/rubric';
 import { LINK_TYPES, NODE_TYPES, type LinkType, type NodeType } from '../lib/types';
-import { EmptyNote, SectionHead, Segmented, STAGE_VAR } from '../vi/parts';
-import { spring } from '../vi/motion';
+import { EmptyNote, SectionHead, Segmented, STAGE_VAR } from '../kit/parts';
+import { spring } from '../kit/motion';
 
 /** Edge styles by link type: the dash carries the type, so colour is never the only cue. */
 const DASH: Partial<Record<LinkType, string>> = {
@@ -47,7 +47,7 @@ function ViewHeader({ kicker, title, caption, actions }: { kicker: ReactNode; ti
   return (
     <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
       <div className="min-w-0">
-        <div className="vi-caption">{kicker}</div>
+        <div className="kit-caption">{kicker}</div>
         <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">{title}</h1>
         <p className="mt-1.5 max-w-[720px] text-sm text-muted-foreground">{caption}</p>
       </div>
@@ -103,7 +103,7 @@ export default function Graph() {
   const hue = (n: GNode) => {
     const st = stageOf.get(n.id);
     if (st) return STAGE_VAR[st];
-    return n.type === 'Theme' ? 'var(--vi-companion)' : 'var(--muted-foreground)';
+    return n.type === 'Theme' ? 'var(--kit-companion)' : 'var(--muted-foreground)';
   };
   const typesShown = LINK_TYPES.filter((t) => layout.edges.some((e) => e.type === t));
   const layerOf = new Map(layout.nodes.map((n) => [n.id, n.layer]));
@@ -148,18 +148,18 @@ export default function Graph() {
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-6">
           {dates.length > 1 && (
             <div className="flex min-w-0 flex-1 flex-col gap-2 rounded-[22px] border border-foreground/10 bg-background/60 px-4 py-2.5 backdrop-blur sm:flex-row sm:items-center sm:gap-4 sm:rounded-full sm:py-2">
-              <span className="vi-caption shrink-0">Time-lapse</span>
+              <span className="kit-caption shrink-0">Time-lapse</span>
               <Slider className="min-w-0 flex-1" min={0} max={dates.length - 1} step={1} value={[dateIdx]} onValueChange={(v) => setDateIdx(Array.isArray(v) ? Number(v[0]) : Number(v))} aria-label="Show rows created on or before" />
               <span className="text-xs text-muted-foreground sm:shrink-0">
-                rows on the register by <span className="vi-num text-foreground">{fmtDate(cutoff)}</span>
+                rows on the register by <span className="kit-num text-foreground">{fmtDate(cutoff)}</span>
               </span>
             </div>
           )}
           {trail.length > 1 && (
             <div className="lab-noscroll flex items-center gap-1.5 overflow-x-auto">
-              <span className="vi-caption shrink-0">Trail</span>
+              <span className="kit-caption shrink-0">Trail</span>
               {trail.map((id) => (
-                <button key={id} type="button" aria-pressed={focus === id} onClick={() => open(id)} className={cn('vi-num shrink-0 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors', focus === id ? 'border-transparent bg-[var(--vi-brand)] text-[var(--vi-brand-fg)]' : 'border-foreground/15 hover:bg-foreground/5')}>
+                <button key={id} type="button" aria-pressed={focus === id} onClick={() => open(id)} className={cn('kit-num shrink-0 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors', focus === id ? 'border-transparent bg-[var(--kit-brand)] text-[var(--kit-brand-fg)]' : 'border-foreground/15 hover:bg-foreground/5')}>
                   {id}
                 </button>
               ))}
@@ -190,7 +190,7 @@ export default function Graph() {
             {layout.edges.map((e) => {
               const hi = !!nb && nb.edges.has(e.id);
               const dim = (!!nb && !hi) || afterCutoff(e.from) || afterCutoff(e.to);
-              const stroke = e.type === 'competes-with' ? 'var(--vi-decision)' : hi ? 'var(--foreground)' : 'var(--muted-foreground)';
+              const stroke = e.type === 'competes-with' ? 'var(--kit-decision)' : hi ? 'var(--foreground)' : 'var(--muted-foreground)';
               return (
                 <motion.path
                   key={e.id}
@@ -229,7 +229,7 @@ export default function Graph() {
                     aria-label={`${n.label}, ${n.sub}${isFocus ? ', focused' : ''}`}
                     aria-pressed={isFocus}
                     className="cursor-pointer outline-none"
-                    style={{ filter: isFocus ? 'drop-shadow(0 0 10px color-mix(in oklab, var(--vi-lit) 75%, transparent))' : undefined }}
+                    style={{ filter: isFocus ? 'drop-shadow(0 0 10px color-mix(in oklab, var(--kit-lit) 75%, transparent))' : undefined }}
                     initial={{ opacity: 0, scale: 0.86, y: 6 }}
                     animate={{ opacity: dim ? 0.22 : 1, scale: 1, y: 0 }}
                     transition={{ ...spring.soft, delay: nb ? 0 : Math.min(0.6, n.layer * 0.08 + (idx % 8) * 0.025) }}
@@ -247,7 +247,7 @@ export default function Graph() {
                   >
                     <rect width={n.w} height={n.h} rx={16} style={{ fill: 'var(--background)', opacity: 0.55 }} />
                     <rect width={n.w} height={n.h} rx={16} style={{ fill: h, opacity: isFocus ? 0.22 : 0.1 }} />
-                    <rect width={n.w} height={n.h} rx={16} fill="none" style={{ stroke: isFocus ? 'var(--vi-lit)' : h, strokeOpacity: isFocus ? 1 : 0.6 }} strokeWidth={isFocus ? 2.2 : 1.2} />
+                    <rect width={n.w} height={n.h} rx={16} fill="none" style={{ stroke: isFocus ? 'var(--kit-lit)' : h, strokeOpacity: isFocus ? 1 : 0.6 }} strokeWidth={isFocus ? 2.2 : 1.2} />
                     {kbd === n.id && <rect x={-4} y={-4} width={n.w + 8} height={n.h + 8} rx={20} fill="none" style={{ stroke: 'var(--ring)' }} strokeWidth={2} />}
                     <Glyph type={n.type} x={12} y={11} fill={h} />
                     <text x={27} y={19} fontSize={12} fontWeight={600} style={{ fill: 'var(--foreground)' }}>
@@ -277,13 +277,13 @@ export default function Graph() {
         {typesShown.map((t) => (
           <span key={t} className="inline-flex items-center gap-1.5" title={LINK_MEANING[t]}>
             <svg width={26} height={6} aria-hidden="true">
-              <line x1={0} x2={26} y1={3} y2={3} strokeWidth={WIDTH[t] ?? 1.4} strokeDasharray={DASH[t]} style={{ stroke: t === 'competes-with' ? 'var(--vi-decision)' : 'currentColor' }} />
+              <line x1={0} x2={26} y1={3} y2={3} strokeWidth={WIDTH[t] ?? 1.4} strokeDasharray={DASH[t]} style={{ stroke: t === 'competes-with' ? 'var(--kit-decision)' : 'currentColor' }} />
             </svg>
             {t}
           </span>
         ))}
         <span className="inline-flex items-center gap-1.5">
-          <span className="size-2.5 rounded-full border-2 border-[var(--vi-lit)] shadow-[0_0_8px_var(--vi-lit)]" /> focused
+          <span className="size-2.5 rounded-full border-2 border-[var(--kit-lit)] shadow-[0_0_8px_var(--kit-lit)]" /> focused
         </span>
       </div>
 
@@ -310,7 +310,7 @@ export default function Graph() {
                   const other = outgoing ? e.to : e.from;
                   return (
                     <div key={e.id} className="lab-row flex flex-wrap items-baseline gap-x-2.5 gap-y-1 px-3.5 py-2.5 text-sm">
-                      <span className="vi-caption shrink-0" title={LINK_MEANING[e.type]}>
+                      <span className="kit-caption shrink-0" title={LINK_MEANING[e.type]}>
                         {direct ? (outgoing ? e.type : `← ${e.type}`) : `${e.from} ${e.type} ${e.to}`}
                       </span>
                       <button type="button" onClick={() => open(direct ? other : e.to)} className="font-medium underline decoration-foreground/20 underline-offset-4 hover:decoration-foreground">

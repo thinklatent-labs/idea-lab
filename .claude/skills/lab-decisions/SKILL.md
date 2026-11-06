@@ -5,7 +5,7 @@ description: Apply the quick calls Jithin made on the Idea Lab dashboard (the de
 
 # Apply dashboard decisions
 
-The dashboard artifact (https://claude.ai/artifact/X1ebYqg9d1QRr1GYJkaLMr) keeps Jithin's quick calls in its database, collection `inbox`, one document per due item, id = the item id (`VI-004-q2`). Fields: `itemId`, `ideaId`, `itemText`, `optionId`, `optionLabel`, `effect`, `decidedAt`, `decidedBy`, `status` (`waiting`, `applied`, `needs-chat`).
+The dashboard artifact (https://claude.ai/artifact/X1ebYqg9d1QRr1GYJkaLMr) keeps Jithin's quick calls in its database, collection `inbox`, one document per due item, id = the item id (`TL-004-q2`). Fields: `itemId`, `ideaId`, `itemText`, `optionId`, `optionLabel`, `effect`, `decidedAt`, `decidedBy`, `status` (`waiting`, `applied`, `needs-chat`).
 
 ## Steps
 

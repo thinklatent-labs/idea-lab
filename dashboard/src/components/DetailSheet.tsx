@@ -2,10 +2,10 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useDragControls } from 'motion/react';
 import { ArrowUpRight, MessageSquareText, X } from 'lucide-react';
-import { Status, type StatusTone } from '@vi/kit';
-import { Badge } from '@vi/ui/components/badge';
-import { Button } from '@vi/ui/components/button';
-import { cn } from '@vi/ui/lib/utils';
+import { Status, type StatusTone } from '@kit/kit';
+import { Badge } from '@kit/ui/components/badge';
+import { Button } from '@kit/ui/components/button';
+import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
 import { CRITERIA, dueItems, type Idea } from '../lib/types';
 import { MODES, defaultMode, readiness, relatedIdeas, sessionLine, capabilityPriority, type Mode } from '../lib/derive';
@@ -14,8 +14,8 @@ import { healthOf, updateState, appetiteState, buildingGate } from '../lib/deriv
 import { RUBRIC, LINK_MEANING } from '../lib/rubric';
 import { fmtDate, relDays } from '../lib/format';
 import DueCard from './DueCard';
-import { Block, CopyLine, Dash, EmptyNote, FactList, Fold, HealthTag, IdLink, ReasonTags, Segmented, StageTag } from '../vi/parts';
-import { CountUp, spring } from '../vi/motion';
+import { Block, CopyLine, Dash, EmptyNote, FactList, Fold, HealthTag, IdLink, ReasonTags, Segmented, StageTag } from '../kit/parts';
+import { CountUp, spring } from '../kit/motion';
 import { useJarvis } from '../jarvis/useJarvis';
 
 function useWide(px: number) {
@@ -69,7 +69,7 @@ export default function DetailSheet({ id, onClose, opaque, rightInset = 0 }: { i
             className={cn(
               'fixed z-50 flex flex-col overflow-hidden',
               wide ? 'top-2 bottom-2 rounded-[28px]' : 'inset-x-0 bottom-0 h-[92dvh] rounded-t-[28px]',
-              opaque ? 'border border-border bg-[var(--vi-role-light-tint)] shadow-2xl dark:bg-[var(--vi-neutral-900)]' : 'vi-glass-overlay',
+              opaque ? 'border border-border bg-[var(--kit-role-light-tint)] shadow-2xl dark:bg-[var(--kit-neutral-900)]' : 'kit-glass-overlay',
             )}
             style={wide ? { right: 8 + rightInset, width: `min(620px, calc(100vw - ${16 + rightInset + 96}px))` } : undefined}
             initial={wide ? { x: '104%' } : { y: '100%' }}
@@ -91,7 +91,7 @@ export default function DetailSheet({ id, onClose, opaque, rightInset = 0 }: { i
               </div>
             )}
             <div className="flex items-center justify-between px-5 pt-3">
-              <span className="vi-caption">{id.startsWith('CAP-') ? 'Capability' : id.startsWith('T-') ? 'Theme' : 'Register row'}</span>
+              <span className="kit-caption">{id.startsWith('CAP-') ? 'Capability' : id.startsWith('T-') ? 'Theme' : 'Register row'}</span>
               <Button ref={closeRef} variant="ghost" size="icon-sm" className="rounded-full" aria-label="Close" onClick={onClose}>
                 <X />
               </Button>
@@ -133,8 +133,8 @@ function MiniKpis({ items }: { items: { label: string; value: ReactNode; caption
     <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
       {items.map((k) => (
         <div key={k.label} className="lab-row min-w-0 px-3.5 pt-3 pb-2.5">
-          <div className="vi-caption truncate">{k.label}</div>
-          <div className="vi-display mt-1.5 truncate text-[28px]">{k.value}</div>
+          <div className="kit-caption truncate">{k.label}</div>
+          <div className="kit-display mt-1.5 truncate text-[28px]">{k.value}</div>
           <div className="mt-1 truncate text-[11px] text-muted-foreground">{k.caption}</div>
         </div>
       ))}
@@ -188,7 +188,7 @@ function IdeaDetail({ idea }: { idea: Idea }) {
       {/* Orient */}
       <div>
         <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-          <span className="vi-num font-medium text-foreground">{idea.id}</span>
+          <span className="kit-num font-medium text-foreground">{idea.id}</span>
           <span>{idea.slug}</span>
           <Badge variant="outline" className="rounded-full">
             {idea.type}
@@ -279,7 +279,7 @@ function IdeaDetail({ idea }: { idea: Idea }) {
       </Block>
 
       {showGate && (
-        <Block title="Building gate" caption={gate.passed ? (idea.stage === 'Building' ? 'Passed; building.' : 'Passed; it can start.') : idea.stage === 'Proposal' ? 'Funded by default at Proposal; it starts Building when all three are present.' : "VAI's rule, generalised: unnamed, not started."}>
+        <Block title="Building gate" caption={gate.passed ? (idea.stage === 'Building' ? 'Passed; building.' : 'Passed; it can start.') : idea.stage === 'Proposal' ? 'Funded by default at Proposal; it starts Building when all three are present.' : "The TL Index's rule, generalised: unnamed, not started."}>
           <ul className="lab-row space-y-2.5 px-4 py-3.5">
             <Check met={gate.ownerNamed} label="An owner who is not Jithin" detail={idea.owner} />
             <Check met={gate.streamNamed} label="A stream" detail={stream ? `${stream.id} ${stream.name}${stream.owner ? `, ${stream.owner}` : ', engineer to be named'}` : 'none'} />
@@ -311,7 +311,7 @@ function IdeaDetail({ idea }: { idea: Idea }) {
           ) : (
             <div className="lab-row px-4 py-4">
               <div className="flex items-end gap-3">
-                <div className="vi-display text-[52px]">
+                <div className="kit-display text-[52px]">
                   <CountUp value={idea.score.composite} decimals={2} />
                 </div>
                 <div className="pb-1.5 text-xs text-muted-foreground">
@@ -332,7 +332,7 @@ function IdeaDetail({ idea }: { idea: Idea }) {
                         <span className="lab-track h-1.5 overflow-hidden rounded-full">
                           <motion.span className="block h-full rounded-full bg-foreground" initial={{ width: 0 }} animate={{ width: `${(v / 5) * 100}%` }} transition={{ ...spring.soft, delay: 0.05 * k }} />
                         </span>
-                        <span className="vi-num text-right text-xs">{v}</span>
+                        <span className="kit-num text-right text-xs">{v}</span>
                       </div>
                     );
                   })}
@@ -407,7 +407,7 @@ function IdeaDetail({ idea }: { idea: Idea }) {
                 const target = dir === 'out' ? canonicalId(reg, l.toId) : l.fromId;
                 return (
                   <div key={i} className="lab-row flex flex-wrap items-baseline gap-x-2.5 gap-y-1 px-3.5 py-2.5 text-sm">
-                    <span className="vi-caption shrink-0" title={LINK_MEANING[l.type]}>
+                    <span className="kit-caption shrink-0" title={LINK_MEANING[l.type]}>
                       {dir === 'in' ? '← ' : ''}
                       {l.type}
                     </span>
@@ -485,11 +485,11 @@ function IdeaDetail({ idea }: { idea: Idea }) {
                     <p className="mt-0.5 text-xs text-muted-foreground">Measured by {h.measurement}</p>
                     <div className="mt-2 grid gap-2 sm:grid-cols-2">
                       <p className="text-xs">
-                        <span className="vi-caption block">Confirmed if</span>
+                        <span className="kit-caption block">Confirmed if</span>
                         {h.confirmedIf}
                       </p>
                       <p className="text-xs">
-                        <span className="vi-caption block">Refuted if</span>
+                        <span className="kit-caption block">Refuted if</span>
                         {h.refutedIf}
                       </p>
                     </div>
@@ -587,10 +587,10 @@ function IdeaDetail({ idea }: { idea: Idea }) {
             <ol className="relative space-y-3 border-l border-foreground/10 pl-4">
               {decisions.map((x, i) => (
                 <li key={i} className="relative">
-                  <span className={cn('absolute top-1.5 -left-[21px] size-2.5 rounded-full border-2 border-background', x.status === 'superseded' ? 'bg-foreground/25' : x.type === 'rejection' ? 'bg-[var(--vi-decision)]' : 'bg-[var(--vi-brand)]')} />
+                  <span className={cn('absolute top-1.5 -left-[21px] size-2.5 rounded-full border-2 border-background', x.status === 'superseded' ? 'bg-foreground/25' : x.type === 'rejection' ? 'bg-[var(--kit-decision)]' : 'bg-[var(--kit-brand)]')} />
                   <div className="flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground">
-                    <span className="vi-num">{fmtDate(x.date)}</span>
-                    {x.id && <span className="vi-num">{x.id}</span>}
+                    <span className="kit-num">{fmtDate(x.date)}</span>
+                    {x.id && <span className="kit-num">{x.id}</span>}
                     {x.pending && <Status tone="warning" word="Pending" />}
                     {x.type === 'rejection' && <Status tone="critical" word="Rejection" />}
                     {x.door && <span>{x.door} door</span>}
@@ -612,7 +612,7 @@ function IdeaDetail({ idea }: { idea: Idea }) {
             {sessions.map((s, i) => (
               <div key={i} className="text-sm">
                 <div className="flex flex-wrap items-center gap-x-3 text-xs text-muted-foreground">
-                  <span className="vi-num">{fmtDate(s.date)}</span>
+                  <span className="kit-num">{fmtDate(s.date)}</span>
                   <span className="font-medium text-foreground/80">{s.mode}</span>
                   {s.health && <HealthTag health={s.health} />}
                 </div>
@@ -647,7 +647,7 @@ function CapabilityDetail({ id }: { id: string }) {
     <div className="space-y-7">
       <div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <span className="vi-num font-medium text-foreground">{cap.id}</span>
+          <span className="kit-num font-medium text-foreground">{cap.id}</span>
           <Badge variant="outline" className="rounded-full">
             {cap.kind}
           </Badge>
@@ -676,7 +676,7 @@ function CapabilityDetail({ id }: { id: string }) {
           <div className="space-y-1.5">
             {inbound.map((l, i) => (
               <div key={i} className="lab-row flex flex-wrap items-baseline gap-x-2.5 px-3.5 py-2.5 text-sm">
-                <span className="vi-caption">← {l.type}</span>
+                <span className="kit-caption">← {l.type}</span>
                 <IdLink id={l.fromId} onOpen={select}>{nameOf(reg, l.fromId, l.fromId)}</IdLink>
                 {l.note && <span className="text-xs text-muted-foreground">{l.note}</span>}
               </div>
@@ -696,7 +696,7 @@ function ThemeDetail({ id }: { id: string }) {
   return (
     <div className="space-y-7">
       <div>
-        <span className="vi-num text-xs font-medium">{theme.id}</span>
+        <span className="kit-num text-xs font-medium">{theme.id}</span>
         <h2 className="mt-2 text-[24px] leading-tight font-normal tracking-tight">{theme.name}</h2>
         {theme.note && <p className="mt-2 text-sm text-muted-foreground">{theme.note}</p>}
       </div>

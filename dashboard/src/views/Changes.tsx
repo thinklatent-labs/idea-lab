@@ -1,19 +1,19 @@
 import { useMemo, type ReactNode } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { Status, Surface } from '@vi/kit';
-import { Button } from '@vi/ui/components/button';
-import { cn } from '@vi/ui/lib/utils';
+import { Status, Surface } from '@kit/kit';
+import { Button } from '@kit/ui/components/button';
+import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
 import { diffSnapshots } from '../lib/derive2';
 import { fmtDate, fmtDateTime, plural } from '../lib/format';
-import { EmptyNote, IdLink, SectionHead, StageTag } from '../vi/parts';
-import { CountUp, Stagger, StaggerItem } from '../vi/motion';
+import { EmptyNote, IdLink, SectionHead, StageTag } from '../kit/parts';
+import { CountUp, Stagger, StaggerItem } from '../kit/motion';
 
 function ViewHeader({ kicker, title, caption, actions }: { kicker: ReactNode; title: string; caption: ReactNode; actions?: ReactNode }) {
   return (
     <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
       <div className="min-w-0">
-        <div className="vi-caption">{kicker}</div>
+        <div className="kit-caption">{kicker}</div>
         <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">{title}</h1>
         <p className="mt-1.5 max-w-[720px] text-sm text-muted-foreground">{caption}</p>
       </div>
@@ -25,9 +25,9 @@ function ViewHeader({ kicker, title, caption, actions }: { kicker: ReactNode; ti
 /** One number with its caption, in a floating card. */
 function Kpi({ n, label, caption, lit }: { n: number; label: string; caption: ReactNode; lit?: boolean }) {
   return (
-    <div className={cn('vi-surface-content h-full px-5 pt-4 pb-4', lit && 'ring-2 ring-[color-mix(in_oklab,var(--vi-brand)_55%,transparent)]')}>
+    <div className={cn('kit-surface-content h-full px-5 pt-4 pb-4', lit && 'ring-2 ring-[color-mix(in_oklab,var(--kit-brand)_55%,transparent)]')}>
       <div className="text-[15px] font-medium">{label}</div>
-      <div className="vi-display mt-3 text-[48px]">
+      <div className="kit-display mt-3 text-[48px]">
         <CountUp value={n} />
       </div>
       <div className="mt-1.5 text-xs text-muted-foreground">{caption}</div>
@@ -39,10 +39,10 @@ function Kpi({ n, label, caption, lit }: { n: number; label: string; caption: Re
 function TimelineLine({ date, id, ideaId, text, by, onOpen }: { date: string; id?: string; ideaId: string; text: string; by?: string; onOpen: (id: string) => void }) {
   return (
     <li className="relative">
-      <span className="absolute top-1.5 -left-[21px] size-2.5 rounded-full border-2 border-background bg-[var(--vi-brand)]" />
+      <span className="absolute top-1.5 -left-[21px] size-2.5 rounded-full border-2 border-background bg-[var(--kit-brand)]" />
       <div className="flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground">
-        <span className="vi-num">{fmtDate(date)}</span>
-        {id && <span className="vi-num">{id}</span>}
+        <span className="kit-num">{fmtDate(date)}</span>
+        {id && <span className="kit-num">{id}</span>}
         <IdLink id={ideaId} onOpen={onOpen} className="text-xs" />
       </div>
       <p className="mt-0.5 text-sm">{text}</p>
@@ -117,7 +117,7 @@ export default function Changes() {
               })}
               {diff.removedIdeas.map((id) => (
                 <div key={`rm-${id}`} className="lab-row flex flex-wrap items-center gap-3 px-4 py-3.5">
-                  <span className="vi-num text-sm font-medium">{id}</span>
+                  <span className="kit-num text-sm font-medium">{id}</span>
                   <Status tone="warning" word="Removed from the register" className="ml-auto" />
                 </div>
               ))}
@@ -133,7 +133,7 @@ export default function Changes() {
                     <ul className="mt-2.5 space-y-2">
                       {list.map((c, n) => (
                         <li key={n} className="grid gap-1 text-sm sm:grid-cols-[130px_1fr] sm:gap-3">
-                          <span className="vi-caption pt-0.5">{c.what}</span>
+                          <span className="kit-caption pt-0.5">{c.what}</span>
                           <span className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-0.5">
                             <span className="text-muted-foreground line-through decoration-foreground/30">{c.from || '—'}</span>
                             <ArrowRight className="size-3.5 shrink-0 self-center text-muted-foreground" aria-label="became" />
@@ -178,7 +178,7 @@ export default function Changes() {
                 <div className="flex flex-wrap gap-2">
                   {touchedSinceVisit.map((i) => (
                     <button key={i.id} type="button" onClick={() => select(i.id)} className="lab-row flex items-center gap-2.5 px-3.5 py-2 text-left text-sm transition-transform active:scale-[0.98]">
-                      <span className="vi-num font-medium">{i.id}</span>
+                      <span className="kit-num font-medium">{i.id}</span>
                       <span>{i.slug}</span>
                       <span className="text-xs text-muted-foreground">touched {fmtDate(i.lastTouched)}</span>
                     </button>

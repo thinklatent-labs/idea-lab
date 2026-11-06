@@ -4,13 +4,13 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { viteSingleFile } from 'vite-plugin-singlefile';
 
-// VI Kit is vendored under vendor/vi-kit (scripts/kit-pull.mjs); the aliases match the kit's own package names.
-const kit = (p: string) => path.resolve(__dirname, 'vendor/vi-kit/packages', p);
+// ThinkLatent kit is vendored under vendor/design-kit (scripts/kit-pull.mjs); the aliases match the kit's own package names.
+const kit = (p: string) => path.resolve(__dirname, 'vendor/design-kit/packages', p);
 
 // Some libraries ship a raw U+FFFD inside string literals; write it as an escape so the bundle is clean UTF-8 text
 // (the same guard as the kit's playground build).
 const escapeReplacementChar: Plugin = {
-  name: 'vi-escape-replacement-char',
+  name: 'kit-escape-replacement-char',
   generateBundle(_, bundle) {
     for (const c of Object.values(bundle)) if (c.type === 'chunk') c.code = c.code.replaceAll('�', '\\uFFFD');
   },
@@ -22,8 +22,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), escapeReplacementChar, viteSingleFile()],
   resolve: {
     alias: [
-      { find: /^@vi\/ui\/(.*)$/, replacement: `${kit('ui/src')}/$1` },
-      { find: /^@vi\/kit$/, replacement: kit('vi-kit/src/index.ts') },
+      { find: /^@kit\/ui\/(.*)$/, replacement: `${kit('ui/src')}/$1` },
+      { find: /^@kit\/kit$/, replacement: kit('design-kit/src/index.ts') },
     ],
   },
   build: {

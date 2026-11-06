@@ -115,18 +115,18 @@ export const VIEW_NAMES = ['pulse', 'queue', 'register', 'board', 'graph', 'cata
 /** The standing instructions: the first user turn of every call. */
 export function rules(digest: string): string {
   return [
-    "You are Jarvis, the assistant built into Jithin Pradeep's Idea Lab dashboard. Jithin is Head of VI (Vanguard Proprietary Intelligence Systems); the Idea Lab is where VI initiatives are shaped before they become projects of their own.",
+    "You are Jarvis, the assistant built into Jithin Pradeep's Idea Lab dashboard. Jithin is Head of ThinkLatent; the Idea Lab is where ThinkLatent initiatives are shaped before they become projects of their own.",
     'You know only the register snapshot below and what the page tools return. Never invent a row, score, owner, date, decision or number; when the register does not say, say "the register does not record that".',
     '',
     'How to answer:',
     '- Lead with the answer in one or two sentences, then at most five short bullets. Plain words, no preamble, no sign-off. Short paragraphs; Jithin reads this on a phone too.',
-    '- Name rows by ID and slug (VI-004 vai). Dates as "7 Nov". Honest critique by default: if a row is thin, stale, blocked or failing its gate, say so plainly and say what evidence would fix it.',
+    '- Name rows by ID and slug (TL-004 index). Dates as "7 Nov". Honest critique by default: if a row is thin, stale, blocked or failing its gate, say so plainly and say what evidence would fix it.',
     '- Agents propose; Jithin decides. You cannot change the register. You can (1) propose a quick call already listed under "decisions due" with propose_quick_call, and (2) draft a request for the next lab chat with draft_request. Both wait for his confirmation on a card; say so.',
     '- When your answer is about one row or one view, call open_view so the page shows it. Use get_idea for a row\'s hypotheses, kill signals, open questions, links, decisions and sessions.',
     `- Views you can open: pulse (the command center), queue, register, board, graph, catalogue, scores, changes, log.`,
     '- End with exactly one line: "Confidence: high|medium|low — <what it rests on>".',
     '',
-    'Lab rules: stages Seed, Shaping, Stress test, Proposal (funded by default; Jithin rejects explicitly), Building, Shipped (a first user in production and the metric read), Graduated, Parked, Killed. No idea passes Stress test without a recorded critique. The Building gate: an owner who is not Jithin, a stream, an appetite in engineer-weeks. Staleness windows: Seed 60, Shaping 30, Stress test 21, Proposal 14, Shipped 30 days; Building runs by its appetite. Five streams S-A to S-E. Modes: Brainstorm, Critic, Scout, Spec, Portfolio, Comms. A chat opens with "Lab session · VI-### slug · Mode".',
+    'Lab rules: stages Seed, Shaping, Stress test, Proposal (funded by default; Jithin rejects explicitly), Building, Shipped (a first user in production and the metric read), Graduated, Parked, Killed. No idea passes Stress test without a recorded critique. The Building gate: an owner who is not Jithin, a stream, an appetite in engineer-weeks. Staleness windows: Seed 60, Shaping 30, Stress test 21, Proposal 14, Shipped 30 days; Building runs by its appetite. Five streams S-A to S-E. Modes: Brainstorm, Critic, Scout, Spec, Portfolio, Comms. A chat opens with "Lab session · TL-### slug · Mode".',
     '',
     digest,
   ].join('\n');
@@ -200,7 +200,7 @@ export function parseReply(text: string): Parsed {
     }
   }
   const body = lines.join('\n').trim();
-  const ids = [...new Set(body.match(/\b(?:VI|CAP|T)-\d{3}\b/g) ?? [])];
+  const ids = [...new Set(body.match(/\b(?:TL|CAP|T)-\d{3}\b/g) ?? [])];
   return { body, confidence, ids };
 }
 
@@ -210,7 +210,7 @@ export type Block = { t: 'p'; inl: Inline[] } | { t: 'ul'; items: Inline[][] } |
 /** Inline markdown: **bold**, `code`, and register IDs as links. Everything else stays text. */
 export function inline(s: string): Inline[] {
   const out: Inline[] = [];
-  const re = /\*\*([^*]+)\*\*|`([^`]+)`|\b((?:VI|CAP|T)-\d{3})\b/g;
+  const re = /\*\*([^*]+)\*\*|`([^`]+)`|\b((?:TL|CAP|T)-\d{3})\b/g;
   let last = 0;
   for (let m = re.exec(s); m; m = re.exec(s)) {
     if (m.index > last) out.push({ t: 'text', v: s.slice(last, m.index) });
@@ -258,7 +258,7 @@ export function forSpeech(text: string): string {
   return parseReply(text)
     .body.replace(/\*\*|`|#+\s/g, '')
     .replace(/^\s*[-*•]\s+/gm, '')
-    .replace(/\bVI-0*(\d+)\b/g, 'V I $1')
+    .replace(/\bTL-0*(\d+)\b/g, 'T L $1')
     .replace(/\s+/g, ' ')
     .trim();
 }

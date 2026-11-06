@@ -34,11 +34,11 @@ export function useLab(): LabState {
   return v;
 }
 
-/** Hash routing: "#view" or "#view-VI-004" (plain names only; the viewer keeps anything else out). */
+/** Hash routing: "#view" or "#view-TL-004" (plain names only; the viewer keeps anything else out). */
 export function parseHash(hash: string): { view: View; id: string | null } {
   const raw = hash.replace(/^#/, '');
   if (!raw) return { view: 'pulse', id: null };
-  const m = /^([a-z]+)(?:-(VI-\d{3}|CAP-\d{3}|T-\d{3}))?$/.exec(raw);
+  const m = /^([a-z]+)(?:-(TL-\d{3}|CAP-\d{3}|T-\d{3}))?$/.exec(raw);
   if (!m) return { view: 'pulse', id: null };
   const view = (VIEWS as string[]).includes(m[1]) ? (m[1] as View) : 'pulse';
   return { view, id: m[2] ?? null };

@@ -17,12 +17,12 @@ describe('Jarvis digest', () => {
     expect(digest.length).toBeLessThan(60_000);
   });
   it('lists quick calls with their options, and leaves out rows hidden from the audience', () => {
-    expect(digest).toMatch(/VI-004-q2 quick call ".+" options: .+=".+"/);
-    const hidden = buildDigest({ reg, derived, now, inbox: new Map(), lastVisit: null, visibleIdeas: reg.ideas.filter((i) => i.id !== 'VI-004') });
-    expect(hidden.split('\n').some((l) => l.startsWith('- VI-004 '))).toBe(false);
+    expect(digest).toMatch(/TL-004-q2 quick call ".+" options: .+=".+"/);
+    const hidden = buildDigest({ reg, derived, now, inbox: new Map(), lastVisit: null, visibleIdeas: reg.ideas.filter((i) => i.id !== 'TL-004') });
+    expect(hidden.split('\n').some((l) => l.startsWith('- TL-004 '))).toBe(false);
   });
   it('says which calls Jithin already made on the dashboard', () => {
-    const inbox = new Map([['VI-004-q2', { itemId: 'VI-004-q2', ideaId: 'VI-004', itemText: '', optionId: 'a', optionLabel: 'Set it', effect: '', decidedAt: '2026-11-02T09:00:00Z', decidedBy: null, status: 'waiting' as const }]]);
+    const inbox = new Map([['TL-004-q2', { itemId: 'TL-004-q2', ideaId: 'TL-004', itemText: '', optionId: 'a', optionLabel: 'Set it', effect: '', decidedAt: '2026-11-02T09:00:00Z', decidedBy: null, status: 'waiting' as const }]]);
     const d = buildDigest({ reg, derived, now, inbox, lastVisit: null, visibleIdeas: reg.ideas });
     expect(d).toContain('Jithin chose "Set it" on the dashboard; waiting');
     expect(d).toContain('DASHBOARD CALLS waiting');
@@ -41,37 +41,37 @@ describe('the brief the page writes itself', () => {
     expect(b.counts.quick).toBe(6);
     expect(b.headline).toMatch(/^6 quick calls wait on you/);
     expect(b.headline.endsWith(';')).toBe(true);
-    expect(b.lead?.ideaId).toMatch(/^VI-\d{3}$/);
+    expect(b.lead?.ideaId).toMatch(/^TL-\d{3}$/);
   });
   it('stops counting a quick call once it is decided on the dashboard', () => {
-    const inbox = new Map([['VI-004-q2', { itemId: 'VI-004-q2', ideaId: 'VI-004', itemText: '', optionId: 'a', optionLabel: 'x', effect: '', decidedAt: '', decidedBy: null, status: 'waiting' as const }]]);
+    const inbox = new Map([['TL-004-q2', { itemId: 'TL-004-q2', ideaId: 'TL-004', itemText: '', optionId: 'a', optionLabel: 'x', effect: '', decidedAt: '', decidedBy: null, status: 'waiting' as const }]]);
     expect(localBrief(reg, derived, now, inbox, reg.ideas).counts.quick).toBe(5);
   });
 });
 
 describe('replies', () => {
   it('splits the closing confidence line in its common spellings', () => {
-    expect(parseReply('Answer.\nConfidence: high — VI-004 row').confidence).toEqual({ level: 'high', why: 'VI-004 row' });
+    expect(parseReply('Answer.\nConfidence: high — TL-004 row').confidence).toEqual({ level: 'high', why: 'TL-004 row' });
     expect(parseReply('Answer.\n**Confidence:** Medium - two sessions').confidence).toEqual({ level: 'medium', why: 'two sessions' });
     expect(parseReply('Answer.\n\nConfidence: low\n').confidence?.level).toBe('low');
     expect(parseReply('No line here.').confidence).toBeNull();
   });
   it('lists the register IDs an answer names, once each, in order', () => {
-    expect(parseReply('VI-004 waits on VI-003; CAP-002 too. VI-004 again.\nConfidence: high — x').ids).toEqual(['VI-004', 'VI-003', 'CAP-002']);
+    expect(parseReply('TL-004 waits on TL-003; CAP-002 too. TL-004 again.\nConfidence: high — x').ids).toEqual(['TL-004', 'TL-003', 'CAP-002']);
   });
   it('reads bold, code and IDs inline, and lists as blocks', () => {
-    expect(inline('**Gate** for `x` on VI-004')).toEqual([
+    expect(inline('**Gate** for `x` on TL-004')).toEqual([
       { t: 'bold', v: 'Gate' },
       { t: 'text', v: ' for ' },
       { t: 'code', v: 'x' },
       { t: 'text', v: ' on ' },
-      { t: 'id', v: 'VI-004' },
+      { t: 'id', v: 'TL-004' },
     ]);
     const b = blocks('Lead line.\n\n- one\n- two\n\n1. first\n2. second\n### Head');
     expect(b.map((x) => x.t)).toEqual(['p', 'ul', 'ol', 'h']);
   });
   it('speaks without markdown and says IDs the way people do', () => {
-    expect(forSpeech('**VI-004** is blocked.\n- name the lead\nConfidence: high — x')).toBe('V I 4 is blocked. name the lead');
+    expect(forSpeech('**TL-004** is blocked.\n- name the lead\nConfidence: high — x')).toBe('T L 4 is blocked. name the lead');
   });
   it('says when a date falls', () => {
     expect(whenText('2026-11-02', now)).toBe('due today');

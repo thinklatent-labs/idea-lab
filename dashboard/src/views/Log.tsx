@@ -1,13 +1,13 @@
 import { useState, type ReactNode } from 'react';
-import { Status, Surface } from '@vi/kit';
-import { Badge } from '@vi/ui/components/badge';
-import { Button } from '@vi/ui/components/button';
-import { NativeSelect, NativeSelectOption } from '@vi/ui/components/native-select';
-import { cn } from '@vi/ui/lib/utils';
+import { Status, Surface } from '@kit/kit';
+import { Badge } from '@kit/ui/components/badge';
+import { Button } from '@kit/ui/components/button';
+import { NativeSelect, NativeSelectOption } from '@kit/ui/components/native-select';
+import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
 import { fmtDate, plural } from '../lib/format';
 import { decisionIndex } from '../lib/derive2';
-import { EmptyNote, HealthTag, IdLink, SectionHead, Segmented } from '../vi/parts';
+import { EmptyNote, HealthTag, IdLink, SectionHead, Segmented } from '../kit/parts';
 
 type StatusFilter = 'all' | 'proposed' | 'accepted' | 'superseded';
 type TypeFilter = 'all' | 'decision' | 'rejection' | 'gate' | 'retro';
@@ -16,7 +16,7 @@ function ViewHeader({ kicker, title, caption, actions }: { kicker: ReactNode; ti
   return (
     <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
       <div className="min-w-0">
-        <div className="vi-caption">{kicker}</div>
+        <div className="kit-caption">{kicker}</div>
         <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">{title}</h1>
         <p className="mt-1.5 max-w-[720px] text-sm text-muted-foreground">{caption}</p>
       </div>
@@ -128,13 +128,13 @@ export default function Log() {
                     <span
                       className={cn(
                         'absolute top-4 -left-[26px] size-2.5 rounded-full border-2 border-background',
-                        status === 'superseded' ? 'bg-foreground/25' : d.type === 'rejection' ? 'bg-[var(--vi-decision)]' : status === 'proposed' ? 'bg-[var(--lab-warn)]' : 'bg-[var(--vi-brand)]',
+                        status === 'superseded' ? 'bg-foreground/25' : d.type === 'rejection' ? 'bg-[var(--kit-decision)]' : status === 'proposed' ? 'bg-[var(--lab-warn)]' : 'bg-[var(--kit-brand)]',
                       )}
                     />
                     <div className="lab-row px-4 py-3">
                       <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-muted-foreground">
-                        <span className="vi-num">{fmtDate(d.date)}</span>
-                        {d.id && <span className="vi-num">{d.id}</span>}
+                        <span className="kit-num">{fmtDate(d.date)}</span>
+                        {d.id && <span className="kit-num">{d.id}</span>}
                         <IdLink id={d.ideaId} onOpen={select} className="text-xs">{`${d.ideaId} ${d.slug}`}</IdLink>
                         {status === 'proposed' && <Status tone="warning" word="Pending" />}
                         {status === 'superseded' && <Status tone="neutral" word="Superseded" />}
@@ -197,7 +197,7 @@ export default function Log() {
                 <span className="absolute top-4 -left-[26px] size-2.5 rounded-full border-2 border-background bg-foreground/40" />
                 <div className="lab-row px-4 py-3">
                   <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-muted-foreground">
-                    <span className="vi-num">{fmtDate(s.date)}</span>
+                    <span className="kit-num">{fmtDate(s.date)}</span>
                     <span className="font-medium text-foreground/80">{s.mode}</span>
                     {s.health && <HealthTag health={s.health} />}
                   </div>
@@ -227,7 +227,7 @@ export default function Log() {
               {[...reg.syncLog].reverse().map((s, n) => (
                 <div key={n} className="lab-row px-4 py-3">
                   <div className="flex flex-wrap items-center gap-x-2.5 text-xs text-muted-foreground">
-                    <span className="vi-num">{fmtDate(s.date)}</span>
+                    <span className="kit-num">{fmtDate(s.date)}</span>
                     <span className="font-medium text-foreground/80">{s.run}</span>
                   </div>
                   <p className="mt-1 text-sm">Scanned {s.docsScanned}</p>

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Boxes, LayoutDashboard, MessageSquareText, Moon, Sparkles } from 'lucide-react';
-import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from '@vi/ui/components/command';
+import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from '@kit/ui/components/command';
 import { useLab, VIEWS, type View } from '../lib/context';
 import { useJarvis } from '../jarvis/useJarvis';
-import { StageTag } from '../vi/parts';
+import { StageTag } from '../kit/parts';
 
 const LABEL: Record<View, string> = { pulse: 'Command center', queue: 'Queue', register: 'Register', board: 'Board', graph: 'Graph', catalogue: 'Catalogue', scores: 'Scores', changes: 'Changes', log: 'Log' };
 
@@ -40,7 +40,7 @@ export default function Palette({ open, onOpenChange }: { open: boolean; onOpenC
         <CommandGroup heading="Rows">
           {visibleIdeas.map((i) => (
             <CommandItem key={i.id} value={`${i.id} ${i.slug} ${i.title} ${(i.aliases ?? []).join(' ')}`} onSelect={run(() => go(view, i.id))}>
-              <span className="vi-num w-14 shrink-0 text-xs text-muted-foreground">{i.id}</span>
+              <span className="kit-num w-14 shrink-0 text-xs text-muted-foreground">{i.id}</span>
               <span className="min-w-0 flex-1 truncate">
                 <span className="font-medium">{i.slug}</span> <span className="text-muted-foreground">{i.title}</span>
               </span>
@@ -61,7 +61,7 @@ export default function Palette({ open, onOpenChange }: { open: boolean; onOpenC
           {reg.capabilities.map((c) => (
             <CommandItem key={c.id} value={`${c.id} ${c.name}`} onSelect={run(() => go('catalogue', c.id))}>
               <Boxes />
-              <span className="vi-num w-16 shrink-0 text-xs text-muted-foreground">{c.id}</span>
+              <span className="kit-num w-16 shrink-0 text-xs text-muted-foreground">{c.id}</span>
               <span className="truncate">{c.name}</span>
             </CommandItem>
           ))}

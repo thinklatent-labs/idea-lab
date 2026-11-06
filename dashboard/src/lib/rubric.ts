@@ -4,8 +4,8 @@ import type { Criterion } from './types';
 export const RUBRIC: Record<Criterion, { name: string; five: string; one: string }> = {
   strategicFit: {
     name: 'Strategic fit',
-    five: 'Advances sovereign AI, the VI Portal and the foundation-model roadmap directly',
-    one: 'Interesting but orthogonal to where VI is going',
+    five: 'Advances sovereign AI, the ThinkLatent Portal and the foundation-model roadmap directly',
+    one: 'Interesting but orthogonal to where ThinkLatent is going',
   },
   evidenceOfNeed: {
     name: 'Evidence of need',
@@ -14,7 +14,7 @@ export const RUBRIC: Record<Criterion, { name: string; five: string; one: string
   },
   differentiation: {
     name: 'Differentiation',
-    five: 'Something only Vanguard can do, or a contrarian truth we hold',
+    five: 'Something only the Enterprise can do, or a contrarian truth we hold',
     one: 'Available off the shelf from a vendor',
   },
   feasibility: {

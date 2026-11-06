@@ -1,0 +1,80 @@
+/* Kit theme: maps shadcn's semantic variables to the kit's role tokens (built from packages/tokens).
+   Load after @kit/ui/styles/index.css. Light = off-white canvas; dark = black, nothing else. */
+@import "../../tokens/dist/css/kit.css";
+
+:root {
+  --background: var(--kit-role-light-canvas);
+  --foreground: var(--kit-role-light-ink);
+  --card: #ffffff;
+  --card-foreground: var(--kit-role-light-ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--kit-role-light-ink);
+  --primary: var(--kit-brand-green-800);
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f2;
+  --secondary-foreground: var(--kit-role-light-ink);
+  --muted: #f4f4f2;
+  --muted-foreground: var(--kit-role-light-secondary);
+  --accent: #e4e4e2;
+  --accent-foreground: var(--kit-role-light-ink);
+  --destructive: var(--kit-brand-red-500);
+  --border: var(--kit-role-light-hairline);
+  --input: var(--kit-role-light-hairline);
+  --ring: var(--kit-brand-green-300);
+  --chart-1: var(--kit-categorical-1);
+  --chart-2: var(--kit-categorical-2);
+  --chart-3: var(--kit-categorical-3);
+  --chart-4: var(--kit-categorical-4);
+  --chart-5: var(--kit-categorical-5);
+  --radius: 1rem;
+  --sidebar: transparent;
+  --sidebar-foreground: var(--kit-role-light-secondary);
+  --sidebar-primary: var(--kit-brand-green-500);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e4e4e2;
+  --sidebar-accent-foreground: var(--kit-role-light-ink);
+  --sidebar-border: transparent;
+  --sidebar-ring: var(--kit-brand-green-500);
+  /* kit-only */
+  --kit-brand: var(--kit-brand-green-300);
+  --kit-brand-fg: var(--kit-brand-green-900);
+  --kit-companion: var(--kit-brand-teal-600);
+  --kit-decision: var(--kit-brand-red-500);
+  --kit-lit: var(--kit-brand-green-300);
+  --kit-glass-tint: rgba(108, 183, 105, 0.22);
+}
+
+.dark {
+  --background: #000000;
+  --foreground: var(--kit-role-dark-text);
+  --card: rgba(16, 16, 16, 0.62);
+  --card-foreground: var(--kit-role-dark-text);
+  --popover: rgba(16, 16, 16, 0.86);
+  --popover-foreground: var(--kit-role-dark-text);
+  --primary: var(--kit-role-dark-anchor);
+  --primary-foreground: var(--kit-role-dark-anchor-fg);
+  --secondary: rgba(255, 255, 255, 0.08);
+  --secondary-foreground: var(--kit-role-dark-text);
+  --muted: rgba(255, 255, 255, 0.06);
+  --muted-foreground: var(--kit-role-dark-secondary);
+  --accent: rgba(255, 255, 255, 0.08);
+  --accent-foreground: var(--kit-role-dark-text);
+  --destructive: var(--kit-brand-red-dark);
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: var(--kit-brand-green-100);
+  --sidebar: transparent;
+  --sidebar-foreground: var(--kit-role-dark-secondary);
+  --sidebar-primary: var(--kit-brand-green-500);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 255, 255, 0.08);
+  --sidebar-accent-foreground: var(--kit-role-dark-text);
+  --sidebar-border: transparent;
+  --sidebar-ring: var(--kit-brand-green-100);
+  --kit-brand: var(--kit-brand-green-300);
+  --kit-brand-fg: var(--kit-brand-green-900);
+  --kit-companion: var(--kit-brand-teal-500);
+  --kit-decision: var(--kit-brand-red-dark);
+  --kit-lit: var(--kit-brand-green-300);
+  --kit-glass-tint: rgba(16, 16, 16, 0.6);
+}

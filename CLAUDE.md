@@ -1,6 +1,6 @@
 # Idea Lab
 
-The nursery for initiatives at Vanguard's VI (Vanguard Proprietary Intelligence Systems) organisation before they become Projects of their own. Jithin Pradeep, Head of VI, owns the lab. This repository is the lab's source of truth; the claude.ai Idea Lab Project reads and writes it, Jithin's laptop reads it.
+The nursery for initiatives at ThinkLatent before they become Projects of their own. Jithin Pradeep, Head of ThinkLatent, owns the lab. This repository is the lab's source of truth; the claude.ai Idea Lab Project reads and writes it, Jithin's laptop reads it.
 
 ## Who writes
 
@@ -10,9 +10,9 @@ Only the Claude session in the Idea Lab Project writes to this repository (throu
 
 - `register/register.json`: the single list of every idea, link, capability, decision, session and sync run (contract v1.2, `register/schema/register.schema.json`). Read it first, update it last, every session.
 - `register/history/`: one dated snapshot per export plus `index.json`; the dashboard diffs the two most recent.
-- `ideas/VI-###-slug.md`: one doc per idea. Frontmatter and the block between `<!-- generated:start -->` and `<!-- generated:end -->` are rendered from the register by `scripts/render-ideas.mjs`; write prose under `## Notes` and the headings after it.
-- `artifacts/VI-###-slug/`: read-only mirrors of each idea's claude.ai artifacts (idea card and its tabs as markdown, sketches, canvases and playgrounds as HTML) and its scout briefs from project knowledge, listed in `artifacts/index.json`. The live versions stay on claude.ai and win; edit there, then re-export. Every session that creates or changes an artifact re-exports it here before `scripts/lab-sync.sh`, and the nightly sync re-exports anything whose revision moved.
-- `dashboard/`: the React dashboard (Vite, TypeScript) on VI Kit. The kit is vendored under `dashboard/vendor/vi-kit` at a pinned commit by `npm run kit:pull` (a vi-kit checkout next to idea-lab); never edit it there, `npm run kit:check` fails if anyone did. Product wrappers live in `dashboard/src/vi`, Jarvis in `dashboard/src/jarvis`. `npm test`, `npm run build`, then `node scripts/host-check.cjs` before publishing (D-107). It reads `register/` through `scripts/sync-data.mjs`.
+- `ideas/TL-###-slug.md`: one doc per idea. Frontmatter and the block between `<!-- generated:start -->` and `<!-- generated:end -->` are rendered from the register by `scripts/render-ideas.mjs`; write prose under `## Notes` and the headings after it.
+- `artifacts/TL-###-slug/`: read-only mirrors of each idea's claude.ai artifacts (idea card and its tabs as markdown, sketches, canvases and playgrounds as HTML) and its scout briefs from project knowledge, listed in `artifacts/index.json`. The live versions stay on claude.ai and win; edit there, then re-export. Every session that creates or changes an artifact re-exports it here before `scripts/lab-sync.sh`, and the nightly sync re-exports anything whose revision moved.
+- `dashboard/`: the React dashboard (Vite, TypeScript) on ThinkLatent kit. The kit is vendored under `dashboard/vendor/design-kit` at a pinned commit by `npm run kit:pull` (a design-kit checkout next to idea-lab); never edit it there, `npm run kit:check` fails if anyone did. Product wrappers live in `dashboard/src/kit`, Jarvis in `dashboard/src/jarvis`. `npm test`, `npm run build`, then `node scripts/host-check.cjs` before publishing (D-107). It reads `register/` through `scripts/sync-data.mjs`.
 - `docs/`: the built dashboard, for a private GitHub Pages site or for publishing as a claude.ai artifact.
 - `scripts/lab-sync.sh`: validate, snapshot, render, build, commit, push. Run it at the end of every session.
 
@@ -21,7 +21,7 @@ Only the Claude session in the Idea Lab Project writes to this repository (throu
 Seed, Shaping, Stress test, Proposal, Building, Shipped, Graduated, Parked, Killed.
 
 - Proposal is funded by default; Jithin rejects explicitly with a decision of type `rejection`, everything else proceeds.
-- The Building gate: an owner who is not Jithin, a stream, an appetite in engineer-weeks. No owner, no stream or no appetite means no start (VAI's rule, generalised).
+- The Building gate: an owner who is not Jithin, a stream, an appetite in engineer-weeks. No owner, no stream or no appetite means no start (the TL Index's rule, generalised).
 - Shipped means a first user in production and the metric read. Retrospectives measure Shipped, not Graduated.
 - Governance is handled by a separate team; it is a row-level dependency (`governance` field), flagged only when on the critical path.
 - Staleness: Seed 60, Shaping 30, Stress test 21, Proposal 14, Shipped 30 days; Building by its appetite (the circuit breaker, never extended); Parked by its re-check date.
@@ -33,7 +33,7 @@ Brainstorm, Critic, Scout, Spec, Portfolio, Comms. Match the session to the stag
 
 ## Every session
 
-1. Apply any waiting dashboard decisions first (lab-decisions skill). Then open with the session line: `Lab session · VI-### slug · Mode`, and read the row's last decision and next step back before acting.
+1. Apply any waiting dashboard decisions first (lab-decisions skill). Then open with the session line: `Lab session · TL-### slug · Mode`, and read the row's last decision and next step back before acting.
 2. One chat, one scope: a single idea, a Portfolio session, or Lab operations. Lab-operations sessions change the Operating Model, the register's structure, standards and scheduled tasks, never an idea's stage, score or doc. Idea sessions write only their own idea's row, doc and links.
 3. Do not advance an idea past Stress test without a critique pass recorded.
 4. At the end: update the register row (stage, score, next step with a due date, links), add a decision-log line (immutable; a reversal is a new line that supersedes the old), add a Sessions row with a health call (on-track, at-risk, off-track), bump `asOf` and `source.registerRev`, re-export any artifact the session created or changed into `artifacts/` (with its `index.json` entry), then run `scripts/lab-sync.sh`. GitHub must match the live register and artifacts at the end of every session; a session that cannot push says so in its closing reply.

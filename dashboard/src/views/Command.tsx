@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { motion } from 'motion/react';
 import { CircleCheck, Hammer, Layers, TriangleAlert } from 'lucide-react';
-import { Bars, DotGrid, Status, Surface, Tile } from '@vi/kit';
-import { Badge } from '@vi/ui/components/badge';
-import { Button } from '@vi/ui/components/button';
-import { cn } from '@vi/ui/lib/utils';
+import { Bars, DotGrid, Status, Surface, Tile } from '@kit/kit';
+import { Badge } from '@kit/ui/components/badge';
+import { Button } from '@kit/ui/components/button';
+import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
 import { attentionQueue, stageCounts } from '../lib/derive';
 import { decisionIndex, evaluateRules, funnel, healthOf, openNextSteps, updateState, appetiteState, buildingGate, type RuleHit } from '../lib/derive2';
@@ -13,8 +13,8 @@ import { fmtDate, plural } from '../lib/format';
 import DueCard from '../components/DueCard';
 import { BriefHero } from '../jarvis/BriefHero';
 import { whenText } from '../jarvis/brain';
-import { EmptyNote, Fold, IdLink, Meter, SectionHead, STAGE_VAR, StageTag } from '../vi/parts';
-import { CountUp, Stagger, StaggerItem, spring } from '../vi/motion';
+import { EmptyNote, Fold, IdLink, Meter, SectionHead, STAGE_VAR, StageTag } from '../kit/parts';
+import { CountUp, Stagger, StaggerItem, spring } from '../kit/motion';
 
 const PIPE: Stage[] = ['Seed', 'Shaping', 'Stress test', 'Proposal', 'Building', 'Shipped', 'Graduated'];
 const DAY = 86_400_000;
@@ -74,14 +74,14 @@ export default function Command() {
       {/* Orient */}
       <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
         <div>
-          <div className="vi-caption">
+          <div className="kit-caption">
             {now.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })} · register rev {reg.source.registerRev} · {plural(visibleIdeas.length, 'row')}, {live.length} live
           </div>
           <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">{greeting(now)}, Jithin</h1>
         </div>
         <div className="flex flex-wrap gap-2">
           <Button className="rounded-full" onClick={() => toQueue('decision')}>
-            Decisions <span className="vi-num opacity-70">{quickPending + inputDue.length}</span>
+            Decisions <span className="kit-num opacity-70">{quickPending + inputDue.length}</span>
           </Button>
           <Button variant="outline" className="rounded-full bg-background/60" onClick={() => go('board', null)}>
             Board
@@ -119,7 +119,7 @@ export default function Command() {
             unit={`${warns.length} warnings`}
             caption={alerts[0] ? `${alerts[0].ruleId}: ${alerts[0].rule}` : 'No rule at alert level today'}
             onOpen={() => toQueue('all')}
-            spark={alerts[0]?.ideaId ? <Badge className="rounded-full bg-[var(--vi-decision)] text-white">{alerts[0].ideaId}</Badge> : undefined}
+            spark={alerts[0]?.ideaId ? <Badge className="rounded-full bg-[var(--kit-decision)] text-white">{alerts[0].ideaId}</Badge> : undefined}
           />
         </StaggerItem>
       </Stagger>
@@ -138,7 +138,7 @@ export default function Command() {
           />
           <div className="mt-5 grid items-end gap-6 lg:grid-cols-[200px_1fr]">
             <div>
-              <div className="vi-display text-[88px] md:text-[96px]">
+              <div className="kit-display text-[88px] md:text-[96px]">
                 <CountUp value={live.length} />
               </div>
               <div className="mt-2 text-xs text-muted-foreground">
@@ -168,7 +168,7 @@ export default function Command() {
           ))}
           {requests.length > 0 && (
             <div className="lab-row px-4 py-3.5">
-              <div className="vi-caption">Requests you queued for the next lab chat</div>
+              <div className="kit-caption">Requests you queued for the next lab chat</div>
               <ul className="mt-2 space-y-2">
                 {requests.map((r) => (
                   <li key={r.itemId} className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
@@ -223,7 +223,7 @@ export default function Command() {
               <button key={s.ideaId} type="button" onClick={() => select(s.ideaId)} className="lab-row block w-full px-4 py-3 text-left transition-transform active:scale-[0.99]">
                 <div className="flex items-center gap-3">
                   <Status tone={s.daysLeft! < 0 ? 'critical' : s.daysLeft! <= 2 ? 'warning' : 'neutral'} word={whenText(s.due!, now)} />
-                  <span className="vi-num text-xs font-medium">{s.ideaId}</span>
+                  <span className="kit-num text-xs font-medium">{s.ideaId}</span>
                   {s.origin?.id && <span className="ml-auto text-[11px] text-muted-foreground">from {s.origin.id}</span>}
                 </div>
                 <p className="mt-1.5 line-clamp-2 text-sm">{s.step}</p>
@@ -233,7 +233,7 @@ export default function Command() {
               <button key={d.id ?? d.decision} type="button" onClick={() => select(d.ideaId)} className="lab-row block w-full px-4 py-3 text-left">
                 <div className="flex items-center gap-3">
                   <Status tone={d.reviewDays! < 0 ? 'critical' : 'warning'} word={d.reviewDays! < 0 ? `Review ${-d.reviewDays!} days overdue` : `Review in ${d.reviewDays} days`} />
-                  <span className="vi-num text-xs font-medium">{d.ideaId}</span>
+                  <span className="kit-num text-xs font-medium">{d.ideaId}</span>
                 </div>
                 <p className="mt-1.5 line-clamp-2 text-sm">
                   {d.id}: {d.decision}
@@ -266,8 +266,8 @@ export default function Command() {
               .map((x, i) => (
                 <li key={x.id ?? i} className="lab-row px-4 py-3">
                   <div className="flex flex-wrap items-center gap-x-3 text-xs text-muted-foreground">
-                    <span className="vi-num">{fmtDate(x.date)}</span>
-                    {x.id && <span className="vi-num">{x.id}</span>}
+                    <span className="kit-num">{fmtDate(x.date)}</span>
+                    {x.id && <span className="kit-num">{x.id}</span>}
                     <IdLink id={x.ideaId} onOpen={select} className="text-xs" />
                     {x.type === 'rejection' && <Status tone="critical" word="Rejection" />}
                   </div>
@@ -287,7 +287,7 @@ export default function Command() {
               { n: hc.missing, tone: 'warning' as const, word: 'Update missing' },
             ].map((h) => (
               <div key={h.word} className="lab-row px-3.5 pt-3 pb-2.5">
-                <div className="vi-display text-[30px]">
+                <div className="kit-display text-[30px]">
                   <CountUp value={h.n} />
                 </div>
                 <div className="mt-1">
@@ -317,7 +317,7 @@ export default function Command() {
               <div className="space-y-2">
                 {reg.rules.map((r) => (
                   <div key={r.id} className="grid grid-cols-[48px_1fr] gap-3 text-sm">
-                    <span className="vi-num text-xs text-muted-foreground">{r.id}</span>
+                    <span className="kit-num text-xs text-muted-foreground">{r.id}</span>
                     <span>
                       {r.name}
                       <span className="block text-xs text-muted-foreground">
@@ -353,14 +353,14 @@ export default function Command() {
               ] as [string, string[] | undefined][]
             ).map(([label, ids]) => (
               <div key={label} className="lab-row px-4 py-3.5">
-                <div className="vi-caption">{label}</div>
+                <div className="kit-caption">{label}</div>
                 <div className="mt-2 flex flex-col gap-1.5">
                   {(ids ?? []).length === 0 && <span className="text-sm text-muted-foreground">none</span>}
                   {(ids ?? []).map((id) => {
                     const i = reg.ideas.find((x) => x.id === id);
                     return (
                       <button key={id} type="button" onClick={() => select(id)} className="flex items-center gap-2 text-left text-sm hover:underline">
-                        <span className="vi-num text-xs text-muted-foreground">{id}</span>
+                        <span className="kit-num text-xs text-muted-foreground">{id}</span>
                         <span className="min-w-0 flex-1 truncate">{i?.slug ?? ''}</span>
                         {i && <StageTag stage={i.stage} />}
                       </button>
@@ -373,7 +373,7 @@ export default function Command() {
           {reg.portfolio.digest && <p className="mt-3 text-sm text-muted-foreground">{reg.portfolio.digest}</p>}
           <div className="mt-3 space-y-2">
             {(reg.portfolio.spine || reg.portfolio.diagnosis) && (
-              <Fold title="VI strategy spine" aside="draft">
+              <Fold title="ThinkLatent strategy spine" aside="draft">
                 <dl className="space-y-3 text-sm">
                   {(
                     [
@@ -388,7 +388,7 @@ export default function Command() {
                     .filter(([, v]) => v)
                     .map(([k, v]) => (
                       <div key={k}>
-                        <dt className="vi-caption">{k}</dt>
+                        <dt className="kit-caption">{k}</dt>
                         <dd className="mt-0.5">{v}</dd>
                       </div>
                     ))}
@@ -451,7 +451,7 @@ function Pipeline({ ideas, leadId, fun }: { ideas: Idea[]; leadId: string | null
                 <div className="mb-2 flex items-center gap-1.5 px-1">
                   <span className="lab-stage-dot" style={{ ['--lab-stage' as string]: STAGE_VAR[stage] }} />
                   <span className="truncate text-xs font-medium">{stage}</span>
-                  <span className="vi-num ml-auto text-xs text-muted-foreground">{rows.length}</span>
+                  <span className="kit-num ml-auto text-xs text-muted-foreground">{rows.length}</span>
                 </div>
                 <div className={cn('flex min-h-[132px] flex-1 flex-col gap-1.5 rounded-[18px] p-1.5', stage === 'Graduated' ? 'border border-dashed border-foreground/15' : 'bg-foreground/[0.035] dark:bg-white/[0.03]')}>
                   {rows.map((i, k) => {
@@ -468,12 +468,12 @@ function Pipeline({ ideas, leadId, fun }: { ideas: Idea[]; leadId: string | null
                         whileHover={{ y: -2 }}
                         whileTap={{ scale: 0.96 }}
                         title={`${i.id} ${i.slug}: ${i.title}`}
-                        className={cn('relative w-full rounded-[14px] border px-2.5 py-2 text-left', isLead ? 'border-[var(--vi-brand)] bg-background shadow-[0_0_0_3px_color-mix(in_oklab,var(--vi-brand)_35%,transparent)]' : 'border-[var(--lab-row-border)] bg-[var(--lab-row)]')}
+                        className={cn('relative w-full rounded-[14px] border px-2.5 py-2 text-left', isLead ? 'border-[var(--kit-brand)] bg-background shadow-[0_0_0_3px_color-mix(in_oklab,var(--kit-brand)_35%,transparent)]' : 'border-[var(--lab-row-border)] bg-[var(--lab-row)]')}
                       >
-                        {isLead && <span className="lab-ring-pulse absolute inset-0 rounded-[14px] border-2 border-[var(--vi-brand)]" aria-hidden="true" />}
-                        <span className="vi-num block text-[10px] text-muted-foreground">{i.id}</span>
+                        {isLead && <span className="lab-ring-pulse absolute inset-0 rounded-[14px] border-2 border-[var(--kit-brand)]" aria-hidden="true" />}
+                        <span className="kit-num block text-[10px] text-muted-foreground">{i.id}</span>
                         <span className="block truncate text-[13px] font-medium">{i.slug}</span>
-                        {i.score.composite != null && <span className="vi-num block text-[10px] text-muted-foreground">{i.score.composite.toFixed(2)}</span>}
+                        {i.score.composite != null && <span className="kit-num block text-[10px] text-muted-foreground">{i.score.composite.toFixed(2)}</span>}
                       </motion.button>
                     );
                   })}
@@ -505,7 +505,7 @@ function StreamCard({ id, name, owner, focus, rows }: { id: string; name: string
     <div className="lab-row flex min-w-0 flex-col gap-2.5 px-4 py-3.5">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
-          <div className="vi-num text-xs text-muted-foreground">{id}</div>
+          <div className="kit-num text-xs text-muted-foreground">{id}</div>
           <div className="truncate text-sm font-medium">{name}</div>
         </div>
         {owner ? <Status tone="good" word={owner} /> : <Status tone="warning" word="Engineer to be named" />}
@@ -523,7 +523,7 @@ function StreamCard({ id, name, owner, focus, rows }: { id: string; name: string
           return (
             <button key={i.id} type="button" onClick={() => select(i.id)} className="text-left">
               <div className="flex items-center gap-2 text-xs">
-                <span className="vi-num font-medium">{i.id}</span>
+                <span className="kit-num font-medium">{i.id}</span>
                 <span className="min-w-0 flex-1 truncate">{i.slug}</span>
                 <StageTag stage={i.stage} />
               </div>

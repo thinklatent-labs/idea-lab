@@ -57,7 +57,7 @@ function short(s: string, n: number): string {
   return s.length > n ? `${s.slice(0, n - 1)}…` : s;
 }
 
-/** Catalogue capabilities that are also register rows (VI-005 is CAP-004) draw once, as the register row. */
+/** Catalogue capabilities that are also register rows (TL-005 is CAP-004) draw once, as the register row. */
 export function canonicalId(reg: Register, id: string | null): string | null {
   if (!id) return null;
   const cap = reg.capabilities.find((c) => c.id === id);

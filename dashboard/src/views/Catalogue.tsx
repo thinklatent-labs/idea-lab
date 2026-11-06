@@ -1,15 +1,15 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
 import { Boxes, GitMerge, Sparkles, Timer } from 'lucide-react';
-import { DotGrid, Status, Surface, Tile, type StatusTone } from '@vi/kit';
-import { Badge } from '@vi/ui/components/badge';
-import { cn } from '@vi/ui/lib/utils';
+import { DotGrid, Status, Surface, Tile, type StatusTone } from '@kit/kit';
+import { Badge } from '@kit/ui/components/badge';
+import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
 import { capabilityFlag, collisionCandidates } from '../lib/derive2';
 import type { Capability } from '../lib/types';
 import { plural } from '../lib/format';
-import { EmptyNote, IdLink, SectionHead, Segmented } from '../vi/parts';
-import { CountUp, Stagger, StaggerItem, spring } from '../vi/motion';
+import { EmptyNote, IdLink, SectionHead, Segmented } from '../kit/parts';
+import { CountUp, Stagger, StaggerItem, spring } from '../kit/motion';
 
 const MATURITY = ['Idea', 'Proposed', 'Building', 'Built', 'In production', 'Retiring'] as const;
 const KINDS = ['Platform', 'Data', 'Process', 'Evidence', 'People'] as const;
@@ -80,7 +80,7 @@ export default function Catalogue() {
     <div className="flex flex-col gap-5">
       <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
         <div className="min-w-0">
-          <div className="vi-caption">
+          <div className="kit-caption">
             Capability catalogue · {plural(caps.length, 'capability', 'capabilities')} · {plural(reg.links.filter((l) => l.type === 'reuses' || l.type === 'creates').length, 'reuse or create link')}
           </div>
           <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">Catalogue</h1>
@@ -139,9 +139,9 @@ export default function Catalogue() {
                     whileHover={{ scale: 1.12 }}
                   >
                     <title>{`${c.id} ${c.name}: demand ${c.demand}, ${c.maturity}, ${c.kind}`}</title>
-                    {hot && <circle className="lab-ring-pulse" cx={pos.cx} cy={pos.cy} r={pos.r + 2} fill="none" stroke="var(--vi-brand)" strokeWidth="1.2" />}
-                    <circle cx={pos.cx} cy={pos.cy} r={pos.r} fill={hot ? 'var(--vi-brand)' : 'currentColor'} fillOpacity={hot ? 0.9 : c.demand === 0 ? 0.12 : 0.22} stroke={sel ? 'var(--vi-brand)' : 'currentColor'} strokeOpacity={sel ? 1 : 0.35} strokeWidth={sel ? 2.5 : 1} />
-                    <text x={pos.cx} y={pos.cy + 3.5} textAnchor="middle" fontSize={pos.r < 9 ? 9 : 11} fontWeight="600" fill={hot ? 'var(--vi-brand-fg)' : 'currentColor'} style={{ pointerEvents: 'none' }} className="vi-num">
+                    {hot && <circle className="lab-ring-pulse" cx={pos.cx} cy={pos.cy} r={pos.r + 2} fill="none" stroke="var(--kit-brand)" strokeWidth="1.2" />}
+                    <circle cx={pos.cx} cy={pos.cy} r={pos.r} fill={hot ? 'var(--kit-brand)' : 'currentColor'} fillOpacity={hot ? 0.9 : c.demand === 0 ? 0.12 : 0.22} stroke={sel ? 'var(--kit-brand)' : 'currentColor'} strokeOpacity={sel ? 1 : 0.35} strokeWidth={sel ? 2.5 : 1} />
+                    <text x={pos.cx} y={pos.cy + 3.5} textAnchor="middle" fontSize={pos.r < 9 ? 9 : 11} fontWeight="600" fill={hot ? 'var(--kit-brand-fg)' : 'currentColor'} style={{ pointerEvents: 'none' }} className="kit-num">
                       {c.demand}
                     </text>
                   </motion.g>
@@ -163,7 +163,7 @@ export default function Catalogue() {
         </div>
         <div className="mt-4 hidden grid-cols-[minmax(0,1.4fr)_100px_120px_minmax(0,1fr)_minmax(0,1.2fr)_72px_150px] gap-3.5 px-4 xl:grid">
           {['Capability', 'Kind', 'Maturity', 'Created by', 'Reused by', 'Demand', 'Flag'].map((h) => (
-            <span key={h} className="vi-caption uppercase tracking-wider">
+            <span key={h} className="kit-caption uppercase tracking-wider">
               {h}
             </span>
           ))}
@@ -193,7 +193,7 @@ export default function Catalogue() {
                 <span className="text-muted-foreground">and</span>
                 <IdLink id={c.b} onOpen={select} />
                 <span className="text-muted-foreground">share</span>
-                <span className="vi-num font-medium">{c.shared.length}</span>
+                <span className="kit-num font-medium">{c.shared.length}</span>
                 <span className="text-xs text-muted-foreground">{c.shared.join(', ')}</span>
               </div>
             ))
@@ -208,14 +208,14 @@ function CapRow({ cap: c, onOpen, selected }: { cap: Capability; onOpen: () => v
   const flag = capabilityFlag(c);
   const flagEl = flag ? <Status tone={FLAG_TONE[flag] ?? 'neutral'} word={FLAG_WORD[flag] ?? flag} /> : <span className="text-xs text-muted-foreground">—</span>;
   return (
-    <motion.button type="button" onClick={onOpen} whileHover={{ y: -2 }} whileTap={{ scale: 0.99 }} transition={spring.snappy} aria-current={selected ? 'true' : undefined} className={cn('lab-row w-full px-4 py-3.5 text-left', selected && 'ring-2 ring-[var(--vi-brand)]')}>
+    <motion.button type="button" onClick={onOpen} whileHover={{ y: -2 }} whileTap={{ scale: 0.99 }} transition={spring.snappy} aria-current={selected ? 'true' : undefined} className={cn('lab-row w-full px-4 py-3.5 text-left', selected && 'ring-2 ring-[var(--kit-brand)]')}>
       {/* Wide */}
       <div className="hidden grid-cols-[minmax(0,1.4fr)_100px_120px_minmax(0,1fr)_minmax(0,1.2fr)_72px_150px] items-center gap-3.5 xl:grid">
         <div className="min-w-0">
           <div className="truncate text-sm font-medium" title={c.name}>
             {c.name}
           </div>
-          <div className="vi-num text-[11px] text-muted-foreground">
+          <div className="kit-num text-[11px] text-muted-foreground">
             {c.id}
             {c.ideaId ? ` · ${c.ideaId}` : ''}
           </div>
@@ -230,7 +230,7 @@ function CapRow({ cap: c, onOpen, selected }: { cap: Capability; onOpen: () => v
           {c.demandNote && c.demandNote !== String(c.demand) && <span className="mt-0.5 line-clamp-1 block text-[11px]">{c.demandNote}</span>}
         </span>
         <span title={c.demandNote ?? undefined}>
-          <span className="vi-display text-[26px]">{c.demand}</span>
+          <span className="kit-display text-[26px]">{c.demand}</span>
         </span>
         <span>{flagEl}</span>
       </div>
@@ -239,13 +239,13 @@ function CapRow({ cap: c, onOpen, selected }: { cap: Capability; onOpen: () => v
         <div className="flex items-start gap-3">
           <div className="min-w-0 flex-1">
             <div className="text-sm font-medium">{c.name}</div>
-            <div className="vi-num text-[11px] text-muted-foreground">
+            <div className="kit-num text-[11px] text-muted-foreground">
               {c.id}
               {c.ideaId ? ` · ${c.ideaId}` : ''} · {c.kind} · {c.maturity}
             </div>
           </div>
           <div className="text-right">
-            <div className="vi-display text-[30px]">{c.demand}</div>
+            <div className="kit-display text-[30px]">{c.demand}</div>
             <div className="text-[10px] text-muted-foreground">demand</div>
           </div>
         </div>

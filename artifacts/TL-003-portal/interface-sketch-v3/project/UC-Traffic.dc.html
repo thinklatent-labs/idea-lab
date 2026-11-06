@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Use case traffic: request shapes and latency</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F4F5F7;font-family:Inter,system-ui,sans-serif;color:#1B1F24}
+a{color:#0B5E4C}a:hover{color:#08463A}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column; font-family: Inter, system-ui, sans-serif; color: #1B1F24; background: #F4F5F7">
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #E1E4E8">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; min-height: 56px">
+      <a href="Catalogue.dc.html" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #1B1F24; font-weight: 600; font-size: 15px; min-height: 44px">
+        <span style="display: inline-block; width: 22px; height: 22px; border-radius: 6px; background: {{accent}}"></span>
+        ThinkLatent Portal
+      </a>
+      <nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #57606A; flex: 1 1 320px; min-width: 0">
+        <a href="UseCases.dc.html" style="text-decoration: none; color: #57606A">Use cases</a>
+        <span aria-hidden="true">/</span>
+        <a href="Model.dc.html" style="text-decoration: none; color: #57606A">TLM4</a>
+        <span aria-hidden="true">/</span>
+        <a href="Main.dc.html" style="text-decoration: none; color: #57606A">Call summary to CRM</a>
+        <span aria-hidden="true">/</span>
+        <span style="color: #1B1F24; font-weight: 500">Traffic</span>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+        <button onClick="{{toggleEngineering}}" aria-pressed="{{engineering}}" style="min-height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #C9CED4; background: {{engineeringBg}}; color: {{engineeringFg}}; font: 500 14px Inter, system-ui, sans-serif; cursor: pointer">Engineering view: {{engineeringLabel}}</button>
+        <a href="Assistant.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 8px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 14px">Ask the assistant</a>
+      </div>
+    </div>
+  </header>
+
+  <div style="flex: 1 1 auto; width: 100%; max-width: 1280px; margin: 0 auto; padding: 32px 32px 56px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+
+    <nav aria-label="Use case pages" style="flex: 0 1 200px; display: flex; flex-direction: column; gap: 4px; font-size: 14px">
+      <a href="Main.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Overview</a>
+      <a href="UC-Traffic.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #1B1F24; font-weight: 600; background: #FFFFFF; border: 1px solid #E1E4E8">Traffic</a>
+      <a href="UC-Capacity.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Capacity</a>
+      <a href="UC-Models.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Models</a>
+      <a href="UC-Quality.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Quality</a>
+      <a href="UC-Improve.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Improve</a>
+      <a href="UC-Record.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Record</a>
+      <span style="margin-top: 14px; padding: 0 12px; font-size: 11px; color: #8C959F; text-transform: uppercase; letter-spacing: 0.06em">Workbench</span>
+      <a href="Prompts.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Prompts</a>
+      <a href="Datasets.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Datasets and queues</a>
+      <a href="Alerts.dc.html" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; color: #3C4651; font-weight: 500">Alerts and digest</a>
+      <span style="margin-top: 16px; padding: 10px 12px; font-size: 12px; color: #57606A; line-height: 1.5">Window: 7 days · compared with the 7 before · all models behind the alias</span>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.01em">Traffic</h1>
+        <p style="margin: 0; font-size: 15px; color: #57606A; max-width: 720px; line-height: 1.5">What this use case asks the model and what it gets back. Output length is only loosely tied to input length, so every latency number is read by request shape, never on average.</p>
+      </section>
+
+      <section aria-label="Headline numbers" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Requests per minute</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]</span>
+          <span style="font-size: 13px; color: #57606A">[—]% against the previous window · peak [—] at [time]</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Time to first token, p50 / p99</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—] / [—]</span>
+          <span style="font-size: 13px; color: #57606A">against SLO [target] · [—]% against previous</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Inter-token latency p99</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—] ms</span>
+          <span style="font-size: 13px; color: #57606A">time per output token p50 [—] ms; the gap is generation stalls</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #57606A">Finish reasons</span>
+          <span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #8C959F">[—]% length</span>
+          <span style="font-size: 13px; color: #57606A">stop [—]% · abort [—]% · length is the truncation fingerprint</span>
+        </div>
+      </section>
+
+      <section aria-labelledby="matrix-h" style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 id="matrix-h" style="margin: 0; font-size: 16px; font-weight: 600">Input length by output length</h2>
+            <span style="font-size: 13px; color: #57606A">Rows are what came in, columns what went out. Latency cells show p50 · p99. The last column is the p90 output for planning.</span>
+          </div>
+          <div role="group" aria-label="Cell metric" style="display: flex; gap: 4px; padding: 4px; background: #F4F5F7; border: 1px solid #E1E4E8; border-radius: 10px">
+            <button onClick="{{pickShare}}" aria-pressed="{{isShare}}" style="min-height: 40px; padding: 0 14px; border-radius: 7px; border: 0; background: {{shareBg}}; color: {{shareFg}}; font: 500 13px Inter, system-ui, sans-serif; cursor: pointer">Share of requests</button>
+            <button onClick="{{pickTtft}}" aria-pressed="{{isTtft}}" style="min-height: 40px; padding: 0 14px; border-radius: 7px; border: 0; background: {{ttftBg}}; color: {{ttftFg}}; font: 500 13px Inter, system-ui, sans-serif; cursor: pointer">TTFT</button>
+            <button onClick="{{pickDecode}}" aria-pressed="{{isDecode}}" style="min-height: 40px; padding: 0 14px; border-radius: 7px; border: 0; background: {{decodeBg}}; color: {{decodeFg}}; font: 500 13px Inter, system-ui, sans-serif; cursor: pointer">Decode</button>
+            <button onClick="{{pickCompletion}}" aria-pressed="{{isCompletion}}" style="min-height: 40px; padding: 0 14px; border-radius: 7px; border: 0; background: {{completionBg}}; color: {{completionFg}}; font: 500 13px Inter, system-ui, sans-serif; cursor: pointer">Completion</button>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 120px repeat(5, minmax(0, 1fr)) 110px; gap: 6px; font-size: 13px">
+          <div style="padding: 8px; color: #57606A; font-size: 12px">input · output</div>
+          <div style="padding: 8px; text-align: center; color: #57606A; font-weight: 500">up to 2k</div>
+          <div style="padding: 8px; text-align: center; color: #57606A; font-weight: 500">2k to 4k</div>
+          <div style="padding: 8px; text-align: center; color: #57606A; font-weight: 500">4k to 8k</div>
+          <div style="padding: 8px; text-align: center; color: #57606A; font-weight: 500">8k to 16k</div>
+          <div style="padding: 8px; text-align: center; color: #57606A; font-weight: 500">16k to 32k</div>
+          <div style="padding: 8px; text-align: center; color: #57606A; font-weight: 500">p90 output</div>
+          <sc-for list="{{rows}}" as="row" hint-placeholder-count="5">
+            <div style="padding: 8px; color: #3C4651; font-weight: 500; display: flex; align-items: center">{{row.label}}</div>
+            <sc-for list="{{row.cells}}" as="cell" hint-placeholder-count="5">
+              <div style="min-height: 56px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 500; text-align: center; padding: 4px; background: {{cell.bg}}; color: {{cell.fg}}">{{cell.text}}</div>
+            </sc-for>
+            <div style="min-height: 56px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #E1E4E8; color: #57606A">{{row.p90}}</div>
+          </sc-for>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 12px; color: #57606A">
+          <span>{{unitNote}}</span>
+          <span>Illustrative shape; live cells come from request-level logs joined with the engine's per-request timings.</span>
+        </div>
+      </section>
+
+      <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600">Where the first token's time goes</h2>
+            <span style="font-size: 13px; color: #57606A">Queue, then prefill, then decoding, p50 by input length. A long queue is capacity; a long prefill is prompt length.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px">
+            <div style="display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: space-between"><span>up to 2k</span><span style="color: #57606A">[—] s</span></div><div style="display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: #EEF1F4"><div style="width: 3%; background: #EF9F27"></div><div style="width: 6%; background: {{accent}}"></div><div style="width: 20%; background: #85B7A6"></div></div></div>
+            <div style="display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: space-between"><span>2k to 4k</span><span style="color: #57606A">[—] s</span></div><div style="display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: #EEF1F4"><div style="width: 3%; background: #EF9F27"></div><div style="width: 9%; background: {{accent}}"></div><div style="width: 30%; background: #85B7A6"></div></div></div>
+            <div style="display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: space-between"><span>4k to 8k</span><span style="color: #57606A">[—] s</span></div><div style="display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: #EEF1F4"><div style="width: 4%; background: #EF9F27"></div><div style="width: 14%; background: {{accent}}"></div><div style="width: 40%; background: #85B7A6"></div></div></div>
+            <div style="display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: space-between"><span>8k to 16k</span><span style="color: #57606A">[—] s</span></div><div style="display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: #EEF1F4"><div style="width: 5%; background: #EF9F27"></div><div style="width: 23%; background: {{accent}}"></div><div style="width: 50%; background: #85B7A6"></div></div></div>
+            <div style="display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: space-between"><span>16k to 32k</span><span style="color: #57606A">[—] s</span></div><div style="display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: #EEF1F4"><div style="width: 6%; background: #EF9F27"></div><div style="width: 36%; background: {{accent}}"></div><div style="width: 56%; background: #85B7A6"></div></div></div>
+          </div>
+          <div style="display: flex; gap: 16px; font-size: 12px; color: #57606A; flex-wrap: wrap">
+            <span style="display: inline-flex; align-items: center; gap: 6px"><span style="display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: #EF9F27"></span>queue</span>
+            <span style="display: inline-flex; align-items: center; gap: 6px"><span style="display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: {{accent}}"></span>prefill</span>
+            <span style="display: inline-flex; align-items: center; gap: 6px"><span style="display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: #85B7A6"></span>decoding</span>
+            <span>KV transfer appears as a fourth segment if serving is disaggregated.</span>
+          </div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #E1E4E8; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600">Generation stalls</h2>
+            <span style="font-size: 13px; color: #57606A">Inter-token latency p99 against time per output token p50, by prompt length. When p99 runs away from the average, long prompts are stalling the batch.</span>
+          </div>
+          <div style="overflow-x: auto">
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px">
+              <thead><tr style="text-align: left; color: #57606A; font-size: 12px"><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Prompt length</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">TPOT p50</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">ITL p99</th><th style="padding: 8px; border-bottom: 1px solid #E1E4E8; font-weight: 500">Stall ratio</th></tr></thead>
+              <tbody>
+                <tr><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4">up to 2k</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ms</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ms</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]x</td></tr>
+                <tr><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4">2k to 4k</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ms</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ms</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]x</td></tr>
+                <tr><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4">4k to 8k</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ms</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ms</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]x</td></tr>
+                <tr><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4">8k to 16k</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ms</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—] ms</td><td style="padding: 10px 8px; border-bottom: 1px solid #EEF1F4; color: #8C959F">[—]x</td></tr>
+                <tr><td style="padding: 10px 8px">16k to 32k</td><td style="padding: 10px 8px; color: #8C959F">[—] ms</td><td style="padding: 10px 8px; color: #8C959F">[—] ms</td><td style="padding: 10px 8px; color: #8C959F">[—]x</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <span style="font-size: 12px; color: #57606A">Finish reasons and rejections by hour are on the Capacity page's saturation strip; errors and timeouts [—]% this window.</span>
+        </div>
+      </section>
+
+      <sc-if value="{{engineering}}" hint-placeholder-val="{{ false }}">
+        <section aria-label="Engineering strip" style="background: #FFFBF2; border: 1px solid #F0DDB2; border-radius: 12px; padding: 16px 20px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; font-size: 13px; color: #6B4A0B">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span>Speculative acceptance by position</span><span style="font-size: 18px; font-weight: 600">[—]%</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span>Iteration tokens per step, p50</span><span style="font-size: 18px; font-weight: 600">[—]</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span>Adapter wait, p99</span><span style="font-size: 18px; font-weight: 600">[—] ms</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span>Chunked prefill share</span><span style="font-size: 18px; font-weight: 600">[—]%</span></div>
+        </section>
+      </sc-if>
+
+      <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px; color: #57606A">
+        <span>Buckets from the contract's input and output lengths; queue, prefill, TTFT, ITL and finish reason from the engine's per-request timings joined on request id.</span>
+        <a href="UC-Capacity.dc.html" style="font-weight: 500">Goodput, error budget and saturation live on Capacity</a>
+      </footer>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"startEngineering":{"editor":"boolean","default":false},"$preview":{"width":1280,"height":1760}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { engineering: !!(props && props.startEngineering), metric: 'share' };
+  }
+  renderVals() {
+    const engineering = this.state.engineering;
+    const metric = this.state.metric;
+    const inputs = ['up to 2k', '2k to 4k', '4k to 8k', '8k to 16k', '16k to 32k'];
+    const p90 = ['1.1k', '1.6k', '2.4k', '3.9k', '6.2k'];
+    const share = [[18, 6, 1, 0, 0], [20, 14, 3, 0, 0], [8, 10, 6, 1, 0], [2, 4, 3, 1, 0], [1, 1, 1, 0, 0]];
+    const ttft = [120, 180, 300, 560, 1100];
+    const decode = [1.2, 2.6, 5.1, 9.8, 19];
+    const values = [];
+    for (let i = 0; i < 5; i++) {
+      const row = [];
+      for (let j = 0; j < 5; j++) {
+        if (metric === 'share') row.push(share[i][j]);
+        else if (metric === 'ttft') row.push(ttft[i] + j * 10);
+        else if (metric === 'decode') row.push(Math.round((decode[j] + i * 0.2) * 10) / 10);
+        else row.push(Math.round((ttft[i] / 1000 + decode[j] * 1.3 + i * 0.3) * 10) / 10);
+      }
+      values.push(row);
+    }
+    let max = 0;
+    values.forEach(r => r.forEach(v => { if (v > max) max = v; }));
+    const fmt = (v) => {
+      if (metric === 'share') return v === 0 ? '<1%' : v + '%';
+      if (metric === 'ttft') return v + ' · ' + Math.round(v * 2.4) + ' ms';
+      if (metric === 'decode') return v + ' · ' + Math.round(v * 2.1 * 10) / 10 + ' s';
+      return v + ' · ' + Math.round(v * 1.9 * 10) / 10 + ' s';
+    };
+    const rows = inputs.map((label, i) => ({
+      label: label,
+      p90: p90[i],
+      cells: values[i].map((v) => {
+        const t = max > 0 ? v / max : 0;
+        const alpha = 0.06 + t * 0.78;
+        return { text: fmt(v), bg: 'rgba(11,94,76,' + alpha.toFixed(2) + ')', fg: alpha > 0.45 ? '#FFFFFF' : '#1B1F24' };
+      })
+    }));
+    const btn = (name) => metric === name;
+    const on = { bg: '#FFFFFF', fg: '#1B1F24' };
+    const off = { bg: 'transparent', fg: '#57606A' };
+    const unit = metric === 'share' ? 'Cells sum to 100% of requests in the window.' : metric === 'ttft' ? 'Milliseconds to first token, p50 · p99; grows with input length and with queue depth.' : metric === 'decode' ? 'Seconds spent generating, p50 · p99; grows with output length.' : 'Seconds from request to completion, p50 · p99; both lengths count.';
+    return {
+      accent: this.props.accent ?? '#0B5E4C',
+      engineering: engineering,
+      engineeringLabel: engineering ? 'on' : 'off',
+      engineeringBg: engineering ? '#FBF1DD' : '#FFFFFF',
+      engineeringFg: engineering ? '#6B4A0B' : '#3C4651',
+      toggleEngineering: () => this.setState({ engineering: !this.state.engineering }),
+      rows: rows,
+      unitNote: unit,
+      isShare: btn('share'), isTtft: btn('ttft'), isDecode: btn('decode'), isCompletion: btn('completion'),
+      shareBg: (btn('share') ? on : off).bg, shareFg: (btn('share') ? on : off).fg,
+      ttftBg: (btn('ttft') ? on : off).bg, ttftFg: (btn('ttft') ? on : off).fg,
+      decodeBg: (btn('decode') ? on : off).bg, decodeFg: (btn('decode') ? on : off).fg,
+      completionBg: (btn('completion') ? on : off).bg, completionFg: (btn('completion') ? on : off).fg,
+      pickShare: () => this.setState({ metric: 'share' }),
+      pickTtft: () => this.setState({ metric: 'ttft' }),
+      pickDecode: () => this.setState({ metric: 'decode' }),
+      pickCompletion: () => this.setState({ metric: 'completion' })
+    };
+  }
+}
+</script>
+</body>
+</html>

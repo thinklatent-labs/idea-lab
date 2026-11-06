@@ -2,17 +2,17 @@ import { AnimatePresence, motion } from 'motion/react';
 import { ArrowUp, Bot, Check, Eraser, Inbox, Square, Volume2, VolumeX, X } from 'lucide-react';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import { Status } from '@vi/kit';
-import { Badge } from '@vi/ui/components/badge';
-import { Button } from '@vi/ui/components/button';
-import { Textarea } from '@vi/ui/components/textarea';
-import { cn } from '@vi/ui/lib/utils';
+import { Status } from '@kit/kit';
+import { Badge } from '@kit/ui/components/badge';
+import { Button } from '@kit/ui/components/button';
+import { Textarea } from '@kit/ui/components/textarea';
+import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
 import { blocks, parseReply, type Inline } from './brain';
 import { JarvisOrb } from './Orb';
 import { useJarvis, type JMsg, type Proposal, type Tier } from './useJarvis';
-import { Segmented } from '../vi/parts';
-import { spring } from '../vi/motion';
+import { Segmented } from '../kit/parts';
+import { spring } from '../kit/motion';
 
 const TIERS: { value: Tier; label: string }[] = [
   { value: 'quick', label: 'Fast' },
@@ -35,7 +35,7 @@ export function Inlines({ parts, onOpen }: { parts: Inline[]; onOpen: (id: strin
             {p.v}
           </code>
         ) : p.t === 'id' ? (
-          <button key={i} type="button" onClick={() => onOpen(p.v)} className="rounded-full bg-[color-mix(in_oklab,var(--vi-brand)_22%,transparent)] px-1.5 font-medium text-foreground transition-colors hover:bg-[color-mix(in_oklab,var(--vi-brand)_40%,transparent)]">
+          <button key={i} type="button" onClick={() => onOpen(p.v)} className="rounded-full bg-[color-mix(in_oklab,var(--kit-brand)_22%,transparent)] px-1.5 font-medium text-foreground transition-colors hover:bg-[color-mix(in_oklab,var(--kit-brand)_40%,transparent)]">
             {p.v}
           </button>
         ) : (
@@ -77,8 +77,8 @@ function ProposalCard({ p, msgId }: { p: Proposal; msgId: string }) {
   const { inbox, select } = useLab();
   const canWrite = inbox.canWrite && (inbox.state === 'ready' || inbox.state === 'slow');
   return (
-    <motion.div layout initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={spring.soft} className="rounded-[18px] border border-[color-mix(in_oklab,var(--vi-brand)_45%,transparent)] bg-[color-mix(in_oklab,var(--vi-brand)_10%,transparent)] p-3.5">
-      <div className="vi-caption flex items-center gap-1.5">
+    <motion.div layout initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={spring.soft} className="rounded-[18px] border border-[color-mix(in_oklab,var(--kit-brand)_45%,transparent)] bg-[color-mix(in_oklab,var(--kit-brand)_10%,transparent)] p-3.5">
+      <div className="kit-caption flex items-center gap-1.5">
         {p.type === 'quick' ? 'Proposed quick call' : 'Draft request for the next lab chat'}
         {p.type === 'quick' && (
           <button type="button" className="underline decoration-foreground/30 underline-offset-2" onClick={() => select(p.ideaId)}>
@@ -137,7 +137,7 @@ function JarvisMessage({ m }: { m: JMsg }) {
         <span>
           {m.kind === 'local' ? 'on the page' : m.kind === 'notice' ? 'note' : `Claude · ${TIER_WORD[m.tierApplied ?? ''] ?? (m.kind === 'brief' ? 'thorough' : TIER_WORD[j.tier])}`}
         </span>
-        <span className="ml-auto vi-num">{new Date(m.at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+        <span className="ml-auto kit-num">{new Date(m.at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
       </div>
       <div className="rounded-[20px] rounded-tl-md border border-[var(--lab-row-border)] bg-[var(--lab-row)] px-4 py-3">
         {m.status === 'thinking' && !m.text ? (
@@ -205,7 +205,7 @@ export function JarvisPanel({ docked, suggestions }: { docked: boolean; suggesti
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 24 }}
       transition={spring.sheet}
-      className={cn('vi-glass-overlay flex flex-col overflow-hidden rounded-[28px]', docked ? 'sticky top-3 h-[calc(100dvh-24px)] w-[400px] shrink-0' : 'fixed inset-y-2 right-2 z-50 w-[min(420px,calc(100vw-16px))]')}
+      className={cn('kit-glass-overlay flex flex-col overflow-hidden rounded-[28px]', docked ? 'sticky top-3 h-[calc(100dvh-24px)] w-[400px] shrink-0' : 'fixed inset-y-2 right-2 z-50 w-[min(420px,calc(100vw-16px))]')}
     >
       <div className="flex items-center gap-3 border-b border-foreground/10 px-4 py-3.5">
         <JarvisOrb size={40} state={j.orb} rings />
@@ -279,7 +279,7 @@ export function JarvisPanel({ docked, suggestions }: { docked: boolean; suggesti
                 send();
               }
             }}
-            placeholder="Ask about the lab, or say “open VI-004”"
+            placeholder="Ask about the lab, or say “open TL-004”"
             className="max-h-36 min-h-9 flex-1 resize-none border-0 bg-transparent px-0 py-2 shadow-none focus-visible:ring-0 dark:bg-transparent"
             aria-label="Message Jarvis"
           />

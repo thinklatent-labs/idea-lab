@@ -1,18 +1,18 @@
 import { useMemo } from 'react';
 import { motion } from 'motion/react';
 import { MessageSquareText } from 'lucide-react';
-import { Status } from '@vi/kit';
-import { Badge } from '@vi/ui/components/badge';
-import { Button } from '@vi/ui/components/button';
-import { cn } from '@vi/ui/lib/utils';
+import { Status } from '@kit/kit';
+import { Badge } from '@kit/ui/components/badge';
+import { Button } from '@kit/ui/components/button';
+import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
 import { attentionQueue } from '../lib/derive';
 import { SAVED_QUESTIONS, matchesQuestion } from '../lib/derive2';
 import type { Idea } from '../lib/types';
 import { relDays, plural } from '../lib/format';
 import { useJarvis } from '../jarvis/useJarvis';
-import { EmptyNote, ReasonTags, Segmented, StageTag } from '../vi/parts';
-import { Stagger, StaggerItem, spring } from '../vi/motion';
+import { EmptyNote, ReasonTags, Segmented, StageTag } from '../kit/parts';
+import { Stagger, StaggerItem, spring } from '../kit/motion';
 
 /** The attention queue: every row the lab's rules flag, ranked; the saved questions filter it. */
 export default function Queue() {
@@ -34,7 +34,7 @@ export default function Queue() {
     <div className="flex flex-col gap-5">
       <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
         <div className="min-w-0">
-          <div className="vi-caption">Attention queue · {plural(inQueue.length, 'row')} with a reason · ranked by the lab's rules</div>
+          <div className="kit-caption">Attention queue · {plural(inQueue.length, 'row')} with a reason · ranked by the lab's rules</div>
           <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">Queue</h1>
           <p className="mt-1.5 max-w-[760px] text-sm text-muted-foreground">Decisions waiting on you come first, then features holding a parent, stale rows, parked rows past re-check and open blocking questions; the oldest touch breaks ties.</p>
         </div>
@@ -44,7 +44,7 @@ export default function Queue() {
       </header>
 
       <div className="flex min-w-0 flex-col gap-2">
-        <span className="vi-caption">Saved questions</span>
+        <span className="kit-caption">Saved questions</span>
         <Segmented id="queue-filter" size="sm" options={options} value={known ? queueFilter : 'all'} onChange={setQueueFilter} className="self-start" />
       </div>
 
@@ -81,15 +81,15 @@ function QueueRow({ idea, rank }: { idea: Idea; rank: number }) {
       whileHover={{ y: -2 }}
       whileTap={{ scale: 0.99 }}
       transition={spring.snappy}
-      className={cn('lab-row grid w-full grid-cols-[40px_1fr] gap-x-3 px-4 py-3.5 text-left sm:grid-cols-[56px_1fr]', selectedId === idea.id && 'ring-2 ring-[var(--vi-brand)]')}
+      className={cn('lab-row grid w-full grid-cols-[40px_1fr] gap-x-3 px-4 py-3.5 text-left sm:grid-cols-[56px_1fr]', selectedId === idea.id && 'ring-2 ring-[var(--kit-brand)]')}
     >
       <div className="text-center">
-        <div className="vi-display text-[30px] sm:text-[36px]">{rank}</div>
+        <div className="kit-display text-[30px] sm:text-[36px]">{rank}</div>
         <div className="mt-1 text-[10px] text-muted-foreground">rank</div>
       </div>
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-          <span className="vi-num text-xs font-medium">{idea.id}</span>
+          <span className="kit-num text-xs font-medium">{idea.id}</span>
           <span className="text-xs text-muted-foreground">{idea.slug}</span>
           <StageTag stage={idea.stage} note={idea.stageNote} />
           {idea.horizon && (
@@ -102,7 +102,7 @@ function QueueRow({ idea, rank }: { idea: Idea; rank: number }) {
           </Badge>
           {idea.score.composite != null && (
             <span className="text-xs text-muted-foreground" title={idea.score.note ?? idea.score.status}>
-              score <span className="vi-num text-foreground">{idea.score.composite.toFixed(2)}</span> {idea.score.status}
+              score <span className="kit-num text-foreground">{idea.score.composite.toFixed(2)}</span> {idea.score.status}
             </span>
           )}
           <span className="ml-auto text-[11px] whitespace-nowrap text-muted-foreground">touched {relDays(d.daysUntouched)}</span>
