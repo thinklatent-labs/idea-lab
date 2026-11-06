@@ -2,7 +2,8 @@
 // Licence allowlist check for installed npm/pnpm dependencies.
 // Usage: node scripts/check-licenses.mjs [dir-containing-node_modules ...]
 // Policy: everything we build is MIT. Dependencies may only use
-// MIT, Apache-2.0, BSD, ISC, Unlicense or CC0. Anything else must be listed in
+// MIT, Apache-2.0, BSD, ISC, Unlicense or CC0, plus the permissive code licences
+// 0BSD, BlueOak-1.0.0 and Python-2.0 (added 2026-11-06). Anything else must be listed in
 // licenses.exceptions.json (next to this repo's root) with a reason and who decided.
 //
 // Exit 0: clean (or every finding is excepted). Exit 1: unexcepted findings.
@@ -12,6 +13,7 @@ import path from 'node:path'
 
 const ALLOWED = new Set([
   'MIT', 'Apache-2.0', 'BSD', 'BSD-2-Clause', 'BSD-3-Clause', 'ISC', 'Unlicense', 'CC0-1.0',
+  '0BSD', 'BlueOak-1.0.0', 'Python-2.0',
 ])
 
 const roots = process.argv.slice(2).length ? process.argv.slice(2) : ['.']
@@ -113,7 +115,7 @@ for (const [id, lic] of [...found].sort()) {
 }
 
 const unexcepted = bad.filter((b) => !b.reason)
-console.log(`Checked ${found.size} installed packages against the MIT / Apache-2.0 / BSD / ISC / Unlicense / CC0 allowlist.`)
+console.log(`Checked ${found.size} installed packages against the licence allowlist.`)
 if (bad.length) {
   const byLic = new Map()
   for (const b of bad) byLic.set(b.lic, [...(byLic.get(b.lic) || []), b])
