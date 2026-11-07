@@ -20,7 +20,7 @@ standard: null
 last_touched: 2026-11-02
 sensitivity: none
 critique_recorded: null
-next_step: "Audit what Langfuse captures today against the v0 fields, per endpoint; then a Shaping session to set the schema and the Relay changes. From TL-003 (2026-11-02): Contract v0.1 additions and the derived-metric list are in the ThinkLatent Portal card. From TL-012 (2026-11-02): task mining reads the store; v0 fields are enough for a first pass"
+next_step: "Audit what Langfuse captures today against the v0 fields, per endpoint; then a Shaping session to set the schema and the Relay changes. From TL-003 (2026-11-02): Contract v0.1 additions and the derived-metric list are in the ThinkLatent Portal card. From TL-012 (2026-11-02): task mining reads the store; v0 fields are enough for a first pass From Portfolio (2026-11-07): Next #1. Cheapest unblocker: it feeds the index's per-use-case line, the portal and task mining. Run the Langfuse audit first."
 next_step_due: null
 ---
 
@@ -33,7 +33,7 @@ next_step_due: null
 
 Owner: Harness and platform lead to be named. Appetite: not set. Score: not scored .
 
-Next step: Audit what Langfuse captures today against the v0 fields, per endpoint; then a Shaping session to set the schema and the Relay changes. From TL-003 (2026-11-02): Contract v0.1 additions and the derived-metric list are in the ThinkLatent Portal card. From TL-012 (2026-11-02): task mining reads the store; v0 fields are enough for a first pass
+Next step: Audit what Langfuse captures today against the v0 fields, per endpoint; then a Shaping session to set the schema and the Relay changes. From TL-003 (2026-11-02): Contract v0.1 additions and the derived-metric list are in the ThinkLatent Portal card. From TL-012 (2026-11-02): task mining reads the store; v0 fields are enough for a first pass From Portfolio (2026-11-07): Next #1. Cheapest unblocker: it feeds the index's per-use-case line, the portal and task mining. Run the Langfuse audit first.
 
 Production surface: not named (reads as an H3 experiment).
 

@@ -12,7 +12,7 @@ horizon: "H1"
 stream: null
 appetite_weeks: null
 appetite_ends: null
-owner: "ThinkLatent team; interface owner to be named"
+owner: "ThinkLatent team; interface owner is a played role (the thinking partner as the Applied Research interface owner, D-135); wall auditor is a played Research-function role (D-136)"
 score: null
 score_status: none
 doc_url: "https://claude.ai/artifact/9wU5GVJYZW5CoBik1xU5Gz"
@@ -20,7 +20,7 @@ standard: "v1"
 last_touched: 2026-11-01
 sensitivity: none
 critique_recorded: null
-next_step: "ThinkLatent team reviews gap-report interface v0.1; name the interface owner and the outside auditor. From TL-003 (2026-11-02): the portal's loop needs self-healing's triggers and hand-back documented"
+next_step: "ThinkLatent team reviews gap-report interface v0.1; name the interface owner and the outside auditor. From TL-003 (2026-11-02): the portal's loop needs self-healing's triggers and hand-back documented From Portfolio (2026-11-07): owner and auditor named as played roles (D-135, D-136). The interface owner's first job is the adapter question against schema v0.1. The Research auditor runs the first wall audit in its own chat before the first heal batch."
 next_step_due: null
 ---
 
@@ -31,17 +31,16 @@ next_step_due: null
 
 **TL-005 self-healing** · Capability · Graduated (built by the ThinkLatent team) · H1
 
-Owner: ThinkLatent team; interface owner to be named. Appetite: not set. Score: not scored .
+Owner: ThinkLatent team; interface owner is a played role (the thinking partner as the Applied Research interface owner, D-135); wall auditor is a played Research-function role (D-136). Appetite: not set. Score: not scored .
 
-Next step: ThinkLatent team reviews gap-report interface v0.1; name the interface owner and the outside auditor. From TL-003 (2026-11-02): the portal's loop needs self-healing's triggers and hand-back documented
+Next step: ThinkLatent team reviews gap-report interface v0.1; name the interface owner and the outside auditor. From TL-003 (2026-11-02): the portal's loop needs self-healing's triggers and hand-back documented From Portfolio (2026-11-07): owner and auditor named as played roles (D-135, D-136). The interface owner's first job is the adapter question against schema v0.1. The Research auditor runs the first wall audit in its own chat before the first heal batch.
 
 Production surface: not named (reads as an H3 experiment).
 
 Governance: not recorded.
 
 ### Decisions due
-- Name the interface owner (needs the chat)
-- Name who runs the quarterly wall audit, outside both programmes (needs the chat)
+_None._
 
 ### Hypotheses
 _None recorded._
@@ -71,6 +70,8 @@ _None recorded._
 | --- | --- | --- | --- | --- |
 | D-012 | 2026-11-01 | Capability record created; gap-report interface v0.1 drafted (item-free gap reports, heal return, fingerprint check, quarterly outside audit) | Thinking partner, pending ThinkLatent team and Jithin | proposed |
 | D-032 | 2026-11-02 | (sync) reconciled owner from doc: ThinkLatent team; interface owner to be named | Nightly sync | accepted |
+| D-135 | 2026-11-07 | Interface owner (TL-005-q1): a played role, with the thinking partner as the Applied Research interface owner, per the role convention (D-134). | Jithin (Portfolio session) | accepted |
+| D-136 | 2026-11-07 | Quarterly wall auditor (TL-005-q2): the Research function, played in its own chat or a fresh agent outside both the TL Index and self-healing work; first audit before the first heal batch. | Jithin (Portfolio session) | accepted |
 <!-- generated:end -->
 
 ## Notes
