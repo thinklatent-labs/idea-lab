@@ -59,6 +59,7 @@ _None recorded._
 | depends-on | TL-014 model-mix | A turn-taking or duplex controller is a decision-model class |
 | reuses | TL-011 domain-model-portfolio | Judge and Compliance adapters guard the Thinker |
 | evidence-for | TL-012 agent-portfolio | A voice agent purpose for the library |
+| depends-on | TL-020 judge-family | Thinker guarded and scored by the judges |
 
 ### Artifacts
 | Artifact | Kind | In this repo | Live | Exported |

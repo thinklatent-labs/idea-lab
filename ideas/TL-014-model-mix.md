@@ -58,6 +58,7 @@ _None recorded._
 | related-to | TL-011 domain-model-portfolio | Adds model classes beside the TLM4 Core, Distil and Domain tiers; all served on the same vLLM stack |
 | related-to | TL-008 harness-served | Adds model classes beside the TLM4 Core, Distil and Domain tiers; all served on the same vLLM stack |
 | feature-of | TL-018 tlm-roadmap | Decision models of the suite (D-175) |
+| related-to | TL-020 judge-family | Co-hosted on one multi-LoRA Core (H-R3); TL-014 lays the pipeline TL-020 trains through (H-R1) |
 
 ### Artifacts
 | Artifact | Kind | In this repo | Live | Exported |

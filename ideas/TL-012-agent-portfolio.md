@@ -90,6 +90,7 @@ _None recorded._
 | related-to | TL-009 telemetry-contract | Variants are compared on the index; task mining reads the telemetry store; the trained variant goes through self-healing; the comparison card takes the kit's language |
 | related-to | TL-005 self-healing | Variants are compared on the index; task mining reads the telemetry store; the trained variant goes through self-healing; the comparison card takes the kit's language |
 | related-to | TL-013 design-kit | Variants are compared on the index; task mining reads the telemetry store; the trained variant goes through self-healing; the comparison card takes the kit's language |
+| depends-on | TL-020 judge-family | Wave 1 rubric grader |
 
 ### Artifacts
 | Artifact | Kind | In this repo | Live | Exported |

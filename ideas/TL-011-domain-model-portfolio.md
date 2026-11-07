@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-07
 sensitivity: none
 critique_recorded: null
-next_step: "Shaping session: write the idea card (domain = domain knowledge plus its tasks; all Domain models on Core; first adapters from task mining on the flagship), set the appetite for Build 1 (Judge family on Core) and declare the capabilities reused and created. From TL-012 (2026-11-02): wave 1 raises demand on the Judge family (the advisor-summary rubric grader first) and on the Compliance pre-review adapter (the same work as Build 3); the task-mining agent runs as TL-012's wave-1 spike and supplies the first adapters from the flagship Now a feature of TL-018 tlm-roadmap (D-175): stage, doc and next step unchanged; cross-suite sequencing is decided in TL-018."
+next_step: "Shaping session: write the idea card (domain = domain knowledge plus its tasks; all Domain models on Core; first adapters from task mining on the flagship), set the appetite for Build 1 (Judge family on Core) and declare the capabilities reused and created. From TL-012 (2026-11-02): wave 1 raises demand on the Judge family (the advisor-summary rubric grader first) and on the Compliance pre-review adapter (the same work as Build 3); the task-mining agent runs as TL-012's wave-1 spike and supplies the first adapters from the flagship Now a feature of TL-018 tlm-roadmap (D-175): stage, doc and next step unchanged; cross-suite sequencing is decided in TL-018. TL-018 (2026-11-07, D-188): the Judge family (Build 1) is now its own feature, TL-020 judge-family; TL-011 keeps Builds 2 to 8 and depends on TL-020 for scoring."
 next_step_due: null
 ---
 
@@ -33,7 +33,7 @@ next_step_due: null
 
 Owner: Head of ThinkLatent (sponsor); domain leads to be named per build. Appetite: not set. Score: not scored .
 
-Next step: Shaping session: write the idea card (domain = domain knowledge plus its tasks; all Domain models on Core; first adapters from task mining on the flagship), set the appetite for Build 1 (Judge family on Core) and declare the capabilities reused and created. From TL-012 (2026-11-02): wave 1 raises demand on the Judge family (the advisor-summary rubric grader first) and on the Compliance pre-review adapter (the same work as Build 3); the task-mining agent runs as TL-012's wave-1 spike and supplies the first adapters from the flagship Now a feature of TL-018 tlm-roadmap (D-175): stage, doc and next step unchanged; cross-suite sequencing is decided in TL-018.
+Next step: Shaping session: write the idea card (domain = domain knowledge plus its tasks; all Domain models on Core; first adapters from task mining on the flagship), set the appetite for Build 1 (Judge family on Core) and declare the capabilities reused and created. From TL-012 (2026-11-02): wave 1 raises demand on the Judge family (the advisor-summary rubric grader first) and on the Compliance pre-review adapter (the same work as Build 3); the task-mining agent runs as TL-012's wave-1 spike and supplies the first adapters from the flagship Now a feature of TL-018 tlm-roadmap (D-175): stage, doc and next step unchanged; cross-suite sequencing is decided in TL-018. TL-018 (2026-11-07, D-188): the Judge family (Build 1) is now its own feature, TL-020 judge-family; TL-011 keeps Builds 2 to 8 and depends on TL-020 for scoring.
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -69,6 +69,7 @@ _None recorded._
 | depends-on | TL-003 portal task mining | First Domain adapters are chosen from the tasks mined behind the flagship use case |
 | enables | TL-003 portal improvement loop | The 'train a specialist in N hours' step produces Domain-tier adapters; TL-011 is the content of that loop |
 | feature-of | TL-018 tlm-roadmap | Domain tier of the suite (D-175) |
+| depends-on | TL-020 judge-family | Domain adapters are scored by the judges (gate 3) |
 
 ### Artifacts
 | Artifact | Kind | In this repo | Live | Exported |
