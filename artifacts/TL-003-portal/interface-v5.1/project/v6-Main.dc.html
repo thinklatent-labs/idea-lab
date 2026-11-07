@@ -99,7 +99,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       </section>
 
       <section class="kit-tile">
-        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path></svg></span><a class="kit-open" href="#sec-activity" aria-label="Go to activity across models on this page">↗</a></div>
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path></svg></span><a class="kit-open" href="M1-Catalogue.dc.html" aria-label="Open the catalogue">↗</a></div>
         <div class="kit-tile-title">Models in production<button class="kit-tip" type="button" aria-label="About models in production">i<span class="kit-tip-bubble" role="tooltip"><b>Models in production.</b> Model versions serving production use cases, each on a dedicated endpoint. TLM3 retires 1 Mar 2027.<span class="src">Source: the registry · as of 11:58 ET</span></span></button></div>
         <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">6<span class="unit">models</span></div><div class="kit-tile-cap">7 use cases on dedicated endpoints · yesterday 6</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="dash" style="height: 100%"></i></div></div>
       </section>
@@ -188,7 +188,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         </table>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
           <div class="kit-legend"><span><i style="background: #2F7A6D"></i>On plan</span><span><i style="background: #B9742F"></i>May miss</span><span><i style="background: #C4262E"></i>Below bar</span><span>Band: interval · dashed tick: record bar · scale 70% to 90%</span></div>
-          <div class="kit-asof">As of 11:58 ET<button class="kit-tip end" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Official daily scoring for each production use case, 5 Nov (Claims triage from Official TL Index run 1191); bars from each use-case record; the week's call is the Operations brief's, composed 11:56 from 12 Official TL Index runs.</span></button></div>
+          <div class="kit-asof">As of 11:58 ET<button class="kit-tip end" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Official daily scoring for each production use case, 5 Nov (Claims triage from Official TL Index run 1184); bars from each use-case record; the week's call is the Operations brief's, composed 11:56 from 12 Official TL Index runs.</span></button></div>
         </div>
       </div>
     </section>
@@ -384,95 +384,9 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 
     <!-- 5 · Trace -->
     <nav class="kit-sectionbar" aria-label="Sections on this page" style="align-self: flex-start">
-      <a href="#sec-activity" aria-current="true">Activity <span class="n">6 models</span></a>
-      <a href="#sec-runs">Evaluation runs <span class="n">38</span></a>
+      <a href="#sec-runs" aria-current="true">Evaluation runs <span class="n">38</span></a>
       <a href="#sec-agents">Agents <span class="n">172</span></a>
     </nav>
-
-    <section id="sec-activity" aria-labelledby="h-activity" style="display: flex; flex-direction: column; gap: 12px">
-      <div class="kit-section-title">
-        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><h2 id="h-activity">Activity across models and use cases</h2><span class="sub">972,210 production calls to 11:55 · against the same hour on 4 Nov</span></div>
-        <a class="kit-btn sm outline" href="M1-Catalogue.dc.html">Catalogue</a>
-      </div>
-      <div class="kit-surface">
-        <div class="kit-tabs" role="tablist" aria-label="Group activity by">
-          <button type="button" role="tab" id="tab-act-model" aria-selected="true" aria-controls="panel-act">By model</button>
-          <button type="button" role="tab" id="tab-act-uc" aria-selected="false" aria-controls="panel-act" tabindex="-1">By use case</button>
-        </div>
-        <div class="kit-tabpanel" role="tabpanel" id="panel-act" aria-labelledby="tab-act-model">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">Model</th>
-                <th scope="col" class="num" style="width: 110px">Use cases</th>
-                <th scope="col" class="num" style="width: 130px">Calls today</th>
-                <th scope="col" class="num" style="width: 100px">vs 4 Nov</th>
-                <th scope="col" class="num" style="width: 120px">p95 latency<button class="kit-tip" type="button" aria-label="About p95 latency">i<span class="kit-tip-bubble" role="tooltip"><b>p95 latency.</b> 95th-percentile time to a complete answer today, from the gateway serving log.</span></button></th>
-                <th scope="col" class="num" style="width: 170px">Availability, 30 d<button class="kit-tip" type="button" aria-label="About availability">i<span class="kit-tip-bubble" role="tooltip"><b>Availability, 30 days.</b> Share of minutes the endpoint answered. A dedicated production endpoint targets 99.9%, set at onboarding.</span></button></th>
-                <th scope="col" style="width: 200px">Daily check</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><div style="font-weight: 500"><a href="v6-M2-ModelPage.dc.html">TLM4 Core 4.2</a></div><div class="kit-small kit-muted">Current · prod alias</div></td>
-                <td class="num">12</td>
-                <td class="num">412,380</td>
-                <td class="num">+5%</td>
-                <td class="num">2.4 s</td>
-                <td class="num">99.97%</td>
-                <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed 06:10</span></span></td>
-              </tr>
-              <tr>
-                <td><div style="font-weight: 500"><a href="v6-M2-ModelPage.dc.html">TLM4 Core 4.1</a></div><div class="kit-small kit-muted">Previous · retires 15 Jan 2027</div></td>
-                <td class="num">6</td>
-                <td class="num">168,940</td>
-                <td class="num">−4%</td>
-                <td class="num">2.6 s</td>
-                <td class="num">99.95%</td>
-                <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed 06:15</span></span></td>
-              </tr>
-              <tr>
-                <td><div style="font-weight: 500"><a href="v6-M2-ModelPage.dc.html">TLM4 Distil 4.2</a></div><div class="kit-small kit-muted">Current · prod alias</div></td>
-                <td class="num">4</td>
-                <td class="num">236,510</td>
-                <td class="num">+3%</td>
-                <td class="num">900 ms</td>
-                <td class="num">99.96%</td>
-                <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed 06:20</span></span></td>
-              </tr>
-              <tr>
-                <td><div style="font-weight: 500"><a href="v6-M2-ModelPage.dc.html">TLM4 Domain-Advice v2</a></div><div class="kit-small kit-muted">Current · prod alias</div></td>
-                <td class="num">2</td>
-                <td class="num">38,720</td>
-                <td class="num">+2%</td>
-                <td class="num">2.2 s</td>
-                <td class="num">99.94%</td>
-                <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed 06:25</span></span></td>
-              </tr>
-              <tr>
-                <td><div style="font-weight: 500"><a href="v6-M2-ModelPage.dc.html">Claims adapter v2</a></div><div class="kit-small kit-muted">On Core 4.1 · <a href="#row-f0425">F-0425</a></div></td>
-                <td class="num">1</td>
-                <td class="num">21,460</td>
-                <td class="num">−1%</td>
-                <td class="num">3.1 s</td>
-                <td class="num">99.92%</td>
-                <td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td>
-              </tr>
-              <tr>
-                <td><div style="font-weight: 500"><a href="v6-M2-ModelPage.dc.html">TLM3 Core 3.4</a></div><div class="kit-small kit-muted">Retiring 1 Mar 2027 · INC-5521 open</div></td>
-                <td class="num">6</td>
-                <td class="num">94,200</td>
-                <td class="num">−6%</td>
-                <td class="num">3.4 s</td>
-                <td class="num">99.71%<div class="kit-small kit-muted">under the 99.9% target</div></td>
-                <td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>1 check failed</span></span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="kit-asof" style="margin-top: 10px">As of 11:55 ET<button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: calls and p95 latency from the gateway serving log, today to 11:55 ET against the same hour on Wed 4 Nov (production, sealed, aggregate only); 30-day availability from the gateway serving log; daily checks from the daily evaluation schedule; use-case counts and lifecycle from the registry and the record.</span></button></div>
-      </div>
-    </section>
 
     <section id="sec-runs" aria-labelledby="h-runs" style="display: flex; flex-direction: column; gap: 12px">
       <div class="kit-section-title">
@@ -493,7 +407,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <tbody>
             <tr><td colspan="5"><span class="kit-label">Missed their gates · 3</span></td></tr>
             <tr>
-              <td><div style="font-weight: 500"><a href="v6-E1-EvaluationResults.dc.html">UC-0142 Claims triage</a></div><div class="kit-small kit-muted">Run 1191 · <a href="#row-f0425">F-0425</a></div></td>
+              <td><div style="font-weight: 500"><a href="v6-E1-EvaluationResults.dc.html">UC-0142 Claims triage</a></div><div class="kit-small kit-muted">Run 1184 · <a href="#row-f0425">F-0425</a></div></td>
               <td><span class="kit-chip brand">Official</span></td>
               <td class="num"><span class="kit-interval">76% <span class="pm">± 4</span></span></td>
               <td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar 78%</span></span></td>

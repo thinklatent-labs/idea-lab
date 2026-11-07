@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-07T14:35:00+05:30",
+  "asOf": "2026-11-07T13:25:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-05, ThinkLatent kit, command center and Jarvis), register rev 223.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 383,
+    "registerRev": 384,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -188,7 +188,7 @@
       "stageSince": "2026-11-06",
       "horizon": "H2",
       "appetite": "One quarter",
-      "owner": "Head of ThinkLatent: sponsor, product lead and sole developer until the first use case is in production",
+      "owner": "Idea owner and product lead (Jithin); platform lead and builder, stream S-C (Claude)",
       "score": {
         "composite": 3.75,
         "status": "set",
@@ -200,7 +200,7 @@
       "docTitle": "ThinkLatent Portal (portal) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-07",
-      "nextStep": "Jithin reviews v6 batch 1 on the canvas (page 'v6 · batch 1: onboarding to production', ten pages left to right, plus Home and the model page). Numbers to settle in that review: V1 Approval uses its source's run 1183 pillar scores, which disagree with E1 (Safety and grounding 91% ± 2 against 78% ± 4; E1's figure would fail the 85% bar); J6 Models shows paired ± worked out from the source's p-values, not given intervals; paired intervals are still missing for E1's pillar table (run 1183 against 1162), M2's profile against Core 4.1, J3's Distil 4.2 tie and T6's checkpoint changes, so those show verdicts without ± or read 'ungraded'. Then batch 2 (about ten pages, the live use case: Performance, Quality, Improve, Record, alerts), then the remaining v5.1 boards in two or three more batches (about 146 left), retiring each batch's v5.1 boards once approved. After the redraw: build thinklatent-labs/portal config-first (decisions 13 to 15; stack and licence rule in the 6 Nov answers). Alongside: write the proposal from the requirements doc (executive summary, what if we don't, hypotheses with confirm and refute, success metrics, roles, risks, phasing; C3, C4, C5 and C8 as open questions with owners); TL-003-q2, the first business line, is Jithin's (blocks the proposal, not the redraw); share the canvas and the requirements doc with the team; take the membership position to IT security and the break-glass position (1 hour, Head of ThinkLatent approves, everything logged) to Risk; send the other seven defaults to their owners; get the intranet and training-tool addresses the boards still mark as to come. Parked until the backend: Risk's concurrence on the grace policy, the SR 11-7 verification, Risk's model inventory, a baseline for today's time from request to access, open decisions 4 to 8 in section 12 of the requirements doc, and the C2 flag (Jithin approving his own grants needs a model-risk review before any production access). From TL-012: the agent library is the portal's A1 page, and the knowledge agent ships first. From TL-010: Blueprints are retired in favour of the agent library (TL-010's own chat to confirm).",
+      "nextStep": "Jithin reviews v6 batch 1 on the canvas (page 'v6 · batch 1: onboarding to production', ten pages left to right, plus Home and the model page). Numbers corrected after the independent audit (D-167); still to settle in that review: Distil 4.2's scores on Start a project and New training run against the leaderboard's run 1179 (the Distil recommendation would flip), the model page's Core 4.1 column (runs 1141 and 1171 mixed), and a ruling on approval check C-2.4 while paired tests are pending. The lasting fix is decision 14's seeded scenario generator, which makes every page's numbers agree by construction. Then batch 2 (about ten pages, the live use case: Performance, Quality, Improve, Record, alerts), then the remaining v5.1 boards in two or three more batches (about 146 left), retiring each batch's v5.1 boards once approved. After the redraw: build thinklatent-labs/portal config-first (decisions 13 to 15; stack and licence rule in the 6 Nov answers). Alongside: write the proposal from the requirements doc (executive summary, what if we don't, hypotheses with confirm and refute, success metrics, roles, risks, phasing; C3, C4, C5 and C8 as open questions with owners); TL-003-q2, the first business line, is Jithin's (blocks the proposal, not the redraw); share the canvas and the requirements doc with the team; take the membership position to IT security and the break-glass position (1 hour, Head of ThinkLatent approves, everything logged) to Risk; send the other seven defaults to their owners; get the intranet and training-tool addresses the boards still mark as to come. Parked until the backend: Risk's concurrence on the grace policy, the SR 11-7 verification, Risk's model inventory, a baseline for today's time from request to access, open decisions 4 to 8 in section 12 of the requirements doc, and the C2 flag (Jithin approving his own grants needs a model-risk review before any production access). From TL-012: the agent library is the portal's A1 page, and the knowledge agent ships first. From TL-010: Blueprints are retired in favour of the agent library (TL-010's own chat to confirm).",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -285,7 +285,7 @@
         }
       ],
       "nextStepDue": "2026-11-10",
-      "nextStepOrigin": "D-150",
+      "nextStepOrigin": "D-167",
       "appetiteEnds": null,
       "createdOn": "2026-10-31",
       "stageHistory": [
@@ -3779,6 +3779,19 @@
       "health": "at-risk",
       "healthNote": "Hardening estimate (about 17 principal-engineer days) nearly fills the 4 ew appetite that must also carry the pilot; five pre-pilot security fixes open; pilot volunteers and Enterprise sign-off sit outside the lab two weeks out",
       "nextStepDue": "2026-11-16"
+    },
+    {
+      "date": "2026-11-07",
+      "scope": "TL-003 portal (continued)",
+      "ideaIds": [
+        "TL-003"
+      ],
+      "mode": "Spec (build) with an independent audit",
+      "outcome": "Lab update applied (D-134, D-151, D-152: roles played by Jithin and Claude; owner field now reads role and player). Auditor agent checked batch 1 against the v5.1 boards; nine findings, eight fixed by a builder agent and republished; three left for Jithin's review (D-167).",
+      "docsTouched": "Interface v5.1 canvas (version 1794037863-533a); this register; artifacts mirror",
+      "health": "on-track",
+      "healthNote": "Batch 1 corrected and out for review; the mock data itself is inconsistent across v5.1 boards, which the scenario generator will fix",
+      "nextStepDue": "2026-11-10"
     }
   ],
   "decisions": [
@@ -6077,6 +6090,20 @@
       "status": "accepted",
       "by": "Jithin (on the thinking partner's recommendation)",
       "decision": "0.9 is pilot hardening and readiness under a feature freeze (C-14 to C-29; no pilot while C-22 to C-25 are open), and the first pilot inside the Enterprise is 3 to 5 volunteers before any wider group. Rooms, specs, co-editing, gates, loops, detectors, forecasts and ask stay built but off in the pilot scope"
+    },
+    {
+      "id": "D-167",
+      "ideaId": "TL-003",
+      "date": "2026-11-07",
+      "decision": "Independent audit of v6 batch 1 (auditor role, a separate agent that had not seen the work) found the approval page's run 1183 Safety and grounding wrong (91% ± 2 against the Official 78% ± 4 that E1, E3 and E4 agree on), so UA-0291 misses the 85% Safety bar: the approval page's recommendation changes from 'Approve with one condition' to 'Send back with two findings' (Safety and grounding; consistency 71% against 75%). Also corrected: run 1180 scores set to the Official leaderboard on four pages (Core 4.2 now misses its Safety bar too); an unsourced activity table removed from Home; ± worked out from p-values removed from Models and canary (difference and p shown); run IDs, spend and precision made consistent; every verdict between runs sharing items that rested only on overlapping intervals now reads 'paired test pending'. Canvas version 1794037863-533a. Left for review: Distil 4.2 scores on Start a project and New training run contradict the leaderboard's run 1179 (the 'Distil clears all five' recommendation would flip); the model page's Core 4.1 column mixes runs 1141 and 1171; approval check C-2.4 needs a ruling while paired tests are pending",
+      "by": "Auditor (Claude, separate agent); fixes by platform lead (Claude)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
     }
   ],
   "syncLog": [
