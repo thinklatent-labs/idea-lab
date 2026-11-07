@@ -20,7 +20,7 @@ standard: "v1"
 last_touched: 2026-11-05
 sensitivity: none
 critique_recorded: true
-next_step: "Jithin runs the week from the command center and Jarvis; H1 (weekly use), H2 (decisions citing a flag) and H5 (Jarvis use) are read at the 30-day review on 2026-12-01. The Lab-operations chat still owes the Operating Model lifecycle amendment, the register columns and the five stream engineers (S-A's engineer takes this row) From Portfolio (2026-11-07): Now, run only. No new build before the 2026-12-01 review."
+next_step: "Jithin runs the week from the command center and Jarvis; H1 (weekly use), H2 (decisions citing a flag) and H5 (Jarvis use) are read at the 30-day review on 2026-12-01. The Lab-operations chat still owes the Operating Model lifecycle amendment, the register columns and the five stream engineers (S-A's engineer takes this row) From Portfolio (2026-11-07): Now, run only. No new build before the 2026-12-01 review. From TL-013 (2026-11-07): design-kit v0.1.0 (8653232) replaces the 969f885 pin and the retired package names; repin at the 2026-12-01 review, not before."
 next_step_due: "2026-12-01"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-12-01"
 
 Owner: Thinking partner (owner and builder under S-A until the stream engineer is named); Jithin sponsor. Appetite: 1.5 engineer-weeks, ends 2026-12-01. Score: not scored .
 
-Next step: Jithin runs the week from the command center and Jarvis; H1 (weekly use), H2 (decisions citing a flag) and H5 (Jarvis use) are read at the 30-day review on 2026-12-01. The Lab-operations chat still owes the Operating Model lifecycle amendment, the register columns and the five stream engineers (S-A's engineer takes this row) From Portfolio (2026-11-07): Now, run only. No new build before the 2026-12-01 review. (due 2026-12-01)
+Next step: Jithin runs the week from the command center and Jarvis; H1 (weekly use), H2 (decisions citing a flag) and H5 (Jarvis use) are read at the 30-day review on 2026-12-01. The Lab-operations chat still owes the Operating Model lifecycle amendment, the register columns and the five stream engineers (S-A's engineer takes this row) From Portfolio (2026-11-07): Now, run only. No new build before the 2026-12-01 review. From TL-013 (2026-11-07): design-kit v0.1.0 (8653232) replaces the 969f885 pin and the retired package names; repin at the 2026-12-01 review, not before. (due 2026-12-01)
 
 Production surface: Jithin, weekly triage and the monthly portfolio review · A private claude.ai artifact fed by the nightly sync · Decisions per month that cite a dashboard flag (H2)
 
