@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-07T13:55:00+05:30",
+  "asOf": "2026-11-07T14:00:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-05, ThinkLatent kit, command center and Jarvis), register rev 223.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 380,
+    "registerRev": 381,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1127,32 +1127,79 @@
       "themeIds": [
         "T-001"
       ],
-      "stage": "Shaping",
-      "stageNote": "Idea card v1 and scout brief, 2026-11-02; wave 1 and the variant set proposed; Stress test next",
-      "stageSince": null,
+      "stage": "Stress test",
+      "stageNote": "Stress test pack prepared 2026-11-07 (red-team pass, kill criteria, proposed score 3.00, autonomy tiers); critique not yet recorded",
+      "stageSince": "2026-11-07",
       "horizon": "H1",
-      "appetite": null,
-      "owner": "Head of ThinkLatent (sponsor); a business owner and a build owner per wave-1 purpose to be named",
+      "appetite": "Full quarter: 26 engineer-weeks on S-D and S-E, weeks 1 to 13, absorbed into their current focus",
+      "owner": "Head of ThinkLatent, sponsor (Jithin). Task mining: business, Head of Applied Research (Jithin); build, Applied Research engineer (Claude). After-call agent: business, Head of AI Products (Jithin); build, harness and platform lead (Claude). Pre-review: business, Head of Applied Research, interim (Jithin); build, Applied Research engineer (Claude)",
       "score": {
-        "composite": null,
-        "status": "none",
-        "date": null,
-        "criteria": null
+        "composite": 3.0,
+        "status": "proposed",
+        "date": "2026-11-07",
+        "criteria": {
+          "strategicFit": 4,
+          "evidenceOfNeed": 2,
+          "differentiation": 3,
+          "feasibility": 2,
+          "valueAtStake": 3,
+          "governanceExposure": 3,
+          "reversibility": 4,
+          "compounding": 4
+        },
+        "note": "Proposed by the red team (separate agent) on the quarter weights; under the 3.5 bar; Jithin sets it at the Stress test"
       },
       "docUrl": "https://claude.ai/artifact/T5rhguUBWXiUtPamFxxELT",
       "docTitle": "Agent portfolio (agent-portfolio) — Idea card",
       "standardVersion": "v1",
-      "lastTouched": "2026-11-02",
-      "nextStep": "Jithin: name a business owner and a build owner for each wave-1 purpose (task mining, after-call agent, marketing pre-review), set the appetite (one quarter of two streams proposed) and the two streams; confirm the library sits inside TL-012 and the A/B/C variant set; ask the governance team whether a second variant of an approved purpose is a new use case. Then the Stress test session (critique log, kill criteria, the scout brief answered, rubric score); add the autonomy-tier column to the 40-agents tab there. From TL-003 (2026-11-05): Jithin decided the knowledge agent ships first in the portal's agent library",
+      "lastTouched": "2026-11-07",
+      "nextStep": "Stress test session (Critic): Head of ThinkLatent (Jithin) plays the business-line seat on the pack tab of the Idea card (six questions: lab version versus company version, protecting S-E for the TL Index's task sets, review slots, wave-1 order, the knowledge-agent conflict with TL-003, the kill criteria); then record the critique, set the score (3.00 proposed) and write the accepted kill criteria into the card. Before Building: a weekly review slot from Jithin (D-152). Governance question (is a second variant a new use case) answered by a simulated review in the pack; the real answer waits for the company version. From TL-003 (2026-11-05): Jithin decided the knowledge agent ships first in the portal's agent library",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
       "capabilityId": null,
       "graduatedTo": null,
       "recheckDate": null,
-      "decisionsDue": [],
+      "decisionsDue": [
+        {
+          "id": "TL-012-q1",
+          "text": "Play the business-line seat at the Stress test: answer the six questions on the Stress test pack tab",
+          "kind": "input"
+        },
+        {
+          "id": "TL-012-q2",
+          "text": "Commit a weekly review slot for TL-012 (Building gate, D-152)",
+          "kind": "input"
+        }
+      ],
       "flags": [],
-      "createdOn": "2026-11-02"
+      "createdOn": "2026-11-02",
+      "stageHistory": [
+        {
+          "stage": "Seed",
+          "since": "2026-11-02"
+        },
+        {
+          "stage": "Shaping",
+          "since": "2026-11-02"
+        },
+        {
+          "stage": "Stress test",
+          "since": "2026-11-07"
+        }
+      ],
+      "appetiteWeeks": 26,
+      "streamId": "S-D",
+      "appetiteEnds": null,
+      "governance": {
+        "review": "Agent register by autonomy tier; whether a second variant of an approved purpose is a new use case",
+        "owner": "Governance team (separate; simulated in the lab)",
+        "expectedWeeks": null,
+        "status": "not started",
+        "criticalPath": false
+      },
+      "nextStepDue": "2026-11-14",
+      "nextStepOrigin": "D-162"
     },
     {
       "id": "TL-013",
@@ -3639,6 +3686,19 @@
       "health": "at-risk",
       "healthNote": "The only published Gemma 4 E2B decision measurement on an H100 is 102 ms per question on long states, and E2B-class accuracy trails 4B on typed decisions; the dataset is unblocked, but the 50 ms and accuracy conditions of H-DM1 are both open and the endpoint waits on TL-008",
       "nextStepDue": "2026-11-21"
+    },
+    {
+      "date": "2026-11-07",
+      "scope": "TL-012 agent-portfolio",
+      "ideaIds": [
+        "TL-012"
+      ],
+      "mode": "Spec (Building-gate inputs), then Critic preparation",
+      "outcome": "Jithin accepted D-051 (D-159); set wave-1 owner roles (D-160), keeping ThinkLatent business owners for after-call and pre-review against the recommendation; set the appetite at 26 engineer-weeks on S-D and S-E, absorbed (D-161), against a recommended 12. Moved to Stress test (D-162). Stress test pack added as a third tab on the Idea card: red-team pass by a separate agent (feasibility seat, plus the Risk seat, simulated), seven-item pre-mortem, kill criteria, proposed score 3.00 under the 3.5 bar, six questions for the business-line seat. Autonomy-tier column added to the 40-agents tab. Roles update (D-151, D-152) applied mid-session: owner fields read role then player. Decision IDs collided with parallel sessions and were renumbered before sync",
+      "docsTouched": "Agent portfolio Idea card (40-agents tab, new Stress test pack tab); ideas/TL-012-agent-portfolio.md; this register",
+      "health": "at-risk",
+      "healthNote": "The appetite absorbs S-E, which feeds the TL Index (now in Building on S-B); five of eight hypotheses can't be read in the lab; proposed score 3.00 is under the bar",
+      "nextStepDue": "2026-11-14"
     }
   ],
   "decisions": [
@@ -5818,6 +5878,62 @@
       "date": "2026-11-07",
       "decision": "First use case and dataset settled on public data, as the lab requires: intent routing on Banking77 and CLINC150 plus the financial-news topic set, each row a typed question with its options set per row; the dataset is owned by the Dataset lead role, played by Claude (D-134). H-DM2 is tested leave-one-out (train on two, score the third, rotate), giving three held-out reads against the two required. The 50 ms target stays as pre-registered in H-DM1: p50 model time per request on the production GPU (FP8, warm prefix, prompt of 500 tokens or less, capped batch); p95 and end-to-end through Relay are measured and carry no target until TL-008's 0.32+ environment exists. The card's line drawing data from the Enterprise's own use cases is replaced by these public stand-ins inside the lab",
       "by": "Jithin (datasets, latency definition); thinking partner (leave-one-out design, public stand-ins)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-159",
+      "ideaId": "TL-012",
+      "date": "2026-11-07",
+      "decision": "D-051 accepted as the base for the Stress test: the portfolio is a loop (admit, build variants A/B/C on TLM, compare on the TL Index, publish in the agent library inside TL-012, learn); wave 1 is task mining (#28), the after-call agent (#2) and marketing pre-review (#10)",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": "D-051",
+      "type": "decision"
+    },
+    {
+      "id": "D-160",
+      "ideaId": "TL-012",
+      "date": "2026-11-07",
+      "decision": "Wave-1 owner roles: task mining, business Head of Applied Research (Jithin), build Applied Research engineer (Claude); after-call agent, business Head of AI Products (Jithin), chosen over the flagship's servicing owner, build harness and platform lead (Claude); pre-review, business Head of Applied Research as interim owner (Jithin), chosen over the Enterprise's compliance review lead, build Applied Research engineer (Claude). The card's task-mining owner (Head of ThinkLatent) is replaced, as the Building gate requires",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-161",
+      "ideaId": "TL-012",
+      "date": "2026-11-07",
+      "decision": "Appetite 26 engineer-weeks: a full quarter (weeks 1 to 13) on two streams, S-D and S-E, which absorb TL-012 into their current focus; their other work, including the self-healing v0.1 handover and S-E's task sets for the TL Index, slips past week 8. The thinking partner recommended 12 engineer-weeks in weeks 8 to 13 so the variant comparisons land after the TL Index's week-10 gate; Jithin chose the full quarter. The circuit breaker is 26 engineer-weeks, never extended",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-162",
+      "ideaId": "TL-012",
+      "date": "2026-11-07",
+      "decision": "Moved to Stress test to prepare the critique: a red-team pass (feasibility and Risk seats, the Risk seat simulated) run by a separate agent that has not seen the work, with a proposed score of 3.00 under the 3.5 bar; Jithin plays the business-line seat in the Stress test session. critiqueRecorded stays unset until that session",
+      "by": "Thinking partner, on Jithin's instruction",
       "pending": false,
       "status": "accepted",
       "door": "two-way",
