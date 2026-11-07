@@ -20,7 +20,7 @@ standard: "v1"
 last_touched: 2026-11-07
 sensitivity: none
 critique_recorded: null
-next_step: "Hold at Shaping until gate 1: TL-014's Core adapter pipeline v1 in use and its shadow test read on the index. Then the Critic pass for Stress test: red-team the card (feasibility and Risk seats as a separate agent, business-line seat Jithin) and read the demotion test (the umbrella owns at least two of its four jobs as running work). Meanwhile, the features run in their own chats: TL-014 dataset (due 2026-11-21), TL-020 Shaping, TL-019 Brainstorm, TL-021 Seed capture"
+next_step: "Hold at Shaping until gate 1: TL-014's Core adapter pipeline v1 in use and its shadow test read on the index. Then the Critic pass for Stress test: red-team the card (feasibility and Risk seats as a separate agent, business-line seat Jithin) and read the demotion test (the umbrella owns at least two of its four jobs as running work). Meanwhile, the features run in their own chats: TL-014 dataset (due 2026-11-21), TL-020 Shaping, TL-019 Brainstorm, TL-021 Seed capture. TLM5 gets its own base-training and serving lane (D-192); the Stress test critique runs after gate 1, target 2026-12-05 (D-195)"
 next_step_due: "2026-12-05"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-12-05"
 
 Owner: Head of ThinkLatent (Jithin), sponsor and product lead; TLM roadmap lead (Claude). Appetite: not set. Score: not scored .
 
-Next step: Hold at Shaping until gate 1: TL-014's Core adapter pipeline v1 in use and its shadow test read on the index. Then the Critic pass for Stress test: red-team the card (feasibility and Risk seats as a separate agent, business-line seat Jithin) and read the demotion test (the umbrella owns at least two of its four jobs as running work). Meanwhile, the features run in their own chats: TL-014 dataset (due 2026-11-21), TL-020 Shaping, TL-019 Brainstorm, TL-021 Seed capture (due 2026-12-05)
+Next step: Hold at Shaping until gate 1: TL-014's Core adapter pipeline v1 in use and its shadow test read on the index. Then the Critic pass for Stress test: red-team the card (feasibility and Risk seats as a separate agent, business-line seat Jithin) and read the demotion test (the umbrella owns at least two of its four jobs as running work). Meanwhile, the features run in their own chats: TL-014 dataset (due 2026-11-21), TL-020 Shaping, TL-019 Brainstorm, TL-021 Seed capture. TLM5 gets its own base-training and serving lane (D-192); the Stress test critique runs after gate 1, target 2026-12-05 (D-195) (due 2026-12-05)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -79,6 +79,7 @@ _None recorded._
 | --- | --- | --- | --- | --- |
 | D-175 | 2026-11-07 | TL-011 domain-model-portfolio and TL-014 model-mix become features of a new umbrella idea, TL-018 tlm-roadmap (TLM roadmap: the model suite), keeping their own docs, stages and next steps; chosen over a full merge so TL-014's decided architecture and dataset work are not reset. The umbrella owns sequencing and the shared data, recipe, evaluation and serving paths; it is demoted to a theme if Shaping finds it owns nothing else | Jithin | accepted |
 | D-187 | 2026-11-07 | TLM roadmap build sequence approved, and TL-018 moves to Shaping with Idea card v1: TL-014's decision adapter now (it lays the Core adapter pipeline), then the Judge family, then Domain adapters, omni's Thinker, and TLM5 last; one finished model at a time, four gates | Jithin | accepted |
+| D-195 | 2026-11-07 | TL-018's Stress test critique runs after gate 1 (TL-014's pipeline in use and its shadow test read), target 2026-12-05 | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes

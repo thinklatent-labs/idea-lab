@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-07T21:45:00+05:30",
+  "asOf": "2026-11-07T22:40:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-05, ThinkLatent kit, command center and Jarvis), register rev 223.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 392,
+    "registerRev": 393,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1731,7 +1731,7 @@
       "docTitle": "TLM roadmap (tlm-roadmap) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-07",
-      "nextStep": "Hold at Shaping until gate 1: TL-014's Core adapter pipeline v1 in use and its shadow test read on the index. Then the Critic pass for Stress test: red-team the card (feasibility and Risk seats as a separate agent, business-line seat Jithin) and read the demotion test (the umbrella owns at least two of its four jobs as running work). Meanwhile, the features run in their own chats: TL-014 dataset (due 2026-11-21), TL-020 Shaping, TL-019 Brainstorm, TL-021 Seed capture",
+      "nextStep": "Hold at Shaping until gate 1: TL-014's Core adapter pipeline v1 in use and its shadow test read on the index. Then the Critic pass for Stress test: red-team the card (feasibility and Risk seats as a separate agent, business-line seat Jithin) and read the demotion test (the umbrella owns at least two of its four jobs as running work). Meanwhile, the features run in their own chats: TL-014 dataset (due 2026-11-21), TL-020 Shaping, TL-019 Brainstorm, TL-021 Seed capture. TLM5 gets its own base-training and serving lane (D-192); the Stress test critique runs after gate 1, target 2026-12-05 (D-195)",
       "nextStepDue": "2026-12-05",
       "nextStepOrigin": "TL-018 session 2026-11-07",
       "sensitivity": "none",
@@ -1840,7 +1840,7 @@
       ],
       "stage": "Seed",
       "stageSince": "2026-11-07",
-      "appetite": null,
+      "appetite": "6 engineer-weeks under S-A once its lab-plumbing work ends in week 3 (circuit breaker, never extended): about 2 for the rubric grader and its public data, 2 for groundedness and reward, 2 for the 100-item human audit and the co-hosting test",
       "score": {
         "composite": null,
         "status": "none",
@@ -1873,8 +1873,9 @@
       "horizon": "H1",
       "owner": "Judge lead (Claude); Head of ThinkLatent (Jithin), sponsor",
       "docTitle": "No doc yet; TL-011 scout brief (claude/scout-brief-domain-model-portfolio.md), Build 1, and the TL-018 Idea card",
-      "nextStep": "Shaping in TL-020's own chat: write the idea card from TL-011's Build 1 (Core-only rule, not Distil as the scout brief first said); choose the first rubric (TL-012's advisor-summary grader) and the public rubric data that can reach 0.6 agreement on a 100-item human audit (H-R2); plan to train through TL-014's Core adapter pipeline (H-R1). Building on S-A once its plumbing ends in week 3 (D-190): the Building gate still needs the appetite and Jithin's review slot",
-      "nextStepDue": "2026-11-28"
+      "nextStep": "Shaping in TL-020's own chat: write the idea card from TL-011's Build 1 (Core-only rule, not Distil as the scout brief first said); choose the first rubric (TL-012's advisor-summary grader) and the public rubric data that can reach 0.6 agreement on a 100-item human audit (H-R2); plan to train through TL-014's Core adapter pipeline (H-R1). Building on S-A once its plumbing ends in week 3 (D-190): the Building gate still needs the appetite and Jithin's review slot. Building-gate inputs set 2026-11-07 (D-193, D-194): owner role Judge lead (Claude), stream S-A, 6 engineer-weeks, review slot shared with TL-012's Friday 30 min. The gate is read after Shaping and a recorded critique, not before",
+      "nextStepDue": "2026-11-28",
+      "appetiteWeeks": 6
     },
     {
       "aliases": [
@@ -1919,11 +1920,11 @@
       "id": "TL-021",
       "slug": "tlm5",
       "title": "TLM5: the trajectory engine, a text-only large world model that predicts where an interaction is heading and guides a frontier model from past interactions",
-      "stageNote": "Registered 2026-11-07 as a feature of TL-018 (D-189); the Enterprise's TLM5 work is outside the lab, this row plans the lab view of it",
+      "stageNote": "Registered 2026-11-07 as a feature of TL-018 (D-189); the Enterprise's TLM5 work is outside the lab, this row plans the lab view of it; TLM5 is a new base model, not TLM4 Core (D-192)",
       "horizon": "H3",
       "owner": "TLM5 lead (Claude); Head of ThinkLatent (Jithin), sponsor and the only source of what TLM5 is",
       "docTitle": "No doc yet",
-      "nextStep": "Seed capture in TL-021's own chat: what Jithin can share in the lab about TLM5's base, training signal and serving, kept to outcomes and public analogues (the Enterprise's work stays outside); place it against TL-018's shared pipeline, index lane and serving path; say whether it is a TLM4 Core derivative or a new base",
+      "nextStep": "Seed capture in TL-021's own chat: TLM5 is on a new base (D-192), so name what can be shared in the lab (base family and size class, training signal, serving stack) as outcomes and public analogues; give it its own lane in TL-018 for base training and serving, outside the Core adapter pipeline; set what its index lane measures",
       "nextStepDue": "2026-12-19"
     }
   ],
@@ -4522,6 +4523,21 @@
       "health": "at-risk",
       "healthNote": "Full v8 for February needs 150–210 of Jithin's build hours and ~53 sourced inputs; the 21 Nov and 19 Dec kill checks decide the scope and date",
       "nextStepDue": "2026-11-21"
+    },
+    {
+      "date": "2026-11-07",
+      "scope": "TL-018 tlm-roadmap",
+      "ideaIds": [
+        "TL-018",
+        "TL-020",
+        "TL-021"
+      ],
+      "mode": "Brainstorm (Shaping)",
+      "outcome": "Second round of calls: TLM5 on a new base (D-192), Judge Build 1 appetite 6 engineer-weeks (D-193), TL-020 review shares TL-012's Friday slot (D-194), TL-018 critique after gate 1 (D-195). Idea card updated (suite map, risk, decisions table, open question)",
+      "docsTouched": "TLM roadmap Idea card; this register (TL-018, TL-020, TL-021 rows); artifacts/TL-018-tlm-roadmap/idea-card.md",
+      "health": "on-track",
+      "healthNote": "TLM5 on a new base narrows what the shared pipeline covers; the umbrella's case now rests on the TLM4 adapters and the judges",
+      "nextStepDue": "2026-12-05"
     }
   ],
   "decisions": [
@@ -7168,6 +7184,62 @@
       "door": "two-way",
       "infoLevel": null,
       "reviewOn": "2026-12-05",
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-192",
+      "ideaId": "TL-021",
+      "date": "2026-11-07",
+      "decision": "TLM5 is a new base model, not a TLM4 Core derivative (Jithin, over the recommendation to plan it as Core); TL-018 gives it its own base-training and serving lane, and the Core adapter pipeline and Core multi-LoRA serving do not cover it",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-193",
+      "ideaId": "TL-020",
+      "date": "2026-11-07",
+      "decision": "Judge Build 1 appetite set at 6 engineer-weeks on S-A (rubric grader and public data, groundedness and reward, the 100-item audit and the co-hosting test)",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-194",
+      "ideaId": "TL-020",
+      "date": "2026-11-07",
+      "decision": "TL-020's weekly review shares TL-012's Friday 30-min slot; no new slot",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-195",
+      "ideaId": "TL-018",
+      "date": "2026-11-07",
+      "decision": "TL-018's Stress test critique runs after gate 1 (TL-014's pipeline in use and its shadow test read), target 2026-12-05",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
       "supersedes": null,
       "type": "decision"
     }

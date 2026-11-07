@@ -2,7 +2,7 @@
 
 Nov 7, 2026 · @Jithin Pradeep
 
-> Mirror of https://claude.ai/artifact/Y13puZytpv3ycwGYbySaAV (doc rev 27), exported 2026-11-07. The live doc wins; the build-sequence drawing is in the live doc only.
+> Mirror of https://claude.ai/artifact/Y13puZytpv3ycwGYbySaAV (doc rev 31), exported 2026-11-07. The live doc wins; the build-sequence drawing is in the live doc only.
 
 TLM roadmap is the one build plan for the TLM line. It decides the order the suite's models are built in, and it owns the shared paths they all train, evaluate and serve on. The features build the models themselves.
 
@@ -60,7 +60,7 @@ Every new model class except TLM5 sits on TLM4 Core. Only omni's Talker, and pos
 | Judge family (groundedness, rubric, reward) | TL-020 judge-family | Core (Core-only rule, 2026-11-02) | A score with a reason | Seed | H1 | vLLM, multi-LoRA |
 | Compliance, Advice, Cybersecurity adapters | TL-011 Builds 3 to 8 | Core | Text and extraction | Seed | H1 to H2 | vLLM, multi-LoRA |
 | Omni: Thinker, Listener, Talker, Duplex | TL-019 tlm-omni | Core Thinker, plus speech stages | Speech, in real time | Seed | H3 | Thinker on vLLM; Talker not on stock vLLM |
-| TLM5 trajectory engine | TL-021 tlm5 | To be set | Where an interaction is heading | In work (outside the lab) | H3 | To be set |
+| TLM5 trajectory engine | TL-021 tlm5 | A new base, not TLM4 Core (Jithin, 2026-11-07) | Where an interaction is heading | In work (outside the lab) | H3 | To be set |
 
 ## Build sequence
 
@@ -162,7 +162,7 @@ The umbrella is demoted to a theme if it stops owning work. Its features carry o
 - **The umbrella slows the fastest feature.** TL-014 is the only feature with a decided architecture. Mitigation: TL-014's next step is not gated by this card.
 - **Proxy-only evidence.** Every lab result runs on public data. Enterprise data, the curated Core corpus and call recordings are company-version only. The roadmap proves the plumbing, not Enterprise-data quality.
 - **One person reviews everything.** The roadmap adds no review slot. It must fit inside the slots Jithin already holds.
-- **TLM5 sits outside.** If TLM5 needs a different base or serving stack, jobs 2 and 4 cover less of the line than they appear to.
+- **TLM5 sits outside the shared paths.** It is on a new base (D-192), so the Core adapter pipeline and Core multi-LoRA serving don't cover it. The roadmap gives TLM5 its own lane for base training and its own serving request. Jobs 1 (sequence) and 3 (index lane) still apply to it.
 
 ## Decisions for Jithin and open questions
 
@@ -175,9 +175,18 @@ Jithin decided all four on 2026-11-07 (D-187 to D-190). He took the recommendati
 | 3 | Whether TLM5 becomes a fourth feature | Decided: yes, TL-021 tlm5 as a Seed feature, so its base and serving needs are planned against jobs 2 and 4 |
 | 4 | Which stream builds Judge Build 1 | Decided: S-A, once its lab-plumbing work ends in week 3. S-B to S-D carry TL-004, TL-003, TL-012 and TL-017, and S-E is protected for TL-004's task sets |
 
+**Second round, 2026-11-07 (D-192 to D-195):**
+
+| # | Decision | Decided |
+| --- | --- | --- |
+| 5 | What TLM5 is built on | A new base model, not TLM4 Core (the thinking partner had recommended planning it as a Core derivative) |
+| 6 | Appetite for the first judge build | 6 engineer-weeks on S-A: rubric grader and its public data, groundedness and reward, then the 100-item audit and the co-hosting test |
+| 7 | Review slot for TL-020 | Shared with TL-012's Friday 30 min; no new slot |
+| 8 | When TL-018's Stress test critique runs | After gate 1, target 2026-12-05, so the demotion test reads running work |
+
 **Open questions:**
 
-- [ ] What base and serving stack does TLM5 need? Owner: TLM roadmap lead (Claude), from what Jithin can share in the lab.
+- [ ] TLM5 is on a new base (D-192): which base family and size, and what serving stack does it need? Owner: TLM roadmap lead (Claude), from what Jithin can share in the lab.
 - [ ] Can Judge Build 1 reach 0.6 agreement on public rubric data alone, or does it need house labels (company version)? Owner: Judge lead (Claude), in TL-020's chat.
 - [ ] Does TL-008 plan for one 0.32+ environment or one per model class? Owner: Harness and platform lead (Claude), in TL-008's chat.
 - [ ] Does omni's lab spike use the cascade control or a PersonaPlex fine-tune? Owner: Omni lead (Claude), in TL-019's chat.

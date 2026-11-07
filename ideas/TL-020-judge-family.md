@@ -10,7 +10,7 @@ stage: "Seed"
 stage_since: "2026-11-07"
 horizon: "H1"
 stream: null
-appetite_weeks: null
+appetite_weeks: 6
 appetite_ends: null
 owner: "Judge lead (Claude); Head of ThinkLatent (Jithin), sponsor"
 score: null
@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-07
 sensitivity: none
 critique_recorded: null
-next_step: "Shaping in TL-020's own chat: write the idea card from TL-011's Build 1 (Core-only rule, not Distil as the scout brief first said); choose the first rubric (TL-012's advisor-summary grader) and the public rubric data that can reach 0.6 agreement on a 100-item human audit (H-R2); plan to train through TL-014's Core adapter pipeline (H-R1). Building on S-A once its plumbing ends in week 3 (D-190): the Building gate still needs the appetite and Jithin's review slot"
+next_step: "Shaping in TL-020's own chat: write the idea card from TL-011's Build 1 (Core-only rule, not Distil as the scout brief first said); choose the first rubric (TL-012's advisor-summary grader) and the public rubric data that can reach 0.6 agreement on a 100-item human audit (H-R2); plan to train through TL-014's Core adapter pipeline (H-R1). Building on S-A once its plumbing ends in week 3 (D-190): the Building gate still needs the appetite and Jithin's review slot. Building-gate inputs set 2026-11-07 (D-193, D-194): owner role Judge lead (Claude), stream S-A, 6 engineer-weeks, review slot shared with TL-012's Friday 30 min. The gate is read after Shaping and a recorded critique, not before"
 next_step_due: "2026-11-28"
 ---
 
@@ -31,9 +31,9 @@ next_step_due: "2026-11-28"
 
 **TL-020 judge-family** · Feature of TL-018 · Seed (Split out of TL-011 as its own feature of TL-018 on 2026-11-07 (D-188); was TL-011 Build 1) · H1
 
-Owner: Judge lead (Claude); Head of ThinkLatent (Jithin), sponsor. Appetite: not set. Score: not scored .
+Owner: Judge lead (Claude); Head of ThinkLatent (Jithin), sponsor. Appetite: 6 engineer-weeks. Score: not scored .
 
-Next step: Shaping in TL-020's own chat: write the idea card from TL-011's Build 1 (Core-only rule, not Distil as the scout brief first said); choose the first rubric (TL-012's advisor-summary grader) and the public rubric data that can reach 0.6 agreement on a 100-item human audit (H-R2); plan to train through TL-014's Core adapter pipeline (H-R1). Building on S-A once its plumbing ends in week 3 (D-190): the Building gate still needs the appetite and Jithin's review slot (due 2026-11-28)
+Next step: Shaping in TL-020's own chat: write the idea card from TL-011's Build 1 (Core-only rule, not Distil as the scout brief first said); choose the first rubric (TL-012's advisor-summary grader) and the public rubric data that can reach 0.6 agreement on a 100-item human audit (H-R2); plan to train through TL-014's Core adapter pipeline (H-R1). Building on S-A once its plumbing ends in week 3 (D-190): the Building gate still needs the appetite and Jithin's review slot. Building-gate inputs set 2026-11-07 (D-193, D-194): owner role Judge lead (Claude), stream S-A, 6 engineer-weeks, review slot shared with TL-012's Friday 30 min. The gate is read after Shaping and a recorded critique, not before (due 2026-11-28)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -67,6 +67,8 @@ _None recorded._
 | --- | --- | --- | --- | --- |
 | D-188 | 2026-11-07 | The Judge family becomes its own feature row, TL-020 judge-family, under TL-018 (Jithin's call over the thinking partner's recommendation that TL-011 keep it as Build 1); TL-011 keeps Builds 2 to 8 | Jithin | accepted |
 | D-190 | 2026-11-07 | Judge Build 1 is planned on stream S-A once its lab-plumbing work ends in week 3; the Building gate still needs an appetite and a review slot | Jithin | accepted |
+| D-193 | 2026-11-07 | Judge Build 1 appetite set at 6 engineer-weeks on S-A (rubric grader and public data, groundedness and reward, the 100-item audit and the co-hosting test) | Jithin | accepted |
+| D-194 | 2026-11-07 | TL-020's weekly review shares TL-012's Friday 30-min slot; no new slot | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
