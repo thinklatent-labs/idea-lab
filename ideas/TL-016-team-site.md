@@ -17,11 +17,11 @@ score: null
 score_status: none
 doc_url: "https://claude.ai/artifact/9ZtoVU9roiRiACFjqe5nJu"
 standard: "v1"
-last_touched: 2026-11-05
+last_touched: 2026-11-07
 sensitivity: none
 critique_recorded: null
-next_step: "Jithin reviews design canvas v7 (25 boards: the v3 site in the kit's colour system v1.1, Decision Red on buttons and the stripe, no imagery, with all 42 feature decisions built in; new pages Mandate, ThinkLatent Trust, ThinkLatent Day, Glossary, ThinkLatent at a glance; eleven templates incl. Model card, Win story, Conference roundup, New partner; canvas v38) and marks each board keep, change or cut; fills the [BRACKETS] only the team holds (the two other heads' names, principle one-liners, the Jira numbers, dates, wins, the mandate page's four measured targets). The team designs the image set for the slots the notes name (hero sections, card thumbs, the teal sections, the green call-to-action band). Then: the SharePoint build guide (stream 4) from the per-page web-part map in the canvas notes: site setup, the ThinkLatent theme (green primary, full-slot palette with forest and sage via Brand Center or Add-SPOTheme), Brand Center fonts, the two-level hub navigation, the eleven page templates with Category presets, the Lists (Publications, Wins, ThinkLatent Trust status, Glossary) and their column formatting, Forms for intake, governance questions and ThinkLatent Day sign-up, the Viva Engage community, then the custom.css request for the red buttons, stripe, pills, radii and glass (stream 3 ships custom.css and the theme pack into the kit on Jithin's go). Still open from Jithin: rundown part 3, product leads' five wins, A8 Comms contact, the named intake owner, the editorial board's three names. Stress test before the build goes past the test site"
-next_step_due: null
+next_step: "Canvas v8 applies the v7 review (D-137): Home trimmed to about seven sections (FAQ to ThinkLatent at a glance, TL;DR folded into proof, strip launches with sourced numbers only); Mandate gains four measured targets as brackets; Blog cadence set to leaders rotating, one leadership post a month inside a cap of two posts a month; Use case template sharpened against Win story (ongoing per use case vs one moment, one number); ThinkLatent Trust goes live only after Risk signs off the wording; ThinkLatent Day built on the test site but published once the Summit date is set; AI Perspectives keeps the demo and podcast panels marked 'coming'. Everything else kept, all eleven templates included. In parallel the team fills the launch brackets (list in the idea doc Notes, 2026-11-07), including sources for Team's three how-we-work numbers, which stay at launch. Then the SharePoint build guide (stream 4) and the custom.css request; Stress test before the build goes past the test site. Still open from Jithin: rundown part 3, product leads' five wins, A8 Comms contact, intake owner, editorial board's three names"
+next_step_due: "2026-11-14"
 ---
 
 # ThinkLatent site and communications — the team's SharePoint home (vision, products, wins, publications, press, team blogs) built on the ThinkLatent design kit's theme, and the communication and marketing strategy it serves
@@ -33,7 +33,7 @@ next_step_due: null
 
 Owner: Head of ThinkLatent (sponsor); site editor to be named. Appetite: not set. Score: not scored .
 
-Next step: Jithin reviews design canvas v7 (25 boards: the v3 site in the kit's colour system v1.1, Decision Red on buttons and the stripe, no imagery, with all 42 feature decisions built in; new pages Mandate, ThinkLatent Trust, ThinkLatent Day, Glossary, ThinkLatent at a glance; eleven templates incl. Model card, Win story, Conference roundup, New partner; canvas v38) and marks each board keep, change or cut; fills the [BRACKETS] only the team holds (the two other heads' names, principle one-liners, the Jira numbers, dates, wins, the mandate page's four measured targets). The team designs the image set for the slots the notes name (hero sections, card thumbs, the teal sections, the green call-to-action band). Then: the SharePoint build guide (stream 4) from the per-page web-part map in the canvas notes: site setup, the ThinkLatent theme (green primary, full-slot palette with forest and sage via Brand Center or Add-SPOTheme), Brand Center fonts, the two-level hub navigation, the eleven page templates with Category presets, the Lists (Publications, Wins, ThinkLatent Trust status, Glossary) and their column formatting, Forms for intake, governance questions and ThinkLatent Day sign-up, the Viva Engage community, then the custom.css request for the red buttons, stripe, pills, radii and glass (stream 3 ships custom.css and the theme pack into the kit on Jithin's go). Still open from Jithin: rundown part 3, product leads' five wins, A8 Comms contact, the named intake owner, the editorial board's three names. Stress test before the build goes past the test site
+Next step: Canvas v8 applies the v7 review (D-137): Home trimmed to about seven sections (FAQ to ThinkLatent at a glance, TL;DR folded into proof, strip launches with sourced numbers only); Mandate gains four measured targets as brackets; Blog cadence set to leaders rotating, one leadership post a month inside a cap of two posts a month; Use case template sharpened against Win story (ongoing per use case vs one moment, one number); ThinkLatent Trust goes live only after Risk signs off the wording; ThinkLatent Day built on the test site but published once the Summit date is set; AI Perspectives keeps the demo and podcast panels marked 'coming'. Everything else kept, all eleven templates included. In parallel the team fills the launch brackets (list in the idea doc Notes, 2026-11-07), including sources for Team's three how-we-work numbers, which stay at launch. Then the SharePoint build guide (stream 4) and the custom.css request; Stress test before the build goes past the test site. Still open from Jithin: rundown part 3, product leads' five wins, A8 Comms contact, intake owner, editorial board's three names (due 2026-11-14)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -92,8 +92,67 @@ _None recorded._
 | D-097 | 2026-11-05 | Decision 10: the site's identity runs mandate first (the Enterprise's own intelligence must compound; proprietary-data models carry the customer feedback loop vendors cannot), then named products (how), then proof of outcomes shown as compounding KPIs. Feature-by-feature review of the 84-item scout inventory started | Jithin | accepted |
 | D-098 | 2026-11-05 | Scout inventory reviewed feature by feature (42 questions, each with a recommendation): mandate-led identity; nav Mandate · Products (TLM, ThinkLatent Portal, the TL Index, ThinkLatent Trust) · Our work · Stories · Team; sourced trend strip; four audience doors and a Work with ThinkLatent ladder; Forms intake handing off to the portal; Wins as story + number + partner quote; named trust program 'ThinkLatent Trust'; ThinkLatent Day with a business+ThinkLatent hackathon; newsletter stays email-only; comments on everywhere. Recommendations taken except features 17, 27, 33 and 36 | Jithin | accepted |
 | D-100 | 2026-11-05 | The 42 feature decisions implemented on the canvas (v38): 25 boards regenerated from one source in the v6 language; navigation regrouped; Home rebuilt around the mandate, the compounding strip, four doors and the ladder; new pages Mandate, ThinkLatent Trust, ThinkLatent Day, Glossary and ThinkLatent at a glance; Products with the static lineage, outcome cards and the TL Index tile; Blog, AI Perspectives, Wins, Research, Publications, Team and Write for ThinkLatent reworked to their decisions; eleven templates, four of them new. Imagery still deferred; later items (champions network, demo edition, podcast, Work in ThinkLatent) marked on the boards as after launch | Jithin (go); thinking partner (build) | accepted |
+| D-137 | 2026-11-07 | Design canvas v7 reviewed board by board (25 boards): keep 18, change 5 (Home trimmed to ~7 sections; Mandate gets four measured targets; Blog cadence = leaders rotate, one leadership post a month, cap two posts a month; Use case sharpened against Win story; ThinkLatent Trust kept but live only after Risk sign-off), defer 1 (ThinkLatent Day until the Summit date is set), AI Perspectives kept with demo edition and podcast marked 'coming'. All eleven templates kept, Model card included, against the recommendation to cut it; Team keeps its three how-we-work numbers, so they need sources before launch. No cuts | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
 
 _Session notes and the idea card's prose live here; the register row and the generated block above are rewritten by `scripts/render-ideas.mjs`, this section is kept._
+
+### 2026-11-07 · Spec · canvas v7 review (D-137)
+
+| # | Board | Mark | Note |
+|---|---|---|---|
+| 1 | Home | Change | Cut to about 7 sections: FAQ moves to At a glance, TL;DR folds into proof, strip launches with sourced numbers only |
+| 2 | Mandate | Change | Add one measured target to each of latency, cost, scale and competitive advantage |
+| 3 | Products | Keep | |
+| 4 | ThinkLatent Trust | Keep | Live only after Risk signs off the wording |
+| 5 | Team | Keep | The three how-we-work numbers stay, so they need sources before launch |
+| 6 | Wins | Keep | Launch needs one win with a partner quote approved in writing |
+| 7 | Research | Keep | |
+| 8 | Publications | Keep | |
+| 9 | Blog | Change | Leaders rotate: one leadership post a month, cap of two posts a month |
+| 10 | AI Perspectives | Keep | Demo edition and podcast panels stay, marked 'coming' |
+| 11 | ThinkLatent Day | Defer | Built on the test site, published once the Summit date is set |
+| 12 | Glossary | Keep | |
+| 13 | ThinkLatent at a glance | Keep | Takes Home's FAQ |
+| 14 | Write for ThinkLatent | Keep | All eleven templates |
+| 15–18 | Blog post, Win story, Paper explained, Release notes | Keep | |
+| 19 | Model card | Keep | Against the recommendation to cut; watch for drift from the portal card |
+| 20 | Leadership series | Keep | |
+| 21 | Use case | Change | Sharpen against Win story: Use case is per use case and ongoing, for business readers; Win story is one moment with one number |
+| 22–25 | AI Perspectives session, Conference roundup, New partner, Quarterly awards | Keep | |
+
+#### Launch brackets only the team can fill
+
+Template slots (filled by each author when writing) and ThinkLatent Day (deferred) are excluded.
+
+**People and owners**
+- Names of the Head of Research, Head of Applied Research and Head of AI Products (Team, Home profiles); the principal scientists for launch profiles
+- Head of ThinkLatent "since [YEAR]" and each head's start year
+- Site editor / TPM, named on the owner lines of Mandate, Products, ThinkLatent Trust, Glossary, At a glance and Write
+- Editorial board: three editors and the function-head advisor
+- Risk and Compliance liaison (ThinkLatent Trust)
+- Named intake owner for Bring us a problem (Wins)
+- Headcount and city for each of the three locations
+
+**Numbers, each with a source and date**
+- Compounding strip: use cases in production, business units served, papers/talks/patents count; confirm the sources behind "35M+ interactions a year" and "~200 live per session"
+- Mandate: the four measured targets (latency, cost, scale, competitive advantage), new from D-137
+- Function output counts this quarter (Research, Applied Research, AI Products)
+- Team's three how-we-work numbers: hours saved per person per week, days from draft to published page, % of pages drafted with AI (Jira or survey as source)
+- TL Index tile: scores and as-of date (from the TL Index only)
+- ThinkLatent Trust: status for each product
+
+**Content**
+- Five principle one-liners (Team: Draft with AI, Show the gain, Ship small, Write it down once, Measure how we work)
+- First featured win: partner team, what they do now, time before and after, number, unit, source, date, partner quote approved in writing, what compounded
+- Three "what they can do now" lines and three new-partner posts (business unit or IT engagement plus problem)
+- TLM4 Core 7B FP8 release: what is new, in outcomes; what changed against TLM3; version; business units for each tier
+- Home: this month's reflection title, the five TL;DR lines, who is recognised this month
+- AI Perspectives: next session topic, date and time, host and bio, guest, the next three sessions
+- Leadership series names (four leaders, rotating monthly)
+- Research: faculty lead, an intern's project in outcomes, venue and year of the featured paper
+- Publications: further conference roundups beyond Ai4 2026 and ARIA 2025; the first ThinkLatent success story on the intranet
+- Review dates (DATE + 1 quarter) on the six owned pages
+- Link to the Enterprise recognition portal (in every footer)
