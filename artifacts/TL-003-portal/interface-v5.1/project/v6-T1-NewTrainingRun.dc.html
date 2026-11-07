@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T1 · New training run (v6)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 5400px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="v6-T2-RunsInFlight.dc.html" aria-current="page" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+
+    <!-- Orient -->
+    <div class="kit-page-head">
+      <div>
+        <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="v6-T2-RunsInFlight.dc.html">Training</a><span class="sep" aria-hidden="true">›</span><a href="v6-J2-ProjectHome.dc.html">UC-0142 Claims triage</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">New training run</span></nav>
+        <h1 style="margin-top: 8px">New training run</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px">
+          <span class="kit-chip brand">Step 5 of 5</span>
+          <span class="kit-chip">Draft saved · 11:58 ET</span>
+          <span class="kit-chip outline">Institutional Ops</span>
+          <span class="kit-chip env">Build · Non-production</span>
+        </div>
+        <div class="kit-muted" style="margin-top: 10px">Train an adapter on the portal with the Recommended recipe; nothing is charged until Start.</div>
+        <div class="kit-asof" style="margin-top: 6px">As of Thu 5 Nov 2026, 11:58 ET · Marcus L. · owner of UC-0142</div>
+      </div>
+      <div class="kit-actions"><button class="kit-btn outline" type="button">Save draft</button><a class="kit-btn ghost" href="T3-RunHistory.dc.html">Run history</a></div>
+    </div>
+
+    <!-- Section bar -->
+    <nav class="kit-sectionbar" aria-label="On this page" style="align-self: flex-start"><a href="#sec-decide" aria-current="true">Decide <span class="n">3</span></a><a href="#sec-dryrun">Dry run</a><a href="#sec-base">Base model</a><a href="#sec-recipe">Recipe <span class="n">eng</span></a><a href="#sec-preflight">Pre-flight checks</a><a href="#sec-throughput">Throughput and memory <span class="n">eng</span></a></nav>
+
+    <!-- Decide -->
+    <section class="kit-surface kit-decide" id="sec-decide" aria-labelledby="h-decide">
+      <div class="kit-surface-head">
+        <div>
+          <h2 id="h-decide" style="display: flex; align-items: center; gap: 10px">Needs a decision <span class="kit-chip decision">3</span></h2>
+          <div class="sub">One blocks Start; two keep the run as the dry run proved it.</div>
+        </div>
+        <span class="kit-small kit-muted">Agents propose, you decide</span>
+      </div>
+      <div class="kit-rows" style="margin-top: 14px">
+        <article class="kit-row" aria-labelledby="d1-t" style="grid-template-columns: minmax(0, 1fr) auto">
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Blocks Start</span></span><span class="t" id="d1-t">No project is set for this run</span></div>
+            <div class="s">Start stays off until it is set · budget and estimate come from the UC-0142 record</div>
+          </div>
+          <div class="end"><button class="kit-btn sm" type="button">Charge to UC-0142 Claims triage</button><a class="kit-btn sm outline" href="#f-proj">Choose another</a></div>
+        </article>
+        <article class="kit-row" aria-labelledby="d2-t" style="grid-template-columns: minmax(0, 1fr) auto">
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Not dry-run</span></span><span class="t" id="d2-t">A custom recipe draft changes 3 fields</span></div>
+            <div class="s">The dry run tested Recommended · the draft would cost 40 GPU h, about $430</div>
+          </div>
+          <div class="end"><button class="kit-btn sm" type="button">Keep Recommended</button><button class="kit-btn sm outline" type="button">Dry run the draft</button><a class="kit-btn sm ghost" href="#sec-recipe">See the draft</a></div>
+        </article>
+        <article class="kit-row" aria-labelledby="d3-t" style="grid-template-columns: minmax(0, 1fr) auto">
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Memory fits, tight</span></span><span class="t" id="d3-t">Batch 4 per GPU fits; 5 would not</span><span class="kit-eng-label">From the Engineering view</span></div>
+            <div class="s">Not a blocker · do not raise the batch in a custom recipe</div>
+          </div>
+          <div class="end"><button class="kit-btn sm" type="button">Keep batch 4</button><a class="kit-btn sm ghost" href="#sec-throughput">See memory</a></div>
+        </article>
+      </div>
+      <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: run form draft of 11:58 ET; dry run DR-0418, 11:03 to 11:41 ET; recipe estimate re-priced from the Build price list on every change.</span></button></div>
+    </section>
+
+    <!-- Flow: stepper on the left, live summary on the right -->
+    <div class="kit-flow">
+      <ol class="kit-stepper" aria-label="Steps to start a training run">
+
+        <!-- Step 1 · done -->
+        <li class="done">
+          <span class="mk"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg></span>
+          <div>
+            <div class="st">
+              <div style="min-width: 0">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><h3>Start from and train as</h3><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></div>
+                <div class="sum" style="margin-top: 2px"><a href="v6-M2-ModelPage.dc.html">TLM4 Distil 4.2</a> · new adapter<button class="kit-tip" type="button" aria-label="About the recommended base">i<span class="kit-tip-bubble" role="tooltip"><b>Why Distil 4.2.</b> The Evaluation agent recommends it at 84% confidence: the smallest base projected to clear the record's 78% bar after adapter training, at 46% of Core 4.2's serving cost. Core 4.2, Gemma 3 27B and two kept checkpoints are compared under Base model.<span class="src">Source: Official TL Index run 1176 and the last three adapter runs on UC-0142</span></span></button> · trained as Decide, a route with a reason · <a href="#sec-base">Compare</a></div>
+              </div>
+              <button class="kit-btn sm outline" type="button" aria-label="Edit step 1: start from and train as">Edit</button>
+            </div>
+          </div>
+        </li>
+
+        <!-- Step 2 · done -->
+        <li class="done">
+          <span class="mk"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg></span>
+          <div>
+            <div class="st">
+              <div style="min-width: 0">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><h3>Data set</h3><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></div>
+                <div class="sum" style="margin-top: 2px"><a href="D5-DatasetVersions.dc.html">claims-triage-v6</a>, versioned 2 Nov · 24,118 of 25,002 items eligible<button class="kit-tip" type="button" aria-label="About eligible items">i<span class="kit-tip-bubble" role="tooltip"><b>Eligible items.</b> Self-healing marks set 884 aside: 612 low quality, 212 awaiting PII review and 60 near-duplicates of the eval set. The split is 80 / 10 / 10 and 6 of 6 data-set checks passed.<span class="src">Source: self-healing pipeline on claims-triage-v6</span></span></button> · <a href="D4-SelfHealingMarks.dc.html">See marks</a></div>
+              </div>
+              <button class="kit-btn sm outline" type="button" aria-label="Edit step 2: data set">Edit</button>
+            </div>
+          </div>
+        </li>
+
+        <!-- Step 3 · done -->
+        <li class="done">
+          <span class="mk"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg></span>
+          <div>
+            <div class="st">
+              <div style="min-width: 0">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><h3>Recipe</h3><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></div>
+                <div class="sum" style="margin-top: 2px">Recommended, chosen from run R-2214's outcome<button class="kit-tip" type="button" aria-label="About the Recommended recipe">i<span class="kit-tip-bubble" role="tooltip"><b>Recommended recipe.</b> Adapter, rank 16, 3 epochs, learning rate 2e-4 with cosine decay, early stop on validation. It freezes with the run at Start; a later change is a new run, never an edit.</span></button> · metrics to the portal, TensorBoard and W&amp;B · <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Custom draft saved, not dry-run</span></span></div>
+                <div class="kit-small kit-muted" style="margin-top: 2px">Business users train on Recommended or a saved recipe; the dials are in the <a href="#sec-recipe">Engineering view</a></div>
+              </div>
+              <button class="kit-btn sm outline" type="button" aria-label="Edit step 3: recipe">Edit</button>
+            </div>
+          </div>
+        </li>
+
+        <!-- Step 4 · done -->
+        <li class="done">
+          <span class="mk"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg></span>
+          <div>
+            <div class="st">
+              <div style="min-width: 0">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><h3>Pre-flight checks</h3><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed · 11:57 ET</span></span></div>
+                <div class="sum" style="margin-top: 2px">4 checks passed, 2 set items aside · 38 GPU h, about $410 · cost cap $4.96k<button class="kit-tip" type="button" aria-label="About the cost cap">i<span class="kit-tip-bubble" role="tooltip"><b>Cost cap.</b> 80% of the remaining project budget; reaching it pauses the run and keeps a deployable checkpoint, never a kill. Lowering it is yours; raising it asks the owner, Marcus L.<span class="src">Source: Operating Model for training; owner from the UC-0142 record</span></span></button> · <a href="#sec-preflight">See checks</a></div>
+              </div>
+              <button class="kit-btn sm outline" type="button" aria-label="Edit step 4: pre-flight checks">Edit</button>
+            </div>
+          </div>
+        </li>
+
+        <!-- Step 5 · current, open -->
+        <li class="current" aria-current="step">
+          <span class="mk">5</span>
+          <div>
+            <div class="st">
+              <div style="min-width: 0">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><h3>Dry run and start</h3><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>In progress</span></span></div>
+                <div class="sum" style="margin-top: 2px">The dry run passed; set the project, then Start.</div>
+              </div>
+            </div>
+            <div class="body" style="display: flex; flex-direction: column; gap: 16px">
+
+              <!-- 5a · Dry run -->
+              <section class="kit-surface" id="sec-dryrun" aria-labelledby="h-dryrun">
+                <div class="kit-surface-head">
+                  <div><h4 id="h-dryrun" style="margin: 0; font-size: 15px; font-weight: 500">What the 60 steps proved</h4><div class="sub">Same GPUs, batch and context as the full run; tested Recommended.<button class="kit-tip" type="button" aria-label="About the dry run">i<span class="kit-tip-bubble" role="tooltip"><b>Dry run.</b> 60 real training steps, so a broken recipe, a memory overflow or a dead logging sink shows in minutes, not hours into a paid run. It keeps no checkpoint and reports no score.</span></button></div></div>
+                  <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed · 7 of 8 clean</span></span><button class="kit-btn sm outline" type="button">Dry run again</button></div>
+                </div>
+                <div class="kit-rows" style="margin-top: 12px">
+                  <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr)"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Recipe frozen</span></span><div><div class="t">Every field in range, frozen as the full run would be</div></div></div>
+                  <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr)"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Data loads</span></span><div><div class="t">60 batches, 3,840 items · schema matches Decide</div><div class="s">No loader errors; items set aside stayed out</div></div></div>
+                  <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr)"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Memory fits, tight</span></span><div><div class="t">Batch 4 per GPU fits; 5 would not</div><div class="s">The full run keeps 4 · <a href="#sec-decide">In Decide</a></div></div></div>
+                  <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr)"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Loss falls · good</span></span><div><div class="t">Falling over 60 steps · gradients finite, no overflow</div></div></div>
+                  <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr)"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Checkpoint round trip</span></span><div><div class="t">Adapter written (0.3 GB) and read back identical in 9 s</div><div class="s">Deleted after the check; nothing kept in the registry</div></div></div>
+                  <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr)"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Logging reaches 3 sinks</span></span><div><div class="t">Portal, TensorBoard and W&amp;B got step-1 scalars within 2 s</div></div></div>
+                  <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr)"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Evaluation hook runs</span></span><div><div class="t">Quick evaluation on 32 held-out items ran in 70 s</div><div class="s">No score: 60 steps say nothing about quality</div></div></div>
+                  <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr)"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Cost</span></span><div><div class="t">2.5 GPU h, about $27 · charged to the ThinkLatent training sandbox</div><div class="s">Not to UC-0142's budget, so nobody skips one</div></div></div>
+                </div>
+                <div class="kit-asof" style="margin-top: 10px">Dry run DR-0418 · 11:03 to 11:41 ET · as of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for the dry run">i<span class="kit-tip-bubble" role="tooltip">Source: dry run DR-0418 on the shared training pool; checks from the training API; sink receipts from the portal, TensorBoard and W&amp;B; cost from the Build price list.</span></button></div>
+              </section>
+
+              <!-- 5b · Name and project -->
+              <section class="kit-surface" id="sec-start" aria-labelledby="h-start">
+                <div class="kit-surface-head">
+                  <div><h4 id="h-start" style="margin: 0; font-size: 15px; font-weight: 500">Name and project</h4><div class="sub">Run id R-2296 is given on Start and never changes.</div></div>
+                </div>
+                <div class="kit-grid2" style="margin-top: 12px">
+                  <div class="kit-field"><label for="f-name">Run name · auto-named</label><input class="kit-input" id="f-name" type="text" value="claims-triage · distil-4.2 · v6 · 5 Nov"></div>
+                  <div class="kit-field"><label for="f-proj">Project</label><select class="kit-input" id="f-proj" aria-describedby="proj-why"><option selected value="">Choose a project</option><option>UC-0142 Claims triage · Institutional Ops</option></select></div>
+                </div>
+                <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 12px">
+                  <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Base model set</span></span>
+                  <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Data set set</span></span>
+                  <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Pre-flight passed</span></span>
+                  <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Dry run passed · 11:41 ET</span></span>
+                  <span class="kit-status warning" id="proj-why"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Project missing · Start stays off until it is set</span></span>
+                </div>
+              </section>
+
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <!-- Live summary -->
+      <aside class="kit-summary" aria-labelledby="sum-title">
+        <div class="kit-surface" style="padding: 20px; display: flex; flex-direction: column; gap: 16px">
+          <div>
+            <div class="kit-label">What the run will produce</div>
+            <h2 id="sum-title" style="margin-top: 6px">Claims triage adapter on Distil 4.2</h2>
+            <div class="kit-small kit-muted" style="margin-top: 2px">claims-triage · distil-4.2 · v6 · 5 Nov</div>
+          </div>
+          <dl class="kit-kv" style="grid-template-columns: minmax(0, 1fr); gap: 14px; margin: 0">
+            <div>
+              <dt>Adapter<button class="kit-tip" type="button" aria-label="About the projected score">i<span class="kit-tip-bubble" role="tooltip"><b>Projected score.</b> From Practice run R-2214, so not citable; the margin over the bar is inside the interval. The record's gate decides after the run's own evaluation.<span class="src">Source: Evaluation agent, 84% confidence</span></span></button></dt>
+              <dd style="margin-top: 4px"><div style="display: flex; align-items: baseline; gap: 6px"><span class="kit-display" style="font-size: 32px"><span class="kit-interval">80%<span class="unit pm"> ± 4</span></span></span><span class="kit-small kit-muted">projected</span></div><div class="kit-threshold">Record bar 78% · Practice, not citable</div><div class="kit-small kit-muted">Checkpoint every 150 steps and the best kept</div></dd>
+            </div>
+            <div>
+              <dt>Cost<button class="kit-tip" type="button" aria-label="About the cost">i<span class="kit-tip-bubble" role="tooltip"><b>Refined estimate.</b> The dry run's measured step time replaced the price-list guess of 38 GPU h and $410. Nothing is charged until Start.<span class="src">Source: dry run DR-0418 and the Build price list, 5 Nov</span></span></button></dt>
+              <dd style="margin-top: 4px">
+                <div style="display: flex; align-items: baseline; gap: 6px"><span class="kit-display" style="font-size: 32px">$390</span><span class="kit-small kit-muted">about · 36 GPU h</span></div>
+                <div class="kit-small kit-muted">A10G × 4 · 9 h 00 m wall clock</div>
+                <div class="kit-track" style="margin-top: 8px" role="img" aria-label="This run against the $6.2k remaining budget"><i style="width: 7%"></i></div>
+                <div class="kit-small kit-muted" style="margin-top: 4px">$6.2k of $12k left this quarter · cap $4.96k</div>
+              </dd>
+            </div>
+            <div>
+              <dt>Data</dt>
+              <dd style="margin-top: 4px"><div style="font-weight: 500">claims-triage-v6</div><div class="kit-small kit-muted">24,118 items train · 272 set aside at pre-flight</div></dd>
+            </div>
+            <div>
+              <dt>Queue</dt>
+              <dd style="margin-top: 4px"><div style="display: flex; align-items: baseline; gap: 6px"><span class="kit-display" style="font-size: 32px">3rd</span><span class="kit-small kit-muted">in line · 2 runs ahead</span></div><div class="kit-small kit-muted">Shared training pool · start about 12:40 ET</div></dd>
+            </div>
+            <div>
+              <dt>Metrics go to</dt>
+              <dd style="margin-top: 4px"><div>Portal, TensorBoard and W&amp;B</div><div class="kit-small kit-muted">Scalars only; never items, prompts or weights</div></dd>
+            </div>
+            <div>
+              <dt>Approval needed</dt>
+              <dd style="margin-top: 4px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>None under the cap</span></span><div class="kit-small kit-muted" style="margin-top: 2px">Raising the cap asks Marcus L.</div></dd>
+            </div>
+          </dl>
+          <div class="kit-divider" style="margin: 0"></div>
+          <div>
+            <a class="kit-btn" href="v6-T2-RunsInFlight.dc.html" aria-disabled="true" aria-describedby="start-why" style="width: 100%; justify-content: center">Start run</a>
+            <div class="kit-small" id="start-why" style="margin-top: 8px; text-align: center">Off until the project is set</div>
+            <div class="kit-small kit-muted" style="margin-top: 2px; text-align: center">Then queued in <a href="v6-T2-RunsInFlight.dc.html">Runs in flight</a></div>
+          </div>
+          <div style="display: flex; justify-content: flex-end"><div class="kit-asof">As of 11:58 ET <button class="kit-tip end" type="button" aria-label="Source for this summary">i<span class="kit-tip-bubble" role="tooltip">Source: training API estimate refined by dry run DR-0418; budget from the UC-0142 record; queue from the training scheduler. Non-production.</span></button></div></div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Trace · Base model -->
+    <section id="sec-base" aria-labelledby="h-base" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><h2 id="h-base">Base model</h2><span class="sub">Distil 4.2 is the smallest base projected to clear 78%</span></div>
+      <div class="kit-surface">
+        <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">EV</span><span>Evaluation agent</span></span><span>recommends · 84% confidence</span><span>· Basis: Official TL Index run 1176 and the last three adapter runs on UC-0142</span><a href="v6-E1-EvaluationResults.dc.html">Evidence</a></div>
+        <table style="margin-top: 12px" aria-label="Base models for this run">
+          <thead><tr><th>Base</th><th>Size · licence</th><th class="num">Financial data processing<button class="kit-tip" type="button" aria-label="About the pillar scores">i<span class="kit-tip-bubble" role="tooltip"><b>Pillar scores.</b> The two live TL Index pillars the UC-0142 record names, before any adapter training, with 95% intervals.<span class="src">Source: Official TL Index runs 1176 (Distil 4.2), 1180 (Core 4.2) and 1172 (Gemma 3 27B)</span></span></button></th><th class="num">Compliance and regulatory</th><th class="num">After adapter<button class="kit-tip" type="button" aria-label="About after adapter">i<span class="kit-tip-bubble" role="tooltip"><b>After adapter.</b> Projected on the use-case set against the record's 78% bar. From Practice run R-2214, so never citable.</span></button></th><th>Cost</th><th></th></tr></thead>
+          <tbody>
+            <tr class="selected"><td><a href="v6-M2-ModelPage.dc.html"><strong>TLM4 Distil 4.2</strong></a></td><td class="kit-small">7B · Apache-2.0</td><td class="num"><span class="kit-interval">75% <span class="pm">± 3</span></span></td><td class="num"><span class="kit-interval">73% <span class="pm">± 3</span></span></td><td class="num"><span class="kit-interval">80% <span class="pm">± 4</span></span></td><td class="kit-small">Serving 46% of Core 4.2</td><td><span class="kit-chip brand">Chosen</span></td></tr>
+            <tr><td><strong>TLM4 Core 4.2</strong></td><td class="kit-small">32B · finalised</td><td class="num"><span class="kit-interval">83% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">80% <span class="pm">± 2</span></span></td><td class="kit-small">Clears with more margin</td><td class="kit-small">About 2.1× the GPU hours</td><td><button class="kit-btn sm outline" type="button">Use Core 4.2</button></td></tr>
+            <tr><td><strong>Gemma 3 27B</strong></td><td class="kit-small">27B · Gemma licence</td><td class="num"><span class="kit-interval">77% <span class="pm">± 3</span></span></td><td class="num"><span class="kit-interval">74% <span class="pm">± 3</span></span></td><td class="kit-small">Clears the bar</td><td class="kit-small">Record's licence line needs an update</td><td><button class="kit-btn sm outline" type="button">Use Gemma 3 27B</button></td></tr>
+          </tbody>
+        </table>
+        <h3 style="margin-top: 18px">Or continue a kept checkpoint</h3>
+        <div class="kit-rows" style="margin-top: 10px">
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 120px 220px auto">
+            <div><div class="t">R-2241 · step 5,100 (best) · Claims adapter v2 <span class="kit-chip brand">Official</span></div><div class="s">In production by exception · on claims-triage-v5</div></div>
+            <span class="kit-interval">76% <span class="pm">± 4</span></span>
+            <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below the 78% bar</span></span>
+            <div class="end"><button class="kit-btn sm outline" type="button">Continue from this</button></div>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 120px 220px auto">
+            <div><div class="t">R-2214 · step 4,800 (best) · Claims on Distil <span class="kit-chip outline">Practice</span></div><div class="s">Quick evaluation only · on claims-triage-v5</div></div>
+            <span class="kit-interval">80% <span class="pm">± 4</span></span>
+            <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Never citable</span></span>
+            <div class="end"><button class="kit-btn sm outline" type="button">Continue from this</button></div>
+          </div>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 8px">A continued run is new, with lineage to its parent · TLM3 checkpoints cannot be continued · <a href="v6-T6-Checkpoints.dc.html">All checkpoints</a> · <a href="T4-BaseModels.dc.html">Base models</a></div>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Official TL Index runs 1176, 1180 and 1172; projection from Practice run R-2214; checkpoints from the training API run log; serving cost from the capacity service's per-model price for Institutional Ops.</span></button></div>
+      </div>
+    </section>
+
+    <!-- Trace · Recipe (engineering) -->
+    <section id="sec-recipe" aria-labelledby="h-recipe" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><h2 id="h-recipe">Recipe <span class="kit-eng-label">Engineering view</span></h2><span class="sub">Custom draft: 3 fields changed from Recommended, not dry-run</span></div>
+      <div class="kit-surface raised" style="display: flex; flex-direction: column; gap: 16px">
+        <div class="kit-surface-head">
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="kit-chip outline">Custom draft</span><span class="kit-small kit-muted">40 GPU h, about $430 · was 38 GPU h and $410</span></div>
+          <div class="kit-actions"><button class="kit-btn" type="button">Save as recipe</button><button class="kit-btn outline" type="button">Reset to defaults</button></div>
+        </div>
+        <div class="kit-note"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span><b style="font-weight: 500">A recipe change is a new run, never an edit.</b> A run's recipe freezes at Start and stays with it.</span></div>
+        <div class="kit-grid3">
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <div class="kit-label">Optimisation</div>
+            <div class="kit-field"><label for="r-method">Method</label><input class="kit-input" id="r-method" type="text" value="Adapter (LoRA) · base weights frozen"></div>
+            <div class="kit-field"><label for="r-rank">Adapter rank and alpha</label><input class="kit-input" id="r-rank" type="text" value="16 and 32"></div>
+            <div class="kit-field"><label for="r-lr">Learning rate <span class="kit-chip outline">changed · was 2e-4</span></label><input class="kit-input" id="r-lr" type="text" value="1e-4"></div>
+            <div class="kit-field"><label for="r-opt">Optimiser</label><input class="kit-input" id="r-opt" type="text" value="AdamW · betas 0.9 and 0.999"></div>
+            <div class="kit-field"><label for="r-wd">Weight decay</label><input class="kit-input" id="r-wd" type="text" value="0.01"></div>
+            <div class="kit-field"><label for="r-clip">Gradient clip</label><input class="kit-input" id="r-clip" type="text" value="1.0"></div>
+            <div class="kit-field"><label for="r-batch">Batch size</label><input class="kit-input" id="r-batch" type="text" value="64 · 4 per GPU × 4 GPUs × 4 accumulation steps"></div>
+            <div class="kit-field"><label for="r-prec">Precision</label><input class="kit-input" id="r-prec" type="text" value="bf16"></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <div class="kit-label">Schedule</div>
+            <div class="kit-field"><label for="r-epochs">Epochs</label><input class="kit-input" id="r-epochs" type="text" value="3 · 904 steps"></div>
+            <div class="kit-field"><label for="r-warm">Warm-up</label><input class="kit-input" id="r-warm" type="text" value="5% of steps · 45 steps"></div>
+            <div class="kit-field"><label for="r-decay">Decay</label><input class="kit-input" id="r-decay" type="text" value="Cosine to 10% of the peak"></div>
+            <div class="kit-field"><label for="r-evalevery">Evaluate every <span class="kit-chip outline">changed · was 150</span></label><input class="kit-input" id="r-evalevery" type="text" value="100 steps"></div>
+            <div class="kit-field"><label for="r-ckpt">Keep a checkpoint</label><input class="kit-input" id="r-ckpt" type="text" value="Every 150 steps and the best by validation"></div>
+            <div class="kit-field"><label for="r-stop">Early stop <span class="kit-chip outline">changed · was 200</span></label><input class="kit-input" id="r-stop" type="text" value="On validation loss · patience 300 steps"></div>
+            <div class="kit-field"><label for="r-ctx">Context length</label><input class="kit-input" id="r-ctx" type="text" value="8,192 tokens"></div>
+            <div class="kit-field"><label for="r-seed">Seed</label><input class="kit-input" id="r-seed" type="text" value="2214 · fixed, so a re-run repeats"></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <div class="kit-label">Logging</div>
+            <div class="kit-field"><label for="r-logevery">Log every</label><input class="kit-input" id="r-logevery" type="text" value="20 steps"></div>
+            <label class="kit-switch on"><input type="checkbox" checked disabled style="position: absolute; opacity: 0; width: 1px; height: 1px"><i aria-hidden="true"></i>Portal · always on, the record of the run</label>
+            <label class="kit-switch on"><input type="checkbox" checked style="position: absolute; opacity: 0; width: 1px; height: 1px"><i aria-hidden="true"></i>Stream to the team's TensorBoard</label>
+            <div class="kit-field"><label for="r-tbdir">TensorBoard log directory</label><input class="kit-input" id="r-tbdir" type="text" value="tensorboard / uc-0142 / run id"></div>
+            <label class="kit-switch on"><input type="checkbox" checked style="position: absolute; opacity: 0; width: 1px; height: 1px"><i aria-hidden="true"></i>Stream to W&amp;B</label>
+            <div class="kit-field"><label for="r-wbproj">Project on the Enterprise's W&amp;B server</label><input class="kit-input" id="r-wbproj" type="text" value="kit-claims-triage"></div>
+            <div class="kit-surface raised" style="padding: 12px 14px">
+              <div class="kit-small" style="font-weight: 500">What leaves the run</div>
+              <div class="kit-small kit-muted" style="margin-top: 4px">Scalars only, inside the Enterprise boundary</div>
+            </div>
+            <div class="kit-field"><label for="r-yaml">Or upload a Relay recipe file (YAML)</label><input class="kit-input" id="r-yaml" type="file"></div>
+          </div>
+        </div>
+
+        <div class="kit-divider" style="margin: 0"></div>
+        <div class="kit-surface-head">
+          <h3 id="h-library">Recipe library</h3>
+          <div class="kit-seg" role="group" aria-label="Recipe scope"><button type="button" aria-pressed="false">This project</button><button type="button" aria-pressed="true">My projects</button><button type="button" aria-pressed="false">ThinkLatent defaults</button></div>
+        </div>
+        <table aria-labelledby="h-library">
+          <thead><tr><th>Recipe</th><th>Train as</th><th>Started from</th><th>Saved by</th><th>Version</th><th>Used by</th><th>Last gate<button class="kit-tip end" type="button" aria-label="About the last gate">i<span class="kit-tip-bubble" role="tooltip"><b>Last gate.</b> The record's gate on the latest run that used this version. A save makes a new version, so a library change never rewrites a past run.<span class="src">Source: recipe registry and each record's Official TL Index runs</span></span></button></th><th></th></tr></thead>
+          <tbody>
+            <tr><td><b style="font-weight: 500">claims-decide-r16</b><div class="kit-small kit-muted">UC-0142 · this project</div></td><td>Decide</td><td class="kit-small">Recommended on Distil 4.2</td><td class="kit-small">Marcus L. · 12 Oct</td><td>v2</td><td class="kit-small">R-2241, R-2214</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar 78%</span></span><div class="kit-small" style="margin-top: 4px"><span class="kit-interval">76% <span class="pm">± 4</span></span></div></td><td class="num"><button class="kit-btn sm outline" type="button">Use</button></td></tr>
+            <tr><td><b style="font-weight: 500">ThinkLatent default · Decide</b><div class="kit-small kit-muted">ThinkLatent training team</div></td><td>Decide</td><td class="kit-small">Recommended</td><td class="kit-small">ThinkLatent · 1 Nov</td><td>v5</td><td class="kit-small">31 runs</td><td><span class="kit-dash" title="a default is not gated on its own">—</span></td><td class="num"><button class="kit-btn sm outline" type="button">Reset to this</button></td></tr>
+            <tr><td><b style="font-weight: 500">advice-generate-r16</b><div class="kit-small kit-muted">UC-0291 Advisor summary</div></td><td>Generate</td><td class="kit-small">Recommended on Core 4.2</td><td class="kit-small">Priya N. · 21 Oct</td><td>v3</td><td class="kit-small">R-2268, R-2291</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Clears bar 80%</span></span><div class="kit-small" style="margin-top: 4px"><span class="kit-interval">84% <span class="pm">± 3</span></span></div></td><td class="num"><button class="kit-btn sm outline" type="button">Use</button></td></tr>
+            <tr><td><b style="font-weight: 500">advice-trial-r32</b><div class="kit-small kit-muted">UC-0291 Advisor summary</div></td><td>Generate</td><td class="kit-small">Custom</td><td class="kit-small">Marcus L. · 14 Oct</td><td>v1</td><td class="kit-small">R-2254</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not gated · Practice</span></span></td><td class="num"><button class="kit-btn sm outline" type="button">Use</button></td></tr>
+            <tr><td><b style="font-weight: 500">fund-qa-full-ft</b><div class="kit-small kit-muted">UC-0307 Fund document Q&amp;A</div></td><td>Generate</td><td class="kit-small">Upload YAML</td><td class="kit-small">Elena R. · 24 Sep</td><td>v1</td><td class="kit-small">R-2202</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar 78%</span></span><div class="kit-small" style="margin-top: 4px"><span class="kit-interval">71% <span class="pm">± 5</span></span></div></td><td class="num"><button class="kit-btn sm outline" type="button">Use</button></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: fields from the training API's recipe schema v3, defaults from the ThinkLatent training Operating Model; estimate re-priced from the Build price list on every change.</span></button></div>
+      </div>
+    </section>
+
+    <!-- Trace · Pre-flight checks -->
+    <section id="sec-preflight" aria-labelledby="h-preflight" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><h2 id="h-preflight">Pre-flight checks</h2><span class="sub">Every check passed; set-aside items go to the Data review queue</span></div>
+      <div class="kit-surface">
+        <div class="kit-surface-head">
+          <h3>Validation · claims-triage-v6</h3>
+          <div class="kit-actions"><button class="kit-btn sm outline" type="button">Fix data</button><a class="kit-btn sm outline" href="D1-ReviewQueue.dc.html">Open the review queue</a></div>
+        </div>
+        <div class="kit-rows" style="margin-top: 12px">
+          <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr) 150px">
+            <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Schema OK</span></span>
+            <div><div class="t">All 24,118 eligible items match the Decide schema</div><div class="s">Label in the 6 triage routes; no empty reasons</div></div>
+            <span class="kit-dash" title="nothing to fix">—</span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr) 150px">
+            <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Token count 41.2M</span></span>
+            <div><div class="t">13.7M per epoch × 3 · within the 10M to 60M window</div><div class="s">Longest item 3,980 tokens; context 8,192</div></div>
+            <span class="kit-dash" title="nothing to fix">—</span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr) 150px">
+            <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>PII flags 212 items</span></span>
+            <div><div class="t">Sent to the review queue and left out of this run</div><div class="s">They rejoin v7 once cleared; flag content is never shown here</div></div>
+            <div class="end"><a class="kit-btn sm outline" href="D1-ReviewQueue.dc.html">Review 212</a></div>
+          </div>
+          <div class="kit-row" style="grid-template-columns: 210px minmax(0, 1fr) 150px">
+            <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Near-duplicates 0.3%</span></span>
+            <div><div class="t">60 items near-duplicate the evaluation index, left out</div><div class="s">Similarity above 0.92 · keeps the evaluation honest</div></div>
+            <div class="end"><a class="kit-btn sm outline" href="E2-Index.dc.html">See the list</a></div>
+          </div>
+        </div>
+        <div class="kit-grid2" style="margin-top: 16px">
+          <div class="kit-surface raised" style="padding: 16px">
+            <h3>Estimate and budget</h3>
+            <dl class="kit-kv" style="margin: 12px 0 0">
+              <dt>Base and recipe</dt><dd>TLM4 Distil 4.2 · Decide · Recommended</dd>
+              <dt>GPU tier</dt><dd>A10G × 4 · Build <span class="kit-chip env">Non-production</span></dd>
+              <dt>Price-list estimate</dt><dd><b style="font-weight: 500">38 GPU h · about $410</b> · 9 h 30 m</dd>
+              <dt>Remaining budget</dt><dd>$6.2k of $12k this quarter · $5.8k after this run</dd>
+              <dt>Previous run</dt><dd>R-2214 estimated $390, cost $402 (3% over)</dd>
+            </dl>
+            <div class="kit-track" style="margin-top: 12px" role="img" aria-label="This run uses about 7% of the remaining budget"><i style="width: 7%"></i></div>
+            <div class="kit-threshold" style="margin-top: 6px">$410 estimate · cap $4.96k at 80% · remaining $6.2k</div>
+          </div>
+          <div class="kit-surface raised" style="padding: 16px">
+            <h3>Cost cap</h3>
+            <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: end; margin-top: 12px">
+              <div class="kit-field"><label for="p-cap">Cap for this run · default 80% of remaining</label><input class="kit-input" id="p-cap" type="text" value="$4,960"></div>
+              <button class="kit-btn outline" type="button" aria-disabled="true" aria-describedby="cap-why">Raise the cap</button>
+            </div>
+            <div class="kit-small" id="cap-why" style="margin-top: 6px">Raising it asks the owner, Marcus L.; the button opens once he is named on the request</div>
+            <div class="kit-small kit-muted" style="margin-top: 6px">Hitting the cap pauses the run and keeps a deployable checkpoint</div>
+          </div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">Ran 11:57 ET · as of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: training API pre-flight on claims-triage-v6; PII flags from the tagging pipeline; near-duplicates against the evaluation index as of TL Index run 1180; budget from the UC-0142 record.</span></button></div>
+      </div>
+    </section>
+
+    <!-- Trace · Throughput and memory (engineering) -->
+    <section id="sec-throughput" aria-labelledby="h-throughput" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><h2 id="h-throughput">Throughput and memory <span class="kit-eng-label">Engineering view</span></h2><span class="sub">Measured step time replaced the price-list guess</span></div>
+      <div class="kit-surface raised">
+        <div class="kit-surface-head"><span class="kit-small kit-muted">Dry run DR-0418 · steps 1 to 10 are warm-up, left out of the estimate</span><span class="kit-chip outline">A10G × 4 · 24 GB each</span></div>
+        <div class="kit-grid-main" style="margin-top: 12px">
+          <table aria-label="Dry run throughput and memory">
+            <thead><tr><th>Measure</th><th class="num">Steps 1 to 10</th><th class="num">Steps 11 to 60</th><th class="num">Used for the estimate<button class="kit-tip end" type="button" aria-label="About the estimate">i<span class="kit-tip-bubble" role="tooltip"><b>Estimate.</b> 41.2M tokens at 1,270 tokens a second is 9 h 00 m on 4 GPUs, or 36 GPU hours.</span></button></th></tr></thead>
+            <tbody>
+              <tr><td>Step time</td><td class="num">38.9 s</td><td class="num">35.8 s</td><td class="num">35.8 s</td></tr>
+              <tr><td>Tokens per second, all 4 GPUs</td><td class="num">1,168</td><td class="num">1,270</td><td class="num">1,270</td></tr>
+              <tr><td>GPU utilisation</td><td class="num">81%</td><td class="num">94%</td><td class="num"><span class="kit-dash" title="not an input to the estimate">—</span></td></tr>
+              <tr><td>Peak memory per GPU</td><td class="num">21.4 GB</td><td class="num">22.1 GB</td><td class="num">of 24 GB <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Tight</span></span></td></tr>
+            </tbody>
+          </table>
+          <div>
+            <div class="kit-label">Train loss · 60 steps</div>
+            <svg class="kit-spark" viewBox="0 0 100 40" width="100%" height="96" role="img" aria-label="Train loss falling from 2.31 to 1.96 over 60 steps" style="margin-top: 6px">
+              <polyline fill="none" stroke="#3E9A5C" stroke-width="1.5" points="0,6 10,10 20,14 30,17 40,20 50,22 60,24 70,26 80,27 90,28.5 100,29.5"></polyline>
+              <text x="1" y="5" font-size="4" fill="#5C5C5A">2.31</text>
+              <text x="99" y="36" font-size="4" fill="#5C5C5A" text-anchor="end">1.96 at step 60</text>
+            </svg>
+            <div class="kit-small kit-muted" style="margin-top: 6px">Grad norm settled under the 1.0 clip by step 18</div>
+          </div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: per-step metrics from the training API for dry run DR-0418; memory from HyperPod node telemetry.</span></button></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5400}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

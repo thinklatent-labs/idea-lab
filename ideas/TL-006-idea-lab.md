@@ -20,7 +20,7 @@ standard: "v1"
 last_touched: 2026-11-04
 sensitivity: none
 critique_recorded: null
-next_step: "Jithin: approve or amend Portfolio session 1; name the red-team roster From Portfolio (2026-11-07): Lab operations to amend the Operating Model with the role convention (D-134). Under it, the Building gate's 'owner who is not Jithin' and the stream engineers are played roles. Decide whether the gate still means anything when the thinking partner plays the owner."
+next_step: "Jithin: approve or amend Portfolio session 1; name the red-team roster From Portfolio (2026-11-07): Lab operations to amend the Operating Model with the role convention (D-134). Under it, the Building gate's 'owner who is not Jithin' and the stream engineers are played roles. Decide whether the gate still means anything when the thinking partner plays the owner. Captured from TL-003 (7 Nov): record Jithin's lab-wide licence rule from 6 Nov (ThinkLatent's own code is MIT; dependencies only MIT, Apache-2.0, BSD, ISC, Unlicense or CC0, checked in every build) in a Lab-operations chat; it conflicts with D-130's MPL-2.0 exception for lightningcss and licenses.exceptions.json."
 next_step_due: null
 ---
 
@@ -33,7 +33,7 @@ next_step_due: null
 
 Owner: Jithin. Appetite: not set. Score: not scored .
 
-Next step: Jithin: approve or amend Portfolio session 1; name the red-team roster From Portfolio (2026-11-07): Lab operations to amend the Operating Model with the role convention (D-134). Under it, the Building gate's 'owner who is not Jithin' and the stream engineers are played roles. Decide whether the gate still means anything when the thinking partner plays the owner.
+Next step: Jithin: approve or amend Portfolio session 1; name the red-team roster From Portfolio (2026-11-07): Lab operations to amend the Operating Model with the role convention (D-134). Under it, the Building gate's 'owner who is not Jithin' and the stream engineers are played roles. Decide whether the gate still means anything when the thinking partner plays the owner. Captured from TL-003 (7 Nov): record Jithin's lab-wide licence rule from 6 Nov (ThinkLatent's own code is MIT; dependencies only MIT, Apache-2.0, BSD, ISC, Unlicense or CC0, checked in every build) in a Lab-operations chat; it conflicts with D-130's MPL-2.0 exception for lightningcss and licenses.exceptions.json.
 
 Production surface: not named (reads as an H3 experiment).
 

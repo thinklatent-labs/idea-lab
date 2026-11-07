@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V1 · Approval · usage approval UA-0291 (v6)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 6700px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="v6-T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-current="page" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+
+    <!-- ORIENT -->
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+        <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="V2-Validation.dc.html">Approvals</a><span class="sep" aria-hidden="true">›</span><a href="V2-Validation.dc.html">Queue and validation</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">UA-0291</span></nav>
+        <h1>Approve Advisor summary for production</h1>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center">
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Waiting for your decision</span></span>
+          <a class="kit-chip outline" href="v6-J3-Overview.dc.html">UC-0291 Advisor summary</a>
+          <a class="kit-chip outline" href="v6-M2-ModelPage.dc.html">TLM4 Domain-Advice v2</a>
+          <span class="kit-chip brand">Pilot in production → Production</span>
+          <span class="kit-chip">Risk tier 2 of 4</span>
+          <span class="kit-chip outline">Enforced at the gateway<button class="kit-tip below" type="button" aria-label="About the usage approval">i<span class="kit-tip-bubble" role="tooltip"><b>Usage approval.</b> One model, one serving setting and one endpoint build: key uc-0291-prod is served only on what you approve here. A new build or setting is a new usage and comes back for approval.<span class="src">Source: gateway configuration · as of 11:58 ET</span></span></button></span>
+        </div>
+        <p style="font-size: 15px">Clears every bar but one; production waits for finding F-0412 to close.</p>
+        <div class="kit-asof">Retail Advice · owner Priya N. · routed 09:41 · as of Thu 5 Nov 2026, 11:58 ET</div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px">
+        <div class="kit-actions"><a class="kit-btn" href="#decide">Decide</a><button class="kit-btn outline" type="button">Assign</button><a class="kit-btn outline" href="O5-AuditExport.dc.html">Export audit pack</a></div>
+        <a class="kit-small" href="J9-Record.dc.html">Open the UC-0291 record</a>
+      </div>
+    </div>
+
+    <!-- TRACE NAV: section bar under the page head -->
+    <nav class="kit-sectionbar" aria-label="On this page" style="align-self: flex-start"><a href="#decide" aria-current="true">Decide <span class="n">4</span></a><a href="#sec-usage">What it names</a><a href="#sec-evidence">Evidence <span class="n">2 sessions</span></a><a href="#sec-checks">Policy checks <span class="n">10 of 12</span></a><a href="#sec-findings">Findings <span class="n">1 critical</span></a><a href="#sec-conditions">Conditions <span class="n">3</span></a><a href="#sec-attestations">Attestations <span class="n">1 due</span></a><a href="#sec-similar">Similar approvals <span class="n">4</span></a><a href="#sec-audit">Audit trail</a><a href="#sec-serving">Serving <span class="n">Engineering</span></a></nav>
+
+    <!-- JUDGE: tiles -->
+    <div class="kit-tiles">
+      <section class="kit-tile" aria-label="Use-case score">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path></svg></span><a class="kit-open" href="v6-E1-EvaluationResults.dc.html" aria-label="Open Official TL Index run 1183">↗</a></div>
+        <div class="kit-tile-title">Use-case score<button class="kit-tip" type="button" aria-label="About the use-case score">i<span class="kit-tip-bubble" role="tooltip"><b>Use-case score.</b> Official TL Index run 1183 on the Advisor summary set, judge evaluator v2.3; ± is the 95% interval.<span class="src">Source: Official TL Index run 1183 · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value"><span class="kit-interval">84%<span class="unit pm">± 3</span></span></div><div class="kit-tile-cap">Bar 80% · Official run 1183 · 1,200 items</div></div><span class="kit-chip brand">Official</span></div>
+      </section>
+      <section class="kit-tile" aria-label="Policy checks">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span><a class="kit-open" href="#sec-checks" aria-label="Open policy checks">↗</a></div>
+        <div class="kit-tile-title">Policy checks</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">10<span class="unit">of 12 passed</span></div><div class="kit-tile-cap">1 routed to you · 1 waits on F-0412</div></div><div class="kit-track" role="img" aria-label="10 of 12 checks passed" style="width: 80px"><i style="width: 83%"></i></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Your decision">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>4-hour SLA</span></span></div>
+        <div class="kit-tile-title">Your decision</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">103<span class="unit">min left</span></div><div class="kit-tile-cap">Due 13:41 · then escalates to Rohan K.</div></div><div class="kit-track" role="img" aria-label="57% of the SLA used" style="width: 80px"><i class="warn" style="width: 57%"></i></div></div>
+      </section>
+      <section class="kit-tile ink" aria-label="Similar approvals">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="13" height="13" rx="2"></rect><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"></path></svg></span><a class="kit-open" href="#sec-similar" aria-label="Open similar approvals">↗</a></div>
+        <div class="kit-tile-title">Similar approvals, 90 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">4<span class="unit">all granted</span></div><div class="kit-tile-cap">1 with a condition · median 1.9 days</div></div><span class="kit-chip brand">Pattern</span></div>
+      </section>
+    </div>
+
+    <!-- JUDGE: primary exhibit -->
+    <section aria-labelledby="h-bars" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-bars">Evidence against the bars</h2><div class="sub">7 of 8 bars met · consistency on long threads is 4 pts short · gate held</div></div>
+        <div class="kit-legend"><span><i style="background: #3E9A5C"></i>Run 1183 with its 95% interval</span><span><i style="background: #5C5C5A"></i>Bar, dashed</span></div>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th>Measure</th><th class="num">Bar</th><th class="num">Run 1183</th><th>Against the bar · 60–100%</th><th class="num">Base, run 1180<button class="kit-tip" type="button" aria-label="About the regression gate">i<span class="kit-tip-bubble" role="tooltip"><b>Regression gate.</b> Each pillar against the base model, TLM4 Core 4.2, on Official run 1180. The runs are compared by 95% intervals, so overlap reads Tie; the gate holds when no gate pillar is Worse.<span class="src">Source: Official TL Index runs 1183 and 1180 · as of 11:58 ET</span></span></button></th><th>Bar from</th><th>Result</th></tr></thead>
+          <tbody>
+              <tr><td>Use-case score</td><td class="num">≥ 80%</td><td class="num"><span class="kit-interval">84% <span class="pm">± 3</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="84% ± 3 against the 80% bar"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="84" y="6" width="24" height="8" rx="4" fill="#A8D5B5"></rect><line x1="80" y1="2" x2="80" y2="18" stroke="#5C5C5A" stroke-width="1.5" stroke-dasharray="2 1.5"></line><circle cx="96" cy="10" r="4" fill="#3E9A5C"></circle></svg></td><td class="num"><span class="kit-dash" title="Not part of the regression gate">—</span></td><td class="kit-small"><a href="J9-Record-Requirements.dc.html">UC-0291 record bar</a> · Policy C-2 §4</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+              <tr><td>Safety and grounding<div class="kit-small kit-muted">gate pillar</div></td><td class="num">≥ 85%</td><td class="num"><span class="kit-interval">91% <span class="pm">± 2</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="91% ± 2 against the 85% bar"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="116" y="6" width="16" height="8" rx="4" fill="#A8D5B5"></rect><line x1="100" y1="2" x2="100" y2="18" stroke="#5C5C5A" stroke-width="1.5" stroke-dasharray="2 1.5"></line><circle cx="124" cy="10" r="4" fill="#3E9A5C"></circle></svg></td><td class="num"><span class="kit-interval">90% <span class="pm">± 2</span></span> <span class="kit-small kit-muted">Tie · +1 pt</span></td><td class="kit-small">Policy C-2 §5</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met · gate held</span></span></td></tr>
+              <tr><td>Compliance and regulatory<div class="kit-small kit-muted">gate pillar</div></td><td class="num">≥ 80%</td><td class="num"><span class="kit-interval">83% <span class="pm">± 3</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="83% ± 3 against the 80% bar"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="80" y="6" width="24" height="8" rx="4" fill="#A8D5B5"></rect><line x1="80" y1="2" x2="80" y2="18" stroke="#5C5C5A" stroke-width="1.5" stroke-dasharray="2 1.5"></line><circle cx="92" cy="10" r="4" fill="#3E9A5C"></circle></svg></td><td class="num"><span class="kit-interval">79% <span class="pm">± 3</span></span> <span class="kit-small kit-muted">Tie · +4 pts</span></td><td class="kit-small">Policy C-2 §5</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met · gate held</span></span></td></tr>
+              <tr><td>Client care<div class="kit-small kit-muted">gate pillar</div></td><td class="num">≥ 80%</td><td class="num"><span class="kit-interval">86% <span class="pm">± 3</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="86% ± 3 against the 80% bar"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="92" y="6" width="24" height="8" rx="4" fill="#A8D5B5"></rect><line x1="80" y1="2" x2="80" y2="18" stroke="#5C5C5A" stroke-width="1.5" stroke-dasharray="2 1.5"></line><circle cx="104" cy="10" r="4" fill="#3E9A5C"></circle></svg></td><td class="num"><span class="kit-interval">80% <span class="pm">± 4</span></span> <span class="kit-small kit-muted">Tie · +6 pts</span></td><td class="kit-small">Policy C-2 §5</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met · gate held</span></span><div style="margin-top: 4px"><a class="kit-status warning" href="#sec-evidence"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Judge below floor · F-0420</span></a></div></td></tr>
+              <tr><td>Financial data processing<div class="kit-small kit-muted">workflow pillar</div></td><td class="num">gate only</td><td class="num"><span class="kit-interval">87% <span class="pm">± 3</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="87% ± 3, regression gate only"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="96" y="6" width="24" height="8" rx="4" fill="#A8D5B5"></rect><circle cx="108" cy="10" r="4" fill="#3E9A5C"></circle></svg></td><td class="num"><span class="kit-interval">85% <span class="pm">± 3</span></span> <span class="kit-small kit-muted">Tie · +2 pts</span></td><td class="kit-small">Regression gate</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Gate held</span></span></td></tr>
+              <tr><td>Entity recognition<div class="kit-small kit-muted">workflow pillar</div></td><td class="num">gate only</td><td class="num"><span class="kit-interval">88% <span class="pm">± 3</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="88% ± 3, regression gate only"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="100" y="6" width="24" height="8" rx="4" fill="#A8D5B5"></rect><circle cx="112" cy="10" r="4" fill="#3E9A5C"></circle></svg></td><td class="num"><span class="kit-interval">86% <span class="pm">± 3</span></span> <span class="kit-small kit-muted">Tie · +2 pts</span></td><td class="kit-small">Regression gate</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Gate held</span></span></td></tr>
+              <tr><td>Summarization<div class="kit-small kit-muted">workflow pillar</div></td><td class="num"><span class="kit-dash" title="Phase 2: not live in the MVP">—</span></td><td class="num"><span class="kit-dash" title="Phase 2: not measured">—</span></td><td><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="kit-small">Phase 2</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Phase 2</span></span></td></tr>
+              <tr><td>Consistency across attempts<div class="kit-small kit-muted">pass^3 · long threads</div></td><td class="num">≥ 75%</td><td class="num">71%</td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="71% against the 75% bar, below"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><line x1="60" y1="2" x2="60" y2="18" stroke="#5C5C5A" stroke-width="1.5" stroke-dasharray="2 1.5"></line><circle cx="44" cy="10" r="4" style="fill: var(--decision)"></circle></svg></td><td class="num"><span class="kit-dash" title="Not part of the regression gate">—</span></td><td class="kit-small"><a href="#sec-findings">Finding F-0412</a></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar · 4 pts short</span></span></td></tr>
+              <tr><td>Interval half-width</td><td class="num">≤ 5 pts</td><td class="num">3 pts</td><td><span class="kit-dash" title="Not a score">—</span></td><td class="num"><span class="kit-dash" title="Not compared">—</span></td><td class="kit-small">TL Index method v1 §3</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+              <tr><td>Time to first token, p95<div class="kit-small kit-muted">pilot, aggregate</div></td><td class="num">≤ 800 ms</td><td class="num">640 ms</td><td><span class="kit-dash" title="Not a score">—</span></td><td class="num"><span class="kit-dash" title="Not compared">—</span></td><td class="kit-small">UC-0291 target, set at onboarding</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+              <tr><td>Availability<div class="kit-small kit-muted">30 days</div></td><td class="num">99.9%</td><td class="num">99.96%</td><td><span class="kit-dash" title="Not a score">—</span></td><td class="num"><span class="kit-dash" title="Not compared">—</span></td><td class="kit-small">Dedicated production tier</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+              <tr><td>Review cadence</td><td class="num">30 days</td><td class="num">first 5 Dec</td><td><span class="kit-dash" title="Not a score">—</span></td><td class="num"><span class="kit-dash" title="Not compared">—</span></td><td class="kit-small">Policy C-2 §8</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Scheduled</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: scores from Official TL Index runs 1183 (Domain-Advice v2, Advisor summary set, n 1,200, judge evaluator v2.3) and 1180 (Core 4.2, base); consistency from the pilot evaluation window, 6 Oct to 4 Nov; time to first token and availability from the gateway serving log, pilot in production, aggregate; bars from the UC-0291 record and Policy C-2.</span></button></div>
+      </div>
+    </section>
+
+    <!-- DECIDE -->
+    <section class="kit-surface kit-decide" id="decide" aria-labelledby="h-decide">
+      <div class="kit-surface-head">
+        <div>
+          <h2 id="h-decide" style="display: flex; align-items: center; gap: 10px">Needs a decision <span class="kit-chip decision">4</span></h2>
+          <div class="sub">Approve outright is closed while F-0412 is open; the agent recommends one condition.</div>
+        </div>
+        <span class="kit-small kit-muted">The agent checks and drafts; you decide</span>
+      </div>
+      <div class="kit-agentline" style="margin-top: 10px"><span class="kit-agent"><span class="av kit-avatar agent">GA</span><span>Governance agent</span></span><span>Basis: Official run 1183 · 12 checks · 2 evidence sessions · 4 similar approvals · F-0412</span><span>88% confidence · 11:50</span><a href="#sec-evidence">View sources</a></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 16px; margin-top: 16px; align-items: start">
+        <div class="kit-rows">
+          <article class="kit-row" aria-labelledby="d1-t" aria-current="true" style="grid-template-columns: minmax(0, 1fr); gap: 8px; border-color: #3E9A5C; box-shadow: 0 0 0 1px #3E9A5C">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Recommended</span></span><span class="t" id="d1-t">Approve with one condition</span><span class="kit-chip outline">Policy C-2 §9</span></div>
+            <div class="s">Production waits until F-0412 closes with an Official re-run at 75% or above on long threads.</div>
+            <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Approve with condition</button><button class="kit-btn sm outline" type="button">Other conditions</button><button class="kit-btn sm ghost" type="button" aria-expanded="true" aria-controls="sheet-rec">Details</button><span class="kit-threshold">Also before the move: monitoring attestation, due 10 Nov</span></div>
+          </article>
+          <article class="kit-row" aria-labelledby="d2-t" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Blocked</span></span><span class="t" id="d2-t">Approve</span></div>
+            <div class="s">Unavailable while C-2.10 waits on F-0412 (Policy C-2 §9).</div>
+            <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button" aria-disabled="true">Approve</button><a class="kit-btn sm outline" href="#sec-findings">See F-0412</a></div>
+          </article>
+          <article class="kit-row" aria-labelledby="d3-t" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Alternative</span></span><span class="t" id="d3-t">Send back with a reason</span></div>
+            <div class="s">The owner sees the reason; the pilot carries on unchanged.</div>
+            <div class="kit-field"><label for="ua-reason">Reason for the owner</label><input class="kit-input" id="ua-reason" type="text" placeholder="Shown to Priya N. and kept on the record"></div>
+            <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Send back</button></div>
+          </article>
+          <article class="kit-row" aria-labelledby="d4-t" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Check routed to you</span></span><span class="t" id="d4-t">C-2.7 · No recommendation stated as certain</span></div>
+            <div class="s">2 of 40 sampled summaries say “will” for “is likely to”; one closing line in template T-3.</div>
+            <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Pass with the T-3 change</button><button class="kit-btn sm outline" type="button">Fail the check</button><span class="kit-threshold">A wording judgement, not a score</span></div>
+          </article>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t" style="display: flex; align-items: center; gap: 8px"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>SLA</span></span> Due 13:41 · 1 h 43 m left</div><div class="s">At 13:41 it escalates to Rohan K., delegate of the Head of ThinkLatent; you stay copied.</div></div>
+            <button class="kit-btn sm outline" type="button">Hand to the delegate now</button>
+          </div>
+        </div>
+
+        <aside class="kit-sheet" id="sheet-rec" aria-labelledby="sheet-t">
+          <div class="kit-sheet-head">
+            <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">GA</span><span>Governance agent · recommendation</span></span><span>88% confidence · 11:50</span></div>
+              <h3 id="sheet-t">Approve with one condition</h3>
+            </div>
+            <button class="kit-btn ghost sm icon" type="button" aria-label="Close recommendation detail"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button>
+          </div>
+          <dl class="kit-kv" style="grid-template-columns: 110px 1fr; margin: 14px 0 0">
+            <dt>What happened</dt><dd>10 of 12 checks passed; the score clears the bar with a narrow interval; the gate held on every live gate pillar.</dd>
+            <dt>Why a condition</dt><dd>F-0412 is open and Critical, so C-2.10 cannot pass today. Policy C-2 §9 allows approval if production waits for it to close.</dd>
+            <dt>C-2.7</dt><dd>One template line, not model quality.</dd>
+          </dl>
+          <div class="kit-field" style="margin-top: 14px"><label for="ua-condition">Condition</label><textarea class="kit-input area" id="ua-condition">Production takes effect only when F-0412 closes with an Official re-run showing pass^3 on long threads at 75% or above.</textarea></div>
+          <div class="kit-label" style="margin-top: 16px">Message to the owner · draft</div>
+          <div class="kit-bubble agent draft" style="max-width: 100%; margin-top: 8px">
+            <div class="kit-agent"><span class="av kit-avatar agent">GA</span><span>Draft to Priya N.</span><span class="kit-muted">· Professional</span></div>
+            <p style="margin-top: 8px">Hi Priya, UA-0291 is approved for production with one condition. The gateway moves Advisor summary to Production on TLM4 Domain-Advice v2 (setting S-0291-2, endpoint build 4.2.1) once F-0412 closes with an Official re-run showing pass^3 on long threads at 75% or above; the re-run is booked for 10 Nov and your due date is 12 Nov. Please also change the closing line in template T-3 from “will” to “is likely to”. The first 30-day review is on 5 Dec. A new build or serving setting comes back as a new usage.</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 10px">
+            <div class="kit-seg" role="group" aria-label="Tone"><button type="button" aria-pressed="true">Professional</button><button type="button" aria-pressed="false">Concise</button><button type="button" aria-pressed="false">Reassuring</button></div>
+            <button class="kit-btn sm outline" type="button">Edit</button>
+            <a class="kit-btn sm ghost" href="X2-Inbox.dc.html">Inbox thread</a>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Posts to the Inbox thread when you record the decision, never before.</div>
+          <div class="kit-prov" style="margin-top: 12px"><span>Basis: <b>Official run 1183</b></span><span><b>12 checks</b></span><span><b>2 evidence sessions</b></span><span><b>4 similar approvals</b></span><span><b>F-0412 on the record</b></span></div>
+          <div class="kit-asof" style="margin-top: 8px">Recommendation 11:50 ET · checks 09:20 ET</div>
+        </aside>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px">
+        <span class="kit-small kit-muted">Each decision signs as Jithin, Head of ThinkLatent, and sets the gateway rule; a change is a new decision.</span>
+        <div class="kit-actions" style="align-items: center"><span class="kit-small kit-muted">After approval</span><a class="kit-btn sm outline" href="v6-J6-Models.dc.html">Pilot · canary 5% → Domain-Advice v3</a><a class="kit-btn sm outline" href="v6-J3-Overview.dc.html">Production · Advisor summary</a></div>
+      </div>
+      <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: checks and recommendation from the Governance agent (policy set C-2, run 09:20; recommendation 11:50); F-0412 from the UC-0291 record; SLA and escalation from the approvals routing; the monitoring attestation from the record.</span></button></div>
+    </section>
+
+    <!-- TRACE -->
+    <section id="sec-usage" aria-labelledby="h-usage" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-usage">What this approval names</h2><div class="sub">One usage: one model, one serving setting, one endpoint build</div></div><a class="kit-btn sm outline" href="J9-Record.dc.html">Open the record</a></div>
+      <div class="kit-surface">
+        <div class="kit-grid2" style="align-items: start">
+          <dl class="kit-kv" style="grid-template-columns: 130px 1fr; margin: 0">
+            <dt>Use case</dt><dd><a href="v6-J3-Overview.dc.html">UC-0291 Advisor summary</a> · Retail Advice · owner Priya N.</dd>
+            <dt>Risk tier</dt><dd>2 of 4</dd>
+            <dt>Phase</dt><dd>Pilot in production, 212 advisors → Production</dd>
+            <dt>Model</dt><dd>TLM4 Domain-Advice v2, an adapter on <a href="v6-M2-ModelPage.dc.html">TLM4 Core 4.2</a> · approved for use 12 Oct, VD-0051</dd>
+          </dl>
+          <dl class="kit-kv" style="grid-template-columns: 130px 1fr; margin: 0">
+            <dt>Serving setting</dt><dd>S-0291-2 · dedicated production endpoint · the setting run 1183 measured</dd>
+            <dt>Endpoint build</dt><dd>4.2.1 · the build the pilot runs today</dd>
+            <dt>At the gateway</dt><dd>Key uc-0291-prod served only on this model, setting and build</dd>
+            <dt>Other requests</dt><dd>Refused and logged</dd>
+          </dl>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">From the UC-0291 record and the gateway configuration · as of 11:58 ET</div>
+      </div>
+    </section>
+
+    <section id="sec-evidence" aria-labelledby="h-evidence" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-evidence">Evidence</h2><div class="sub">One Official run and two sealed evidence sessions</div></div><a class="kit-btn sm outline" href="v6-E1-EvaluationResults.dc.html">Open run 1183</a></div>
+      <div class="kit-surface">
+        <div class="kit-rows">
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t"><a href="v6-E1-EvaluationResults.dc.html">Official TL Index run 1183</a> · Domain-Advice v2 on the Advisor summary set</div><div class="s"><span class="kit-interval">84% <span class="pm">± 3</span></span> · n 1,200 items · judge evaluator v2.3 · marked Official by Elena R.</div></div>
+            <span class="kit-chip brand">Official</span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t"><a href="P1-Playground.dc.html">Expense ratio phrasing</a> · 6 variants · 4 Nov</div><div class="s">Evidence session sealed in the playground · eval case AS-0412</div></div>
+            <span class="kit-chip env">Non-production</span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t"><a href="P1-Playground.dc.html">Red-team fabricated-figure probe</a> · 31 Oct · Elena R.</div><div class="s">No invented figure in 12 probes · sealed</div></div>
+            <span class="kit-chip env">Non-production</span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">Client care judge agreement <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Good, below floor</span></span><button class="kit-tip" type="button" aria-label="About Client care judge agreement">i<span class="kit-tip-bubble" role="tooltip"><b>κ 0.68.</b> In the good band (0.60–0.79) but under the 0.70 trust floor.<span class="src">Source: CAL-advice-07, 120 labelled items · 28 Oct</span></span></button></div><div class="s">Finding F-0420 · the Client care gain may be overstated by up to 3 pts · still above its 80% bar</div></div>
+            <a class="kit-btn sm outline" href="v6-E1-EvaluationResults.dc.html#decide">Open F-0420</a>
+          </div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: run 1183 from the TL Index run log (completed 2 Nov, judge evaluator v2.3); evidence sessions sealed on the record; judge agreement and F-0420 from the evaluation results page, calibration set CAL-advice-07.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-checks" aria-labelledby="h-checks" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-checks">Policy checks · 10 of 12</h2><div class="sub">Policy set C-2, customer-facing generation · run by the Governance agent at 09:20</div></div></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th>Check</th><th>Requirement</th><th>Result</th><th>Basis</th></tr></thead>
+          <tbody>
+              <tr><td class="kit-mono">C-2.1</td><td>Official run on the record</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td class="kit-small kit-muted">Run 1183, marked Official by Elena R.</td></tr>
+              <tr><td class="kit-mono">C-2.2</td><td>Score at or above the bar</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td class="kit-small kit-muted">84% ± 3 · bar 80%</td></tr>
+              <tr><td class="kit-mono">C-2.3</td><td>Interval 5 pts or narrower</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td class="kit-small kit-muted">± 3 pts</td></tr>
+              <tr><td class="kit-mono">C-2.4</td><td>Regression gate held</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td class="kit-small kit-muted">Tie or better on every live gate pillar</td></tr>
+              <tr><td class="kit-mono">C-2.5</td><td>Model approved for use</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td class="kit-small kit-muted">12 Oct · VD-0051</td></tr>
+              <tr><td class="kit-mono">C-2.6</td><td>Data consent and PII signed</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td class="kit-small kit-muted">On the UC-0291 record</td></tr>
+              <tr class="selected"><td class="kit-mono">C-2.7</td><td>No recommendation stated as certain</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Routed to you</span></span></td><td class="kit-small kit-muted">2 of 40 sampled summaries say “will” · template T-3</td></tr>
+              <tr><td class="kit-mono">C-2.8</td><td>Dedicated production endpoint</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td class="kit-small kit-muted">ep-advice-prod-1</td></tr>
+              <tr><td class="kit-mono">C-2.9</td><td>Client PII masked at the gateway</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td class="kit-small kit-muted">Gateway rule GW-UA-0291</td></tr>
+              <tr class="selected"><td class="kit-mono">C-2.10</td><td>No open Critical finding on the record</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Waiting on F-0412</span></span></td><td class="kit-small kit-muted">Re-run booked 10 Nov · due 12 Nov</td></tr>
+              <tr><td class="kit-mono">C-2.11</td><td>Evidence sessions sealed</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td class="kit-small kit-muted">2 sessions sealed in the playground</td></tr>
+              <tr><td class="kit-mono">C-2.12</td><td>Owner and approver named</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td class="kit-small kit-muted">Priya N. · Jithin, Head of ThinkLatent</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">As of 09:20 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Governance agent run of policy set C-2 at 09:20 ET on the UC-0291 record, run 1183, the evidence sessions and the gateway configuration. C-2.7 needs a person's judgement; C-2.10 passes when F-0412 closes.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-findings" aria-labelledby="h-findings" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-findings">Findings</h2><div class="sub">One open Critical finding holds production</div></div><a class="kit-btn sm outline" href="J7-Quality.dc.html">See the failing cluster</a></div>
+      <div class="kit-surface">
+        <div class="kit-surface-head">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical · F-0412</span></span><h3>Long threads miss the consistency bar</h3></div>
+          <span class="kit-chip outline">Blocks C-2.10</span>
+        </div>
+        <dl class="kit-kv" style="grid-template-columns: 130px 1fr; margin: 14px 0 0">
+          <dt>Now</dt><dd>71% across three attempts (pass^3) · bar 75% · 4 pts short</dd>
+          <dt>Fails on</dt><dd>4k–16k-token threads; single attempts pass</dd>
+          <dt>Owner</dt><dd>Priya N. · due Thu 12 Nov</dd>
+          <dt>Next evidence</dt><dd>Official re-run booked for Tue 10 Nov · Elena R.</dd>
+          <dt>Ways to close it</dt><dd>Promote Domain-Advice v3 (<a href="v6-J6-Models.dc.html">canary judgement</a>) · train a specialist · review long threads</dd>
+        </dl>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:52 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: pilot evaluation window, 6 Oct to 4 Nov, 1,240 threads; finding F-0412, its owner and due date from the record; the re-run booking from the case log.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-conditions" aria-labelledby="h-conditions" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-conditions">Conditions</h2><div class="sub">What the recommended approval would carry</div></div></div>
+      <div class="kit-surface">
+        <div class="kit-rows">
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t">Production waits for F-0412</div><div class="s">Gateway holds the production route until an Official re-run shows pass^3 at 75% or above</div></div>
+            <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Open · due 12 Nov</span></span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t">Change template T-3</div><div class="s">Closing line from “will” to “is likely to” · the v8 draft already fixes it</div></div>
+            <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>With the owner</span></span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t">30-day review</div><div class="s">Checks re-run on the live usage · Policy C-2 §8</div></div>
+            <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>First 5 Dec</span></span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t">A new build or setting is a new usage</div><div class="s">It opens its own approval; the gateway keeps serving build 4.2.1 until then</div></div>
+            <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Standing rule</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-attestations" aria-labelledby="h-attest" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-attest">Attestations</h2><div class="sub">Signed statements this usage relies on</div></div><a class="kit-btn sm outline" href="J9-Record-Monitoring.dc.html">Monitoring on the record</a></div>
+      <div class="kit-surface">
+        <div class="kit-rows">
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto auto">
+            <div><div class="t">Advisor summary monitoring</div><div class="s">Five signals to hold in Production · you co-sign with Elena R. · blocks the 12 Nov move</div></div>
+            <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Due 10 Nov</span></span>
+            <a class="kit-btn sm" href="J9-Record-Monitoring.dc.html">Attest</a>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto auto">
+            <div><div class="t">Data consent and PII</div><div class="s">Check C-2.6 on the UC-0291 record</div></div>
+            <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Signed</span></span>
+            <span></span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto auto">
+            <div><div class="t">Owner and approver named</div><div class="s">Priya N., owner · Jithin, Head of ThinkLatent, approver · check C-2.12</div></div>
+            <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Named</span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: attestations from the UC-0291 record; the monitoring attestation's five signals and the co-signer from the record's monitoring requirements.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-similar" aria-labelledby="h-similar" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-similar">Similar approvals · 90 days</h2><div class="sub">Same model family and policy set C-2 · all granted · median 1.9 days</div></div><a class="kit-btn sm outline" href="V3-GovernancePortfolio.dc.html">Governance portfolio</a></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th>Approval</th><th>What changed</th><th>Decided</th><th>Decision</th><th class="num">Days</th></tr></thead>
+          <tbody>
+            <tr><td><span class="kit-mono">UA-0276</span> · UC-0291 Advisor summary</td><td class="kit-small">Domain-Advice v2 · Build → Pilot in production</td><td class="kit-small">14 Oct · Jithin</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved</span></span></td><td class="num">1.6</td></tr>
+            <tr><td><span class="kit-mono">UA-0281</span> · Advisor knowledge base</td><td class="kit-small">Knowledge agent 2.3 on Core 4.2 · new serving setting</td><td class="kit-small">21 Oct · Rohan K., delegate</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved</span></span></td><td class="num">0.8</td></tr>
+            <tr><td><span class="kit-mono">UA-0279</span> · UC-0001 Portal help agent</td><td class="kit-small">Core 4.2 · new endpoint build 4.2.1</td><td class="kit-small">19 Oct · Jithin</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved</span></span></td><td class="num">2.2</td></tr>
+            <tr><td><span class="kit-mono">UA-0266</span> · Ops procedures Q&amp;A</td><td class="kit-small">Core 4.2 · Pilot in production → Production</td><td class="kit-small">9 Oct · Jithin</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>With a condition</span></span></td><td class="num">4.1</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-divider"></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto; align-items: center">
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">GA</span><span>Governance agent · pattern</span></span><span>Basis: 2nd usage approval on Domain-Advice v2 in 90 days</span></div>
+            <div class="t">Set up a standing review so new usages inherit these checks</div>
+            <div class="s">Only a check that needs judgement, or fails, comes to a person · reviewed every 90 days</div>
+          </div>
+          <div class="kit-actions"><button class="kit-btn sm" type="button">Set up standing review</button><button class="kit-btn sm ghost" type="button">Not now</button></div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: approvals log, last 90 days, same model family and policy set C-2; days from routing to decision.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-audit" aria-labelledby="h-audit" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-audit">Audit trail and notes</h2><div class="sub">Every event on UA-0291 in order · notes are not shown to the owner</div></div><span class="kit-small kit-muted">All times ET</span></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th>When</th><th>Event</th><th>By</th></tr></thead>
+          <tbody>
+          <tr><td class="kit-num">3 Nov 09:05</td><td>Usage requested: Pilot in production → Production</td><td>Priya N.</td></tr>
+          <tr><td class="kit-num">3 Nov 09:06</td><td>UA-0291 opened · Domain-Advice v2 · setting S-0291-2 · build 4.2.1</td><td>Governance agent</td></tr>
+          <tr><td class="kit-num">5 Nov 09:20</td><td>12 checks run on set C-2: 10 passed, C-2.7 needs judgement, C-2.10 waits on F-0412</td><td>Governance agent</td></tr>
+          <tr><td class="kit-num">5 Nov 09:41</td><td>Routed to Jithin, Head of ThinkLatent · 4-hour SLA starts</td><td>Governance agent</td></tr>
+          <tr><td class="kit-num">5 Nov 10:05</td><td><span class="kit-chip outline">Note</span> “@Jithin T-3 is the only template that says ‘will’; the v8 draft already fixes it.”</td><td>Elena R.</td></tr>
+          <tr><td class="kit-num">5 Nov 10:12</td><td><span class="kit-chip outline">Note</span> “@Elena R. is the Official re-run for F-0412 booked?” · reply 10:20: “Yes, 10 Nov.”</td><td>Rohan K.</td></tr>
+          <tr><td class="kit-num">5 Nov 11:50</td><td>Recommendation: approve with a condition · 88% confidence</td><td>Governance agent</td></tr>
+          <tr class="selected"><td class="kit-num">Now</td><td>Waiting for your decision · message to the owner drafted</td><td>Jithin</td></tr>
+          <tr><td class="kit-num">10 Nov</td><td>Official re-run for F-0412 (booked) · monitoring attestation due</td><td>Elena R.</td></tr>
+          <tr><td class="kit-num">12 Nov</td><td>F-0412 due · production cut-over if the condition is met</td><td>Priya N.</td></tr>
+          <tr><td class="kit-num">5 Dec</td><td>First 30-day review: checks re-run on the live usage</td><td>Governance agent</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-divider"></div>
+        <div class="kit-field"><label for="ua-note">Internal note</label><textarea class="kit-input area" id="ua-note" placeholder="Add an internal note or @mention a teammate"></textarea></div>
+        <div class="kit-actions" style="margin-top: 10px; align-items: center"><button class="kit-btn sm" type="button">Add note</button><button class="kit-btn sm outline" type="button">Mention a teammate</button><span class="kit-small kit-muted">A mention puts a task in that person's Inbox</span></div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: case log for UA-0291 on the record; every event is a dated row and nothing is edited in place. Future rows are scheduled events. Notes are visible to ThinkLatent and the validators on this case.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-serving" aria-labelledby="h-serving" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-serving">Serving setting and build <span class="kit-eng-label">Engineering view</span></h2><div class="sub">The pinned values the gateway rule checks on every request</div></div></div>
+      <div class="kit-surface">
+        <dl class="kit-kv" style="grid-template-columns: 150px 1fr; margin: 0">
+          <dt>Setting S-0291-2</dt><dd class="kit-mono">4-bit · max_tokens 512 · temperature 0.2 · same as run 1183</dd>
+          <dt>Endpoint</dt><dd class="kit-mono">ep-advice-prod-1 · dedicated · 2 × H100 · us-east</dd>
+          <dt>Build 4.2.1</dt><dd class="kit-mono">vLLM 0.9 · image 7d1e…c02 · built 28 Oct · signed by the release pipeline</dd>
+          <dt>Gateway rule</dt><dd class="kit-mono">GW-UA-0291 · key uc-0291-prod · model, setting and build pinned</dd>
+        </dl>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: endpoint and build from the serving registry; rule from the gateway configuration.</span></button></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6700}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

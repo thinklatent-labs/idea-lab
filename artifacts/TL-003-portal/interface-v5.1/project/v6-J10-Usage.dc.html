@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>J10 · Usage, keys and first call (v6)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 7000px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+
+    <!-- Orient -->
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="J1-Projects.dc.html">Projects</a><span class="sep" aria-hidden="true">›</span><a href="v6-J2-ProjectHome.dc.html">Retail Advice</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Usage, keys and first call</span></nav>
+      <div class="kit-page-head" style="align-items: center">
+        <h1>Usage, keys and first call</h1>
+        <div class="kit-actions" style="align-items: center">
+          <button class="kit-btn" type="button">New sandbox key</button>
+          <button class="kit-btn outline" type="button">Export CSV</button>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center">
+        <span class="kit-chip brand">November to date · day 5 of 30</span>
+        <span class="kit-chip outline">Retail Advice · 3 use cases and 4 sandbox keys</span>
+        <a class="kit-chip outline" href="#sec-decide"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Forecast over the ceiling</span></span></a>
+        <span class="kit-small kit-muted">Owner Priya N.</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+        <p class="kit-muted" style="margin: 0">What Retail Advice keys spend, how they are tagged and limited, and how a new key makes its first call.</p>
+        <span class="kit-asof">1 Nov to 5 Nov · As of Thu 5 Nov 2026, 11:58 ET</span>
+      </div>
+    </div>
+
+    <nav class="kit-sectionbar" aria-label="On this page" style="align-self: flex-start"><a href="#sec-decide" aria-current="true">Decide <span class="n">4</span></a><a href="#sec-spend">Spend by use case</a><a href="#sec-keys">Keys <span class="n">2 untagged</span></a><a href="#sec-first-call">First call <span class="n">Engineering</span></a><a href="#sec-limits">Limits <span class="n">1 over</span></a><a href="#sec-showback">Showback and statement</a></nav>
+
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: end">
+      <div class="kit-field" style="width: 220px"><label for="us-team">Team</label><select class="kit-input" id="us-team"><option>Retail Advice</option><option>Institutional Ops</option><option>Client Services</option><option>Investment Mgmt</option><option>Compliance</option><option>ThinkLatent</option><option>All teams</option></select></div>
+      <div class="kit-field" style="width: 240px"><label for="us-project">Project</label><select class="kit-input" id="us-project"><option>All Retail Advice projects</option><option>Advisor summary</option><option>Statement explainer</option></select></div>
+      <div class="kit-field"><span class="kit-label">Window</span><div class="kit-seg" role="group" aria-label="Window"><button type="button" aria-pressed="true">This month</button><button type="button" aria-pressed="false">Last 30 days</button><button type="button" aria-pressed="false">Last month</button></div></div>
+      <div class="kit-field"><span class="kit-label">Environment</span><div class="kit-seg" role="group" aria-label="Environment"><button type="button" aria-pressed="true">All</button><button type="button" aria-pressed="false">Production</button><button type="button" aria-pressed="false">Non-production</button><button type="button" aria-pressed="false">Sandbox</button></div></div>
+    </div>
+
+    <!-- Judge -->
+    <div class="kit-tiles">
+      <section class="kit-tile" aria-label="Spend this month">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M9 10h6"></path><path d="M9 14h6"></path></svg></span><a class="kit-open" href="#sec-showback" aria-label="Open how cost is counted">↗</a></div>
+        <div class="kit-tile-title">Spend this month<button class="kit-tip below" type="button" aria-label="About spend">i<span class="kit-tip-bubble" role="tooltip"><b>Spend.</b> Dedicated machines at a fixed monthly share plus shared serving per token, for every call by Retail Advice keys. Counted as in Showback and statement.<span class="src">Source: gateway serving log, 1 Nov to 5 Nov 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$4.1k</div><div class="kit-tile-cap">16% of the $26k ceiling at 15% of the month</div></div><div class="kit-track" style="width: 90px"><i style="width: 16%"></i></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Month-end forecast">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span><a class="kit-open" href="#sec-limits" aria-label="Open the ceiling policy">↗</a></div>
+        <div class="kit-tile-title">Month-end forecast<button class="kit-tip below" type="button" aria-label="About the forecast">i<span class="kit-tip-bubble" role="tooltip"><b>Forecast.</b> Spend to date plus the last 7 days' daily rate to 30 Nov. Statement season raised UC-0118 calls from 30 Oct.<span class="src">Source: gateway serving log · ceilings from the approvals in the record</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$27.3k<span class="unit">105%</span></div><div class="kit-tile-cap">Ceiling reached Sun 29 Nov at this rate</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over ceiling</span></span></div>
+      </section>
+      <section class="kit-tile" aria-label="Tokens this month">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="#h-tokens" aria-label="Open tokens by day">↗</a></div>
+        <div class="kit-tile-title">Tokens this month</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">1.12<span class="unit">B tokens</span></div><div class="kit-tile-cap">249M a day for 7 days · pace 232M a day</div></div><div class="kit-bars" aria-hidden="true"><i style="height: 60%"></i><i style="height: 93%"></i><i style="height: 100%"></i><i style="height: 98%"></i><i class="lit" style="height: 48%"></i></div></div>
+      </section>
+      <section class="kit-tile ink" aria-label="Rate-limited requests">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="M8 12h8"></path></svg></span><a class="kit-open" href="#sec-limits" aria-label="Open rate-limited requests">↗</a></div>
+        <div class="kit-tile-title">Rate-limited requests</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">40<span class="unit">this month</span></div><div class="kit-tile-cap">37 on UC-0291 at the 10:00 peak · 3 sandbox</div></div><span class="kit-chip" style="background: rgba(255,255,255,.14); color: #fff">Limit 1,400 / h</span></div>
+      </section>
+    </div>
+
+    <!-- Primary exhibit -->
+    <section aria-labelledby="h-tokens" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-tokens">Tokens by day against the ceiling pace</h2><div class="sub">Every tagged call by Retail Advice keys, all environments</div></div>
+        <div class="kit-legend"><span><i style="background: #3E9A5C"></i>Tokens per day, actual</span><span><i style="background: #8A8A88"></i>Forecast, last 7 days' rate</span><span><i style="background: #5C5C5A"></i>Ceiling pace, dashed</span></div>
+      </div>
+      <div class="kit-surface">
+        <svg class="kit-spark" viewBox="0 0 300 60" width="100%" height="230" role="img" aria-label="Daily tokens for 1 to 5 November above the ceiling pace of 232 million a day; at the last 7 days' rate of 249 million a day the $26k ceiling is reached on Sunday 29 November">
+          <line x1="10" y1="50" x2="290" y2="50" stroke="#DADAD8" stroke-width="0.4"></line>
+          <line x1="10" y1="16" x2="290" y2="16" stroke="#5C5C5A" stroke-width="0.5" stroke-dasharray="2 2"></line>
+          <text x="200" y="20.5" font-size="3.2" fill="#5C5C5A">ceiling pace · 232M tokens a day</text>
+          <polyline fill="none" stroke="#3E9A5C" stroke-width="1.1" points="10,25.4 19.7,11.6 29.3,8.8 39,9.8"></polyline>
+          <circle cx="10" cy="25.4" r="0.9" fill="#3E9A5C"></circle><circle cx="19.7" cy="11.6" r="0.9" fill="#3E9A5C"></circle><circle cx="29.3" cy="8.8" r="0.9" fill="#3E9A5C"></circle><circle cx="39" cy="9.8" r="0.9" fill="#3E9A5C"></circle>
+          <circle cx="48.6" cy="30" r="0.9" fill="none" stroke="#3E9A5C" stroke-width="0.5"></circle>
+          <text x="51" y="31" font-size="3" fill="#5C5C5A">today to 11:58 · 136M</text>
+          <polyline fill="none" stroke="#8A8A88" stroke-width="0.7" stroke-dasharray="0.8 1.2" points="39,13.5 290,13.5"></polyline>
+          <text x="60" y="11.5" font-size="3.2" fill="#1A1A1A">forecast · 249M a day, the last 7 days' rate</text>
+          <line x1="280.3" y1="6" x2="280.3" y2="50" stroke="#B9742F" stroke-width="0.5" stroke-dasharray="1.5 1.5"></line>
+          <text x="278.5" y="5" font-size="3.2" fill="#B9742F" text-anchor="end">Sun 29 Nov · ceiling reached</text>
+          <text x="10" y="56" font-size="3" fill="#5C5C5A">1 Nov</text>
+          <text x="145.2" y="56" font-size="3" fill="#5C5C5A" text-anchor="middle">15 Nov</text>
+          <text x="290" y="56" font-size="3" fill="#5C5C5A" text-anchor="end">30 Nov</text>
+          <text x="7" y="7.5" font-size="3" fill="#5C5C5A" text-anchor="end">300M</text>
+          <text x="7" y="50.8" font-size="3" fill="#5C5C5A" text-anchor="end">0</text>
+        </svg>
+        <div class="kit-surface raised" style="padding: 14px 16px; margin-top: 14px">
+          <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap"><div class="kit-label">Spend against the ceiling</div><div class="kit-small kit-muted">$4.1k spent · forecast $27.3k · ceiling $26k</div></div>
+          <div class="kit-track" role="img" aria-label="16% of the ceiling spent; forecast 105%" style="margin-top: 10px; height: 12px; display: flex; gap: 2px"><i style="width: 16%"></i><i class="warn" style="width: 84%; opacity: .45"></i></div>
+          <div class="kit-threshold" style="margin-top: 6px">Solid: spent · shaded: forecast to 30 Nov, past the end of the bar</div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this exhibit">i<span class="kit-tip-bubble" role="tooltip">Source: Tokens and spend from the gateway serving log, Retail Advice keys, 1 Nov 00:00 to 5 Nov 11:58 ET. The pace line spends the $26k ceiling exactly on 30 Nov at this month's blended rate; ceiling from the approvals in the record.</span></button></div>
+      </div>
+    </section>
+
+    <!-- Decide -->
+    <section id="sec-decide" class="kit-surface kit-decide" aria-labelledby="h-decide">
+      <div class="kit-surface-head">
+        <div>
+          <h2 id="h-decide" style="display: flex; align-items: center; gap: 10px">Needs a decision <span class="kit-chip decision">4</span></h2>
+          <div class="sub">The month is forecast over its ceiling; UC-0291 already runs past its hourly limit.</div>
+        </div>
+        <span class="kit-small kit-muted">Agents propose, you decide</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 16px; margin-top: 16px; align-items: start">
+        <div class="kit-rows">
+          <article class="kit-row" aria-labelledby="d1-t" aria-current="true" style="grid-template-columns: minmax(0, 1fr); gap: 8px; border-color: #3E9A5C; box-shadow: 0 0 0 1px #3E9A5C">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Over limit</span></span><span class="t" id="d1-t">UC-0291 busiest hour at 102% of its limit</span><span class="kit-chip outline">TI-0291-1 pending</span></div>
+            <div class="kit-small">1,431 requests at Tue 3 Nov 10:00 against 1,400 an hour · increase to 1,800 an hour until Fri 20 Nov waits for its approver</div>
+            <div class="kit-actions" style="align-items: center"><a class="kit-btn sm" href="v6-V1-Approval.dc.html">Decide TI-0291-1</a><a class="kit-btn sm outline" href="#sec-limits">Edit the request</a><button class="kit-btn sm ghost" type="button" aria-expanded="true" aria-controls="sheet-ti">Details</button><span class="kit-threshold">Approver: Jithin, Head of ThinkLatent</span></div>
+          </article>
+          <article class="kit-row" aria-labelledby="d2-t" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Forecast over ceiling</span></span><span class="t" id="d2-t">UC-0118 forecast at 133% of its $11k ceiling</span></div>
+            <div class="kit-small">Hits its own ceiling Mon 23 Nov · team ceiling Sun 29 Nov · calls continue at the hourly limit, nothing is cut off</div>
+            <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">SR</span><span>SRE agent</span></span><span>Expects the rate to halve by 15 Nov, landing the month near $22k</span><span>Basis: statement-season calls since 30 Oct</span><a href="#h-tokens">View sources</a></div>
+            <div class="kit-actions" style="align-items: center"><a class="kit-btn sm" href="#sec-limits">Request a temporary increase</a><button class="kit-btn sm outline" type="button">Remind me Sun 15 Nov</button><button class="kit-btn sm ghost" type="button">Dismiss</button></div>
+          </article>
+          <article class="kit-row" aria-labelledby="d3-t" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Day 15 of 30</span></span><span class="t" id="d3-t">Evaluation key <span class="kit-mono">tl_sk_np_…1b20</span> has no owner tag</span></div>
+            <div class="kit-small">212 untagged calls a day on UC-0291 · warning header on since 4 Nov</div>
+            <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Fix tags</button><button class="kit-btn sm outline" type="button">Notify owner</button><a class="kit-btn sm ghost" href="#sec-keys">See the key</a></div>
+          </article>
+          <article class="kit-row" aria-labelledby="d4-t" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Day 11 of 30</span></span><span class="t" id="d4-t">Sandbox key <span class="kit-mono">tl_sk_sbx_…e771</span> lacks use_case and cost_centre</span></div>
+            <div class="kit-small">Retail digital team, no use case yet · 3 calls in total · header from 8 Nov</div>
+            <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Fix tags</button><a class="kit-btn sm outline" href="J1-Projects-Adoption.dc.html">Adoption</a><a class="kit-btn sm ghost" href="#sec-first-call">First call guide</a></div>
+          </article>
+        </div>
+
+        <aside class="kit-sheet" id="sheet-ti" aria-labelledby="sheet-t">
+          <div class="kit-sheet-head">
+            <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Pending · sent 4 Nov 16:20</span></span>
+              <h3 id="sheet-t">Temporary increase TI-0291-1</h3>
+            </div>
+            <button class="kit-btn ghost sm icon" type="button" aria-label="Close increase detail"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button>
+          </div>
+          <dl class="kit-kv" style="grid-template-columns: 110px 1fr; margin: 14px 0 0">
+            <dt>Use case</dt><dd>UC-0291 Advisor summary</dd>
+            <dt>Hourly limit</dt><dd>1,800 requests an hour, from 1,400</dd>
+            <dt>Ceiling</dt><dd>$11k for November, from $9k</dd>
+            <dt>Window</dt><dd>Fri 6 Nov 00:00 to Fri 20 Nov 23:59 ET · 15 days</dd>
+            <dt>Approver</dt><dd>Jithin, Head of ThinkLatent · production limits</dd>
+            <dt>Sent by</dt><dd>Priya N. · editable until decided</dd>
+            <dt>Reason</dt><dd>Cohort extension from 212 to 400 advisors, requested 3 Nov</dd>
+            <dt>On expiry</dt><dd>Limit and ceiling return to approval A-0291-3 without anyone acting</dd>
+          </dl>
+          <div class="kit-actions" style="margin-top: 16px; align-items: center"><a class="kit-btn sm" href="v6-V1-Approval.dc.html">Decide TI-0291-1</a><button class="kit-btn sm outline" type="button">Withdraw</button></div>
+        </aside>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px">
+        <span class="kit-small kit-muted">Dismissed items stay in the log with who and why</span>
+        <div class="kit-asof">As of 11:58 ET <button class="kit-tip end" type="button" aria-label="Source for decisions">i<span class="kit-tip-bubble" role="tooltip">Source: Busiest hours, forecasts and tag checks from the gateway serving log; limits, ceilings and TI-0291-1 from the approvals in the record; grace days from the policy record.</span></button></div>
+      </div>
+    </section>
+
+    <!-- Trace: spend by use case -->
+    <section id="sec-spend" aria-labelledby="h-spend" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-spend">Spend by use case</h2><div class="sub">Requests, tokens and cost this month against each ceiling</div></div>
+        <button class="kit-btn sm outline" type="button">Export CSV</button>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th>Use case</th><th class="num">Requests</th><th class="num">Tokens</th><th class="num">Cost</th><th style="width: 240px">Ceiling used<button class="kit-tip" type="button" aria-label="About ceiling used">i<span class="kit-tip-bubble" role="tooltip"><b>Ceiling used.</b> Spend to date as a share of the use case's monthly ceiling, with the month-end forecast at the last 7 days' rate.<span class="src">Source: approvals in the record · gateway serving log</span></span></button></th><th class="num">Rate-limit hits</th><th>Approval</th></tr></thead>
+          <tbody>
+            <tr><td><a href="v6-J3-Overview.dc.html">UC-0291 Advisor summary</a><div class="kit-small kit-muted">Pilot in production · dedicated</div></td><td class="num">82.8k</td><td class="num">422M</td><td class="num">$1.5k</td><td><div class="kit-small">16% of $9k · forecast 109%</div><div class="kit-track" style="margin-top: 4px"><i class="warn" style="width: 16%"></i></div></td><td class="num">37</td><td class="kit-mono">A-0291-3</td></tr>
+            <tr><td><a href="v6-J2-ProjectHome.dc.html">UC-0118 Statement explainer</a><div class="kit-small kit-muted">Production · dedicated</div></td><td class="num">141k</td><td class="num">606M</td><td class="num">$2.2k</td><td><div class="kit-small">20% of $11k · forecast 133%</div><div class="kit-track" style="margin-top: 4px"><i class="crit" style="width: 20%"></i></div></td><td class="num">0</td><td class="kit-mono">A-0118-5</td></tr>
+            <tr><td><a href="v6-J2-ProjectHome.dc.html">UC-0263 Statement explainer · web</a><div class="kit-small kit-muted">Production · dedicated</div></td><td class="num">22.6k</td><td class="num">75M</td><td class="num">$421</td><td><div class="kit-small">11% of $4k · forecast 70%</div><div class="kit-track" style="margin-top: 4px"><i style="width: 11%"></i></div></td><td class="num">0</td><td class="kit-mono">A-0263-2</td></tr>
+            <tr><td><a href="#sec-keys">Sandbox keys · 4</a> <span class="kit-chip env">Non-production</span><div class="kit-small kit-muted">Sandbox · shared pool</div></td><td class="num">3.1k</td><td class="num">18M</td><td class="num">$8</td><td><div class="kit-small">Under 1% of $2k · forecast 3%</div><div class="kit-track" style="margin-top: 4px"><i style="width: 1%"></i></div></td><td class="num">3</td><td class="kit-mono">SA-07</td></tr>
+            <tr><td><b style="font-weight: 500">Retail Advice</b></td><td class="num"><b style="font-weight: 500">249.5k</b></td><td class="num"><b style="font-weight: 500">1.12B</b></td><td class="num"><b style="font-weight: 500">$4.1k</b></td><td><div class="kit-small">16% of $26k · forecast 105%</div></td><td class="num"><b style="font-weight: 500">40</b></td><td class="kit-small">4 approvals</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-threshold" style="margin-top: 10px">Production request content stays sealed; this table is aggregate</div>
+        <div class="kit-asof" style="margin-top: 8px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for spend by use case">i<span class="kit-tip-bubble" role="tooltip">Source: Gateway serving log, aggregated per use case and per key, 1 Nov to 5 Nov 11:58 ET; ceilings from approvals A-0291-3, A-0118-5, A-0263-2 and the standing sandbox approval SA-07.</span></button></div>
+      </div>
+    </section>
+
+    <!-- Trace: keys -->
+    <section id="sec-keys" aria-labelledby="h-keys" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-keys">Keys and their tags</h2><div class="sub">Nine keys, each carrying six required tags · shown masked</div></div>
+        <div class="kit-actions"><button class="kit-btn sm" type="button">New sandbox key</button><a class="kit-btn sm outline" href="O1-UnregisteredUsage.dc.html">Grace policy</a></div>
+      </div>
+      <div class="kit-surface raised">
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; align-items: start">
+          <div><div class="kit-label">Keys</div><div class="kit-display" style="font-size: 34px; margin-top: 6px">9</div><div class="kit-small kit-muted" style="margin-top: 4px">3 production · 2 non-production · 4 sandbox</div></div>
+          <div><div class="kit-label">Calls with every tag</div><div class="kit-display" style="font-size: 34px; margin-top: 6px">99.4<span style="font-size: 14px; margin-left: 4px">%</span></div><div class="kit-small kit-muted" style="margin-top: 4px">Last 7 days · 0.6% missed a tag</div></div>
+          <div><div class="kit-label">Keys with untagged calls</div><div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px"><span class="kit-display" style="font-size: 34px">2</span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Grace period</span></span></div><div class="kit-small kit-muted" style="margin-top: 4px">Day 15 and day 11 of 30</div></div>
+          <div><div class="kit-label">Day-30 enforcement<button class="kit-tip below" type="button" aria-label="About the grace policy">i<span class="kit-tip-bubble" role="tooltip"><b>Grace policy.</b> A notice at day 7, a warning header on every untagged call from day 14, and the untagged share named in the weekly digest. A blocked key would keep its sandbox.<span class="src">Source: policy record · digest for the week of 2 Nov</span></span></button></div><div style="font-size: 18px; margin-top: 10px">Pending Risk concurrence</div><div class="kit-small kit-muted" style="margin-top: 4px">No key has been blocked</div></div>
+        </div>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th>Key</th><th>Use case · tags on the key</th><th>Environment</th><th>Required tags<button class="kit-tip" type="button" aria-label="About required tags">i<span class="kit-tip-bubble" role="tooltip"><b>Required tags.</b> project, use_case, env, business_line, cost_centre and owner, fixed on the key when it is issued. They attribute every call's cost, usage and quality.<span class="src">Source: key registry and tag checks on the gateway serving log, 7 days</span></span></button></th><th>Created</th><th>Last used</th><th class="num">Calls, 7 d</th><th>Expires</th><th><span class="kit-small kit-muted">Action</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="kit-mono">tl_sk_prod_</span><span class="kit-masked" aria-label="hidden"></span><span class="kit-mono">4f9a</span></td><td>UC-0291 Advisor summary<div class="kit-mono kit-muted" style="font-size: 11px; margin-top: 4px">project=advisor-summary use_case=UC-0291 env=prod business_line=retail-advice cost_centre=CC-2210 owner=priya.n</div></td><td><span class="kit-chip">Production · pilot</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>6 of 6</span></span></td><td class="kit-small">14 Oct · from the record</td><td class="kit-small">11:57</td><td class="num">128.8k</td><td class="kit-small">With the record</td><td><button class="kit-btn sm outline" type="button">Rotate</button></td></tr>
+            <tr><td><span class="kit-mono">tl_sk_prod_</span><span class="kit-masked" aria-label="hidden"></span><span class="kit-mono">b812</span></td><td>UC-0118 Statement explainer<div class="kit-mono kit-muted" style="font-size: 11px; margin-top: 4px">project=statement-explainer use_case=UC-0118 env=prod business_line=retail-advice cost_centre=CC-2214 owner=priya.n</div></td><td><span class="kit-chip">Production</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>6 of 6</span></span></td><td class="kit-small">3 Mar · from the record</td><td class="kit-small">11:58</td><td class="num">219k</td><td class="kit-small">With the record</td><td><button class="kit-btn sm outline" type="button">Rotate</button></td></tr>
+            <tr><td><span class="kit-mono">tl_sk_prod_</span><span class="kit-masked" aria-label="hidden"></span><span class="kit-mono">77d0</span></td><td>UC-0263 Statement explainer · web<div class="kit-mono kit-muted" style="font-size: 11px; margin-top: 4px">project=statement-explainer use_case=UC-0263 env=prod business_line=retail-advice cost_centre=CC-2214 owner=priya.n</div></td><td><span class="kit-chip">Production</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>6 of 6</span></span></td><td class="kit-small">12 Jun · from the record</td><td class="kit-small">11:58</td><td class="num">35.2k</td><td class="kit-small">With the record</td><td><button class="kit-btn sm outline" type="button">Rotate</button></td></tr>
+            <tr aria-current="true"><td><span class="kit-mono">tl_sk_np_</span><span class="kit-masked" aria-label="hidden"></span><span class="kit-mono">1b20</span></td><td>UC-0291 Advisor summary<div class="kit-mono kit-muted" style="font-size: 11px; margin-top: 4px">project=advisor-summary use_case=UC-0291 env=eval business_line=retail-advice cost_centre=CC-2210 owner=—</div></td><td><span class="kit-chip env">Non-production · evaluation</span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>5 of 6 · no owner</span></span></td><td class="kit-small">21 Oct · Marcus L.</td><td class="kit-small">10:40</td><td class="num">6.1k</td><td class="kit-small">20 Jan</td><td><button class="kit-btn sm outline" type="button" aria-expanded="true" aria-controls="drawer-1b20">Hide</button></td></tr>
+            <tr id="drawer-1b20"><td colspan="9" style="background: rgba(185,116,47,.06)">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 4px 0">
+                <dl class="kit-kv" style="grid-template-columns: 150px 1fr; margin: 0">
+                  <dt>Missing</dt><dd>owner · UC-0291 evaluation traffic</dd>
+                  <dt>Untagged calls</dt><dd>212 a day · first on 21 Oct</dd>
+                  <dt>Grace so far</dt><dd>Notice sent 28 Oct · warning header on since 4 Nov · day 15 of 30</dd>
+                </dl>
+                <div class="kit-actions"><button class="kit-btn sm" type="button">Fix tags</button><button class="kit-btn sm outline" type="button">Notify owner</button></div>
+              </div>
+            </td></tr>
+            <tr><td><span class="kit-mono">tl_sk_np_</span><span class="kit-masked" aria-label="hidden"></span><span class="kit-mono">3c44</span></td><td>UC-0118 Statement explainer<div class="kit-mono kit-muted" style="font-size: 11px; margin-top: 4px">project=statement-explainer use_case=UC-0118 env=nonprod business_line=retail-advice cost_centre=CC-2214 owner=priya.n</div></td><td><span class="kit-chip env">Non-production · canary rehearsal</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>6 of 6</span></span></td><td class="kit-small">30 Oct · Priya N.</td><td class="kit-small">09:12</td><td class="num">2.4k</td><td class="kit-small">28 Jan</td><td><button class="kit-btn sm outline" type="button">Rotate</button></td></tr>
+            <tr><td><span class="kit-mono">tl_sk_sbx_</span><span class="kit-masked" aria-label="hidden"></span><span class="kit-mono">7Q2c</span></td><td>UC-0291 Advisor summary<div class="kit-mono kit-muted" style="font-size: 11px; margin-top: 4px">project=advisor-summary use_case=UC-0291 env=sandbox business_line=retail-advice cost_centre=CC-2210 owner=priya.n</div></td><td><span class="kit-chip env">Sandbox</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>6 of 6</span></span></td><td class="kit-small">22 Sep · Priya N.</td><td class="kit-small">11:52</td><td class="num">1.2k</td><td class="kit-small">90 days after last call</td><td><button class="kit-btn sm outline" type="button">Rotate</button></td></tr>
+            <tr><td><span class="kit-mono">tl_sk_sbx_</span><span class="kit-masked" aria-label="hidden"></span><span class="kit-mono">c3d1</span></td><td>UC-0291 Advisor summary<div class="kit-mono kit-muted" style="font-size: 11px; margin-top: 4px">project=advisor-summary use_case=UC-0291 env=sandbox business_line=retail-advice cost_centre=CC-2210 owner=marcus.l</div></td><td><span class="kit-chip env">Sandbox</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>6 of 6</span></span></td><td class="kit-small">2 Oct · Marcus L.</td><td class="kit-small">4 Nov</td><td class="num">640</td><td class="kit-small">90 days after last call</td><td><button class="kit-btn sm outline" type="button">Rotate</button></td></tr>
+            <tr><td><span class="kit-mono">tl_sk_sbx_</span><span class="kit-masked" aria-label="hidden"></span><span class="kit-mono">0a5f</span></td><td>UC-0263 Statement explainer · web<div class="kit-mono kit-muted" style="font-size: 11px; margin-top: 4px">project=statement-explainer use_case=UC-0263 env=sandbox business_line=retail-advice cost_centre=CC-2214 owner=priya.n</div></td><td><span class="kit-chip env">Sandbox</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>6 of 6</span></span></td><td class="kit-small">8 Sep · Priya N.</td><td class="kit-small">1 Nov</td><td class="num">1.3k</td><td class="kit-small">90 days after last call</td><td><button class="kit-btn sm outline" type="button">Rotate</button></td></tr>
+            <tr><td><span class="kit-mono">tl_sk_sbx_</span><span class="kit-masked" aria-label="hidden"></span><span class="kit-mono">e771</span></td><td>Retail digital team · no use case yet<div class="kit-mono kit-muted" style="font-size: 11px; margin-top: 4px">project=retail-digital use_case=— env=sandbox business_line=retail-advice cost_centre=— owner=retail-digital</div></td><td><span class="kit-chip env">Sandbox</span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>4 of 6 · no use_case, cost_centre</span></span></td><td class="kit-small">25 Oct · Retail digital</td><td class="kit-small">25 Oct</td><td class="num">0</td><td class="kit-small">90 days after last call</td><td><button class="kit-btn sm" type="button">Fix tags</button></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-threshold" style="margin-top: 10px">Revoking a production key is the owner's decision with the Head of ThinkLatent, from the record · rotation keeps the tags</div>
+        <div class="kit-asof" style="margin-top: 8px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for keys">i<span class="kit-tip-bubble" role="tooltip">Source: Key registry and tag checks on the gateway serving log, last 7 days, aggregate per key. Production keys are issued from the record after the security and data-handling review; sandbox keys come from standing approval SA-07.</span></button></div>
+      </div>
+    </section>
+
+    <!-- Trace: first call -->
+    <section id="sec-first-call" aria-labelledby="h-first-call" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-first-call">First call <span class="kit-eng-label">Engineering view</span></h2><div class="sub">From a new key to a first traced call through Relay</div></div>
+        <div class="kit-actions"><a class="kit-btn sm" href="P1-Playground.dc.html">Try it in the playground</a><a class="kit-btn sm outline" href="K1-Help.dc.html">Relay docs</a></div>
+      </div>
+      <ol class="kit-grid3" style="list-style: none; margin: 0; padding: 0">
+        <li class="kit-surface raised" style="padding: 16px 18px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><div style="display: flex; align-items: center; gap: 10px"><span class="kit-avatar">1</span><h3>Take your key</h3></div><span class="kit-chip">At save</span></div>
+          <div style="margin-top: 10px">A sandbox key issued under standing approval <a href="v6-V1-Approval.dc.html">SA-07</a>.</div>
+          <div class="kit-small kit-muted" style="margin-top: 4px">Shown once · six tags fixed on it · expires 90 days after its last call</div>
+        </li>
+        <li class="kit-surface raised" style="padding: 16px 18px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><div style="display: flex; align-items: center; gap: 10px"><span class="kit-avatar">2</span><h3>Paste the snippet</h3></div><span class="kit-chip">Python or curl</span></div>
+          <div style="margin-top: 10px">Generated from the record's routing, not typed.</div>
+          <div style="margin-top: 6px"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Sandbox data only · synthetic or masked</span></span></div>
+        </li>
+        <li class="kit-surface raised" style="padding: 16px 18px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><div style="display: flex; align-items: center; gap: 10px"><span class="kit-avatar">3</span><h3>See it land</h3></div><span class="kit-chip brand">Under 30 min</span></div>
+          <div style="margin-top: 10px">The first call shows on <a href="v6-J2-ProjectHome.dc.html">your project home</a>.</div>
+          <div class="kit-small kit-muted" style="margin-top: 4px">With its tags and a link to its <a href="J11-Traces.dc.html">trace</a></div>
+        </li>
+      </ol>
+      <div class="kit-surface raised">
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) auto; gap: 24px; align-items: start">
+          <div>
+            <div class="kit-label">Key to first call, new projects<button class="kit-tip below" type="button" aria-label="About time to first call">i<span class="kit-tip-bubble" role="tooltip"><b>Time to first call.</b> From the sandbox key being issued at save to its first successful traced call. The 30-minute target is an onboarding goal, measured per project.<span class="src">Source: the key register and the gateway serving log · as of 11:58 ET</span></span></button></div>
+            <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px"><span class="kit-display" style="font-size: 34px">22<span style="font-size: 14px; margin-left: 4px">min</span></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the 30 min target</span></span></div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">Team median</div>
+          </div>
+          <div>
+            <div class="kit-label">Every key, all models</div>
+            <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px"><span class="kit-display" style="font-size: 34px">5.2<span style="font-size: 14px; margin-left: 4px">h</span></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the 8 h target</span></span></div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">Median · keys issued in October</div>
+          </div>
+          <a class="kit-btn sm outline" href="O6-ContractHealth.dc.html">Contract health</a>
+        </div>
+      </div>
+      <div class="kit-surface raised">
+        <div class="kit-surface-head">
+          <div><h3>Call it through Relay</h3><div class="sub">Needs a registered use case · production calls use dedicated endpoints only</div></div>
+          <div class="kit-actions"><div class="kit-seg" role="group" aria-label="Language"><button type="button" aria-pressed="true">Python</button><button type="button" aria-pressed="false">curl</button></div><button class="kit-btn sm outline" type="button">Copy snippet</button><a class="kit-btn sm outline" href="J11-Traces.dc.html">See your traces</a></div>
+        </div>
+        <dl class="kit-kv" style="margin-top: 12px; grid-template-columns: 160px 1fr">
+          <dt>Model name</dt><dd>The alias: <span class="kit-mono">tlm4-core:prod</span> follows the current release; the code does not change when the route moves</dd>
+          <dt>Tags</dt><dd><span class="kit-mono">use_case</span>, <span class="kit-mono">stage</span>, <span class="kit-mono">task</span>, <span class="kit-mono">prompt_id</span>, <span class="kit-mono">end_user</span> on every call · end_user hashed on your side, never sent raw</dd>
+          <dt>Outcome and feedback</dt><dd><span class="kit-mono">client.outcome</span> · accepted, edited or discarded · <span class="kit-mono">client.feedback</span> · 1 to 5</dd>
+          <dt>Request id</dt><dd><span class="kit-mono">reply.request_id</span> · keep it beside your logs; support, replays and disputes start from it</dd>
+        </dl>
+        <div class="kit-label" style="margin-top: 14px">Python</div>
+        <pre class="kit-code" style="margin-top: 6px">from relay import Client
+
+client = Client(use_case="UC-0291", stage="pilot")         # key is scoped to the use case
+reply = client.generate(
+    model="tlm4-core:prod",                               # the alias is the model name
+    prompt_id="advisor-summary/v3",
+    task="summarise-meeting",
+    end_user=client.hash_user(advisor_id),                 # hashed here, never raw
+    input={"notes": notes},
+)
+print(reply.text, reply.request_id)
+
+client.outcome(reply.request_id, "accepted")              # accepted | edited | discarded
+client.feedback(reply.request_id, score=4)                 # optional reason="..."</pre>
+        <details style="margin-top: 10px">
+          <summary class="kit-small" style="cursor: pointer; font-weight: 500">Same call with curl</summary>
+          <pre class="kit-code" style="margin-top: 8px">curl (source link withheld) \
+  -H "Authorization: Bearer $RELAY_KEY" \
+  -H "X-TL-Use-Case: UC-0291" -H "X-TL-Stage: pilot" \
+  -H "X-TL-Task: summarise-meeting" -H "X-TL-Prompt-Id: advisor-summary/v3" \
+  -H "X-TL-End-User: sha256:9f2c41e0" \
+  -d '{"model":"tlm4-core:prod","messages":[{"role":"user","content":"..."}]}'
+
+curl (source link withheld) \
+  -H "Authorization: Bearer $RELAY_KEY" \
+  -d '{"request_id":"req_7Hq2","outcome":"accepted","score":4}'</pre>
+        </details>
+        <div class="kit-threshold" style="margin-top: 10px">Untagged calls get a warning header from day 14</div>
+        <div class="kit-asof" style="margin-top: 8px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for first call">i<span class="kit-tip-bubble" role="tooltip">Source: Endpoint, aliases and tag names from the registry and the telemetry contract; both snippets are generated from the registry entry, not typed. Time to first call from the key register and the gateway serving log.</span></button></div>
+      </div>
+    </section>
+
+    <!-- Trace: limits -->
+    <section id="sec-limits" aria-labelledby="h-limits" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-limits">Limits beside the hourly peak</h2><div class="sub">Each use case's limits from its approval, beside its busiest hour in 7 days</div></div>
+        <div class="kit-actions" style="align-items: center"><div class="kit-seg" role="group" aria-label="Limits window"><button type="button" aria-pressed="true">Last 7 days</button><button type="button" aria-pressed="false">This month</button><button type="button" aria-pressed="false">Last month</button></div><a class="kit-btn sm outline" href="J9-Record.dc.html">Limits ledger</a></div>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th>Use case</th><th class="num">Hourly limit</th><th style="width: 240px">Busiest hour, 7 days</th><th>When</th><th class="num">Tokens per minute, peak / limit</th><th class="num">Headroom<button class="kit-tip" type="button" aria-label="About headroom">i<span class="kit-tip-bubble" role="tooltip"><b>Headroom.</b> The hourly limit left above the busiest hour. Above 80% of a limit is Warning; above 100% the gateway turns requests away.<span class="src">Source: approvals in the record · gateway serving log</span></span></button></th><th><span class="kit-small kit-muted">Action</span></th></tr></thead>
+          <tbody>
+            <tr><td>UC-0291 Advisor summary<div class="kit-small kit-muted">A-0291-3 · 14 Oct</div></td><td class="num">1,400</td><td><div class="kit-small">1,431 · 102%</div><div class="kit-track" style="margin-top: 4px"><i class="crit" style="width: 100%"></i></div></td><td class="kit-small">Tue 3 Nov 10:00 · advisor morning peak</td><td class="num">162k / 150k</td><td class="num"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>−2%</span></span></td><td><span class="kit-chip outline">TI-0291-1 pending</span></td></tr>
+            <tr><td>UC-0118 Statement explainer<div class="kit-small kit-muted">A-0118-5 · 3 Mar</div></td><td class="num">3,600</td><td><div class="kit-small">3,140 · 87%</div><div class="kit-track" style="margin-top: 4px"><i class="warn" style="width: 87%"></i></div></td><td class="kit-small">Mon 2 Nov 09:00 · statement season</td><td class="num">231k / 300k</td><td class="num"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>13%</span></span></td><td><button class="kit-btn sm outline" type="button">Increase</button></td></tr>
+            <tr><td>UC-0263 Statement explainer · web<div class="kit-small kit-muted">A-0263-2 · 12 Jun</div></td><td class="num">1,200</td><td><div class="kit-small">540 · 45%</div><div class="kit-track" style="margin-top: 4px"><i style="width: 45%"></i></div></td><td class="kit-small">Tue 3 Nov 12:00</td><td class="num">31k / 80k</td><td class="num"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>55%</span></span></td><td></td></tr>
+            <tr><td>Sandbox keys, each <span class="kit-chip env">Non-production</span><div class="kit-small kit-muted">SA-07 · standing approval</div></td><td class="num">1,000</td><td><div class="kit-small">410 · 41%</div><div class="kit-track" style="margin-top: 4px"><i style="width: 41%"></i></div><div class="kit-threshold">Burst of 64 a minute against 60 · 3 hits</div></td><td class="kit-small">Thu 5 Nov 09:00</td><td class="num">40k / 100k</td><td class="num"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>59%</span></span></td><td></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for limits">i<span class="kit-tip-bubble" role="tooltip">Source: Limits and ceilings from approvals in the record; busiest hours from the gateway serving log, 29 Oct to 5 Nov, aggregate.</span></button></div>
+      </div>
+
+      <div class="kit-surface raised">
+        <div class="kit-surface-head">
+          <div><h3>Temporary increase · TI-0291-1</h3><div class="sub">Sent 4 Nov 16:20 by Priya N. · editable until decided</div></div>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Pending</span></span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 12px">
+          <div class="kit-field"><label for="ti-uc">Use case</label><select class="kit-input" id="ti-uc"><option>UC-0291 Advisor summary</option><option>UC-0118 Statement explainer</option><option>UC-0263 Statement explainer · web</option></select></div>
+          <div class="kit-field"><label for="ti-limit">Hourly limit during the increase</label><input class="kit-input" id="ti-limit" type="text" value="1,800 requests an hour (from 1,400)"></div>
+          <div class="kit-field"><label for="ti-ceiling">Ceiling during the increase</label><input class="kit-input" id="ti-ceiling" type="text" value="$11k for November (from $9k)"></div>
+          <div class="kit-field"><label for="ti-from">Starts</label><input class="kit-input" id="ti-from" type="text" value="Fri 6 Nov 2026, 00:00 ET"></div>
+          <div class="kit-field"><label for="ti-to">Expires · at most 30 days</label><input class="kit-input" id="ti-to" type="text" value="Fri 20 Nov 2026, 23:59 ET · 15 days"></div>
+          <div class="kit-field"><label for="ti-approver">Named approver</label><select class="kit-input" id="ti-approver"><option>Jithin, Head of ThinkLatent · production limits</option><option>Priya N., project owner · sandbox up to $500</option></select></div>
+        </div>
+        <div class="kit-field" style="margin-top: 12px"><label for="ti-why">Reason</label><input class="kit-input" id="ti-why" type="text" value="Cohort extension from 212 to 400 advisors requested 3 Nov; the morning peak already reached 102% of the limit"></div>
+        <div class="kit-actions" style="margin-top: 12px; align-items: center"><button class="kit-btn" type="button">Update request</button><button class="kit-btn outline" type="button">Withdraw</button><span class="kit-small kit-muted">On expiry the values in A-0291-3 return without anyone acting</span></div>
+        <div class="kit-threshold" style="margin-top: 12px">Ceiling policy v2: a named approver and at most 30 days; at 100% of a ceiling calls continue at the hourly limit<button class="kit-tip" type="button" aria-label="About ceiling policy v2">i<span class="kit-tip-bubble" role="tooltip"><b>Ceiling policy v2, from 1 Oct.</b> The Head of ThinkLatent approves production raises and the project owner sandbox raises up to $500; nothing is cut off without a person's decision. Every raise is a dated row in the record and appears in the monthly statement.</span></button></div>
+      </div>
+
+      <div class="kit-surface">
+        <div class="kit-surface-head"><div><h3>Rate-limited requests</h3><div class="sub">Turned away and counted per hour · content never stored</div></div><span class="kit-chip">40 this month</span></div>
+        <div class="kit-rows" style="margin-top: 12px">
+          <div class="kit-row" style="grid-template-columns: 190px minmax(0, 1fr) 90px"><span class="kit-small">Tue 3 Nov · 10:00–11:00</span><div><div class="t">UC-0291 · 1,431 requests against 1,400 an hour</div><div class="s">All 31 retried after the Retry-After interval · median added wait 38 s</div></div><span class="kit-display" style="font-size: 22px; text-align: right">31</span></div>
+          <div class="kit-row" style="grid-template-columns: 190px minmax(0, 1fr) 90px"><span class="kit-small">Wed 4 Nov · 10:00–11:00</span><div><div class="t">UC-0291 · 1,406 requests against 1,400 an hour</div><div class="s">All 6 retried and served within 2 minutes</div></div><span class="kit-display" style="font-size: 22px; text-align: right">6</span></div>
+          <div class="kit-row" style="grid-template-columns: 190px minmax(0, 1fr) 90px"><span class="kit-small">Thu 5 Nov · 09:00–10:00</span><div><div class="t">Sandbox <span class="kit-mono">tl_sk_sbx_…7Q2c</span> · 64 a minute against 60</div><div class="s">A test loop without a pause · non-production</div></div><span class="kit-display" style="font-size: 22px; text-align: right">3</span></div>
+        </div>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET · gateway serving log, per hour and per key, 1 Nov to 5 Nov</div>
+      </div>
+    </section>
+
+    <!-- Trace: showback and statement -->
+    <section id="sec-showback" aria-labelledby="h-showback" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-showback">Showback and statement</h2><div class="sub">All business lines · October 2026, closed 2 Nov</div></div>
+        <div class="kit-actions" style="align-items: center"><div class="kit-seg" role="group" aria-label="Statement window"><button type="button" aria-pressed="true">October · closed</button><button type="button" aria-pressed="false">November to date</button><button type="button" aria-pressed="false">Quarter</button></div><button class="kit-btn sm" type="button">Download October statement</button><a class="kit-btn sm outline" href="J1-Projects-Value.dc.html">Value ledger</a></div>
+      </div>
+      <div class="kit-surface raised">
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; align-items: start">
+          <div><div class="kit-label">Cost to run</div><div class="kit-display" style="font-size: 34px; margin-top: 6px">$50.4k</div><div class="kit-small kit-muted" style="margin-top: 4px">$47.1k dedicated · $3.3k shared serving</div></div>
+          <div><div class="kit-label">Vendor-equivalent<button class="kit-tip below" type="button" aria-label="About vendor-equivalent">i<span class="kit-tip-bubble" role="tooltip"><b>Vendor-equivalent, Finance method v1.2.</b> The list price of the frontier API in the use case's quality band times measured tokens. v1.1 used estimated tokens and was restated.<span class="src">Source: Finance method v1.2, effective 1 Oct · corrections log</span></span></button></div><div class="kit-display" style="font-size: 34px; margin-top: 6px">$141.7k</div><div class="kit-small kit-muted" style="margin-top: 4px">Same production and pilot work on a vendor API</div></div>
+          <div><div class="kit-label">Cost avoided</div><div class="kit-display" style="font-size: 34px; margin-top: 6px">$92.9k</div><div class="kit-small kit-muted" style="margin-top: 4px">Production $88.1k · pilot $4.9k</div></div>
+          <div><div class="kit-label">Statement for Finance</div><div style="font-size: 18px; margin-top: 10px">Issued Tue 3 Nov</div><div class="kit-small kit-muted" style="margin-top: 4px">November's due by Thu 3 Dec</div></div>
+        </div>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th>Business line</th><th class="num">Dedicated machines</th><th class="num">Shared serving</th><th class="num">Total</th><th class="num">Vendor-equivalent</th><th class="num">Avoided<button class="kit-tip end" type="button" aria-label="About avoided">i<span class="kit-tip-bubble" role="tooltip"><b>Avoided.</b> Vendor-equivalent less the cost of the same use cases. Sandbox and non-production spend are shown but not offset.<span class="src">Source: gateway serving log and HyperPod allocation, October, closed 2 Nov</span></span></button></th><th>Use cases counted</th></tr></thead>
+          <tbody>
+            <tr><td>Retail Advice</td><td class="num">$21.2k</td><td class="num">$780</td><td class="num">$22k</td><td class="num">$53.4k</td><td class="num">$31.5k</td><td class="kit-small">UC-0118, UC-0263, UC-0291 (pilot)</td></tr>
+            <tr><td>Institutional Ops</td><td class="num">$16.9k</td><td class="num">$460</td><td class="num">$17.4k</td><td class="num">$55.9k</td><td class="num">$38.6k</td><td class="kit-small">UC-0142, UC-0203</td></tr>
+            <tr><td>Client Services</td><td class="num">$5.9k</td><td class="num">$230</td><td class="num">$6.1k</td><td class="num">$22.6k</td><td class="num">$16.5k</td><td class="kit-small">UC-0251</td></tr>
+            <tr><td>Investment Mgmt <span class="kit-chip env">Non-production</span></td><td class="num">$0</td><td class="num">$1.2k</td><td class="num">$1.2k</td><td class="num"><span class="kit-dash" title="no production use case yet; non-production work is not priced against a vendor">—</span></td><td class="num"><span class="kit-dash" title="no production use case yet">—</span></td><td class="kit-small">None yet · UC-0307 in build</td></tr>
+            <tr><td>Compliance <span class="kit-chip env">Non-production</span></td><td class="num">$0</td><td class="num">$280</td><td class="num">$280</td><td class="num"><span class="kit-dash" title="no production use case yet">—</span></td><td class="num"><span class="kit-dash" title="no production use case yet">—</span></td><td class="kit-small">None yet · UC-0311 in POC</td></tr>
+            <tr><td>ThinkLatent</td><td class="num">$3.1k</td><td class="num">$320</td><td class="num">$3.4k</td><td class="num">$9.8k</td><td class="num">$6.4k</td><td class="kit-small">UC-0001 Portal help agent</td></tr>
+            <tr><td><b style="font-weight: 500">All business lines</b></td><td class="num"><b style="font-weight: 500">$47.1k</b></td><td class="num"><b style="font-weight: 500">$3.3k</b></td><td class="num"><b style="font-weight: 500">$50.4k</b></td><td class="num"><b style="font-weight: 500">$141.7k</b></td><td class="num"><b style="font-weight: 500">$92.9k</b></td><td class="kit-small">7 use cases</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-label" style="margin-top: 18px">How cost is counted</div>
+        <div class="kit-rows" style="margin-top: 8px">
+          <div class="kit-row" style="grid-template-columns: 280px minmax(0, 1fr)"><div class="t">Dedicated machines · fixed monthly share</div><div class="s">By capacity reserved, whatever is sent · production runs only on dedicated endpoints</div></div>
+          <div class="kit-row" style="grid-template-columns: 280px minmax(0, 1fr)"><div class="t">Shared serving · per token</div><div class="s">Sandbox, POC, build, shared-pool pilot and training · 42¢ per million tokens, blended</div></div>
+          <div class="kit-row" style="grid-template-columns: 280px minmax(0, 1fr)"><div class="t">Vendor-equivalent · method v1.2</div><div class="s">Versioned by Finance · restatements in the <a href="E4-Corrections.dc.html">corrections log</a></div></div>
+        </div>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for showback">i<span class="kit-tip-bubble" role="tooltip">Source: Gateway serving log and the HyperPod allocation for October 2026, closed 2 Nov; vendor-equivalent by Finance method v1.2; business line from each key's business_line and cost_centre tags.</span></button></div>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-surface-head"><div><h3>Monthly statements for Finance</h3><div class="sub">By business line and cost centre, with the method version used</div></div></div>
+        <div class="kit-rows" style="margin-top: 12px">
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 210px"><div><div class="t">October 2026 · issued Tue 3 Nov</div><div class="s">$50.4k cost · $92.9k avoided · method v1.2 · 6 business lines · 31 cost centres</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Issued</span></span><div class="end"><button class="kit-btn sm outline" type="button">PDF</button><button class="kit-btn sm outline" type="button">CSV</button></div></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 210px"><div><div class="t">November 2026 · open month</div><div class="s">Closes Mon 30 Nov · issued by Thu 3 Dec</div></div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Open</span></span><div class="end"><a class="kit-btn sm outline" href="#h-tokens">Month to date</a></div></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 210px"><div><div class="t">September 2026 · issued 2 Oct, restated 9 Oct</div><div class="s">$46.9k cost · restated from method v1.1 to v1.2; vendor-equivalent 6% lower</div></div><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Restated</span></span><div class="end"><button class="kit-btn sm outline" type="button">PDF</button><button class="kit-btn sm outline" type="button">CSV</button></div></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 210px"><div><div class="t">August 2026 · issued 2 Sep</div><div class="s">$41.3k cost · method v1.1, kept as issued</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Issued</span></span><div class="end"><button class="kit-btn sm outline" type="button">PDF</button><button class="kit-btn sm outline" type="button">CSV</button></div></div>
+        </div>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET · portal finance export, signed off by the ThinkLatent foundation team before issue</div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T6 · Checkpoints (v6)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 5800px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="v6-T2-RunsInFlight.dc.html" aria-current="page" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+
+    <!-- ORIENT -->
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+        <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="v6-T2-RunsInFlight.dc.html">Training</a><span class="sep" aria-hidden="true">›</span><a href="v6-T2-RunsInFlight.dc.html">R-2291 Domain-Advice v3</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Checkpoints</span></nav>
+        <h1>R-2291 checkpoints</h1>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center"><span class="kit-chip brand">Official</span><a class="kit-chip outline" href="v6-M2-ModelPage.dc.html">TLM4 Domain-Advice v3</a><a class="kit-chip outline" href="v6-J3-Overview.dc.html">UC-0291 Advisor summary</a><span class="kit-chip env">Non-production</span><span class="kit-small kit-muted">Owner Priya N.</span></div>
+        <p style="font-size: 15px">Step 3,900 is best on validation and clears the use-case bar; two gaps still block release.</p>
+        <div class="kit-asof">As of Thu 5 Nov 2026, 11:58 ET</div>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="v6-E1-EvaluationResults.dc.html">Send step 3,900 to evaluation</a><a class="kit-btn outline" href="P1-Playground.dc.html">Open in playground</a><a class="kit-btn outline" href="v6-T2-RunsInFlight.dc.html#sec-logs">Job logs</a></div>
+    </div>
+
+    <nav class="kit-rail" aria-label="Training" style="align-self: flex-start"><a href="v6-T2-RunsInFlight.dc.html">Runs in flight</a><a href="v6-T1-NewTrainingRun.dc.html">New training run</a><a href="T3-RunHistory.dc.html">Run history</a><a href="T4-BaseModels.dc.html">Base models</a><a href="T5-Preflight.dc.html">Preflight</a><a href="v6-T6-Checkpoints.dc.html" aria-current="page">Checkpoints</a></nav>
+
+    <nav class="kit-sectionbar" aria-label="Sections on this page" style="align-self: flex-start"><a href="#decide" aria-current="true">Decide <span class="n">3</span></a><a href="#sec-checkpoints">Checkpoints <span class="n">5 kept</span></a><a href="#sec-gaps">Gap report <span class="n">2 blocking</span></a><a href="#sec-specialists">Decide specialists <span class="n">R-2241</span></a><a href="#sec-engineering">Training signals <span class="n">Engineering</span></a></nav>
+
+    <!-- JUDGE: tiles -->
+    <div class="kit-tiles">
+      <section class="kit-tile" aria-label="Selected checkpoint">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="#sec-checkpoints" aria-label="Open the checkpoint table">↗</a></div>
+        <div class="kit-tile-title">Selected checkpoint<button class="kit-tip" type="button" aria-label="About the selected checkpoint">i<span class="kit-tip-bubble" role="tooltip"><b>Selection rule.</b> The checkpoint with the lowest validation loss is selected by default, never the latest. Checkpoints are kept every 300 steps plus the best.<span class="src">Source: training API for R-2291 · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3,900<span class="unit">step</span></div><div class="kit-tile-cap">Best validation · latest 4,100 is not best</div></div><span class="kit-chip brand">Best</span></div>
+      </section>
+      <section class="kit-tile" aria-label="Use-case score">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path></svg></span><a class="kit-open" href="v6-E1-EvaluationResults.dc.html" aria-label="Open evaluation">↗</a></div>
+        <div class="kit-tile-title">Use-case score<button class="kit-tip" type="button" aria-label="About the use-case score">i<span class="kit-tip-bubble" role="tooltip"><b>Use-case score.</b> Quick evaluation on the 312-item use-case set with the judge pinned to run 1183; ± is the 95% interval. The Official TL Index run on Send is what the record cites.<span class="src">Source: Evaluation agent quick eval at step 3,900 · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value"><span class="kit-interval">86%<span class="unit pm">± 3</span></span></div><div class="kit-tile-cap">Quick eval on 312 items · bar 80%</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Above bar</span></span></div>
+      </section>
+      <section class="kit-tile" aria-label="Gaps blocking release">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path></svg></span><a class="kit-open" href="#sec-gaps" aria-label="Open the gap report">↗</a></div>
+        <div class="kit-tile-title">Gaps blocking release</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2<span class="unit">of 6 gaps</span></div><div class="kit-tile-cap">Compliance; Safety and grounding</div></div><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Blocks release</span></span></div>
+      </section>
+      <section class="kit-tile ink" aria-label="Cost to best checkpoint">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M9 10h6"></path><path d="M9 14h6"></path></svg></span><a class="kit-open" href="v6-J10-Usage.dc.html" aria-label="Open usage and cost">↗</a></div>
+        <div class="kit-tile-title">Cost to best<button class="kit-tip end" type="button" aria-label="About cost to best">i<span class="kit-tip-bubble" role="tooltip"><b>Cost to best.</b> Compute spent on R-2291 up to step 3,900, at the H100 price list.<span class="src">Source: H100 price list · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$1.06k<span class="unit">of $1.12k</span></div><div class="kit-tile-cap">Later steps spent $60 for no gain</div></div></div>
+      </section>
+    </div>
+
+    <!-- JUDGE: primary exhibit -->
+    <section id="sec-checkpoints" aria-labelledby="sec-checkpoints-h" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><h2 id="sec-checkpoints-h">Checkpoints kept for R-2291</h2><span class="sub">Every 300 steps plus the best; quick scores on the three gate pillars</span></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th><span class="kit-small kit-muted">Pick</span></th><th class="num">Step</th><th>Validation loss<button class="kit-tip" type="button" aria-label="About validation loss">i<span class="kit-tip-bubble" role="tooltip"><b>Validation loss.</b> Trend on the held-out validation split; lowest marks the best checkpoint. Raw values are in Training signals, the engineering section.<span class="src">Source: training API for R-2291 · as of 11:58 ET</span></span></button></th><th class="num">Safety and grounding</th><th class="num">Compliance and regulatory</th><th class="num">Client care</th><th class="num">Use-case score</th><th>Change on previous<button class="kit-tip" type="button" aria-label="About change on previous">i<span class="kit-tip-bubble" role="tooltip"><b>Change on previous.</b> Paired on the same 312 use-case items as the checkpoint before. Quick evaluations report the mean change only; the paired interval and the Better or Tie grade come with the Official TL Index run on Send.<span class="src">Source: Evaluation agent quick evals · as of 11:58 ET</span></span></button></th><th class="num">Cost to here</th><th>Gaps</th><th>Marks</th></tr></thead>
+          <tbody>
+            <tr><td><input type="radio" name="ckpt" aria-label="Select step 3,000"></td><td class="num">3,000</td><td><span class="kit-small">Falling</span></td><td class="num"><span class="kit-interval">80% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">78% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">83% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">82% <span class="pm">± 3</span></span></td><td><span class="kit-dash" title="first kept checkpoint">—</span></td><td class="num">$820</td><td class="kit-small">9 · 3 blocking</td><td><span class="kit-dash" title="no mark">—</span></td></tr>
+            <tr><td><input type="radio" name="ckpt" aria-label="Select step 3,300"></td><td class="num">3,300</td><td><span class="kit-small">Falling</span></td><td class="num"><span class="kit-interval">81% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">80% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">84% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">84% <span class="pm">± 3</span></span></td><td><span class="kit-num">+2 pts</span> <span class="kit-small kit-muted">· ungraded</span></td><td class="num">$900</td><td class="kit-small">8 · 2 blocking</td><td><span class="kit-dash" title="no mark">—</span></td></tr>
+            <tr><td><input type="radio" name="ckpt" aria-label="Select step 3,600"></td><td class="num">3,600</td><td><span class="kit-small">Falling</span></td><td class="num"><span class="kit-interval">82% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">80% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">85% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">85% <span class="pm">± 3</span></span></td><td><span class="kit-num">+1 pt</span> <span class="kit-small kit-muted">· ungraded</span></td><td class="num">$980</td><td class="kit-small">7 · 2 blocking</td><td><span class="kit-dash" title="no mark">—</span></td></tr>
+            <tr class="selected"><td><input type="radio" name="ckpt" checked aria-label="Select step 3,900, best validation"></td><td class="num"><b style="font-weight: 500">3,900</b></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Lowest</span></span></td><td class="num"><span class="kit-interval">82% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">80% <span class="pm">± 2</span></span></td><td class="num"><span class="kit-interval">85% <span class="pm">± 2</span></span></td><td class="num"><b style="font-weight: 500"><span class="kit-interval">86% <span class="pm">± 3</span></span></b></td><td><span class="kit-num">+1 pt</span> <span class="kit-small kit-muted">· ungraded</span></td><td class="num">$1.06k</td><td class="kit-small"><a href="#sec-gaps">6 · 2 blocking</a></td><td><span class="kit-chip brand">Best validation</span> <span class="kit-chip">Selected</span></td></tr>
+            <tr class="selected"><td colspan="11">
+              <div class="kit-surface raised" style="padding: 16px" aria-label="Step 3,900 detail">
+                <div class="kit-grid2">
+                  <dl class="kit-kv" style="margin: 0; grid-template-columns: 140px minmax(0, 1fr)">
+                    <dt>Checkpoint</dt><dd>R-2291 · step 3,900 · best validation</dd>
+                    <dt>Use-case score</dt><dd><span class="kit-interval">86% <span class="pm">± 3</span></span> · bar 80% · quick eval on 312 items</dd>
+                    <dt>Gap report</dt><dd>6 gaps · 2 block release · <a href="#sec-gaps">open the report</a></dd>
+                  </dl>
+                  <dl class="kit-kv" style="margin: 0; grid-template-columns: 140px minmax(0, 1fr)">
+                    <dt>Over-fitting</dt><dd><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Watch · at the 5-pt limit</span></span></dd>
+                    <dt>Would become</dt><dd>TLM4 Domain-Advice v3 · alias <span class="kit-chip">candidate</span></dd>
+                    <dt>Next</dt><dd>Official TL Index run on <a href="v6-E1-EvaluationResults.dc.html">Evaluation results</a></dd>
+                  </dl>
+                </div>
+              </div>
+            </td></tr>
+            <tr><td><input type="radio" name="ckpt" aria-label="Select step 4,100, latest"></td><td class="num">4,100</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Rising</span></span></td><td class="num"><span class="kit-dash" title="quick eval not run yet">—</span></td><td class="num"><span class="kit-dash" title="quick eval not run yet">—</span></td><td class="num"><span class="kit-dash" title="quick eval not run yet">—</span></td><td class="num"><span class="kit-dash" title="quick eval not run yet">—</span></td><td><span class="kit-dash" title="quick eval not run yet">—</span></td><td class="num">$1.12k</td><td><span class="kit-dash" title="no gap report before a quick eval">—</span></td><td><span class="kit-chip outline">Latest</span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-legend" style="margin-top: 10px"><span><i style="background: rgba(108,183,105,.5)"></i>Selected by default: best validation</span><span>Gate pillars of the TL Index (MVP); all five live pillars are in the gap report</span></div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this table">i<span class="kit-tip-bubble" role="tooltip">Source: losses from the training API for R-2291; quick scores from the Evaluation agent on the 1,000-item MVP-pillar sample of the TL Index and the 312-item use-case set, judge pinned to run 1183. Gap counts from the gap report per checkpoint; cost from the H100 price list.</span></button></div>
+      </div>
+
+      <!-- ACT: export beside the table -->
+      <div class="kit-grid2">
+        <section class="kit-surface" id="export" aria-labelledby="export-h">
+          <div class="kit-surface-head"><div><h3 id="export-h">Export step 3,900 to the registry</h3><div class="sub">Candidate alias is for evaluation; prod needs an Official run and the gate</div></div><span class="kit-chip outline">Registry only</span></div>
+          <div class="kit-grid2" style="margin-top: 12px">
+            <label class="kit-radio on"><input type="radio" name="fmt" checked><div><div style="font-weight: 500">Adapter · safetensors</div><div class="kit-small kit-muted">0.3 GB · served on TLM4 Core 4.2</div></div></label>
+            <label class="kit-radio"><input type="radio" name="fmt"><div><div style="font-weight: 500">Merged · safetensors</div><div class="kit-small kit-muted">64 GB · folded into Core 4.2</div></div></label>
+          </div>
+          <dl class="kit-kv" style="margin-top: 12px">
+            <dt>Destination</dt><dd>ThinkLatent model registry only · weights never leave the boundary</dd>
+            <dt>Would become</dt><dd>TLM4 Domain-Advice v3 · alias <span class="kit-chip">candidate</span></dd>
+            <dt>Replaces</dt><dd>Canary checkpoint from Practice run R-2276 · v2 keeps prod until the gate passes</dd>
+          </dl>
+          <div class="kit-field" style="margin-top: 12px"><label for="why">Why this checkpoint</label><input class="kit-input" id="why" type="text" value="Best validation loss; use-case 86% ± 3 clears the 80% bar; later steps rise on validation."></div>
+          <label class="kit-small" style="display: flex; gap: 8px; align-items: center; margin-top: 10px"><input type="checkbox" checked>Also promote as the candidate alias</label>
+          <div class="kit-actions" style="margin-top: 12px"><button class="kit-btn" type="button">Export and promote</button><a class="kit-btn outline" href="M6-Registry.dc.html">Registry</a><a class="kit-btn outline" href="T3-RunHistory.dc.html">Earlier exports</a></div>
+          <div class="kit-asof" style="margin-top: 12px">Logged with run, step, format, reason and your name · as of 11:58 ET</div>
+        </section>
+        <section class="kit-surface" aria-labelledby="next-h">
+          <div class="kit-surface-head"><div><h3 id="next-h">Then on to evaluation</h3><div class="sub">The Official TL Index run is what the record cites</div></div></div>
+          <div class="kit-rows" style="margin-top: 12px">
+            <div class="kit-row" style="grid-template-columns: 28px minmax(0, 1fr)"><span class="kit-num">1</span><div><div class="t">Export and promote as candidate</div><div class="s">Priya N. · this page</div></div></div>
+            <div class="kit-row" style="grid-template-columns: 28px minmax(0, 1fr) auto"><span class="kit-num">2</span><div><div class="t">Official TL Index run on step 3,900</div><div class="s">Confirms the quick scores · all five live pillars</div></div><div class="end"><a class="kit-btn sm" href="v6-E1-EvaluationResults.dc.html">Send to evaluation</a></div></div>
+            <div class="kit-row" style="grid-template-columns: 28px minmax(0, 1fr) auto"><span class="kit-num">3</span><div><div class="t">Approval and the gate</div><div class="s">Blocking gaps must close first</div></div><div class="end"><a class="kit-btn sm outline" href="v6-V1-Approval.dc.html">Approval</a></div></div>
+          </div>
+          <div class="kit-actions" style="margin-top: 12px"><a class="kit-btn sm outline" href="P1-Playground.dc.html">Open in playground</a><a class="kit-btn sm outline" href="J8-Improve.dc.html">Improvement loop</a></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- DECIDE -->
+    <section class="kit-surface kit-decide" id="decide" aria-labelledby="decide-h">
+      <div class="kit-surface-head"><div><h2 id="decide-h" style="display: flex; align-items: center; gap: 10px">Needs a decision <span class="kit-chip decision">3</span></h2><div class="sub">Step 3,900 is ready to promote; two gaps and one specialist need a call</div></div><span class="kit-small kit-muted">Agents propose, you decide</span></div>
+      <div class="kit-rows" style="margin-top: 14px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <div class="t">Export step 3,900 and promote it as the candidate alias</div>
+            <div class="s" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over-fitting · Watch</span></span><span>New meetings 79% against training-like 84%: gap 5 pts, at the 5-pt limit; validation rising since this step</span></div>
+            <div class="s">Basis: best validation · use-case <span class="kit-interval">86% <span class="pm">± 3</span></span> against bar 80% · owner Priya N.</div>
+          </div>
+          <div class="end"><a class="kit-btn sm" href="#export">Export and promote</a><a class="kit-btn sm outline" href="#sec-checkpoints">Compare checkpoints</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <div class="t">Two gaps block release at step 3,900</div>
+            <div class="s" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Blocks release</span></span><span>Compliance and regulatory <span class="kit-interval">74% <span class="pm">± 3</span></span> · Safety and grounding <span class="kit-interval">77% <span class="pm">± 2</span></span> · bar 80%</span></div>
+            <div class="s">Heal return: 1,540 items in review with 2 reviewers, 860 ready · gap 6 waits on UC-0307, answer due 17 Nov</div>
+          </div>
+          <div class="end"><a class="kit-btn sm" href="J8-Improve.dc.html">Open the improvement loop</a><a class="kit-btn sm outline" href="#sec-gaps">Gap report</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">EV</span><span>Evaluation agent</span></span><span>proposes · 76% confidence</span><button class="kit-btn sm ghost" type="button">View sources</button></div>
+            <div class="t">R-2241 Claims adapter v2 · adjust stated confidence at serving, no retraining</div>
+            <div class="s" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span>Calibration</span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Above target at every checkpoint</span></span><span>→ under target with the adjustment; accuracy unchanged</span><button class="kit-tip" type="button" aria-label="About the calibration proposal">i<span class="kit-tip-bubble" role="tooltip"><b>Calibration error 0.061 → about 0.04.</b> Target 0.050; fitted on the validation split and checked on the 2,410 held-out claims.<span class="src">Source: Evaluation agent, claims-triage-v5 held-out split · as of 11:58 ET</span></span></button></div>
+            <div class="s" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span><span>UC-0142 use-case score <span class="kit-interval">76% <span class="pm">± 4</span></span> against bar 78% · in production by exception · decides Marcus L.</span></div>
+          </div>
+          <div class="end"><a class="kit-btn sm" href="P1-Playground.dc.html">Try in the playground</a><button class="kit-btn sm outline" type="button">Not now</button><a class="kit-btn sm outline" href="#sec-specialists">Details</a></div>
+        </div>
+      </div>
+      <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: gap report and over-fitting check at step 3,900 for R-2291; heal return from the self-healing pipeline, 5 Nov 10:40 ET. Calibration proposal from the Evaluation agent on R-2241; use-case score from Official TL Index run 1165.</span></button></div>
+    </section>
+
+    <!-- TRACE: gap report -->
+    <section id="sec-gaps" aria-labelledby="sec-gaps-h" style="display: flex; flex-direction: column; gap: 16px">
+      <div class="kit-section-title">
+        <div><h2 id="sec-gaps-h">Gap report</h2><div class="sub">Six gaps on the five live pillars at step 3,900; two block release</div></div>
+        <div class="kit-actions" style="align-items: center"><div class="kit-seg" role="group" aria-label="Gap report for checkpoint"><button type="button" aria-pressed="false">Step 3,300</button><button type="button" aria-pressed="false">Step 3,600</button><button type="button" aria-pressed="true">Step 3,900 · best</button><button type="button" aria-pressed="false" aria-disabled="true" title="Gets a report when its quick evaluation runs">Step 4,100</button></div></div>
+      </div>
+
+      <div class="kit-surface">
+        <div class="kit-surface-head">
+          <div><h3>Gaps ranked by pillar and skill</h3><div class="sub">Blocking first, then gate-pillar skills by distance below the bar</div></div>
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over-fitting · Watch</span></span><span class="kit-chip outline">5 live pillars · 11 are Phase 2</span></div>
+        </div>
+        <table style="margin-top: 12px">
+          <thead><tr><th class="num">#</th><th>Pillar · skill</th><th>Score against the bar<button class="kit-tip" type="button" aria-label="About score against the bar">i<span class="kit-tip-bubble" role="tooltip"><b>Gap.</b> A skill whose score sits below the record's bar or whose 95% interval crosses it. Blocking means the interval is wholly below the bar.<span class="src">Source: bars from the UC-0291 record · as of 11:58 ET</span></span></button></th><th>Error classes<button class="kit-tip" type="button" aria-label="About error classes">i<span class="kit-tip-bubble" role="tooltip"><b>Error classes.</b> Shares are of the errors within each skill. Test items stay sealed in the evaluation set; only classes and slices are shown.</span></button></th><th>Failure slices</th><th>Release</th></tr></thead>
+          <tbody>
+            <tr class="selected"><td class="num">1</td><td><b style="font-weight: 500">Compliance and regulatory</b><div class="kit-small kit-muted">No projected returns or guarantees</div></td><td><span class="kit-interval">74% <span class="pm">± 3</span></span><div class="kit-track" style="width: 120px; margin-top: 4px"><i class="crit" style="width: 74%"></i></div><div class="kit-threshold">bar 80%</div></td><td>States an expected return · 41%<div class="kit-small kit-muted">Implies a guarantee · 22%</div></td><td>Target-date fund discussions<div class="kit-small kit-muted">Notes over 4,000 tokens</div></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Blocking</span></span></td></tr>
+            <tr class="selected"><td colspan="6">
+              <div class="kit-surface raised" style="padding: 16px" aria-label="Gap 1 detail">
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: start">
+                  <dl class="kit-kv" style="margin: 0; grid-template-columns: 140px minmax(0, 1fr)">
+                    <dt>Heal return</dt><dd>Generated 1,200 compliant rewrites · located 340 reviewed notes · 1,540 items</dd>
+                    <dt>Provenance</dt><dd>Compliance rule set; advisor-notes-v4, approved 29 Oct</dd>
+                    <dt>State</dt><dd><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>In review · 2 reviewers</span></span></dd>
+                  </dl>
+                  <div class="kit-actions"><a class="kit-btn sm" href="D1-ReviewQueue.dc.html">Review 1,540 items</a><button class="kit-btn sm outline" type="button" aria-label="Close gap 1 detail"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button></div>
+                </div>
+              </div>
+            </td></tr>
+            <tr><td class="num">2</td><td><b style="font-weight: 500">Safety and grounding</b><div class="kit-small kit-muted">Every figure traceable to the notes</div></td><td><span class="kit-interval">77% <span class="pm">± 2</span></span><div class="kit-track" style="width: 120px; margin-top: 4px"><i class="crit" style="width: 77%"></i></div><div class="kit-threshold">bar 80%</div></td><td>Unsupported figure · 55%<div class="kit-small kit-muted">Date drift · 18%</div></td><td>Households with 3 or more accounts</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Blocking</span></span></td></tr>
+            <tr><td class="num">3</td><td><b style="font-weight: 500">Financial data processing</b><div class="kit-small kit-muted">Rates and balances copied exactly</div></td><td><span class="kit-interval">78% <span class="pm">± 3</span></span><div class="kit-track" style="width: 120px; margin-top: 4px"><i class="warn" style="width: 78%"></i></div><div class="kit-threshold">bar 80%</div></td><td>Rounding · 38%<div class="kit-small kit-muted">Wrong account · 24%</div></td><td>Multi-account households</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Watch · crosses the bar</span></span></td></tr>
+            <tr><td class="num">4</td><td><b style="font-weight: 500">Client care</b><div class="kit-small kit-muted">A specific next-step line</div></td><td><span class="kit-interval">79% <span class="pm">± 3</span></span><div class="kit-track" style="width: 120px; margin-top: 4px"><i class="warn" style="width: 79%"></i></div><div class="kit-threshold">bar 80%</div></td><td>Vague next step · 61%<div class="kit-small kit-muted">No date given · 27%</div></td><td>Meetings under 10 minutes</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Watch · crosses the bar</span></span></td></tr>
+            <tr><td class="num">5</td><td><b style="font-weight: 500">Client care</b><div class="kit-small kit-muted">Plain English, no jargon</div></td><td><span class="kit-interval">80% <span class="pm">± 3</span></span><div class="kit-track" style="width: 120px; margin-top: 4px"><i class="warn" style="width: 80%"></i></div><div class="kit-threshold">bar 80%</div></td><td>Jargon left in · 48%</td><td>Notes from specialist advisers</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Watch · on the bar</span></span></td></tr>
+            <tr><td class="num">6</td><td><b style="font-weight: 500">Entity recognition</b><div class="kit-small kit-muted">Fund and share-class names exact</div></td><td><span class="kit-interval">76% <span class="pm">± 4</span></span><div class="kit-track" style="width: 120px; margin-top: 4px"><i style="width: 76%"></i></div><div class="kit-threshold">bar 80%</div></td><td>Share-class confusion · 70%</td><td>Low-cost and standard shares in one note</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not gating · tracked</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-note" style="margin-top: 12px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span><b>Over-fitting: Watch.</b> New meetings 79% against training-like 84%; gap 5 pts, at the 5-pt limit.</span></div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for the gap report">i<span class="kit-tip-bubble" role="tooltip">Source: gap analysis by the Evaluation agent at step 3,900 on 312 use-case items and the 1,000-item MVP-pillar sample of the TL Index, judge pinned to run 1183. This record gates on Safety and grounding, Compliance and regulatory, Client care and Financial data processing.</span></button></div>
+      </div>
+
+      <div class="kit-surface">
+        <div class="kit-surface-head">
+          <div><h3>Heal return per gap</h3><div class="sub">4 of 6 gaps addressed · 3,050 items · reviewed before any run uses them</div></div>
+          <a class="kit-btn sm" href="J8-Improve.dc.html">Open the improvement loop</a>
+        </div>
+        <div class="kit-rows" style="margin-top: 12px">
+          <div class="kit-row" style="grid-template-columns: 32px minmax(0, 1fr) 110px 190px 120px"><span class="kit-num">1</span><div><div class="t">Generated 1,200 compliant rewrites; located 340 reviewed notes</div><div class="s">Compliance rule set · advisor-notes-v4, approved 29 Oct</div></div><span class="kit-num">1,540 items</span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>In review · 2 reviewers</span></span><div class="end"><a class="kit-btn sm outline" href="D1-ReviewQueue.dc.html">Review</a></div></div>
+          <div class="kit-row" style="grid-template-columns: 32px minmax(0, 1fr) 110px 190px 120px"><span class="kit-num">2</span><div><div class="t">Generated 860 grounded pairs, each figure tied to its line</div><div class="s">Synthetic values on the structure of advisor-notes-v4 · no client data</div></div><span class="kit-num">860 items</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span><div class="end"><a class="kit-btn sm outline" href="D4-SelfHealingMarks.dc.html">See marks</a></div></div>
+          <div class="kit-row" style="grid-template-columns: 32px minmax(0, 1fr) 110px 190px 120px"><span class="kit-num">3</span><div><div class="t">Located 410 multi-account items held back by marks</div><div class="s">Self-healing marks on advisor-notes-v4, cleared 3 Nov</div></div><span class="kit-num">410 items</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span><div class="end"><a class="kit-btn sm outline" href="D4-SelfHealingMarks.dc.html">See marks</a></div></div>
+          <div class="kit-row" style="grid-template-columns: 32px minmax(0, 1fr) 110px 190px 120px"><span class="kit-num">4</span><div><div class="t">Not addressed: inside the interval of the bar</div><div class="s">Priya N. chose to watch it one more round</div></div><span class="kit-dash" title="nothing generated or located">—</span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not addressed</span></span><div class="end"></div></div>
+          <div class="kit-row" style="grid-template-columns: 32px minmax(0, 1fr) 110px 190px 120px"><span class="kit-num">5</span><div><div class="t">Located 240 plain-English rewrites</div><div class="s">Retail Advice style-guide set, approved 18 Oct</div></div><span class="kit-num">240 items</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span><div class="end"><a class="kit-btn sm outline" href="D5-DatasetVersions.dc.html">Data set</a></div></div>
+          <div class="kit-row" style="grid-template-columns: 32px minmax(0, 1fr) 110px 190px 120px"><span class="kit-num">6</span><div><div class="t">Not addressed: needs the UC-0307 fund reference list</div><div class="s">Asked UC-0307 Fund document Q&amp;A's owner 3 Nov · answer due 17 Nov (14-day rule)</div></div><span class="kit-dash" title="nothing generated or located">—</span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not addressed</span></span><div class="end"></div></div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 14px">
+          <span class="kit-label">Re-score at the next checkpoint</span>
+          <span class="kit-chip">Compliance and regulatory</span><span class="kit-chip brand">Safety and grounding · always</span><span class="kit-chip">Financial data processing</span><span class="kit-chip">Client care</span>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">Self-healing run 5 Nov, 10:40 ET · review state from the review queue · as of 11:58 ET</div>
+      </div>
+    </section>
+
+    <!-- TRACE: decide specialists -->
+    <section id="sec-specialists" aria-labelledby="sec-specialists-h" style="display: flex; flex-direction: column; gap: 16px">
+      <div class="kit-section-title">
+        <div><h2 id="sec-specialists-h">Decide specialists · R-2241</h2><div class="sub">Claims adapter v2 on held-out claims, before and after training</div></div>
+        <div class="kit-actions" style="align-items: center"><a class="kit-chip outline" href="J1-Projects.dc.html">UC-0142 Claims triage</a><span class="kit-small kit-muted">Owner Marcus L.</span><span class="kit-chip env">Non-production</span></div>
+      </div>
+      <div class="kit-note"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>R-2291 is a Generate run, so this section shows the latest Decide run, R-2241. Its calibration proposal waits in <a href="#decide">Needs a decision</a>.</span></div>
+
+      <div class="kit-surface">
+        <div class="kit-surface-head">
+          <div><h3>Before and after on held-out claims</h3><div class="sub">2,410 held-out claims · confidence decides which claims skip review</div></div>
+          <div class="kit-seg" role="group" aria-label="Compare against"><button type="button" aria-pressed="true">Base, prompted</button><button type="button" aria-pressed="false">Adapter v1</button></div>
+        </div>
+        <div class="kit-grid-main" style="margin-top: 14px">
+          <table>
+            <thead><tr><th>Checkpoint</th><th class="num">Held-out accuracy</th><th>Against the base<button class="kit-tip" type="button" aria-label="About against the base">i<span class="kit-tip-bubble" role="tooltip"><b>Against the base.</b> Paired on the same 2,410 held-out claims as TLM4 Distil 4.2, prompted. The agent's report gives the mean change; Better holds because the two intervals are far apart.<span class="src">Source: Evaluation agent, claims-triage-v5 held-out split · as of 11:58 ET</span></span></button></th><th>Calibration<button class="kit-tip" type="button" aria-label="About calibration">i<span class="kit-tip-bubble" role="tooltip"><b>Calibration error, target 0.050.</b> Before 0.142; steps 3,900, 4,500, 5,100 and 5,400: 0.074, 0.066, 0.061 and 0.069, over 10 confidence bins.<span class="src">Source: Evaluation agent · as of 11:58 ET</span></span></button></th><th class="num">Over-confident errors<button class="kit-tip end" type="button" aria-label="About over-confident errors">i<span class="kit-tip-bubble" role="tooltip"><b>Over-confident errors.</b> Wrong routes given at 90% confidence or more, which would skip human review.</span></button></th><th class="num">Use-case score</th></tr></thead>
+            <tbody>
+              <tr><td>Before · TLM4 Distil 4.2, prompted<div class="kit-small kit-muted">no training</div></td><td class="num"><span class="kit-interval">69% <span class="pm">± 2</span></span></td><td><span class="kit-dash" title="the base">—</span></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Well above target</span></span></td><td class="num">9.6%</td><td class="num"><span class="kit-interval">66% <span class="pm">± 4</span></span></td></tr>
+              <tr><td>Step 3,900</td><td class="num"><span class="kit-interval">81% <span class="pm">± 2</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better · +12 pts</span></span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Above target</span></span></td><td class="num">5.1%</td><td class="num"><span class="kit-interval">74% <span class="pm">± 4</span></span></td></tr>
+              <tr><td>Step 4,500</td><td class="num"><span class="kit-interval">83% <span class="pm">± 2</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better · +14 pts</span></span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Above target</span></span></td><td class="num">4.2%</td><td class="num"><span class="kit-interval">75% <span class="pm">± 4</span></span></td></tr>
+              <tr class="selected"><td><b style="font-weight: 500">Step 5,100 · best validation</b><div class="kit-small kit-muted">exported · in production by exception</div></td><td class="num"><span class="kit-interval">84% <span class="pm">± 2</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better · +15 pts</span></span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Above target</span></span></td><td class="num">3.8%</td><td class="num"><span class="kit-interval">76% <span class="pm">± 4</span></span><div class="kit-small kit-muted">Official run 1165 · bar 78%</div></td></tr>
+              <tr><td>Step 5,400 · latest</td><td class="num"><span class="kit-interval">84% <span class="pm">± 2</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better · +15 pts</span></span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Above target</span></span></td><td class="num">4.4%</td><td class="num"><span class="kit-interval">75% <span class="pm">± 4</span></span></td></tr>
+            </tbody>
+          </table>
+          <figure style="margin: 0">
+            <figcaption class="kit-label">Stated confidence against how often it is right</figcaption>
+            <svg class="kit-spark" viewBox="0 0 100 40" width="100%" height="180" role="img" aria-label="Reliability chart: after training the line sits close to the dashed perfect-calibration diagonal; before training it sits well below it at high confidence" style="margin-top: 6px">
+              <line x1="0" y1="40" x2="100" y2="0" stroke="#8A8A88" stroke-width="0.6" stroke-dasharray="2 2"></line>
+              <polyline fill="none" stroke="#8A8A88" stroke-width="1.2" points="30,30 40,27.6 50,24.8 60,22 70,19.2 80,16 90,12.8 100,10.4"></polyline>
+              <polyline fill="none" stroke="#3E9A5C" stroke-width="1.5" points="30,28.8 40,25.2 50,21.6 60,17.6 70,14 80,10.4 90,6.8 100,4"></polyline>
+              <text x="1" y="4" font-size="3.5" fill="#5C5C5A">right this often</text>
+              <text x="99" y="38.5" font-size="3.5" fill="#5C5C5A" text-anchor="end">stated confidence, 30% to 100%</text>
+            </svg>
+            <div class="kit-legend" style="margin-top: 6px"><span><i style="background: transparent; border-top: 1px dashed #8A8A88; height: 0"></i>Perfect calibration</span><span><i style="background: #8A8A88"></i>Before</span><span><i style="background: #3E9A5C"></i>Step 5,100</span></div>
+          </figure>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this table">i<span class="kit-tip-bubble" role="tooltip">Source: Evaluation agent on the 2,410-claim held-out split of claims-triage-v5, never trained on. Use-case score from Official TL Index run 1165 at step 5,100 and quick evaluations at the other checkpoints.</span></button></div>
+      </div>
+
+      <div class="kit-surface">
+        <div class="kit-surface-head"><div><h3>By route at step 5,100</h3><div class="sub">The rare routes carry the largest calibration error</div></div></div>
+        <table style="margin-top: 12px">
+          <thead><tr><th>Route</th><th class="num">Share of claims</th><th class="num">Accuracy before</th><th class="num">Accuracy after</th><th>Against the base</th><th>Calibration after<button class="kit-tip end" type="button" aria-label="About calibration after">i<span class="kit-tip-bubble" role="tooltip"><b>Calibration error after, target 0.050.</b> Auto-resolve 0.044, standard 0.052, senior 0.071, documents 0.063, fraud 0.118, legal hold 0.104.<span class="src">Source: same held-out split · intervals widest on the rare routes</span></span></button></th></tr></thead>
+          <tbody>
+            <tr><td>Auto-resolve</td><td class="num">38%</td><td class="num"><span class="kit-interval">78% <span class="pm">± 3</span></span></td><td class="num"><span class="kit-interval">91% <span class="pm">± 2</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better · +13 pts</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Under target</span></span></td></tr>
+            <tr><td>Standard review</td><td class="num">27%</td><td class="num"><span class="kit-interval">71% <span class="pm">± 3</span></span></td><td class="num"><span class="kit-interval">85% <span class="pm">± 3</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better · +14 pts</span></span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Just above</span></span></td></tr>
+            <tr><td>Senior review</td><td class="num">14%</td><td class="num"><span class="kit-interval">61% <span class="pm">± 5</span></span></td><td class="num"><span class="kit-interval">79% <span class="pm">± 4</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better · +18 pts</span></span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Above target</span></span></td></tr>
+            <tr><td>Ask for documents</td><td class="num">11%</td><td class="num"><span class="kit-interval">66% <span class="pm">± 6</span></span></td><td class="num"><span class="kit-interval">82% <span class="pm">± 5</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better · +16 pts</span></span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Above target</span></span></td></tr>
+            <tr><td>Fraud referral</td><td class="num">6%</td><td class="num"><span class="kit-interval">48% <span class="pm">± 8</span></span></td><td class="num"><span class="kit-interval">72% <span class="pm">± 7</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better · +24 pts</span></span></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Well above</span></span></td></tr>
+            <tr><td>Legal and compliance hold</td><td class="num">4%</td><td class="num"><span class="kit-interval">52% <span class="pm">± 10</span></span></td><td class="num"><span class="kit-interval">70% <span class="pm">± 9</span></span></td><td><span class="kit-num">+18 pts</span> <span class="kit-small kit-muted">· ungraded, intervals overlap</span></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Well above</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">Shares are of held-out claims · 95% intervals · as of 11:58 ET</div>
+      </div>
+    </section>
+
+    <!-- TRACE: engineering -->
+    <section id="sec-engineering" aria-labelledby="sec-engineering-h" style="display: flex; flex-direction: column; gap: 16px">
+      <div class="kit-section-title"><h2 id="sec-engineering-h">Training signals <span class="kit-eng-label">Engineering view</span></h2><span class="sub">Raw losses for R-2291 and the loss mask on one sample</span></div>
+      <div class="kit-grid2">
+        <section class="kit-surface raised" aria-labelledby="loss-h">
+          <div class="kit-surface-head"><div><h3 id="loss-h">Loss per kept checkpoint</h3><div class="sub">Validation lowest at 3,900, rising after</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over-fitting · Watch</span></span></div>
+          <table style="margin-top: 12px">
+            <thead><tr><th class="num">Step</th><th class="num">Train loss</th><th class="num">Validation loss</th><th class="num">Cost to here</th></tr></thead>
+            <tbody>
+              <tr><td class="num">3,000</td><td class="num">1.47</td><td class="num">1.46</td><td class="num">$820</td></tr>
+              <tr><td class="num">3,300</td><td class="num">1.44</td><td class="num">1.44</td><td class="num">$900</td></tr>
+              <tr><td class="num">3,600</td><td class="num">1.41</td><td class="num">1.42</td><td class="num">$980</td></tr>
+              <tr class="selected"><td class="num"><b style="font-weight: 500">3,900</b></td><td class="num">1.39</td><td class="num"><b style="font-weight: 500">1.41</b></td><td class="num">$1.06k</td></tr>
+              <tr><td class="num">4,100</td><td class="num">1.38</td><td class="num">1.42</td><td class="num">$1.12k</td></tr>
+            </tbody>
+          </table>
+          <div class="kit-asof" style="margin-top: 12px">Training API for R-2291 · over-fitting gap 0.05 at the 0.05 limit · as of 11:58 ET</div>
+        </section>
+        <section class="kit-surface raised" aria-labelledby="mask-h">
+          <div class="kit-surface-head"><div><h3 id="mask-h">Loss mask on a rendered sample</h3><div class="sub">Dimmed is prompt and template, no loss</div></div><span class="kit-chip outline">Step 3,900 · sample 17 of 312</span></div>
+          <div class="kit-mono" style="margin-top: 12px; padding: 14px; border-radius: 12px; background: rgba(255,255,255,.6); border: 1px solid #DADAD8; line-height: 1.8; white-space: pre-wrap"><span style="opacity: .4">&lt;|system|&gt; You are an advisor assistant for Enterprise Retail Advice. Summarise the meeting notes for {client_name} in four bullets and one next-step line. Cite the plan id {plan_id}.</span>
+<span style="opacity: .4">&lt;|user|&gt; [meeting_notes · 1,240 tokens · masked]</span>
+<span style="opacity: .4">&lt;|assistant|&gt;</span> - Reviewed the retirement timeline and the current contribution rate.
+- Discussed moving the target-date fund in plan {plan_id}.
+- Agreed to revisit the emergency fund by January.
+- No projected returns were stated.
+Next step: send the plan-change form by Friday.<span style="opacity: .4">&lt;|end|&gt;</span></div>
+          <div class="kit-legend" style="margin-top: 10px"><span><i style="background: #DADAD8"></i>Masked · 1,318 tokens</span><span><i style="background: #3E9A5C"></i>Learned · 74 tokens</span><span>Loss on this sample 1.22</span></div>
+          <div class="kit-asof" style="margin-top: 12px">Synthetic sample, never a client's notes · recipe tokenizer template · as of 11:58 ET</div>
+        </section>
+      </div>
+    </section>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5800}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
