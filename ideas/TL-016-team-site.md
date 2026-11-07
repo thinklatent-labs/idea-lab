@@ -6,8 +6,8 @@ aliases: []
 type: Idea
 parent: null
 themes: ["T-001"]
-stage: "Shaping"
-stage_since: null
+stage: "Stress test"
+stage_since: "2026-11-07"
 horizon: "H1"
 stream: null
 appetite_weeks: null
@@ -20,8 +20,8 @@ standard: "v1"
 last_touched: 2026-11-07
 sensitivity: none
 critique_recorded: null
-next_step: "Canvas v8 applies the v7 review (D-137): Home trimmed to about seven sections (FAQ to ThinkLatent at a glance, TL;DR folded into proof, strip launches with sourced numbers only); Mandate gains four measured targets as brackets; Blog cadence set to leaders rotating, one leadership post a month inside a cap of two posts a month; Use case template sharpened against Win story (ongoing per use case vs one moment, one number); ThinkLatent Trust goes live only after Risk signs off the wording; ThinkLatent Day built on the test site but published once the Summit date is set; AI Perspectives keeps the demo and podcast panels marked 'coming'. Everything else kept, all eleven templates included. In parallel the team fills the launch brackets (list in the idea doc Notes, 2026-11-07), including sources for Team's three how-we-work numbers, which stay at launch. Then the SharePoint build guide (stream 4) and the custom.css request; Stress test before the build goes past the test site. Still open from Jithin: rundown part 3, product leads' five wins, A8 Comms contact, intake owner, editorial board's three names From TL-013 (2026-11-07): design-kit v0.1.0 is the first release to pin to (commit 8653232; tag once Jithin pushes it)."
-next_step_due: "2026-11-14"
+next_step: "Critic session on TL-016 (pre-mortem, kill criteria, what would have to be true for the February 2027 launch, cost of the editor's and heads' attention) and record the critique. Running alongside it: the TPM collects every launch bracket in \"ThinkLatent site — launch brackets to fill\" by 21 Nov 2026, including Jithin's five inputs (rundown part 3, five wins, A8 Comms contact, intake owner, editorial board); the Head of AI Products sends \"ThinkLatent Trust — page wording for Risk review\" to Risk by 28 Nov 2026. After the critique: the SharePoint build guide (stream 4) from canvas v8 and the custom.css request. ThinkLatent Day stays deferred until the Summit date is set."
+next_step_due: "2026-11-21"
 ---
 
 # ThinkLatent site and communications — the team's SharePoint home (vision, products, wins, publications, press, team blogs) built on the ThinkLatent design kit's theme, and the communication and marketing strategy it serves
@@ -29,11 +29,11 @@ next_step_due: "2026-11-14"
 <!-- generated:start -->
 ## Lab record
 
-**TL-016 team-site** · Idea · Shaping (idea card v0, 2026-11-04; decision 1: built in SharePoint by Jithin, designed outside on the kit; design-kit ships a theme pack (tier 1, no IT) and custom.css (tier 2, one IT request); scope widened to the communication and marketing strategy; five workstreams) · H1
+**TL-016 team-site** · Idea · Stress test (Moved to Stress test 2026-11-07 (D-141): canvas v8 (the v7 review, D-137, applied) is the design of record; launch brackets with the TPM; ThinkLatent Trust waits on Risk sign-off. Critique pass not yet recorded) · H1
 
 Owner: Head of ThinkLatent (sponsor); site editor to be named. Appetite: not set. Score: not scored .
 
-Next step: Canvas v8 applies the v7 review (D-137): Home trimmed to about seven sections (FAQ to ThinkLatent at a glance, TL;DR folded into proof, strip launches with sourced numbers only); Mandate gains four measured targets as brackets; Blog cadence set to leaders rotating, one leadership post a month inside a cap of two posts a month; Use case template sharpened against Win story (ongoing per use case vs one moment, one number); ThinkLatent Trust goes live only after Risk signs off the wording; ThinkLatent Day built on the test site but published once the Summit date is set; AI Perspectives keeps the demo and podcast panels marked 'coming'. Everything else kept, all eleven templates included. In parallel the team fills the launch brackets (list in the idea doc Notes, 2026-11-07), including sources for Team's three how-we-work numbers, which stay at launch. Then the SharePoint build guide (stream 4) and the custom.css request; Stress test before the build goes past the test site. Still open from Jithin: rundown part 3, product leads' five wins, A8 Comms contact, intake owner, editorial board's three names From TL-013 (2026-11-07): design-kit v0.1.0 is the first release to pin to (commit 8653232; tag once Jithin pushes it). (due 2026-11-14)
+Next step: Critic session on TL-016 (pre-mortem, kill criteria, what would have to be true for the February 2027 launch, cost of the editor's and heads' attention) and record the critique. Running alongside it: the TPM collects every launch bracket in "ThinkLatent site — launch brackets to fill" by 21 Nov 2026, including Jithin's five inputs (rundown part 3, five wins, A8 Comms contact, intake owner, editorial board); the Head of AI Products sends "ThinkLatent Trust — page wording for Risk review" to Risk by 28 Nov 2026. After the critique: the SharePoint build guide (stream 4) from canvas v8 and the custom.css request. ThinkLatent Day stays deferred until the Summit date is set. (due 2026-11-21)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -72,7 +72,9 @@ _None recorded._
 | Artifact | Kind | In this repo | Live | Exported |
 | --- | --- | --- | --- | --- |
 | ThinkLatent site (team-site) — Idea card | doc | [artifacts/TL-016-team-site/idea-card.md](../artifacts/TL-016-team-site/idea-card.md) | [claude.ai](https://claude.ai/artifact/9ZtoVU9roiRiACFjqe5nJu) | 2026-11-04 |
-| ThinkLatent site — v7: the 42 feature decisions on the v3 site | design | [artifacts/TL-016-team-site/design-canvas/project/canvas.json](../artifacts/TL-016-team-site/design-canvas/project/canvas.json) | [claude.ai](https://claude.ai/artifact/4uZUcDCHWPTqtzMXZrLKQD) | 2026-11-07 |
+| ThinkLatent site — v8: the v7 review applied | design | [artifacts/TL-016-team-site/design-canvas/project/canvas.json](../artifacts/TL-016-team-site/design-canvas/project/canvas.json) | [claude.ai](https://claude.ai/artifact/4uZUcDCHWPTqtzMXZrLKQD) | 2026-11-07 |
+| ThinkLatent site — launch brackets to fill (TL-016) | doc | [artifacts/TL-016-team-site/docs/launch-brackets.md](../artifacts/TL-016-team-site/docs/launch-brackets.md) | [claude.ai](https://claude.ai/artifact/38RGiipB795FZiQZCkzwAu) | 2026-11-07 |
+| ThinkLatent Trust — page wording for Risk review | doc | [artifacts/TL-016-team-site/docs/trust-risk-review.md](../artifacts/TL-016-team-site/docs/trust-risk-review.md) | [claude.ai](https://claude.ai/artifact/1G31Mjqx1usWaXoQEynMBD) | 2026-11-07 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -93,6 +95,7 @@ _None recorded._
 | D-098 | 2026-11-05 | Scout inventory reviewed feature by feature (42 questions, each with a recommendation): mandate-led identity; nav Mandate · Products (TLM, ThinkLatent Portal, the TL Index, ThinkLatent Trust) · Our work · Stories · Team; sourced trend strip; four audience doors and a Work with ThinkLatent ladder; Forms intake handing off to the portal; Wins as story + number + partner quote; named trust program 'ThinkLatent Trust'; ThinkLatent Day with a business+ThinkLatent hackathon; newsletter stays email-only; comments on everywhere. Recommendations taken except features 17, 27, 33 and 36 | Jithin | accepted |
 | D-100 | 2026-11-05 | The 42 feature decisions implemented on the canvas (v38): 25 boards regenerated from one source in the v6 language; navigation regrouped; Home rebuilt around the mandate, the compounding strip, four doors and the ladder; new pages Mandate, ThinkLatent Trust, ThinkLatent Day, Glossary and ThinkLatent at a glance; Products with the static lineage, outcome cards and the TL Index tile; Blog, AI Perspectives, Wins, Research, Publications, Team and Write for ThinkLatent reworked to their decisions; eleven templates, four of them new. Imagery still deferred; later items (champions network, demo edition, podcast, Work in ThinkLatent) marked on the boards as after launch | Jithin (go); thinking partner (build) | accepted |
 | D-137 | 2026-11-07 | Design canvas v7 reviewed board by board (25 boards): keep 18, change 5 (Home trimmed to ~7 sections; Mandate gets four measured targets; Blog cadence = leaders rotate, one leadership post a month, cap two posts a month; Use case sharpened against Win story; ThinkLatent Trust kept but live only after Risk sign-off), defer 1 (ThinkLatent Day until the Summit date is set), AI Perspectives kept with demo edition and podcast marked 'coming'. All eleven templates kept, Model card included, against the recommendation to cut it; Team keeps its three how-we-work numbers, so they need sources before launch. No cuts | Jithin | accepted |
+| D-141 | 2026-11-07 | Closing calls on the v7 review: canvas v8 built and published (Home cut to seven sections with the FAQ moved to At a glance; Mandate Target and Today lines; Blog limited to two posts a month with leaders in turn; Use case and Win story told apart; Model card rule that the portal card wins, checked quarterly; Perspectives panels labelled 'Coming'). Launch brackets go to a fill-in doc that the TPM collects by 21 Nov; Jithin's five open inputs become rows in it. The Head of AI Products asks Risk to sign off ThinkLatent Trust by 28 Nov using a summary Claude drafted. 35M+ interactions and ~200 per session go live with the Head of ThinkLatent as source. Stage moves to Stress test; a Critic session comes next | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
@@ -156,3 +159,11 @@ Template slots (filled by each author when writing) and ThinkLatent Day (deferre
 - Publications: further conference roundups beyond Ai4 2026 and ARIA 2025; the first ThinkLatent success story on the intranet
 - Review dates (DATE + 1 quarter) on the six owned pages
 - Link to the Enterprise recognition portal (in every footer)
+
+### 2026-11-07 · Spec · close-out (D-141)
+
+- Canvas v8 is published and is the design of record. Changes from v7: Home cut to seven sections (FAQ moved to At a glance, the TL;DR folded into proof as "This month", Coming up removed); Mandate cards gain Target and Today lines; Blog limited to two posts a month with the leaders taking turns; Use case and Win story told apart; Model card rule that the portal card wins, checked every quarter; Perspectives panels labelled "Coming". 35M+ and ~200 now cite the Head of ThinkLatent as source.
+- Launch brackets live in the doc "ThinkLatent site — launch brackets to fill" (https://claude.ai/artifact/38RGiipB795FZiQZCkzwAu). The TPM collects them by 21 Nov 2026, and Jithin's five open inputs are rows in it.
+- ThinkLatent Trust: the Head of AI Products sends "ThinkLatent Trust — page wording for Risk review" (https://claude.ai/artifact/1G31Mjqx1usWaXoQEynMBD) to Risk by 28 Nov 2026. The page does not go live without sign-off.
+- The stage moves to Stress test. Next is a Critic session, which records the critique before the build goes past the test site.
+- Critic should test: whether one site editor and a three-person board can keep 24 boards and 11 templates current (Model card and Use case were kept against the recommendation); whether Team's three how-we-work numbers can be sourced at all; and whether the February 2027 date holds if the bracket content arrives late.
