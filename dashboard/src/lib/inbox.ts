@@ -3,6 +3,7 @@
 // the register, syncs to GitHub and marks the document applied. Absent outside claude.ai (the
 // GitHub copy is read-only), so every caller handles `available: false`.
 import { useEffect, useState } from 'react';
+import { jarvisDoc, visitDoc, type JarvisStart } from './usage';
 
 export type InboxStatus = 'waiting' | 'applied' | 'needs-chat';
 
@@ -18,6 +19,8 @@ export interface InboxDoc {
   status: InboxStatus;
   /** "request": a request for the next lab chat that Jarvis drafted and Jithin queued; never applied as a quick call. */
   kind?: 'quick' | 'request';
+  /** Where the card was confirmed: on the page, or from a Jarvis proposal (H5, TL-007 2026-11-07). Absent on cards before 2026-11-07. */
+  via?: 'page' | 'jarvis';
   appliedAt?: string;
   appliedNote?: string;
   decisionId?: string;
@@ -28,7 +31,9 @@ export interface Inbox {
   canWrite: boolean;
   docs: Map<string, InboxDoc>;
   decide: (doc: Omit<InboxDoc, 'decidedAt' | 'decidedBy' | 'status'>) => Promise<boolean>;
-  request: (ideaId: string | null, text: string) => Promise<boolean>;
+  request: (ideaId: string | null, text: string, via?: InboxDoc['via']) => Promise<boolean>;
+  /** Count a Jarvis conversation the owner started (H5). Silent and best-effort. */
+  logJarvis: (how: JarvisStart) => boolean;
   withdraw: (itemId: string) => Promise<void>;
   error: string | null;
 }
@@ -46,6 +51,7 @@ export function useInbox(): Inbox {
 
   useEffect(() => {
     let unsub: (() => void) | null = null;
+    let offVisit: (() => void) | null = null;
     let alive = true;
     let timer: number | undefined;
     const start = async () => {
@@ -64,6 +70,20 @@ export function useInbox(): Inbox {
       if (!alive) return;
       setCanWrite(!!write);
       setApi({ db, uid });
+      // H1: one document per day the owner opens the page (TL-007, 2026-11-07). Owner only; best-effort, never blocks the page.
+      // A tab left open past midnight logs the new day when it is next looked at.
+      if (write) {
+        let day = '';
+        const logVisit = () => {
+          const v = visitDoc(new Date());
+          if (v.id === day || document.visibilityState === 'hidden') return;
+          day = v.id;
+          db.collection('usage').doc(v.id).set(v.data).catch(() => undefined);
+        };
+        logVisit();
+        document.addEventListener('visibilitychange', logVisit);
+        offVisit = () => document.removeEventListener('visibilitychange', logVisit);
+      }
       timer = window.setTimeout(() => alive && setState((s) => (s === 'loading' ? 'slow' : s)), 10000);
       unsub = db.collection('inbox').onSnapshot(
         (snap: any) => {
@@ -87,6 +107,7 @@ export function useInbox(): Inbox {
       alive = false;
       window.clearTimeout(timer);
       unsub?.();
+      offVisit?.();
     };
   }, []);
 
@@ -94,20 +115,21 @@ export function useInbox(): Inbox {
     if (!api) return false;
     setError(null);
     try {
-      await api.db.collection('inbox').doc(d.itemId).set({ kind: 'quick', ...d, decidedAt: new Date().toISOString(), decidedBy: api.uid, status: 'waiting' });
+      await api.db.collection('inbox').doc(d.itemId).set({ kind: 'quick', via: 'page', ...d, decidedAt: new Date().toISOString(), decidedBy: api.uid, status: 'waiting' });
       return true;
     } catch (e: any) {
       setError(e?.code === 'invalid_argument' ? 'Only the dashboard owner can record decisions.' : 'The decision was not saved; try again.');
       return false;
     }
   };
-  const request: Inbox['request'] = async (ideaId, text) => {
+  const request: Inbox['request'] = async (ideaId, text, via = 'page') => {
     if (!api) return false;
     setError(null);
     const itemId = `REQ-${Date.now().toString(36)}`;
     try {
       await api.db.collection('inbox').doc(itemId).set({
         kind: 'request',
+        via,
         itemId,
         ideaId: ideaId ?? '',
         itemText: text,
@@ -132,5 +154,11 @@ export function useInbox(): Inbox {
       setError('The decision was not withdrawn; try again.');
     }
   };
-  return { state, canWrite, docs, decide, request, withdraw, error };
+  const logJarvis: Inbox['logJarvis'] = (how) => {
+    if (!api || !canWrite) return false;
+    const j = jarvisDoc(new Date(), how);
+    api.db.collection('usage').doc(j.id).set(j.data).catch(() => undefined);
+    return true;
+  };
+  return { state, canWrite, docs, decide, request, withdraw, logJarvis, error };
 }

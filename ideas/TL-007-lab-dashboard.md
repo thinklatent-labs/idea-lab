@@ -17,10 +17,10 @@ score: null
 score_status: none
 doc_url: "https://claude.ai/artifact/WFSu2rXsSAFzS6tqsDvHH8"
 standard: "v1"
-last_touched: 2026-11-05
+last_touched: 2026-11-07
 sensitivity: none
 critique_recorded: true
-next_step: "Jithin runs the week from the command center and Jarvis; H1 (weekly use), H2 (decisions citing a flag) and H5 (Jarvis use) are read at the 30-day review on 2026-12-01. The Lab-operations chat still owes the Operating Model lifecycle amendment, the register columns and the five stream engineers (S-A's engineer takes this row) From Portfolio (2026-11-07): Now, run only. No new build before the 2026-12-01 review. From TL-013 (2026-11-07): design-kit v0.1.0 (8653232) replaces the 969f885 pin and the retired package names; repin at the 2026-12-01 review, not before."
+next_step: "Run only, with the measurement exception (D-163): Jithin runs the week from the command center and Jarvis and reviews TL-007 in his Thursday slot. At the 30-day review on 2026-12-01, which is also the appetite's circuit breaker, read H1 from the usage visit days, H2 from decision lines that cite \"(flag R-##)\", and H5 from the usage Jarvis conversations and inbox cards marked via jarvis, against the 1 Dec checkpoints in each hypothesis. Owed by Lab operations: the Operating Model lifecycle amendment, the register columns, a decision-line field naming the flag that prompted it (H2), and a review-slot field for the Building gate (D-152). S-A is played by Claude (D-151). From TL-013 (2026-11-07): design-kit v0.1.0 (8653232) replaces the 969f885 pin and the retired package names; repin at the 2026-12-01 review, not before."
 next_step_due: "2026-12-01"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-12-01"
 
 Owner: Thinking partner (owner and builder under S-A until the stream engineer is named); Jithin sponsor. Appetite: 1.5 engineer-weeks, ends 2026-12-01. Score: not scored .
 
-Next step: Jithin runs the week from the command center and Jarvis; H1 (weekly use), H2 (decisions citing a flag) and H5 (Jarvis use) are read at the 30-day review on 2026-12-01. The Lab-operations chat still owes the Operating Model lifecycle amendment, the register columns and the five stream engineers (S-A's engineer takes this row) From Portfolio (2026-11-07): Now, run only. No new build before the 2026-12-01 review. From TL-013 (2026-11-07): design-kit v0.1.0 (8653232) replaces the 969f885 pin and the retired package names; repin at the 2026-12-01 review, not before. (due 2026-12-01)
+Next step: Run only, with the measurement exception (D-163): Jithin runs the week from the command center and Jarvis and reviews TL-007 in his Thursday slot. At the 30-day review on 2026-12-01, which is also the appetite's circuit breaker, read H1 from the usage visit days, H2 from decision lines that cite "(flag R-##)", and H5 from the usage Jarvis conversations and inbox cards marked via jarvis, against the 1 Dec checkpoints in each hypothesis. Owed by Lab operations: the Operating Model lifecycle amendment, the register columns, a decision-line field naming the flag that prompted it (H2), and a review-slot field for the Building gate (D-152). S-A is played by Claude (D-151). From TL-013 (2026-11-07): design-kit v0.1.0 (8653232) replaces the 969f885 pin and the retired package names; repin at the 2026-12-01 review, not before. (due 2026-12-01)
 
 Production surface: Jithin, weekly triage and the monthly portfolio review · A private claude.ai artifact fed by the nightly sync · Decisions per month that cite a dashboard flag (H2)
 
@@ -98,8 +98,25 @@ _None._
 | D-030 | 2026-11-02 | Moved to Building under S-A (owner, stream and appetite of 1.5 engineer-weeks present); version 3 published with the lifecycle, streams and phases, production surface, governance dependency and Shipped record | Thinking partner, per Jithin's order | accepted |
 | D-110 | 2026-11-05 | The dashboard is built on ThinkLatent kit, vendored at a pinned commit (969f885) and never edited in the product: kit-pull refreshes it and refuses when a kit file was changed locally; the product's own wrappers (Shell D, spring motion, the command center, the record sheet) live in dashboard/src/kit and are candidates to upstream | Jithin (order); thinking partner (build) | accepted |
 | D-111 | 2026-11-05 | Jarvis joins the dashboard: it answers through Claude on Jithin's own account and reads only the register and the page; it proposes quick calls and drafts requests for the next lab chat, and nothing reaches the decision inbox until Jithin confirms a card; it never writes the register; it speaks with the device's own voices and does not listen (a claude.ai page has no microphone, and browser dictation would send the audio to a third party) | Jithin (order); thinking partner (build) | accepted |
+| D-163 | 2026-11-07 | Measurement-only exception to TL-007's run-only rule (Portfolio, 2026-11-07): the dashboard records the days Jithin opens it (H1) and the Jarvis conversations he starts (H5) in its own database (collection usage, owner only, dates only, no text), and inbox cards carry via page or jarvis. Nothing visible changed (host check pixel-identical) and the kit pin is untouched. H2 is read from "(flag R-##)" in decision text until a field exists. 1 Dec checkpoints pre-registered for H1, H2 and H5. TL-007's weekly review slot under the Building gate (D-152) is Thursday. Audited by a separate agent before publishing: no blockers; two should-fixes applied (a question asked before the database is ready is counted at the next one; a tab open past midnight logs the new day), the owner-only usage rule declared in the same publish | Jithin (exception and Thursday slot); Claude (S-A build and audit) | accepted |
 <!-- generated:end -->
 
 ## Notes
 
 _Session notes and the idea card's prose live here; the register row and the generated block above are rewritten by `scripts/render-ideas.mjs`, this section is kept._
+
+### 2026-11-07 · 30-day review readiness (D-163)
+
+**Dashboard after the rename.** TL-017 team-hub shows up: it's in the Seed column and in search, and its six decision lines are in Changes. The published data matched GitHub at rev 368. Two issues were noted but not fixed, because the row is run only: TL-017's card says Seed while its code is merged to 0.8 (no rule fires; passed to TL-017's next step), and the ThinkLatent logo is clipped at desktop width.
+
+**Instruments for the review.** Before today, H1, H2 and H5 had nothing to read: the page kept only the last visit date in the browser, Jarvis conversations were not counted, and decision lines had no field for a flag. Jithin allowed a measurement-only exception to run only:
+
+- `usage` collection in the dashboard's own database, readable and writable by the owner only. It holds `visit-YYYY-MM-DD` (one per local day opened, also logged when a tab open past midnight is looked at again) and `jarvis-YYYY-MM-DD-<t>` (one per conversation, at its first question or brief sent to Claude; Clear starts a new one). Dates, kind and how only.
+- Inbox cards carry `via: page | jarvis`.
+- H2 is read from "(flag R-##)" in decision text until Lab operations adds a field.
+
+**Reading on 1 Dec.** `db_list` the `usage` collection: H1 is the visit-* dates per week from 9 Nov, H5 is the jarvis-* count plus inbox cards with `via: jarvis`. Each hypothesis's measurement holds its checkpoint. Known limits: before 7 Nov nothing was counted; a failed question still counts as a started conversation; a brief replayed from the page cache counts too; the hook-level behaviour has no unit tests (the audit's nit, left for after the review).
+
+**Database rules live on the artifact, not in this repo.** They are now `inbox` (read view, write owner) and `usage` (read owner, write owner).
+
+Weekly review slot: Thursday (D-152).

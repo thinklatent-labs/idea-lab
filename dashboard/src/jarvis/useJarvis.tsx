@@ -101,6 +101,14 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
   const sampleRef = useRef<SampleFn | null>(null);
   const toolsRef = useRef(false);
   const ctlRef = useRef<AbortController | null>(null);
+  // H5: a conversation is counted once, when its first question or brief is sent to Claude (a brief replayed from the
+  // page's cache counts as started too); Clear starts a new one. Not marked counted until the write could be made, so a
+  // question asked before the database is ready is counted at the next one.
+  const convRef = useRef(false);
+  const countConversation = (how: 'ask' | 'brief') => {
+    if (convRef.current) return;
+    if (labRef.current.inbox.logJarvis(how)) convRef.current = true;
+  };
 
   useEffect(() => {
     let alive = true;
@@ -322,6 +330,7 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
       }
     }
     const input = [{ role: 'user', content: rules(digest()) }, ...history.slice(-12), { role: 'user', content: text }];
+    countConversation('ask');
     setMsgs((ms) => [...ms, userMsg, jm]);
     void run(jm.id, input, { modelTier: tier, cache: false, ...(toolsRef.current ? { tools: tools(jm.id) } : {}) });
   };
@@ -338,6 +347,7 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
     const jm: JMsg = { id: uid(), role: 'jarvis', text: '', at: now, kind: 'brief', status: 'thinking' };
     setBriefMsg(jm);
     setMsgs((ms) => [...ms, { id: uid(), role: 'user', text: 'Brief me', at: now }, jm]);
+    countConversation('brief');
     const l = labRef.current;
     // No tools, so the answer can be replayed for six hours while the register and inbox stay the same.
     void run(jm.id, briefPrompt(digest(), l.now, l.lastVisit), { modelTier: 'default', cache: { gcTime: 6 * 3600_000 } });
@@ -348,7 +358,7 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
     const p = m?.proposals?.find((x) => x.pid === pid);
     if (!p || p.state !== 'open') return;
     const inbox = labRef.current.inbox;
-    const ok = p.type === 'quick' ? await inbox.decide({ itemId: p.itemId, ideaId: p.ideaId, itemText: p.itemText, optionId: p.optionId, optionLabel: p.label, effect: p.effect }) : await inbox.request(p.ideaId, p.text);
+    const ok = p.type === 'quick' ? await inbox.decide({ itemId: p.itemId, ideaId: p.ideaId, itemText: p.itemText, optionId: p.optionId, optionLabel: p.label, effect: p.effect, via: 'jarvis' }) : await inbox.request(p.ideaId, p.text, 'jarvis');
     patch(msgId, (mm) => ({ ...mm, proposals: mm.proposals?.map((x) => (x.pid === pid ? ({ ...x, state: ok ? (x.type === 'quick' ? 'recorded' : 'queued') : 'failed' } as Proposal) : x)) }));
   };
   const dismiss = (msgId: string, pid: string) => patch(msgId, (mm) => ({ ...mm, proposals: mm.proposals?.map((x) => (x.pid === pid ? ({ ...x, state: 'dismissed' } as Proposal) : x)) }));
@@ -360,6 +370,7 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
   };
   const clear = () => {
     stop();
+    convRef.current = false;
     setMsgs([]);
   };
   const setOpen = (b: boolean) => {
