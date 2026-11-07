@@ -54,7 +54,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Amber: a person reviews any output before a client sees it</span></span>
         </div>
         <div style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 10px">
-          <span class="kit-muted">The current TLM4 Core release: 34B, text in and out, internal use only.</span>
+          <span class="kit-muted">The current TLM4 Core release: 27B, text in and out, internal use only.</span>
           <span class="kit-asof">As of Thu 5 Nov 2026, 11:58 ET <button class="kit-tip below" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: facts from the registry and the model card; approval from the validation record; scores from Official TL Index runs.</span></button></span>
         </div>
       </div>
@@ -80,15 +80,15 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 
       <section class="kit-tile" aria-label="Cost per 1,000 tasks">
         <div class="kit-tile-top"><div class="kit-tile-title" style="margin-top: 0">Cost per 1,000 tasks </div><a class="kit-open" href="v6-J10-Usage.dc.html" aria-label="Open usage and cost">↗</a></div>
-        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$0.38</div><div class="kit-tile-cap">12% below Core 4.1 at $0.43 · $0.42 per 1M tokens</div></div><div class="kit-bars" role="img" aria-label="Core 4.1 $0.43 against Core 4.2 $0.38 per 1,000 tasks"><i style="height: 100%"></i><i class="lit" style="height: 88%"></i></div></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$5.20</div><div class="kit-tile-cap">4% above Core 4.1 at $5.00 · $0.42 per 1M tokens</div></div><div class="kit-bars" role="img" aria-label="Core 4.1 $5.00 against Core 4.2 $5.20 per 1,000 tasks"><i style="height: 96%"></i><i class="lit" style="height: 100%"></i></div></div>
       </section>
 
       <section class="kit-tile" aria-label="TL Index composite">
-        <div class="kit-tile-top"><div class="kit-tile-title" style="margin-top: 0">TL Index composite <button class="kit-tip below" type="button" aria-label="About the TL Index composite">i<span class="kit-tip-bubble" role="tooltip"><b>TL Index composite.</b> The Index's mean of the five live pillars in Official run 1180, not a health score. 91% of the run's 6,000 items met their rubric, against 89% on Core 4.1.<span class="src">Source: Official TL Index run 1180 · as of 11:58 ET</span></span></button></div><a class="kit-open" href="v6-E1-EvaluationResults.dc.html" aria-label="Open run 1180">↗</a></div>
+        <div class="kit-tile-top"><div class="kit-tile-title" style="margin-top: 0">TL Index composite <button class="kit-tip below" type="button" aria-label="About the TL Index composite">i<span class="kit-tip-bubble" role="tooltip"><b>TL Index composite.</b> The Index's mean of the five live pillars in Official run 1180, not a health score. Accuracy: 78% ± 2 of the run's 1,186 items met their rubric, against 74% ± 3 on Core 4.1 (run 1171).<span class="src">Source: Official TL Index run 1180 · as of 11:58 ET</span></span></button></div><a class="kit-open" href="v6-E1-EvaluationResults.dc.html" aria-label="Open run 1180">↗</a></div>
         <div>
-          <div class="kit-display kit-tile-value" style="font-size: 44px"><span class="kit-interval">81% <span class="pm" style="font-size: 18px">± 3</span></span></div>
-          <div class="kit-tile-cap">Run 1180 · clears 4 of 5 bars · Core 4.1 was 80%</div>
-          <div style="margin-top: 10px"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar: Safety and grounding 76%</span></span></div>
+          <div class="kit-display kit-tile-value" style="font-size: 44px"><span class="kit-interval">81% <span class="pm" style="font-size: 18px">± 1</span></span></div>
+          <div class="kit-tile-cap">Run 1180 · clears 4 of 5 bars · Core 4.1 was 77%, +4 pts ± 1 · Better</div>
+          <div style="margin-top: 10px"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar: Safety and grounding 76% ± 3 · bar 85%</span></span></div>
         </div>
       </section>
     </div>
@@ -104,64 +104,64 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <tbody>
             <tr>
               <td><span class="kit-muted kit-num">1</span> <a href="E9-Pillar.dc.html">Financial data processing</a> <span class="kit-chip outline">workflow</span></td>
-              <td><svg role="img" aria-label="Financial data processing: Core 4.2 85% ± 3, Core 4.1 82%, Core 3.4 74%, bar 78%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="109.4" y="6" width="28.2" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="71.8" cy="11" r="3" fill="#B5B5B3"></circle><line x1="90.6" y1="2" x2="90.6" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="109.4" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="123.5" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
-              <td class="num"><span class="kit-interval">85% <span class="pm">± 3</span></span></td>
-              <td class="num"><span class="kit-interval">82% <span class="pm">± 3</span></span></td>
-              <td class="num"><span class="kit-interval">74% <span class="pm">± 4</span></span></td>
-              <td><span class="kit-small kit-muted">+3 pts · paired test pending</span></td>
+              <td><svg role="img" aria-label="Financial data processing: Core 4.2 85% ± 2, Core 4.1 81%, Core 3.4 70%, bar 78%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="114.1" y="6" width="18.8" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="53" cy="11" r="3" fill="#B5B5B3"></circle><line x1="90.6" y1="2" x2="90.6" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="104.7" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="123.5" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
+              <td class="num"><span class="kit-interval">85% <span class="pm">± 2</span></span></td>
+              <td class="num"><span class="kit-interval">81% <span class="pm">± 2</span></span></td>
+              <td class="num"><span class="kit-interval">70% <span class="pm">± 3</span></span></td>
+              <td><span class="kit-small kit-muted">+4 pts ± 2 · Better</span></td>
               <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared · bar 78%</span></span></td>
             </tr>
             <tr>
               <td><span class="kit-muted kit-num">3</span> <a href="E9-Pillar.dc.html">Client care</a> <span class="kit-chip brand">gate</span></td>
-              <td><svg role="img" aria-label="Client care: Core 4.2 82% ± 3, Core 4.1 80%, Core 3.4 72%, bar 75%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="95.3" y="6" width="28.2" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="62.4" cy="11" r="3" fill="#B5B5B3"></circle><line x1="76.5" y1="2" x2="76.5" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="100" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="109.4" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
-              <td class="num"><span class="kit-interval">82% <span class="pm">± 3</span></span></td>
-              <td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td>
-              <td class="num"><span class="kit-interval">72% <span class="pm">± 4</span></span></td>
-              <td><span class="kit-small kit-muted">+2 pts · paired test pending</span></td>
+              <td><svg role="img" aria-label="Client care: Core 4.2 82% ± 2, Core 4.1 78%, Core 3.4 68%, bar 75%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="100" y="6" width="18.8" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="43.6" cy="11" r="3" fill="#B5B5B3"></circle><line x1="76.5" y1="2" x2="76.5" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="90.6" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="109.4" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
+              <td class="num"><span class="kit-interval">82% <span class="pm">± 2</span></span></td>
+              <td class="num"><span class="kit-interval">78% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">68% <span class="pm">± 3</span></span></td>
+              <td><span class="kit-small kit-muted">+4 pts ± 2 · Better</span></td>
               <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared · bar 75%</span></span></td>
             </tr>
             <tr>
               <td><span class="kit-muted kit-num">4</span> <a href="E9-Pillar.dc.html">Compliance and regulatory</a> <span class="kit-chip brand">gate</span></td>
-              <td><svg role="img" aria-label="Compliance and regulatory: Core 4.2 80% ± 3, Core 4.1 78%, Core 3.4 70%, bar 75%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="85.9" y="6" width="28.2" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="53" cy="11" r="3" fill="#B5B5B3"></circle><line x1="76.5" y1="2" x2="76.5" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="90.6" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="100" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
-              <td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td>
-              <td class="num"><span class="kit-interval">78% <span class="pm">± 4</span></span></td>
-              <td class="num"><span class="kit-interval">70% <span class="pm">± 5</span></span></td>
-              <td><span class="kit-small kit-muted">+2 pts · paired test pending</span></td>
+              <td><svg role="img" aria-label="Compliance and regulatory: Core 4.2 80% ± 2, Core 4.1 76%, Core 3.4 64%, bar 75%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="90.6" y="6" width="18.8" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="24.8" cy="11" r="3" fill="#B5B5B3"></circle><line x1="76.5" y1="2" x2="76.5" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="81.2" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="100" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
+              <td class="num"><span class="kit-interval">80% <span class="pm">± 2</span></span></td>
+              <td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">64% <span class="pm">± 3</span></span></td>
+              <td><span class="kit-small kit-muted">+4 pts ± 2 · Better</span></td>
               <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared · bar 75%</span></span></td>
             </tr>
             <tr>
               <td><span class="kit-muted kit-num">6</span> <a href="E9-Pillar.dc.html">Safety and grounding</a> <span class="kit-chip brand">gate</span></td>
-              <td><svg role="img" aria-label="Safety and grounding: Core 4.2 76% ± 4, below the bar of 80%; Core 4.1 83%, Core 3.4 74%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="62.4" y="6" width="37.6" height="10" rx="5" fill="rgba(196,38,46,.18)"></rect><circle cx="71.8" cy="11" r="3" fill="#B5B5B3"></circle><line x1="100" y1="2" x2="100" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="114.1" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="81.2" cy="11" r="5" style="fill: var(--decision)"></circle></svg></td>
-              <td class="num"><span class="kit-interval">76% <span class="pm">± 4</span></span></td>
-              <td class="num"><span class="kit-interval">83% <span class="pm">± 3</span></span></td>
-              <td class="num"><span class="kit-interval">74% <span class="pm">± 4</span></span></td>
-              <td><span class="kit-small kit-muted">−7 pts · paired test pending</span></td>
-              <td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar 80%</span></span></td>
+              <td><svg role="img" aria-label="Safety and grounding: Core 4.2 76% ± 3, below the bar of 85%; Core 4.1 71%, Core 3.4 58%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="67.1" y="6" width="28.2" height="10" rx="5" fill="rgba(196,38,46,.18)"></rect><circle cx="6" cy="11" r="3" fill="#B5B5B3"></circle><line x1="123.5" y1="2" x2="123.5" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="57.7" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="81.2" cy="11" r="5" style="fill: var(--decision)"></circle></svg></td>
+              <td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">71% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">58% <span class="pm">± 3</span></span></td>
+              <td><span class="kit-small kit-muted">+5 pts ± 2 · Better</span></td>
+              <td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar 85%</span></span></td>
             </tr>
             <tr>
               <td><span class="kit-muted kit-num">7</span> <a href="E9-Pillar.dc.html">Entity recognition</a> <span class="kit-chip outline">workflow</span></td>
-              <td><svg role="img" aria-label="Entity recognition: Core 4.2 84% ± 3, Core 4.1 78%, Core 3.4 73%, bar 72%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="104.7" y="6" width="28.2" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="67.1" cy="11" r="3" fill="#B5B5B3"></circle><line x1="62.4" y1="2" x2="62.4" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="90.6" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="118.8" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
-              <td class="num"><span class="kit-interval">84% <span class="pm">± 3</span></span></td>
-              <td class="num"><span class="kit-interval">78% <span class="pm">± 3</span></span></td>
-              <td class="num"><span class="kit-interval">73% <span class="pm">± 4</span></span></td>
-              <td><span class="kit-small kit-muted">+6 pts · paired test pending</span></td>
+              <td><svg role="img" aria-label="Entity recognition: Core 4.2 84% ± 2, Core 4.1 79%, Core 3.4 70%, bar 72%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="109.4" y="6" width="18.8" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="53" cy="11" r="3" fill="#B5B5B3"></circle><line x1="62.4" y1="2" x2="62.4" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="95.3" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="118.8" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
+              <td class="num"><span class="kit-interval">84% <span class="pm">± 2</span></span></td>
+              <td class="num"><span class="kit-interval">79% <span class="pm">± 2</span></span></td>
+              <td class="num"><span class="kit-interval">70% <span class="pm">± 3</span></span></td>
+              <td><span class="kit-small kit-muted">+5 pts ± 2 · Better</span></td>
               <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared · bar 72%</span></span></td>
             </tr>
             <tr>
               <td><b style="font-weight: 500">Composite of the five live pillars</b></td>
-              <td><svg role="img" aria-label="Composite: Core 4.2 81% ± 3, Core 4.1 80%, Core 3.4 73%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="90.6" y="6" width="28.2" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="67.1" cy="11" r="3" fill="#B5B5B3"></circle><circle cx="100" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="104.7" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
-              <td class="num"><span class="kit-interval">81% <span class="pm">± 3</span></span></td>
-              <td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td>
-              <td class="num"><span class="kit-interval">73% <span class="pm">± 4</span></span></td>
-              <td><span class="kit-small kit-muted">+1 pt · paired test pending</span></td>
-              <td class="kit-small">4 of 5 cleared · Core 3.4: 1 of 5</td>
+              <td><svg role="img" aria-label="Composite: Core 4.2 81% ± 1, Core 4.1 77%, Core 3.4 66%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="100" y="6" width="9.4" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="34.2" cy="11" r="3" fill="#B5B5B3"></circle><circle cx="85.9" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="104.7" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
+              <td class="num"><span class="kit-interval">81% <span class="pm">± 1</span></span></td>
+              <td class="num"><span class="kit-interval">77% <span class="pm">± 1</span></span></td>
+              <td class="num"><span class="kit-interval">66% <span class="pm">± 1</span></span></td>
+              <td><span class="kit-small kit-muted">+4 pts ± 1 · Better</span></td>
+              <td class="kit-small">4 of 5 cleared · Core 3.4: 0 of 5, +15 pts ± 1 · Better against it</td>
             </tr>
           </tbody>
         </table>
         <div class="kit-legend" style="margin-top: 12px; align-items: center">
           <span><svg aria-hidden="true" viewBox="0 0 22 12" width="22" height="12" style="vertical-align: -2px; margin-right: 6px"><rect x="1" y="1" width="20" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="11" cy="6" r="5" fill="#3E9A5C"></circle></svg>Core 4.2 · run 1180, with its 95% interval</span>
-          <span><svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12" style="vertical-align: -2px; margin-right: 6px"><circle cx="6" cy="6" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle></svg>Core 4.1 · run 1141</span>
-          <span><svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12" style="vertical-align: -2px; margin-right: 6px"><circle cx="6" cy="6" r="3" fill="#B5B5B3"></circle></svg>TLM3 Core 3.4 · run 1146, re-run</span>
+          <span><svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12" style="vertical-align: -2px; margin-right: 6px"><circle cx="6" cy="6" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle></svg>Core 4.1 · run 1171</span>
+          <span><svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12" style="vertical-align: -2px; margin-right: 6px"><circle cx="6" cy="6" r="3" fill="#B5B5B3"></circle></svg>TLM3 Core 3.4 · run 1165</span>
           <span><svg aria-hidden="true" viewBox="0 0 8 14" width="8" height="14" style="vertical-align: -3px; margin-right: 6px"><line x1="4" y1="1" x2="4" y2="13" stroke="#1A1A1A" stroke-width="2"></line></svg>Bar for production</span>
           <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Thin: the interval touches the bar</span></span>
           <span><span class="kit-chip brand" style="margin-right: 6px">gate</span>every workflow must clear it</span>
@@ -187,7 +187,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
             </tbody>
           </table>
         </details>
-        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Scores: Official TL Index runs 1180, 1141 and 1146, judge version pinned, 95% interval by bootstrap over 1,200 items per live pillar. Bars and gate pillars (Safety and grounding, Compliance and regulatory, Client care, plus each workflow's own) from the TL Index record. The composite is the Index's mean of the live pillars, not a health score.</span></button></div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Scores: Official TL Index runs 1180, 1171 and 1165 on edition 2026-11, judge version pinned, 95% interval by bootstrap over the edition's 1,186 items; against 4.1 and 3.4 are paired tests on the shared items (1180 against 1171 and 1180 against 1165). Bars and gate pillars (Safety and grounding, Compliance and regulatory, Client care, plus each workflow's own) from the TL Index record; Safety and grounding at the Policy C-2 floor of 85%. The composite is the Index's mean of the live pillars, not a health score.</span></button></div>
       </div>
     </section>
 
@@ -206,7 +206,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div>
             <h3 style="font-size: 20px">An adapter on Core 4.2 for Client care and Compliance and regulatory</h3>
             <div class="kit-muted" style="margin-top: 6px">Seven use cases miss the same 212 items: complaint handling and disclosure wording.</div>
-            <div class="kit-small" style="margin-top: 6px">Model brief: Safety and grounding below its 80% bar · Client care trails Domain-Advice v2 by 5 pts</div>
+            <div class="kit-small" style="margin-top: 6px">Model brief: Safety and grounding below its 85% bar · Client care trails Domain-Advice v2 by 5 pts ± 2</div>
           </div>
           <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
             <div><div class="kit-display" style="font-size: 30px">7</div><div class="kit-small kit-muted">use cases as evidence</div></div>
@@ -237,52 +237,52 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <div class="kit-surface-head">
           <div><h3>Releases over time</h3><div class="sub">Candidates have no citable score until their Official run</div></div>
           <div style="width: 280px">
-            <svg role="img" aria-label="Composite by release: Core 3.4 73%, Core 4.1 80%, Core 4.2 82%; Core 4.3-rc Practice only, not citable" viewBox="0 0 280 72" width="280" height="72">
-              <polyline fill="none" stroke="#3E9A5C" stroke-width="2" points="20,52 110,24 200,16"></polyline>
+            <svg role="img" aria-label="Composite by release: Core 3.4 66%, Core 4.1 77%, Core 4.2 81%; Core 4.3-rc Practice only, not citable" viewBox="0 0 280 72" width="280" height="72">
+              <polyline fill="none" stroke="#3E9A5C" stroke-width="2" points="20,52 110,26 200,16"></polyline>
               <polyline fill="none" stroke="#8A8A88" stroke-width="1.5" stroke-dasharray="4 4" points="200,16 262,12"></polyline>
               <circle cx="20" cy="52" r="3.5" fill="#3E9A5C"></circle>
-              <circle cx="110" cy="24" r="3.5" fill="#3E9A5C"></circle>
+              <circle cx="110" cy="26" r="3.5" fill="#3E9A5C"></circle>
               <circle cx="200" cy="16" r="3.5" fill="#3E9A5C"></circle>
               <circle cx="262" cy="12" r="3.5" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle>
-              <text x="8" y="68" font-size="11" fill="#5C5C5A">3.4 · 73%</text>
-              <text x="110" y="14" font-size="11" text-anchor="middle" fill="#5C5C5A">4.1 · 80%</text>
-              <text x="196" y="34" font-size="11" text-anchor="middle" fill="#5C5C5A">4.2 · 82%</text>
+              <text x="8" y="68" font-size="11" fill="#5C5C5A">3.4 · 66%</text>
+              <text x="110" y="14" font-size="11" text-anchor="middle" fill="#5C5C5A">4.1 · 77%</text>
+              <text x="196" y="34" font-size="11" text-anchor="middle" fill="#5C5C5A">4.2 · 81%</text>
               <text x="262" y="30" font-size="11" text-anchor="middle" fill="#8A8A88">4.3-rc</text>
             </svg>
             <div class="kit-legend"><span><i style="background: #3E9A5C"></i>Composite, Official</span><span><i style="background: #8A8A88"></i>Practice, not citable</span></div>
           </div>
         </div>
         <table style="margin-top: 12px">
-          <thead><tr><th>Release</th><th>Official run</th><th class="num">Composite</th><th class="num">Eval pass rate <button class="kit-tip" type="button" aria-label="About eval pass rate">i<span class="kit-tip-bubble" role="tooltip"><b>Eval pass rate.</b> The share of the run's items that met their rubric.<span class="src">Source: Official TL Index runs · as of 11:58 ET</span></span></button></th><th>Daily regression suite</th><th class="num">Cost per 1,000 tasks</th><th class="num">Against the release before</th><th>Findings open at release</th></tr></thead>
+          <thead><tr><th>Release</th><th>Official run</th><th class="num">Composite</th><th class="num">Eval pass rate <button class="kit-tip" type="button" aria-label="About eval pass rate">i<span class="kit-tip-bubble" role="tooltip"><b>Eval pass rate.</b> The share of the run's items that met their rubric (the run's accuracy).<span class="src">Source: Official TL Index runs · as of 11:58 ET</span></span></button></th><th>Daily regression suite</th><th class="num">Cost per 1,000 tasks</th><th class="num">Against the release before</th><th>Findings open at release</th></tr></thead>
           <tbody>
             <tr>
               <td><a href="v6-M2-ModelPage.dc.html">TLM3 Core 3.4</a><div class="kit-small kit-muted">2025-11 · retiring 2027-03-01</div></td>
-              <td>1146 <span class="kit-small kit-muted">re-run</span></td>
-              <td class="num"><span class="kit-interval">73% <span class="pm">± 4</span></span></td>
-              <td class="num">78%</td>
+              <td>1165</td>
+              <td class="num"><span class="kit-interval">66% <span class="pm">± 1</span></span></td>
+              <td class="num">60%</td>
               <td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>1 check failed · 5 Nov</span></span></td>
-              <td class="num">$0.55</td>
+              <td class="num">$3.80</td>
               <td class="num"><span class="kit-dash" title="first release measured on the Index pillars">—</span> <span class="kit-small kit-muted">first on the Index</span></td>
               <td>2</td>
             </tr>
             <tr>
               <td><a href="M7-Lifecycle.dc.html">TLM4 Core 4.1</a><div class="kit-small kit-muted">2026-04 · previous</div></td>
-              <td>1141</td>
-              <td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td>
-              <td class="num">89%</td>
+              <td>1171</td>
+              <td class="num"><span class="kit-interval">77% <span class="pm">± 1</span></span></td>
+              <td class="num">74%</td>
               <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed · 5 Nov</span></span></td>
-              <td class="num">$0.43</td>
-              <td class="num">−22% · new generation</td>
+              <td class="num">$5.00</td>
+              <td class="num">+32% · new generation</td>
               <td>0</td>
             </tr>
             <tr class="selected">
               <td><b style="font-weight: 500">TLM4 Core 4.2</b><div class="kit-small kit-muted">2026-10 · current</div></td>
               <td>1180</td>
-              <td class="num"><span class="kit-interval">82% <span class="pm">± 3</span></span></td>
-              <td class="num">91%</td>
+              <td class="num"><span class="kit-interval">81% <span class="pm">± 1</span></span></td>
+              <td class="num">78%</td>
               <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed · 5 Nov</span></span></td>
-              <td class="num">$0.38</td>
-              <td class="num">−12%</td>
+              <td class="num">$5.20</td>
+              <td class="num">+4%</td>
               <td>3 · 1 red-team</td>
             </tr>
             <tr>
@@ -311,7 +311,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div class="kit-surface-head"><h3>Facts</h3><a class="kit-btn sm outline" href="M3-CatalogueCard.dc.html">Card</a></div>
           <dl class="kit-kv" style="margin-top: 12px; grid-template-columns: 160px 1fr">
             <dt>Built from</dt><dd>TLM4 base 4.0 · training run T-4471 · continued training, then instruction tuning</dd>
-            <dt>Size and modalities</dt><dd>34B parameters · text in, text out · strict JSON mode</dd>
+            <dt>Size and modalities</dt><dd>27B parameters · text in, text out · strict JSON mode</dd>
             <dt>Context window</dt><dd>32k tokens · best under 24k · <a href="#sec-serving">context curve</a></dd>
             <dt>Licence</dt><dd>Enterprise proprietary · internal use only</dd>
             <dt>Data tiers</dt><dd>Tiers 1, 2 and 3 · never leaves the Enterprise boundary</dd>
@@ -338,10 +338,10 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <table class="kit-small">
             <thead><tr><th>Use case</th><th>Owner</th><th>Bound by</th><th>Phase</th><th>Hosting <button class="kit-tip" type="button" aria-label="About hosting">i<span class="kit-tip-bubble" role="tooltip"><b>Hosting.</b> The tier its owner chose at onboarding, its availability target and the use case's own TTFT target. Targets, set at onboarding.<span class="src">Source: the record · as of 11:58 ET</span></span></button></th><th class="num">Quality</th></tr></thead>
             <tbody>
-              <tr><td><a href="v6-J2-ProjectHome.dc.html">Advisor summary</a><div class="kit-muted">UC-0291 · Retail Advice</div></td><td>Priya N.</td><td>via Domain-Advice v2</td><td><span class="kit-chip">Pilot in production</span></td><td>Dedicated · 99.9% · 800 ms</td><td class="num"><span class="kit-interval">84% <span class="pm">± 3</span></span></td></tr>
+              <tr><td><a href="v6-J2-ProjectHome.dc.html">Advisor summary</a><div class="kit-muted">UC-0291 · Retail Advice</div></td><td>Priya N.</td><td>via Domain-Advice v2</td><td><span class="kit-chip">Pilot in production</span></td><td>Dedicated · 99.9% · 800 ms</td><td class="num"><span class="kit-interval">84% <span class="pm">± 1</span></span></td></tr>
               <tr><td><a href="v6-J2-ProjectHome.dc.html">Service note drafting</a><div class="kit-muted">UC-0218 · Client Services</div></td><td>Priya N.</td><td>prod alias</td><td><span class="kit-chip">Production</span></td><td>Dedicated · 99.9% · 600 ms</td><td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td></tr>
               <tr class="selected"><td><a href="v6-J2-ProjectHome.dc.html">Prospectus extraction</a><div class="kit-muted">UC-0254 · Investment Mgmt</div></td><td>Marcus L.</td><td>prod alias</td><td><span class="kit-chip">Production</span></td><td>Dedicated · 99.9% · 1.2 s</td><td class="num"><span class="kit-interval">87% <span class="pm">± 2</span></span></td></tr>
-              <tr><td><a href="v6-J2-ProjectHome.dc.html">Fund document Q&amp;A</a><div class="kit-muted">UC-0307 · Investment Mgmt</div></td><td>Marcus L.</td><td>candidate alias</td><td><span class="kit-chip env">Active build</span></td><td>Shared · 99.5%</td><td class="num"><span class="kit-dash" title="not in production">—</span> not in production</td></tr>
+              <tr><td><a href="v6-J2-ProjectHome.dc.html">Fund document Q&amp;A</a><div class="kit-muted">UC-0307 · Investment Mgmt</div></td><td>Marcus L.</td><td>candidate alias</td><td><span class="kit-chip env">Active build</span></td><td>Shared · 99.5%</td><td class="num"><span class="kit-dash" title="no use-case score on file">—</span></td></tr>
               <tr><td><a href="v6-J2-ProjectHome.dc.html">Policy lookup agent</a><div class="kit-muted">UC-0311 · Compliance</div></td><td>Marcus L.</td><td>POC alias</td><td><span class="kit-chip env">POC</span></td><td>Sandbox · best effort</td><td class="num"><span class="kit-dash" title="not in production">—</span> not in production</td></tr>
               <tr><td><a href="J1-Projects.dc.html">7 more in production</a></td><td><span class="kit-dash" title="see the full list">—</span></td><td><span class="kit-dash" title="see the full list">—</span></td><td><span class="kit-chip">Production</span></td><td>Dedicated · 99.9%</td><td class="num"><span class="kit-dash" title="see the full list">—</span> full list</td></tr>
             </tbody>
@@ -463,7 +463,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           </div>
         </div>
         <div class="kit-divider"></div>
-        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><h3>Other layers, side by side</h3><span class="kit-small kit-muted">What the Cost, Latency and Suitability tabs show · same shapes and axes · production, 30 days, served medium setting</span></div>
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><h3>Other layers, side by side</h3><span class="kit-small kit-muted">What the Cost, Latency and Suitability tabs show · same shapes and axes · production, 30 days, served 4-bit setting</span></div>
         <div class="kit-grid3" style="margin-top: 12px">
           <div>
             <div style="font-weight: 500; margin-bottom: 8px">Cost · USD per 1,000 tasks </div>
@@ -490,7 +490,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
             <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #1B5128"></i>under 250 ms</span><span><i style="background: rgba(62,154,92,.48)"></i>250 to 500 ms</span><span><i style="background: rgba(62,154,92,.28)"></i>500 ms to 1 s</span><span><i style="background: rgba(62,154,92,.12)"></i>over 1 s, past the interactive target</span><span>— no Enterprise calls</span></div>
           </div>
           <div>
-            <div style="font-weight: 500; margin-bottom: 8px">Suitability · cheapest model clearing every bar <button class="kit-tip end" type="button" aria-label="About the suitability layer">i<span class="kit-tip-bubble" role="tooltip"><b>Suitability layer.</b> The cheapest approved model that clears every bar on that shape, comparing Core 4.2 with Distil 4.2 on the same items and bars. Needs at least 50 evaluation items.<span class="src">Source: Official TL Index run 1180 · as of 11:58 ET</span></span></button></div>
+            <div style="font-weight: 500; margin-bottom: 8px">Suitability · cheapest model clearing every bar except Safety and grounding (85% floor: none clears it yet) <button class="kit-tip end" type="button" aria-label="About the suitability layer">i<span class="kit-tip-bubble" role="tooltip"><b>Suitability layer.</b> The cheapest approved model that clears every bar except Safety and grounding on that shape (no model clears its 85% floor yet), comparing Core 4.2 with Distil 4.2 on the same items and bars. Needs at least 50 evaluation items.<span class="src">Source: Official TL Index run 1180 · as of 11:58 ET</span></span></button></div>
             <div class="kit-matrix" style="grid-template-columns: 52px repeat(5, minmax(0, 1fr))">
               <div class="h"></div><div class="h">&lt;128</div><div class="h">128–512</div><div class="h">512–1k</div><div class="h">1–2k</div><div class="h">&gt;2k</div>
               <div class="h">&lt;1k</div><div class="c l2" style="height: 36px">Distil</div><div class="c l2" style="height: 36px">Distil</div><div class="c l4" style="height: 36px">Core</div><div class="c l4" style="height: 36px">Core</div><div class="c" style="height: 36px"><span class="kit-dash" title="fewer than 50 evaluation items in this shape">—</span></div>
@@ -499,15 +499,15 @@ a{color:#1B5128}a:hover{color:#0C3F09}
               <div class="h">8–16k</div><div class="c l4" style="height: 36px">Core</div><div class="c l4" style="height: 36px">Core</div><div class="c l4" style="height: 36px">Core</div><div class="c" style="height: 36px">none</div><div class="c" style="height: 36px">none</div>
               <div class="h">16–32k</div><div class="c" style="height: 36px">none</div><div class="c" style="height: 36px">none</div><div class="c" style="height: 36px">none</div><div class="c" style="height: 36px">none</div><div class="c" style="height: 36px"><span class="kit-dash" title="fewer than 50 evaluation items in this shape">—</span></div>
             </div>
-            <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #1B5128"></i>Core 4.2 is the pick</span><span><i style="background: rgba(62,154,92,.28)"></i>Distil 4.2 clears for less: recommended there</span><span><i style="background: var(--tint)"></i>none: a gap for Improve, not a routing choice</span><span>— fewer than 50 items</span></div>
+            <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #1B5128"></i>Core 4.2 is the pick</span><span><i style="background: rgba(62,154,92,.28)"></i>Distil 4.2 clears the rest for less</span><span><i style="background: var(--tint)"></i>none: a gap for Improve, not a routing choice</span><span>— fewer than 50 items</span></div>
           </div>
         </div>
-        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Quality from Official TL Index run 1180, items bucketed by token shape (cells under 50 items show a dash); cost and TTFT p95 per shape from the gateway serving log, production aggregate, 30 days, at the served medium setting; suitability compares Core 4.2 with the approved Distil 4.2 on the same items and bars; the context curve from the run's long-context slice of 840 items. Volume overlay from the gateway serving log, production aggregate, 30 days; no request content.</span></button></div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Quality from Official TL Index run 1180, items bucketed by token shape (cells under 50 items show a dash); cost and TTFT p95 per shape from the gateway serving log, production aggregate, 30 days, at the served 4-bit setting; suitability compares Core 4.2 with the approved Distil 4.2 on the same items and bars; the context curve from the run's long-context slice of 840 items. Volume overlay from the gateway serving log, production aggregate, 30 days; no request content.</span></button></div>
       </div>
 
       <div class="kit-surface raised">
         <div class="kit-surface-head">
-          <div><h3>Serving settings by outcome</h3><div class="sub">Accuracy against high precision, with cost and speed · run 1180 ran at medium</div></div>
+          <div><h3>Serving settings by outcome</h3><div class="sub">Accuracy against high precision, with cost and speed · run 1180 ran at 4-bit (low)</div></div>
           <a class="kit-btn sm outline" href="M6-Registry-Serving.dc.html">Settings per version</a>
         </div>
         <table class="kit-small" style="margin-top: 12px">
@@ -520,13 +520,13 @@ a{color:#1B5128}a:hover{color:#0C3F09}
               <td class="num">$0.71</td><td class="num">3.3 s</td><td class="num">560 ms</td><td class="num">54</td>
             </tr>
             <tr class="selected">
-              <td><b style="font-weight: 500">Medium</b> · FP8 weights · served now <span class="kit-chip brand">Recommended</span><div style="margin-top: 4px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Tie with high precision</span></span></div></td>
+              <td><b style="font-weight: 500">Medium</b> · FP8 weights <span class="kit-chip brand">Recommended</span><div style="margin-top: 4px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Tie with high precision</span></span></div></td>
               <td class="num">0 pts</td><td class="num">−1 pt</td><td class="num">0 pts</td><td class="num">−1 pt</td><td class="num">0 pts</td>
               <td class="num"><span class="kit-dash" title="eleven pillars arrive in Phase 2">—</span></td>
               <td class="num">$0.42</td><td class="num">2.1 s</td><td class="num">410 ms</td><td class="num">88</td>
             </tr>
             <tr>
-              <td><b style="font-weight: 500">Low</b> · INT4 weights<div style="margin-top: 4px"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below the Safety and grounding gate</span></span></div></td>
+              <td><b style="font-weight: 500">Low</b> · INT4 (4-bit) weights · served now<div style="margin-top: 4px"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below the Safety and grounding gate</span></span></div></td>
               <td class="num">−3 pts</td><td class="num">−3 pts</td><td class="num">−4 pts</td><td class="num">−6 pts</td><td class="num">−2 pts</td>
               <td class="num"><span class="kit-dash" title="eleven pillars arrive in Phase 2">—</span></td>
               <td class="num">$0.26</td><td class="num">1.6 s</td><td class="num">330 ms</td><td class="num">121</td>
@@ -534,7 +534,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           </tbody>
         </table>
         <div class="kit-note" style="margin-top: 12px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Recommended: medium. Every pillar stays inside its interval at 41% less cost than high. </span></div>
-        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Accuracy deltas from Official TL Index run 1180 and its paired re-runs 1180-H and 1180-L on the same items; cost, TTFT and tokens per second (per stream, p50) from the gateway serving log at each setting during the October canary; latency for a typical task is TTFT p95 plus 150 output tokens at that rate.</span></button></div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Accuracy deltas from Official TL Index run 1180 and its paired re-runs 1180-H and 1180-M on the same items; cost, TTFT and tokens per second (per stream, p50) from the gateway serving log at each setting during the October canary; latency for a typical task is TTFT p95 plus 150 output tokens at that rate.</span></button></div>
       </div>
     </section>
 

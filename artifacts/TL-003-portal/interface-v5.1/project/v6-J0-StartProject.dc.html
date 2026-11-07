@@ -94,28 +94,28 @@ a{color:#1B5128}a:hover{color:#0C3F09}
               <!-- 2a · Recommended model -->
               <section class="kit-surface" id="sec-model" aria-labelledby="h-model">
                 <div class="kit-surface-head">
-                  <div><h4 id="h-model" style="margin: 0; font-size: 15px; font-weight: 500">Recommended model</h4><div class="sub">The smallest model that clears every live bar this job needs.</div></div>
+                  <div><h4 id="h-model" style="margin: 0; font-size: 15px; font-weight: 500">Recommended model</h4><div class="sub">The smallest model that clears every live bar this job needs; none does yet, so this is the closest.</div></div>
                 </div>
 
                 <div class="kit-surface raised" style="padding: 14px 16px; margin-top: 14px">
                   <div class="kit-agentline"><span class="kit-agent"><span class="av">OB</span><span>Onboarding agent</span></span><span>· 81% confidence</span><span>· 11:53</span><span class="kit-chip outline" style="height: 20px">Drafted · check</span></div>
-                  <div style="margin-top: 8px; font-size: 16px">Use <a href="v6-M2-ModelPage.dc.html">TLM4 Distil 4.2</a>: it clears all 5 live bars at the lowest monthly cost.</div>
-                  <div class="kit-agentline" style="margin-top: 6px"><span>Basis: Official TL Index runs 1179 and 1180 · your volume from step 1 · vendor price by Finance method v1.2</span><a href="v6-E1-EvaluationResults.dc.html">View sources</a></div>
+                  <div style="margin-top: 8px; font-size: 16px">No model clears all 5 live bars yet. Closest is <a href="v6-M2-ModelPage.dc.html">TLM4 Core 4.2</a> at 4 of 5: it misses Safety and grounding, 76% ± 3 against the 85% floor. Run your POC on it in the sandbox; no model is yet proven for production on Safety and grounding.</div>
+                  <div class="kit-agentline" style="margin-top: 6px"><span>Basis: Official TL Index runs 1179 and 1180 against R-0418’s 5 bars, Safety at the 85% floor · your volume from step 1 · vendor price by Finance method v1.2</span><a href="v6-E1-EvaluationResults.dc.html">View sources</a></div>
                   <div class="kit-actions" style="margin-top: 12px"><button class="kit-btn sm outline" type="button">Accept</button><button class="kit-btn sm ghost" type="button">Edit</button><a class="kit-btn sm ghost" href="E2-Index.dc.html">Compare on the Index</a></div>
                 </div>
 
                 <div class="kit-rows" style="margin-top: 12px" aria-label="Monthly cost in production against the vendor path">
-                  <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 180px 160px; border-color: rgba(108,183,105,.7); box-shadow: 0 0 0 1px rgba(108,183,105,.5)">
-                    <span class="t">TLM4 Distil 4.2</span>
-                    <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>5 of 5 live bars · smallest</span></span>
-                    <div style="display: flex; align-items: center; gap: 8px"><div class="kit-track" style="flex: 1"><i style="width: 29%"></i></div><span class="kit-num" style="white-space: nowrap"><b style="font-weight: 600">$1.2k</b> a month</span></div>
-                    <div class="end"><span class="kit-chip brand">Recommended</span></div>
-                  </div>
                   <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 180px 160px">
+                    <span class="t">TLM4 Distil 4.2</span>
+                    <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>0 of 5 live bars · smallest</span></span>
+                    <div style="display: flex; align-items: center; gap: 8px"><div class="kit-track" style="flex: 1"><i style="width: 29%"></i></div><span class="kit-num" style="white-space: nowrap">$1.2k a month</span></div>
+                    <div class="end"><span class="kit-chip outline">For comparison</span></div>
+                  </div>
+                  <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 180px 160px; border-color: rgba(108,183,105,.7); box-shadow: 0 0 0 1px rgba(108,183,105,.5)">
                     <span class="t">TLM4 Core 4.2</span>
-                    <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>4 of 5 live bars · misses Safety and grounding</span></span>
-                    <div style="display: flex; align-items: center; gap: 8px"><div class="kit-track" style="flex: 1"><i style="width: 100%"></i></div><span class="kit-num" style="white-space: nowrap">$3.9k a month</span></div>
-                    <div class="end"><button class="kit-btn sm outline" type="button">Use Core 4.2 instead</button></div>
+                    <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>4 of 5 live bars · closest · misses Safety and grounding</span></span>
+                    <div style="display: flex; align-items: center; gap: 8px"><div class="kit-track" style="flex: 1"><i style="width: 100%"></i></div><span class="kit-num" style="white-space: nowrap"><b style="font-weight: 600">$3.9k</b> a month</span></div>
+                    <div class="end"><span class="kit-chip brand">Recommended for POC</span></div>
                   </div>
                   <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 180px 160px">
                     <span class="t">Vendor path</span>
@@ -124,20 +124,20 @@ a{color:#1B5128}a:hover{color:#0C3F09}
                     <div class="end"><span class="kit-chip outline">For comparison</span></div>
                   </div>
                 </div>
-                <div class="kit-small kit-muted" style="margin-top: 8px">Estimates. During POC you pay per token on the shared endpoint: about $75 a month at your volume.</div>
+                <div class="kit-small kit-muted" style="margin-top: 8px">Estimates. During POC you pay per token on the shared endpoint: about $280 a month at your volume on Core 4.2.</div>
 
                 <table style="margin-top: 16px" aria-label="Index pillars this job needs">
                   <thead><tr><th>Pillar</th><th>Why it matters here</th><th class="num">Bar<button class="kit-tip" type="button" aria-label="About the bar">i<span class="kit-tip-bubble" role="tooltip"><b>Bar.</b> The score this job needs on a pillar. A bar is cleared when the lower end of the model’s interval is at or above it.<span class="src">Source: TL Index · 95% intervals, judge version pinned</span></span></button></th><th class="num">Distil 4.2</th><th class="num">Core 4.2</th></tr></thead>
                   <tbody>
                     <tr><td colspan="5" class="kit-label" style="padding-top: 14px">This job’s pillars</td></tr>
-                    <tr><td>1 · Financial data processing</td><td class="kit-small">Amounts, currencies and ages copied exactly</td><td class="num">78%</td><td class="num"><span class="kit-interval">82% <span class="pm">± 3</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td><td class="num"><span class="kit-interval">85% <span class="pm">± 3</span></span></td></tr>
-                    <tr><td>7 · Entity recognition</td><td class="kit-small">Break id, custodian and counterparty names</td><td class="num">80%</td><td class="num"><span class="kit-interval">85% <span class="pm">± 3</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td><td class="num"><span class="kit-interval">84% <span class="pm">± 3</span></span></td></tr>
+                    <tr><td>1 · Financial data processing</td><td class="kit-small">Amounts, currencies and ages copied exactly</td><td class="num">78%</td><td class="num"><span class="kit-interval">78% <span class="pm">± 3</span></span> <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td class="num"><span class="kit-interval">85% <span class="pm">± 2</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td></tr>
+                    <tr><td>7 · Entity recognition</td><td class="kit-small">Break id, custodian and counterparty names</td><td class="num">80%</td><td class="num"><span class="kit-interval">78% <span class="pm">± 3</span></span> <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td class="num"><span class="kit-interval">84% <span class="pm">± 2</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td></tr>
                     <tr><td>11 · Document understanding</td><td class="kit-small">Custodian report layouts</td><td class="num"><span class="kit-dash" title="Phase 2: pillar not live in the MVP">—</span></td><td class="num" colspan="2"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Phase 2 · not live yet</span></span></td></tr>
                     <tr><td>15 · Summarization</td><td class="kit-small">The one-line likely cause</td><td class="num"><span class="kit-dash" title="Phase 2: pillar not live in the MVP">—</span></td><td class="num" colspan="2"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Phase 2 · not live yet</span></span></td></tr>
                     <tr><td colspan="5" class="kit-label" style="padding-top: 14px">Regression gate · held by every use case</td></tr>
-                    <tr><td>6 · Safety and grounding</td><td class="kit-small">No cause the report does not support</td><td class="num">85%</td><td class="num"><span class="kit-interval">88% <span class="pm">± 2</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td><td class="num"><span class="kit-interval">76% <span class="pm">± 4</span></span> <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td></tr>
-                    <tr><td>4 · Compliance and regulatory</td><td class="kit-small">Books-and-records wording, no trade advice</td><td class="num">76%</td><td class="num"><span class="kit-interval">81% <span class="pm">± 3</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td><td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td></tr>
-                    <tr><td>3 · Client care</td><td class="kit-small">Low exposure: internal readers only</td><td class="num">72%</td><td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td><td class="num"><span class="kit-interval">82% <span class="pm">± 3</span></span></td></tr>
+                    <tr><td>6 · Safety and grounding</td><td class="kit-small">No cause the report does not support</td><td class="num">85%</td><td class="num"><span class="kit-interval">63% <span class="pm">± 3</span></span> <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span> <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td></tr>
+                    <tr><td>4 · Compliance and regulatory</td><td class="kit-small">Books-and-records wording, no trade advice</td><td class="num">76%</td><td class="num"><span class="kit-interval">69% <span class="pm">± 3</span></span> <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td class="num"><span class="kit-interval">80% <span class="pm">± 2</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td></tr>
+                    <tr><td>3 · Client care</td><td class="kit-small">Low exposure: internal readers only</td><td class="num">72%</td><td class="num"><span class="kit-interval">74% <span class="pm">± 3</span></span> <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td class="num"><span class="kit-interval">82% <span class="pm">± 2</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td></tr>
                   </tbody>
                 </table>
                 <div class="kit-small kit-muted" style="margin-top: 8px">Until Phase 2 pillars go live, your own requirements in step 3 cover them.</div>
@@ -214,7 +214,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
                   </div>
                   <div class="kit-label" style="margin-top: 14px">Copied · you can change any of it</div>
                   <dl class="kit-kv" style="margin: 8px 0 0">
-                    <dt>Routing</dt><dd>prod alias → Triage agent v3.1 on TLM4 Distil 4.2 · copied as your own aliases</dd>
+                    <dt>Routing</dt><dd>prod alias → Triage agent v3.1 on TLM4 Core 4.2 · copied as your own aliases</dd>
                     <dt>Eval set</dt><dd>triage-eval v5 as a starting set · 400 items · you add your own breaks in step 3</dd>
                     <dt>Budget</dt><dd>POC template: $3k a month ceiling · sandbox $500 · 60 requests per minute</dd>
                     <dt>Approval template</dt><dd>Ops triage · expected risk tier 2 · owner, data owner, then Head of ThinkLatent at Production</dd>
@@ -265,17 +265,17 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <dl class="kit-kv" style="grid-template-columns: minmax(0, 1fr); gap: 14px; margin: 0">
             <div>
               <dt>Model</dt>
-              <dd style="margin-top: 4px"><div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><a href="v6-M2-ModelPage.dc.html" style="font-size: 16px; font-weight: 500">TLM4 Distil 4.2</a><span class="kit-chip outline" style="height: 20px">Drafted · check</span></div><div class="kit-small kit-muted">Clears 5 of 5 live bars · via Triage agent v3.1</div></dd>
+              <dd style="margin-top: 4px"><div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><a href="v6-M2-ModelPage.dc.html" style="font-size: 16px; font-weight: 500">TLM4 Core 4.2</a><span class="kit-chip outline" style="height: 20px">Drafted · check</span></div><div class="kit-small kit-muted">Clears 4 of 5 live bars · misses Safety and grounding · POC in sandbox, not proven for production · via Triage agent v3.1</div></dd>
             </div>
             <div>
               <dt>Cost per month</dt>
               <dd style="margin-top: 4px">
-                <div style="display: flex; align-items: baseline; gap: 6px"><span class="kit-display" style="font-size: 32px">$1.2k</span><span class="kit-small kit-muted">in production · estimate</span></div>
+                <div style="display: flex; align-items: baseline; gap: 6px"><span class="kit-display" style="font-size: 32px">$3.9k</span><span class="kit-small kit-muted">in production · estimate</span></div>
                 <div style="display: grid; grid-template-columns: 80px minmax(0, 1fr) 40px; gap: 6px 8px; align-items: center; margin-top: 8px; font-size: 12px">
-                  <span>Distil 4.2</span><div class="kit-track"><i style="width: 31%"></i></div><span class="kit-num" style="text-align: right">$1.2k</span>
-                  <span>Vendor path</span><div class="kit-track"><i style="width: 100%"></i></div><span class="kit-num" style="text-align: right">$3.7k</span>
+                  <span>Core 4.2</span><div class="kit-track"><i style="width: 100%"></i></div><span class="kit-num" style="text-align: right">$3.9k</span>
+                  <span>Vendor path</span><div class="kit-track"><i style="width: 95%"></i></div><span class="kit-num" style="text-align: right">$3.7k</span>
                 </div>
-                <div class="kit-small kit-muted" style="margin-top: 6px">About $75 a month during POC, per token</div>
+                <div class="kit-small kit-muted" style="margin-top: 6px">About $280 a month during POC, per token</div>
               </dd>
             </div>
             <div>
