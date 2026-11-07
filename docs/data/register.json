@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-07T13:30:00+05:30",
+  "asOf": "2026-11-07T13:40:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-05, ThinkLatent kit, command center and Jarvis), register rev 223.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 378,
+    "registerRev": 379,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1239,12 +1239,12 @@
       "themeIds": [
         "T-001"
       ],
-      "stage": "Seed",
-      "stageNote": "registered 2026-11-02 in the TL-011 chat; first Brainstorm 2026-11-07 (eight directions across four layers that can evolve); TL-013 design-kit text removed from this row",
-      "stageSince": "2026-11-02",
+      "stage": "Shaping",
+      "stageNote": "Shaping since 2026-11-07: L1 playbooks and skills evolve first; the knowledge unit is the decision trace (trigger, request, action and why, precedent, outcome, next goal); first arena is ThinkLatent's own work (the lab, then TL-017 Cortex)",
+      "stageSince": "2026-11-07",
       "horizon": "H3",
       "appetite": null,
-      "owner": "Jithin",
+      "owner": "Idea owner and product lead (Jithin); harness lead and builder (Claude)",
       "score": {
         "composite": null,
         "status": "none",
@@ -1255,7 +1255,7 @@
       "docTitle": "TL-015 group-evolving-agents (idea doc in the repo)",
       "standardVersion": "pre-v1",
       "lastTouched": "2026-11-07",
-      "nextStep": "In the TL-015 chat: Jithin picks what evolves first (playbooks and skills, team design, institutional memory, or model weights), what counts as institutional knowledge for the first slice, and the first arena from the brainstorm in the idea doc; then Shaping: reuse list from the catalogue, pre-registered hypotheses with kill criteria, idea card",
+      "nextStep": "Claude (harness lead): backfill decision traces for 20 lab decisions from the register and sessions log to test H1 and fix the trace schema; Scout prior art on playbook evolution and decision-trace memory; then Jithin reviews the schema and the backfill",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -1269,9 +1269,94 @@
         {
           "stage": "Seed",
           "since": "2026-11-02"
+        },
+        {
+          "stage": "Shaping",
+          "since": "2026-11-07"
         }
       ],
-      "nextStepDue": "2026-11-21"
+      "nextStepDue": "2026-11-21",
+      "hypotheses": [
+        {
+          "claim": "H1. Decision traces can be captured cheaply",
+          "measurement": "Share of lab decision lines that can be expanded into a full trace (trigger, request, action and why, precedent, outcome, next goal) from the register, sessions log and chats, with at most one question to Jithin each",
+          "confirmedIf": "At least 80% of a 20-decision backfill complete with one question or fewer each",
+          "refutedIf": "Under 50% complete, or Jithin needs more than 15 minutes a week to fill gaps",
+          "evidence": null,
+          "confidence": null,
+          "resolveBy": "2026-11-21",
+          "result": "open"
+        },
+        {
+          "claim": "H2. Playbooks evolved from traces cut rework",
+          "measurement": "Rework per session: auditor findings, Jithin corrections and nightly-sync flags, against a 4-week baseline",
+          "confirmedIf": "Rework falls by 30% or more over 6 weeks once evolved playbooks are in use",
+          "refutedIf": "No fall, or a rise",
+          "evidence": null,
+          "confidence": null,
+          "resolveBy": "2027-01-09",
+          "result": "open"
+        },
+        {
+          "claim": "H3. Precedent helps the next decision",
+          "measurement": "Share of proposed decisions where the system surfaces a past trace Jithin rates useful",
+          "confirmedIf": "At least half of proposals over 6 weeks",
+          "refutedIf": "Under 20%",
+          "evidence": null,
+          "confidence": null,
+          "resolveBy": "2027-01-09",
+          "result": "open"
+        },
+        {
+          "claim": "H4. A shared library beats private ones",
+          "measurement": "Playbooks learned by one agent role (scout, critic, spec, sync, auditor) adopted by another and improving its score",
+          "confirmedIf": "At least 5 cross-role adoptions that improve the adopter in 6 weeks",
+          "refutedIf": "None",
+          "evidence": null,
+          "confidence": null,
+          "resolveBy": "2027-01-09",
+          "result": "open"
+        }
+      ],
+      "killSignals": [
+        {
+          "signal": "Library bloat: the playbook library doubles in size while rework stays flat",
+          "by": "2027-01-09",
+          "status": "open"
+        },
+        {
+          "signal": "Gaming: playbooks pass the Judge or auditor but fail Jithin's review at least a third of the time",
+          "by": "2027-01-09",
+          "status": "open"
+        },
+        {
+          "signal": "Capture cost: keeping traces costs Jithin more than 15 minutes a week",
+          "by": "2026-12-05",
+          "status": "open"
+        }
+      ],
+      "openQuestions": [
+        {
+          "question": "Which models run the first slice: TLM through Relay, Claude in the lab, or a mix, given the idea is defined on the TLM model mix?",
+          "owner": "Harness lead (Claude) proposes; Jithin decides",
+          "blocking": "Yes, for Stress test"
+        },
+        {
+          "question": "Is the lab's volume (tens of decisions a week) enough signal for selection, or does Cortex (TL-017) have to join before H2 can be read?",
+          "owner": "Index lead (Claude)",
+          "blocking": "Yes, for Stress test"
+        },
+        {
+          "question": "What is new here against published playbook and skill-library evolution, beyond the decision-trace knowledge unit?",
+          "owner": "Research function (Claude), Scout",
+          "blocking": "Yes, for Stress test"
+        },
+        {
+          "question": "Where do traces live: the per-use-case knowledge graph in the harness, or the register itself extended?",
+          "owner": "Harness lead (Claude)",
+          "blocking": "No"
+        }
+      ]
     },
     {
       "id": "TL-016",
@@ -2211,6 +2296,83 @@
       "toId": "CAP-026",
       "toLabel": "Propose-only harness policy",
       "note": "Jarvis proposes; Jithin confirms every card"
+    },
+    {
+      "fromId": "TL-015",
+      "type": "reuses",
+      "toId": "CAP-005",
+      "toLabel": "Evaluation register and harness",
+      "note": "Judge and auditor scores are the selection signal for playbooks"
+    },
+    {
+      "fromId": "TL-015",
+      "type": "reuses",
+      "toId": "CAP-019",
+      "toLabel": "Harness runtime (Hermes with Relay sessions, per-use-case knowledge graph)",
+      "note": "Candidate home for the decision-trace graph"
+    },
+    {
+      "fromId": "TL-015",
+      "type": "reuses",
+      "toId": "CAP-024",
+      "toLabel": "Correction capture as preference data",
+      "note": "Jithin's corrections are the strongest selection pressure"
+    },
+    {
+      "fromId": "TL-015",
+      "type": "reuses",
+      "toId": "CAP-026",
+      "toLabel": "Propose-only harness policy",
+      "note": "Evolved playbooks propose; Jithin approves anything that ships"
+    },
+    {
+      "fromId": "TL-015",
+      "type": "reuses",
+      "toId": "CAP-030",
+      "toLabel": "Register assistant (Jarvis)",
+      "note": "Dashboard quick calls are decisions the trace captures"
+    },
+    {
+      "fromId": "TL-015",
+      "type": "reuses",
+      "toId": "CAP-009",
+      "toLabel": "Scheduled-task and brief patterns",
+      "note": "The nightly sync is an observer that flags exceptions"
+    },
+    {
+      "fromId": "TL-015",
+      "type": "reuses",
+      "toId": "CAP-020",
+      "toLabel": "Blueprints registry",
+      "note": "Candidate store for versioned playbooks and their lineage"
+    },
+    {
+      "fromId": "TL-015",
+      "type": "creates",
+      "toId": "CAP-031",
+      "toLabel": "Decision-trace record and graph",
+      "note": "Created at Shaping 2026-11-07"
+    },
+    {
+      "fromId": "TL-015",
+      "type": "creates",
+      "toId": "CAP-032",
+      "toLabel": "Playbook evolution loop",
+      "note": "Created at Shaping 2026-11-07"
+    },
+    {
+      "fromId": "TL-015",
+      "type": "related-to",
+      "toId": "TL-006",
+      "toLabel": "Idea Lab",
+      "note": "First arena: the lab's own decisions and skills"
+    },
+    {
+      "fromId": "TL-015",
+      "type": "related-to",
+      "toId": "TL-017",
+      "toLabel": "team-hub (Cortex)",
+      "note": "Second arena if lab volume is too thin for selection"
     }
   ],
   "capabilities": [
@@ -2288,13 +2450,14 @@
       "createdBy": "The TL Index",
       "createdById": "TL-004",
       "ideaId": null,
-      "reusedBy": "ThinkLatent Portal, governance, training programme, thought leadership, agent portfolio (TL-012) variant comparison",
+      "reusedBy": "TL-003, TL-012, TL-015",
       "reusedByIds": [
         "TL-003",
-        "TL-012"
+        "TL-012",
+        "TL-015"
       ],
-      "demand": 5,
-      "demandNote": "5"
+      "demand": 3,
+      "demandNote": "3"
     },
     {
       "id": "CAP-006",
@@ -2347,12 +2510,13 @@
       "createdBy": "Neo, morning brief",
       "createdById": "TL-001",
       "ideaId": null,
-      "reusedBy": "Lab digest, index release scoring, nightly lab sync, task mining (TL-012)",
+      "reusedBy": "TL-012, TL-015",
       "reusedByIds": [
-        "TL-012"
+        "TL-012",
+        "TL-015"
       ],
-      "demand": 4,
-      "demandNote": "4"
+      "demand": 2,
+      "demandNote": "2"
     },
     {
       "id": "CAP-010",
@@ -2475,10 +2639,11 @@
       "createdBy": "TL-008",
       "createdById": "TL-008",
       "ideaId": "TL-008",
-      "reusedBy": "Every endpoint; ThinkLatent Portal use-case page; agent portfolio (TL-012) loop variants",
+      "reusedBy": "TL-003, TL-012, TL-015",
       "reusedByIds": [
         "TL-003",
-        "TL-012"
+        "TL-012",
+        "TL-015"
       ],
       "demand": 3,
       "demandNote": "3"
@@ -2491,8 +2656,10 @@
       "createdBy": "TL-010",
       "createdById": "TL-010",
       "ideaId": "TL-010",
-      "reusedBy": "Any developer building on TLM",
-      "reusedByIds": [],
+      "reusedBy": "TL-015",
+      "reusedByIds": [
+        "TL-015"
+      ],
       "demand": 1,
       "demandNote": "1"
     },
@@ -2552,12 +2719,13 @@
       "createdBy": "TL-012",
       "createdById": "TL-012",
       "ideaId": "TL-012",
-      "reusedBy": "Judge training; the Core refresh (TL-011 Build 6); the index",
+      "reusedBy": "TL-011, TL-015",
       "reusedByIds": [
-        "TL-011"
+        "TL-011",
+        "TL-015"
       ],
-      "demand": 1,
-      "demandNote": "1"
+      "demand": 2,
+      "demandNote": "2"
     },
     {
       "id": "CAP-025",
@@ -2582,13 +2750,14 @@
       "createdBy": "TL-012",
       "createdById": "TL-012",
       "ideaId": "TL-012",
-      "reusedBy": "TL-008 default policy for every agent it serves; TL-007 Jarvis (it proposes, Jithin confirms every card)",
+      "reusedBy": "TL-008, TL-007, TL-015",
       "reusedByIds": [
         "TL-008",
-        "TL-007"
+        "TL-007",
+        "TL-015"
       ],
-      "demand": 2,
-      "demandNote": "2"
+      "demand": 3,
+      "demandNote": "3"
     },
     {
       "id": "CAP-027",
@@ -2642,6 +2811,34 @@
       "createdBy": "TL-007",
       "createdById": "TL-007",
       "ideaId": "TL-007",
+      "reusedBy": "TL-015",
+      "reusedByIds": [
+        "TL-015"
+      ],
+      "demand": 1,
+      "demandNote": "1"
+    },
+    {
+      "id": "CAP-031",
+      "name": "Decision-trace record and graph (trigger, request, action and why, precedent, outcome, next goal; caused-by, led-to, supersedes)",
+      "kind": "Platform",
+      "maturity": "Idea",
+      "createdBy": "TL-015",
+      "createdById": "TL-015",
+      "ideaId": "TL-015",
+      "reusedBy": "None yet",
+      "reusedByIds": [],
+      "demand": 0,
+      "demandNote": "0"
+    },
+    {
+      "id": "CAP-032",
+      "name": "Playbook evolution loop (shared library, variants, selection on Judge, auditor and correction signals, lineage)",
+      "kind": "Platform",
+      "maturity": "Idea",
+      "createdBy": "TL-015",
+      "createdById": "TL-015",
+      "ideaId": "TL-015",
       "reusedBy": "None yet",
       "reusedByIds": [],
       "demand": 0,
@@ -3415,6 +3612,19 @@
       "health": "on-track",
       "healthNote": "Gate passed; risk is the spike's bars being set by one person on public proxies",
       "nextStepDue": "2026-11-20"
+    },
+    {
+      "date": "2026-11-07",
+      "scope": "TL-015 group-evolving-agents",
+      "ideaIds": [
+        "TL-015"
+      ],
+      "mode": "Brainstorm into Shaping",
+      "outcome": "Jithin chose L1, the full decision trace as the knowledge unit, and ThinkLatent's own work as the arena; moved to Shaping; reuse list (7), two new capabilities, H1 to H4, kill signals and four open questions recorded; owner field rewritten to roles under the 2026-11-07 Roles rules",
+      "docsTouched": "Register; ideas/TL-015-group-evolving-agents.md (Notes)",
+      "health": "on-track",
+      "healthNote": "Shaping with a testable first step (H1 backfill) due 2026-11-21",
+      "nextStepDue": "2026-11-21"
     }
   ],
   "decisions": [
@@ -5573,6 +5783,20 @@
       "by": "Jithin",
       "status": "accepted",
       "decision": "Rubric: feasibility 3 to 4, composite 4.10 on the quarter weights. Thinking partner recommended keeping 3.95 (assigning leads is not evidence); feasibility re-read at the end of the spike"
+    },
+    {
+      "id": "D-157",
+      "ideaId": "TL-015",
+      "date": "2026-11-07",
+      "decision": "Moved to Shaping. First slice: L1 (playbooks and skills) evolves first; institutional knowledge is everything (procedures, routing, rationale, exceptions) held as a decision trace: the real-world need, the business request, the action and why, past precedent, what actually happened, and the next goal it set off; first arena is ThinkLatent's own work. Reuses seven capabilities, creates CAP-031 decision trace and CAP-032 playbook evolution loop; H1 to H4 and three kill signals pre-registered.",
+      "by": "Jithin (layer, knowledge, arena, stage); thinking partner (hypotheses, reuse)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": "2026-11-21",
+      "supersedes": null,
+      "type": "decision"
     }
   ],
   "syncLog": [
