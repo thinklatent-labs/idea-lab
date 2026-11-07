@@ -40,7 +40,7 @@ Production surface: not named (reads as an H3 experiment).
 Governance (separate team): not started, Agent register by autonomy tier; whether a second variant of an approved purpose is a new use case
 
 ### Decisions due
-- Re-time the kill-criteria read dates to the 12-week appetite in weeks 8 to 13 (thresholds unchanged) (quick call on the dashboard: Accept the proposed read dates / Discuss in the next TL-012 chat)
+_None._
 
 ### Hypotheses
 | Claim | Confirmed if | Refuted if | Evidence | Confidence | Result |
@@ -113,6 +113,7 @@ _None recorded._
 | D-171 | 2026-11-07 | Appetite reduced to 12 engineer-weeks: weeks 8 to 13 of the quarter (2026-12-28 to 2027-02-05) on S-D and S-E, so the variant comparisons land after the TL Index's week-10 gate and nothing TL-004 needs is absorbed. Supersedes D-161 (26 engineer-weeks over the full quarter). Review budget: two 30-minute slots a week over six weeks, about 6 review hours. The circuit breaker is 12 engineer-weeks, never extended | Jithin | accepted |
 | D-172 | 2026-11-07 | Score set at 3.15 on the quarter weights, under the 3.5 bar: the red team's 3.00 with feasibility raised from 2 to 3 for the protected S-E, the later and smaller appetite and the ordered wave 1. Evidence of need stays 2 because every business owner is still Jithin. Funded by default; the score is the case for the smaller bet, which D-171 takes | Jithin | accepted |
 | D-173 | 2026-11-07 | Kill-criteria read dates re-timed to the new appetite (thresholds unchanged), proposed by the thinking partner: I-1 end of week 8 (2027-01-01); I-2 TL-004's week-4 gate (2026-12-04) read as a start condition, missed means wave 1 starts with pre-review only; pre-review labelled set ready end of week 8, read week 11; task-mining spike read end of week 9; after-call (c) TL-008 shaped by week 8, (a) and (b) read week 12; I-3 judge agreement week 10; I-5 H3 deltas week 12; I-6 burn read week 11; I-4 rolling from week 8. Quick call on the dashboard (TL-012-q3) | Thinking partner, pending Jithin | proposed |
+| D-174 | 2026-11-07 | Re-time the kill-criteria read dates to the 12-week appetite in weeks 8 to 13 (thresholds unchanged): Accept the proposed read dates (decided on the dashboard 2026-11-07). D-173 accepted; killCriteria now carry only the re-timed dates | Jithin (dashboard) | accepted |
 <!-- generated:end -->
 
 ## Notes

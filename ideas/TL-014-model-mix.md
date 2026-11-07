@@ -3,8 +3,8 @@ id: TL-014
 slug: model-mix
 title: "TLM model mix — decision models (CLM, CDM) served through vLLM beside SLMs, BERT-style models, LLMs and TLM5 (the trajectory engine)"
 aliases: []
-type: Idea
-parent: null
+type: Feature
+parent: "TL-018"
 themes: ["T-001"]
 stage: "Shaping"
 stage_since: null
@@ -20,7 +20,7 @@ standard: "v1"
 last_touched: 2026-11-07
 sensitivity: none
 critique_recorded: null
-next_step: "Dataset lead (Claude): check the licences, then build the typed-decision dataset from Banking77, CLINC150 and the financial-news topic set (5-option questions, options set per row); confirm multi-LoRA on vLLM 0.26; train the general adapter leave-one-out for H-DM2 and on all three; run the latency curve (model time p50 and p95, end-to-end through Relay recorded) and the index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment"
+next_step: "Dataset lead (Claude): check the licences, then build the typed-decision dataset from Banking77, CLINC150 and the financial-news topic set (5-option questions, options set per row); confirm multi-LoRA on vLLM 0.26; train the general adapter leave-one-out for H-DM2 and on all three; run the latency curve (model time p50 and p95, end-to-end through Relay recorded) and the index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment Now a feature of TL-018 tlm-roadmap (D-175): stage, doc and next step unchanged; cross-suite sequencing is decided in TL-018."
 next_step_due: "2026-11-21"
 ---
 
@@ -29,11 +29,11 @@ next_step_due: "2026-11-21"
 <!-- generated:start -->
 ## Lab record
 
-**TL-014 model-mix** · Idea · Shaping (architecture decided 2026-11-03; Critic pass recorded 2026-11-03) · H2
+**TL-014 model-mix** · Feature of TL-018 · Shaping (architecture decided 2026-11-03; Critic pass recorded 2026-11-03) · H2
 
 Owner: Jithin. Appetite: not set. Score: not scored .
 
-Next step: Dataset lead (Claude): check the licences, then build the typed-decision dataset from Banking77, CLINC150 and the financial-news topic set (5-option questions, options set per row); confirm multi-LoRA on vLLM 0.26; train the general adapter leave-one-out for H-DM2 and on all three; run the latency curve (model time p50 and p95, end-to-end through Relay recorded) and the index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment (due 2026-11-21)
+Next step: Dataset lead (Claude): check the licences, then build the typed-decision dataset from Banking77, CLINC150 and the financial-news topic set (5-option questions, options set per row); confirm multi-LoRA on vLLM 0.26; train the general adapter leave-one-out for H-DM2 and on all three; run the latency curve (model time p50 and p95, end-to-end through Relay recorded) and the index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment Now a feature of TL-018 tlm-roadmap (D-175): stage, doc and next step unchanged; cross-suite sequencing is decided in TL-018. (due 2026-11-21)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -57,6 +57,7 @@ _None recorded._
 | depends-on | TL-008 harness-served | The decision endpoint needs a HyperPod environment on vLLM 0.32 or later (/v1/systemone); the stack runs 0.26.0 today, and Jithin wants multiple environments so endpoints can run different versions (2026-11-03). Captured for TL-008's own session. |
 | related-to | TL-011 domain-model-portfolio | Adds model classes beside the TLM4 Core, Distil and Domain tiers; all served on the same vLLM stack |
 | related-to | TL-008 harness-served | Adds model classes beside the TLM4 Core, Distil and Domain tiers; all served on the same vLLM stack |
+| feature-of | TL-018 tlm-roadmap | Decision models of the suite (D-175) |
 
 ### Artifacts
 | Artifact | Kind | In this repo | Live | Exported |
