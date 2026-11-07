@@ -6,22 +6,22 @@ aliases: []
 type: Idea
 parent: null
 themes: []
-stage: "Seed"
-stage_since: null
+stage: "Building"
+stage_since: "2026-11-07"
 horizon: "H1"
-stream: null
-appetite_weeks: null
-appetite_ends: null
-owner: "Head of ThinkLatent (sponsor); build owner to be named"
+stream: "S-D"
+appetite_weeks: 4
+appetite_ends: "2026-12-05"
+owner: "Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead"
 score: null
 score_status: none
 doc_url: null
 standard: "pre-v1"
-last_touched: 2026-11-06
+last_touched: 2026-11-07
 sensitivity: none
-critique_recorded: null
-next_step: "Build phase (spike) approved 2026-11-06: see claude/Team hub (team-hub) - Build brief.md (overrides Architecture v0.1 where they differ). Named Project Cortex; Cortex 0.4 built on thinklatent-labs/cortex (branch spike/messaging-core, commit 1d03123, 57 tests passing; Build brief v5; design in docs/design.md, research summary in docs/research/command-center.md; console is now a Needs-you queue on a live event stream, with graph, activity, ADRs, catalogue and hypotheses; new pre-registered H21 to H23). 0.4 merged (PR 1). No spike participants yet, so the backlog moved forward without them: docs/backlog.md and GitHub issues 2 to 15 (releases 0.5 to 0.7, plus a Blocked list); 0.5 built in PR 16 (CI, simulated-team spike harness: H1 proxy, H2, H6 pass with 6 simulated people; risk detectors v2; start-of-day briefing; console code-split). PR 16 (0.5) merged. 0.6 built in PR 17, all CI green including the whole suite on PostgreSQL 16: Postgres adapter, multi-node LISTEN/NOTIFY fan-out, ask the log with citations, delivery ranges. PR 17 (0.6) merged. Jithin's four calls (2026-11-06): co-editing via a Node sidecar (ADR-0001), design gate for epics only, licence exceptions for scramp and lightningcss, kit blocks upstream. 0.7 built in PR 18, all six CI jobs green (light path, co-editing sidecar with live cursors, kit blocks proposal). PR 18 (0.7) merged. 2026-11-07: Bedrock is provisioned per person through an IAM role inside Claude Code, so model work runs in sessions and the hub stays model-free (ADR-0002); 0.8 in PR 19 adds cortex cite-check so session answers cite the record. PR 19 (0.8) merged. Spike participants are about two weeks out (around 2026-11-21), when Cortex moves inside the Enterprise for testing. KIT_READ_TOKEN added 2026-11-07; CI console job now builds against the kit (all six jobs green). Next: the inside-the-Enterprise readiness pack (0.9) before the pilot; kit blocks go to a TL-013 session; the pilot waits on participants. Spike participants still needed for H1b, H9, H13, H18 to H23. Critique pass still owed before the idea leaves Stress test. Open for later phases: Jira Cloud or Data Center and plugin, capability in Jira, compulsory fields, IT managed settings, build owner and participants. Provider answered: Bedrock (Opus 5), no claude.ai. Jithin answers: Claude Code version and operating systems on laptops, whether managed settings restrict cross-session messages, Jira, offline default; name the build owner and 2 to 4 spike participants; then a one-week spike: hook-based inbox on a minimal API (H1, H2), then a per-session watcher that posts into its own session's socket to wake an idle session (H1b), plus group naming such as server-dev-jp (H6). Declared reuse to confirm: the AI Gateway's multi-tenant memory substrate for central memory, and Claude Code's native session messaging for the last hop. Related: TL-003 portal bridge (the portal reaches sessions through the hub); the AI guide (carried as a plugin skill). From Portfolio (2026-11-07): Next. Built to 0.7 while the stage says Seed, with no stream and no real participants. Before 0.8 the row needs Shaping and a critique pass to bring the stage in line with the work, or it is declared lab plumbing under S-A. From TL-007 (2026-11-07): the dashboard shows TL-017 at Seed while Cortex code is merged to 0.8, with no stage date, links, theme or capability; no rule fires because R-17 only checks Building rows. Settle the stage and links in TL-017's own chat."
-next_step_due: null
+critique_recorded: true
+next_step: "Cortex 0.9 pilot hardening under a feature freeze (D-166): land PR 22 (readiness pack, C-14 to C-21) and PR 23 (second red-team pass, C-22 to C-29); build C-22 to C-25 (sender identity, framing every peer string, privacy promises, transport and secrets) and C-29 (circuit breaker, kill switch) first, then run C-21, the one-hour live test on a Bedrock-signed-in Claude Code (H1, H2 against the real model). No pilot while any of C-22 to C-25 is open. Pilot: 3 to 5 volunteers inside the Enterprise from about 2026-11-21; the volunteers and the Enterprise's real InfoSec and IT sign-off come from the Enterprise, outside the lab, and do not block the lab stage. Reviews Mondays 30 min with Jithin. Still to set in this row (raised from TL-007): links, theme and capability. Open for the company version: real Jira (Cloud or Data Center, plugin, capability, compulsory fields), managed settings, hosting and SSO details. Related: TL-003 portal bridge and the console overlap (D-126) stay in TL-003's chat; kit blocks (C-12) in TL-013's."
+next_step_due: "2026-11-16"
 ---
 
 # Team hub: a Claude Code plugin plus an AWS service giving the team's sessions shared rules, memory, artifacts, presence and a message path
@@ -29,15 +29,15 @@ next_step_due: null
 <!-- generated:start -->
 ## Lab record
 
-**TL-017 team-hub** · Idea · Seed (captured 2026-11-06; idea card v0 written the same day) · H1
+**TL-017 team-hub** · Idea · Building (Building gate passed 2026-11-07 (D-152, D-165) on Jithin's call against both red-team seats' recommendation of Stress test: owner role Platform lead (Claude), stream S-D, appetite 4 engineer-weeks ending 2026-12-05, Jithin's review slot Mondays 30 min. Critique recorded (D-164): two passes, docs/critique in the cortex repo) · H1 · S-D
 
-Owner: Head of ThinkLatent (sponsor); build owner to be named. Appetite: not set. Score: not scored .
+Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Build phase (spike) approved 2026-11-06: see claude/Team hub (team-hub) - Build brief.md (overrides Architecture v0.1 where they differ). Named Project Cortex; Cortex 0.4 built on thinklatent-labs/cortex (branch spike/messaging-core, commit 1d03123, 57 tests passing; Build brief v5; design in docs/design.md, research summary in docs/research/command-center.md; console is now a Needs-you queue on a live event stream, with graph, activity, ADRs, catalogue and hypotheses; new pre-registered H21 to H23). 0.4 merged (PR 1). No spike participants yet, so the backlog moved forward without them: docs/backlog.md and GitHub issues 2 to 15 (releases 0.5 to 0.7, plus a Blocked list); 0.5 built in PR 16 (CI, simulated-team spike harness: H1 proxy, H2, H6 pass with 6 simulated people; risk detectors v2; start-of-day briefing; console code-split). PR 16 (0.5) merged. 0.6 built in PR 17, all CI green including the whole suite on PostgreSQL 16: Postgres adapter, multi-node LISTEN/NOTIFY fan-out, ask the log with citations, delivery ranges. PR 17 (0.6) merged. Jithin's four calls (2026-11-06): co-editing via a Node sidecar (ADR-0001), design gate for epics only, licence exceptions for scramp and lightningcss, kit blocks upstream. 0.7 built in PR 18, all six CI jobs green (light path, co-editing sidecar with live cursors, kit blocks proposal). PR 18 (0.7) merged. 2026-11-07: Bedrock is provisioned per person through an IAM role inside Claude Code, so model work runs in sessions and the hub stays model-free (ADR-0002); 0.8 in PR 19 adds cortex cite-check so session answers cite the record. PR 19 (0.8) merged. Spike participants are about two weeks out (around 2026-11-21), when Cortex moves inside the Enterprise for testing. KIT_READ_TOKEN added 2026-11-07; CI console job now builds against the kit (all six jobs green). Next: the inside-the-Enterprise readiness pack (0.9) before the pilot; kit blocks go to a TL-013 session; the pilot waits on participants. Spike participants still needed for H1b, H9, H13, H18 to H23. Critique pass still owed before the idea leaves Stress test. Open for later phases: Jira Cloud or Data Center and plugin, capability in Jira, compulsory fields, IT managed settings, build owner and participants. Provider answered: Bedrock (Opus 5), no claude.ai. Jithin answers: Claude Code version and operating systems on laptops, whether managed settings restrict cross-session messages, Jira, offline default; name the build owner and 2 to 4 spike participants; then a one-week spike: hook-based inbox on a minimal API (H1, H2), then a per-session watcher that posts into its own session's socket to wake an idle session (H1b), plus group naming such as server-dev-jp (H6). Declared reuse to confirm: the AI Gateway's multi-tenant memory substrate for central memory, and Claude Code's native session messaging for the last hop. Related: TL-003 portal bridge (the portal reaches sessions through the hub); the AI guide (carried as a plugin skill). From Portfolio (2026-11-07): Next. Built to 0.7 while the stage says Seed, with no stream and no real participants. Before 0.8 the row needs Shaping and a critique pass to bring the stage in line with the work, or it is declared lab plumbing under S-A. From TL-007 (2026-11-07): the dashboard shows TL-017 at Seed while Cortex code is merged to 0.8, with no stage date, links, theme or capability; no rule fires because R-17 only checks Building rows. Settle the stage and links in TL-017's own chat.
+Next step: Cortex 0.9 pilot hardening under a feature freeze (D-166): land PR 22 (readiness pack, C-14 to C-21) and PR 23 (second red-team pass, C-22 to C-29); build C-22 to C-25 (sender identity, framing every peer string, privacy promises, transport and secrets) and C-29 (circuit breaker, kill switch) first, then run C-21, the one-hour live test on a Bedrock-signed-in Claude Code (H1, H2 against the real model). No pilot while any of C-22 to C-25 is open. Pilot: 3 to 5 volunteers inside the Enterprise from about 2026-11-21; the volunteers and the Enterprise's real InfoSec and IT sign-off come from the Enterprise, outside the lab, and do not block the lab stage. Reviews Mondays 30 min with Jithin. Still to set in this row (raised from TL-007): links, theme and capability. Open for the company version: real Jira (Cloud or Data Center, plugin, capability, compulsory fields), managed settings, hosting and SSO details. Related: TL-003 portal bridge and the console overlap (D-126) stay in TL-003's chat; kit blocks (C-12) in TL-013's. (due 2026-11-16)
 
 Production surface: not named (reads as an H3 experiment).
 
-Governance: not recorded.
+Governance (separate team): not started, The Enterprise's InfoSec and IT sign-off for the pilot inside the Enterprise (SSO, hosting, managed settings, data retention); a simulated pre-review is recorded in the critique
 
 ### Decisions due
 _None._
@@ -46,7 +46,12 @@ _None._
 _None recorded._
 
 ### Kill signals
-_None recorded._
+| Signal | By | Status | Action |
+| --- | --- | --- | --- |
+| H1 median over 30 s, or any planted H2 injection acted on, in the pilot's first week | 2026-11-28 | open | Stop the pilot; park the messaging route |
+| Fewer than 2 of the 3 to 5 pilot volunteers use it weekly by pilot week 3 | 2026-12-12 | open | Park |
+| Any of C-22 to C-25 open on the pilot date | 2026-11-21 | open | No pilot; the appetite clock keeps running |
+| Appetite ends with no H1 and H2 reading from real sessions | 2026-12-05 | open | Stop; back to Stress test |
 
 ### Open questions
 _None recorded._
@@ -55,7 +60,9 @@ _None recorded._
 _None recorded._
 
 ### Artifacts
-_None recorded._
+| Artifact | Kind | In this repo | Live | Exported |
+| --- | --- | --- | --- | --- |
+| Team hub (team-hub) - Critique pass, 2026-11-07 (second pass) | doc | [artifacts/TL-017-team-hub/critique-2026-11-07.md](../artifacts/TL-017-team-hub/critique-2026-11-07.md) |  | 2026-11-07 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -76,8 +83,26 @@ _None recorded._
 | D-129 | 2026-11-06 | 0.5 merged; 0.6 built from the backlog (PR 17, CI green on sqlite, Python 3.9 and PostgreSQL 16): the database recommendation is now running code, several hub nodes share one Postgres, the team's record can be asked with citations and honest not-found, and delivery is forecast as ranges at team level. CI caught a Python 3.9 bug that would have hit every Mac user in the pilot; the Postgres run caught an event-ordering race. Both fixed. | Jithin (move forward on the backlog); thinking partner (build) | accepted |
 | D-130 | 2026-11-06 | Four calls, each taking the recommendation: live co-editing through a Yjs and Hocuspocus Node sidecar that owns nothing (identity, access and storage stay in cortex-server); the design gate (hypothesis plus ADR) for epics only, light-path work skips it; scramp (MIT-0) and lightningcss (MPL-2.0, build-time) recorded as licence exceptions; the decision card and motion pieces proposed upstream to the design kit (TL-013). Recorded as ADR-0001 in the cortex repo; 0.7 built (PR 18). | Jithin (decisions); thinking partner (build) | accepted |
 | D-131 | 2026-11-07 | Model access settled by the Enterprise's setup: each person's Claude Code reaches Bedrock through their own IAM role, so Cortex's summaries are written in the person's session and checked by cortex cite-check; the hub calls no model and needs no model role or approval (ADR-0002). The hub-side Bedrock client stays in the code, off by default. | Jithin (model access fact); thinking partner (build) | accepted |
+| D-164 | 2026-11-07 | Critique pass recorded. Two passes: one in cortex PR 22 (proceed with conditions) and a second with separate feasibility and Risk seats (both recommend Stress test, not Building). No evidence from real sessions yet; the Risk seat proved four high findings with a live probe (spoofable sender, unframed claim text, hand-off and invite-only room text readable by the team, default collab secret) plus no real authentication. Kept as docs/critique/2026-11-07-red-team.md and -2.md in the cortex repo and artifacts/TL-017-team-hub/critique-2026-11-07.md | Thinking partner (feasibility and Risk red-team seats, separate agents); Jithin (business-line seat) | accepted |
+| D-165 | 2026-11-07 | Building gate passed under D-152; moved from Seed to Building against both red-team seats' recommendation of Stress test (dissent recorded in D-164). Owner role Platform lead (Claude) as the S-D stream engineer; appetite 4 engineer-weeks ending 2026-12-05; review slot Mondays 30 min. Building holds three ideas against three committed slots (TL-004 Fridays, TL-007 Thursdays, TL-017 Mondays) | Jithin | accepted |
+| D-166 | 2026-11-07 | 0.9 is pilot hardening and readiness under a feature freeze (C-14 to C-29; no pilot while C-22 to C-25 are open), and the first pilot inside the Enterprise is 3 to 5 volunteers before any wider group. Rooms, specs, co-editing, gates, loops, detectors, forecasts and ask stay built but off in the pilot scope | Jithin (on the thinking partner's recommendation) | accepted |
 <!-- generated:end -->
 
 ## Notes
 
 _Session notes and the idea card's prose live here; the register row and the generated block above are rewritten by `scripts/render-ideas.mjs`, this section is kept._
+
+### 2026-11-07 · Critic, then Spec (build)
+
+- **Critique pass recorded (D-164).** Separate feasibility and Risk agents ran it cold. A parallel single-agent pass already sat in cortex PR 22, and both stand.
+  - Both seats recommended Stress test. Every hypothesis so far rests on simulation.
+  - The Risk seat proved four high findings with a live probe: a spoofable sender, unframed claim text, hand-off and invite-only room text readable by the team, and a default collab secret. It also found no real authentication.
+  - Full write-up: `artifacts/TL-017-team-hub/critique-2026-11-07.md`.
+- **Moved to Building on Jithin's call (D-165),** against the seats' recommendation:
+  - owner role: Platform lead (Claude);
+  - stream: S-D;
+  - appetite: 4 engineer-weeks, ending 2026-12-05;
+  - review: Mondays, 30 min.
+- **0.9 is pilot hardening under a feature freeze (D-166).** It covers C-14 to C-29, and no pilot runs while C-22 to C-25 are open. The first pilot inside the Enterprise is 3 to 5 volunteers.
+- **Watch:**
+  - The hardening alone, about 17 principal-engineer days, nearly fills the appetite.
