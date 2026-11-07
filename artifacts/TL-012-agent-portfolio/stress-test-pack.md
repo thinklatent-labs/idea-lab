@@ -1,7 +1,26 @@
-<!-- Exported from https://claude.ai/artifact/T5rhguUBWXiUtPamFxxELT (Stress test pack tab, rev 10) on 2026-11-07. Read-only mirror; edit the live doc, not this file. -->
+<!-- Exported from https://claude.ai/artifact/T5rhguUBWXiUtPamFxxELT (Stress test pack tab, rev 11) on 2026-11-07. Read-only mirror; edit the live doc, not this file. -->
 # Stress test pack
 
 Prepared 2026-11-07 for the TL-012 Stress test (Critic). Seats: business-line partner, the Head of ThinkLatent (Jithin); feasibility and Risk (simulated), Claude as a separate agent that has not seen the work. The critique is recorded only when the Head of ThinkLatent has played his seat.
+
+## Stress test outcome (2026-11-07)
+
+The critique is recorded (D-170). The Head of ThinkLatent played the business-line seat. The score is set at 3.15, under the 3.5 bar (D-172), and the appetite is cut to 12 engineer-weeks in weeks 8 to 13 (D-171, which supersedes D-161). The idea stays at Stress test until the pre-Proposal changes below land.
+
+| # | Question | Answer |
+| --- | --- | --- |
+| 1 | Lab or company version | Split. The lab reads H2, H3 and H4 on declared proxies, and H7 narrowed to the serving configuration on one Core version. H1, H5, H6, H8 and H7's Core-version half move to the company version |
+| 2 | Protecting S-E | S-E stays on the TL Index task sets until TL-004's week-4 gate (2026-12-04) |
+| 3 | Review slots | Two a week, Tuesday and Friday, 30 minutes each: about 6 review hours over the appetite |
+| 4 | Wave-1 order | Pre-review first; task mining as a two-week spike; the after-call agent on variant A only until TL-008 is shaped |
+| 5 | What ships first | The cluster-H rule stands for what TL-012 builds. Whether the knowledge agent stays the library's first entry is TL-003's call |
+| 6 | Kill criteria | I-1 to I-6 and the per-purpose thresholds accepted as written |
+
+The appetite now runs from 2026-12-28 to 2027-02-05 (weeks 8 to 13, counting week 1 from 2026-11-09). Most read dates in the kill-criteria tables below fall before it. Re-timed read dates with unchanged thresholds are proposed (D-173) and wait on a quick call on the dashboard (TL-012-q3): I-1 end of week 8; I-2 read as a start condition at week 8; pre-review set ready by end of week 8 and read week 11; task-mining spike read end of week 9; after-call (c) by week 8, (a) and (b) at week 12; I-3 at week 10; I-5 at week 12; I-6 at week 11.
+
+**Score as set (quarter weights).** Feasibility rises from 2 to 3: S-E is protected, the appetite is later and smaller, and wave 1 is ordered. Every other criterion stays as the red team proposed. Evidence of need stays at 2 because every business owner is still the Head of ThinkLatent.
+
+**Still to do before Proposal.** Cap each purpose at two variants × two levels. Write the judge stand-in calibration plan. Harden the after-call design. Declare each purpose's dataset. Record the governance cost under both answers to the variant question.
 
 ## The calls going in
 
