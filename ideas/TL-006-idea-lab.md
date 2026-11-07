@@ -20,7 +20,7 @@ standard: "v1"
 last_touched: 2026-11-04
 sensitivity: none
 critique_recorded: null
-next_step: "Jithin: approve or amend Portfolio session 1; name the red-team roster From Portfolio (2026-11-07): Lab operations to amend the Operating Model with the role convention (D-134). Under it, the Building gate's 'owner who is not Jithin' and the stream engineers are played roles. Decide whether the gate still means anything when the thinking partner plays the owner. Captured from TL-003 (7 Nov): record Jithin's lab-wide licence rule from 6 Nov (ThinkLatent's own code is MIT; dependencies only MIT, Apache-2.0, BSD, ISC, Unlicense or CC0, checked in every build) in a Lab-operations chat; it conflicts with D-130's MPL-2.0 exception for lightningcss and licenses.exceptions.json."
+next_step: "Jithin: approve or amend Portfolio session 1; paste the updated Project instructions (Roles rule) into the Idea Lab Project settings. Roles convention done 2026-11-07 (D-151)."
 next_step_due: null
 ---
 
@@ -33,7 +33,7 @@ next_step_due: null
 
 Owner: Jithin. Appetite: not set. Score: not scored .
 
-Next step: Jithin: approve or amend Portfolio session 1; name the red-team roster From Portfolio (2026-11-07): Lab operations to amend the Operating Model with the role convention (D-134). Under it, the Building gate's 'owner who is not Jithin' and the stream engineers are played roles. Decide whether the gate still means anything when the thinking partner plays the owner. Captured from TL-003 (7 Nov): record Jithin's lab-wide licence rule from 6 Nov (ThinkLatent's own code is MIT; dependencies only MIT, Apache-2.0, BSD, ISC, Unlicense or CC0, checked in every build) in a Lab-operations chat; it conflicts with D-130's MPL-2.0 exception for lightningcss and licenses.exceptions.json.
+Next step: Jithin: approve or amend Portfolio session 1; paste the updated Project instructions (Roles rule) into the Idea Lab Project settings. Roles convention done 2026-11-07 (D-151).
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -80,6 +80,8 @@ _None recorded._
 | D-115 | 2026-11-06 | Names only, one-off: the employer is written "the Enterprise" and never by its real name; the organisation is ThinkLatent, the model line TLM, the index the TL Index, register IDs TL-### (same numbers), as mapped in claude/rename-brief.md; slugs portal, index, team-site, tlm-omni; Brand Green and Decision Red (hex unchanged); the kit becomes design-kit with @kit packages and the kit- prefix, brand words in one config and screen text in one catalog; identifying details neutralised; historic logs renamed too; history kept private; memory outside the Project and the Neo skill left as they are. No stage, score or decision changed | Jithin | accepted |
 | D-133 | 2026-11-07 | Portfolio session 1 amended, with the spine, weights and 3.5 bar unchanged. Now: TL-004, TL-003, TL-007 (run only). Next: TL-009, TL-013, TL-012, TL-011, TL-017, TL-016. Later: TL-008, TL-014, TL-015, TL-010. Horizon note rewritten: TL-015 is the one H3 option. The ranking is a judgement against the diagnosis; the Next rows are scored next session. | Jithin (Portfolio session) | accepted |
 | D-134 | 2026-11-07 | Role convention: the lab is Jithin and the thinking partner, so every named role (red-team seat, owner, lead, auditor, stream engineer) is assumed and played by one of the two until the lab moves into a company. Red-team roster (TL-006-q2): the thinking partner plays the feasibility and governance seats, and Jithin plays the business-line partner. A played critic runs in fresh context that has not seen the build work. | Jithin (Portfolio session) | accepted |
+| D-151 | 2026-11-07 | Roles model written into the Operating Model, the Project instructions, this repo and the register, extending D-134: every role stays in the structure and is played by Jithin (decides, owns direction, plays the business-line red-team seat) or Claude (leads, builds, plays the feasibility and Risk seats and audits, those as a separate agent that has not seen the work). No request to name people; Enterprise functions are simulated at most, marked simulated, and never block a lab stage; real people take the roles in the company version. Streams S-A to S-E are owned by Claude until then | Jithin | accepted |
+| D-152 | 2026-11-07 | Building gate restated for the two-person lab: an owner role assigned (played by Claude until the company version), a stream, an appetite in engineer-weeks, and a weekly review slot Jithin commits to. Ideas in Building never outnumber his review slots, since his review time is the constraint. Answers the open question in D-134 about what the gate means when Claude plays the owner | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes

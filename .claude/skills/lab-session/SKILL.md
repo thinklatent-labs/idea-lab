@@ -25,6 +25,6 @@ Then write the session's prose under `## Notes` in the idea doc, and run the lab
 ## Gates to respect
 
 - Nothing passes Stress test without `critiqueRecorded: true`.
-- Nothing enters Building unless the Building gate passes: an owner who is not Jithin, a `streamId`, an `appetiteWeeks`.
+- Nothing enters Building unless the Building gate passes (D-152): an owner role assigned (played by Claude until the company version), a `streamId`, an `appetiteWeeks`, and a weekly review slot Jithin commits to; ideas in Building never outnumber his review slots. Roles are played by Jithin or Claude (CLAUDE.md, Roles); never ask him to name a person.
 - Nothing is Shipped without `shipped.date` and `shipped.firstUser`; the metric read follows within 30 days.
 - A rejection by Jithin is a decision of type `rejection`; it sets the row to Killed with `rejectedBy`.

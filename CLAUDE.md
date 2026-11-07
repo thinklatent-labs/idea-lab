@@ -21,11 +21,20 @@ Only the Claude session in the Idea Lab Project writes to this repository (throu
 Seed, Shaping, Stress test, Proposal, Building, Shipped, Graduated, Parked, Killed.
 
 - Proposal is funded by default; Jithin rejects explicitly with a decision of type `rejection`, everything else proceeds.
-- The Building gate: an owner who is not Jithin, a stream, an appetite in engineer-weeks. No owner, no stream or no appetite means no start (the TL Index's rule, generalised).
+- The Building gate: an owner role assigned (played by Claude until the company version), a stream, an appetite in engineer-weeks, and a weekly review slot Jithin commits to (D-152). Missing any of the four means no start. Ideas in Building never outnumber Jithin's review slots: his review time, not build capacity, is the lab's constraint.
 - Shipped means a first user in production and the metric read. Retrospectives measure Shipped, not Graduated.
 - Governance is handled by a separate team; it is a row-level dependency (`governance` field), flagged only when on the critical path.
 - Staleness: Seed 60, Shaping 30, Stress test 21, Proposal 14, Shipped 30 days; Building by its appetite (the circuit breaker, never extended); Parked by its re-check date.
-- Five streams (S-A to S-E), one engineer plus a coding agent each; `streams` and `phases` in the register.
+- Five streams (S-A to S-E), one engineer plus a coding agent each in the company version; until then Claude, building with Claude Code, plays every stream engineer. `streams` and `phases` in the register.
+
+## Roles
+
+The lab today is Jithin and Claude (D-134, D-151). Every role stays in the structure and is played by one of the two until the lab moves into a company, when real people take them and nothing else changes:
+
+- Jithin: sponsor and decider (stage, score, kill, graduation, every one-way door), idea owner and product lead, the business-line red-team seat, and the weekly review slots behind the Building gate.
+- Claude: thinking partner, every lead and builder (index, harness, platform, kit, site, streams S-A to S-E), the feasibility and Risk red-team seats and the auditor; critic and auditor run as a separate agent that has not seen the work.
+- Enterprise functions (Risk, IT security, Comms, governance, model approvers) are outside the lab: simulated at most, marked simulated, never a blocker for a lab stage.
+- Never ask Jithin to name a person. "To be named" means played as above. Owner fields read role then player: "Index lead (Claude)".
 
 ## Modes
 
