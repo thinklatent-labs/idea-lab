@@ -29,7 +29,7 @@ next_step_due: "2026-11-15"
 <!-- generated:start -->
 ## Lab record
 
-**TL-004 index** · Feature of TL-003 · Proposal (Funded by default; Building gate not passed: leads unnamed, appetite unset) · H1 · S-B
+**TL-004 index** · Feature of TL-003 · Proposal (funded by default; stress test recorded 2026-11-01; Building gate not passed: leads unnamed, appetite unset) · H1 · S-B
 
 Owner: Head of ThinkLatent (sponsor); index lead and harness lead to be named. Appetite: Two quarters to the first quarterly index report (Phase 0 to Phase 2). Score: 3.95 (set).
 

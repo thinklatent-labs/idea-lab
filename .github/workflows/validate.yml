@@ -18,4 +18,6 @@ jobs:
       - run: cd dashboard && npm ci --legacy-peer-deps
       - run: node dashboard/scripts/validate-register.mjs register/register.json
       - run: cd dashboard && npx tsc --noEmit && npx vitest run
-      - run: node scripts/render-ideas.mjs && git diff --exit-code -- ideas/ || (echo "ideas/ is out of date: run scripts/render-ideas.mjs" && exit 1)
+      - run: |
+          node scripts/render-ideas.mjs
+          git diff --exit-code -- ideas/ || { echo "ideas/ is out of date, run scripts/render-ideas.mjs"; exit 1; }

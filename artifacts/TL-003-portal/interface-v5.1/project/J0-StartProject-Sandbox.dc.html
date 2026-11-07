@@ -80,7 +80,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div class="kit-grid2" style="margin-top: 14px; align-items: start">
         <div>
           <div class="kit-surface raised" style="padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
-            <div><div class="kit-label">Sandbox key · shown once</div><div style="margin-top: 6px; display: flex; align-items: center; gap: 8px"><span class="kit-mono">vi_sk_sbx_</span><span class="kit-masked" aria-label="hidden part of the key"></span><span class="kit-mono">9K2e</span></div><div class="kit-small kit-muted" style="margin-top: 4px">Expires 90 days after its last call · rotate any time on Keys and usage</div></div>
+            <div><div class="kit-label">Sandbox key · shown once</div><div style="margin-top: 6px; display: flex; align-items: center; gap: 8px"><span class="kit-mono">tl_sk_sbx_</span><span class="kit-masked" aria-label="hidden part of the key"></span><span class="kit-mono">9K2e</span></div><div class="kit-small kit-muted" style="margin-top: 4px">Expires 90 days after its last call · rotate any time on Keys and usage</div></div>
             <button class="kit-btn" type="button">Copy key</button>
           </div>
           <table style="margin-top: 12px">
@@ -102,7 +102,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 from relay import Client
 
 client = Client(
-    key=os.environ["VI_SANDBOX_KEY"],   # vi_sk_sbx_...9K2e
+    key=os.environ["TL_SANDBOX_KEY"],   # tl_sk_sbx_...9K2e
     tags={
         "project": "custodian-break-summaries",
         "use_case": "UC-0323",

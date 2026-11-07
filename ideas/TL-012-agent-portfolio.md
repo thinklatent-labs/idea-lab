@@ -20,7 +20,7 @@ standard: "v1"
 last_touched: 2026-11-02
 sensitivity: none
 critique_recorded: null
-next_step: "Jithin: name a business owner and a build owner for each wave-1 purpose (task mining, after-call agent, marketing pre-review), set the appetite (one quarter of two streams proposed) and the two streams; confirm the library sits inside TL-012 and the A/B/C variant set; ask the governance team whether a second variant of an approved purpose is a new use case. Then the Stress test session (critique log, kill criteria, the scout brief answered, rubric score); add the autonomy-tier column to the 40-agents tab there"
+next_step: "Jithin: name a business owner and a build owner for each wave-1 purpose (task mining, after-call agent, marketing pre-review), set the appetite (one quarter of two streams proposed) and the two streams; confirm the library sits inside TL-012 and the A/B/C variant set; ask the governance team whether a second variant of an approved purpose is a new use case. Then the Stress test session (critique log, kill criteria, the scout brief answered, rubric score); add the autonomy-tier column to the 40-agents tab there. From TL-003 (2026-11-05): Jithin decided the knowledge agent ships first in the portal's agent library"
 next_step_due: null
 ---
 
@@ -33,7 +33,7 @@ next_step_due: null
 
 Owner: Head of ThinkLatent (sponsor); a business owner and a build owner per wave-1 purpose to be named. Appetite: not set. Score: not scored .
 
-Next step: Jithin: name a business owner and a build owner for each wave-1 purpose (task mining, after-call agent, marketing pre-review), set the appetite (one quarter of two streams proposed) and the two streams; confirm the library sits inside TL-012 and the A/B/C variant set; ask the governance team whether a second variant of an approved purpose is a new use case. Then the Stress test session (critique log, kill criteria, the scout brief answered, rubric score); add the autonomy-tier column to the 40-agents tab there
+Next step: Jithin: name a business owner and a build owner for each wave-1 purpose (task mining, after-call agent, marketing pre-review), set the appetite (one quarter of two streams proposed) and the two streams; confirm the library sits inside TL-012 and the A/B/C variant set; ask the governance team whether a second variant of an approved purpose is a new use case. Then the Stress test session (critique log, kill criteria, the scout brief answered, rubric score); add the autonomy-tier column to the 40-agents tab there. From TL-003 (2026-11-05): Jithin decided the knowledge agent ships first in the portal's agent library
 
 Production surface: not named (reads as an H3 experiment).
 

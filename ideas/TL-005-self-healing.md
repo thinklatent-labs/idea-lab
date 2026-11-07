@@ -20,7 +20,7 @@ standard: "v1"
 last_touched: 2026-11-01
 sensitivity: none
 critique_recorded: null
-next_step: "ThinkLatent team reviews gap-report interface v0.1; name the interface owner and the outside auditor"
+next_step: "ThinkLatent team reviews gap-report interface v0.1; name the interface owner and the outside auditor. From TL-003 (2026-11-02): the portal's loop needs self-healing's triggers and hand-back documented"
 next_step_due: null
 ---
 
@@ -29,11 +29,11 @@ next_step_due: null
 <!-- generated:start -->
 ## Lab record
 
-**TL-005 self-healing** · Capability · Graduated (built by the ThinkLatent team; gap-report interface v0.1 drafted 2026-11-01, pending ThinkLatent team review) · H1
+**TL-005 self-healing** · Capability · Graduated (built by the ThinkLatent team) · H1
 
 Owner: ThinkLatent team; interface owner to be named. Appetite: not set. Score: not scored .
 
-Next step: ThinkLatent team reviews gap-report interface v0.1; name the interface owner and the outside auditor
+Next step: ThinkLatent team reviews gap-report interface v0.1; name the interface owner and the outside auditor. From TL-003 (2026-11-02): the portal's loop needs self-healing's triggers and hand-back documented
 
 Production surface: not named (reads as an H3 experiment).
 

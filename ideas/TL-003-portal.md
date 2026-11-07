@@ -6,18 +6,18 @@ aliases: ["ThinkLatent Portal", "the portal", "ThinkLatent portal"]
 type: Idea
 parent: null
 themes: ["T-001"]
-stage: "Shaping"
+stage: "Proposal"
 stage_since: "2026-11-01"
 horizon: "H2"
 stream: "S-C"
 appetite_weeks: 9
 appetite_ends: null
-owner: "Head of ThinkLatent (sponsor); portal product lead to be named"
-score: null
-score_status: none
+owner: "Head of ThinkLatent: sponsor, product lead and sole developer until the first use case is in production"
+score: 3.75
+score_status: set
 doc_url: "https://claude.ai/artifact/QtTppN7KFdEDvjX7RRkEFn"
 standard: "v1"
-last_touched: 2026-11-05
+last_touched: 2026-11-06
 sensitivity: none
 critique_recorded: false
 next_step: "The one-off rename finished on 2026-11-07 (Lab operations, names only, per claude/rename-brief.md), and the private repo thinklatent-labs/portal exists (created 2026-11-06, empty). Next, in TL-003's next chat: redraw every board in v6 on the canvas (decision 16: paired comparisons, one ⓘ per column header and about 15 a page, the pilot's defaults in the requirements doc), then build the portal in a new private repo, thinklatent-labs/portal, config-first: two sample projects end to end, onboarding to production first, on one fake API shaped like the backend contract, with the kit pinned and pulled (decisions 14 and 15). Alongside: write the proposal from the requirements doc (executive summary, what if we don't, hypotheses with confirm and refute, success metrics, roles, risks, phasing; C3, C4, C5 and C8 as open questions with owners); share the canvas and the requirements doc with the team; take the membership position to IT security and the break-glass position (1 hour, Head of ThinkLatent approves, everything logged) to Risk; send the other seven defaults to their owners; get the intranet and training-tool addresses the boards still mark as to come. Parked until the backend: Risk's concurrence on the grace policy, the SR 11-7 verification, Risk's model inventory, a baseline for today's time from request to access, open decisions 4 to 8 in section 12 of the requirements doc, and the C2 flag (Jithin approving his own grants needs a model-risk review before any production access). From TL-012: the agent library is the portal's A1 page, and the knowledge agent ships first. From TL-010: Blueprints are retired in favour of the agent library (recorded in the requirements doc; TL-010's own chat to confirm)."
@@ -29,9 +29,9 @@ next_step_due: null
 <!-- generated:start -->
 ## Lab record
 
-**TL-003 portal** · Idea · Shaping (Idea card v2, 2026-11-02; decisions 1 to 9 taken; sketch v3.3 built; requirements v1 and interface v5 on the ThinkLatent kit built 2026-11-05, decision 10; Stress test next) · H2 · S-C
+**TL-003 portal** · Idea · Proposal (from 2026-11-06; Stress test closed the same day: critique answered or carried into the proposal, score set, Jithin proceeded) · H2 · S-C
 
-Owner: Head of ThinkLatent (sponsor); portal product lead to be named. Appetite: 9 engineer-weeks. Score: not scored .
+Owner: Head of ThinkLatent: sponsor, product lead and sole developer until the first use case is in production. Appetite: 9 engineer-weeks. Score: 3.75 (set).
 
 Next step: The one-off rename finished on 2026-11-07 (Lab operations, names only, per claude/rename-brief.md), and the private repo thinklatent-labs/portal exists (created 2026-11-06, empty). Next, in TL-003's next chat: redraw every board in v6 on the canvas (decision 16: paired comparisons, one ⓘ per column header and about 15 a page, the pilot's defaults in the requirements doc), then build the portal in a new private repo, thinklatent-labs/portal, config-first: two sample projects end to end, onboarding to production first, on one fake API shaped like the backend contract, with the kit pinned and pulled (decisions 14 and 15). Alongside: write the proposal from the requirements doc (executive summary, what if we don't, hypotheses with confirm and refute, success metrics, roles, risks, phasing; C3, C4, C5 and C8 as open questions with owners); share the canvas and the requirements doc with the team; take the membership position to IT security and the break-glass position (1 hour, Head of ThinkLatent approves, everything logged) to Risk; send the other seven defaults to their owners; get the intranet and training-tool addresses the boards still mark as to come. Parked until the backend: Risk's concurrence on the grace policy, the SR 11-7 verification, Risk's model inventory, a baseline for today's time from request to access, open decisions 4 to 8 in section 12 of the requirements doc, and the C2 flag (Jithin approving his own grants needs a model-risk review before any production access). From TL-012: the agent library is the portal's A1 page, and the knowledge agent ships first. From TL-010: Blueprints are retired in favour of the agent library (recorded in the requirements doc; TL-010's own chat to confirm).
 

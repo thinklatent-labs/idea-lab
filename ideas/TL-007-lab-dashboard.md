@@ -29,7 +29,7 @@ next_step_due: "2026-12-01"
 <!-- generated:start -->
 ## Lab record
 
-**TL-007 lab-dashboard** · Feature of TL-006 · Building (Building under S-A; rebuilt on ThinkLatent kit (969f885) with spring motion, the command center and Jarvis, the register assistant through Claude on claude.ai; first user read pending) · H1 · S-A
+**TL-007 lab-dashboard** · Feature of TL-006 · Building (under S-A; the Building gate passed 2026-11-01; rebuilt on ThinkLatent kit with the command center and Jarvis 2026-11-05) · H1 · S-A
 
 Owner: Thinking partner (owner and builder under S-A until the stream engineer is named); Jithin sponsor. Appetite: 1.5 engineer-weeks, ends 2026-12-01. Score: not scored .
 
