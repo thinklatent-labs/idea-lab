@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent · Write for ThinkLatent</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F7F7F5;font-family:Inter,system-ui,sans-serif;color:#1A1A1A;font-size:15px;line-height:1.55}
+a{color:#2E6B3C}a:hover{color:#0C3F09}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:500;letter-spacing:-.015em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.cap{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:#5C5C5A}
+.panel{background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05);border-radius:24px;padding:24px}
+.glass{background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.9);border-radius:24px;padding:22px;box-shadow:inset 0 1px 0 #FFFFFF,0 16px 48px rgba(26,26,26,.08)}
+.glass.g{background:rgba(27,81,40,.92);color:#FFFFFF;border-color:rgba(255,255,255,.35)}
+.glass.g .meta,.glass.g .cap,.glass.g p{color:#D6E9DB}
+.glass.g h3{color:#FFFFFF}
+.glass.g .tag{background:rgba(255,255,255,.18);color:#FFFFFF}
+.glass.g .thumb{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
+.glass.g .pill{background:rgba(255,255,255,.14);color:#FFFFFF;border-color:rgba(255,255,255,.45)}
+.glass.t{background:rgba(31,74,68,.92);color:#FFFFFF;border-color:rgba(255,255,255,.35)}
+.glass.t .meta,.glass.t .cap,.glass.t p{color:#D3ECE6}.glass.t h3{color:#FFFFFF}.glass.t .tag{background:rgba(255,255,255,.18);color:#FFFFFF}.glass.t .thumb{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}.glass.t .pill{background:rgba(255,255,255,.14);color:#FFFFFF;border-color:rgba(255,255,255,.45)}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(26,26,26,.16);font-size:14px;font-weight:500;color:#1A1A1A;text-decoration:none;background:#FFFFFF;font-family:inherit}
+.pill:hover{color:#1A1A1A;border-color:#1A1A1A}
+.pill.go{background:#C4262E;color:#FFFFFF;border-color:#C4262E}
+.pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.pill.on{background:#1B5128;color:#FFFFFF;border-color:#1B5128}
+.pill.sm{min-height:38px;font-size:13px}
+.nav a{color:#3A3A38;text-decoration:none;font-size:14px;font-weight:500;padding:0 12px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover{background:#F2F2EF;color:#1A1A1A}
+.nav a.on{background:#6CB769;color:#0C3F09}
+.display{font-weight:300;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.tag{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#E9F3EC;color:#2E6B3C;font-size:12px;font-weight:600;white-space:nowrap}
+.tag.teal{background:#E6F1EF;color:#1F4A44}
+.tag.red{background:#FBEAEA;color:#9A1B22}
+.tag.grey{background:#F2F2EF;color:#3A3A38}
+.tag.dark{background:#1A1A1A;color:#FFFFFF}
+.tag.steel{background:#E8EEF1;color:#355F6B}
+.tag.terra{background:#F8ECE6;color:#9E4C27}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.meta{font-size:13px;color:#5C5C5A}
+.hero{background:#E9F3EC}
+.hero.teal{background:#2F7A6D;color:#FFFFFF}
+.hero.teal h1,.hero.teal h2,.hero.teal h3{color:#FFFFFF}.hero.teal p,.hero.teal .meta,.hero.teal .cap{color:#D3ECE6}.hero.teal .tag{background:rgba(255,255,255,.18);color:#FFFFFF}.hero.teal .pill{background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,.55)}.hero.teal .pill.go{background:#C4262E;color:#FFFFFF;border-color:#C4262E}
+.wave{background:#1B5128;color:#FFFFFF}
+.wave .cap,.wave .meta{color:#D6E9DB}
+.wave .pill{color:#FFFFFF;border-color:rgba(255,255,255,.5);background:transparent}
+.wave .pill.go{background:#FFFFFF;color:#0C3F09;border-color:#FFFFFF}
+.wave .panel{color:#1A1A1A}
+.wave .panel .cap{color:#5C5C5A}
+.band{background:#E9F3EC}
+.thumb{border-radius:16px;background:#E9F3EC;aspect-ratio:16/10;border:1px solid #EFEFEC}
+.thumb.net{background:#E9F3EC}.thumb.steel{background:#E8EEF1}.thumb.terra{background:#F8ECE6}.thumb.wave{background:#E6F1EF}.thumb.globe{background:#EEF1F3}
+.card{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A}
+.card:hover{color:#1A1A1A;border-color:#1A1A1A}
+.av{width:36px;height:36px;border-radius:50%;background:#F2F2EF;color:#3A3A38;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex:none;border:2px solid #FFFFFF}
+.av.lg{width:48px;height:48px;font-size:12px}
+.faq{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #EFEFEC;font-size:17px;font-weight:500}
+.faq span:last-child{width:32px;height:32px;border-radius:50%;border:1px solid rgba(26,26,26,.2);display:inline-flex;align-items:center;justify-content:center;font-weight:400;color:#5C5C5A;flex:none}
+.sec{display:flex;flex-direction:column;gap:20px}
+.h2{font-size:36px;line-height:1.1;margin-top:6px;font-weight:400;letter-spacing:-.025em}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.fam{display:flex;flex-direction:column;gap:10px;padding:22px;border-radius:16px;border:1px solid #E6E6E2;background:#FFFFFF}
+.gen{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05);min-height:170px}
+.gen .g{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#5C5C5A}
+.mean{margin-top:auto;padding:14px 16px;border-radius:14px;background:#E9F3EC;color:#0C3F09;font-size:14px;border:1px solid #CFE6D6}
+.mean b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#2E6B3C;margin-bottom:2px}
+.proj{display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05)}
+.globe{background:#2F7A6D;color:#FFFFFF}
+.globe .cap,.globe .meta{color:#D3ECE6}.globe h2,.globe h3{color:#FFFFFF}.globe p{color:#D3ECE6}
+.globe .proj{color:#1A1A1A}.globe .proj .meta{color:#5C5C5A}.globe .proj h3{color:#1A1A1A}
+.globe .pill{color:#FFFFFF;border-color:rgba(255,255,255,.5);background:transparent}
+.green{background:linear-gradient(160deg,#0C3F09 0%,#1B5128 60%,#6CB769 100%);border-radius:20px;color:#FFFFFF}
+.n{font-weight:600;display:block;color:#1A1A1A}
+.person{display:flex;gap:12px;align-items:center;padding:14px 0;border-top:1px solid #EFEFEC}
+.step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:14px;background:#F7F7F5;border:1px solid #EFEFEC}
+.play{width:52px;height:52px;border-radius:50%;background:#1B5128;border:1px solid #2E6B3C;display:inline-flex;align-items:center;justify-content:center;color:#FFFFFF}
+.win{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;min-height:260px}
+.row{display:grid;grid-template-columns:90px minmax(0,1fr) 150px 140px 70px;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid #EFEFEC}
+.row a.t{font-weight:600;color:#1A1A1A;text-decoration:none}
+.post{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;padding:14px;background:#FFFFFF;border-radius:20px;border:1px solid #E6E6E2}
+.post .thumb{display:flex;align-items:flex-start;justify-content:space-between;padding:12px}
+.series{background:#E9F3EC;border:1px solid #E6E6E2;border-radius:20px;padding:32px}
+.paper{aspect-ratio:16/10;border-radius:12px;background:#F7F7F5;padding:14px 16px;display:flex;flex-direction:column;gap:6px;border:1px solid #EFEFEC}
+.paper .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.paper .top span{height:14px;width:54px;border-radius:999px}
+.paper b{display:block;height:10px;border-radius:3px;background:#1A1A1A;width:70%}
+.paper i{display:block;height:6px;border-radius:3px;background:#D9D9D5}
+.tpl{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;padding:14px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:auto;padding:12px 0 0;border-top:1px solid #EFEFEC}
+.facts span{display:flex;flex-direction:column;font-size:13px;font-weight:500}
+.facts small{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500}
+.door{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:#1A1A1A;padding:22px;border-radius:20px;background:#FFFFFF;border:1px solid #E6E6E2}
+.door:hover{border-color:#1A1A1A}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0;border:1px solid #E6E6E2;border-radius:20px;overflow:hidden;background:#FFFFFF}
+.ladder div{padding:22px;border-right:1px solid #EFEFEC;display:flex;flex-direction:column;gap:8px}
+.ladder div:last-child{border-right:0}
+.trend{display:flex;flex-direction:column;gap:6px}
+.trend svg{width:96px;height:28px}
+.stage{display:flex;flex-direction:column;gap:8px;padding:22px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;position:relative}
+.stage .num{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#2E6B3C}
+.feed{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid #EFEFEC}
+.feed:first-of-type{border-top:0}
+.jump{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.jump a{font-size:13px;color:#2E6B3C;text-decoration:none;padding:6px 12px;border-radius:999px;background:#FFFFFF;border:1px solid #E6E6E2}
+.gl{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid #EFEFEC;font-size:15px}
+.gl b{font-weight:600}
+.note{font-size:13px;color:#5C5C5A;background:#F2F2EF;border-radius:12px;padding:10px 14px}
+.later{border-style:dashed;background:#FBFBFA}
+.comments{border-top:1px solid #E6E6E2;padding:28px 0 0;display:flex;flex-direction:column;gap:12px}
+.comments input{width:100%;min-height:44px;border-radius:12px;border:1px solid #E6E6E2;padding:0 14px;font-family:inherit;font-size:14px;background:#FFFFFF}
+.owners{font-size:12px;color:#5C5C5A;display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-top:1px solid #EFEFEC}
+.pline{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:14px 0;border-bottom:1px solid #EFEFEC;text-decoration:none;color:#1A1A1A}
+.pline:last-child{border-bottom:0}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500;text-align:left;padding:10px 12px;border-bottom:1px solid #E6E6E2}
+.tbl td{padding:12px;border-bottom:1px solid #EFEFEC;vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+@media (max-width:760px){.wrap{padding:0 16px}.row{grid-template-columns:minmax(0,1fr)}.gl{grid-template-columns:minmax(0,1fr)}}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+<header style="background:#FFFFFF;border-top:4px solid #C4262E;border-bottom:1px solid #E6E6E2">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
+    <a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1A1A1A" aria-label="Home">
+      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">TL</span>
+      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:15px">ThinkLatent</span><span style="font-size:12px;color:#5C5C5A">Team site</span></span>
+    </a>
+    <nav class="nav" aria-label="Site" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
+      <a class="" href="Mandate.dc.html">Mandate</a><a class="" href="Products.dc.html">Products<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Wins.dc.html">Our work<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Blog.dc.html">Stories<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Team.dc.html">Team</a>
+      <a class="pill go" href="Write.dc.html" style="margin-left:8px">Write for ThinkLatent</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="min-height:440px;display:flex;align-items:flex-end">
+  <div class="wrap" style="width:100%;padding-top:72px;padding-bottom:48px;display:flex;flex-direction:column;gap:16px;max-width:1240px">
+    <p class="cap">Write for ThinkLatent</p>
+    <h1 style="font-size:56px;line-height:1.04;font-weight:400;letter-spacing:-.03em;max-width:820px">Pick a template. Write it. We review it in five working days.</h1>
+    <p style="font-size:18px;color:#3A3A38;max-width:640px">Every piece on this site starts from one of eleven templates. The highlighted boxes tell you what to write; you delete them before you publish.</p>
+    <nav class="jump" aria-label="On this page"><span class="meta">On this page:</span><a href="#templates">Templates</a><a href="#tiers">Perspective or Deep dive</a><a href="#steps">How to publish</a><a href="#runs">How the blog runs</a><a href="#voice">The ThinkLatent voice</a><a href="#submit">Submit</a></nav>
+  </div>
+</section>
+<main class="wrap" style="display:flex;flex-direction:column;gap:64px;padding-top:56px;width:100%">
+  <section id="templates" class="grid g3">
+    <a class="panel tpl" href="TplBlog.dc.html"><div class="paper"><div class="top"><span style="background:#E9F3EC"></span><i style="width:40px"></i></div><b></b><i style="width:90%"></i><i style="width:80%"></i><i style="width:60%;background:#FFF4CE"></i><i style="width:85%"></i></div><span class="tag " style="align-self:flex-start">Blog post</span><h2 style="font-size:20px">A problem you solved, or one you want to</h2><p class="meta">For anyone. The problem in plain words, why it matters here, what we did, an invitation. Marked Perspective or Deep dive.</p><div class="facts"><span><small>Who</small>Anyone</span><span><small>Length</small>600–1,200 words</span><span><small>Cadence</small>Any time</span></div></a>
+    <a class="panel tpl" href="TplWin.dc.html"><div class="paper"><div class="top"><span style="background:#E9F3EC"></span><i style="width:40px"></i></div><b></b><i style="width:40%;height:26px;background:#1B5128"></i><i style="width:80%"></i><i style="width:60%;background:#FFF4CE"></i></div><span class="tag " style="align-self:flex-start">Win story</span><h2 style="font-size:20px">What a partner team can do now</h2><p class="meta">For product leads with the partner team. The research-to-production story, one before-and-after number with its source, the partner's words, and what it made possible next.</p><div class="facts"><span><small>Who</small>Product leads</span><span><small>Length</small>500–900 words</span><span><small>Cadence</small>A win a month</span></div></a>
+    <a class="panel tpl" href="TplPaper.dc.html"><div class="paper" style="background:#F8ECE6"><div class="top"><span style="background:#C9663A"></span><i style="width:40px"></i></div><b></b><i style="width:90%"></i><i style="width:80%"></i><i style="width:60%;background:#FFF4CE"></i></div><span class="tag terra" style="align-self:flex-start">Paper explained</span><h2 style="font-size:20px">A paper, talk or patent, for the people who use it</h2><p class="meta">For authors. The finding in one sentence, why it matters at the Enterprise, where it goes next.</p><div class="facts"><span><small>Who</small>Authors</span><span><small>Length</small>500–800 words</span><span><small>Cadence</small>Each publication</span></div></a>
+    <a class="panel tpl" href="TplModelCard.dc.html"><div class="paper" style="background:#E8EEF1"><div class="top"><span style="background:#355F6B"></span><i style="width:40px"></i></div><b></b><i style="width:70%"></i><i style="width:70%"></i><i style="width:70%"></i><i style="width:60%;background:#FFF4CE"></i></div><span class="tag steel" style="align-self:flex-start">Model card</span><h2 style="font-size:20px">The short card every model carries on this site</h2><p class="meta">For the model's owner. What it is for, who uses it, status, limits in plain words, the owner, and the link to the full card in the ThinkLatent Portal.</p><div class="facts"><span><small>Who</small>Model owner</span><span><small>Length</small>One screen</span><span><small>Cadence</small>Each model, each release</span></div></a>
+    <a class="panel tpl" href="TplRelease.dc.html"><div class="paper"><div class="top"><span style="background:#E6F1EF"></span><i style="width:40px"></i></div><b></b><i style="width:90%"></i><i style="width:90%;height:22px;background:#F2F2EF"></i><i style="width:60%;background:#FFF4CE"></i></div><span class="tag teal" style="align-self:flex-start">Release notes</span><h2 style="font-size:20px">A new model or product, in outcomes</h2><p class="meta">For the release owner. What is new, the index result against the last generation, who should move, known limits, getting started, acknowledgments, a contact.</p><div class="facts"><span><small>Who</small>Release owner</span><span><small>Length</small>300–600 words</span><span><small>Cadence</small>Each release</span></div></a>
+    <a class="panel tpl" href="TplLeader.dc.html"><div class="paper" style="background:#1A1A1A"><div class="top"><span style="background:#C4262E"></span><i style="width:40px;background:#3A3A38"></i></div><b style="background:#ECECEC"></b><i style="width:90%;background:#3A3A38"></i><i style="width:80%;background:#3A3A38"></i><i style="width:60%;background:#FFF4CE"></i><i style="width:85%;background:#3A3A38"></i></div><span class="tag red" style="align-self:flex-start">Leadership series</span><h2 style="font-size:20px">A leader's view, one a month</h2><p class="meta">For the Head of ThinkLatent and the three heads. A stance, the evidence, what it means for the team and for the Enterprise, one ask.</p><div class="facts"><span><small>Who</small>Four leaders</span><span><small>Length</small>700–1,000 words</span><span><small>Cadence</small>Monthly</span></div></a>
+    <a class="panel tpl" href="TplUseCase.dc.html"><div class="paper" style="background:#0C3F09"><div class="top"><span style="background:#6CB769"></span><i style="width:40px;background:#1B5128"></i></div><b style="background:#FFFFFF"></b><i style="width:50%;background:#FFFFFF;height:18px"></i><i style="width:80%;background:#1B5128"></i><i style="width:60%;background:#FFF4CE"></i></div><span class="tag dark" style="align-self:flex-start">Use case</span><h2 style="font-size:20px">What the Enterprise can do now, by use case</h2><p class="meta">For product leads with the partner team. The gain, in their words, one number and its source, their consent. The record behind a win.</p><div class="facts"><span><small>Who</small>Product leads</span><span><small>Length</small>400–700 words</span><span><small>Cadence</small>Each use case</span></div></a>
+    <a class="panel tpl" href="TplSession.dc.html"><div class="paper"><div class="top"><span style="background:#E6F1EF"></span><i style="width:40px"></i></div><b></b><i style="width:100%;height:34px;background:#1A1A1A"></i><i style="width:80%"></i><i style="width:60%;background:#FFF4CE"></i></div><span class="tag teal" style="align-self:flex-start">AI Perspectives session</span><h2 style="font-size:20px">The session, written up in two days</h2><p class="meta">For the host. The paper, the Enterprise slide, the carrier, every request raised, the recording.</p><div class="facts"><span><small>Who</small>Host</span><span><small>Length</small>300–500 words</span><span><small>Cadence</small>Each session</span></div></a>
+    <a class="panel tpl" href="TplRoundup.dc.html"><div class="paper"><div class="top"><span style="background:#E6F1EF"></span><i style="width:40px"></i></div><b></b><i style="width:90%;background:#E6F1EF;height:14px"></i><i style="width:80%"></i><i style="width:60%;background:#FFF4CE"></i><i style="width:85%"></i></div><span class="tag teal" style="align-self:flex-start">Conference roundup</span><h2 style="font-size:20px">ThinkLatent at [conference]</h2><p class="meta">For whoever went. Who was there, the talks and papers, three things we bring back, and who to ask about each.</p><div class="facts"><span><small>Who</small>Attendees</span><span><small>Length</small>400–700 words</span><span><small>Cadence</small>Each conference</span></div></a>
+    <a class="panel tpl" href="TplPartner.dc.html"><div class="paper"><div class="top"><span style="background:#E9F3EC"></span><i style="width:40px"></i></div><b></b><i style="width:90%"></i><i style="width:80%"></i><i style="width:60%;background:#FFF4CE"></i><i style="width:85%"></i></div><span class="tag " style="align-self:flex-start">New partner</span><h2 style="font-size:20px">[Business unit] starts with ThinkLatent</h2><p class="meta">For the ThinkLatent product lead. Who, the problem in their words, what starts first, the first milestone and its date, the contact.</p><div class="facts"><span><small>Who</small>Product lead</span><span><small>Length</small>200–400 words</span><span><small>Cadence</small>Each new engagement</span></div></a>
+    <a class="panel tpl" href="TplAwards.dc.html"><div class="paper" style="background:#1A1A1A"><div class="top"><span style="background:#C4262E"></span><i style="width:40px;background:#3A3A38"></i></div><b style="background:#ECECEC"></b><i style="width:90%;background:#3A3A38"></i><i style="width:80%;background:#3A3A38"></i><i style="width:60%;background:#FFF4CE"></i><i style="width:85%;background:#3A3A38"></i></div><span class="tag red" style="align-self:flex-start">ThinkLatent quarterly awards</span><h2 style="font-size:20px">The quarter's winners, with citations</h2><p class="meta">For the editor and leadership, after the quarterly review. One block per award, evidence for each, consent for every name.</p><div class="facts"><span><small>Who</small>Editor, Head of ThinkLatent</span><span><small>Length</small>One block per award</span><span><small>Cadence</small>Quarterly</span></div></a>
+  </section>
+
+  <section id="tiers" class="grid g2" style="align-items:start">
+    <div class="panel" style="display:flex;flex-direction:column;gap:12px;padding:32px"><span class="tag" style="align-self:flex-start">Perspective</span><h2 style="font-size:26px;font-weight:400;letter-spacing:-.02em">For business readers</h2><p style="color:#3A3A38">What changed for the people who use it, and why it matters at the Enterprise. No architecture, no parameter counts, no benchmark names. If a term needs the glossary, link it; if it needs a paragraph, it belongs in a Deep dive.</p><p class="meta">Most posts. Every win, release and leadership post is a Perspective.</p></div>
+    <div class="panel" style="display:flex;flex-direction:column;gap:12px;padding:32px"><span class="tag dark" style="align-self:flex-start">Deep dive</span><h2 style="font-size:26px;font-weight:400;letter-spacing:-.02em">For practitioners</h2><p style="color:#3A3A38">How it was done, for the people who will build on it: methods, trade-offs, what did not work. Still no client names and nothing unreleased; the editor checks.</p><p class="meta">Marked Deep dive on the card so a business reader knows before clicking.</p></div>
+  </section>
+
+  <section id="steps" class="sec">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">How to publish</p><h2 class="h2">Three steps</h2></div></div>
+    <ol style="list-style:none;margin:0;padding:0" class="grid g3">
+      <li class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:48px;color:#2E6B3C">1</span><h3 style="font-size:19px">Start from the template</h3><p class="meta" style="color:#3A3A38">In SharePoint: New › News post › pick the template. The category, properties and layout are already set. Draft with AI if you like; you are the author.</p></li>
+      <li class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:48px;color:#2E6B3C">2</span><h3 style="font-size:19px">Submit for review</h3><p class="meta" style="color:#3A3A38">Save as draft and send the link with the form below. One peer and the editor review within five working days for clarity, anything unreleased, client names and approvals.</p></li>
+      <li class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:48px;color:#2E6B3C">3</span><h3 style="font-size:19px">Publish and share</h3><p class="meta" style="color:#3A3A38">The editor publishes; it lands on Home, the Blog and the next monthly email automatically, and goes to the intranet and the office news when it fits. Share the link with the people who have the problem.</p></li>
+    </ol>
+  </section>
+
+  <section id="runs" class="grid g2" style="align-items:start">
+    <div style="display:flex;flex-direction:column;gap:14px"><p class="cap">How the blog runs</p><h2 class="h2" style="margin:0">Researchers write. A small board keeps it moving.</h2><p style="font-size:17px;color:#3A3A38;max-width:560px">Borrowed from the labs that keep a blog alive for years: the people who did the work write it; a board of two or three edits it; one function head advises; the cadence is fixed and modest.</p></div>
+    <div class="panel" style="padding:28px;display:flex;flex-direction:column;gap:0">
+      <a class="pline" href="#"><span style="font-weight:500">Editorial board</span><span class="meta">[Name], [Name], [Name]</span></a><a class="pline" href="#"><span style="font-weight:500">Advisor</span><span class="meta">[Function head]</span></a><a class="pline" href="#"><span style="font-weight:500">Cadence</span><span class="meta">at most one post every two weeks</span></a><a class="pline" href="#"><span style="font-weight:500">Review</span><span class="meta">one peer + the editor, five working days</span></a><a class="pline" href="#"><span style="font-weight:500">Syndication</span><span class="meta">The intranet · Canada and India office news · the external blog via Comms, later</span></a><a class="pline" href="#"><span style="font-weight:500">Comments</span><span class="meta">on, moderated by the editors</span></a>
+    </div>
+  </section>
+
+  <section id="voice" class="sec">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">The ThinkLatent voice</p><h2 class="h2">Four rules for everything we write</h2></div></div>
+    <div class="grid g4" style="gap:16px">
+      <div class="panel" style="display:flex;flex-direction:column;gap:8px"><h3 style="font-size:18px">Gain before build</h3><p class="meta">Lead with what someone can now do, not what we built.</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:8px"><h3 style="font-size:18px">Their problem first</h3><p class="meta">Say it in the reader's words, before ours.</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:8px"><h3 style="font-size:18px">One number</h3><p class="meta">Dated and sourced. No number we cannot back.</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:8px"><h3 style="font-size:18px">End with an invitation</h3><p class="meta">"Do you have this problem? Talk to us."</p></div>
+    </div>
+    <div class="grid g2" style="gap:16px">
+      <div class="panel" style="display:flex;flex-direction:column;gap:8px;background:transparent"><p class="cap">Instead of</p><p style="font-size:17px;color:#5C5C5A">"We fine-tuned a domain model on [N] documents and improved accuracy on our benchmark."</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:8px;border-color:rgba(121,241,129,.35)"><p class="cap" style="color:#2E6B3C">Write</p><p style="font-size:17px">"[Partner team] now [does what] in [time] instead of [time]. If your team [has the same problem], let's talk."</p></div>
+    </div>
+  </section>
+
+  <section id="submit" class="panel" style="padding:32px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px">
+    <div><h2 style="font-size:26px;font-weight:400;letter-spacing:-.02em">Draft ready?</h2><p class="meta" style="margin-top:6px">Send the link; the editor replies within five working days.</p></div>
+    <a class="pill go" href="#">Submit for review</a>
+  </section>
+</main>
+<div class="wrap"><div class="comments"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><p class="cap">Comments · on, moderated by the editors</p><span class="meta">[N] comments</span></div><input placeholder="Add a comment, or ask the author a question" aria-label="Add a comment"></div></div><div class="wrap"><div class="owners"><span>Page owners: [Site editor, TPM] · [Editorial board advisor]</span><span>Review by: [DATE + 1 quarter]</span><span>Last reviewed: [DATE]</span></div></div>
+<footer style="background:#ECECEA;border-top:1px solid #E6E6E2;margin-top:80px">
+  <div class="wrap" style="padding-top:48px;padding-bottom:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px">
+    <div style="display:flex;flex-direction:column;gap:12px;min-width:240px"><p style="font-weight:600">ThinkLatent</p><p class="meta">The Enterprise's own intelligence, compounding. Internal to the Enterprise.</p><div style="display:flex;flex-wrap:wrap;gap:8px"><a class="pill sm" href="#">Follow this site</a><a class="pill sm" href="#">ThinkLatent on Viva Engage</a></div></div>
+    <div><p class="cap">Site</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="Mandate.dc.html" style="color:#3A3A38;text-decoration:none">Mandate</a></li><li><a href="Products.dc.html" style="color:#3A3A38;text-decoration:none">Products</a></li><li><a href="Wins.dc.html" style="color:#3A3A38;text-decoration:none">Our work</a></li><li><a href="Blog.dc.html" style="color:#3A3A38;text-decoration:none">Stories</a></li><li><a href="Team.dc.html" style="color:#3A3A38;text-decoration:none">Team</a></li><li><a href="Glossary.dc.html" style="color:#3A3A38;text-decoration:none">Glossary</a></li><li><a href="Glance.dc.html" style="color:#3A3A38;text-decoration:none">ThinkLatent at a glance</a></li></ul></div>
+    <div><p class="cap">Products</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="Products.dc.html" style="color:#3A3A38;text-decoration:none">TLM</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">ThinkLatent Portal ↗</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">TL Index ↗</a></li><li><a href="TLTrust.dc.html" style="color:#3A3A38;text-decoration:none">ThinkLatent Trust</a></li></ul></div>
+    <div><p class="cap">Elsewhere</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="(source link withheld)" style="color:#3A3A38;text-decoration:none">The university lab ↗</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">[Enterprise recognition portal] ↗</a></li><li><a href="Write.dc.html" style="color:#3A3A38;text-decoration:none">Write for ThinkLatent</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">Contact the editors</a></li></ul></div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3800}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

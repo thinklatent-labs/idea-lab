@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Pillar composition · Client care</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2200px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-current="page" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Evaluation · TL Index · pillar 3 Client care · composition · edition 2026-11 · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Four active data sets from three contributors; two candidates are waiting</h1></div>
+      <div class="kit-actions"><a class="kit-btn" href="E8-Contribute.dc.html">Contribute data</a><button class="kit-btn outline" type="button">Compare with edition 2026-10</button></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px">
+      <nav class="kit-rail" aria-label="Evaluation"><a href="E1-EvaluationResults.dc.html">Results</a><a href="E2-Index.dc.html">Index</a><a href="E3-Leaderboard.dc.html">Leaderboard</a><a href="E4-Corrections.dc.html">Corrections</a><a href="E6-Requests.dc.html">Requests</a><a href="E7-Trials.dc.html">Trials</a><a href="E8-Contribute.dc.html">Contribute</a><a href="E9-Pillar.dc.html" aria-current="page">Pillars</a></nav>
+      <nav class="kit-subrail" aria-label="Sections"><a href="E9-Pillar.dc.html">Overview</a><a href="E9-Pillar-Composition.dc.html" aria-current="page">Composition</a><a href="E9-Pillar-Saturation.dc.html">Saturation</a><a href="E9-Pillar-Judge.dc.html">Judge calibration</a></nav>
+    </div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path></svg></span></div>
+        <div class="kit-tile-title">Active data sets</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">4</div><div class="kit-tile-cap">1 200 items · weight 0.45 on routing, 0.55 on resolution</div></div><div class="kit-bars"><i class="lit" style="height: 86%"></i><i class="lit" style="height: 43%"></i><i style="height: 100%"></i><i style="height: 57%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"></circle><path d="M3 20a6 6 0 0 1 12 0"></path><path d="M16 4.5a3 3 0 0 1 0 6"></path><path d="M18 20a6 6 0 0 0-2.5-4.9"></path></svg></span><a class="kit-open" href="E8-Contribute-Validation.dc.html" aria-label="Open contributor credit">↗</a></div>
+        <div class="kit-tile-title">Contributors</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3</div><div class="kit-tile-cap">Client Services 600 items · Institutional Ops 400 · ThinkLatent core team 200</div></div><div class="kit-track" style="width: 90px"><i style="width: 83%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span></div>
+        <div class="kit-tile-title">Last refresh</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">3 Nov</div><div class="kit-tile-cap">One sixth of items rotated and held out until 3 Dec · cc-escalation v2 deferred</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>1 deferred</span></span></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4"></path><path d="m7 9 5-5 5 5"></path><path d="M4 20h16"></path></svg></span><a class="kit-open" href="E8-Contribute-Validation.dc.html" aria-label="Open validation">↗</a></div>
+        <div class="kit-tile-title">Candidates</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2</div><div class="kit-tile-cap">Secure-message intents is in practitioner validation · cc-tone-check v1 waits for the judge</div></div><span class="kit-chip brand">Edition 2026-12</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Composition · candidate, active and retired data sets</h2><div class="sub">The pillar score is the weighted mean of its active data sets. Weights are set per edition by the validator group; a candidate carries no weight until it is active. Every version is immutable.</div></div><div class="kit-seg"><button type="button" aria-pressed="true">All</button><button type="button" aria-pressed="false">Active</button><button type="button" aria-pressed="false">Candidate</button><button type="button" aria-pressed="false">Retired</button></div></div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Data set</th><th>Task family</th><th>Status</th><th class="num">Items</th><th>Weight</th><th>Contributor</th><th>Last refresh</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td colspan="8" class="kit-label">Active · edition 2026-11</td></tr>
+          <tr><td><strong>cc-routing v3</strong></td><td>Routing</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Active</span></span></td><td class="num">400</td><td><span class="kit-num">0.30</span><div class="kit-track" style="width: 80px; margin-top: 4px"><i style="width: 30%"></i></div></td><td class="kit-small">Institutional Ops · Marcus L.</td><td class="kit-small">3 Nov</td><td class="kit-small">From DS-C-0027 Ticket classes 2025; replaced v2, which saturated</td></tr>
+          <tr><td><strong>cc-escalation v2</strong></td><td>Routing</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Active</span></span></td><td class="num">200</td><td><span class="kit-num">0.15</span><div class="kit-track" style="width: 80px; margin-top: 4px"><i style="width: 15%"></i></div></td><td class="kit-small">Client Services · Priya N.</td><td class="kit-small">3 Oct</td><td class="kit-small">Rotation deferred until new complaint labels land on 20 Nov</td></tr>
+          <tr><td><strong>cc-resolution v4</strong></td><td>Resolution</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Active</span></span></td><td class="num">400</td><td><span class="kit-num">0.35</span><div class="kit-track" style="width: 80px; margin-top: 4px"><i style="width: 35%"></i></div></td><td class="kit-small">Client Services knowledge team · Priya N.</td><td class="kit-small">3 Nov</td><td class="kit-small">One sixth rotated from v3</td></tr>
+          <tr><td><strong>cc-wrapup v2</strong></td><td>Resolution</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Active</span></span></td><td class="num">200</td><td><span class="kit-num">0.20</span><div class="kit-track" style="width: 80px; margin-top: 4px"><i style="width: 20%"></i></div></td><td class="kit-small">ThinkLatent core team with UC-0251 Call wrap-up notes</td><td class="kit-small">3 Nov</td><td class="kit-small">Built with the Call wrap-up notes pilot</td></tr>
+          <tr><td><strong>Active total</strong></td><td></td><td></td><td class="num"><strong>1 200</strong></td><td><strong>1.00</strong></td><td></td><td></td><td class="kit-small kit-muted">Routing 0.45 · resolution 0.55</td></tr>
+          <tr><td colspan="8" class="kit-label">Candidate</td></tr>
+          <tr><td><a href="E8-Contribute-Profile.dc.html">secure-message-intents v1</a><div class="kit-small kit-muted">DS-C-0031</div></td><td>Routing</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Candidate</span></span></td><td class="num">1 312</td><td class="kit-small">0.10 proposed<div class="kit-muted">routing stays at 0.45</div></td><td class="kit-small">Client Services · Priya N.</td><td class="kit-small">Profiled 4 Nov</td><td class="kit-small">Practitioner validation 2 of 3; would be active at edition 2026-12</td></tr>
+          <tr><td><a href="E9-Pillar-Judge.dc.html">cc-tone-check v1</a></td><td>Resolution</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Candidate</span></span></td><td class="num">300</td><td><span class="kit-dash" title="no weight until judge agreement on tone reaches 0.70">—</span></td><td class="kit-small">ThinkLatent core team</td><td class="kit-small">20 Oct</td><td class="kit-small">Waits for the judge: agreement on tone is kappa 0.64 against a 0.70 bar</td></tr>
+          <tr><td colspan="8" class="kit-label">Retired · details in the ledger below</td></tr>
+          <tr><td class="kit-muted">cc-routing v2</td><td class="kit-muted">Routing</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Retired 3 Nov</span></span></td><td class="num kit-muted">400</td><td class="kit-muted">0</td><td class="kit-small kit-muted">Institutional Ops</td><td class="kit-small kit-muted">3 Oct</td><td class="kit-small kit-muted">Saturated</td></tr>
+          <tr><td class="kit-muted">cc-email-replies v1</td><td class="kit-muted">Resolution</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Withdrawn · not servable</span></span></td><td class="num kit-muted">380</td><td class="kit-muted">0</td><td class="kit-small kit-muted">Client Services</td><td class="kit-small kit-muted">3 Sep</td><td class="kit-small kit-muted">Source records deleted on client request</td></tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Source: Client care composition record, edition 2026-11 · data-set manifests (content hash per version) · weights approved by the validator group on 15 Oct under Index method v3 · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Retired-data-set ledger</h2><div class="sub">Why each set left, what replaced it, and what happened to the runs that used it. Retired sets are kept; they are evidence for later decisions.</div></div><a class="kit-btn sm outline" href="E4-Corrections.dc.html">Corrections log</a></div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Data set</th><th>Left</th><th>Why</th><th>Replaced by</th><th>Runs that used it</th><th>Decided by</th></tr></thead>
+        <tbody>
+          <tr><td><strong>cc-routing v2</strong></td><td class="kit-small">3 Nov 2026 · retired</td><td class="kit-small">Saturated: the top four models sat within 0.02 of the 0.96 ceiling for two editions; Distil 4.2 scored 0.94 ± 0.01</td><td class="kit-small">cc-routing v3, harder ticket classes from DS-C-0027</td><td class="kit-small">Scores stand; their results pages note "retired set"</td><td class="kit-small">Elena R. (validator)</td></tr>
+          <tr><td><strong>cc-resolution v3</strong></td><td class="kit-small">3 Nov 2026 · superseded</td><td class="kit-small">Rotation: one sixth of items refreshed at edition 2026-11</td><td class="kit-small">cc-resolution v4</td><td class="kit-small">Unchanged and still citable</td><td class="kit-small">Rotation rule, Index method v3</td></tr>
+          <tr><td><strong>cc-email-replies v1</strong></td><td class="kit-small">14 Oct 2026 · withdrawn · not servable</td><td class="kit-small">37 source records were deleted on client request, so every version holding them was withdrawn; a new version without them was cut automatically</td><td class="kit-small">cc-email-replies v2 (343 items), merged into cc-resolution v4</td><td class="kit-small">Runs 1151 to 1162 flagged "withdrawn data"; their Official evidence carries the flag</td><td class="kit-small">Automatic, confirmed by Elena R.</td></tr>
+          <tr><td><strong>cc-faq v1</strong></td><td class="kit-small">1 Sep 2026 · retired</td><td class="kit-small">Contaminated: 12% of items appeared in public pages found in an open-source base model's training data</td><td class="kit-small">cc-resolution v3</td><td class="kit-small">Open-source 70B results on v1 marked "contaminated"</td><td class="kit-small">Elena R. and Jithin, Head of ThinkLatent</td></tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Source: retired-data-set ledger for pillar 3 · withdrawal rule: versions stay immutable, a deleted source record withdraws every version holding it and cuts a new version without it · as of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2200}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Agent evaluation</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2500px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-current="page" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption"><a href="A1-AgentLibrary.dc.html">Agent library</a> · <a href="A2-AgentPage.dc.html">Knowledge agent</a> · Evaluation · Official, 4 Nov · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Does the Knowledge agent 2.3 succeed reliably?</h1><div class="kit-muted" style="margin-top: 6px; max-width: 780px">Three levels, each with its own metrics. The headline is pass^3: the share of cases where all three trials succeed. Every metric below states its definition and n. Judge version pinned; human sample where noted.</div></div>
+      <div class="kit-actions"><a class="kit-btn" href="A3-AgentEvaluation-Variants.dc.html">Compare versions</a><a class="kit-btn outline" href="A3-AgentEvaluation-Trace.dc.html">Open a trace</a><a class="kit-btn outline" href="E1-EvaluationResults.dc.html">Model evaluations</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="A3-AgentEvaluation.dc.html" aria-current="page">Metrics</a><a href="A3-AgentEvaluation-Variants.dc.html">Variants</a><a href="A3-AgentEvaluation-Trace.dc.html">Trace and steps</a><a href="A3-AgentEvaluation-Engineering.dc.html">Engineering</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="A2-AgentPage.dc.html" aria-label="Open agent">↗</a></div>
+        <div class="kit-tile-title">pass^3 · headline</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.71<span class="unit">± 0.04</span></div><div class="kit-tile-cap">All 3 trials succeed · n = 420 cases · k = 3</div></div><span class="kit-chip brand">Official</span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg></span><a class="kit-open" href="A2-AgentPage.dc.html" aria-label="Open agent">↗</a></div>
+        <div class="kit-tile-title">pass@1 · secondary</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.89<span class="unit">± 0.02</span></div><div class="kit-tile-cap">One trial succeeds, averaged · n = 1,260 trials</div></div><div class="kit-bars"><i style="height: 84%"></i><i style="height: 86%"></i><i style="height: 87%"></i><i style="height: 88%"></i><i class="lit" style="height: 89%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path></svg></span><a class="kit-open" href="E4-Corrections.dc.html" aria-label="Open regression suite">↗</a></div>
+        <div class="kit-tile-title">Regression suite</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">99.6<span class="unit">%</span></div><div class="kit-tile-cap">Past fixes stay fixed · n = 1,180 · 5 failed</div></div><div class="kit-bars"><i class="lit" style="height: 99%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 99%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></span><a class="kit-open" href="A3-AgentEvaluation-Variants.dc.html" aria-label="Open capability suite">↗</a></div>
+        <div class="kit-tile-title">Capability suite</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.74<span class="unit">± 0.04</span></div><div class="kit-tile-cap">Task success on new, harder cases · n = 420</div></div><div class="kit-bars"><i style="height: 60%"></i><i style="height: 64%"></i><i style="height: 69%"></i><i class="lit" style="height: 74%"></i></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Three levels of metrics</h2><div class="sub">Step: did the agent use its tools well. Trace: did one run do the task, well grounded and in good time. Thread: did the person get what they came for, at what cost. Each metric states what it counts and over how many items.</div></div>
+        <div class="kit-seg"><button type="button" aria-pressed="true">v2.3 current</button><button type="button" aria-pressed="false">v2.4 candidate</button><button type="button" aria-pressed="false">v2.2 previous</button></div>
+      </div>
+      <div class="kit-grid3" style="margin-top: 14px">
+        <section class="kit-surface raised">
+          <div class="kit-surface-head"><div><h3>Step</h3><div class="sub">One tool call. n = 3,940 steps across 1,260 traces.</div></div><span class="kit-chip">4 metrics</span></div>
+          <div class="kit-rows" style="margin-top: 10px">
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Tool selection</div><div class="s">Right tool for the step, judged against the reference plan · n = 3,940</div></div><span class="kit-interval">0.94 <span class="pm">± 0.01</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Tool input accuracy</div><div class="s">Arguments valid and relevant to the question · n = 3,940</div></div><span class="kit-interval">0.91 <span class="pm">± 0.01</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Tool output use</div><div class="s">Returned passage actually used in the next step · n = 3,702</div></div><span class="kit-interval">0.87 <span class="pm">± 0.02</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Tool call success</div><div class="s">Call returned without error · n = 3,940</div></div><span class="kit-interval">0.99 <span class="pm">± 0.00</span></span></div>
+          </div>
+        </section>
+        <section class="kit-surface raised">
+          <div class="kit-surface-head"><div><h3>Trace</h3><div class="sub">One run of one case. n = 1,260 traces (420 cases × 3).</div></div><span class="kit-chip">7 metrics</span></div>
+          <div class="kit-rows" style="margin-top: 10px">
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Intent resolution</div><div class="s">Agent identified what was asked · judge, n = 1,260</div></div><span class="kit-interval">0.93 <span class="pm">± 0.01</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Task adherence</div><div class="s">Stayed within policy and scope throughout · judge, n = 1,260</div></div><span class="kit-interval">0.96 <span class="pm">± 0.01</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Task completion</div><div class="s">Final answer matches the reference · judge, n = 1,260</div></div><span class="kit-interval">0.82 <span class="pm">± 0.02</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Groundedness</div><div class="s">Claims in the answer that a cited passage supports · judge, claim level · n = 8,610 claims</div></div><span class="kit-interval">0.93 <span class="pm">± 0.01</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Navigation efficiency</div><div class="s">Reference steps ÷ steps taken · n = 1,260</div></div><span class="kit-interval">0.78 <span class="pm">± 0.02</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Steps per task</div><div class="s">Tool and model steps in a completed trace, mean · target 4 or fewer · n = 1,260</div></div><span class="kit-interval">3.1 <span class="pm">± 0.1</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Latency per task</div><div class="s">End-to-end time for one trace, median; p95 9.8 s · gateway serving log · n = 1,260</div></div><span class="kit-num">4.2 s</span></div>
+          </div>
+        </section>
+        <section class="kit-surface raised">
+          <div class="kit-surface-head"><div><h3>Thread</h3><div class="sub">The whole conversation. n = 420 threads; human sample of 60.</div></div><span class="kit-chip">7 metrics</span></div>
+          <div class="kit-rows" style="margin-top: 10px">
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Task success</div><div class="s">Person's goal met by thread end · judge + human sample of 60 · n = 420</div></div><span class="kit-interval">0.86 <span class="pm">± 0.03</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Abstention when unsupported</div><div class="s">Declines instead of guessing when the corpus holds no answer · n = 192 trials on 64 cases</div></div><span class="kit-interval">0.88 <span class="pm">± 0.05</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Context reused</div><div class="s">Follow-up turns answered from earlier turns without a new search · n = 512 follow-up turns</div></div><span class="kit-interval">0.64 <span class="pm">± 0.04</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Handoff success</div><div class="s">Escalations that reached an expert with full context · n = 26</div></div><span class="kit-interval">0.92 <span class="pm">± 0.05</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Human-escalation rate</div><div class="s">Threads handed to a person · target below 8% · n = 420</div></div><span class="kit-interval">6.1% <span class="pm">± 1.0</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Cost per successful task</div><div class="s">Gateway serving cost ÷ successful threads · n = 361</div></div><span class="kit-interval">$0.041 <span class="pm">± 0.003</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px"><div><div class="t">Acceptance by adopting projects</div><div class="s">Answers accepted ÷ answers rated through the feedback call · production aggregate, not from this run · n = 18,412 in 9 projects</div></div><span class="kit-interval">0.81 <span class="pm">± 0.01</span></span></div>
+          </div>
+        </section>
+      </div>
+      <div class="kit-source">Official agent evaluation of Knowledge agent 2.3, 4 Nov 2026 · judge TLM4 Core 4.2, version pinned · intervals are 95% bootstrap over cases · cost and latency from the gateway serving log · acceptance from adopters' feedback calls, production aggregate, content sealed. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Judge and judge spend</h2><div class="sub">Who marks the work and what the marking costs. The judge is pinned per run, a human sample checks it, and every judge call is charged to the agent it judges.</div></div><a class="kit-btn sm outline" href="E1-EvaluationResults.dc.html">Evaluation method</a></div>
+      <div class="kit-grid-main" style="margin-top: 14px">
+        <div>
+          <div class="kit-label">Judge spend per agent · October</div>
+          <table style="margin-top: 8px">
+            <thead><tr><th>Agent</th><th>Runs judged</th><th class="num">Judge spend</th><th class="num">Per run</th></tr></thead>
+            <tbody>
+              <tr class="selected"><td><a href="A2-AgentPage.dc.html">Knowledge agent</a></td><td>3 Official · 11 Practice</td><td class="num">$412</td><td class="num">$29</td></tr>
+              <tr><td>Advisor summary agent</td><td>2 Official · 9 Practice</td><td class="num">$301</td><td class="num">$27</td></tr>
+              <tr><td>Document extraction agent</td><td>2 Official · 8 Practice</td><td class="num">$236</td><td class="num">$24</td></tr>
+              <tr><td>Triage agent</td><td>1 Official · 6 Practice</td><td class="num">$158</td><td class="num">$23</td></tr>
+              <tr><td>Policy lookup agent <span class="kit-chip env">Non-production</span></td><td>Practice only · 7</td><td class="num">$64</td><td class="num">$9</td></tr>
+              <tr><td>Portal help agent · UC-0001</td><td>1 Official · 3 Practice</td><td class="num">$48</td><td class="num">$12</td></tr>
+              <tr><td><b style="font-weight: 500">All agents</b></td><td>9 Official · 44 Practice</td><td class="num"><b style="font-weight: 500">$1,219</b></td><td class="num">$23</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div class="kit-label">This run</div>
+          <dl class="kit-kv" style="margin-top: 8px; grid-template-columns: 120px 1fr">
+            <dt>Judge</dt><dd>TLM4 Core 4.2, version pinned for the run</dd>
+            <dt>Rubric</dt><dd><span class="kit-mono">kb-groundedness-rubric v3</span> · five criteria</dd>
+            <dt>Human sample</dt><dd>60 threads · judge and people agree <span class="kit-interval">0.88 <span class="pm">± 0.05</span></span></dd>
+            <dt>Judge spend</dt><dd>$96 for 1,260 traces and 8,610 claims</dd>
+            <dt>Share of run cost</dt><dd>69% · the other $44 served the agent's 1,260 trials</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="kit-source">Judge calls from the gateway serving log, charged to each agent's evaluation runs, October 2026 · human sample from the review queue · rubric from the agent's evaluation record. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2500}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

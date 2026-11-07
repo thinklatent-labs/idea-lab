@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home: my tasks, reviews, projects, what the agents found</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1B1F24;background:linear-gradient(160deg,#F7F8FA 0%,#EEF2F1 55%,#E9EEF3 100%)}
+a{color:#0B5E4C}a:hover{color:#08463A}
+.card{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);box-shadow:0 1px 2px rgba(27,31,36,0.04),0 8px 24px rgba(27,31,36,0.05);border-radius:14px;padding:22px 24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.tile{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.tile .n{font-size:28px;font-weight:600;letter-spacing:-0.02em}.tile .l{font-size:13px;color:#57606A}
+.h1{margin:0;font-size:28px;font-weight:600;letter-spacing:-0.01em}.h2{margin:0;font-size:16px;font-weight:600}.h3{margin:0;font-size:14px;font-weight:600}
+.muted{color:#57606A;font-size:13px}.ph{color:#8C959F}.small{font-size:12px;color:#57606A}
+.btn{min-height:40px;padding:0 14px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);color:#1B1F24;font:500 13px Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn.primary{background:#0B5E4C;border-color:#0B5E4C;color:#fff}.btn.danger{color:#8A2A1B}.btn[disabled]{background:#EEF1F4;color:#8C959F;border-color:#E1E4E8;cursor:default}
+.pill{padding:2px 9px;border-radius:999px;font-size:11px;font-weight:600;display:inline-block}
+.pill.good{background:#E6F2EE;color:#0B5E4C}.pill.warn{background:#FBF1DD;color:#6B4A0B}.pill.crit{background:#FBE9E7;color:#8A2A1B}.pill.neutral{background:#EEF1F4;color:#3C4651}.pill.info{background:#E3ECF7;color:#1F4E79}
+.row{display:grid;gap:10px;align-items:center;padding:10px 12px;border:1px solid #E1E4E8;border-radius:10px;background:rgba(255,255,255,0.5);font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:#57606A;font-size:12px;font-weight:500;padding:8px;border-bottom:1px solid #E1E4E8}td{padding:10px 8px;border-bottom:1px solid #EEF1F4;vertical-align:top}tr:last-child td{border-bottom:0}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.bar{height:8px;border-radius:4px;background:#EEF1F4;overflow:hidden}.bar>div{height:8px;border-radius:4px;background:#0B5E4C}
+.env{padding:3px 9px;border-radius:6px;background:#EEF1F4;color:#3C4651;font-size:11px;font-weight:600;letter-spacing:0.02em}
+.src{font-size:11px;color:#8C959F}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;font-family:Inter,system-ui,sans-serif;color:#1B1F24">
+<nav aria-label="Areas" style="position:sticky;top:0;align-self:flex-start;flex:0 0 76px;height:100vh;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;background:rgba(255,255,255,0.55);backdrop-filter:blur(16px);border-right:1px solid rgba(255,255,255,0.7)"><a href="Catalogue.dc.html" title="ThinkLatent Portal" style="width:40px;height:40px;border-radius:12px;background:{{accent}};display:block;margin-bottom:6px"></a><a href="Home.dc.html" title="Home" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#0B5E4C;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:#0B5E4C;color:#fff;border:1px solid #0B5E4C">H</span>Home</a><a href="Catalogue.dc.html" title="Models" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">M</span>Models</a><a href="Agents.dc.html" title="Agents" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">A</span>Agents</a><a href="Playground.dc.html" title="Playground" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">P</span>Playground</a><a href="Evaluation.dc.html" title="Evaluation" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">E</span>Evaluation</a><a href="Project.dc.html" title="Projects" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">J</span>Projects</a><a href="DataReview.dc.html" title="Data" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">D</span>Data</a><a href="Training.dc.html" title="Training" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">T</span>Training</a><a href="Operations.dc.html" title="Operations" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">O</span>Operations</a><a href="Help.dc.html" title="Help" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">?</span>Help</a></nav>
+<div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
+<header style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;min-height:56px;padding:0 32px;background:rgba(255,255,255,0.5);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.7)"><nav aria-label="Breadcrumb" style="font-size:14px;flex:1 1 320px;min-width:0"><span style="color:#1B1F24;font-weight:500">Home</span></nav><label for="q" style="position:absolute;left:-9999px">Search</label><input id="q" placeholder="Search models, agents, projects, people, answers" style="min-height:40px;width:320px;padding:0 12px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);font:400 13px Inter,system-ui,sans-serif"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><div role="group" aria-label="Preview as" style="display:flex;gap:4px;padding:4px;background:rgba(255,255,255,0.7);border:1px solid #E1E4E8;border-radius:10px"><button onClick="{{pickDev}}" aria-pressed="{{isDev}}" class="btn" style="min-height:32px;border:0;background:transparent">Developer</button><button onClick="{{pickApp}}" aria-pressed="{{isApp}}" class="btn" style="min-height:32px;border:0;background:transparent">App team</button><button onClick="{{pickVal}}" aria-pressed="{{isVal}}" class="btn" style="min-height:32px;border:0;background:transparent">Validator</button><button onClick="{{pickAll}}" aria-pressed="{{isAll}}" class="btn" style="min-height:32px;border:0;background:transparent">Everyone</button></div></div></header>
+<main style="flex:1 1 auto;width:100%;max-width:1180px;margin:0 auto;padding:28px 32px 56px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px">
+
+<section style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end">
+  <div style="display:flex;flex-direction:column;gap:6px"><h1 class="h1">Good morning, [name]</h1><p class="muted" style="margin:0;max-width:720px">Previewing as <strong>{{role}}</strong>. {{roleNote}} The home page answers one question first: what needs me today.</p></div>
+  <span class="src">as of [time] · sources: portal queues, Jira, agents' activity</span>
+</section>
+
+<sc-if value="{{isDev}}" hint-placeholder-val="{{ true }}">
+<section class="grid4" aria-label="Headline">
+  <div class="tile"><span class="l">Reviews to complete</span><span class="n">10</span><span class="l">3 due today · oldest 6 days</span></div>
+  <div class="tile"><span class="l">Tasks (Jira + portal)</span><span class="n ph">[—]</span><span class="l">[—] Jira · [—] portal · display only</span></div>
+  <div class="tile"><span class="l">Runs in flight</span><span class="n ph">[—]</span><span class="l">one finishes in [—] h · one at the gate</span></div>
+  <div class="tile"><span class="l">Findings overnight</span><span class="n">4</span><span class="l">2 drift · 1 do-not-use mark · 1 new topic</span></div>
+</section>
+<section class="grid2">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">My reviews</h2><a href="DataReview.dc.html" class="small" style="font-weight:500">Open the queue</a></div>
+    <div class="row" style="grid-template-columns:1fr auto auto"><span>Toxic-language tags on call-summary-train v3 · 6 items</span><span class="pill warn">due today</span><a href="DataReview.dc.html" style="font-weight:500">Claim</a></div>
+    <div class="row" style="grid-template-columns:1fr auto auto"><span>Self-healing marks: do-not-use for summarisation · 3 items</span><span class="pill neutral">due [date]</span><a href="DataReview.dc.html" style="font-weight:500">Claim</a></div>
+    <div class="row" style="grid-template-columns:1fr auto auto"><span>Double-label for judge calibration · 1 item</span><span class="pill neutral">due [date]</span><a href="DataReview.dc.html" style="font-weight:500">Claim</a></div>
+    <span class="small">Assigned by the data lead; service target 14 days; what you decide tunes the pipeline.</span>
+  </div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">What the agents found</h2><a href="Operations.dc.html" class="small" style="font-weight:500">All activity</a></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto"><span class="pill warn">drift</span><span>Self-healing: topic mix PSI 0.14 on Call summary to CRM; "tax-form questions" is new. <span class="small">confidence high · n = [—]</span></span><a href="UC-Quality.dc.html" style="font-weight:500">Act</a></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto"><span class="pill crit">SRE</span><span>Error budget exhausted on [use case]; the 14:00 hour is the cause; runbook drafted. <span class="small">confidence high</span></span><a href="UC-Capacity.dc.html" style="font-weight:500">Act</a></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto"><span class="pill neutral">data</span><span>3 production data points marked do-not-use for summarisation training; reason: client identifiers in free text.</span><a href="DataInsight.dc.html" style="font-weight:500">Review</a></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto"><span class="pill info">triage</span><span>2 questions answered from the knowledge base; 1 paged to [expert].</span><a href="Help.dc.html" style="font-weight:500">See</a></div>
+  </div>
+</section>
+<section class="grid2">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">My tasks</h2><span class="small">Jira is shown, never edited here</span></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto"><span class="mono">TL-412</span><span>Finalise the TLM4.3 retraining pipeline on the new Phi base</span><span class="pill info">In progress</span></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto"><span class="mono">TL-418</span><span>Regression suite for endpoint build 2026.11</span><span class="pill neutral">To do</span></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto"><span class="mono">portal</span><span>Approve the Claude Code request: add PII second-look pipeline to the data API</span><a href="CoreTeam.dc.html" style="font-weight:500">Open</a></div>
+  </div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">Runs in flight</h2><a href="Training.dc.html" class="small" style="font-weight:500">Training</a></div>
+    <div class="row" style="grid-template-columns:1fr auto auto"><span>Specialist · summarise a call · round 1 · started from the portal</span><span class="pill good">training · ETA [—] h</span><a href="Training.dc.html" style="font-weight:500">Watch</a></div>
+    <div class="row" style="grid-template-columns:1fr auto auto"><span>Core 27B retrain on Phi base · started from Relay · project ThinkLatent-core</span><span class="pill neutral">at the gate</span><a href="Training.dc.html" style="font-weight:500">Result</a></div>
+    <span class="small">Runs started from Relay appear here by project id within five minutes.</span>
+  </div>
+</section>
+</sc-if>
+
+<sc-if value="{{isApp}}" hint-placeholder-val="{{ false }}">
+<section class="grid4" aria-label="Headline">
+  <div class="tile"><span class="l">My projects</span><span class="n">2</span><span class="l">1 in Production · 1 in POC</span></div>
+  <div class="tile"><span class="l">Needs my approval</span><span class="n">1</span><span class="l">promote prompt v9 canary to 50%</span></div>
+  <div class="tile"><span class="l">Open alerts</span><span class="n">1</span><span class="l">warning · finish reason length</span></div>
+  <div class="tile"><span class="l">Jobs and runs</span><span class="n ph">[—]</span><span class="l">1 staging job done · 1 run at the gate</span></div>
+</section>
+<section class="grid2">
+  <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">My projects</h2><a href="Project.dc.html" class="small" style="font-weight:500">All projects</a></div>
+    <div class="row" style="grid-template-columns:1fr auto auto auto"><span><strong>Call summary to CRM</strong><div class="small">Advice technology · TLM4 · prompt v8</div></span><span class="pill good">Production</span><span class="small">health good</span><a href="Project.dc.html" style="font-weight:500">Open</a></div>
+    <div class="row" style="grid-template-columns:1fr auto auto auto"><span><strong>Advisor prep brief</strong><div class="small">Advice technology · knowledge agent</div></span><span class="pill neutral">POC</span><span class="small">first call 2 days ago</span><a href="Project.dc.html" style="font-weight:500">Open</a></div>
+  </div>
+  <div class="card"><h2 class="h2">Needs my decision</h2>
+    <div class="row" style="grid-template-columns:1fr auto"><span>Promote prompt v9 from 5% to 50% — judgement [—]/100, criticals pass</span><a href="UC-Models.dc.html" class="btn">Decide</a></div>
+    <div class="row" style="grid-template-columns:1fr auto"><span>Owner attestation due [date]</span><a href="UC-Record.dc.html" class="btn">Attest</a></div>
+    <div class="row" style="grid-template-columns:1fr auto"><span>Staging job for s3://…/call-summary-oct finished: 12,400 rows, 3% rejected by checks</span><a href="Datasets.dc.html" class="btn">Preview</a></div>
+  </div>
+</section>
+</sc-if>
+
+<sc-if value="{{isVal}}" hint-placeholder-val="{{ false }}">
+<section class="grid4" aria-label="Headline">
+  <div class="tile"><span class="l">Awaiting validation</span><span class="n">2</span><span class="l">TLM4.3 Core · knowledge agent v2</span></div>
+  <div class="tile"><span class="l">Awaiting my approval</span><span class="n">1</span><span class="l">validation document drafted</span></div>
+  <div class="tile"><span class="l">Attestations due</span><span class="n ph">[—]</span><span class="l">next [date]</span></div>
+  <div class="tile"><span class="l">Open findings</span><span class="n ph">[—]</span><span class="l">[—] high</span></div>
+</section>
+<section class="card"><h2 class="h2">Validation queue</h2>
+  <div class="row" style="grid-template-columns:1fr auto auto auto"><span><strong>TLM4.3 Core 27B</strong><div class="small">Official run [id] ready · 2 evidence sessions in the playground · document drafted</div></span><span class="pill warn">ready to approve</span><a href="Evaluation.dc.html" class="btn">Run TL Index again</a><a href="UC-Record.dc.html" class="btn primary">Open document</a></div>
+  <div class="row" style="grid-template-columns:1fr auto auto auto"><span><strong>Knowledge agent v2</strong><div class="small">agent evaluation [—] · no evidence sessions yet</div></span><span class="pill neutral">in validation</span><a href="Playground.dc.html" class="btn">Test in playground</a><a href="AgentPage.dc.html" class="btn">Agent page</a></div>
+  <span class="small">Approve once; the model is marked approved for the portal and Relay together. Who did what and asked what is kept on the record.</span>
+</section>
+</sc-if>
+
+<sc-if value="{{isAll}}" hint-placeholder-val="{{ false }}">
+<section class="grid3">
+  <a href="Catalogue.dc.html" class="card" style="text-decoration:none;color:inherit"><h2 class="h2">See every ThinkLatent model</h2><span class="muted">TLM4 current, TLM5 in development; cards, evidence and how to call them.</span></a>
+  <a href="Playground.dc.html" class="card" style="text-decoration:none;color:inherit"><h2 class="h2">Try one in the playground</h2><span class="muted">Any model or agent, side by side, no project needed.</span></a>
+  <a href="Help.dc.html" class="card" style="text-decoration:none;color:inherit"><h2 class="h2">Ask or log a problem</h2><span class="muted">An agent answers first; experts are paged; problems get a Jira key and a visible status.</span></a>
+</section>
+<section class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">What's new</h2><span class="small">changelog</span></div>
+  <div class="row" style="grid-template-columns:auto 1fr"><span class="small">[date]</span><span>TLM4.2 behind every alias; summarisation up on the index; no change needed from teams.</span></div>
+  <div class="row" style="grid-template-columns:auto 1fr"><span class="small">[date]</span><span>Knowledge agent v2 in the library, runs on TLM4 or Claude.</span></div>
+  <div class="row" style="grid-template-columns:auto 1fr"><span class="small">[date]</span><span>Index release [version]: two pillars added, intervals on every cell.</span></div>
+</section>
+</sc-if>
+
+<footer style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap" class="small"><span>Everything here is assigned, due or decided by someone; the page is empty when nothing needs you.</span><a href="Help.dc.html" style="font-weight:500">Change what I'm notified about</a></footer>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"role":{"editor":"select","default":"Foundation developer","options":["Foundation developer","Application team","Governance validator","Everyone"]},"$preview":{"width":1280,"height":1760}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { role: (props && props.role) || 'Foundation developer' }; }
+  renderVals() {
+    const r = this.state.role;
+    const is = (n) => r === n;
+    return { accent: this.props.accent ?? '#0B5E4C', role: r,
+      isDev: is('Foundation developer'), isApp: is('Application team'), isVal: is('Governance validator'), isAll: is('Everyone'),
+      pickDev: () => this.setState({ role: 'Foundation developer' }), pickApp: () => this.setState({ role: 'Application team' }),
+      pickVal: () => this.setState({ role: 'Governance validator' }), pickAll: () => this.setState({ role: 'Everyone' }),
+      roleNote: is('Foundation developer') ? 'Jira tasks and the core-team items show only for this team.' : is('Application team') ? 'Your projects, their health and what needs your approval.' : is('Governance validator') ? 'Validation queue, models awaiting approval, attestations due.' : 'Catalogue, what is new, the playground, and a place to ask.' };
+  }
+}
+</script>
+</body>
+</html>

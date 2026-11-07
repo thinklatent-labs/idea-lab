@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · TLM4 Core 4.2</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2000px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption"><a href="M1-Catalogue.dc.html">Models</a> · TLM4 · Core · prod alias → Core 4.2 · Thu 5 Nov 2026 · 11:58 ET</div><h1 style="margin-top: 6px">TLM4 Core 4.2 <span class="kit-chip brand" style="vertical-align: middle">Current</span></h1></div>
+      <div class="kit-actions"><a class="kit-btn" href="P1-Playground.dc.html">Try it</a><a class="kit-btn outline" href="J0-StartProject.dc.html">Use for a new use case</a><a class="kit-btn outline" href="T1-NewTrainingRun.dc.html">Start a training run</a><a class="kit-btn outline" href="M1-Catalogue-Compare.dc.html">Compare</a><a class="kit-btn outline" href="M3-CatalogueCard.dc.html">Card</a><a class="kit-btn outline" href="M4-ReleaseBundle.dc.html">Release bundle</a><a class="kit-btn outline" href="M7-Lifecycle.dc.html">Lifecycle</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="M2-ModelPage.dc.html" aria-current="page">Overview</a><a href="M2-ModelPage-Evidence.dc.html">Evidence</a><a href="M2-ModelPage-Serving.dc.html">Serving</a><a href="M2-ModelPage-HowToCall.dc.html">How to call</a></nav>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr); gap: 16px">
+      <section class="kit-surface coloured" style="grid-row: span 2; display: flex; flex-direction: column; gap: 16px; padding: 24px">
+        <div class="kit-agent"><span class="av">IX</span><span>Model brief · Index agent</span><span class="kit-muted">· 74% confidence · 06:45</span></div>
+        <div style="font-size: 24px; line-height: 1.25; letter-spacing: -0.01em">Core 4.2 clears every bar. <span style="opacity: .7">Compliance and regulatory is its thinnest margin, and Client care trails Domain-Advice v2 by 0.06.</span></div>
+        <div style="border-radius: 18px; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.18); padding: 14px 16px">
+          <div class="kit-label" style="opacity: .8">Opportunity</div>
+          <div style="font-size: 15px; font-weight: 500; margin-top: 6px">An adapter on Core 4.2 for Client care and Compliance and regulatory</div>
+          <div class="kit-small" style="margin-top: 6px; opacity: .85">Seven use cases miss the same 212 items: complaint handling and disclosure wording. An adapter trained on their reviewed corrections should lift both pillars by 0.03 to 0.05; the Official run decides.</div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px">
+            <div><div class="kit-display" style="font-size: 26px">7</div><div class="kit-small" style="opacity: .8">use cases as evidence</div></div>
+            <div><div class="kit-display" style="font-size: 26px">212</div><div class="kit-small" style="opacity: .8">items missed in common</div></div>
+            <div><div class="kit-display" style="font-size: 26px">412</div><div class="kit-small" style="opacity: .8">reviewed corrections</div></div>
+          </div>
+        </div>
+        <div class="kit-actions" style="margin-top: auto"><button class="kit-btn on-ink" type="button">Propose adapter</button><button class="kit-btn on-ink outline" type="button">Schedule review</button><button class="kit-btn on-ink outline" type="button">Dismiss</button></div>
+        <div class="kit-prov"><span>Basis: <b>Official TL Index run 1180</b></span><span><b>7 use-case Official runs</b></span><span>Agents propose, you decide</span></div>
+      </section>
+
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="M2-ModelPage-Evidence.dc.html" aria-label="Open evidence">↗</a></div>
+        <div class="kit-tile-title">Daily regression suite</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Passed</div><div class="kit-tile-cap">5 Nov 06:10 · 418 checks on the gate pillars and the workflows' own</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="M2-ModelPage-Serving.dc.html" aria-label="Open serving">↗</a></div>
+        <div class="kit-tile-title">30-day uptime</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">99.97<span class="unit">%</span></div><div class="kit-tile-cap">Target 99.9% on dedicated production endpoints</div></div><div class="kit-track" style="width: 90px"><i style="width: 99%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span><a class="kit-open" href="W3-Alerts.dc.html" aria-label="Open incidents">↗</a></div>
+        <div class="kit-tile-title">Open incidents</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0<span class="unit">open</span></div><div class="kit-tile-cap">Last: INC-5488, latency, 34 min · closed 21 Oct</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>None open</span></span></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span><a class="kit-open" href="V3-GovernancePortfolio.dc.html" aria-label="Open findings">↗</a></div>
+        <div class="kit-tile-title">Open findings across use cases</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3<span class="unit">1 red-team</span></div><div class="kit-tile-cap">Across 12 use cases · oldest 6 d · prompt injection via document footnotes</div></div><span class="kit-chip decision">RT-112</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Profile</h2><div class="sub">What the model is, what it is good at on the TL Index pillars, what it costs and who to talk to. Scores are Official runs; the deeper evidence is under Evidence.</div></div>
+        <a class="kit-btn sm outline" href="M2-ModelPage-Evidence.dc.html">Evidence</a>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 24px; margin-top: 14px">
+        <div>
+          <svg role="img" aria-label="Pillar radar: Core 4.2 against Core 4.1 on the five live pillars" viewBox="-60 -4 240 124" width="100%" height="280">
+            <polygon points="60,10 107.55,44.55 89.39,100.45 30.61,100.45 12.45,44.55" fill="none" stroke="#DADAD8" stroke-width=".6"></polygon>
+            <polygon points="60,35 83.78,52.27 74.69,80.23 45.31,80.23 36.22,52.27" fill="none" stroke="#DADAD8" stroke-width=".6"></polygon>
+            <line x1="60" y1="60" x2="60" y2="10" stroke="#DADAD8" stroke-width=".5"></line><line x1="60" y1="60" x2="107.55" y2="44.55" stroke="#DADAD8" stroke-width=".5"></line><line x1="60" y1="60" x2="89.39" y2="100.45" stroke="#DADAD8" stroke-width=".5"></line><line x1="60" y1="60" x2="30.61" y2="100.45" stroke="#DADAD8" stroke-width=".5"></line><line x1="60" y1="60" x2="12.45" y2="44.55" stroke="#DADAD8" stroke-width=".5"></line>
+            <polygon points="60,28 88.53,50.73 76.46,82.65 40.60,86.70 33.37,51.35" fill="none" stroke="#8A8A88" stroke-width=".8" stroke-dasharray="2 1.5"></polygon>
+            <polygon points="60,24 89.48,50.42 77.05,83.46 40.01,87.51 31.47,50.73" fill="rgba(62,154,92,.18)" stroke="#3E9A5C" stroke-width="1.2"></polygon>
+            <text x="61.5" y="33.5" font-size="3.6" fill="#8A8A88">0.75</text><text x="61.5" y="9" font-size="3.6" fill="#8A8A88">1.0</text>
+            <text x="60" y="3" font-size="5" text-anchor="middle" fill="#1A1A1A">Financial data processing 0.86</text>
+            <text x="111" y="43" font-size="5" fill="#1A1A1A">Client care 0.81</text>
+            <text x="92" y="109" font-size="5" fill="#1A1A1A">Compliance and regulatory 0.79</text>
+            <text x="28" y="109" font-size="5" text-anchor="end" fill="#1A1A1A">Safety and grounding 0.84</text>
+            <text x="9" y="43" font-size="5" text-anchor="end" fill="#1A1A1A">Entity recognition 0.80</text>
+          </svg>
+          <div class="kit-legend" style="margin-top: 6px"><span><i style="background: #3E9A5C"></i>Core 4.2 · Official run 1180</span><span><i style="background: #8A8A88"></i>Core 4.1 · Official run 1141</span><span>Centre 0.5 · outer ring 1.0</span></div>
+          <div class="kit-small kit-muted" style="margin-top: 10px">Phase 2, no score yet (<span class="kit-dash" title="Phase 2">—</span>): Financial analysis and reasoning, Cybersecurity, Judging and scoring, Coding, Agentic competence, Document understanding, Multilingual, Long context, Instruction and format fidelity, Summarization, Deployability. Visual and chart understanding and UI and front-end generation are with the <a href="E9-Pillar.dc.html">pillar council</a>.</div>
+        </div>
+        <dl class="kit-kv" style="grid-template-columns: 170px 1fr; align-content: start">
+          <dt>Base and method</dt><dd>Built from TLM4 base 4.0: continued training on the October document refresh, then instruction tuning (training run T-4471)</dd>
+          <dt>Size and modalities</dt><dd>34B parameters · text in, text out · strict JSON mode</dd>
+          <dt>Context window</dt><dd>32k tokens · works best under 24k (<a href="M2-ModelPage-Serving.dc.html">context curve</a>)</dd>
+          <dt>Licence</dt><dd>Enterprise proprietary · internal use only</dd>
+          <dt>Cost</dt><dd>$0.42 per 1M tokens · $0.38 per 1,000 typical tasks · 12% below Core 4.1</dd>
+          <dt>Energy per 1,000 tasks</dt><dd><span class="kit-dash" title="metering lands with TL-009">—</span> metering lands with TL-009</dd>
+          <dt>Data tiers</dt><dd>Tiers 1, 2 and 3 · never leaves the Enterprise boundary</dd>
+          <dt>Service levels</dt><dd>Dedicated production endpoint: 99.9% availability and the use case's own TTFT target · shared non-production: 99.5% · sandbox: best effort · targets, set at onboarding</dd>
+          <dt>Use with care</dt><dd><span class="kit-chip outline">Amber</span> a person reviews any output before a client sees it</dd>
+          <dt>Built on it</dt><dd><a href="M2-ModelPage.dc.html">Distil 4.2</a>, <a href="M2-ModelPage.dc.html">Domain-Advice v2</a>, <a href="M6-Registry.dc.html">Core 4.3-rc</a> (candidate, no Official run) · <a href="M5-Lineage.dc.html">lineage</a></dd>
+          <dt>Owner</dt><dd>Priya N. · ThinkLatent foundation team</dd>
+          <dt>Approver</dt><dd><a href="V2-Validation.dc.html">Elena R.</a> · Model governance · approved for production 2026-10-28</dd>
+          <dt>Serving</dt><dd>Marcus L. · ThinkLatent serving · the SRE agent watches the endpoint</dd>
+        </dl>
+      </div>
+      <div class="kit-source">Scores from Official TL Index runs 1180 and 1141, judge version pinned, 95% interval by bootstrap. Facts from the registry and the model card; cost from the gateway serving log by the Finance method; service levels from the hosting-tier policy. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Conversations about this model</h2><div class="sub">The three most recent threads that name Core 4.2. Ask the owner directly, or read the rest in your inbox.</div></div><div class="kit-actions"><a class="kit-btn sm" href="X2-Inbox.dc.html">Message owner</a><a class="kit-btn sm outline" href="X2-Inbox.dc.html">All threads</a></div></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: 28px minmax(0, 1fr) 150px 170px"><span class="kit-avatar">PN</span><div><div class="t"><a href="X2-Inbox.dc.html">Duplicate citations after moving to 4.2</a></div><div class="s">Priya N. with 4 use-case owners · 6 replies · answer: remove the template's own citation line</div></div><span class="kit-small kit-muted">2 d ago</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Answered</span></span></div>
+        <div class="kit-row" style="grid-template-columns: 28px minmax(0, 1fr) 150px 170px"><span class="kit-avatar">AK</span><div><div class="t"><a href="X2-Inbox.dc.html">Can Core 4.2 see Tier 3 client notes?</a></div><div class="s">Ana K., Retail Advice · answered by Elena R.: yes, through a registered use case; the data stays inside the boundary</div></div><span class="kit-small kit-muted">Yesterday</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Answered</span></span></div>
+        <div class="kit-row" style="grid-template-columns: 28px minmax(0, 1fr) 150px 170px"><span class="kit-avatar">DT</span><div><div class="t"><a href="X2-Inbox.dc.html">Medium or high precision for long prospectuses?</a></div><div class="s">Dev T., Investment Mgmt · 3 replies · Marcus L. to answer</div></div><span class="kit-small kit-muted">Today 09:20</span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Open</span></span></div>
+      </div>
+      <div class="kit-source">Threads from the portal inbox that tag this model; only threads you are allowed to read are listed. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

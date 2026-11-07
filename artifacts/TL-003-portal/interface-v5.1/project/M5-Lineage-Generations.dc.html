@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Lineage · Generation to generation</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2500px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption"><a href="M1-Catalogue.dc.html">Models</a> · <a href="M5-Lineage.dc.html">Lineage</a> · Generation to generation · Thu 5 Nov 2026 · 11:58 ET</div><h1 style="margin-top: 6px">TLM3 to TLM4</h1></div>
+      <div class="kit-actions"><a class="kit-btn" href="M2-ModelPage.dc.html">Open Core 4.2</a><a class="kit-btn outline" href="M2-ModelPage-Evidence.dc.html">Core 4.2 evidence</a><a class="kit-btn outline" href="M7-Lifecycle.dc.html">Lifecycle</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="M5-Lineage.dc.html">Lineage</a><a href="M5-Lineage-Generations.dc.html" aria-current="page">Generation to generation</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path></svg></span><a class="kit-open" href="E1-EvaluationResults.dc.html" aria-label="Open the runs">↗</a></div>
+        <div class="kit-tile-title">Composite gain, TLM3 to TLM4</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">+0.09</div><div class="kit-tile-cap">Core 3.4 0.73 ± 0.04 → Core 4.2 0.82 ± 0.03 · same items, same judge</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span><a class="kit-open" href="J10-Usage.dc.html" aria-label="Open usage and cost">↗</a></div>
+        <div class="kit-tile-title">Cost per 1,000 tasks</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">−31<span class="unit">%</span></div><div class="kit-tile-cap">$0.55 on Core 3.4 → $0.38 on Core 4.2 · Finance method</div></div><div class="kit-bars"><i style="height: 100%"></i><i class="lit" style="height: 78%"></i><i class="lit" style="height: 69%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span><a class="kit-open" href="O2-Capacity.dc.html" aria-label="Open capacity">↗</a></div>
+        <div class="kit-tile-title">TTFT p95</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">−44<span class="unit">%</span></div><div class="kit-tile-cap">730 ms on Core 3.4 → 410 ms on Core 4.2 · production aggregate</div></div><div class="kit-bars"><i style="height: 100%"></i><i class="lit" style="height: 71%"></i><i class="lit" style="height: 56%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span><a class="kit-open" href="M7-Lifecycle.dc.html" aria-label="Open dependents">↗</a></div>
+        <div class="kit-tile-title">Use cases still on TLM3</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">6<span class="unit">use cases</span></div><div class="kit-tile-cap">Retires 2027-03-01 · 2 migrations started · owners notified 1 Nov</div></div><span class="kit-chip decision">116 days</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Pillar by pillar, generation to generation</h2><div class="sub">The last TLM3 Core against both TLM4 Cores, on the TL Index pillars. Core 3.4 was re-run as Official run 1146 on the current item set so the three columns compare like with like. Five pillars are live; eleven arrive in Phase 2.</div></div>
+        <a class="kit-btn sm outline" href="E1-EvaluationResults.dc.html">Open the three runs</a>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Measure</th><th class="num">TLM3 Core 3.4</th><th class="num">TLM4 Core 4.1</th><th class="num">TLM4 Core 4.2</th><th class="num">TLM3 → 4.2</th><th>Reading</th></tr></thead>
+        <tbody>
+          <tr><td colspan="6"><span class="kit-label">TL Index pillars · Official runs 1146, 1141, 1180</span></td></tr>
+          <tr><td><a href="E9-Pillar.dc.html">Financial data processing</a></td><td class="num"><span class="kit-interval">0.74 <span class="pm">± 0.04</span></span></td><td class="num"><span class="kit-interval">0.82 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.86 <span class="pm">± 0.03</span></span></td><td class="num">+0.12</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better</span></span></td></tr>
+          <tr><td><a href="E9-Pillar.dc.html">Client care</a> <span class="kit-chip brand">gate</span></td><td class="num"><span class="kit-interval">0.72 <span class="pm">± 0.04</span></span></td><td class="num"><span class="kit-interval">0.80 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.81 <span class="pm">± 0.03</span></span></td><td class="num">+0.09</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better</span></span></td></tr>
+          <tr><td><a href="E9-Pillar.dc.html">Compliance and regulatory</a> <span class="kit-chip brand">gate</span></td><td class="num"><span class="kit-interval">0.70 <span class="pm">± 0.05</span></span></td><td class="num"><span class="kit-interval">0.78 <span class="pm">± 0.04</span></span></td><td class="num"><span class="kit-interval">0.79 <span class="pm">± 0.04</span></span></td><td class="num">+0.09</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better</span></span></td></tr>
+          <tr><td><a href="E9-Pillar.dc.html">Safety and grounding</a> <span class="kit-chip brand">gate</span></td><td class="num"><span class="kit-interval">0.74 <span class="pm">± 0.04</span></span></td><td class="num"><span class="kit-interval">0.83 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.84 <span class="pm">± 0.03</span></span></td><td class="num">+0.10</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better</span></span></td></tr>
+          <tr><td><a href="E9-Pillar.dc.html">Entity recognition</a></td><td class="num"><span class="kit-interval">0.73 <span class="pm">± 0.04</span></span></td><td class="num"><span class="kit-interval">0.78 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.80 <span class="pm">± 0.03</span></span></td><td class="num">+0.07</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better</span></span></td></tr>
+          <tr class="kit-muted"><td>Eleven more pillars</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2</td></tr>
+          <tr><td><b style="font-weight: 500">Composite of the live pillars</b></td><td class="num"><span class="kit-interval">0.73 <span class="pm">± 0.04</span></span></td><td class="num"><span class="kit-interval">0.80 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.82 <span class="pm">± 0.03</span></span></td><td class="num">+0.09</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better</span></span></td></tr>
+          <tr><td>Bars for production cleared</td><td class="num">1 of 5</td><td class="num">5 of 5</td><td class="num">5 of 5</td><td class="num">+4</td><td>Core 3.4 clears only Entity recognition today</td></tr>
+          <tr><td colspan="6"><span class="kit-label">Beyond the pillars</span></td></tr>
+          <tr><td>Eval pass rate</td><td class="num">78%</td><td class="num">89%</td><td class="num">91%</td><td class="num">+13 pts</td><td>Share of each run's items that met their rubric</td></tr>
+          <tr><td>Context window · works best under</td><td class="num">16k · 10k</td><td class="num">32k · 20k</td><td class="num">32k · 24k</td><td class="num">+14k usable</td><td>From each model's context curve</td></tr>
+          <tr><td>Cost per 1,000 tasks</td><td class="num">$0.55</td><td class="num">$0.43</td><td class="num">$0.38</td><td class="num">−31%</td><td>Finance method, same task mix</td></tr>
+          <tr><td>TTFT p95</td><td class="num">730 ms</td><td class="num">520 ms</td><td class="num">410 ms</td><td class="num">−44%</td><td>Production aggregate, 30 days</td></tr>
+          <tr><td>Use cases · portal agents on it</td><td class="num">6 · 0</td><td class="num">6 · 0</td><td class="num">12 · 4</td><td class="num"><span class="kit-dash" title="counts, not a change measure">—</span></td><td>Distil 4.2 carries 4 more agents</td></tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Official TL Index runs 1146 (Core 3.4 re-run), 1141 (Core 4.1) and 1180 (Core 4.2), same item set and judge version, 95% interval by bootstrap; changes larger than both intervals read "better". Cost by the Finance method and latency from the gateway serving log; use cases from the record; agents from the agent registry. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Evidence over time</h2><div class="sub">Every Core release in order. Releases before the TL Index pillars existed show a dash rather than a re-scored number; the next generation has a target quarter, not a score.</div></div>
+        <div style="width: 300px"><svg class="kit-spark" role="img" aria-label="Composite by release: Core 3.4 0.73, Core 4.1 0.80, Core 4.2 0.82" viewBox="0 0 100 40" width="300" height="80" preserveAspectRatio="none"><line x1="0" y1="36" x2="100" y2="36" stroke="#DADAD8" stroke-width=".5"></line><polyline fill="none" stroke="#3E9A5C" stroke-width="1.6" points="20,30 55,16 90,12"></polyline><text x="14" y="38" font-size="5" fill="#5C5C5A">3.4</text><text x="51" y="24" font-size="5" fill="#5C5C5A">4.1</text><text x="86" y="20" font-size="5" fill="#5C5C5A">4.2</text></svg><div class="kit-legend"><span><i style="background: #3E9A5C"></i>Composite, Official runs</span></div></div>
+      </div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: 120px minmax(0, 1fr) 130px 170px; opacity: .8"><span class="kit-chip outline">2024-03</span><div><div class="t">TLM1 Core 1.0</div><div class="s">Retired 2025-06-30 · Official run 212 predates the Index pillars</div></div><span class="kit-dash" title="run predates the TL Index pillars; not re-run because retired">—</span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Retired</span></span></div>
+        <div class="kit-row" style="grid-template-columns: 120px minmax(0, 1fr) 130px 170px; opacity: .8"><span class="kit-chip outline">2024-12</span><div><div class="t">TLM2 Core 2.3</div><div class="s">Retired 2026-02-15 · Official run 611 predates the Index pillars</div></div><span class="kit-dash" title="run predates the TL Index pillars; not re-run because retired">—</span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Retired</span></span></div>
+        <div class="kit-row" style="grid-template-columns: 120px minmax(0, 1fr) 130px 170px"><span class="kit-chip">2025-11</span><div><div class="t"><a href="M2-ModelPage.dc.html">TLM3 Core 3.4</a></div><div class="s">First Official run 988 · re-run 1146 on the Index pillars · 6 use cases</div></div><span class="kit-interval">0.73 <span class="pm">± 0.04</span></span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Retiring 2027-03-01</span></span></div>
+        <div class="kit-row" style="grid-template-columns: 120px minmax(0, 1fr) 130px 170px"><span class="kit-chip">2026-04</span><div><div class="t"><a href="M7-Lifecycle.dc.html">TLM4 Core 4.1</a></div><div class="s">Official run 1141 · first TLM4 Core · 6 use cases still on it</div></div><span class="kit-interval">0.80 <span class="pm">± 0.03</span></span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Deprecated</span></span></div>
+        <div class="kit-row" style="grid-template-columns: 120px minmax(0, 1fr) 130px 170px"><span class="kit-chip brand">2026-10</span><div><div class="t"><a href="M2-ModelPage.dc.html">TLM4 Core 4.2</a></div><div class="s">Official run 1180 · current · 12 use cases and 4 agents</div></div><span class="kit-interval">0.82 <span class="pm">± 0.03</span></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Current</span></span></div>
+        <div class="kit-row" style="grid-template-columns: 120px minmax(0, 1fr) 130px 170px"><span class="kit-chip env">Q2 2027</span><div><div class="t"><a href="M1-Catalogue.dc.html">TLM5</a></div><div class="s">Target quarter for the first release candidate · Practice runs only · preview from Q1 2027</div></div><span class="kit-dash" title="Practice runs are not citable">—</span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>In development</span></span></div>
+      </div>
+      <div class="kit-source">Release dates and states from the registry lifecycle record; composites from the Official TL Index runs named on each row. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2500}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

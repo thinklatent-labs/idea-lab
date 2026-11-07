@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Prompts · Rollout and cost</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2300px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">UC-0291 · Advisor summary · Retail Advice · Pilot in production · prod alias → TLM4 Domain-Advice v2</div><h1 style="margin-top: 6px">Prompt rollout and cost</h1></div>
+      <div class="kit-actions"><a class="kit-btn outline" href="W1-Prompts.dc.html">Compare versions</a><a class="kit-btn outline" href="J9-Record.dc.html">Hold and roll-back levels in the record</a></div>
+    </div>
+
+    <nav class="kit-rail" aria-label="Use case">
+      <a href="J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Traffic</a><a href="J5-Capacity.dc.html">Capacity</a><a href="J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a><a href="J11-Traces.dc.html">Traces</a>
+      <span aria-hidden="true" style="width: 1px; background: #DADAD8; margin: 4px 6px"></span>
+      <a href="W1-Prompts.dc.html" aria-current="page">Prompts</a><a href="W2-Datasets.dc.html">Data sets</a><a href="W3-Alerts.dc.html">Alerts</a>
+    </nav>
+
+    <nav class="kit-subrail" aria-label="Sections">
+      <a href="W1-Prompts.dc.html">Versions</a><a href="W1-Prompts-Rollout.dc.html" aria-current="page">Rollout and cost</a><a href="W1-Prompts-Hygiene.dc.html">Hygiene</a><a href="W1-Prompts-Library.dc.html">Library</a>
+    </nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="J6-Models.dc.html" aria-label="Open aliases">↗</a></div>
+        <div class="kit-tile-title">v8 rollout</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">5<span class="unit">% · step 1 of 4</span></div><div class="kit-tile-cap">2-day hold ended 09:41 today · 4 guards passing, 1 close · ready for 25%</div></div><span class="kit-chip">canary</span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M14.5 9a2.5 2 0 0 0-2.5-1.5c-1.4 0-2.5.8-2.5 2s1.1 1.6 2.5 2 2.5.9 2.5 2-1.1 2-2.5 2a2.5 2 0 0 1-2.5-1.5"></path><path d="M12 6v1.5"></path><path d="M12 16.5V18"></path></svg></span><a class="kit-open" href="J5-Capacity.dc.html" aria-label="Open capacity and cost">↗</a></div>
+        <div class="kit-tile-title">Cost of v8 at 100%</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">−$3<span class="unit">a month</span></div><div class="kit-tile-cap">Input +12 tokens a call (+$2) · output −8 (−$5) · at 18.4k calls a day</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg></span><a class="kit-open" href="J5-Capacity.dc.html" aria-label="Open cache hit rate">↗</a></div>
+        <div class="kit-tile-title">Cacheable prefix</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">63<span class="unit">% of input</span></div><div class="kit-tile-cap">1,162-token static block ahead of every variable · same as v7 · v9 would drop it to 0.5%</div></div><div class="kit-track" style="width: 80px"><i style="width: 63%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.7 21a2 2 0 0 1-3.4 0"></path></svg></span><a class="kit-open" href="W1-Prompts-Hygiene.dc.html" aria-label="Open change alerts">↗</a></div>
+        <div class="kit-tile-title">Unscored serving</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0<span class="unit">versions</span></div><div class="kit-tile-cap">Alert when a version serves over 10% for 7 days without an Official score</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Quiet</span></span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Roll out v8 · 5% → 25% → 50% → 100%</h2><div class="sub">Each step holds until every guard passes for the whole hold. A breach at the hold level stops the step; a breach at the roll-back level moves all traffic back to v7 within a minute, and rolling back needs no approval. Steps never advance at weekends. The last step moves the prod alias.</div></div>
+        <div class="kit-actions"><button class="kit-btn sm" type="button">Advance to 25%</button><button class="kit-btn sm outline" type="button">Hold here</button><button class="kit-btn sm outline" type="button">Roll back to v7</button></div>
+      </div>
+      <div class="kit-steps" style="margin-top: 14px">
+        <span class="kit-step done"><span class="k">1</span>5% · held 2 days · ended 09:41</span><span class="arrow">→</span>
+        <span class="kit-step now"><span class="k">2</span>25% · hold 2 days · waits for Priya N.</span><span class="arrow">→</span>
+        <span class="kit-step"><span class="k">3</span>50% · hold 1 day</span><span class="arrow">→</span>
+        <span class="kit-step"><span class="k">4</span>100% · prod alias moves to v8</span>
+      </div>
+      <div class="kit-grid-main" style="margin-top: 16px">
+        <div>
+          <h3>Guards over the hold window</h3>
+          <table style="margin-top: 8px">
+            <thead><tr><th>Guard</th><th class="num">Hold at</th><th class="num">Roll back at</th><th class="num">v8 now</th><th>State</th></tr></thead>
+            <tbody>
+              <tr><td>Use-case quality<div class="kit-small kit-muted">Official daily scoring, interval-aware</div></td><td class="num">&lt; 0.80</td><td class="num">&lt; 0.76</td><td class="num"><span class="kit-interval">0.86 <span class="pm">± 0.03</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passing</span></span></td></tr>
+              <tr><td>Acceptance rate<div class="kit-small kit-muted">advisors keeping the summary without edit</div></td><td class="num">&lt; 70%</td><td class="num">&lt; 60%</td><td class="num">72%<div class="kit-small kit-muted">v7 68%</div></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passing</span></span></td></tr>
+              <tr><td>Error rate<div class="kit-small kit-muted">5xx and refusals outside policy</div></td><td class="num">&gt; 1%</td><td class="num">&gt; 3%</td><td class="num">0.4%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passing</span></span></td></tr>
+              <tr><td>Length finishes<div class="kit-small kit-muted">cut at max_tokens 1,024</div></td><td class="num">&gt; 3%</td><td class="num">&gt; 6%</td><td class="num">2.9%<div class="kit-small kit-muted">± 0.8 pt</div></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Close to hold</span></span></td></tr>
+              <tr><td>p95 latency<div class="kit-small kit-muted">gateway serving log</div></td><td class="num">&gt; 2.5 s</td><td class="num">&gt; 4.0 s</td><td class="num">1.7 s</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passing</span></span></td></tr>
+            </tbody>
+          </table>
+          <div class="kit-threshold" style="margin-top: 8px">Hold and roll-back levels are the record's Warning and Critical thresholds for UC-0291. The interval on length finishes still crosses 3%, so the 25% step re-checks it with five times the sample.</div>
+        </div>
+        <div>
+          <h3>Traffic share on v8, actual and planned</h3>
+          <svg class="kit-spark" viewBox="0 0 100 40" width="100%" height="180" role="img" aria-label="v8 traffic share: 5 percent since 3 November; planned 25 percent until Monday 9 November, 50 percent until Tuesday 10 November, then 100 percent" style="margin-top: 8px">
+            <rect x="50" y="0" width="25" height="40" fill="#1A1A1A" fill-opacity="0.04"></rect>
+            <text x="51.5" y="13" font-size="3" fill="#5C5C5A">weekend · no advances</text>
+            <line x1="0" y1="34.4" x2="100" y2="34.4" stroke="#B9742F" stroke-width="0.4" stroke-dasharray="2 2"></line>
+            <text x="1" y="33.2" font-size="3" fill="#5C5C5A">10%</text>
+            <polyline fill="none" stroke="#8A8A88" stroke-width="0.8" stroke-dasharray="2 1.5" points="31.25,36.2 31.25,29 79.7,29 79.7,20 92.2,20 92.2,2 100,2"></polyline>
+            <polyline fill="none" stroke="#3E9A5C" stroke-width="1.2" points="0,38 5,38 5,36.2 31.25,36.2"></polyline>
+            <text x="9" y="39.5" font-size="3" fill="#1A1A1A">5% actual</text>
+            <text x="35" y="27.6" font-size="3" fill="#5C5C5A">25%</text>
+            <text x="81" y="18.6" font-size="3" fill="#5C5C5A">50%</text>
+            <text x="85" y="6.5" font-size="3" fill="#5C5C5A">100%</text>
+          </svg>
+          <div class="kit-small kit-muted" style="display: grid; grid-template-columns: repeat(8, minmax(0, 1fr))"><span>3 Nov</span><span></span><span>5 Nov</span><span></span><span></span><span></span><span>9 Nov</span><span>10 Nov</span></div>
+          <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #3E9A5C"></i>Actual share</span><span><i style="background: #8A8A88"></i>Plan if every guard holds</span><span><i style="background: #B9742F"></i>Unscored-serving line</span></div>
+        </div>
+      </div>
+      <div class="kit-surface raised" style="margin-top: 16px; padding: 16px">
+        <h3 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-eng-label">Engineering view</span>Gateway routing for this rollout</h3>
+        <div class="kit-grid2" style="margin-top: 10px">
+          <pre class="kit-code">route   pr-0291-advisor-summary
+  v7    weight 95   alias prod
+  v8    weight 5    alias canary   step 1 of 4
+assign  sticky per advisor session, 24 h
+guards  quality&gt;=0.80  accept&gt;=0.70  errors&lt;0.01
+        length&lt;0.03  p95&lt;2.5s  window=hold
+breach  hold level: stop step · roll-back level: v7=100 in 60 s</pre>
+          <dl class="kit-kv" style="grid-template-columns: 130px 1fr">
+            <dt>Caller header</dt><dd class="kit-mono">x-vi-prompt-id: pr-0291-advisor-summary@8</dd>
+            <dt>Untagged calls</dt><dd>Served by prod v7, counted as unregistered, day-14 warning header returned</dd>
+            <dt>Prefix cache key</dt><dd class="kit-mono">sha256 3f9a…c21e · 1,162 tokens</dd>
+            <dt>Endpoint</dt><dd>Dedicated production endpoint ra-advice-prod · 2 nodes</dd>
+            <dt>Build</dt><dd class="kit-mono">gateway 2026.11.04-2 · router 1.8.3</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="kit-source">Rollout plan and guard results from the prompt store; hold and roll-back levels from the record (UC-0291, revised 28 Oct); traffic, tokens, finish reasons and prices from the gateway serving log, aggregate; quality from Official TL Index daily scoring. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Rollout history</h2><div class="sub">How each prompt version reached prod on UC-0291. Stepped rollout started with v8; earlier versions were promoted in one move.</div></div></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: 80px minmax(0, 1fr) 220px">
+          <b style="font-weight: 500">v8</b>
+          <div><div class="t">From 3 Nov 09:41 · stepped rollout, step 1 of 4</div><div class="s">First version on the stepped plan · Official score 0.86 ± 0.03 in place before any traffic · Marcus L. proposed, Priya N. advances</div></div>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>In progress</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 80px minmax(0, 1fr) 220px">
+          <b style="font-weight: 500">v7</b>
+          <div><div class="t">28 Oct 14:13 · promoted straight to prod</div><div class="s">Moved on its Official score with no canary period · prod alias change alert fired to Slack #retail-advice-ai</div></div>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>One-step promotion</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 80px minmax(0, 1fr) 220px">
+          <b style="font-weight: 500">v6</b>
+          <div><div class="t">14 Oct · promoted straight to prod</div><div class="s">Later found to carry a client identifier in a worked example (F-0391); the new hygiene check now catches this before any traffic</div></div>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>One-step promotion</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 80px minmax(0, 1fr) 220px">
+          <b style="font-weight: 500">v5</b>
+          <div><div class="t">2 Oct · rolled back from canary, promoted 6 Oct</div><div class="s">Error rate 3.4% crossed the 3% Critical on canary (a gateway deploy, not the prompt); traffic was back on v4 in 40 s without an approval</div></div>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Rolled back, then promoted</span></span>
+        </div>
+      </div>
+      <div class="kit-source">Rollout log in the prompt store for UC-0291; guard values from the gateway serving log and Official TL Index daily scoring at the time of each move. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2300}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

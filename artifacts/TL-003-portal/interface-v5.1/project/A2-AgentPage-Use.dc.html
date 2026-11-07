@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Knowledge agent · Call and adopt</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2700px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-current="page" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption"><a href="A1-AgentLibrary.dc.html">Agent library</a> · <a href="A2-AgentPage.dc.html">Knowledge agent</a> · v2.3 current · <a href="A1-AgentLibrary-Register.dc.html">AG-0004</a> · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Call and adopt</h1><div class="kit-muted" style="margin-top: 6px; max-width: 780px">Adopt fills in a new project for you; the starter repo and the retrofit path cover code you write or already run. Every way in uses the agent's alias, carries the required tags and reports back through the feedback call.</div></div>
+      <div class="kit-actions"><a class="kit-btn" href="J0-StartProject.dc.html">Adopt into a project</a><button class="kit-btn outline" type="button">Fork the starter repo</button><a class="kit-btn outline" href="K1-Help.dc.html">Relay docs</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="A2-AgentPage.dc.html">Overview</a><a href="A2-AgentPage-Record.dc.html">Record and versions</a><a href="A2-AgentPage-RunsOn.dc.html">Runs on</a><a href="A2-AgentPage-Use.dc.html" aria-current="page">Call and adopt</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><a class="kit-open" href="J1-Projects.dc.html" aria-label="Open adopting projects">↗</a></div>
+        <div class="kit-tile-title">Adopt to first call</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2<span class="unit">days, median</span></div><div class="kit-tile-cap">6 adoptions in 90 days · from the record</div></div><div class="kit-bars"><i style="height: 90%"></i><i style="height: 70%"></i><i style="height: 50%"></i><i class="lit" style="height: 35%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v12"></path><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span><a class="kit-open" href="A1-AgentLibrary-Build.dc.html" aria-label="Open starter repos">↗</a></div>
+        <div class="kit-tile-title">Starter repo release</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">2.3.1</div><div class="kit-tile-cap">Monthly · last 3 Nov · next 1 Dec · maintainer Priya N.</div></div><span class="kit-chip brand">Cleared</span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 21V9a9 9 0 0 0 9 9"></path></svg></span><a class="kit-open" href="A1-AgentLibrary-Build.dc.html" aria-label="Open contributions">↗</a></div>
+        <div class="kit-tile-title">Inner-source contributions</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">14<span class="unit">merged</span></div><div class="kit-tile-cap">Last 90 days · from 5 projects · 3 open</div></div><div class="kit-bars"><i style="height: 35%"></i><i style="height: 55%"></i><i style="height: 70%"></i><i class="lit" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M9 9h6v6H9z"></path></svg></span><a class="kit-open" href="A2-AgentPage-Use.dc.html" aria-label="Open MCP details">↗</a></div>
+        <div class="kit-tile-title">Called as an MCP server</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">6<span class="unit">projects</span></div><div class="kit-tile-cap">Same alias, tags and policy as the API · counted in the gateway serving log</div></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Adopt with everything prefilled</h2><div class="sub">Adopt opens Start a project with these four filled in from the agent's record. Change any of them before you submit; nothing is created until you do.</div></div>
+        <a class="kit-btn sm" href="J0-StartProject.dc.html">Adopt into a project</a>
+      </div>
+      <div class="kit-grid2" style="margin-top: 14px">
+        <div class="kit-surface raised"><div class="kit-label">Routing</div><p class="kit-small" style="margin-top: 8px"><span class="kit-mono">knowledge-agent:prod</span>, following approved versions · production on a dedicated endpoint; sandbox and pilot on the shared pool · model TLM4 Core 4.2</p></div>
+        <div class="kit-surface raised"><div class="kit-label">Eval set</div><p class="kit-small" style="margin-top: 8px">kb-eval-v6 with 420 capability and 1,180 regression cases, plus room for 50 of your own · judge rubric kb-groundedness-rubric v3, pinned</p></div>
+        <div class="kit-surface raised"><div class="kit-label">Budget</div><p class="kit-small" style="margin-top: 8px">$3,200 a month, estimated from 3,000 calls a day at $0.035 per task · alert at 80% · charged to the cost centre you pick</p></div>
+        <div class="kit-surface raised"><div class="kit-label">Approval template</div><p class="kit-small" style="margin-top: 8px">T1 read-only knowledge agent, from the agent's tier and class · approvers: business owner, ThinkLatent validator, the corpus's data owner · typically 5 working days</p></div>
+      </div>
+      <div class="kit-label" style="margin-top: 18px">Other ways to start</div>
+      <div class="kit-rows" style="margin-top: 8px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 160px"><div><div class="t">Fork the starter repo · <span class="kit-mono">kit-agents/knowledge-agent-starter</span> 2.3.1</div><div class="s">Relay client preset with the alias, tags and feedback call · CI with an eval hook on 50 smoke cases · deploy chart · customisation guide · maintainer Priya N. · monthly releases, next 1 Dec</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared 28 Oct</span></span><div class="end"><button class="kit-btn sm outline" type="button">Fork</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 160px"><div><div class="t">Retrofit an existing app</div><div class="s">Swap the model id for the alias, add the required tags and the feedback call, run the eval hook once on a sample of your traffic, then ask for approval with the template above</div></div><span class="kit-small kit-muted">Median half a day</span><div class="end"><a class="kit-btn sm outline" href="J0-StartProject.dc.html">Start a retrofit</a></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 160px"><div><div class="t">Contribute back</div><div class="s">Inner source: 14 changes merged from 5 projects in 90 days · the maintainer reviews and the eval hook must pass · a change that moves results ships as a new version under the version contract</div></div><span class="kit-small kit-muted">3 open</span><div class="end"><a class="kit-btn sm outline" href="A1-AgentLibrary-Build.dc.html">Contributing guide</a></div></div>
+      </div>
+      <div class="kit-source">Prefill from the agent's record (AG-0004), its library suite and the gateway's cost per task; repository facts from the inner-source catalogue; adoptions from the record. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface raised">
+      <div class="kit-surface-head">
+        <div><h2>Calling the agent <span class="kit-eng-label">Engineering view</span></h2><div class="sub">Endpoint and Relay snippet for this agent. Endpoint details appear with Engineering on; everything else on this page is visible to everyone.</div></div>
+        <div class="kit-seg"><button type="button" aria-pressed="true">Python</button><button type="button" aria-pressed="false">curl</button><button type="button" aria-pressed="false">MCP</button></div>
+      </div>
+      <dl class="kit-kv" style="margin-top: 14px">
+        <dt>Endpoint</dt><dd class="kit-mono">POST (source link withheld)</dd>
+        <dt>Alias</dt><dd><span class="kit-mono">knowledge-agent:prod</span> follows approved versions · <span class="kit-mono">knowledge-agent:2.3</span> pins one</dd>
+        <dt>Required tags</dt><dd><span class="kit-mono">env</span>, <span class="kit-mono">cost_centre</span>, <span class="kit-mono">app</span> · untagged calls get a warning header from day 14</dd>
+        <dt>Feedback call</dt><dd><span class="kit-mono">client.feedback(trace_id, outcome)</span> · accepted, corrected with the fix, or rejected · feeds acceptance and corrections</dd>
+      </dl>
+      <pre class="kit-code" style="margin-top: 14px">from relay import Client
+
+client = Client(use_case="UC-0307")                 # Fund document Q&amp;A
+run = client.agents.run(
+    agent="knowledge-agent:prod",                   # alias; "knowledge-agent:2.3" pins a version
+    input="Which share class has the lowest expense ratio in the 2025 prospectus?",
+    on_behalf_of=user.id,                           # answers use only documents this person may open
+    tags={"env": "build", "cost_centre": "IM-2210", "app": "fund-qa-web"},   # required on every call
+)
+print(run.answer, run.citations, run.trace_id)
+
+client.feedback(                                    # counts toward acceptance and corrections
+    trace_id=run.trace_id,
+    outcome="corrected",                            # accepted, corrected or rejected
+    correction="low-cost shares 0.11%, 2025 prospectus p. 14",
+)</pre>
+      <div class="kit-rows" style="margin-top: 14px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 200px 140px"><div><div class="t">Exposed as an MCP server</div><div class="s"><span class="kit-mono">(source link withheld)</span> · tools ask and fetch_passage, read only · the same alias, required tags and policy apply · 6 projects call it this way</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span><div class="end"><button class="kit-btn sm outline" type="button">Copy MCP config</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 200px 140px"><div><div class="t">Document-level security trimming</div><div class="s">Answers use only documents the calling person may open. Pass on_behalf_of; the index drops passages from documents outside that person's entitlements before the model sees them. Last probe 2 Nov: 0 restricted passages in 1,000 probes.</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Probe passed</span></span><div class="end"><a class="kit-btn sm outline" href="K1-Help.dc.html">How trimming works</a></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 200px 140px"><div><div class="t">PII tokenisation at the gateway</div><div class="s">Before any request goes to a vendor model, the gateway swaps names, account numbers, tax ids and addresses for tokens and restores them in the answer; TLM routes keep today's masking. 7 field types. Vendor routes are non-production only.</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>On for every vendor route</span></span><div class="end"><a class="kit-btn sm outline" href="K1-Help.dc.html">Field list</a></div></div>
+      </div>
+      <div class="kit-source">Endpoint, aliases and required tags from the gateway configuration; snippet generated from the record, not typed; trimming probe from the governance test suite, 2 Nov; tokenisation fields from the gateway policy. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

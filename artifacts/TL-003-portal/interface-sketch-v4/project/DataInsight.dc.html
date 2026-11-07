@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Data: tagging pipelines, approvals and insight, self-healing marks, versions</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1B1F24;background:linear-gradient(160deg,#F7F8FA 0%,#EEF2F1 55%,#E9EEF3 100%)}
+a{color:#0B5E4C}a:hover{color:#08463A}
+.card{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);box-shadow:0 1px 2px rgba(27,31,36,0.04),0 8px 24px rgba(27,31,36,0.05);border-radius:14px;padding:22px 24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.tile{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.tile .n{font-size:28px;font-weight:600;letter-spacing:-0.02em}.tile .l{font-size:13px;color:#57606A}
+.h1{margin:0;font-size:28px;font-weight:600;letter-spacing:-0.01em}.h2{margin:0;font-size:16px;font-weight:600}.h3{margin:0;font-size:14px;font-weight:600}
+.muted{color:#57606A;font-size:13px}.ph{color:#8C959F}.small{font-size:12px;color:#57606A}
+.btn{min-height:40px;padding:0 14px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);color:#1B1F24;font:500 13px Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn.primary{background:#0B5E4C;border-color:#0B5E4C;color:#fff}.btn.danger{color:#8A2A1B}.btn[disabled]{background:#EEF1F4;color:#8C959F;border-color:#E1E4E8;cursor:default}
+.pill{padding:2px 9px;border-radius:999px;font-size:11px;font-weight:600;display:inline-block}
+.pill.good{background:#E6F2EE;color:#0B5E4C}.pill.warn{background:#FBF1DD;color:#6B4A0B}.pill.crit{background:#FBE9E7;color:#8A2A1B}.pill.neutral{background:#EEF1F4;color:#3C4651}.pill.info{background:#E3ECF7;color:#1F4E79}
+.row{display:grid;gap:10px;align-items:center;padding:10px 12px;border:1px solid #E1E4E8;border-radius:10px;background:rgba(255,255,255,0.5);font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:#57606A;font-size:12px;font-weight:500;padding:8px;border-bottom:1px solid #E1E4E8}td{padding:10px 8px;border-bottom:1px solid #EEF1F4;vertical-align:top}tr:last-child td{border-bottom:0}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.bar{height:8px;border-radius:4px;background:#EEF1F4;overflow:hidden}.bar>div{height:8px;border-radius:4px;background:#0B5E4C}
+.env{padding:3px 9px;border-radius:6px;background:#EEF1F4;color:#3C4651;font-size:11px;font-weight:600;letter-spacing:0.02em}
+.src{font-size:11px;color:#8C959F}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;font-family:Inter,system-ui,sans-serif;color:#1B1F24">
+<nav aria-label="Areas" style="position:sticky;top:0;align-self:flex-start;flex:0 0 76px;height:100vh;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;background:rgba(255,255,255,0.55);backdrop-filter:blur(16px);border-right:1px solid rgba(255,255,255,0.7)"><a href="Catalogue.dc.html" title="ThinkLatent Portal" style="width:40px;height:40px;border-radius:12px;background:{{accent}};display:block;margin-bottom:6px"></a><a href="Home.dc.html" title="Home" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">H</span>Home</a><a href="Catalogue.dc.html" title="Models" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">M</span>Models</a><a href="Agents.dc.html" title="Agents" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">A</span>Agents</a><a href="Playground.dc.html" title="Playground" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">P</span>Playground</a><a href="Evaluation.dc.html" title="Evaluation" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">E</span>Evaluation</a><a href="Project.dc.html" title="Projects" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">J</span>Projects</a><a href="DataReview.dc.html" title="Data" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#0B5E4C;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:#0B5E4C;color:#fff;border:1px solid #0B5E4C">D</span>Data</a><a href="Training.dc.html" title="Training" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">T</span>Training</a><a href="Operations.dc.html" title="Operations" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">O</span>Operations</a><a href="Help.dc.html" title="Help" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">?</span>Help</a></nav>
+<div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
+<header style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;min-height:56px;padding:0 32px;background:rgba(255,255,255,0.5);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.7)"><nav aria-label="Breadcrumb" style="font-size:14px;flex:1 1 320px;min-width:0"><a href="DataReview.dc.html" style="text-decoration:none;color:#57606A">Data</a><span aria-hidden="true" style="color:#8C959F"> / </span><span style="color:#1B1F24;font-weight:500">Pipelines and insight</span></nav><label for="q" style="position:absolute;left:-9999px">Search</label><input id="q" placeholder="Search models, agents, projects, people, answers" style="min-height:40px;width:320px;padding:0 12px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);font:400 13px Inter,system-ui,sans-serif"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><button onClick="{{toggleEngineering}}" aria-pressed="{{engineering}}" style="min-height:40px;padding:0 12px;border-radius:9px;border:1px solid #C9CED4;background:{{engineeringBg}};color:{{engineeringFg}};font:500 13px Inter,system-ui,sans-serif;cursor:pointer">Engineering view: {{engineeringLabel}}</button><a href="DataReview.dc.html" class="btn">Review queue</a></div></header>
+<main style="flex:1 1 auto;width:100%;max-width:1180px;margin:0 auto;padding:28px 32px 56px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px">
+
+<section style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end">
+  <div style="display:flex;flex-direction:column;gap:6px"><h1 class="h1">Pipelines and insight</h1><p class="muted" style="margin:0;max-width:760px">The tagging pipelines that watch the Enterprise's data, what the reviews decided, what the decisions taught the pipelines, and what self-healing has marked. Content is never shown; the work around it is.</p></div>
+  <span class="src">as of [date] · recomputed nightly from review decisions</span>
+</section>
+<section class="grid4" aria-label="Headline">
+  <div class="tile"><span class="l">Pipelines running</span><span class="n">3</span><span class="l">PII · toxic language · identifiers in free text</span></div>
+  <div class="tile"><span class="l">Items flagged, 7 days</span><span class="n ph">[—]</span><span class="l">[—]% of ingested rows</span></div>
+  <div class="tile"><span class="l">Precision from reviews</span><span class="n ph">[—]</span><span class="l">share of flags reviewers confirmed</span></div>
+  <div class="tile"><span class="l">Marked do-not-use</span><span class="n ph">[—]</span><span class="l">[—] confirmed · [—] awaiting review</span></div>
+</section>
+<section class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">Tagging pipelines</h2><button class="btn" style="min-height:32px">Propose a pipeline</button></div>
+  <table><thead><tr><th>Pipeline</th><th>Since</th><th>Sets it runs on</th><th>Flag rate</th><th>Precision (reviews)</th><th>Coverage</th><th>Status</th></tr></thead><tbody>
+  <tr><td><strong>PII</strong> · identifiers, account numbers</td><td>day one</td><td>all</td><td class="ph">[—]%</td><td class="ph">[—]</td><td class="ph">[—]% of rows</td><td><span class="pill good">on</span></td></tr>
+  <tr><td><strong>Toxic language v2</strong></td><td>[date]</td><td>call transcripts</td><td class="ph">[—]%</td><td class="ph">[—]</td><td class="ph">[—]%</td><td><span class="pill good">on</span> · threshold 0.75</td></tr>
+  <tr><td><strong>Identifiers in free text</strong></td><td>[date]</td><td>all</td><td class="ph">[—]%</td><td class="ph">[—]</td><td class="ph">[—]%</td><td><span class="pill good">on</span></td></tr>
+  <tr><td class="muted">Regulated statements (proposed)</td><td>—</td><td>client communication</td><td>—</td><td>—</td><td>—</td><td><span class="pill neutral">pilot on 1,000 rows</span></td></tr>
+  </tbody></table>
+  <span class="small">A new pipeline runs in pilot on a sample first; its flags go to review; it is switched on when precision clears [—]. Thresholds are tuned from the decisions below.</span>
+</section>
+<section class="grid2">
+  <div class="card"><h2 class="h2">Approvals and what they taught</h2>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+      <div style="display:flex;align-items:center;gap:10px"><span style="flex:0 0 170px">Toxic language · approved flags</span><div class="bar" style="flex:1"><div style="width:68%"></div></div><span class="ph" style="flex:0 0 48px;text-align:right">[—]%</span></div>
+      <div style="display:flex;align-items:center;gap:10px"><span style="flex:0 0 170px">Toxic language · rejected (false positive)</span><div class="bar" style="flex:1"><div style="width:32%;background:#B7791F"></div></div><span class="ph" style="flex:0 0 48px;text-align:right">[—]%</span></div>
+      <div style="display:flex;align-items:center;gap:10px"><span style="flex:0 0 170px">PII · approved</span><div class="bar" style="flex:1"><div style="width:91%"></div></div><span class="ph" style="flex:0 0 48px;text-align:right">[—]%</span></div>
+      <div style="display:flex;align-items:center;gap:10px"><span style="flex:0 0 170px">Identifiers · approved</span><div class="bar" style="flex:1"><div style="width:77%"></div></div><span class="ph" style="flex:0 0 48px;text-align:right">[—]%</span></div>
+    </div>
+    <div class="row" style="grid-template-columns:1fr auto"><span><strong>Learned this week:</strong> "profanity, not directed" is the main false positive on toxic language; threshold raised 0.70 → 0.75 for undirected spans. Precision expected [—] → [—].</span><a href="#" style="font-weight:500">Apply</a></div>
+    <div class="row" style="grid-template-columns:1fr auto"><span><strong>Pattern:</strong> 31 more items look like the 7 rejected "directed abuse" items (knowledge graph neighbours); 12 are in no queue yet.</span><a href="DataReview.dc.html" style="font-weight:500">Queue them</a></div>
+    <span class="small">By reviewer and reason code in the engineering view; insight is traceable to the decisions it came from.</span>
+  </div>
+  <div class="card"><h2 class="h2">Self-healing marks</h2><span class="muted">Data the self-healing system marked as not to be used for a kind of training. A mark is a proposal until a reviewer confirms it; a confirmed mark drops the data from the next run's eligible count.</span>
+    <div class="row" style="grid-template-columns:1fr auto auto"><span>3 production data points · do-not-use for <strong>summarisation</strong> · client identifiers in free text</span><span class="pill warn">awaiting review</span><a href="DataReview.dc.html" style="font-weight:500">Review</a></div>
+    <div class="row" style="grid-template-columns:1fr auto auto"><span>14 items · do-not-use for <strong>any training</strong> · duplicated across sets</span><span class="pill good">confirmed [date]</span><span class="small">excluded</span></div>
+    <div class="row" style="grid-template-columns:1fr auto auto"><span>2 items · do-not-use for <strong>safety</strong> · overruled by [name]: needed as counter-examples</span><span class="pill neutral">overruled</span><span class="small">reason kept</span></div>
+    <div class="small">Neglected marks (no decision in 14 days) are listed on Home for the data lead and become evidence for the next pipeline.</div>
+  </div>
+</section>
+<section class="grid2">
+  <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">Data-set versions and lineage</h2><a href="Datasets.dc.html" class="small" style="font-weight:500">Project view</a></div>
+    <table><thead><tr><th>Set · version</th><th>Items</th><th>Checks</th><th>Fed</th><th>Changed</th></tr></thead><tbody>
+    <tr><td>call-summary-train v3</td><td class="ph">[—]</td><td><span class="pill warn">reviews open</span></td><td class="muted">—</td><td>[date]</td></tr>
+    <tr><td>call-summary-train v2</td><td class="ph">[—]</td><td><span class="pill good">passed</span></td><td>run [id] (specialist round 1)</td><td>[date]</td></tr>
+    <tr><td>call-summary-eval v4</td><td class="ph">[—]</td><td><span class="pill good">passed</span></td><td>Official runs [id], [id]</td><td>[date]</td></tr>
+    <tr><td>core-refresh 2026-Q4 (Enterprise-wide)</td><td class="ph">[—]</td><td><span class="pill good">passed</span></td><td>Core 27B retrain on Phi base</td><td>[date]</td></tr>
+    </tbody></table>
+    <span class="small">Immutable per version; diff two versions; every arrow to a run or an Official run is clickable.</span>
+  </div>
+  <div class="card"><h2 class="h2">Knowledge graph</h2>
+    <div class="grid2" style="gap:10px"><div class="tile" style="padding:12px"><span class="l">Nodes</span><span class="n ph" style="font-size:20px">[—]</span><span class="l">entities, topics, questions, decisions</span></div><div class="tile" style="padding:12px"><span class="l">Ingestion</span><span class="n" style="font-size:20px">nightly</span><span class="l">sessions near real time · last [time]</span></div></div>
+    <div class="row" style="grid-template-columns:1fr auto"><span>Enterprise-wide: the 20 most asked question types this quarter, and the 5 domains where scores are weakest</span><a href="Evaluation.dc.html" style="font-weight:500">Insight</a></div>
+    <div class="row" style="grid-template-columns:1fr auto"><span>Per project: coverage of the use case's topics by the training set</span><a href="UC-Quality.dc.html" style="font-weight:500">Clusters</a></div>
+    <span class="small">The graph links data items, decisions, models and findings; it feeds "what else looks like this" and the next-generation data plan. Node content beyond labels stays sealed.</span>
+  </div>
+</section>
+<sc-if value="{{engineering}}" hint-placeholder-val="{{ false }}"><section class="card" style="background:#FFFBF2;border-color:#F0DDB2"><h2 class="h2" style="color:#6B4A0B">Engineering view</h2><span style="font-size:13px;color:#6B4A0B">Per-pipeline model version and threshold history; precision by reviewer and reason code; S3 staging jobs with their row counts and rejections; graph ingestion lag; the rating model's confusion against review decisions.</span></section></sc-if>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"startEngineering":{"editor":"boolean","default":false},"$preview":{"width":1280,"height":2100}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { engineering: !!(props && props.startEngineering) }; }
+  renderVals() {
+    const e = this.state.engineering;
+    return { accent: this.props.accent ?? '#0B5E4C', engineering: e, engineeringLabel: e ? 'on' : 'off', engineeringBg: e ? '#FBF1DD' : 'rgba(255,255,255,0.85)', engineeringFg: e ? '#6B4A0B' : '#3C4651', toggleEngineering: () => this.setState({ engineering: !this.state.engineering }) };
+  }
+}
+</script>
+</body>
+</html>

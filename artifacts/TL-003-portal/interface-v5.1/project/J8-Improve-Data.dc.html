@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Improve · Data</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2600px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">UC-0291 · Advisor summary · Retail Advice · Pilot in production · prod alias → TLM4 Domain-Advice v2</div><h1 style="margin-top: 6px">Improve</h1></div>
+      <div class="kit-actions"><button class="kit-btn" type="button" aria-disabled="true">Train the next specialist</button><span class="kit-threshold" style="align-self: center">Unlocks at the data target, about 24 Nov</span><a class="kit-btn outline" href="J6-Models.dc.html">Canary judgement</a><button class="kit-btn decision" type="button">Roll back</button><span class="kit-threshold" style="align-self: center">Roll back never needs approval</span></div>
+    </div>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+      <nav class="kit-rail" aria-label="Use case"><a href="J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Traffic</a><a href="J5-Capacity.dc.html">Capacity</a><a href="J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html" aria-current="page">Improve</a><a href="J9-Record.dc.html">Record</a><a href="J11-Traces.dc.html">Traces</a></nav>
+      <nav class="kit-rail" aria-label="Use case resources"><a href="W1-Prompts.dc.html">Prompts</a><a href="W2-Datasets.dc.html">Data sets</a><a href="W3-Alerts.dc.html">Alerts</a></nav>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="J8-Improve.dc.html">Loop</a><a href="J8-Improve-Data.dc.html" aria-current="page">Data</a><a href="J8-Improve-Specialist.dc.html">Specialist</a><a href="J8-Improve-Release.dc.html">Release</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></span><a class="kit-open" href="W2-Datasets.dc.html" aria-label="Open data sets">↗</a></div>
+        <div class="kit-tile-title">Samples toward target</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3,120<span class="unit">of 5,000</span></div><div class="kit-tile-cap">Eligible samples for the Post-meeting summary specialist · 62 %</div></div><div style="width: 80px"><div class="kit-track"><i style="width: 62%"></i></div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M8 3v4"></path><path d="M16 3v4"></path></svg></span><a class="kit-open" href="J8-Improve-Specialist.dc.html" aria-label="Open the specialist">↗</a></div>
+        <div class="kit-tile-title">Days to target</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">19<span class="unit">days</span></div><div class="kit-tile-cap">About 100 eligible samples a day · training unlocks about Tue 24 Nov</div></div><div class="kit-bars"><i style="height: 70%"></i><i style="height: 85%"></i><i style="height: 80%"></i><i style="height: 95%"></i><i style="height: 90%"></i><i style="height: 100%"></i><i class="lit" style="height: 92%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span><a class="kit-open" href="J7-Quality.dc.html" aria-label="Open feedback signals">↗</a></div>
+        <div class="kit-tile-title">Feedback coverage</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">16<span class="unit">%</span></div><div class="kit-tile-cap">Post-meeting summary requests rated with a reason · use case 14 %</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h18l-7 8v6l-4 2v-8z"></path></svg></span><a class="kit-open" href="D1-ReviewQueue.dc.html" aria-label="Open PII review">↗</a></div>
+        <div class="kit-tile-title">Eligible share</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">41<span class="unit">%</span></div><div class="kit-tile-cap">Captured threads that pass consent, Tier 3 handling, PII and quality filters</div></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Data accumulation toward the next specialist</h2><div class="sub">Post-meeting summary, 58 % of requests. Every eligible thread moves the specialist closer. Training unlocks when the samples reach the target and the eval set is big enough to tell the specialist from the incumbent.</div></div>
+        <div class="kit-seg" role="group" aria-label="Task"><button type="button" aria-pressed="true">Post-meeting summary</button><button type="button" aria-pressed="false">Action items</button><button type="button" aria-pressed="false">Follow-up email</button></div>
+      </div>
+      <div class="kit-grid2" style="margin-top: 16px">
+        <div>
+          <div class="kit-label">Training samples against the target</div>
+          <div style="margin-top: 6px"><span class="kit-display" style="font-size: 28px">3,120</span><span class="kit-small kit-muted"> of 5,000 eligible · 62 %</span></div>
+          <div class="kit-track" style="margin-top: 10px"><i style="width: 62%"></i></div>
+          <div class="kit-threshold" style="display: flex; justify-content: space-between; margin-top: 6px"><span>0</span><span>3,120 now</span><span>5,000 · training unlocks</span></div>
+        </div>
+        <div>
+          <div class="kit-label">Eval threads for this task against the interval they support</div>
+          <div style="margin-top: 6px"><span class="kit-display" style="font-size: 28px">372</span><span class="kit-small kit-muted"> of 640 · supports ± 0.04 now, ± 0.03 at 640</span></div>
+          <div class="kit-track" style="margin-top: 10px"><i class="warn" style="width: 58%"></i></div>
+          <div class="kit-threshold" style="display: flex; justify-content: space-between; margin-top: 6px"><span>0</span><span>372 · ± 0.04</span><span>640 · ± 0.03, the incumbent's interval</span></div>
+        </div>
+      </div>
+      <div class="kit-actions" style="margin-top: 14px; align-items: center"><button class="kit-btn" type="button" aria-disabled="true">Train the specialist</button><span class="kit-threshold">Unlocks at 5,000 eligible samples and 640 eval threads · held-out captures add about 15 eval threads a day · about Tue 24 Nov</span></div>
+
+      <div class="kit-divider"></div>
+      <div class="kit-grid2">
+        <div>
+          <h3>Eligible share · how captured threads become samples</h3>
+          <table style="margin-top: 8px">
+            <thead><tr><th>Step</th><th class="num">Threads</th><th class="num">Share</th></tr></thead>
+            <tbody>
+              <tr><td>Captured on this task since 6 Oct<div class="kit-small kit-muted">edited or rated drafts, sampled 1 in 5 under the record's capture consent</div></td><td class="num">7,610</td><td class="num">100 %</td></tr>
+              <tr><td>Pass consent and Tier 3 handling</td><td class="num">6,240</td><td class="num">82 %</td></tr>
+              <tr><td>Pass PII review</td><td class="num">4,870</td><td class="num">64 %</td></tr>
+              <tr><td>Pass quality filters<div class="kit-small kit-muted">duplicates, length, judge floor</div></td><td class="num">3,120</td><td class="num">41 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Sources</h3>
+          <table style="margin-top: 8px">
+            <thead><tr><th>Source</th><th class="num">Samples</th><th class="num">Share</th><th class="num">Last 7 days</th></tr></thead>
+            <tbody>
+              <tr><td>Accepted outputs<div class="kit-small kit-muted">used as written and rated 4 or 5</div></td><td class="num">1,520</td><td class="num">49 %</td><td class="num">+340</td></tr>
+              <tr><td>Corrections<div class="kit-small kit-muted">the advisor's final version or a reviewer's rewrite</div></td><td class="num">980</td><td class="num">31 %</td><td class="num">+220</td></tr>
+              <tr><td>Clusters<div class="kit-small kit-muted">threads from root causes with a fix, on <a href="J7-Quality-Analysis.dc.html">Analysis</a></div></td><td class="num">380</td><td class="num">12 %</td><td class="num">+80</td></tr>
+              <tr><td>Pairs<div class="kit-small kit-muted">side-by-side preferences: 60 from advisors, 180 from raters</div></td><td class="num">240</td><td class="num">8 %</td><td class="num">+60</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="kit-empty" style="margin-top: 16px">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg>
+        <h3>Follow-up email: nothing accumulates</h3>
+        <p class="kit-small" style="max-width: 680px">No outcome or feedback events have arrived from the Outlook add-in since 27 Oct, so this task has no accepted outputs, corrections or pairs to count and its loop cannot start. Add these two calls after each response:</p>
+        <pre class="kit-code" style="text-align: left; width: 100%; max-width: 680px">client.outcome(request_id, "accepted"|"edited"|"discarded")
+client.feedback(request_id, score, reason)</pre>
+        <div class="kit-actions"><button class="kit-btn sm outline" type="button">Copy the two calls</button><button class="kit-btn sm outline" type="button">Send to the app owner</button></div>
+      </div>
+      <div class="kit-source">Samples and filters from the capture pipeline for UC-0291, 6 Oct to 5 Nov; eval-set size from the evaluation pipeline, intervals at 95 %; event counts from the Relay event stream. As of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Side-by-side preferences</h2><div class="sub">Two sources of pairs: advisors choosing between two drafts inside their own app, and raters in the annotation service. Both feed the pairs source above.</div></div><a class="kit-btn sm outline" href="D1-ReviewQueue.dc.html">Rate pairs</a></div>
+      <div class="kit-grid2" style="margin-top: 12px">
+        <div class="kit-surface raised" style="padding: 16px">
+          <h3>Chosen by advisors in their app</h3>
+          <div class="kit-small kit-muted" style="margin-top: 4px">In the Salesforce panel, 1 Post-meeting summary request in 100 shows the v2 and v3 drafts side by side and the advisor keeps one. The app reports the kept draft as accepted and the other as discarded. Since 1 Nov.</div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px">
+            <div><div class="kit-label">Shown</div><div class="kit-display" style="font-size: 28px; margin-top: 4px">200</div></div>
+            <div><div class="kit-label">Kept one</div><div class="kit-display" style="font-size: 28px; margin-top: 4px">164</div></div>
+            <div><div class="kit-label">Skipped</div><div class="kit-display" style="font-size: 28px; margin-top: 4px">36</div></div>
+          </div>
+          <div class="kit-track" style="margin-top: 12px; display: flex"><i style="width: 58%; border-radius: 999px 0 0 999px"></i><i style="width: 42%; border-radius: 0 999px 999px 0; background: #2F7A6D"></i></div>
+          <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #3E9A5C"></i>v3 kept 58 %</span><span><i style="background: #2F7A6D"></i>v2 kept 42 %</span></div>
+          <div class="kit-small" style="margin-top: 10px">A pair becomes a sample only when the kept draft is then used as written or lightly edited (edit distance under 0.2): 60 so far.</div>
+        </div>
+        <div class="kit-surface raised" style="padding: 16px">
+          <h3>Chosen by raters</h3>
+          <div class="kit-small kit-muted" style="margin-top: 4px">Raters see v2 and v3 side by side on the same thread and pick the better one.</div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 12px">
+            <div><div class="kit-label">v3 wins</div><div class="kit-display" style="font-size: 28px; margin-top: 4px">212</div></div>
+            <div><div class="kit-label">v2 wins</div><div class="kit-display" style="font-size: 28px; margin-top: 4px">146</div></div>
+            <div><div class="kit-label">Tie</div><div class="kit-display" style="font-size: 28px; margin-top: 4px">88</div></div>
+            <div><div class="kit-label">Both bad</div><div class="kit-display" style="font-size: 28px; margin-top: 4px">34</div></div>
+          </div>
+          <div class="kit-track" style="margin-top: 12px; display: flex"><i style="width: 44%; border-radius: 999px 0 0 999px"></i><i style="width: 18%; border-radius: 0; background: #DADAD8"></i><i style="width: 7%; border-radius: 0; background: #B9742F"></i><i style="width: 31%; border-radius: 0 999px 999px 0; background: #2F7A6D"></i></div>
+          <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #3E9A5C"></i>v3 wins 44 %</span><span><i style="background: #DADAD8"></i>Tie 18 %</span><span><i style="background: #B9742F"></i>Both bad 7 %</span><span><i style="background: #2F7A6D"></i>v2 wins 31 %</span></div>
+          <dl class="kit-kv" style="margin: 12px 0 0; grid-template-columns: 110px 1fr">
+            <dt>Bradley-Terry</dt><dd>v3 preferred with probability <span class="kit-interval">0.59 <span class="pm">(95 % CI 0.54 to 0.64)</span></span></dd>
+            <dt>Pairs rated</dt><dd>480 of 620 · 3 raters · agreement κ 0.66 · 180 count as samples</dd>
+            <dt>Both bad</dt><dd>34 threads, 29 of them in the 4k+ input cluster · added to the capture set for cycle 4</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="kit-source">In-app pairs from Relay outcome events that carry a pair id, Salesforce panel, 1 to 5 Nov; rater pairs from the annotation service, pairwise queue for UC-0291, 1 to 5 Nov; Bradley-Terry fit by the Evaluation agent. As of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

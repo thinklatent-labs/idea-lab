@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Prompts · Library</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2200px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">UC-0291 · Advisor summary · Retail Advice · Pilot in production · prod alias → TLM4 Domain-Advice v2 · Portal library across use cases</div><h1 style="margin-top: 6px">Prompt and template library</h1></div>
+      <div class="kit-actions"><button class="kit-btn" type="button">Publish a template</button><a class="kit-btn outline" href="K1-Help.dc.html">Library guide</a></div>
+    </div>
+
+    <nav class="kit-rail" aria-label="Use case">
+      <a href="J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Traffic</a><a href="J5-Capacity.dc.html">Capacity</a><a href="J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a><a href="J11-Traces.dc.html">Traces</a>
+      <span aria-hidden="true" style="width: 1px; background: #DADAD8; margin: 4px 6px"></span>
+      <a href="W1-Prompts.dc.html" aria-current="page">Prompts</a><a href="W2-Datasets.dc.html">Data sets</a><a href="W3-Alerts.dc.html">Alerts</a>
+    </nav>
+
+    <nav class="kit-subrail" aria-label="Sections">
+      <a href="W1-Prompts.dc.html">Versions</a><a href="W1-Prompts-Rollout.dc.html">Rollout and cost</a><a href="W1-Prompts-Hygiene.dc.html">Hygiene</a><a href="W1-Prompts-Library.dc.html" aria-current="page">Library</a>
+    </nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg></span><a class="kit-open" href="J1-Projects.dc.html" aria-label="Open projects">↗</a></div>
+        <div class="kit-tile-title">In the library</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">38<span class="unit">templates</span></div><div class="kit-tile-cap">From 14 use cases in 6 business lines · each versioned, each with a named owner</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="4"></circle><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"></path><path d="M17 4a4 4 0 0 1 0 8"></path><path d="M22 21v-1a6 6 0 0 0-4-5.6"></path></svg></span><a class="kit-open" href="K1-Help.dc.html" aria-label="Open the disclosure guidance">↗</a></div>
+        <div class="kit-tile-title">Most adopted</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">14<span class="unit">adopters</span></div><div class="kit-tile-cap">AI-drafting disclosure block · ThinkLatent foundation team, worded with Compliance</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="5" r="2"></circle><circle cx="18" cy="5" r="2"></circle><circle cx="12" cy="19" r="2"></circle><path d="M6 7v2a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V7"></path><path d="M12 12v5"></path></svg></span><a class="kit-open" href="W1-Prompts.dc.html" aria-label="Open this project's prompts">↗</a></div>
+        <div class="kit-tile-title">Forked into this project</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3<span class="unit">forks</span></div><div class="kit-tile-cap">2 current · 1 one version behind its upstream</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>1 behind</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="W1-Prompts-Hygiene.dc.html" aria-label="Open hygiene">↗</a></div>
+        <div class="kit-tile-title">Passing hygiene</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">34<span class="unit">of 38</span></div><div class="kit-tile-cap">4 fail a check · a fork re-runs every check in this project</div></div><div class="kit-track" style="width: 80px"><i style="width: 89%"></i></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Browse the library</h2><div class="sub">Prompts and templates shared across use cases, under the same version and alias rules as a use case's own prompts. Filter by index pillar or by the use case a template came from; each row names its owner and the use cases that adopted it.</div></div>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; align-items: end">
+        <div class="kit-field"><label for="lib-q">Search</label><input class="kit-input" id="lib-q" type="search" placeholder="Name, owner or use case"></div>
+        <div class="kit-field"><label for="lib-pillar">Pillar</label><select class="kit-input" id="lib-pillar"><option>All live pillars</option><option>Financial data processing</option><option>Client care</option><option>Compliance and regulatory</option><option>Safety and grounding</option><option>Entity recognition</option><option disabled>Eleven more pillars · Phase 2</option></select></div>
+        <div class="kit-field"><label for="lib-uc">Use case</label><select class="kit-input" id="lib-uc"><option>All use cases</option><option>UC-0291 Advisor summary</option><option>UC-0142 Claims triage</option><option>UC-0307 Fund document Q&amp;A</option><option>UC-0311 Policy lookup agent</option><option>UC-0001 Portal help agent</option></select></div>
+        <div class="kit-field"><label for="lib-sort">Sort</label><select class="kit-input" id="lib-sort"><option>Most adopted</option><option>Recently updated</option><option>Owner</option></select></div>
+      </div>
+      <table style="margin-top: 14px">
+        <thead><tr><th>Template</th><th>Pillar</th><th>From</th><th>Owner</th><th class="num">Adopters</th><th>Latest</th><th>Hygiene</th><th></th></tr></thead>
+        <tbody>
+          <tr><td><b style="font-weight: 500">AI-drafting disclosure block</b><div class="kit-small kit-muted">The sentence the record requires on AI-drafted text</div></td><td>Compliance and regulatory</td><td>Portal-wide</td><td>ThinkLatent foundation team</td><td class="num">14<div class="kit-small kit-muted">UC-0291, UC-0142, UC-0307 and 11 more</div></td><td>v1 · 12 Sep</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 of 8</span></span></td><td class="num"><span class="kit-chip outline">In this project</span></td></tr>
+          <tr><td><b style="font-weight: 500">Meeting summary base</b><div class="kit-small kit-muted">Bulleted summary, schema advisor_summary.v2, three masked worked examples</div></td><td>Client care</td><td>UC-0291 Advisor summary</td><td>Priya N.</td><td class="num">9<div class="kit-small kit-muted">Retail Advice 6 · Institutional Ops 3</div></td><td>v4 · 2 Nov</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 of 8</span></span></td><td class="num"><span class="kit-chip outline">Forked · 1 behind</span></td></tr>
+          <tr><td><b style="font-weight: 500">Portal help answer with sources</b><div class="kit-small kit-muted">Answers only from the knowledge base and cites the article</div></td><td>Safety and grounding</td><td>UC-0001 Portal help agent</td><td>ThinkLatent foundation team</td><td class="num">7<div class="kit-small kit-muted">UC-0001, UC-0311 and 5 more</div></td><td>v9 · 30 Oct</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 of 8</span></span></td><td class="num"><button class="kit-btn sm outline" type="button">Fork into this project</button></td></tr>
+          <tr><td><b style="font-weight: 500">Plan id citation block</b><div class="kit-small kit-muted">Cites the plan id given and never invents one</div></td><td>Compliance and regulatory</td><td>UC-0291 Advisor summary</td><td>Priya N.</td><td class="num">6<div class="kit-small kit-muted">Retail Advice 4 · Institutional Ops 2</div></td><td>v2 · 21 Oct</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 of 8</span></span></td><td class="num"><span class="kit-chip outline">In this project</span></td></tr>
+          <tr><td><b style="font-weight: 500">Policy citation and refusal</b><div class="kit-small kit-muted">Quotes the policy section; refuses outside policy</div></td><td>Compliance and regulatory</td><td>UC-0311 Policy lookup agent <span class="kit-chip env">POC</span></td><td>ThinkLatent foundation team</td><td class="num">5<div class="kit-small kit-muted">UC-0311, UC-0001 and 3 more</div></td><td>v3 · 27 Oct</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 of 8</span></span></td><td class="num"><button class="kit-btn sm outline" type="button">Fork into this project</button></td></tr>
+          <tr><td><b style="font-weight: 500">Claims intake classifier</b><div class="kit-small kit-muted">Routes a claim to one of 12 queues with a stated reason</div></td><td>Financial data processing</td><td>UC-0142 Claims triage</td><td>Marcus L.</td><td class="num">4<div class="kit-small kit-muted">Institutional Ops 4</div></td><td>v12 · 4 Nov</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>7 of 8 · static prefix</span></span></td><td class="num"><button class="kit-btn sm outline" type="button">Fork into this project</button></td></tr>
+          <tr><td><b style="font-weight: 500">Entity extraction for client notes</b><div class="kit-small kit-muted">Names, accounts and dates as typed fields, masked on output</div></td><td>Entity recognition</td><td>UC-0142 Claims triage</td><td>Marcus L.</td><td class="num">3<div class="kit-small kit-muted">Institutional Ops 2 · Retail Advice 1</div></td><td>v5 · 19 Oct</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 of 8</span></span></td><td class="num"><button class="kit-btn sm outline" type="button">Fork into this project</button></td></tr>
+          <tr><td><b style="font-weight: 500">Fund document grounded answer</b><div class="kit-small kit-muted">Answers from the prospectus passage and quotes it</div></td><td>Safety and grounding</td><td>UC-0307 Fund document Q&amp;A <span class="kit-chip env">Active build</span></td><td>ThinkLatent foundation team</td><td class="num">2<div class="kit-small kit-muted">UC-0307 and 1 more</div></td><td>v2 · 3 Nov</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 of 8</span></span></td><td class="num"><button class="kit-btn sm outline" type="button">Fork into this project</button></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-note" style="margin-top: 14px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>Forking copies one template version into this project as a new draft prompt that keeps a link to its upstream. Every hygiene check runs again here, and the fork's score comes only from this use case's own evaluation set. The upstream template is never edited from a fork. Results from POC and Active build use cases are non-production.</div></div>
+      <div class="kit-source">Prompt library across 14 use cases; adopters counted from prompt-store links; hygiene from each template's latest nightly check. Showing 8 of 38, most adopted first. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Forks in this project</h2><div class="sub">Library templates used by UC-0291's prompt, and how far each is from its upstream.</div></div></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px auto">
+          <div><div class="t">Meeting summary base · forked at v3</div><div class="s">Forked into the advisor-summary prompt at v5 · upstream v4 (2 Nov) adds a next-step line, which v8 already carries</div></div>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>1 version behind</span></span>
+          <div class="end"><button class="kit-btn sm outline" type="button">Compare with upstream</button></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px auto">
+          <div><div class="t">Plan id citation block · v2</div><div class="s">In v7, v8 and v9 · Priya N. owns both the fork and the upstream</div></div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Current</span></span>
+          <div class="end"><button class="kit-btn sm outline" type="button">View</button></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px auto">
+          <div><div class="t">AI-drafting disclosure block · v1</div><div class="s">In v7, v8 and v9 · required by the record; the disclosure check reads this text</div></div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Current</span></span>
+          <div class="end"><button class="kit-btn sm outline" type="button">View</button></div>
+        </div>
+      </div>
+      <div class="kit-source">Fork links from the prompt store for UC-0291. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2200}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

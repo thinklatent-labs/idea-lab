@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Propose a tagging pipeline</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2200px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-current="page" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Data · Tagging pipelines · Propose a pipeline · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Propose a new tagging pipeline</h1></div>
+      <div class="kit-actions"><button class="kit-btn outline" type="button">Save draft</button><a class="kit-btn outline" href="D2-TaggingPipelines.dc.html">Pipelines</a><a class="kit-btn outline" href="D6-KnowledgeGraph-Insight.dc.html">Weakest domains</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="D2-TaggingPipelines.dc.html">Pipelines</a><a href="D2-TaggingPipelines-Engineering.dc.html">Data engineering</a><a href="D2-TaggingPipelines-Propose.dc.html" aria-current="page">Propose a pipeline</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></div>
+        <div class="kit-tile-title">Open proposals</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3</div><div class="kit-tile-cap">1 on the decision list · 1 gathering asks · 1 draft (yours)</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i style="height: 66%"></i><i class="dash" style="height: 33%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><path d="M16 11a3 3 0 1 0 0-6"></path></svg></span></div>
+        <div class="kit-tile-title">Asks this quarter</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">11</div><div class="kit-tile-cap">From 6 people across 4 projects · ask counts show on every proposal</div></div><div class="kit-bars"><i style="height: 30%"></i><i style="height: 55%"></i><i class="lit" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span></div>
+        <div class="kit-tile-title">Answer target</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">14<span class="unit">days</span></div><div class="kit-tile-cap">From the third ask · next answer due 13 Nov (Fee disclosure language)</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Due in 8 d</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span></div>
+        <div class="kit-tile-title">Decided this quarter</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2</div><div class="kit-tile-cap">1 accepted, 1 declined · each with the data lead's reason</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i style="height: 100%"></i></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>New proposal</h2><div class="sub">Say what the pipeline should flag and why, in plain words. ThinkLatent builds it, runs it in shadow on the sets you name, and it can be enabled once 50 review decisions give it a measured precision.</div></div><span class="kit-chip">Draft · saved 11:52</span></div>
+      <div class="kit-grid2" style="margin-top: 16px; align-items: start">
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div class="kit-field"><label for="p-name">Name</label><input class="kit-input" id="p-name" type="text" value="Client vulnerability cues"></div>
+          <div class="kit-field"><label for="p-what">What it should flag</label><textarea class="kit-input area" id="p-what">Notes that mention a client's bereavement, cognitive decline or financial hardship, so those rows are reviewed with care before any training use.</textarea></div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <div class="kit-small kit-muted" style="font-weight: 500">Why now · evidence the portal can link</div>
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <label class="kit-radio on"><input type="checkbox" checked><div><div style="font-weight: 500">12 review notes this month mention a vulnerable client</div><div class="kit-small kit-muted">From the review log; counted, not quoted</div></div></label>
+              <label class="kit-radio on"><input type="checkbox" checked><div><div style="font-weight: 500">Weak domain on the knowledge graph: client vulnerability and care</div><div class="kit-small kit-muted">2.1% of questions · 18% training coverage · <a href="D6-KnowledgeGraph-Insight.dc.html">see the domain</a></div></div></label>
+              <label class="kit-radio"><input type="checkbox"><div><div style="font-weight: 500">Self-healing overrules that cite client care</div><div class="kit-small kit-muted">None this month</div></div></label>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div class="kit-field"><label for="p-owner">Owner once live</label><input class="kit-input" id="p-owner" type="text" value="Priya N."></div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <div class="kit-small kit-muted" style="font-weight: 500">Data sets to start on, in shadow</div>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+              <label class="kit-radio on"><input type="checkbox" checked><div><div style="font-weight: 500">advisor-notes-v4</div><div class="kit-small kit-muted">UC-0291 Advisor summary</div></div></label>
+              <label class="kit-radio on"><input type="checkbox" checked><div><div style="font-weight: 500">call-notes-v7</div><div class="kit-small kit-muted">UC-0251 Call wrap-up notes</div></div></label>
+              <label class="kit-radio"><input type="checkbox"><div><div style="font-weight: 500">claims-notes-v2</div><div class="kit-small kit-muted">UC-0142 Claims triage</div></div></label>
+              <label class="kit-radio"><input type="checkbox"><div><div style="font-weight: 500">fund-docs-v1</div><div class="kit-small kit-muted">UC-0307 Fund document Q&amp;A</div></div></label>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <div class="kit-small kit-muted" style="font-weight: 500">Kinds of training it protects</div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap">
+              <label class="kit-radio on"><input type="checkbox" checked><div style="font-weight: 500">Generate</div></label>
+              <label class="kit-radio"><input type="checkbox"><div style="font-weight: 500">Extract</div></label>
+              <label class="kit-radio on"><input type="checkbox" checked><div style="font-weight: 500">Decide</div></label>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+            <div class="kit-field"><label for="p-prec">Precision target</label><input class="kit-input" id="p-prec" type="text" value="0.85"></div>
+            <div class="kit-field"><label for="p-n">Decisions before it can be enabled (fixed by ThinkLatent)</label><input class="kit-input" id="p-n" type="text" value="50" readonly></div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+            <div class="kit-field"><label for="p-rev">Who reviews its flags</label><input class="kit-input" id="p-rev" type="text" value="Elena R., data steward pool"></div>
+            <div class="kit-field"><label for="p-day">Expected flags a day</label><input class="kit-input" id="p-day" type="text" value="15"></div>
+          </div>
+        </div>
+      </div>
+      <div class="kit-note" style="margin-top: 16px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>Three asks put a proposal on the ThinkLatent data lead's decision list with a 14-day answer target. The data lead accepts or declines with a reason, and the ask count shows on every proposal. An accepted pipeline starts in shadow: no flag reaches the queue until it is enabled.</div></div>
+      <div class="kit-actions" style="margin-top: 14px"><button class="kit-btn" type="button">Submit proposal</button><button class="kit-btn outline" type="button">Save draft</button></div>
+      <div class="kit-source">Proposals are written to the pipeline register with your id and time · evidence links resolve to the review log, the self-healing mark log and the knowledge graph, as counts only · as of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Proposals and asks</h2><div class="sub">Every proposal with its ask count and where it stands. Add your ask to one instead of proposing it again.</div></div><span class="kit-chip">5</span></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 90px 200px 170px">
+          <div><div class="t">Fee disclosure language</div><div class="s">Flags fee or performance statements without the required disclosure · proposed by Elena R. 21 Oct · on the data lead's decision list since 30 Oct · answer due 13 Nov</div></div>
+          <span class="kit-chip">3 asks</span>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Answer due in 8 d</span></span>
+          <div class="end"><button class="kit-btn sm outline" type="button">Add your ask</button></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 90px 200px 170px">
+          <div><div class="t">Scanned-page quality</div><div class="s">Flags pages whose text recognition is too poor to verify · proposed by Priya N. 2 Nov · one more ask puts it on the decision list</div></div>
+          <span class="kit-chip">2 asks</span>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Gathering asks</span></span>
+          <div class="end"><button class="kit-btn sm outline" type="button">Add your ask</button></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 90px 200px 170px">
+          <div><div class="t">Client vulnerability cues</div><div class="s">Your draft above · not yet submitted</div></div>
+          <span class="kit-chip">0 asks</span>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Draft</span></span>
+          <div class="end"><button class="kit-btn sm outline" type="button">Submit</button></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 90px 200px 170px">
+          <div><div class="t">Financial advice claims</div><div class="s">Accepted 14 Oct by the data lead · reason: protects Generate rows in advisor notes, where unreviewed claims would teach the model to make them · now in shadow on 2 sets</div></div>
+          <span class="kit-chip">3 asks</span>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Accepted · in shadow</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="D2-TaggingPipelines.dc.html">See the pipeline</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 90px 200px 170px">
+          <div><div class="t">Client sentiment</div><div class="s">Declined 9 Oct by the data lead · reason: sentiment is not a data-safety tag; it is measured in evaluation under Client care instead</div></div>
+          <span class="kit-chip">3 asks</span>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Declined with reason</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="E2-Index.dc.html">Index</a></div>
+        </div>
+      </div>
+      <div class="kit-source">Source: pipeline register and ask log · decision list kept by the ThinkLatent data lead · answer target 14 days from the third ask · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2200}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

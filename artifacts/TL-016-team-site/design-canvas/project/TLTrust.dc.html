@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent · ThinkLatent Trust</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F7F7F5;font-family:Inter,system-ui,sans-serif;color:#1A1A1A;font-size:15px;line-height:1.55}
+a{color:#2E6B3C}a:hover{color:#0C3F09}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:500;letter-spacing:-.015em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.cap{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:#5C5C5A}
+.panel{background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05);border-radius:24px;padding:24px}
+.glass{background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.9);border-radius:24px;padding:22px;box-shadow:inset 0 1px 0 #FFFFFF,0 16px 48px rgba(26,26,26,.08)}
+.glass.g{background:rgba(27,81,40,.92);color:#FFFFFF;border-color:rgba(255,255,255,.35)}
+.glass.g .meta,.glass.g .cap,.glass.g p{color:#D6E9DB}
+.glass.g h3{color:#FFFFFF}
+.glass.g .tag{background:rgba(255,255,255,.18);color:#FFFFFF}
+.glass.g .thumb{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
+.glass.g .pill{background:rgba(255,255,255,.14);color:#FFFFFF;border-color:rgba(255,255,255,.45)}
+.glass.t{background:rgba(31,74,68,.92);color:#FFFFFF;border-color:rgba(255,255,255,.35)}
+.glass.t .meta,.glass.t .cap,.glass.t p{color:#D3ECE6}.glass.t h3{color:#FFFFFF}.glass.t .tag{background:rgba(255,255,255,.18);color:#FFFFFF}.glass.t .thumb{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}.glass.t .pill{background:rgba(255,255,255,.14);color:#FFFFFF;border-color:rgba(255,255,255,.45)}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(26,26,26,.16);font-size:14px;font-weight:500;color:#1A1A1A;text-decoration:none;background:#FFFFFF;font-family:inherit}
+.pill:hover{color:#1A1A1A;border-color:#1A1A1A}
+.pill.go{background:#C4262E;color:#FFFFFF;border-color:#C4262E}
+.pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.pill.on{background:#1B5128;color:#FFFFFF;border-color:#1B5128}
+.pill.sm{min-height:38px;font-size:13px}
+.nav a{color:#3A3A38;text-decoration:none;font-size:14px;font-weight:500;padding:0 12px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover{background:#F2F2EF;color:#1A1A1A}
+.nav a.on{background:#6CB769;color:#0C3F09}
+.display{font-weight:300;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.tag{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#E9F3EC;color:#2E6B3C;font-size:12px;font-weight:600;white-space:nowrap}
+.tag.teal{background:#E6F1EF;color:#1F4A44}
+.tag.red{background:#FBEAEA;color:#9A1B22}
+.tag.grey{background:#F2F2EF;color:#3A3A38}
+.tag.dark{background:#1A1A1A;color:#FFFFFF}
+.tag.steel{background:#E8EEF1;color:#355F6B}
+.tag.terra{background:#F8ECE6;color:#9E4C27}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.meta{font-size:13px;color:#5C5C5A}
+.hero{background:#E9F3EC}
+.hero.teal{background:#2F7A6D;color:#FFFFFF}
+.hero.teal h1,.hero.teal h2,.hero.teal h3{color:#FFFFFF}.hero.teal p,.hero.teal .meta,.hero.teal .cap{color:#D3ECE6}.hero.teal .tag{background:rgba(255,255,255,.18);color:#FFFFFF}.hero.teal .pill{background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,.55)}.hero.teal .pill.go{background:#C4262E;color:#FFFFFF;border-color:#C4262E}
+.wave{background:#1B5128;color:#FFFFFF}
+.wave .cap,.wave .meta{color:#D6E9DB}
+.wave .pill{color:#FFFFFF;border-color:rgba(255,255,255,.5);background:transparent}
+.wave .pill.go{background:#FFFFFF;color:#0C3F09;border-color:#FFFFFF}
+.wave .panel{color:#1A1A1A}
+.wave .panel .cap{color:#5C5C5A}
+.band{background:#E9F3EC}
+.thumb{border-radius:16px;background:#E9F3EC;aspect-ratio:16/10;border:1px solid #EFEFEC}
+.thumb.net{background:#E9F3EC}.thumb.steel{background:#E8EEF1}.thumb.terra{background:#F8ECE6}.thumb.wave{background:#E6F1EF}.thumb.globe{background:#EEF1F3}
+.card{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A}
+.card:hover{color:#1A1A1A;border-color:#1A1A1A}
+.av{width:36px;height:36px;border-radius:50%;background:#F2F2EF;color:#3A3A38;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex:none;border:2px solid #FFFFFF}
+.av.lg{width:48px;height:48px;font-size:12px}
+.faq{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #EFEFEC;font-size:17px;font-weight:500}
+.faq span:last-child{width:32px;height:32px;border-radius:50%;border:1px solid rgba(26,26,26,.2);display:inline-flex;align-items:center;justify-content:center;font-weight:400;color:#5C5C5A;flex:none}
+.sec{display:flex;flex-direction:column;gap:20px}
+.h2{font-size:36px;line-height:1.1;margin-top:6px;font-weight:400;letter-spacing:-.025em}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.fam{display:flex;flex-direction:column;gap:10px;padding:22px;border-radius:16px;border:1px solid #E6E6E2;background:#FFFFFF}
+.gen{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05);min-height:170px}
+.gen .g{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#5C5C5A}
+.mean{margin-top:auto;padding:14px 16px;border-radius:14px;background:#E9F3EC;color:#0C3F09;font-size:14px;border:1px solid #CFE6D6}
+.mean b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#2E6B3C;margin-bottom:2px}
+.proj{display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05)}
+.globe{background:#2F7A6D;color:#FFFFFF}
+.globe .cap,.globe .meta{color:#D3ECE6}.globe h2,.globe h3{color:#FFFFFF}.globe p{color:#D3ECE6}
+.globe .proj{color:#1A1A1A}.globe .proj .meta{color:#5C5C5A}.globe .proj h3{color:#1A1A1A}
+.globe .pill{color:#FFFFFF;border-color:rgba(255,255,255,.5);background:transparent}
+.green{background:linear-gradient(160deg,#0C3F09 0%,#1B5128 60%,#6CB769 100%);border-radius:20px;color:#FFFFFF}
+.n{font-weight:600;display:block;color:#1A1A1A}
+.person{display:flex;gap:12px;align-items:center;padding:14px 0;border-top:1px solid #EFEFEC}
+.step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:14px;background:#F7F7F5;border:1px solid #EFEFEC}
+.play{width:52px;height:52px;border-radius:50%;background:#1B5128;border:1px solid #2E6B3C;display:inline-flex;align-items:center;justify-content:center;color:#FFFFFF}
+.win{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;min-height:260px}
+.row{display:grid;grid-template-columns:90px minmax(0,1fr) 150px 140px 70px;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid #EFEFEC}
+.row a.t{font-weight:600;color:#1A1A1A;text-decoration:none}
+.post{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;padding:14px;background:#FFFFFF;border-radius:20px;border:1px solid #E6E6E2}
+.post .thumb{display:flex;align-items:flex-start;justify-content:space-between;padding:12px}
+.series{background:#E9F3EC;border:1px solid #E6E6E2;border-radius:20px;padding:32px}
+.paper{aspect-ratio:16/10;border-radius:12px;background:#F7F7F5;padding:14px 16px;display:flex;flex-direction:column;gap:6px;border:1px solid #EFEFEC}
+.paper .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.paper .top span{height:14px;width:54px;border-radius:999px}
+.paper b{display:block;height:10px;border-radius:3px;background:#1A1A1A;width:70%}
+.paper i{display:block;height:6px;border-radius:3px;background:#D9D9D5}
+.tpl{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;padding:14px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:auto;padding:12px 0 0;border-top:1px solid #EFEFEC}
+.facts span{display:flex;flex-direction:column;font-size:13px;font-weight:500}
+.facts small{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500}
+.door{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:#1A1A1A;padding:22px;border-radius:20px;background:#FFFFFF;border:1px solid #E6E6E2}
+.door:hover{border-color:#1A1A1A}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0;border:1px solid #E6E6E2;border-radius:20px;overflow:hidden;background:#FFFFFF}
+.ladder div{padding:22px;border-right:1px solid #EFEFEC;display:flex;flex-direction:column;gap:8px}
+.ladder div:last-child{border-right:0}
+.trend{display:flex;flex-direction:column;gap:6px}
+.trend svg{width:96px;height:28px}
+.stage{display:flex;flex-direction:column;gap:8px;padding:22px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;position:relative}
+.stage .num{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#2E6B3C}
+.feed{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid #EFEFEC}
+.feed:first-of-type{border-top:0}
+.jump{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.jump a{font-size:13px;color:#2E6B3C;text-decoration:none;padding:6px 12px;border-radius:999px;background:#FFFFFF;border:1px solid #E6E6E2}
+.gl{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid #EFEFEC;font-size:15px}
+.gl b{font-weight:600}
+.note{font-size:13px;color:#5C5C5A;background:#F2F2EF;border-radius:12px;padding:10px 14px}
+.later{border-style:dashed;background:#FBFBFA}
+.comments{border-top:1px solid #E6E6E2;padding:28px 0 0;display:flex;flex-direction:column;gap:12px}
+.comments input{width:100%;min-height:44px;border-radius:12px;border:1px solid #E6E6E2;padding:0 14px;font-family:inherit;font-size:14px;background:#FFFFFF}
+.owners{font-size:12px;color:#5C5C5A;display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-top:1px solid #EFEFEC}
+.pline{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:14px 0;border-bottom:1px solid #EFEFEC;text-decoration:none;color:#1A1A1A}
+.pline:last-child{border-bottom:0}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500;text-align:left;padding:10px 12px;border-bottom:1px solid #E6E6E2}
+.tbl td{padding:12px;border-bottom:1px solid #EFEFEC;vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+@media (max-width:760px){.wrap{padding:0 16px}.row{grid-template-columns:minmax(0,1fr)}.gl{grid-template-columns:minmax(0,1fr)}}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+<header style="background:#FFFFFF;border-top:4px solid #C4262E;border-bottom:1px solid #E6E6E2">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
+    <a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1A1A1A" aria-label="Home">
+      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">TL</span>
+      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:15px">ThinkLatent</span><span style="font-size:12px;color:#5C5C5A">Team site</span></span>
+    </a>
+    <nav class="nav" aria-label="Site" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
+      <a class="" href="Mandate.dc.html">Mandate</a><a class="on" href="Products.dc.html">Products<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Wins.dc.html">Our work<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Blog.dc.html">Stories<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Team.dc.html">Team</a>
+      <a class="pill go" href="Write.dc.html" style="margin-left:8px">Write for ThinkLatent</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="min-height:520px;display:flex;align-items:flex-end">
+  <div class="wrap" style="width:100%;padding-top:80px;padding-bottom:48px;display:flex;flex-direction:column;gap:18px">
+    <p class="cap">ThinkLatent Trust</p>
+    <h1 style="font-size:56px;line-height:1.04;font-weight:400;letter-spacing:-.03em;max-width:860px">How every ThinkLatent model earns its place.</h1>
+    <p style="font-size:18px;color:#3A3A38;max-width:680px">The five steps a ThinkLatent use case passes before it sits in front of a client, who signs each one, and what is watched afterwards. We show the controls, not the code. Policy itself lives with the Enterprise's AI governance owner, and we link to it rather than restate it.</p>
+    <nav class="jump" aria-label="On this page"><span class="meta">On this page:</span><a href="#lifecycle">The lifecycle</a><a href="#show">What we show and what we don't</a><a href="#status">Status by product</a><a href="#policy">Policy and who owns it</a><a href="#ask">Ask a governance question</a></nav>
+  </div>
+</section>
+<main class="wrap" style="display:flex;flex-direction:column;gap:64px;padding-top:64px;width:100%">
+  <section id="lifecycle" class="sec">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">The lifecycle</p><h2 class="h2">Five steps, five signatures</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">No ThinkLatent model reaches a client without all five. A use case that fails a step goes back, not forward.</p></div></div>
+    <ol style="list-style:none;margin:0;padding:0" class="grid g5"><li class="stage"><span class="num">Step 01</span><h3 style="font-size:20px">Intake</h3><p style="font-size:14px;color:#3A3A38">A team brings the problem through the form or the portal. ThinkLatent records the business, the data involved, who the model will face and what it must never do.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Signs: the ThinkLatent product lead and the partner team's owner<br>You see: the request, its owner and its status</p></li><li class="stage"><span class="num">Step 02</span><h3 style="font-size:20px">Risk review</h3><p style="font-size:14px;color:#3A3A38">The use case is classed by who it affects and what could go wrong. Anything client-facing or regulated gets Risk's eyes before a line of training starts.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Signs: [Risk and Compliance liaison]<br>You see: the class and the conditions</p></li><li class="stage"><span class="num">Step 03</span><h3 style="font-size:20px">TL Index evaluation</h3><p style="font-size:14px;color:#3A3A38">The model is scored on the index for the skills the use case needs, against the last release and a frontier baseline, with the worse results shown too.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Signs: the index lead<br>You see: the score, its interval and the run</p></li><li class="stage"><span class="num">Step 04</span><h3 style="font-size:20px">Human review</h3><p style="font-size:14px;color:#3A3A38">People who do the job today check the outputs against the standard they hold themselves to. Agents propose; people decide, and that stays true in production.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Signs: the partner team's reviewers<br>You see: the review's findings and what changed</p></li><li class="stage"><span class="num">Step 05</span><h3 style="font-size:20px">Monitoring</h3><p style="font-size:14px;color:#3A3A38">Every call is logged; drift, refusals and escalations are watched; a use case that slips below its target goes back a step. The gateway registers every usage.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Signs: AI Products, continuously<br>You see: the status on the use case record</p></li></ol>
+  </section>
+
+  <section id="show" class="grid g2" style="align-items:start">
+    <div class="panel" style="display:flex;flex-direction:column;gap:12px;padding:32px">
+      <span class="tag" style="align-self:flex-start">What we show</span>
+      <h2 style="font-size:26px;font-weight:400;letter-spacing:-.02em">The control, every time</h2>
+      <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;color:#3A3A38;font-size:15px"><li>Which step a use case is at, and who signed the last one</li><li>The index score, its interval and the run it came from</li><li>What the model must never do, in plain words, on its outcome card</li><li>Known limits and the worse results, not only the better ones</li><li>Who to ask, by name, for every product</li></ul>
+    </div>
+    <div class="panel" style="display:flex;flex-direction:column;gap:12px;padding:32px">
+      <span class="tag grey" style="align-self:flex-start">What we don't</span>
+      <h2 style="font-size:26px;font-weight:400;letter-spacing:-.02em">The code, the data, the architecture</h2>
+      <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;color:#3A3A38;font-size:15px"><li>How a model is built: that belongs in the engineering series and the portal, for the people who build</li><li>Which data a model was trained on, beyond "curated Enterprise data, never vendor data"</li><li>Client names, ever</li><li>Policy text: it is the Enterprise's, not ThinkLatent's, and it is linked below</li></ul>
+    </div>
+  </section>
+
+  <section id="status" class="sec">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">Status by product</p><h2 class="h2">Where each product stands today</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">A List web part with column formatting: the status is a glyph and a word, never a colour alone.</p></div></div>
+    <div class="panel" style="padding:8px 24px">
+      <table class="tbl">
+        <thead><tr><th>Product</th><th>Step reached</th><th>Last signed by</th><th>Index run</th><th>Monitoring</th><th>Ask</th></tr></thead>
+        <tbody>
+          <tr><td><b style="font-weight:600">TLM4 Core</b></td><td><span class="tag">● In production</span></td><td>[Name] · [DATE]</td><td>[N] · 0.[NN]</td><td>Live · gateway</td><td>[Name]</td></tr>
+          <tr><td><b style="font-weight:600">TLM4 Distil</b></td><td><span class="tag">● In production</span></td><td>[Name] · [DATE]</td><td>[N] · 0.[NN]</td><td>Live · gateway</td><td>[Name]</td></tr>
+          <tr><td><b style="font-weight:600">TLM4 Domain · Advice</b></td><td><span class="tag teal">◐ Human review</span></td><td>[Name] · [DATE]</td><td>[N] · 0.[NN]</td><td>Pilot</td><td>[Name]</td></tr>
+          <tr><td><b style="font-weight:600">TLM5</b></td><td><span class="tag grey">○ Intake</span></td><td>—</td><td>—</td><td>—</td><td>[Name]</td></tr>
+          <tr><td><b style="font-weight:600">ThinkLatent Portal</b></td><td><span class="tag grey">○ Risk review</span></td><td>[Name] · [DATE]</td><td>—</td><td>—</td><td>[Name]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="policy" class="grid g2" style="align-items:start">
+    <div style="display:flex;flex-direction:column;gap:14px"><p class="cap">Policy and who owns it</p><h2 class="h2" style="margin:0">ThinkLatent runs the controls. The Enterprise owns the policy.</h2><p style="font-size:17px;color:#3A3A38;max-width:560px">Model risk, data use and the approved-tools list are the Enterprise's, set by the AI governance owner and Risk. ThinkLatent Trust is how ThinkLatent meets them, step by step, and it changes when they do.</p></div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <a class="door" href="#"><span class="tag grey" style="align-self:flex-start">Governance owner</span><h3 style="font-size:19px">The Enterprise's AI policy ↗</h3><p class="meta">The rules every AI use at the Enterprise follows.</p></a>
+      <a class="door" href="#"><span class="tag grey" style="align-self:flex-start">Risk</span><h3 style="font-size:19px">Model risk management ↗</h3><p class="meta">How models are classed, validated and reviewed.</p></a>
+      <a class="door" href="#"><span class="tag grey" style="align-self:flex-start">Governance owner</span><h3 style="font-size:19px">Approved AI tools and training ↗</h3><p class="meta">What every team may use today, and how to learn it.</p></a>
+    </div>
+  </section>
+
+  <section class="grid g2" style="align-items:start">
+    <div id="ask" class="panel" style="display:flex;flex-direction:column;gap:14px;padding:28px;border-radius:4px"><p class="cap">Microsoft Forms web part</p><h3 style="font-size:22px">Ask a governance question</h3><p class="meta">Answered within five working days by the product's owner and, where it matters, Risk.</p><ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;color:#3A3A38"><li>Your team</li><li>The product or use case</li><li>The question, in your words</li><li>Whether it blocks something today</li></ol><a href="#ask" style="align-self:flex-start;background:#1B5128;color:#FFFFFF;padding:0 20px;min-height:44px;display:inline-flex;align-items:center;border-radius:4px;font-size:14px;font-weight:500;text-decoration:none">Open the form</a></div>
+    <div class="panel" style="display:flex;flex-direction:column;gap:12px;padding:28px"><p class="cap">Page owners</p><h3 style="font-size:20px">Two names, one review date</h3><p class="meta">This page is reviewed every quarter by the Head of AI Products and [Risk and Compliance liaison]. If a step changes, the change is dated here first.</p><p class="meta">Last reviewed: [DATE] · Next: [DATE + 1 quarter]</p></div>
+  </section>
+</main>
+<div class="wrap"><div class="comments"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><p class="cap">Comments · on, moderated by the editors</p><span class="meta">[N] comments</span></div><input placeholder="Add a comment, or ask the author a question" aria-label="Add a comment"></div></div><div class="wrap"><div class="owners"><span>Page owners: Head of AI Products · [Risk and Compliance liaison]</span><span>Review by: [DATE + 1 quarter]</span><span>Last reviewed: [DATE]</span></div></div>
+<footer style="background:#ECECEA;border-top:1px solid #E6E6E2;margin-top:80px">
+  <div class="wrap" style="padding-top:48px;padding-bottom:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px">
+    <div style="display:flex;flex-direction:column;gap:12px;min-width:240px"><p style="font-weight:600">ThinkLatent</p><p class="meta">The Enterprise's own intelligence, compounding. Internal to the Enterprise.</p><div style="display:flex;flex-wrap:wrap;gap:8px"><a class="pill sm" href="#">Follow this site</a><a class="pill sm" href="#">ThinkLatent on Viva Engage</a></div></div>
+    <div><p class="cap">Site</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="Mandate.dc.html" style="color:#3A3A38;text-decoration:none">Mandate</a></li><li><a href="Products.dc.html" style="color:#3A3A38;text-decoration:none">Products</a></li><li><a href="Wins.dc.html" style="color:#3A3A38;text-decoration:none">Our work</a></li><li><a href="Blog.dc.html" style="color:#3A3A38;text-decoration:none">Stories</a></li><li><a href="Team.dc.html" style="color:#3A3A38;text-decoration:none">Team</a></li><li><a href="Glossary.dc.html" style="color:#3A3A38;text-decoration:none">Glossary</a></li><li><a href="Glance.dc.html" style="color:#3A3A38;text-decoration:none">ThinkLatent at a glance</a></li></ul></div>
+    <div><p class="cap">Products</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="Products.dc.html" style="color:#3A3A38;text-decoration:none">TLM</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">ThinkLatent Portal ↗</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">TL Index ↗</a></li><li><a href="TLTrust.dc.html" style="color:#3A3A38;text-decoration:none">ThinkLatent Trust</a></li></ul></div>
+    <div><p class="cap">Elsewhere</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="(source link withheld)" style="color:#3A3A38;text-decoration:none">The university lab ↗</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">[Enterprise recognition portal] ↗</a></li><li><a href="Write.dc.html" style="color:#3A3A38;text-decoration:none">Write for ThinkLatent</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">Contact the editors</a></li></ul></div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

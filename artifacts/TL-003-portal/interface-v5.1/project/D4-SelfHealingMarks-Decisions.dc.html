@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Self-healing decisions and escalations</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1700px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-current="page" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Data · Self-healing marks · Decisions and escalations · last 30 days · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Who decided, how fast, and what went to the data lead</h1></div>
+      <div class="kit-actions"><a class="kit-btn" href="Home-FoundationDev.dc.html">Open the data lead's Home</a><a class="kit-btn outline" href="D4-SelfHealingMarks.dc.html">Marks</a><a class="kit-btn outline" href="D5-DatasetVersions.dc.html">Data-set versions</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="D4-SelfHealingMarks.dc.html">Marks</a><a href="D4-SelfHealingMarks-Decisions.dc.html" aria-current="page">Decisions and escalations</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span></div>
+        <div class="kit-tile-title">Median days to a decision</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">4<span class="unit">days</span></div><div class="kit-tile-cap">13 marks decided in 30 days · the rule is 14</div></div><div class="kit-bars"><i style="height: 60%"></i><i class="lit" style="height: 100%"></i><i style="height: 30%"></i><i style="height: 30%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span></div>
+        <div class="kit-tile-title">Decided within 14 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">92<span class="unit">%</span></div><div class="kit-tile-cap">12 of 13 · the other one went to the data lead first</div></div><div class="kit-track" style="width: 90px"><i style="width: 92%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg></span></div>
+        <div class="kit-tile-title">Escalations in 90 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3</div><div class="kit-tile-cap">2 still open on the data lead's Home, 20 days old · 1 decided the day after it was raised</div></div><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>2 open</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path></svg></span></div>
+        <div class="kit-tile-title">Rows decided this month</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">8 618</div><div class="kit-tile-cap">8 212 confirmed · 406 overruled with a reason</div></div><div class="kit-track" style="width: 90px"><i style="width: 95%"></i></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Decisions by data set</h2><div class="sub">Confirmed, pending and overruled marks in the last 30 days, with the oldest open mark and how long decisions take.</div></div></div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Data set</th><th class="num">Confirmed rows</th><th class="num">Pending rows</th><th class="num">Overruled rows</th><th>Oldest open mark</th><th class="num">Median days to decide</th><th>Last decision</th></tr></thead>
+        <tbody>
+          <tr><td><a href="D5-DatasetVersions.dc.html">advisor-notes-v4</a></td><td class="num">5 120</td><td class="num">2 452</td><td class="num">310</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>20 days · escalated</span></span></td><td class="num">5</td><td>Priya N. · 3 Nov</td></tr>
+          <tr><td><a href="D5-DatasetVersions.dc.html">claims-notes-v2</a></td><td class="num">2 604</td><td class="num">755</td><td class="num">0</td><td>2 days</td><td class="num">7</td><td>Marcus L. · 1 Nov</td></tr>
+          <tr><td><a href="D5-DatasetVersions.dc.html">fund-docs-v1</a></td><td class="num">488</td><td class="num">180</td><td class="num">96</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>13 days · escalates tomorrow</span></span></td><td class="num">3</td><td>Priya N. · 29 Oct</td></tr>
+          <tr><td><a href="D5-DatasetVersions.dc.html">policy-corpus-v1</a></td><td class="num">0</td><td class="num">25</td><td class="num">0</td><td>7 days</td><td class="num"><span class="kit-dash" title="no mark on this data set has been decided yet">—</span></td><td><span class="kit-muted">none yet</span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-label" style="margin-top: 16px">Days to a decision · 13 marks decided in 30 days</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px; max-width: 640px">
+        <div><div style="display: flex; justify-content: space-between" class="kit-small"><span>0 to 2 days</span><span class="kit-num">4</span></div><div class="kit-track" style="margin-top: 4px"><i style="width: 31%"></i></div></div>
+        <div><div style="display: flex; justify-content: space-between" class="kit-small"><span>3 to 6 days</span><span class="kit-num">5</span></div><div class="kit-track" style="margin-top: 4px"><i style="width: 38%"></i></div></div>
+        <div><div style="display: flex; justify-content: space-between" class="kit-small"><span>7 to 13 days</span><span class="kit-num">3</span></div><div class="kit-track" style="margin-top: 4px"><i style="width: 23%"></i></div></div>
+        <div><div style="display: flex; justify-content: space-between" class="kit-small"><span>14 days or more · raised to the data lead first</span><span class="kit-num">1</span></div><div class="kit-track" style="margin-top: 4px"><i class="warn" style="width: 8%"></i></div></div>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">Overruled marks are kept with their reason; the scorer uses them as counter-examples on its next run.</div>
+      <div class="kit-source">Source: self-healing mark log, 6 Oct to 5 Nov 2026 · days counted from the night a group was first marked to the decision · as of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Escalations to the data lead · 90 days</h2><div class="sub">A mark with no decision for 14 days is raised on the data lead's Home with its owner named. The owner still decides; the data lead makes sure someone does.</div></div><a class="kit-btn sm outline" href="Home-FoundationDev.dc.html">Data lead's Home</a></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 230px 200px">
+          <div><div class="t">advisor-notes-v4 · 1 840 rows · Generate</div><div class="s">Owner Priya N. · first marked 16 Oct · raised 30 Oct 02:20 on Marcus L.'s Home (data lead) · 20 days without a decision; the rows still count as eligible</div></div>
+          <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Open · 6 days with the data lead</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="D4-SelfHealingMarks.dc.html">Decide on Marks</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 230px 200px">
+          <div><div class="t">advisor-notes-v4 · 612 rows · Decide</div><div class="s">Owner Priya N. · first marked 16 Oct · raised 30 Oct 02:20 on Marcus L.'s Home (data lead) · 20 days without a decision</div></div>
+          <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Open · 6 days with the data lead</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="D4-SelfHealingMarks.dc.html">Decide on Marks</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 230px 200px">
+          <div><div class="t">fund-docs-v1 · 96 rows · Extract</div><div class="s">Owner Priya N. · first marked 1 Oct · raised 15 Oct 02:20 · overruled by Priya N. 16 Oct: "text-native pages with a scanned cover; the cover is dropped at load"</div></div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Decided the day after</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="D5-DatasetVersions.dc.html">Data set</a></div>
+        </div>
+      </div>
+      <div class="kit-source">Source: escalation log and self-healing mark log, 7 Aug to 5 Nov 2026 · the 14-day rule runs nightly at 02:20 ET with the scorer · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

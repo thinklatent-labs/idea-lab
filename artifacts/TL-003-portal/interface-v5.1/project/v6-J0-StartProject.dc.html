@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Start a project · flow (v6 pilot)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3500px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+
+    <!-- Orient -->
+    <div class="kit-page-head">
+      <div>
+        <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="J1-Projects.dc.html">Projects</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Start a project</span></nav>
+        <h1 style="margin-top: 8px">Start a project</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px">
+          <span class="kit-chip brand">Step 2 of 4</span>
+          <span class="kit-chip">Draft</span>
+          <span class="kit-chip outline">From request R-0418<button class="kit-tip below" type="button" aria-label="About request R-0418">i<span class="kit-tip-bubble" role="tooltip"><b>Request R-0418.</b> “Reconcile custodian break reports”, sent from the ThinkLatent site’s Bring us a problem on 29 Oct. The project keeps the request’s place in the intake queue.<span class="src">Source: intake queue · as of 11:58 ET</span></span></button></span>
+          <span class="kit-chip env">Non-production until Pilot</span>
+        </div>
+        <div class="kit-muted" style="margin-top: 10px">Four steps, about 15 minutes. The Onboarding agent drafts; you check every answer.</div>
+        <div class="kit-asof" style="margin-top: 6px">As of Thu 5 Nov 2026, 11:58 ET · Marcus L. · Institutional Ops</div>
+      </div>
+      <div class="kit-actions"><button class="kit-btn outline" type="button">Save draft</button></div>
+    </div>
+
+    <!-- Flow: stepper on the left, live summary on the right -->
+    <div class="kit-flow">
+      <ol class="kit-stepper" aria-label="Steps to start a project">
+
+        <!-- Step 1 · done -->
+        <li class="done">
+          <span class="mk"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg></span>
+          <div>
+            <div class="st">
+              <div style="min-width: 0">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><h3>The job and your data</h3><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></div>
+                <div class="sum" style="margin-top: 2px">Summarise and route custodian breaks by 08:30 ET<button class="kit-tip" type="button" aria-label="About the job to be done">i<span class="kit-tip-bubble" role="tooltip"><b>Job to be done.</b> Each morning, read the overnight custodian break reports, pull out the break id, custodian, amount, currency and age, write a one-line likely cause, and route each break to the right operations queue before the 08:30 ET stand-up. Labels: reconciliation, custodian, breaks, operations.</span></button> · Institutional Ops, Confidential<button class="kit-tip" type="button" aria-label="About your data">i<span class="kit-tip-bubble" role="tooltip"><b>Data boundary.</b> Institutional Ops custody and reconciliation data, the boundary UC-0142 Claims triage uses, which you confirmed covers custodian statements; prompts, logs, data sets and training stay inside it. Sensitivity: Confidential, account references and no personal data.<span class="src">Source: data registry · as of 11:58 ET</span></span></button> · 1,800 a day<button class="kit-tip" type="button" aria-label="About volume and the drafted answers">i<span class="kit-tip-bubble" role="tooltip"><b>Volume.</b> About 1,800 breaks a day, 400 an hour at the 07:00 ET peak, all summarised in batch by 08:30 ET. The Onboarding agent drafted 5 of 8 answers at 84% confidence from R-0418’s text, its 30 days of break counts and the UC-0142 record; Edit reopens them with Accept all drafts and Clear drafts.<span class="src">Source: Onboarding agent drafts over request R-0418 and the record · 11:51 ET</span></span></button></div>
+              </div>
+              <button class="kit-btn sm outline" type="button" aria-label="Edit step 1: the job and your data">Edit</button>
+            </div>
+          </div>
+        </li>
+
+        <!-- Step 2 · current, open -->
+        <li class="current" aria-current="step">
+          <span class="mk">2</span>
+          <div>
+            <div class="st">
+              <div style="min-width: 0">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><h3>Model and hosting</h3><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>In progress</span></span></div>
+                <div class="sum" style="margin-top: 2px">Agents propose, you decide: check 2 drafts and 2 possible duplicates.</div>
+              </div>
+            </div>
+            <div class="body" style="display: flex; flex-direction: column; gap: 16px">
+
+              <!-- 2a · Recommended model -->
+              <section class="kit-surface" id="sec-model" aria-labelledby="h-model">
+                <div class="kit-surface-head">
+                  <div><h4 id="h-model" style="margin: 0; font-size: 15px; font-weight: 500">Recommended model</h4><div class="sub">The smallest model that clears every live bar this job needs.</div></div>
+                </div>
+
+                <div class="kit-surface raised" style="padding: 14px 16px; margin-top: 14px">
+                  <div class="kit-agentline"><span class="kit-agent"><span class="av">OB</span><span>Onboarding agent</span></span><span>· 81% confidence</span><span>· 11:53</span><span class="kit-chip outline" style="height: 20px">Drafted · check</span></div>
+                  <div style="margin-top: 8px; font-size: 16px">Use <a href="v6-M2-ModelPage.dc.html">TLM4 Distil 4.2</a>: it clears all 5 live bars at the lowest monthly cost.</div>
+                  <div class="kit-agentline" style="margin-top: 6px"><span>Basis: Official TL Index runs 1181 and 1180 · your volume from step 1 · vendor price by Finance method v1.2</span><a href="v6-E1-EvaluationResults.dc.html">View sources</a></div>
+                  <div class="kit-actions" style="margin-top: 12px"><button class="kit-btn sm outline" type="button">Accept</button><button class="kit-btn sm ghost" type="button">Edit</button><a class="kit-btn sm ghost" href="E2-Index.dc.html">Compare on the Index</a></div>
+                </div>
+
+                <div class="kit-rows" style="margin-top: 12px" aria-label="Monthly cost in production against the vendor path">
+                  <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 180px 160px; border-color: rgba(108,183,105,.7); box-shadow: 0 0 0 1px rgba(108,183,105,.5)">
+                    <span class="t">TLM4 Distil 4.2</span>
+                    <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>5 of 5 live bars · smallest</span></span>
+                    <div style="display: flex; align-items: center; gap: 8px"><div class="kit-track" style="flex: 1"><i style="width: 29%"></i></div><span class="kit-num" style="white-space: nowrap"><b style="font-weight: 600">$1.2k</b> a month</span></div>
+                    <div class="end"><span class="kit-chip brand">Recommended</span></div>
+                  </div>
+                  <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 180px 160px">
+                    <span class="t">TLM4 Core 4.2</span>
+                    <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>5 of 5 live bars · larger than needed</span></span>
+                    <div style="display: flex; align-items: center; gap: 8px"><div class="kit-track" style="flex: 1"><i style="width: 100%"></i></div><span class="kit-num" style="white-space: nowrap">$3.9k a month</span></div>
+                    <div class="end"><button class="kit-btn sm outline" type="button">Use Core 4.2 instead</button></div>
+                  </div>
+                  <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 180px 160px">
+                    <span class="t">Vendor path<button class="kit-tip" type="button" aria-label="About the vendor path">i<span class="kit-tip-bubble" role="tooltip"><b>Vendor path.</b> The reconciliation vendor’s built-in assistant, trial ends 31 Dec, plus team spreadsheet macros, priced at list by Finance method v1.2. Vendor models are not on the TL Index, so trial results stay Practice; if the vendor route stays, it is registered.<span class="src">Source: your step 1 answer · Finance method v1.2</span></span></button></span>
+                    <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not on the Index · Practice, not citable</span></span>
+                    <div style="display: flex; align-items: center; gap: 8px"><div class="kit-track" style="flex: 1"><i style="width: 95%"></i></div><span class="kit-num" style="white-space: nowrap">$3.7k a month</span></div>
+                    <div class="end"><span class="kit-chip outline">For comparison</span></div>
+                  </div>
+                </div>
+                <div class="kit-small kit-muted" style="margin-top: 8px">Estimates. During POC you pay per token on the shared endpoint: about $75 a month at your volume.<button class="kit-tip" type="button" aria-label="About the monthly cost in production">i<span class="kit-tip-bubble" role="tooltip"><b>Monthly cost in production.</b> The dedicated machines’ fixed monthly share for 1,800 breaks a day at about 3,200 tokens each. During POC you pay per token at the shared rate instead.<span class="src">Source: gateway rate card and dedicated-share schedule · as of 11:58 ET</span></span></button></div>
+
+                <table style="margin-top: 16px" aria-label="Index pillars this job needs">
+                  <thead><tr><th>Pillar</th><th>Why it matters here</th><th class="num">Bar<button class="kit-tip" type="button" aria-label="About the bar">i<span class="kit-tip-bubble" role="tooltip"><b>Bar.</b> The score this job needs on a pillar. A bar is cleared when the lower end of the model’s interval is at or above it.<span class="src">Source: TL Index · 95% intervals, judge version pinned</span></span></button></th><th class="num">Distil 4.2</th><th class="num">Core 4.2</th></tr></thead>
+                  <tbody>
+                    <tr><td colspan="5" class="kit-label" style="padding-top: 14px">This job’s pillars</td></tr>
+                    <tr><td>1 · Financial data processing</td><td class="kit-small">Amounts, currencies and ages copied exactly</td><td class="num">78%</td><td class="num"><span class="kit-interval">82% <span class="pm">± 3</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td><td class="num"><span class="kit-interval">84% <span class="pm">± 3</span></span></td></tr>
+                    <tr><td>7 · Entity recognition</td><td class="kit-small">Break id, custodian and counterparty names</td><td class="num">80%</td><td class="num"><span class="kit-interval">85% <span class="pm">± 3</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td><td class="num"><span class="kit-interval">86% <span class="pm">± 2</span></span></td></tr>
+                    <tr><td>11 · Document understanding</td><td class="kit-small">Custodian report layouts</td><td class="num"><span class="kit-dash" title="Phase 2: pillar not live in the MVP">—</span></td><td class="num" colspan="2"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Phase 2 · not live yet</span></span></td></tr>
+                    <tr><td>15 · Summarization</td><td class="kit-small">The one-line likely cause</td><td class="num"><span class="kit-dash" title="Phase 2: pillar not live in the MVP">—</span></td><td class="num" colspan="2"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Phase 2 · not live yet</span></span></td></tr>
+                    <tr><td colspan="5" class="kit-label" style="padding-top: 14px">Regression gate · held by every use case</td></tr>
+                    <tr><td>6 · Safety and grounding</td><td class="kit-small">No cause the report does not support</td><td class="num">85%</td><td class="num"><span class="kit-interval">88% <span class="pm">± 2</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td><td class="num"><span class="kit-interval">89% <span class="pm">± 2</span></span></td></tr>
+                    <tr><td>4 · Compliance and regulatory</td><td class="kit-small">Books-and-records wording, no trade advice</td><td class="num">76%</td><td class="num"><span class="kit-interval">81% <span class="pm">± 3</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td><td class="num"><span class="kit-interval">84% <span class="pm">± 3</span></span></td></tr>
+                    <tr><td>3 · Client care</td><td class="kit-small">Low exposure: internal readers only</td><td class="num">72%</td><td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared</span></span></td><td class="num"><span class="kit-interval">82% <span class="pm">± 3</span></span></td></tr>
+                  </tbody>
+                </table>
+                <div class="kit-small kit-muted" style="margin-top: 8px">Until Phase 2 pillars go live, your own requirements in step 3 cover them.</div>
+                <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Scores from Official TL Index runs 1181 (Distil 4.2) and 1180 (Core 4.2), 95% intervals, judge version pinned. Costs from the gateway rate card and dedicated-share schedule; vendor path at list price by Finance method v1.2. Non-production estimate.</span></button></div>
+              </section>
+
+              <!-- 2b · Hosting tier -->
+              <section class="kit-surface" id="sec-hosting" aria-labelledby="h-hosting">
+                <div class="kit-surface-head">
+                  <div><h4 id="h-hosting" style="margin: 0; font-size: 15px; font-weight: 500">Hosting tier</h4><div class="sub">Production runs only on a dedicated endpoint; shared pools never serve it.</div></div>
+                  <span class="kit-chip outline">Targets, set at onboarding</span>
+                </div>
+                <div class="kit-rows" style="margin-top: 12px">
+                  <div class="kit-radio"><input type="radio" id="tier-sandbox" name="tier" value="sandbox" disabled><div style="flex: 1; min-width: 0"><label for="tier-sandbox"><b style="font-weight: 500">Sandbox</b> · best effort, no service level · $500 a month, 60 requests per minute</label><button class="kit-tip" type="button" aria-label="About the sandbox tier">i<span class="kit-tip-bubble" role="tooltip"><b>Sandbox.</b> Included today under the standing sandbox approval, on the shared pool. It takes sandbox data only.</span></button></div><span class="kit-chip">Always on</span></div>
+                  <div class="kit-radio on"><input type="radio" id="tier-shared" name="tier" value="shared" checked><div style="flex: 1; min-width: 0"><label for="tier-shared"><b style="font-weight: 500">Shared non-production endpoint</b> · 99.50% availability · per token</label><button class="kit-tip" type="button" aria-label="About the shared non-production endpoint">i<span class="kit-tip-bubble" role="tooltip"><b>Shared non-production endpoint.</b> For POC, build and pilot, at the shared per-token rate. The same pool also runs sandbox and training, never production.</span></button><div style="margin-top: 4px"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Your 08:30 ET batch target is tracked, not guaranteed</span></span></div></div><span class="kit-chip brand">For POC</span></div>
+                  <div class="kit-radio"><input type="radio" id="tier-dedicated" name="tier" value="dedicated" aria-describedby="tier-ded-why"><div style="flex: 1; min-width: 0"><label for="tier-dedicated"><b style="font-weight: 500">Dedicated production endpoint</b> · 99.90% availability and your own latency target</label><button class="kit-tip" type="button" aria-label="About the dedicated production endpoint">i<span class="kit-tip-bubble" role="tooltip"><b>Dedicated production endpoint.</b> Required for production: a fixed monthly share of the machines for your volume. Its latency target is your own, set at onboarding.</span></button><div class="kit-small kit-muted" id="tier-ded-why" style="margin-top: 4px">Requested at the production gate, after the security and data-handling review</div></div><span class="kit-chip outline">At production</span></div>
+                </div>
+                <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Service levels from the hosting tier schedule (targets, set at onboarding); isolation rule from the serving policy.</span></button></div>
+              </section>
+
+              <!-- 2c · Similar use cases and agents, and where to start -->
+              <section class="kit-surface" id="sec-similar" aria-labelledby="h-similar">
+                <div class="kit-surface-head">
+                  <div><h4 id="h-similar" style="margin: 0; font-size: 15px; font-weight: 500">Similar use cases and agents</h4><div class="sub">If one already does the job, joining it is faster than starting again.</div></div>
+                  <a class="kit-btn sm outline" href="A1-AgentLibrary.dc.html">Agent library</a>
+                </div>
+                <div class="kit-agentline" style="margin-top: 12px"><span class="kit-agent"><span class="av">OB</span><span>Onboarding agent</span></span><span>· flagged 2 possible duplicates and 2 to reuse</span><span>· Basis: job, data boundary, labels and routing vs 12 use cases and 5 agents</span><a href="J1-Projects-Portfolio.dc.html">View sources</a></div>
+                <div class="kit-rows" style="margin-top: 10px">
+                  <div class="kit-row" style="grid-template-columns: 60px minmax(0, 1fr) auto">
+                    <div><span class="kit-display" style="font-size: 22px">71<span style="font-size: 12px; opacity: .6">%</span></span><div class="kit-small kit-muted">overlap</div></div>
+                    <div style="min-width: 0">
+                      <div><span class="t">UC-0142 Claims triage</span><button class="kit-tip" type="button" aria-label="About UC-0142 Claims triage">i<span class="kit-tip-bubble" role="tooltip"><b>Why it matches.</b> Same routing pattern: an exception in, a queue and a reason out, and you own it too. It is below its quality bar, so copy the pattern, not the adapter.</span></button></div>
+                      <div class="s" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 2px"><span>Institutional Ops · Production</span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below its bar</span></span><span class="kit-interval">76% <span class="pm">± 4</span></span></div>
+                    </div>
+                    <div class="end"><button class="kit-btn sm outline" type="button">Add as a use case there</button><button class="kit-btn sm outline" type="button">Not a duplicate</button></div>
+                  </div>
+                  <div class="kit-row" style="grid-template-columns: 60px minmax(0, 1fr) auto">
+                    <div><span class="kit-display" style="font-size: 22px">66<span style="font-size: 12px; opacity: .6">%</span></span><div class="kit-small kit-muted">overlap</div></div>
+                    <div style="min-width: 0">
+                      <div><span class="t">Triage agent v3.1</span><button class="kit-tip" type="button" aria-label="About Triage agent v3.1">i<span class="kit-tip-bubble" role="tooltip"><b>Why it matches.</b> Routes incoming claims and requests to a queue with a reason. It is the starting point drafted below.</span></button></div>
+                      <div class="s" style="margin-top: 2px">Agent library · used by 3 use cases</div>
+                    </div>
+                    <div class="end"><span class="kit-chip brand">Starting from this</span></div>
+                  </div>
+                  <div class="kit-row" style="grid-template-columns: 60px minmax(0, 1fr) auto">
+                    <div><span class="kit-display" style="font-size: 22px">58<span style="font-size: 12px; opacity: .6">%</span></span><div class="kit-small kit-muted">overlap</div></div>
+                    <div style="min-width: 0">
+                      <div><span class="t">UC-0203 KYC document extraction</span><button class="kit-tip" type="button" aria-label="About UC-0203 KYC document extraction">i<span class="kit-tip-bubble" role="tooltip"><b>Why it matches.</b> Pulls fields from custodian documents. Its eval items for amounts and currencies could join your eval set.</span></button></div>
+                      <div class="s" style="margin-top: 2px">Institutional Ops · Production</div>
+                    </div>
+                    <div class="end"><button class="kit-btn sm outline" type="button">Reuse its eval items</button><button class="kit-btn sm outline" type="button">Not a duplicate</button></div>
+                  </div>
+                  <div class="kit-row" style="grid-template-columns: 60px minmax(0, 1fr) auto">
+                    <div><span class="kit-display" style="font-size: 22px">54<span style="font-size: 12px; opacity: .6">%</span></span><div class="kit-small kit-muted">overlap</div></div>
+                    <div style="min-width: 0">
+                      <div><span class="t">Document extraction agent v1.8</span><button class="kit-tip" type="button" aria-label="About Document extraction agent v1.8">i<span class="kit-tip-bubble" role="tooltip"><b>Why it matches.</b> Pulls structured fields from forms and statements into a schema. It could run before the triage step.</span></button></div>
+                      <div class="s" style="margin-top: 2px">Agent library</div>
+                    </div>
+                    <div class="end"><button class="kit-btn sm outline" type="button">Add as a step</button><button class="kit-btn sm outline" type="button">Not needed</button></div>
+                  </div>
+                </div>
+
+                <div class="kit-divider"></div>
+                <h5 style="margin: 0; font-size: 14px; font-weight: 500">How do you want to start?</h5>
+                <div class="kit-grid2" style="margin-top: 8px">
+                  <div class="kit-radio"><input type="radio" id="st-fresh" name="start" value="fresh"><div><label for="st-fresh" style="font-weight: 500">Start fresh</label><div class="kit-small kit-muted">Empty routing, no eval set; keeps the model above.</div></div></div>
+                  <div class="kit-radio on"><input type="radio" id="st-existing" name="start" value="existing" checked><div><label for="st-existing" style="font-weight: 500">Start from an existing use case or agent</label><div class="kit-small kit-muted">Copies routing, eval set, budget and approval template.</div></div></div>
+                </div>
+                <div class="kit-surface raised" style="padding: 14px 16px; margin-top: 10px">
+                  <div class="kit-agentline"><span class="kit-agent"><span class="av">OB</span><span>Onboarding agent</span></span><span>· 82% confidence<button class="kit-tip" type="button" aria-label="About this confidence">i<span class="kit-tip-bubble" role="tooltip"><b>Confidence.</b> How often this check agreed with reviewers: 82% of 60 past intakes.</span></button></span><span>· Basis: closest routing pattern above; UC-0142 is below its bar</span><span class="kit-chip outline" style="height: 20px">Drafted · check</span></div>
+                  <div style="display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; margin-top: 10px">
+                    <div class="kit-field" style="width: 360px"><label for="st-from">Start from</label><select class="kit-input" id="st-from"><option selected>Triage agent v3.1 · agent library</option><option>UC-0142 Claims triage · Institutional Ops</option><option>UC-0203 KYC document extraction · Institutional Ops</option><option>Document extraction agent v1.8 · agent library</option></select></div>
+                    <div class="kit-actions" style="padding-bottom: 5px"><button class="kit-btn sm outline" type="button">Accept</button><button class="kit-btn sm ghost" type="button">Edit</button></div>
+                  </div>
+                  <div class="kit-label" style="margin-top: 14px">Copied · you can change any of it</div>
+                  <dl class="kit-kv" style="margin: 8px 0 0">
+                    <dt>Routing</dt><dd>prod alias → Triage agent v3.1 on TLM4 Distil 4.2 · copied as your own aliases</dd>
+                    <dt>Eval set</dt><dd>triage-eval v5 as a starting set · 400 items · you add your own breaks in step 3</dd>
+                    <dt>Budget</dt><dd>POC template: $3k a month ceiling · sandbox $500 · 60 requests per minute</dd>
+                    <dt>Approval template</dt><dd>Ops triage · expected risk tier 2 · owner, data owner, then Head of ThinkLatent at Production</dd>
+                  </dl>
+                </div>
+                <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Overlap scored by the Onboarding agent on job text, data boundary, labels and routing pattern against 12 registered use cases and 5 library agents; 82% agreement with reviewers on 60 past intakes.</span></button></div>
+              </section>
+
+            </div>
+          </div>
+        </li>
+
+        <!-- Step 3 · to do -->
+        <li class="todo">
+          <span class="mk">3</span>
+          <div>
+            <div class="st">
+              <div style="min-width: 0">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><h3>What good looks like</h3><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>To do</span></span></div>
+                <div class="sum" style="margin-top: 2px">Asks for a <a href="J9-Record-Requirements.dc.html">rubric</a><button class="kit-tip" type="button" aria-label="About the rubric">i<span class="kit-tip-bubble" role="tooltip"><b>Rubric.</b> Fields extracted exactly, character for character, 40%; cause grounded in the report in one line, or “cause unclear”, 30%; routed to the queue the routing table gives, 30%. A judge calibrated on 120 breaks you grade before Active build scores each 1 to 5, reported as a percent and shown as Practice until then.<span class="src">Source: requirements v1, drafted by the Onboarding agent at 78% confidence from your job and UC-0203’s requirements</span></span></button>, musts and must-nots<button class="kit-tip" type="button" aria-label="About musts and must-nots">i<span class="kit-tip-bubble" role="tooltip"><b>Musts and must-nots.</b> Must quote the break id and custodian, and keep amount and currency exactly as written. Must not propose a cash movement, trade or write-off, show a full account number (last four digits only), or route a break over $1M without the senior-review flag; check that amount, taken from your routing table on R-0418.</span></button> and thresholds<button class="kit-tip" type="button" aria-label="About thresholds">i<span class="kit-tip-bubble" role="tooltip"><b>Thresholds.</b> Target, then Warning and Critical: rubric 85%, 82%, 80% as a daily mean; fields exact 97%, 95%, 93% on every request; right queue 92%, 90%, 88% daily against the queue your team kept; must-not violations 0, then 1 per 1,000, then any $1M break without the flag. Warning opens a finding, Critical blocks the next phase request until it clears, and a production violation pages the owner.</span></button>; gives the <a href="D4-SelfHealingMarks.dc.html">scorer</a><button class="kit-tip" type="button" aria-label="About the scorer">i<span class="kit-tip-bubble" role="tooltip"><b>Scorer.</b> Checks every request in sandbox, POC and production, by rule for fields, account numbers and the $1M flag and by the judge for the rest; failures become self-healing marks, never edits to past answers. It reads requirements v1 from the record; a later change is a dated row there and applies from the next request.<span class="src">Source: scorer configuration generated from requirements v1; judge calibration rule from the evaluation method</span></span></button> that checks every request.</div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Step 4 · to do -->
+        <li class="todo">
+          <span class="mk">4</span>
+          <div>
+            <div class="st">
+              <div style="min-width: 0">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><h3>Your POC record and sandbox key</h3><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>To do</span></span></div>
+                <div class="sum" style="margin-top: 2px">Gives your POC record<button class="kit-tip" type="button" aria-label="About the POC record">i<span class="kit-tip-bubble" role="tooltip"><b>POC record.</b> Saved as UC-0323 Custodian break summaries, owned by Marcus L., with requirements v1 and TLM4 Distil 4.2; the risk tier is set at the intake review. Production keys come later, from the record, after the security and data-handling review.</span></button> and a sandbox key<button class="kit-tip" type="button" aria-label="About the sandbox key">i<span class="kit-tip-bubble" role="tooltip"><b>Sandbox key.</b> Issued at once under standing approval SA-07; shown once, it expires 90 days after its last call and rotates on Keys and usage. Six fixed tags (project, use_case, env, business_line, cost_centre CC-4471, owner) count each call against UC-0323, show it to the scorer, keep it out of production views and bill it; a call that overrides one is logged as untagged and gets a warning header after 14 days.<span class="src">Source: key and tags issued under standing sandbox approval SA-07 at save</span></span></button> at once, with a ready snippet<button class="kit-tip" type="button" aria-label="About the snippet">i<span class="kit-tip-bubble" role="tooltip"><b>Relay snippet.</b> Python or curl, generated from the record’s routing (prod alias, Triage agent v3.1 on Distil 4.2, template break-summary/v1), with Copy, Open in the playground and Relay docs. Use synthetic or masked break reports; the first successful call shows on your project home with its tags and a link to its trace.<span class="src">Source: snippet generated from the record’s routing, not typed</span></span></button> for your first call · <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Sandbox data only</span></span></div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <!-- Live summary -->
+      <aside class="kit-summary" aria-labelledby="sum-title">
+        <div class="kit-surface" style="padding: 20px; display: flex; flex-direction: column; gap: 16px">
+          <div>
+            <div class="kit-label">What you get so far</div>
+            <h2 id="sum-title" style="margin-top: 6px">Custodian break summaries</h2>
+            <div class="kit-small kit-muted" style="margin-top: 2px">POC record on save · owner Marcus L.</div>
+          </div>
+          <dl class="kit-kv" style="grid-template-columns: minmax(0, 1fr); gap: 14px; margin: 0">
+            <div>
+              <dt>Model<button class="kit-tip" type="button" aria-label="About the model">i<span class="kit-tip-bubble" role="tooltip"><b>Model.</b> The smallest model that clears the bar on every live TL Index pillar this job needs, plus the regression gate pillars every use case holds. You can choose a larger one; its monthly cost shows beside the vendor path.</span></button></dt>
+              <dd style="margin-top: 4px"><div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><a href="v6-M2-ModelPage.dc.html" style="font-size: 16px; font-weight: 500">TLM4 Distil 4.2</a><span class="kit-chip outline" style="height: 20px">Drafted · check</span></div><div class="kit-small kit-muted">Clears 5 of 5 live bars · via Triage agent v3.1</div></dd>
+            </div>
+            <div>
+              <dt>Cost per month<button class="kit-tip" type="button" aria-label="About cost per month">i<span class="kit-tip-bubble" role="tooltip"><b>Cost per month.</b> Production is the dedicated machines’ fixed share for your volume; the vendor path is at list price by Finance method v1.2. Both are non-production estimates.<span class="src">Source: gateway rate card and dedicated-share schedule · as of 11:58 ET</span></span></button></dt>
+              <dd style="margin-top: 4px">
+                <div style="display: flex; align-items: baseline; gap: 6px"><span class="kit-display" style="font-size: 32px">$1.2k</span><span class="kit-small kit-muted">in production · estimate</span></div>
+                <div style="display: grid; grid-template-columns: 80px minmax(0, 1fr) 40px; gap: 6px 8px; align-items: center; margin-top: 8px; font-size: 12px">
+                  <span>Distil 4.2</span><div class="kit-track"><i style="width: 31%"></i></div><span class="kit-num" style="text-align: right">$1.2k</span>
+                  <span>Vendor path</span><div class="kit-track"><i style="width: 100%"></i></div><span class="kit-num" style="text-align: right">$3.7k</span>
+                </div>
+                <div class="kit-small kit-muted" style="margin-top: 6px">About $75 a month during POC, per token</div>
+              </dd>
+            </div>
+            <div>
+              <dt>Hosting tier</dt>
+              <dd style="margin-top: 4px"><div style="font-weight: 500">Shared non-production</div><div class="kit-small kit-muted">99.50% availability target · POC, build, pilot</div><div class="kit-small kit-muted">Dedicated 99.90% at production</div></dd>
+            </div>
+            <div>
+              <dt>Possible duplicates</dt>
+              <dd style="margin-top: 4px"><div style="display: flex; gap: 10px; align-items: center"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>2 to answer</span></span><a class="kit-small" href="#sec-similar">Review</a></div><div class="kit-small kit-muted">UC-0142 Claims triage 71% · UC-0203 58%</div></dd>
+            </div>
+            <div>
+              <dt>Intake queue<button class="kit-tip" type="button" aria-label="About the intake queue">i<span class="kit-tip-bubble" role="tooltip"><b>Intake queue.</b> You see your own request in full and the others by type and business line. The order is set at the Thursday intake review.<span class="src">Source: intake queue, ordered at the review of Thu 5 Nov 11:00; other requesters’ names hidden</span></span></button></dt>
+              <dd style="margin-top: 4px">
+                <div style="display: flex; align-items: baseline; gap: 6px"><span class="kit-display" style="font-size: 32px">4th</span><span class="kit-small kit-muted">of 7 · priority P2</span></div>
+                <div class="kit-small kit-muted">Next review Thu 12 Nov, 11:00</div>
+                <div class="kit-small kit-muted">Place kept from request R-0418</div>
+                <details style="margin-top: 6px">
+                  <summary class="kit-small" style="cursor: pointer">See the queue</summary>
+                  <ol style="list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 12px">
+                    <li style="display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 8px; align-items: start"><span class="kit-num kit-muted">1</span><div><div>Add a use case · Institutional Ops</div><div class="kit-muted">Security and data-handling review</div></div><span class="kit-chip" style="height: 20px">P1</span></li>
+                    <li style="display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 8px; align-items: start"><span class="kit-num kit-muted">2</span><div><div>Phase request · Compliance</div><div class="kit-muted">Waiting for an Official run</div></div><span class="kit-chip" style="height: 20px">P2</span></li>
+                    <li style="display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 8px; align-items: start"><span class="kit-num kit-muted">3</span><div><div>Phase request · Retail Advice</div><div class="kit-muted">Blocked by the exit gate</div></div><span class="kit-chip" style="height: 20px">P1</span></li>
+                    <li style="display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 8px; align-items: start"><span class="kit-num" style="font-weight: 600">4</span><div><div style="font-weight: 500">Yours · Custodian break summaries</div><div class="kit-muted">From R-0418, sent 29 Oct · waiting 7 days</div></div><span class="kit-chip brand" style="height: 20px">P2 · You</span></li>
+                    <li style="display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 8px; align-items: start"><span class="kit-num kit-muted">5</span><div><div>Phase request · Investment Mgmt</div><div class="kit-muted">Intake form incomplete</div></div><span class="kit-chip" style="height: 20px">P3</span></li>
+                    <li style="display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 8px; align-items: start"><span class="kit-num kit-muted">6</span><div><div>New problem · Institutional Sales</div><div class="kit-muted">New · not yet a project</div></div><span class="kit-dash" title="priority is set at the Thursday intake review">—</span></li>
+                    <li style="display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 8px; align-items: start"><span class="kit-num kit-muted">7</span><div><div>New problem · Investment Mgmt Canada</div><div class="kit-muted">New · possible duplicate</div></div><span class="kit-dash" title="priority is set at the Thursday intake review">—</span></li>
+                  </ol>
+                  <a class="kit-small" href="J1-Projects.dc.html" style="display: inline-block; margin-top: 8px">Full queue</a>
+                </details>
+              </dd>
+            </div>
+            <div>
+              <dt>Approval needed<button class="kit-tip" type="button" aria-label="About the approvals">i<span class="kit-tip-bubble" role="tooltip"><b>Standing approval SA-07.</b> Signed by the Head of ThinkLatent on 1 Jul 2026 for sandbox data only, up to $500 a month and 60 requests per minute, so nobody has to approve sandbox use. Production follows the Ops triage template, expected risk tier 2.</span></button></dt>
+              <dd style="margin-top: 4px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>None for sandbox · no wait</span></span><div class="kit-small kit-muted" style="margin-top: 2px">Standing approval <a href="V1-Approval.dc.html">SA-07</a> issues your key at save</div><div class="kit-small kit-muted">POC budget confirmed at the intake review</div><div class="kit-small kit-muted">Production: owner, data owner, then Head of ThinkLatent</div></dd>
+            </div>
+          </dl>
+          <div class="kit-divider" style="margin: 0"></div>
+          <div>
+            <button class="kit-btn" type="button" style="width: 100%; justify-content: center">Continue</button>
+            <div class="kit-small kit-muted" style="margin-top: 8px; text-align: center">Next: What good looks like</div>
+            <div class="kit-small" style="margin-top: 2px; text-align: center">Nothing is saved until you save.</div>
+          </div>
+          <div style="display: flex; justify-content: flex-end"><div class="kit-asof">As of 11:58 ET <button class="kit-tip end" type="button" aria-label="Source for this summary">i<span class="kit-tip-bubble" role="tooltip">Source: Onboarding agent drafts and checks over request R-0418 and the record; scores from Official TL Index runs 1181 and 1180; costs from the gateway rate card; queue from the review of Thu 5 Nov 11:00. Non-production.</span></button></div></div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- After submit -->
+    <section id="sec-after" aria-labelledby="h-after" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><h2 id="h-after">What happens after you submit</h2><span class="sub">After Save as POC record at the end of step 3</span></div>
+      <ol class="kit-grid3" style="list-style: none; margin: 0; padding: 0">
+        <li class="kit-surface raised" style="padding: 16px 18px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><div style="display: flex; align-items: center; gap: 10px"><span class="kit-avatar">1</span><h3>Your first call</h3></div><span class="kit-chip">Today</span></div>
+          <div style="margin-top: 10px">Call from the snippet or the <a href="P1-Playground.dc.html">playground</a>.</div>
+          <div class="kit-small kit-muted" style="margin-top: 4px">Lands on your project home with its <a href="J11-Traces.dc.html">trace</a></div>
+          <div class="kit-small kit-muted" style="margin-top: 2px">Target under 30 min · team median 22 min</div>
+        </li>
+        <li class="kit-surface raised" style="padding: 16px 18px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><div style="display: flex; align-items: center; gap: 10px"><span class="kit-avatar">2</span><h3>Intake review</h3></div><span class="kit-chip">Thu 12 Nov, 11:00</span></div>
+          <div style="margin-top: 10px">Sets your risk tier and confirms the POC budget.</div>
+          <div class="kit-small kit-muted" style="margin-top: 4px">Your place: 4th of 7 · P2<button class="kit-tip open below" type="button" aria-label="About the intake review">i<span class="kit-tip-bubble" role="tooltip"><b>Intake review.</b> Held every Thursday at 11:00 to order the queue. At yours the team sets the risk tier, expected 2 under the Ops triage template, and confirms the POC budget.<span class="src">Source: intake queue, ordered at the review of Thu 5 Nov 11:00 · as of 11:58 ET</span></span></button></div>
+        </li>
+        <li class="kit-surface raised" style="padding: 16px 18px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><div style="display: flex; align-items: center; gap: 10px"><span class="kit-avatar">3</span><h3>Production gate</h3></div><span class="kit-chip">Later</span></div>
+          <div style="margin-top: 10px">After the security and data-handling review.</div>
+          <div class="kit-small kit-muted" style="margin-top: 4px">Production keys come from the record</div>
+          <div class="kit-small kit-muted" style="margin-top: 2px">Dedicated endpoint · 99.90% availability target</div>
+        </li>
+      </ol>
+    </section>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3500}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

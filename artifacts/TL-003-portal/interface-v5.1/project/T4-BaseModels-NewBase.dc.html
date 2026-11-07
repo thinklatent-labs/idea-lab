@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Base models · New base available</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2000px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-current="page" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Training · Thu 5 Nov 2026, 11:58 ET · ThinkLatent only · Gemma 4 31B finalised in the model pipeline Wed 4 Nov</div><h1 style="margin-top: 6px">Base models for retraining</h1></div>
+      <div class="kit-actions"><a class="kit-btn outline" href="M5-Lineage.dc.html">Lineage</a><a class="kit-btn outline" href="M1-Catalogue.dc.html">Model catalogue</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="T4-BaseModels.dc.html">Bases</a><a href="T4-BaseModels-NewBase.dc.html" aria-current="page">New base available</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path></svg></span><a class="kit-open" href="T4-BaseModels.dc.html" aria-label="Open bases">↗</a></div>
+        <div class="kit-tile-title">New base</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Gemma 4 31B</div><div class="kit-tile-cap">Finalised Wed 4 Nov · Apache-2.0 · Official TL Index run 1187</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Finalised</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2"></circle><circle cx="18" cy="6" r="2"></circle><circle cx="12" cy="18" r="2"></circle><path d="M6 8v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"></path><path d="M12 12v4"></path></svg></span><a class="kit-open" href="M5-Lineage.dc.html" aria-label="Open lineage">↗</a></div>
+        <div class="kit-tile-title">Derived models to retrain</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">4</div><div class="kit-tile-cap">Core and Distil first, then Domain-Advice and the Claims-triage adapter</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18"></path></svg></span><a class="kit-open" href="O2-Capacity.dc.html" aria-label="Open capacity">↗</a></div>
+        <div class="kit-tile-title">Estimate</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$137k</div><div class="kit-tile-cap">Training and re-scoring · 3,388 H100 hours and 38 A10G hours · 10 days end to end</div></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span><a class="kit-open" href="V2-Validation.dc.html" aria-label="Open approvals">↗</a></div>
+        <div class="kit-tile-title">Approval</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Waiting</div><div class="kit-tile-cap">Head of ThinkLatent · asked Wed 4 Nov 16:20 by the ThinkLatent foundation team · nothing starts until approved</div></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Retraining plan · what is rebuilt on Gemma 4 31B, in order</h2><div class="sub">Every model derived from the current Core and Distil that would be retrained, with what it becomes, what it waits for, who owns it and what it costs. Use cases that only call Core or Distil are re-scored, not retrained.</div></div>
+        <span class="kit-chip outline">Drafted Wed 4 Nov 16:20</span>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th class="num">#</th><th>Model now</th><th>Rebuilt as</th><th>Starts after</th><th>Owner</th><th>Estimate</th><th>Gate before prod</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td><b style="font-weight: 500">TLM4 Core 4.2</b><div class="kit-small kit-muted">current · prod alias for 12 use cases</div></td><td><b style="font-weight: 500">Core 4.4</b> on Gemma 4 31B<div class="kit-small kit-muted">Re-pruned on curated Enterprise data and re-tuned with self-healing data</div></td><td>Your approval</td><td>ThinkLatent foundation team</td><td>2,700 H100 h · $108,000<div class="kit-small kit-muted">6 days</div></td><td>Official TL Index run · regression gate on Safety and grounding, Compliance and regulatory, Client care</td></tr>
+          <tr><td class="num">2</td><td><b style="font-weight: 500">TLM4 Distil 4.2</b><div class="kit-small kit-muted">7B · 3 use cases call it</div></td><td><b style="font-weight: 500">Distil 4.4</b><div class="kit-small kit-muted">Same 7B architecture, trained on data distilled from Core 4.4</div></td><td>Core 4.4 passes its gate</td><td>ThinkLatent foundation team</td><td>640 H100 h · $25,600<div class="kit-small kit-muted">3 days</div></td><td>Official TL Index run · regression gate</td></tr>
+          <tr><td class="num">3</td><td><b style="font-weight: 500">TLM4 Domain-Advice v2</b><div class="kit-small kit-muted">UC-0291 · prod</div></td><td><b style="font-weight: 500">Domain-Advice v4</b> on Core 4.4<div class="kit-small kit-muted">advisor-notes-v4 · v3 (R-2291) continues on Core 4.2</div></td><td>Core 4.4 passes its gate</td><td>Priya N.</td><td>48 H100 h · $1,920<div class="kit-small kit-muted">1 day</div></td><td>Use-case bar 0.80 · regression gate · canary</td></tr>
+          <tr><td class="num">4</td><td><b style="font-weight: 500">Claims-triage adapter v2</b><div class="kit-small kit-muted">UC-0142 · prod by exception</div></td><td><b style="font-weight: 500">Claims-triage adapter</b> on Distil 4.4<div class="kit-small kit-muted">claims-triage-v6</div></td><td>Distil 4.4 passes its gate</td><td>Marcus L.</td><td>38 A10G h · $410<div class="kit-small kit-muted">1 day</div></td><td>Use-case bar 0.78 · regression gate</td></tr>
+          <tr><td></td><td colspan="4"><b style="font-weight: 500">Re-scored, not retrained</b><div class="kit-small kit-muted">12 use cases that call Core 4.2 directly and 3 that call Distil 4.2. The Evaluation agent queues their regression suites once the new versions pass.</div></td><td>TL Index runs · $1,100</td><td><span class="kit-dash" title="re-scoring only, no promotion">—</span></td></tr>
+          <tr><td></td><td colspan="4"><b style="font-weight: 500">Total</b><div class="kit-small kit-muted">Core 6 days, then Distil (3) and Domain-Advice (1) side by side, then the Claims-triage adapter (1)</div></td><td><b style="font-weight: 500">$137,030</b><div class="kit-small kit-muted">10 days end to end</div></td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-note" style="margin-top: 12px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>No prod alias moves as part of this plan. Each rebuilt model passes its own gate and promotion, and roll back never needs approval. Core 4.3-rc, already a candidate on the current base, keeps its own path; 4.4 is the first Core on Gemma 4 31B.</span></div>
+      <div class="kit-source">Derived models from the registry's lineage; estimates from the training API price list (H100 $40 an hour, A10G $10.80 an hour, 5 Nov) and the durations of T-4471 (Core 4.2), R-2268 and R-2241; base scores from Official TL Index runs 1187 (Gemma 4 31B) and 1172 (Gemma 3 27B). As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Approve the plan</h2><div class="sub">Approving queues run 1 now. Every later run starts only when its parent passes its gate, and each specialist's owner confirms their own run before it starts.</div></div></div>
+      <div class="kit-grid2" style="margin-top: 12px">
+        <dl class="kit-kv">
+          <dt>Approver</dt><dd>Head of ThinkLatent (Jithin) for Core and Distil, on the ThinkLatent platform budget</dd>
+          <dt>Specialist owners</dt><dd>Priya N. (UC-0291) and Marcus L. (UC-0142) confirm runs 3 and 4 on their project budgets</dd>
+          <dt>Budget</dt><dd>ThinkLatent platform budget: $133,600 of this plan; $410,000 remaining this quarter</dd>
+          <dt>If declined</dt><dd>Nothing runs; Gemma 4 31B stays selectable for new adapters; the reason stays on the plan</dd>
+        </dl>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <div class="kit-field"><label for="reason">Reason (needed to decline; kept on the plan)</label><input class="kit-input" id="reason" type="text" placeholder="e.g. wait for the 4.3-rc gate first"></div>
+          <div class="kit-actions"><button class="kit-btn" type="button">Approve the plan</button><button class="kit-btn outline" type="button">Approve Core and Distil only</button><button class="kit-btn outline" type="button">Decline with a reason</button></div>
+        </div>
+      </div>
+      <div class="kit-row" style="grid-template-columns: 220px minmax(0, 1fr) auto; margin-top: 14px"><div class="kit-agent"><span class="av" style="background: rgba(26,26,26,.06); border-color: rgba(26,26,26,.12)">EA</span><span>Evaluation agent · 82%</span></div><div><div class="t">Gemma 4 31B is higher than Gemma 3 27B on all five live pillars, each by more than the interval on the difference</div><div class="s">Basis: Official TL Index runs 1187 and 1172. Untuned, it already matches Core 4.2 on Safety and grounding and Entity recognition.</div></div><div class="end"><a class="kit-btn sm outline" href="E1-EvaluationResults.dc.html">Evidence</a></div></div>
+      <div class="kit-source">Approval rule from the training Operating Model; budget from the ThinkLatent platform ledger; the approval is written to the plan with the approver's name and reason. As of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

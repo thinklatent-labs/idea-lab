@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Data sets · Bring data in</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3300px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">UC-0291 · Advisor summary · Retail Advice · Pilot in production · prod alias → TLM4 Domain-Advice v2</div><h1 style="margin-top: 6px">Bring data in</h1></div>
+      <div class="kit-actions"><button class="kit-btn" type="button">Upload</button><button class="kit-btn outline" type="button">Stage from S3</button><a class="kit-btn outline" href="K1-Help.dc.html">Formats guide</a></div>
+    </div>
+
+    <nav class="kit-rail" aria-label="Use case">
+      <a href="J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Traffic</a><a href="J5-Capacity.dc.html">Capacity</a><a href="J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a><a href="J11-Traces.dc.html">Traces</a>
+      <span aria-hidden="true" style="width: 1px; background: #DADAD8; margin: 4px 6px"></span>
+      <a href="W1-Prompts.dc.html">Prompts</a><a href="W2-Datasets.dc.html" aria-current="page">Data sets</a><a href="W3-Alerts.dc.html">Alerts</a>
+    </nav>
+
+    <nav class="kit-subrail" aria-label="Sections">
+      <a href="W2-Datasets.dc.html">Sets</a><a href="W2-Datasets-Import.dc.html" aria-current="page">Bring data in</a><a href="W2-Datasets-Generate.dc.html">Generated data</a><a href="W2-Datasets-EvalSets.dc.html">Evaluation sets</a>
+    </nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M4 20h16"></path></svg></span><a class="kit-open" href="D5-DatasetVersions.dc.html" aria-label="Open staging">↗</a></div>
+        <div class="kit-tile-title">Staging job</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">62<span class="unit">% staged</span></div><div class="kit-tile-cap">S3 · advisor-notes-nov · reports status within one minute of each change</div></div><span class="kit-chip brand">In progress</span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><path d="M14 3v6h6"></path></svg></span><a class="kit-open" href="K1-Help.dc.html" aria-label="Open the formats guide">↗</a></div>
+        <div class="kit-tile-title">Format detected</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Instruction</div><div class="kit-tile-cap">0.97 confidence · chat 0.02 · decision 0.01 · from field names and structure</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="D2-TaggingPipelines.dc.html" aria-label="Open checks">↗</a></div>
+        <div class="kit-tile-title">Checks on v4</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">5<span class="unit">of 6 passed</span></div><div class="kit-tile-cap">PII tagging still has 10 items in review</div></div><div class="kit-track" style="width: 80px"><i style="width: 83%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg></span><a class="kit-open" href="D3-ApprovalsInsight.dc.html" aria-label="Open rejections">↗</a></div>
+        <div class="kit-tile-title">Rejected in 30 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2,918<span class="unit">rows</span></div><div class="kit-tile-cap">PII 2,214 · compliance 388 · duplicates 316 · of 37,060 checked</div></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Bring data in · advisor-notes-nov from S3</h2><div class="sub">Four steps. No Enterprise data content is shown anywhere on this page: previews list column names, types, counts and tag coverage only.</div></div>
+        <div class="kit-actions"><button class="kit-btn outline sm" type="button">Preview</button><button class="kit-btn sm" type="button" aria-disabled="true">Approve</button><span class="kit-small kit-muted" style="align-self: center">Approve opens after Split and checks pass</span></div>
+      </div>
+      <div class="kit-steps" style="margin-top: 14px">
+        <span class="kit-step done"><span class="k">1</span>Upload or S3 stage</span><span class="arrow">→</span>
+        <span class="kit-step now"><span class="k">2</span>Preview and map</span><span class="arrow">→</span>
+        <span class="kit-step"><span class="k">3</span>Split and checks</span><span class="arrow">→</span>
+        <span class="kit-step"><span class="k">4</span>Version</span>
+      </div>
+      <div class="kit-grid2" style="margin-top: 16px">
+        <div class="kit-surface raised" style="padding: 16px">
+          <h3>Step 1 · formats we read</h3>
+          <table style="margin-top: 8px">
+            <thead><tr><th>Format</th><th>Read as</th><th>Detected as</th></tr></thead>
+            <tbody>
+              <tr><td class="kit-mono">JSONL</td><td>One row per line</td><td>Chat, instruction or decision, from the keys</td></tr>
+              <tr><td class="kit-mono">JSON</td><td>One row per array item</td><td>As JSONL</td></tr>
+              <tr><td class="kit-mono">CSV</td><td>Header row required; delimiter and encoding detected</td><td>Instruction or decision, from the columns you map</td></tr>
+              <tr><td class="kit-mono">Parquet</td><td>Schema read from the file</td><td>Instruction or decision, from the columns you map</td></tr>
+              <tr><td class="kit-mono">PDF</td><td>Chunked into rows by heading, up to 800 tokens with 80 overlap; page and section kept</td><td>Document chunks, mapped to input</td></tr>
+              <tr><td class="kit-mono">DOCX</td><td>Chunked into rows by heading and table, same limits; section kept</td><td>Document chunks, mapped to input</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="kit-surface raised" style="padding: 16px; display: flex; flex-direction: column; gap: 12px">
+          <h3>Staging job · S3</h3>
+          <dl class="kit-kv">
+            <dt>Source</dt><dd class="kit-mono">s3://kit-retail-advice/advisor-notes-nov/</dd>
+            <dt>Status</dt><dd><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Copying · 62%</span></span></dd>
+            <dt>Objects</dt><dd>114 of 184 copied · 2.1 GB of 3.4 GB</dd>
+            <dt>By format</dt><dd>160 JSONL · 12 Parquet · 12 DOCX</dd>
+            <dt>Documents</dt><dd>12 DOCX plan-change letters → 1,140 rows so far, chunked by heading</dd>
+            <dt>Started</dt><dd>11:49 ET by Priya N.</dd>
+            <dt>Reporting</dt><dd>Status within one minute of each change</dd>
+            <dt>Next</dt><dd>Preview completes when the copy finishes (about 4 min)</dd>
+          </dl>
+          <div class="kit-track"><i style="width: 62%"></i></div>
+          <div class="kit-actions"><button class="kit-btn sm outline" type="button">Stage again</button><button class="kit-btn sm outline" type="button">Cancel staging</button></div>
+        </div>
+      </div>
+      <div class="kit-divider"></div>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+        <h3>Step 2 · preview and map · columns, roles and tag coverage</h3>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><span class="kit-small kit-muted">Format</span><div class="kit-seg" role="group" aria-label="Detected format"><button type="button" aria-pressed="false">Chat</button><button type="button" aria-pressed="true">Instruction · detected</button><button type="button" aria-pressed="false">Decision</button></div><span class="kit-chip env">Non-production</span></div>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 6px">Detected from field names and structure with 0.97 confidence; change it if the detection is wrong and the roles re-map. Cell values are never rendered in the portal <span class="kit-masked" role="img" aria-label="masked value"></span> · counts so far, from 114 of 184 objects.</div>
+      <table style="margin-top: 10px">
+        <thead><tr><th>Column</th><th>Type</th><th>Role</th><th class="num">Rows</th><th class="num">Filled</th><th>Tag coverage</th></tr></thead>
+        <tbody>
+          <tr><td class="kit-mono">task_instruction</td><td>string</td><td><select class="kit-input" aria-label="Role for task_instruction" style="height: 34px; width: 180px"><option selected>instruction</option><option>input</option><option>target</option><option>label</option><option>decision options</option><option>variable</option><option>tag</option><option>ignore</option></select></td><td class="num">10,420</td><td class="num">100%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Format 100%</span></span></td></tr>
+          <tr><td class="kit-mono">meeting_notes</td><td>string</td><td><select class="kit-input" aria-label="Role for meeting_notes" style="height: 34px; width: 180px"><option>instruction</option><option selected>input</option><option>target</option><option>label</option><option>decision options</option><option>variable</option><option>tag</option><option>ignore</option></select></td><td class="num">10,420</td><td class="num">100%</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>PII 61%</span></span></td></tr>
+          <tr><td class="kit-mono">advisor_summary</td><td>string</td><td><select class="kit-input" aria-label="Role for advisor_summary" style="height: 34px; width: 180px"><option>instruction</option><option>input</option><option selected>target</option><option>label</option><option>decision options</option><option>variable</option><option>tag</option><option>ignore</option></select></td><td class="num">10,420</td><td class="num">97%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Quality 100%</span></span></td></tr>
+          <tr><td class="kit-mono">plan_id</td><td>string</td><td><select class="kit-input" aria-label="Role for plan_id" style="height: 34px; width: 180px"><option>instruction</option><option>input</option><option>target</option><option>label</option><option>decision options</option><option selected>variable</option><option>tag</option><option>ignore</option></select></td><td class="num">10,420</td><td class="num">100%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Format 100%</span></span></td></tr>
+          <tr><td class="kit-mono">next_step_type</td><td>enum, 4 values</td><td><select class="kit-input" aria-label="Role for next_step_type" style="height: 34px; width: 180px"><option>instruction</option><option>input</option><option>target</option><option selected>label</option><option>decision options</option><option>variable</option><option>tag</option><option>ignore</option></select></td><td class="num">10,420</td><td class="num">92%</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Pending</span></span></td></tr>
+          <tr><td class="kit-mono">next_step_options</td><td>list, 3 per row</td><td><select class="kit-input" aria-label="Role for next_step_options" style="height: 34px; width: 180px"><option>instruction</option><option>input</option><option>target</option><option>label</option><option selected>decision options</option><option>variable</option><option>tag</option><option>ignore</option></select></td><td class="num">10,420</td><td class="num">92%</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Pending</span></span></td></tr>
+          <tr><td class="kit-mono">client_segment</td><td>enum, 5 values</td><td><select class="kit-input" aria-label="Role for client_segment" style="height: 34px; width: 180px"><option>instruction</option><option>input</option><option>target</option><option>label</option><option>decision options</option><option>variable</option><option selected>tag</option><option>ignore</option></select></td><td class="num">10,420</td><td class="num">88%</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Pending</span></span></td></tr>
+          <tr><td class="kit-mono">captured_at</td><td>datetime</td><td><select class="kit-input" aria-label="Role for captured_at" style="height: 34px; width: 180px"><option>instruction</option><option>input</option><option>target</option><option>label</option><option>decision options</option><option>variable</option><option>tag</option><option selected>ignore</option></select></td><td class="num">10,420</td><td class="num">100%</td><td><span class="kit-dash" title="ignored columns are not tagged">—</span></td></tr>
+          <tr><td class="kit-mono">doc_chunk<div class="kit-small kit-muted">12 DOCX, chunked by heading</div></td><td>text, up to 800 tokens</td><td><select class="kit-input" aria-label="Role for doc_chunk" style="height: 34px; width: 180px"><option>instruction</option><option selected>input</option><option>target</option><option>label</option><option>decision options</option><option>variable</option><option>tag</option><option>ignore</option></select></td><td class="num">1,140</td><td class="num">100%</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>PII 58%</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-threshold" style="margin-top: 8px">Roles: instruction · input · target · label · decision options · variable · tag · ignore. A decision set needs a label and its decision options; a chat set maps its messages column and the speaker field. Counts and coverage come from the tagging pipeline on the staged copy.</div>
+      <div class="kit-surface raised" style="margin-top: 16px; padding: 16px">
+        <h3 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-eng-label">Engineering view</span>Detected schema · names and types only</h3>
+        <pre class="kit-code" style="margin-top: 10px">format     instruction   confidence 0.97  (chat 0.02, decision 0.01)
+records    jsonl 160 files · parquet 12 files · 10,420 rows so far
+documents  docx 12 files → 1,140 rows · chunk_by=heading
+           max_tokens=800  overlap=80  keep=doc_id,section,chunk_index
+fields     task_instruction    string     → instruction
+           meeting_notes       string     → input
+           advisor_summary     string     → target
+           plan_id             string     → variable
+           next_step_type      enum[4]    → label
+           next_step_options   list[3]    → decision_options
+           client_segment      enum[5]    → tag
+           captured_at         datetime   → ignore
+manifest   advisor-notes-nov · staged copy · content hash on Version</pre>
+      </div>
+      <div class="kit-source">Staging job from the data pipeline; format detection and column counts from the ingest service; tag coverage from the tagging pipeline on the staged copy. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Rejected in the last 30 days, by check</h2><div class="sub">Rows that never reach a version, and why. Counts only; the review tool holds each decision.</div></div><a class="kit-btn sm outline" href="D3-ApprovalsInsight.dc.html">What the decisions taught</a></div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Check</th><th class="num">Rows rejected</th><th class="num">Share of checked</th><th class="num">Previous 30 days</th><th>Trend</th><th>What happens to them</th></tr></thead>
+        <tbody>
+          <tr><td><b style="font-weight: 500">PII</b><div class="kit-small kit-muted">confirmed in review</div></td><td class="num">2,214</td><td class="num">6.0%</td><td class="num">2,960</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Down 25%</span></span></td><td>Removed or redacted at source and never versioned; the decisions retrain the PII pipeline</td></tr>
+          <tr><td><b style="font-weight: 500">Compliance</b><div class="kit-small kit-muted">advice outside policy, projected returns</div></td><td class="num">388</td><td class="num">1.0%</td><td class="num">240</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Up 62%</span></span></td><td>Removed; the data owner (Marcus L.) is told which source produced them</td></tr>
+          <tr><td><b style="font-weight: 500">Duplicates</b><div class="kit-small kit-muted">exact and near-duplicate, cosine 0.95 and above</div></td><td class="num">316</td><td class="num">0.9%</td><td class="num">330</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Flat</span></span></td><td>Dropped; the first copy is kept</td></tr>
+          <tr><td><b style="font-weight: 500">All checks</b></td><td class="num"><b style="font-weight: 500">2,918</b></td><td class="num">7.9%</td><td class="num">3,530</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Down 17%</span></span></td><td>Of 37,060 rows checked since 6 Oct</td></tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Check outcomes from the tagging pipeline and the review service, 6 Oct to 5 Nov against 6 Sep to 5 Oct. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

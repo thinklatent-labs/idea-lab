@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Trial decision package</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2700px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-current="page" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Evaluation · Model trials · TR-0007 · can Distil 4.2 handle compliance pre-review? · step 6, decision package · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Drafted: adopt Core 4.2 now, and build a Distil adapter to meet the cost limit</h1></div>
+      <div class="kit-actions"><button class="kit-btn outline" type="button">Export package</button><a class="kit-btn outline" href="E7-Trials-Results.dc.html">Evidence</a><a class="kit-btn outline" href="E7-Trials.dc.html">Brief</a></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px">
+      <nav class="kit-rail" aria-label="Evaluation"><a href="E1-EvaluationResults.dc.html">Results</a><a href="E2-Index.dc.html">Index</a><a href="E3-Leaderboard.dc.html">Leaderboard</a><a href="E4-Corrections.dc.html">Corrections</a><a href="E6-Requests.dc.html">Requests</a><a href="E7-Trials.dc.html" aria-current="page">Trials</a><a href="E8-Contribute.dc.html">Contribute</a><a href="E9-Pillar.dc.html">Pillars</a></nav>
+      <nav class="kit-subrail" aria-label="Sections"><a href="E7-Trials.dc.html">Brief</a><a href="E7-Trials-Scenarios.dc.html">Scenarios</a><a href="E7-Trials-Results.dc.html">Run and compare</a><a href="E7-Trials-Decision.dc.html" aria-current="page">Decision package</a></nav>
+    </div>
+
+    <div class="kit-steps">
+      <span class="kit-step done"><span class="k">1</span>Intent</span><span class="arrow">→</span>
+      <span class="kit-step done"><span class="k">2</span>Requirements</span><span class="arrow">→</span>
+      <span class="kit-step done"><span class="k">3</span>Skill declaration</span><span class="arrow">→</span>
+      <span class="kit-step done"><span class="k">4</span>Scenario build</span><span class="arrow">→</span>
+      <span class="kit-step done"><span class="k">5</span>Run and compare</span><span class="arrow">→</span>
+      <span class="kit-step now"><span class="k">6</span>Decision package or build request</span>
+    </div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span></div>
+        <div class="kit-tile-title">Answer to the trial question</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Not alone</div><div class="kit-tile-cap">Distil 4.2 meets 2 of 5 requirements; at the production mix its catch rate is 0.93 ± 0.02, still under 0.95</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M9 10h6"></path><path d="M9 14h6"></path></svg></span></div>
+        <div class="kit-tile-title">Core 4.2 at production volume</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$490<span class="unit">a month</span></div><div class="kit-tile-cap">120 000 drafts × $0.0041 · limit $240 · gateway serving log price at S-11</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over limit</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></span><a class="kit-open" href="T1-NewTrainingRun.dc.html" aria-label="Open training">↗</a></div>
+        <div class="kit-tile-title">Build request BR-0014</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$410<span class="unit">estimate</span></div><div class="kit-tile-cap">Distil 4.2 adapter, Train as Decide · 38 GPU hours on the Build tier · about 3 weeks with the re-trial</div></div><span class="kit-chip env">Non-production</span></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span></div>
+        <div class="kit-tile-title">Decision due</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">12<span class="unit">Nov</span></div><div class="kit-tile-cap">Owner Priya N. · Compliance concurs after her · evidence checked by Elena R.</div></div><span class="kit-chip brand">5 working days</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface" style="display: flex; flex-direction: column; gap: 16px">
+      <div class="kit-surface-head">
+        <div><h2>Decision package · TR-0007 <span class="kit-chip outline">Draft</span></h2><div class="sub">Drafted by an agent from the trial's evidence; the owner decides. Every number links to an Official run or the trial record.</div></div>
+        <div class="kit-agent"><span class="av">EV</span><span>Evaluation agent</span><span class="kit-muted">· 81% confidence · drafted 10:40</span></div>
+      </div>
+      <div class="kit-prov"><span>Basis: <b>Official TL Index runs 1186 and 1189</b></span><span>Scenarios: <b>TR-0007 v1, 720 items</b></span><span>Volume: <b>gateway aggregate, sealed</b></span><span>Agents propose, people decide</span></div>
+
+      <dl class="kit-kv" style="grid-template-columns: 160px 1fr">
+        <dt>Question</dt><dd>Can TLM4 Distil 4.2 pre-review outgoing client correspondence for compliance issues well enough to fast-track clean drafts?</dd>
+        <dt>Answer</dt><dd><strong>Not alone.</strong> It misses the catch-rate bar (0.91 ± 0.02 against 0.95) and the rule-citation bar (0.86 ± 0.03 against 0.90), mostly on complex-product risk statements (S3) and recommendations phrased as information (S6). It ties the clean-draft bar.</dd>
+      </dl>
+
+      <table>
+        <thead><tr><th>Option</th><th>Requirements met</th><th class="num">Cost a month</th><th>Time to live</th><th>What it trades</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A · Adopt Core 4.2 now</strong></td><td>4 of 5</td><td class="num">$490</td><td class="kit-small">Onboarding, about 2 weeks</td><td class="kit-small">Clears every quality bar; the cost is about twice the $240 limit, so the owner has to accept it</td></tr>
+          <tr><td><strong>B · Build request BR-0014: a Distil 4.2 compliance adapter</strong></td><td><span class="kit-dash" title="projection only; a re-trial decides">—</span> <span class="kit-small kit-muted">projected 5 of 5</span></td><td class="num">$130</td><td class="kit-small">About 3 weeks, then a re-trial</td><td class="kit-small">Projected catch rate 0.95 ± 0.03 from Practice run 1185's misses (not citable); only a re-trial on a fresh rotation can confirm it</td></tr>
+          <tr><td><strong>C · Keep pre-review manual</strong></td><td><span class="kit-dash" title="no model in the loop">—</span></td><td class="num">$0</td><td class="kit-small">Now</td><td class="kit-small">No change; every draft keeps waiting for a reviewer</td></tr>
+        </tbody>
+      </table>
+
+      <div class="kit-surface raised" style="padding: 16px">
+        <div class="kit-label">Recommendation</div>
+        <div style="font-size: 18px; margin-top: 6px; line-height: 1.35">A now and B in parallel. Move to the adapter only after a re-trial on a fresh rotation clears all five requirements.</div>
+        <dl class="kit-kv" style="margin-top: 12px; grid-template-columns: 160px 1fr">
+          <dt>Confirms</dt><dd>The re-trial clears R1 to R5 on a fresh rotation of TR-0007, with S3 and S6 each at or above 0.95 on their own</dd>
+          <dt>Refutes</dt><dd>S3 or S6 stays below 0.95 after the adapter; Core 4.2 then stays, and B closes with its result kept as evidence</dd>
+          <dt>What to expect with A</dt><dd>Reviewers still see about 12 000 clean drafts a month (13% of clean drafts flagged) and every real issue the bar requires</dd>
+          <dt>Production needs</dt><dd>A dedicated production endpoint (shared pools serve sandbox, pilot and training only); 99.9% availability and the use case's own time-to-first-token target, both targets set at onboarding; a regression gate on 3 Client care, 4 Compliance and regulatory and 6 Safety and grounding, plus the workflow's own 7 Entity recognition</dd>
+          <dt>Risks</dt><dd>Scenarios stop at rulebook 2026-07, so a rule change needs a scenario refresh. Core 4.2 at $490 a month is over the limit until B lands or the owner raises it.</dd>
+        </dl>
+      </div>
+
+      <div class="kit-surface raised" style="padding: 16px">
+        <div class="kit-surface-head"><div><div class="kit-label">Build request BR-0014 · drafted with option B</div><div class="sub">Goes to ThinkLatent only if the owner sends it.</div></div><span class="kit-chip outline">Draft</span></div>
+        <dl class="kit-kv" style="margin-top: 10px; grid-template-columns: 160px 1fr">
+          <dt>What to build</dt><dd>An adapter on TLM4 Distil 4.2 · Train as Decide (chooses flag or pass, with the rule as its reason)</dd>
+          <dt>Data</dt><dd>compliance-review-decisions v1 · 9 400 labelled, anonymised review decisions · kept apart from the TR-0007 scenario set</dd>
+          <dt>Estimate</dt><dd>38 GPU hours · about $410 · Build tier <span class="kit-chip env">Non-production</span></dd>
+          <dt>Done when</dt><dd>A re-trial of TR-0007 on a fresh rotation meets R1 to R5 in an Official run</dd>
+          <dt>Approves capacity</dt><dd>Jithin, Head of ThinkLatent, once the owner sends it</dd>
+        </dl>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+        <div class="kit-actions"><button class="kit-btn" type="button" aria-disabled="true">Accept A and send B to ThinkLatent</button><button class="kit-btn outline" type="button" aria-disabled="true">Accept A only</button><button class="kit-btn outline" type="button" aria-disabled="true">Decline with a reason</button></div>
+        <span class="kit-small kit-muted">Only the owner, Priya N., decides; Compliance concurs after her. You can comment or ask for a redraft.</span>
+      </div>
+      <div class="kit-actions"><button class="kit-btn sm outline" type="button">Comment</button><button class="kit-btn sm outline" type="button">Ask the Evaluation agent to redraft</button><button class="kit-btn sm outline" type="button">View sources</button></div>
+      <div class="kit-source">Source: trial TR-0007 record · Official TL Index runs 1186 and 1189 · projection from Practice run 1185 (not citable) · monthly volume is a gateway aggregate; production content stays sealed · cost from the gateway serving log at S-11 <span class="kit-chip env">Non-production</span> · training estimate from the training API price list for the Build tier · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Sign-off trail</h2><div class="sub">Who decides what, and when. The trial closes when the owner decides; a decline needs a reason, which stays on the trial.</div></div></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 220px">
+          <span class="kit-small kit-muted">Today 10:40</span>
+          <div><div class="kit-agent"><span class="av">EV</span><span class="t">Evaluation agent drafted the package</span></div><div class="s" style="margin-top: 4px">From runs 1186 and 1189, the requirements of 30 Oct and the production volume aggregate</div></div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Drafted</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 220px">
+          <span class="kit-small kit-muted">Today 11:20</span>
+          <div><div class="t">Elena R., validator, checked the evidence</div><div class="s">Every number traces to an Official run or the trial record; the projection is labelled Practice</div></div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Evidence checked</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 220px">
+          <span class="kit-small kit-muted">Due 12 Nov</span>
+          <div><div class="t">Priya N., owner, decides</div><div class="s">Accept A and send B, accept A only, or decline with a reason</div></div>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Waiting for the owner</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 220px">
+          <span class="kit-small kit-muted">After the owner</span>
+          <div><div class="t">Compliance communications lead concurs</div><div class="s">Required before any draft reaches the fast lane</div></div>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not started</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 130px minmax(0, 1fr) 220px">
+          <span class="kit-small kit-muted">If B is sent</span>
+          <div><div class="t">Jithin, Head of ThinkLatent, approves build capacity for BR-0014</div><div class="s">38 GPU hours on the Build tier; the training run then appears in Training</div></div>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not started</span></span>
+        </div>
+      </div>
+      <div class="kit-source">Source: trial TR-0007 decision log · as of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent · Products</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F7F7F5;font-family:Inter,system-ui,sans-serif;color:#1A1A1A;font-size:15px;line-height:1.55}
+a{color:#2E6B3C}a:hover{color:#0C3F09}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:500;letter-spacing:-.015em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.cap{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:#5C5C5A}
+.panel{background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05);border-radius:24px;padding:24px}
+.glass{background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.9);border-radius:24px;padding:22px;box-shadow:inset 0 1px 0 #FFFFFF,0 16px 48px rgba(26,26,26,.08)}
+.glass.g{background:rgba(27,81,40,.92);color:#FFFFFF;border-color:rgba(255,255,255,.35)}
+.glass.g .meta,.glass.g .cap,.glass.g p{color:#D6E9DB}
+.glass.g h3{color:#FFFFFF}
+.glass.g .tag{background:rgba(255,255,255,.18);color:#FFFFFF}
+.glass.g .thumb{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
+.glass.g .pill{background:rgba(255,255,255,.14);color:#FFFFFF;border-color:rgba(255,255,255,.45)}
+.glass.t{background:rgba(31,74,68,.92);color:#FFFFFF;border-color:rgba(255,255,255,.35)}
+.glass.t .meta,.glass.t .cap,.glass.t p{color:#D3ECE6}.glass.t h3{color:#FFFFFF}.glass.t .tag{background:rgba(255,255,255,.18);color:#FFFFFF}.glass.t .thumb{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}.glass.t .pill{background:rgba(255,255,255,.14);color:#FFFFFF;border-color:rgba(255,255,255,.45)}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(26,26,26,.16);font-size:14px;font-weight:500;color:#1A1A1A;text-decoration:none;background:#FFFFFF;font-family:inherit}
+.pill:hover{color:#1A1A1A;border-color:#1A1A1A}
+.pill.go{background:#C4262E;color:#FFFFFF;border-color:#C4262E}
+.pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.pill.on{background:#1B5128;color:#FFFFFF;border-color:#1B5128}
+.pill.sm{min-height:38px;font-size:13px}
+.nav a{color:#3A3A38;text-decoration:none;font-size:14px;font-weight:500;padding:0 12px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover{background:#F2F2EF;color:#1A1A1A}
+.nav a.on{background:#6CB769;color:#0C3F09}
+.display{font-weight:300;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.tag{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#E9F3EC;color:#2E6B3C;font-size:12px;font-weight:600;white-space:nowrap}
+.tag.teal{background:#E6F1EF;color:#1F4A44}
+.tag.red{background:#FBEAEA;color:#9A1B22}
+.tag.grey{background:#F2F2EF;color:#3A3A38}
+.tag.dark{background:#1A1A1A;color:#FFFFFF}
+.tag.steel{background:#E8EEF1;color:#355F6B}
+.tag.terra{background:#F8ECE6;color:#9E4C27}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.meta{font-size:13px;color:#5C5C5A}
+.hero{background:#E9F3EC}
+.hero.teal{background:#2F7A6D;color:#FFFFFF}
+.hero.teal h1,.hero.teal h2,.hero.teal h3{color:#FFFFFF}.hero.teal p,.hero.teal .meta,.hero.teal .cap{color:#D3ECE6}.hero.teal .tag{background:rgba(255,255,255,.18);color:#FFFFFF}.hero.teal .pill{background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,.55)}.hero.teal .pill.go{background:#C4262E;color:#FFFFFF;border-color:#C4262E}
+.wave{background:#1B5128;color:#FFFFFF}
+.wave .cap,.wave .meta{color:#D6E9DB}
+.wave .pill{color:#FFFFFF;border-color:rgba(255,255,255,.5);background:transparent}
+.wave .pill.go{background:#FFFFFF;color:#0C3F09;border-color:#FFFFFF}
+.wave .panel{color:#1A1A1A}
+.wave .panel .cap{color:#5C5C5A}
+.band{background:#E9F3EC}
+.thumb{border-radius:16px;background:#E9F3EC;aspect-ratio:16/10;border:1px solid #EFEFEC}
+.thumb.net{background:#E9F3EC}.thumb.steel{background:#E8EEF1}.thumb.terra{background:#F8ECE6}.thumb.wave{background:#E6F1EF}.thumb.globe{background:#EEF1F3}
+.card{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A}
+.card:hover{color:#1A1A1A;border-color:#1A1A1A}
+.av{width:36px;height:36px;border-radius:50%;background:#F2F2EF;color:#3A3A38;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex:none;border:2px solid #FFFFFF}
+.av.lg{width:48px;height:48px;font-size:12px}
+.faq{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #EFEFEC;font-size:17px;font-weight:500}
+.faq span:last-child{width:32px;height:32px;border-radius:50%;border:1px solid rgba(26,26,26,.2);display:inline-flex;align-items:center;justify-content:center;font-weight:400;color:#5C5C5A;flex:none}
+.sec{display:flex;flex-direction:column;gap:20px}
+.h2{font-size:36px;line-height:1.1;margin-top:6px;font-weight:400;letter-spacing:-.025em}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.fam{display:flex;flex-direction:column;gap:10px;padding:22px;border-radius:16px;border:1px solid #E6E6E2;background:#FFFFFF}
+.gen{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05);min-height:170px}
+.gen .g{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#5C5C5A}
+.mean{margin-top:auto;padding:14px 16px;border-radius:14px;background:#E9F3EC;color:#0C3F09;font-size:14px;border:1px solid #CFE6D6}
+.mean b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#2E6B3C;margin-bottom:2px}
+.proj{display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05)}
+.globe{background:#2F7A6D;color:#FFFFFF}
+.globe .cap,.globe .meta{color:#D3ECE6}.globe h2,.globe h3{color:#FFFFFF}.globe p{color:#D3ECE6}
+.globe .proj{color:#1A1A1A}.globe .proj .meta{color:#5C5C5A}.globe .proj h3{color:#1A1A1A}
+.globe .pill{color:#FFFFFF;border-color:rgba(255,255,255,.5);background:transparent}
+.green{background:linear-gradient(160deg,#0C3F09 0%,#1B5128 60%,#6CB769 100%);border-radius:20px;color:#FFFFFF}
+.n{font-weight:600;display:block;color:#1A1A1A}
+.person{display:flex;gap:12px;align-items:center;padding:14px 0;border-top:1px solid #EFEFEC}
+.step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:14px;background:#F7F7F5;border:1px solid #EFEFEC}
+.play{width:52px;height:52px;border-radius:50%;background:#1B5128;border:1px solid #2E6B3C;display:inline-flex;align-items:center;justify-content:center;color:#FFFFFF}
+.win{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;min-height:260px}
+.row{display:grid;grid-template-columns:90px minmax(0,1fr) 150px 140px 70px;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid #EFEFEC}
+.row a.t{font-weight:600;color:#1A1A1A;text-decoration:none}
+.post{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;padding:14px;background:#FFFFFF;border-radius:20px;border:1px solid #E6E6E2}
+.post .thumb{display:flex;align-items:flex-start;justify-content:space-between;padding:12px}
+.series{background:#E9F3EC;border:1px solid #E6E6E2;border-radius:20px;padding:32px}
+.paper{aspect-ratio:16/10;border-radius:12px;background:#F7F7F5;padding:14px 16px;display:flex;flex-direction:column;gap:6px;border:1px solid #EFEFEC}
+.paper .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.paper .top span{height:14px;width:54px;border-radius:999px}
+.paper b{display:block;height:10px;border-radius:3px;background:#1A1A1A;width:70%}
+.paper i{display:block;height:6px;border-radius:3px;background:#D9D9D5}
+.tpl{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;padding:14px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:auto;padding:12px 0 0;border-top:1px solid #EFEFEC}
+.facts span{display:flex;flex-direction:column;font-size:13px;font-weight:500}
+.facts small{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500}
+.door{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:#1A1A1A;padding:22px;border-radius:20px;background:#FFFFFF;border:1px solid #E6E6E2}
+.door:hover{border-color:#1A1A1A}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0;border:1px solid #E6E6E2;border-radius:20px;overflow:hidden;background:#FFFFFF}
+.ladder div{padding:22px;border-right:1px solid #EFEFEC;display:flex;flex-direction:column;gap:8px}
+.ladder div:last-child{border-right:0}
+.trend{display:flex;flex-direction:column;gap:6px}
+.trend svg{width:96px;height:28px}
+.stage{display:flex;flex-direction:column;gap:8px;padding:22px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;position:relative}
+.stage .num{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#2E6B3C}
+.feed{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid #EFEFEC}
+.feed:first-of-type{border-top:0}
+.jump{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.jump a{font-size:13px;color:#2E6B3C;text-decoration:none;padding:6px 12px;border-radius:999px;background:#FFFFFF;border:1px solid #E6E6E2}
+.gl{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid #EFEFEC;font-size:15px}
+.gl b{font-weight:600}
+.note{font-size:13px;color:#5C5C5A;background:#F2F2EF;border-radius:12px;padding:10px 14px}
+.later{border-style:dashed;background:#FBFBFA}
+.comments{border-top:1px solid #E6E6E2;padding:28px 0 0;display:flex;flex-direction:column;gap:12px}
+.comments input{width:100%;min-height:44px;border-radius:12px;border:1px solid #E6E6E2;padding:0 14px;font-family:inherit;font-size:14px;background:#FFFFFF}
+.owners{font-size:12px;color:#5C5C5A;display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-top:1px solid #EFEFEC}
+.pline{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:14px 0;border-bottom:1px solid #EFEFEC;text-decoration:none;color:#1A1A1A}
+.pline:last-child{border-bottom:0}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500;text-align:left;padding:10px 12px;border-bottom:1px solid #E6E6E2}
+.tbl td{padding:12px;border-bottom:1px solid #EFEFEC;vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+@media (max-width:760px){.wrap{padding:0 16px}.row{grid-template-columns:minmax(0,1fr)}.gl{grid-template-columns:minmax(0,1fr)}}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+<header style="background:#FFFFFF;border-top:4px solid #C4262E;border-bottom:1px solid #E6E6E2">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
+    <a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1A1A1A" aria-label="Home">
+      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">TL</span>
+      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:15px">ThinkLatent</span><span style="font-size:12px;color:#5C5C5A">Team site</span></span>
+    </a>
+    <nav class="nav" aria-label="Site" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
+      <a class="" href="Mandate.dc.html">Mandate</a><a class="on" href="Products.dc.html">Products<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Wins.dc.html">Our work<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Blog.dc.html">Stories<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Team.dc.html">Team</a>
+      <a class="pill go" href="Write.dc.html" style="margin-left:8px">Write for ThinkLatent</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="min-height:520px;display:flex;align-items:flex-end">
+  <div class="wrap" style="width:100%;padding-top:80px;padding-bottom:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:40px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="cap">Products</p>
+      <h1 style="font-size:56px;line-height:1.04;font-weight:400;letter-spacing:-.03em">How the mandate is delivered.</h1>
+      <p style="font-size:18px;color:#3A3A38;max-width:600px">TLM, the models that carry the Enterprise's knowledge; the ThinkLatent Portal, where teams find, try, train and run them; the TL Index, which says how good they are; and ThinkLatent Trust, which says how each one earned its place.</p>
+      <nav aria-label="Products" style="display:flex;flex-wrap:wrap;gap:8px"><a class="pill sm on" href="#tlm">TLM</a><a class="pill sm" href="#portal">ThinkLatent Portal</a><a class="pill sm" href="#vai">TL Index</a><a class="pill sm" href="TLTrust.dc.html">ThinkLatent Trust</a><a class="pill sm" href="#releases">Releases</a></nav>
+    </div>
+    <div class="panel" style="background:rgba(255,255,255,.72);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:520px;justify-self:end">
+      <div><p class="display" style="font-size:52px">5</p><p class="meta" style="margin-top:8px">generations</p></div>
+      <div><p class="display" style="font-size:52px">3</p><p class="meta" style="margin-top:8px">in production</p></div>
+      <div><p class="display" style="font-size:52px">35M<span style="font-size:18px;font-weight:400;letter-spacing:0;color:#5C5C5A">+</span></p><p class="meta" style="margin-top:8px">client interactions a year, across voice, chat, web, email and SMS</p></div>
+    </div>
+  </div>
+</section>
+<main class="wrap" style="display:flex;flex-direction:column;gap:72px;padding-top:64px;width:100%">
+  <section id="tlm" class="sec">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">TLM · the lineage</p><h2 class="h2">Five generations, one line of descent</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">Each generation is a different bet. TLM4 branches into three tiers built on one base. The picture is an image on this page; the interactive version lives in the ThinkLatent Portal.</p></div><a class="pill" href="TplRelease.dc.html">TLM4 release notes</a></div>
+    <div class="panel" style="padding:28px 28px 20px"><svg viewBox="0 0 1160 250" width="100%" style="max-width:1160px;display:block" role="img" aria-label="TLM lineage: five generations; TLM4 branches into Core, Distil and Domain"><defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#9A9A96"/></marker></defs><rect x="30" y="60" width="190" height="78" rx="16" fill="#FFFFFF" stroke="#E6E6E2" stroke-width="1.5"/><text x="48" y="90" font-size="17" font-weight="600" fill="#1A1A1A">TLM1</text><text x="48" y="112" font-size="13" fill="#5C5C5A">BERT + speech · in production</text><path d="M220 99 L260 99" stroke="#9A9A96" stroke-width="1.5" marker-end="url(#a)"/><rect x="260" y="60" width="190" height="78" rx="16" fill="#FFFFFF" stroke="#E6E6E2" stroke-width="1.5"/><text x="278" y="90" font-size="17" font-weight="600" fill="#1A1A1A">TLM2</text><text x="278" y="112" font-size="13" fill="#5C5C5A">108B MoE · built in-house</text><path d="M450 99 L490 99" stroke="#9A9A96" stroke-width="1.5" marker-end="url(#a)"/><rect x="490" y="60" width="190" height="78" rx="16" fill="#FFFFFF" stroke="#E6E6E2" stroke-width="1.5"/><text x="508" y="90" font-size="17" font-weight="600" fill="#1A1A1A">TLM3</text><text x="508" y="112" font-size="13" fill="#5C5C5A">20–30B · pruned, distilled</text><path d="M680 99 L720 99" stroke="#9A9A96" stroke-width="1.5" marker-end="url(#a)"/><rect x="720" y="60" width="190" height="78" rx="16" fill="#1B5128" stroke="#1B5128" stroke-width="1.5"/><text x="738" y="90" font-size="17" font-weight="600" fill="#FFFFFF">TLM4</text><text x="738" y="112" font-size="13" fill="#D6E9DB">Core 27B · 7B · current</text><path d="M910 99 L950 99" stroke="#9A9A96" stroke-width="1.5" marker-end="url(#a)"/><rect x="950" y="60" width="190" height="78" rx="16" fill="#FFFFFF" stroke="#9A9A96" stroke-width="1.5" stroke-dasharray="6 5"/><text x="968" y="90" font-size="17" font-weight="600" fill="#1A1A1A">TLM5</text><text x="968" y="112" font-size="13" fill="#5C5C5A">world model · next</text><path d="M815 138 L815 160 L660 160 L660 178" fill="none" stroke="#9A9A96" stroke-width="1.5"/><rect x="590" y="178" width="140" height="56" rx="14" fill="#FFFFFF" stroke="#3E9A5C" stroke-width="1.5"/><text x="604" y="202" font-size="14" font-weight="600" fill="#1A1A1A">Core</text><text x="604" y="221" font-size="12" fill="#5C5C5A">knows the Enterprise best</text><path d="M815 138 L815 160 L825 160 L825 178" fill="none" stroke="#9A9A96" stroke-width="1.5"/><rect x="755" y="178" width="140" height="56" rx="14" fill="#FFFFFF" stroke="#2F7A6D" stroke-width="1.5"/><text x="769" y="202" font-size="14" font-weight="600" fill="#1A1A1A">Distil</text><text x="769" y="221" font-size="12" fill="#5C5C5A">the cheaper path</text><path d="M815 138 L815 160 L990 160 L990 178" fill="none" stroke="#9A9A96" stroke-width="1.5"/><rect x="920" y="178" width="140" height="56" rx="14" fill="#FFFFFF" stroke="#3A3A38" stroke-width="1.5"/><text x="934" y="202" font-size="14" font-weight="600" fill="#1A1A1A">Domain</text><text x="934" y="221" font-size="12" fill="#5C5C5A">specialists on Core</text></svg></div>
+    <div class="grid g3">
+      <a class="panel card" href="TplModelCard.dc.html" style="gap:10px;padding:22px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag ">Core · 27B and 7B</span><span class="tag grey">In production</span></div><h3 style="font-size:20px">Knows the Enterprise best</h3><p class="meta" style="color:#3A3A38"><b style="font-weight:600;color:#1A1A1A">For:</b> anything that needs the Enterprise's knowledge</p><p class="meta" style="color:#3A3A38"><b style="font-weight:600;color:#1A1A1A">Used by:</b> the advice desk, [N] use cases</p><p class="meta" style="color:#3A3A38"><b style="font-weight:600;color:#1A1A1A">Limits, plainly:</b> best on the Enterprise's own work; slower and dearer than Distil; the 7B trades some accuracy for speed</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC;display:flex;justify-content:space-between;gap:8px"><span>Owner: [Name]</span><span style="color:#2E6B3C">Full card in the ThinkLatent Portal ↗</span></p></a>
+      <a class="panel card" href="TplModelCard.dc.html" style="gap:10px;padding:22px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag teal">Distil</span><span class="tag grey">In production</span></div><h3 style="font-size:20px">The cheaper path, kept open</h3><p class="meta" style="color:#3A3A38"><b style="font-weight:600;color:#1A1A1A">For:</b> high-volume, bounded tasks</p><p class="meta" style="color:#3A3A38"><b style="font-weight:600;color:#1A1A1A">Used by:</b> [N] use cases</p><p class="meta" style="color:#3A3A38"><b style="font-weight:600;color:#1A1A1A">Limits, plainly:</b> does not carry Core's full knowledge; pick it when the task is narrow</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC;display:flex;justify-content:space-between;gap:8px"><span>Owner: [Name]</span><span style="color:#2E6B3C">Full card in the ThinkLatent Portal ↗</span></p></a>
+      <a class="panel card" href="TplModelCard.dc.html" style="gap:10px;padding:22px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag grey">Domain</span><span class="tag grey">Preview</span></div><h3 style="font-size:20px">Specialists for a business domain</h3><p class="meta" style="color:#3A3A38"><b style="font-weight:600;color:#1A1A1A">For:</b> a domain with a queue of use cases: Advice, Compliance, Judge, Cybersecurity</p><p class="meta" style="color:#3A3A38"><b style="font-weight:600;color:#1A1A1A">Used by:</b> [Business units]</p><p class="meta" style="color:#3A3A38"><b style="font-weight:600;color:#1A1A1A">Limits, plainly:</b> built only on Core, only where several use cases justify it</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC;display:flex;justify-content:space-between;gap:8px"><span>Owner: [Name]</span><span style="color:#2E6B3C">Full card in the ThinkLatent Portal ↗</span></p></a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">Generations</p><h2 class="h2">Each generation, in outcomes</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">What each one made possible. Techniques live in the engineering series and the portal.</p></div></div>
+    <ol style="list-style:none;margin:0;padding:0" class="grid g5">
+      <li class="gen"><span class="g">TLM1 · in production</span><h3 style="font-size:18px">Before LLMs</h3><p class="meta" style="color:#3A3A38">An Enterprise BERT and the speech model that processes the Enterprise's phone calls.</p></li>
+      <li class="gen"><span class="g">TLM2</span><h3 style="font-size:18px">Built in-house</h3><p class="meta" style="color:#3A3A38">A 108B sparse mixture-of-experts model, the Enterprise's own.</p></li>
+      <li class="gen"><span class="g">TLM3</span><h3 style="font-size:18px">Smaller and faster</h3><p class="meta" style="color:#3A3A38">TLM2 pruned and distilled to 20 to 30B for lower cost and latency.</p></li>
+      <li class="gen" style="background:#1B5128;border-color:#2E6B3C"><span class="g" style="color:#A8D5B4">TLM4 · current</span><h3 style="font-size:18px;color:#FFFFFF">Core, Distil, Domain</h3><p class="meta" style="color:#D6E9DB">Base moved to Gemma; Core 27B and 7B on curated Enterprise data; the tier that drives adoption today.</p></li>
+      <li class="gen" style="border-style:dashed;background:#FFFFFF"><span class="g">TLM5 · next</span><h3 style="font-size:18px">Sees where things are heading</h3><p class="meta" style="color:#3A3A38">A text-only large world model that learns from observation and predicts where an interaction is going, and can guide a frontier model from the Enterprise's past interactions.</p></li>
+    </ol>
+  </section>
+
+  <section id="portal" class="sec">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">ThinkLatent Portal</p><h2 class="h2">One place to find, try, train and run ThinkLatent's models</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">The site tells the story; the portal is where the work happens. Intake requests from this site hand off to the portal when its intake ships.</p></div></div>
+    <div class="grid g3">
+      <a class="panel card" href="#" style="padding:12px;gap:0"><div class="thumb steel" style="aspect-ratio:16/9;display:flex;align-items:flex-start;justify-content:space-between;padding:12px"><span class="tag steel">ThinkLatent Portal</span><span class="tag grey">In shaping</span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:19px">The catalogue, the use-case record and the playground</h3><p class="meta">Every model with its full card; every use case with its status, business unit and the one number it is measured by; try a model before you build.</p></div></a>
+      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag teal" style="align-self:flex-start">Relay SDK · in production</span><h3 style="font-size:19px">The way developers reach TLM</h3><p class="meta">Python and Node.js packages that follow the OpenAI client patterns your team already knows, exposing every hosted TLM endpoint.</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag teal" style="align-self:flex-start">AI Gateway and HyperPod · in production</span><h3 style="font-size:19px">Serving at enterprise grade</h3><p class="meta">Dedicated endpoints per use case, multi-tenant memory, telemetry on every call, trained and served on HyperPod.</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag teal" style="align-self:flex-start">Compression pipeline · in production</span><h3 style="font-size:19px">Pruning, distillation, quantization</h3><p class="meta">How a 108B model becomes a 27B one, and a 27B becomes a 7B that runs in FP8, without losing what matters.</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag" style="align-self:flex-start">Self-healing · built</span><h3 style="font-size:19px">A model that closes its own gaps</h3><p class="meta">Finds a model's domain and skill gaps and generates or locates the data to close them; fed by the index's datasets.</p></div>
+      <a class="panel card" href="Wins.dc.html#talk" style="gap:10px;background:#1B5128;border-color:#2E6B3C"><span class="tag" style="align-self:flex-start;background:rgba(255,255,255,.12);color:#D6E9DB">Bring us a problem</span><h3 style="font-size:19px;color:#FFFFFF">Not sure which model fits?</h3><p class="meta" style="color:#D6E9DB">Tell us the problem in your words. We say which tier, how long, and what it costs, within a week.</p></a>
+    </div>
+  </section>
+
+  <section id="vai" class="grid g2" style="align-items:start">
+    <div class="panel" style="display:flex;flex-direction:column;gap:14px;padding:32px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag teal">TL Index · summary</span><span class="meta">as of [DATE] · run [N]</span></div>
+      <p class="display" style="font-size:72px">0.[NN]<span style="font-size:20px;font-weight:400;letter-spacing:0;color:#5C5C5A"> ± 0.0[N]</span></p>
+      <p class="meta">Sufficiency of TLM4 Core on the Enterprise's skills, against a target of [N]. The number comes from the index; this page never computes one.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding-top:12px;border-top:1px solid #EFEFEC"><div><p class="cap">vs last release</p><p style="font-weight:500;margin-top:4px;color:#2E6B3C">↑ 0.0[N]</p></div><div><p class="cap">vs frontier baseline</p><p style="font-weight:500;margin-top:4px">[N]</p></div><div><p class="cap">Skills measured</p><p style="font-weight:500;margin-top:4px">9</p></div></div>
+      <a class="pill" href="#" style="align-self:flex-start">Open the index ↗</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <p class="cap">What the index measures, and why</p>
+      <h2 class="h2" style="margin:0">Three lines on the TL Index</h2>
+      <p style="font-size:17px;color:#3A3A38">It scores models, ours and others, on the skills the Enterprise needs: financial data, customer-care language, compliance, cybersecurity, safety, entity recognition, judging, coding and agent skills.</p>
+      <p style="font-size:17px;color:#3A3A38">Every ThinkLatent release is measured against the last one, in the same way, and the worse results are shown too.</p>
+      <p style="font-size:17px;color:#3A3A38">A number without its method is not a number; the index publishes its method, its data and a plain-language explainer with each run.</p>
+      <a class="door" href="TLTrust.dc.html" style="margin-top:6px"><span class="tag grey" style="align-self:flex-start">ThinkLatent Trust</span><h3 style="font-size:19px">How a score becomes a decision</h3><p class="meta">The index is one of five steps every ThinkLatent use case passes before it sits in front of a client.</p><span style="font-weight:500;color:#2E6B3C">See the lifecycle</span></a>
+    </div>
+  </section>
+
+  <div class="panel" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px 24px;padding:24px 28px;align-items:start"><div style="grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:end"><div><p class="cap">Use AI at the Enterprise</p><h3 style="font-size:20px;margin-top:4px">The things ThinkLatent links to, and does not copy</h3></div><p class="meta" style="max-width:520px">Policy, the approved tools and firm-wide training belong to the Enterprise's AI governance owner. The playground and the full model cards live in the ThinkLatent Portal; the scores live in the TL Index.</p></div><a class="door" href="#" style="padding:16px"><span class="tag grey" style="align-self:flex-start">Governance owner</span><strong style="font-weight:600">Approved AI tools ↗</strong><span class="meta">The list every team should check first.</span></a><a class="door" href="#" style="padding:16px"><span class="tag grey" style="align-self:flex-start">Governance owner</span><strong style="font-weight:600">AI training paths ↗</strong><span class="meta">Firm-wide literacy, by role.</span></a><a class="door" href="#" style="padding:16px"><span class="tag red" style="align-self:flex-start">ThinkLatent Portal</span><strong style="font-weight:600">Playground and model cards ↗</strong><span class="meta">Try a model; read its full card.</span></a><a class="door" href="#" style="padding:16px"><span class="tag" style="align-self:flex-start">The TL Index</span><strong style="font-weight:600">TL Index ↗</strong><span class="meta">How models score on the Enterprise's skills.</span></a></div>
+
+  <section id="releases" class="panel" style="padding:28px;display:flex;flex-direction:column;gap:8px">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px"><p class="cap">Releases · News filtered by Category = Release</p><a class="pill sm" href="TplRelease.dc.html">Release-day playbook</a></div>
+    <a class="pline" href="TplRelease.dc.html"><span style="font-weight:500">TLM4 Core 7B in FP8: [what it is new for, in outcomes]</span><span class="meta">[DATE]</span></a>
+    <a class="pline" href="TplRelease.dc.html"><span style="font-weight:500">TLM4 Core 27B: [what changed against TLM3]</span><span class="meta">[DATE]</span></a>
+    <a class="pline" href="TplRelease.dc.html"><span style="font-weight:500">Relay [version]: [what is new]</span><span class="meta">[DATE]</span></a>
+  </section>
+</main>
+<div class="wrap"><div class="comments"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><p class="cap">Comments · on, moderated by the editors</p><span class="meta">[N] comments</span></div><input placeholder="Add a comment, or ask the author a question" aria-label="Add a comment"></div></div><div class="wrap"><div class="owners"><span>Page owners: [Site editor, TPM] · Head of AI Products</span><span>Review by: [DATE + 1 quarter]</span><span>Last reviewed: [DATE]</span></div></div>
+<footer style="background:#ECECEA;border-top:1px solid #E6E6E2;margin-top:80px">
+  <div class="wrap" style="padding-top:48px;padding-bottom:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px">
+    <div style="display:flex;flex-direction:column;gap:12px;min-width:240px"><p style="font-weight:600">ThinkLatent</p><p class="meta">The Enterprise's own intelligence, compounding. Internal to the Enterprise.</p><div style="display:flex;flex-wrap:wrap;gap:8px"><a class="pill sm" href="#">Follow this site</a><a class="pill sm" href="#">ThinkLatent on Viva Engage</a></div></div>
+    <div><p class="cap">Site</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="Mandate.dc.html" style="color:#3A3A38;text-decoration:none">Mandate</a></li><li><a href="Products.dc.html" style="color:#3A3A38;text-decoration:none">Products</a></li><li><a href="Wins.dc.html" style="color:#3A3A38;text-decoration:none">Our work</a></li><li><a href="Blog.dc.html" style="color:#3A3A38;text-decoration:none">Stories</a></li><li><a href="Team.dc.html" style="color:#3A3A38;text-decoration:none">Team</a></li><li><a href="Glossary.dc.html" style="color:#3A3A38;text-decoration:none">Glossary</a></li><li><a href="Glance.dc.html" style="color:#3A3A38;text-decoration:none">ThinkLatent at a glance</a></li></ul></div>
+    <div><p class="cap">Products</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="Products.dc.html" style="color:#3A3A38;text-decoration:none">TLM</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">ThinkLatent Portal ↗</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">TL Index ↗</a></li><li><a href="TLTrust.dc.html" style="color:#3A3A38;text-decoration:none">ThinkLatent Trust</a></li></ul></div>
+    <div><p class="cap">Elsewhere</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="(source link withheld)" style="color:#3A3A38;text-decoration:none">The university lab ↗</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">[Enterprise recognition portal] ↗</a></li><li><a href="Write.dc.html" style="color:#3A3A38;text-decoration:none">Write for ThinkLatent</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">Contact the editors</a></li></ul></div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3550}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

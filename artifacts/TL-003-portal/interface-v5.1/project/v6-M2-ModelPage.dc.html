@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · TLM4 Core 4.2 (v6 pilot)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 7200px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div>
+        <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="M1-Catalogue.dc.html">Models</a><span class="sep" aria-hidden="true">›</span><a href="M1-Catalogue-AllModels.dc.html">TLM4</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Core 4.2</span></nav>
+        <h1 style="margin-top: 8px">TLM4 Core 4.2</h1>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 12px">
+          <span class="kit-chip brand">Current</span>
+          <span class="kit-chip outline">prod alias → Core 4.2</span>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved for production 2026-10-28</span></span>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Amber: a person reviews any output before a client sees it</span></span>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 10px">
+          <span class="kit-muted">The current TLM4 Core release: 34B, text in and out, internal use only.</span>
+          <span class="kit-asof">As of Thu 5 Nov 2026, 11:58 ET <button class="kit-tip below" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: facts from the registry and the model card; approval from the validation record; scores from Official TL Index runs.</span></button></span>
+        </div>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="P1-Playground.dc.html">Try it</a><a class="kit-btn outline" href="v6-J0-StartProject.dc.html">Use for a new use case</a></div>
+    </div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile" aria-label="Health, in parts">
+        <div class="kit-tile-top"><div class="kit-tile-title" style="margin-top: 0">Health, in parts <button class="kit-tip below" type="button" aria-label="About health, in parts">i<span class="kit-tip-bubble" role="tooltip"><b>Health, in parts.</b> No composite score: the regression suite (418 checks at 06:10 on the gate pillars and the workflows' own), 30-day uptime against the 99.9% dedicated-endpoint target, incidents and findings each keep their own status. Last incident INC-5488, latency, 34 min, closed 21 Oct; findings span 12 use cases.<span class="src">Source: daily evaluation schedule, endpoint monitors and the record · as of 11:58 ET</span></span></button></div></div>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><a class="kit-small" href="#sec-evidence">Regression suite</a><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed 06:10</span></span></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><a class="kit-small" href="#sec-serving">Uptime, 30 days</a><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>99.97% · target 99.9%</span></span></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><a class="kit-small" href="W3-Alerts.dc.html">Incidents</a><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>None open</span></span></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><a class="kit-small" href="V3-GovernancePortfolio.dc.html">Findings</a><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>3 open · oldest 6 d</span></span></div>
+        </div>
+        <div class="kit-tile-cap" style="margin-top: 12px">RT-112, red-team: prompt injection via document footnotes</div>
+      </section>
+
+      <section class="kit-tile" aria-label="Adoption">
+        <div class="kit-tile-top"><div class="kit-tile-title" style="margin-top: 0">Adoption <button class="kit-tip below" type="button" aria-label="About adoption">i<span class="kit-tip-bubble" role="tooltip"><b>Adoption.</b> Use cases bound to Core 4.2 by an alias, directly or through a model built on it. Calls per day are the production aggregate, 7-day mean.<span class="src">Source: the record and the gateway serving log · as of 11:58 ET</span></span></button></div><a class="kit-open" href="#sec-usecases" aria-label="Open use cases on it">↗</a></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">12<span class="unit">use cases</span></div><div class="kit-tile-cap">9 in production, 1 pilot · 1.1M calls a day</div></div><svg class="kit-spark" aria-hidden="true" viewBox="0 0 100 40" width="80" height="40"><polyline fill="none" stroke="#3E9A5C" stroke-width="2" points="0,30 15,28 30,24 45,25 60,18 75,16 90,12 100,10"></polyline></svg></div>
+      </section>
+
+      <section class="kit-tile" aria-label="Cost per 1,000 tasks">
+        <div class="kit-tile-top"><div class="kit-tile-title" style="margin-top: 0">Cost per 1,000 tasks <button class="kit-tip open below" type="button" aria-label="About cost per 1,000 tasks">i<span class="kit-tip-bubble" role="tooltip"><b>Cost per 1,000 tasks.</b> Finance method on the gateway serving log, same task mix for both versions.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></div><a class="kit-open" href="J10-Usage.dc.html" aria-label="Open usage and cost">↗</a></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$0.38</div><div class="kit-tile-cap">12% below Core 4.1 at $0.43 · $0.42 per 1M tokens</div></div><div class="kit-bars" role="img" aria-label="Core 4.1 $0.43 against Core 4.2 $0.38 per 1,000 tasks"><i style="height: 100%"></i><i class="lit" style="height: 88%"></i></div></div>
+      </section>
+
+      <section class="kit-tile" aria-label="TL Index composite">
+        <div class="kit-tile-top"><div class="kit-tile-title" style="margin-top: 0">TL Index composite <button class="kit-tip below" type="button" aria-label="About the TL Index composite">i<span class="kit-tip-bubble" role="tooltip"><b>TL Index composite.</b> The Index's mean of the five live pillars in Official run 1180, not a health score. 91% of the run's 6,000 items met their rubric, against 89% on Core 4.1.<span class="src">Source: Official TL Index run 1180 · as of 11:58 ET</span></span></button></div><a class="kit-open" href="v6-E1-EvaluationResults.dc.html" aria-label="Open run 1180">↗</a></div>
+        <div>
+          <div class="kit-display kit-tile-value" style="font-size: 44px"><span class="kit-interval">82% <span class="pm" style="font-size: 18px">± 3</span></span></div>
+          <div class="kit-tile-cap">Run 1180 · clears 5 of 5 bars · Core 4.1 was 80%</div>
+          <div style="margin-top: 10px"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Thin margin: Compliance +4 pts</span></span></div>
+        </div>
+      </section>
+    </div>
+
+    <section style="display: flex; flex-direction: column; gap: 12px" aria-labelledby="h-profile">
+      <div class="kit-section-title">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><h2 id="h-profile">Pillar profile against the bars <button class="kit-tip" type="button" aria-label="About the pillar profile">i<span class="kit-tip-bubble" role="tooltip"><b>Reading the profile.</b> Dot and band: the score and its 95% interval; tick: the bar for production. A change inside the interval reads No change.<span class="src">Source: Official TL Index runs 1180, 1141 and 1146 · as of 11:58 ET</span></span></button></h2><span class="sub">Five live pillars · Official runs on the same items and judge version</span></div>
+        <div class="kit-actions"><a class="kit-btn sm outline" href="v6-E1-EvaluationResults.dc.html">Open run 1180</a><a class="kit-btn sm outline" href="M1-Catalogue-Compare.dc.html">Compare</a></div>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th>TL Index pillar</th><th>Profile<svg role="img" aria-label="Scale from 60% to 100%" viewBox="0 0 200 12" width="200" height="12" style="display: block; margin-top: 4px"><text x="6" y="10" font-size="10" fill="#5C5C5A">60%</text><text x="100" y="10" font-size="10" text-anchor="middle" fill="#5C5C5A">80%</text><text x="194" y="10" font-size="10" text-anchor="end" fill="#5C5C5A">100%</text></svg></th><th class="num">Core 4.2</th><th class="num">Core 4.1</th><th class="num">Core 3.4</th><th>Against 4.1</th><th>Bar for production</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="kit-muted kit-num">1</span> <a href="E9-Pillar.dc.html">Financial data processing</a> <span class="kit-chip outline">workflow</span></td>
+              <td><svg role="img" aria-label="Financial data processing: Core 4.2 86% ± 3, Core 4.1 82%, Core 3.4 74%, bar 78%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="114.1" y="6" width="28.2" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="71.8" cy="11" r="3" fill="#B5B5B3"></circle><line x1="90.6" y1="2" x2="90.6" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="109.4" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="128.2" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
+              <td class="num"><span class="kit-interval">86% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">82% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">74% <span class="pm">± 4</span></span></td>
+              <td><span class="kit-num" style="margin-right: 8px">+4 pts</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better</span></span></td>
+              <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared · bar 78%</span></span></td>
+            </tr>
+            <tr>
+              <td><span class="kit-muted kit-num">3</span> <a href="E9-Pillar.dc.html">Client care</a> <span class="kit-chip brand">gate</span></td>
+              <td><svg role="img" aria-label="Client care: Core 4.2 81% ± 3, Core 4.1 80%, Core 3.4 72%, bar 75%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="90.6" y="6" width="28.2" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="62.4" cy="11" r="3" fill="#B5B5B3"></circle><line x1="76.5" y1="2" x2="76.5" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="100" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="104.7" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
+              <td class="num"><span class="kit-interval">81% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">72% <span class="pm">± 4</span></span></td>
+              <td><span class="kit-num" style="margin-right: 8px">+1 pt</span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>No change</span></span></td>
+              <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared · bar 75%</span></span></td>
+            </tr>
+            <tr>
+              <td><span class="kit-muted kit-num">4</span> <a href="E9-Pillar.dc.html">Compliance and regulatory</a> <span class="kit-chip brand">gate</span></td>
+              <td><svg role="img" aria-label="Compliance and regulatory: Core 4.2 79% ± 4, the interval touches the bar of 75%; Core 4.1 78%, Core 3.4 70%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="76.5" y="6" width="37.6" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="53" cy="11" r="3" fill="#B5B5B3"></circle><line x1="76.5" y1="2" x2="76.5" y2="20" stroke="#B9742F" stroke-width="2"></line><circle cx="90.6" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="95.3" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
+              <td class="num"><span class="kit-interval">79% <span class="pm">± 4</span></span></td>
+              <td class="num"><span class="kit-interval">78% <span class="pm">± 4</span></span></td>
+              <td class="num"><span class="kit-interval">70% <span class="pm">± 5</span></span></td>
+              <td><span class="kit-num" style="margin-right: 8px">+1 pt</span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>No change</span></span></td>
+              <td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Cleared, thin · bar 75%</span></span></td>
+            </tr>
+            <tr>
+              <td><span class="kit-muted kit-num">6</span> <a href="E9-Pillar.dc.html">Safety and grounding</a> <span class="kit-chip brand">gate</span></td>
+              <td><svg role="img" aria-label="Safety and grounding: Core 4.2 84% ± 3, Core 4.1 83%, Core 3.4 74%, bar 80%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="104.7" y="6" width="28.2" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="71.8" cy="11" r="3" fill="#B5B5B3"></circle><line x1="100" y1="2" x2="100" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="114.1" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="118.8" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
+              <td class="num"><span class="kit-interval">84% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">83% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">74% <span class="pm">± 4</span></span></td>
+              <td><span class="kit-num" style="margin-right: 8px">+1 pt</span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>No change</span></span></td>
+              <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared · bar 80%</span></span></td>
+            </tr>
+            <tr>
+              <td><span class="kit-muted kit-num">7</span> <a href="E9-Pillar.dc.html">Entity recognition</a> <span class="kit-chip outline">workflow</span></td>
+              <td><svg role="img" aria-label="Entity recognition: Core 4.2 80% ± 3, Core 4.1 78%, Core 3.4 73%, bar 72%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="85.9" y="6" width="28.2" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="67.1" cy="11" r="3" fill="#B5B5B3"></circle><line x1="62.4" y1="2" x2="62.4" y2="20" stroke="#1A1A1A" stroke-width="2"></line><circle cx="90.6" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="100" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
+              <td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">78% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">73% <span class="pm">± 4</span></span></td>
+              <td><span class="kit-num" style="margin-right: 8px">+2 pts</span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>No change</span></span></td>
+              <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Cleared · bar 72%</span></span></td>
+            </tr>
+            <tr>
+              <td><b style="font-weight: 500">Composite of the five live pillars</b></td>
+              <td><svg role="img" aria-label="Composite: Core 4.2 82% ± 3, Core 4.1 80%, Core 3.4 73%" viewBox="0 0 200 22" width="200" height="22"><line x1="6" y1="11" x2="194" y2="11" stroke="#DADAD8" stroke-width="2" stroke-linecap="round"></line><rect x="95.3" y="6" width="28.2" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="67.1" cy="11" r="3" fill="#B5B5B3"></circle><circle cx="100" cy="11" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle><circle cx="109.4" cy="11" r="5" fill="#3E9A5C"></circle></svg></td>
+              <td class="num"><span class="kit-interval">82% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td>
+              <td class="num"><span class="kit-interval">73% <span class="pm">± 4</span></span></td>
+              <td><span class="kit-num" style="margin-right: 8px">+2 pts</span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>No change</span></span></td>
+              <td class="kit-small">5 of 5 cleared · Core 3.4: 1 of 5</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="kit-legend" style="margin-top: 12px; align-items: center">
+          <span><svg aria-hidden="true" viewBox="0 0 22 12" width="22" height="12" style="vertical-align: -2px; margin-right: 6px"><rect x="1" y="1" width="20" height="10" rx="5" fill="rgba(62,154,92,.25)"></rect><circle cx="11" cy="6" r="5" fill="#3E9A5C"></circle></svg>Core 4.2 · run 1180, with its 95% interval</span>
+          <span><svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12" style="vertical-align: -2px; margin-right: 6px"><circle cx="6" cy="6" r="4" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle></svg>Core 4.1 · run 1141</span>
+          <span><svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12" style="vertical-align: -2px; margin-right: 6px"><circle cx="6" cy="6" r="3" fill="#B5B5B3"></circle></svg>TLM3 Core 3.4 · run 1146, re-run</span>
+          <span><svg aria-hidden="true" viewBox="0 0 8 14" width="8" height="14" style="vertical-align: -3px; margin-right: 6px"><line x1="4" y1="1" x2="4" y2="13" stroke="#1A1A1A" stroke-width="2"></line></svg>Bar for production</span>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Thin: the interval touches the bar</span></span>
+          <span><span class="kit-chip brand" style="margin-right: 6px">gate</span>every workflow must clear it</span>
+          <span><span class="kit-chip outline" style="margin-right: 6px">workflow</span>the workflows' own pillars</span>
+        </div>
+        <details style="margin-top: 14px">
+          <summary class="kit-small" style="cursor: pointer; font-weight: 500">Show 11 Phase 2 pillars and 2 candidates · no score yet</summary>
+          <table class="kit-small" style="margin-top: 8px">
+            <thead><tr><th class="num" style="width: 64px">#</th><th>TL Index pillar</th><th class="num">Score</th><th>Why no score</th></tr></thead>
+            <tbody>
+              <tr class="kit-muted"><td class="num">2</td><td>Financial analysis and reasoning</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2</td></tr>
+              <tr class="kit-muted"><td class="num">5</td><td>Cybersecurity</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2</td></tr>
+              <tr class="kit-muted"><td class="num">8</td><td>Judging and scoring</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2</td></tr>
+              <tr class="kit-muted"><td class="num">9</td><td>Coding</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2</td></tr>
+              <tr class="kit-muted"><td class="num">10</td><td>Agentic competence</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2</td></tr>
+              <tr class="kit-muted"><td class="num">11</td><td>Document understanding</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2</td></tr>
+              <tr class="kit-muted"><td class="num">12</td><td>Multilingual</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2</td></tr>
+              <tr class="kit-muted"><td class="num">13</td><td>Long context</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2 · interim: <a href="#sec-serving">context curve</a></td></tr>
+              <tr class="kit-muted"><td class="num">14</td><td>Instruction and format fidelity</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2</td></tr>
+              <tr class="kit-muted"><td class="num">15</td><td>Summarization</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2</td></tr>
+              <tr class="kit-muted"><td class="num">16</td><td>Deployability</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td>Phase 2</td></tr>
+              <tr class="kit-muted"><td class="num">17–18</td><td>Visual and chart understanding · UI and front-end generation</td><td class="num"><span class="kit-dash" title="candidate pillars">—</span></td><td>Candidates · with the <a href="E9-Pillar.dc.html">pillar council</a></td></tr>
+            </tbody>
+          </table>
+        </details>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Scores: Official TL Index runs 1180, 1141 and 1146, judge version pinned, 95% interval by bootstrap over 1,200 items per live pillar. Bars and gate pillars (Safety and grounding, Compliance and regulatory, Client care, plus each workflow's own) from the TL Index record. The composite is the Index's mean of the live pillars, not a health score.</span></button></div>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 12px" aria-labelledby="h-decide">
+      <div class="kit-section-title">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><h2 id="h-decide">Needs a decision</h2><span class="sub">1 proposal · agents propose, you decide</span></div>
+      </div>
+      <div class="kit-surface kit-decide">
+        <div class="kit-agentline">
+          <span class="kit-agent"><span class="av" style="background: rgba(26,26,26,.06); border-color: rgba(26,26,26,.12)">IX</span><span>Index agent</span></span>
+          <span>· Proposal · 74% confidence · today 06:45</span>
+          <span>· Basis: Official TL Index run 1180 and 7 use-case Official runs</span>
+          <a class="kit-btn sm outline" href="v6-E1-EvaluationResults.dc.html">View sources</a>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px; margin-top: 14px; align-items: end">
+          <div>
+            <h3 style="font-size: 20px">An adapter on Core 4.2 for Client care and Compliance and regulatory</h3>
+            <div class="kit-muted" style="margin-top: 6px">Seven use cases miss the same 212 items: complaint handling and disclosure wording.</div>
+            <div class="kit-small" style="margin-top: 6px">Model brief: clears every bar · Compliance is the thinnest margin · Client care trails Domain-Advice v2 by 6 pts</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+            <div><div class="kit-display" style="font-size: 30px">7</div><div class="kit-small kit-muted">use cases as evidence</div></div>
+            <div><div class="kit-display" style="font-size: 30px">212</div><div class="kit-small kit-muted">items missed in common</div></div>
+            <div><div class="kit-display" style="font-size: 30px">412</div><div class="kit-small kit-muted">reviewed corrections</div></div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px">
+          <span class="kit-small">Expected: +3 to +5 pts on both pillars · the Official run decides</span>
+          <div class="kit-actions"><button class="kit-btn" type="button">Propose adapter</button><button class="kit-btn outline" type="button">Schedule review</button><button class="kit-btn outline" type="button">Dismiss</button></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="kit-sectionbar" aria-label="On this page">
+      <a href="#sec-evidence" aria-current="true">Evidence <span class="n">4 releases</span></a>
+      <a href="#sec-lineage">Lineage and contacts <span class="n">12 use cases</span></a>
+      <a href="#sec-serving">Serving <span class="n">Engineering</span></a>
+      <a href="#sec-howtocall">How to call <span class="n">Engineering</span></a>
+    </nav>
+
+    <section id="sec-evidence" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><h2>Evidence</h2><span class="sub">Each Core release on the Index, oldest first, with cost and what was open</span></div>
+        <div class="kit-actions"><a class="kit-btn sm outline" href="M4-ReleaseBundle.dc.html">Release bundle</a><a class="kit-btn sm outline" href="M7-Lifecycle.dc.html">Lifecycle</a></div>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-surface-head">
+          <div><h3>Releases over time</h3><div class="sub">Candidates have no citable score until their Official run</div></div>
+          <div style="width: 280px">
+            <svg role="img" aria-label="Composite by release: Core 3.4 73%, Core 4.1 80%, Core 4.2 82%; Core 4.3-rc Practice only, not citable" viewBox="0 0 280 72" width="280" height="72">
+              <polyline fill="none" stroke="#3E9A5C" stroke-width="2" points="20,52 110,24 200,16"></polyline>
+              <polyline fill="none" stroke="#8A8A88" stroke-width="1.5" stroke-dasharray="4 4" points="200,16 262,12"></polyline>
+              <circle cx="20" cy="52" r="3.5" fill="#3E9A5C"></circle>
+              <circle cx="110" cy="24" r="3.5" fill="#3E9A5C"></circle>
+              <circle cx="200" cy="16" r="3.5" fill="#3E9A5C"></circle>
+              <circle cx="262" cy="12" r="3.5" fill="#FFFFFF" stroke="#8A8A88" stroke-width="1.5"></circle>
+              <text x="8" y="68" font-size="11" fill="#5C5C5A">3.4 · 73%</text>
+              <text x="110" y="14" font-size="11" text-anchor="middle" fill="#5C5C5A">4.1 · 80%</text>
+              <text x="196" y="34" font-size="11" text-anchor="middle" fill="#5C5C5A">4.2 · 82%</text>
+              <text x="262" y="30" font-size="11" text-anchor="middle" fill="#8A8A88">4.3-rc</text>
+            </svg>
+            <div class="kit-legend"><span><i style="background: #3E9A5C"></i>Composite, Official</span><span><i style="background: #8A8A88"></i>Practice, not citable</span></div>
+          </div>
+        </div>
+        <table style="margin-top: 12px">
+          <thead><tr><th>Release</th><th>Official run</th><th class="num">Composite</th><th class="num">Eval pass rate <button class="kit-tip" type="button" aria-label="About eval pass rate">i<span class="kit-tip-bubble" role="tooltip"><b>Eval pass rate.</b> The share of the run's items that met their rubric.<span class="src">Source: Official TL Index runs · as of 11:58 ET</span></span></button></th><th>Daily regression suite</th><th class="num">Cost per 1,000 tasks</th><th class="num">Against the release before</th><th>Findings open at release</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><a href="v6-M2-ModelPage.dc.html">TLM3 Core 3.4</a><div class="kit-small kit-muted">2025-11 · retiring 2027-03-01</div></td>
+              <td>1146 <span class="kit-small kit-muted">re-run</span></td>
+              <td class="num"><span class="kit-interval">73% <span class="pm">± 4</span></span></td>
+              <td class="num">78%</td>
+              <td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>1 check failed · 5 Nov</span></span></td>
+              <td class="num">$0.55</td>
+              <td class="num"><span class="kit-dash" title="first release measured on the Index pillars">—</span> <span class="kit-small kit-muted">first on the Index</span></td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td><a href="M7-Lifecycle.dc.html">TLM4 Core 4.1</a><div class="kit-small kit-muted">2026-04 · previous</div></td>
+              <td>1141</td>
+              <td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td>
+              <td class="num">89%</td>
+              <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed · 5 Nov</span></span></td>
+              <td class="num">$0.43</td>
+              <td class="num">−22% · new generation</td>
+              <td>0</td>
+            </tr>
+            <tr class="selected">
+              <td><b style="font-weight: 500">TLM4 Core 4.2</b><div class="kit-small kit-muted">2026-10 · current</div></td>
+              <td>1180</td>
+              <td class="num"><span class="kit-interval">82% <span class="pm">± 3</span></span></td>
+              <td class="num">91%</td>
+              <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed · 5 Nov</span></span></td>
+              <td class="num">$0.38</td>
+              <td class="num">−12%</td>
+              <td>3 · 1 red-team</td>
+            </tr>
+            <tr>
+              <td><a href="M4-ReleaseBundle-Migration.dc.html">TLM4 Core 4.3-rc</a><div class="kit-small kit-muted">candidate · registered 2026-11-02</div></td>
+              <td><span class="kit-chip env">Practice 1192</span> <span class="kit-small">never citable</span></td>
+              <td class="num"><span class="kit-dash" title="Practice runs are not citable">—</span></td>
+              <td class="num"><span class="kit-dash" title="Practice runs are not citable">—</span></td>
+              <td><span class="kit-dash" title="joins the daily suite after its Official run">—</span> <span class="kit-small kit-muted">joins after its Official run</span></td>
+              <td class="num"><span class="kit-dash" title="not serving">—</span> <span class="kit-small kit-muted">not serving</span></td>
+              <td class="num"><span class="kit-dash" title="not serving">—</span></td>
+              <td><span class="kit-dash" title="not released">—</span> <span class="kit-small kit-muted">not released</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Official TL Index runs per release; eval pass rate is the share of the run's items that met their rubric; regression suite from the daily evaluation schedule; cost per 1,000 tasks by the Finance method on the same task mix; findings from the record at release date.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-lineage" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><h2>Lineage and contacts</h2><span class="sub">Built from TLM4 base 4.0 · 2 models and 12 use cases build on it</span></div>
+        <div class="kit-actions"><a class="kit-btn sm outline" href="M5-Lineage.dc.html">Lineage</a><a class="kit-btn sm outline" href="M5-Lineage-Generations.dc.html">Generations</a></div>
+      </div>
+      <div class="kit-grid2">
+        <div class="kit-surface">
+          <div class="kit-surface-head"><h3>Facts</h3><a class="kit-btn sm outline" href="M3-CatalogueCard.dc.html">Card</a></div>
+          <dl class="kit-kv" style="margin-top: 12px; grid-template-columns: 160px 1fr">
+            <dt>Built from</dt><dd>TLM4 base 4.0 · training run T-4471 <button class="kit-tip" type="button" aria-label="About the training method">i<span class="kit-tip-bubble" role="tooltip"><b>Method.</b> Continued training on the October document refresh, then instruction tuning, in training run T-4471.<span class="src">Source: the registry · as of 11:58 ET</span></span></button></dd>
+            <dt>Size and modalities</dt><dd>34B parameters · text in, text out · strict JSON mode</dd>
+            <dt>Context window</dt><dd>32k tokens · best under 24k · <a href="#sec-serving">context curve</a></dd>
+            <dt>Licence</dt><dd>Enterprise proprietary · internal use only</dd>
+            <dt>Data tiers</dt><dd>Tiers 1, 2 and 3 · never leaves the Enterprise boundary</dd>
+            <dt>Service levels</dt><dd>Targets: 99.9% dedicated · 99.5% shared · sandbox best effort <button class="kit-tip" type="button" aria-label="About service levels">i<span class="kit-tip-bubble" role="tooltip"><b>Service levels.</b> Dedicated production endpoint: 99.9% availability and the use case's own TTFT target; shared non-production 99.5%; sandbox best effort, all set at onboarding. Production use cases run only on dedicated endpoints.<span class="src">Source: hosting-tier policy · as of 11:58 ET</span></span></button></dd>
+            <dt>Energy per 1,000 tasks</dt><dd><span class="kit-dash" title="metering lands with TL-009">—</span> metering lands with TL-009</dd>
+          </dl>
+          <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Facts from the registry and the model card; cost from the gateway serving log by the Finance method; service levels from the hosting-tier policy.</span></button></div>
+        </div>
+        <div class="kit-surface">
+          <div class="kit-surface-head"><h3>Built on it and people</h3><a class="kit-btn sm outline" href="T1-NewTrainingRun.dc.html">Start a training run</a></div>
+          <dl class="kit-kv" style="margin-top: 12px; grid-template-columns: 120px 1fr">
+            <dt>Built on it</dt><dd><a href="v6-M2-ModelPage.dc.html">Distil 4.2</a> · <a href="v6-M2-ModelPage.dc.html">Domain-Advice v2</a></dd>
+            <dt>Candidate</dt><dd><a href="M6-Registry.dc.html">Core 4.3-rc</a> · no Official run yet</dd>
+            <dt>Owner</dt><dd>Priya N. · ThinkLatent foundation team</dd>
+            <dt>Approver</dt><dd><a href="V2-Validation.dc.html">Elena R.</a> · Model governance · approved 2026-10-28</dd>
+            <dt>Serving</dt><dd>Marcus L. · ThinkLatent serving · the SRE agent watches the endpoint</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="kit-surface" id="sec-usecases">
+        <div class="kit-surface-head"><div><h3>Use cases on it</h3><div class="sub">Bound by an alias · phase from the record · tier chosen at onboarding</div></div><a class="kit-btn sm outline" href="J1-Projects.dc.html">All 12</a></div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 16px; margin-top: 12px; align-items: start">
+          <table class="kit-small">
+            <thead><tr><th>Use case</th><th>Owner</th><th>Bound by</th><th>Phase</th><th>Hosting <button class="kit-tip" type="button" aria-label="About hosting">i<span class="kit-tip-bubble" role="tooltip"><b>Hosting.</b> The tier its owner chose at onboarding, its availability target and the use case's own TTFT target. Targets, set at onboarding.<span class="src">Source: the record · as of 11:58 ET</span></span></button></th><th class="num">Quality</th></tr></thead>
+            <tbody>
+              <tr><td><a href="J2-ProjectHome.dc.html">Advisor summary</a><div class="kit-muted">UC-0291 · Retail Advice</div></td><td>Priya N.</td><td>via Domain-Advice v2</td><td><span class="kit-chip">Pilot in production</span></td><td>Dedicated · 99.9% · 800 ms</td><td class="num"><span class="kit-interval">84% <span class="pm">± 3</span></span></td></tr>
+              <tr><td><a href="J2-ProjectHome.dc.html">Service note drafting</a><div class="kit-muted">UC-0218 · Client Services</div></td><td>Priya N.</td><td>prod alias</td><td><span class="kit-chip">Production</span></td><td>Dedicated · 99.9% · 600 ms</td><td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td></tr>
+              <tr class="selected"><td><a href="J2-ProjectHome.dc.html">Prospectus extraction</a><div class="kit-muted">UC-0254 · Investment Mgmt</div></td><td>Marcus L.</td><td>prod alias</td><td><span class="kit-chip">Production</span></td><td>Dedicated · 99.9% · 1.2 s</td><td class="num"><span class="kit-interval">87% <span class="pm">± 2</span></span></td></tr>
+              <tr><td><a href="J2-ProjectHome.dc.html">Fund document Q&amp;A</a><div class="kit-muted">UC-0307 · Investment Mgmt</div></td><td>Marcus L.</td><td>candidate alias</td><td><span class="kit-chip env">Active build</span></td><td>Shared · 99.5%</td><td class="num"><span class="kit-dash" title="not in production">—</span> not in production</td></tr>
+              <tr><td><a href="J2-ProjectHome.dc.html">Policy lookup agent</a><div class="kit-muted">UC-0311 · Compliance</div></td><td>Marcus L.</td><td>POC alias</td><td><span class="kit-chip env">POC</span></td><td>Sandbox · best effort</td><td class="num"><span class="kit-dash" title="not in production">—</span> not in production</td></tr>
+              <tr><td><a href="J1-Projects.dc.html">7 more in production</a></td><td><span class="kit-dash" title="see the full list">—</span></td><td><span class="kit-dash" title="see the full list">—</span></td><td><span class="kit-chip">Production</span></td><td>Dedicated · 99.9%</td><td class="num"><span class="kit-dash" title="see the full list">—</span> full list</td></tr>
+            </tbody>
+          </table>
+          <aside class="kit-sheet" aria-label="UC-0254 Prospectus extraction">
+            <div class="kit-sheet-head">
+              <div><div class="kit-caption">UC-0254 · Investment Mgmt</div><h3 style="margin-top: 4px">Prospectus extraction</h3></div>
+              <button class="kit-open" type="button" aria-label="Close"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button>
+            </div>
+            <div style="margin-top: 10px"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>18% of calls past 24k tokens</span></span></div>
+            <dl class="kit-kv" style="grid-template-columns: 100px 1fr; margin-top: 12px">
+              <dt>Phase</dt><dd>Production · prod alias</dd>
+              <dt>Owner</dt><dd>Marcus L.</dd>
+              <dt>Hosting</dt><dd>Dedicated · 99.9%</dd>
+              <dt>TTFT target</dt><dd>1.2 s</dd>
+              <dt>Quality</dt><dd><span class="kit-interval">87% <span class="pm">± 2</span></span> · Official</dd>
+              <dt>Effective context</dt><dd>24k of 32k tokens</dd>
+            </dl>
+            <div class="kit-actions" style="margin-top: 14px"><a class="kit-btn sm" href="J2-ProjectHome.dc.html">Open use case</a><a class="kit-btn sm outline" href="#sec-serving">Context curve</a></div>
+          </aside>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Alias bindings and hosting tiers from the record; service levels are targets, set at onboarding (dedicated production endpoint 99.9% and the use case's own TTFT target; shared non-production 99.5%; sandbox best effort). Production use cases run only on dedicated endpoints. Quality from each use case's latest Official TL Index run.</span></button></div>
+      </div>
+
+      <div class="kit-surface">
+        <div class="kit-surface-head"><div><h3>Conversations about this model</h3><div class="sub">The three most recent threads that name Core 4.2</div></div><div class="kit-actions"><a class="kit-btn sm" href="X2-Inbox.dc.html">Message owner</a><a class="kit-btn sm outline" href="X2-Inbox.dc.html">All threads</a></div></div>
+        <table class="kit-small" style="margin-top: 8px">
+          <thead><tr><th>Thread</th><th>Answer</th><th>From</th><th>When</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><a href="X2-Inbox.dc.html">Duplicate citations after moving to 4.2</a></td><td>Remove the template's own citation line · 6 replies</td><td><span style="display: inline-flex; align-items: center; gap: 8px"><span class="kit-avatar">PN</span>Priya N. with 4 use-case owners</span></td><td>2 d ago</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Answered</span></span></td></tr>
+            <tr><td><a href="X2-Inbox.dc.html">Can Core 4.2 see Tier 3 client notes?</a></td><td>Elena R.: yes, via a registered use case, inside the boundary</td><td><span style="display: inline-flex; align-items: center; gap: 8px"><span class="kit-avatar">AK</span>Ana K., Retail Advice</span></td><td>Yesterday</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Answered</span></span></td></tr>
+            <tr><td><a href="X2-Inbox.dc.html">Medium or high precision for long prospectuses?</a></td><td>Marcus L. to answer · 3 replies</td><td><span style="display: inline-flex; align-items: center; gap: 8px"><span class="kit-avatar">DT</span>Dev T., Investment Mgmt</span></td><td>Today 09:20</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Open</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Threads from the portal inbox that tag this model; only threads you are allowed to read are listed.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-serving" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><h2>Serving <span class="kit-eng-label">Engineering view</span></h2><span class="sub">Production aggregate from the gateway serving log · no request content</span></div>
+        <div class="kit-actions"><a class="kit-btn sm" href="O2-Capacity.dc.html">Capacity</a><a class="kit-btn sm outline" href="J10-Usage.dc.html">Usage and cost</a></div>
+      </div>
+      <div class="kit-surface raised">
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+          <div>
+            <div class="kit-label"><a href="J11-Traces.dc.html">TTFT p95</a> <button class="kit-tip below" type="button" aria-label="About TTFT p95">i<span class="kit-tip-bubble" role="tooltip"><b>TTFT p95.</b> Time to first token for 95% of requests on Core 4.2, last 24 h, all use cases.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></div>
+            <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px"><span class="kit-display" style="font-size: 34px">410<span style="font-size: 14px; margin-left: 4px">ms</span></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Under the 600 ms target</span></span></div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">Last 24 h, all use cases</div>
+          </div>
+          <div>
+            <div class="kit-label"><a href="W3-Alerts.dc.html">Error rate</a> <button class="kit-tip below" type="button" aria-label="About error rate">i<span class="kit-tip-bubble" role="tooltip"><b>Error rate.</b> Share of Core 4.2 requests that returned an error. An alert fires above 1%.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></div>
+            <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px"><span class="kit-display" style="font-size: 34px">0.3<span style="font-size: 14px; margin-left: 4px">%</span></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Under the 1% alert</span></span></div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">No SRE agent finding open</div>
+          </div>
+          <div>
+            <div class="kit-label"><a href="J10-Usage.dc.html">Goodput</a> <button class="kit-tip below" type="button" aria-label="About goodput">i<span class="kit-tip-bubble" role="tooltip"><b>Goodput.</b> Share of responses inside both the latency and the quality bars.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></div>
+            <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px"><span class="kit-display" style="font-size: 34px">96<span style="font-size: 14px; margin-left: 4px">%</span></span></div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">Responses inside the latency and quality bars</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kit-surface raised">
+        <div class="kit-surface-head">
+          <div><h3>How it behaves by token shape <button class="kit-tip" type="button" aria-label="About token shape">i<span class="kit-tip-bubble" role="tooltip"><b>Token shape.</b> Each cell is one shape of task: how much goes in (rows) and how much comes out (columns). The volume overlay shows where Enterprise calls actually land.<span class="src">Source: Official TL Index run 1180 and the gateway serving log · as of 11:58 ET</span></span></button></h3><div class="sub">Rows: tokens in · columns: tokens out · darker is better on every layer</div></div>
+          <button class="kit-switch on" type="button" aria-pressed="true" style="border: 0; background: transparent; padding: 0"><i></i>Enterprise volume</button>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; margin-top: 14px; align-items: start">
+          <div>
+            <div class="kit-tabs" role="tablist" aria-label="Heatmap layer">
+              <button type="button" role="tab" id="tab-quality" aria-selected="true" aria-controls="panel-shape">Quality</button>
+              <button type="button" role="tab" id="tab-cost" aria-selected="false" aria-controls="panel-shape" tabindex="-1">Cost</button>
+              <button type="button" role="tab" id="tab-latency" aria-selected="false" aria-controls="panel-shape" tabindex="-1">Latency</button>
+              <button type="button" role="tab" id="tab-suitability" aria-selected="false" aria-controls="panel-shape" tabindex="-1">Suitability</button>
+            </div>
+            <div class="kit-tabpanel" role="tabpanel" id="panel-shape" aria-labelledby="tab-quality">
+              <div class="kit-small kit-muted" style="margin-bottom: 8px">Quality, % · composite of the five live pillars on that shape's items</div>
+              <div class="kit-matrix" style="grid-template-columns: 84px repeat(5, minmax(0, 1fr))">
+                <div class="h"></div><div class="h">out under 128</div><div class="h">128 to 512</div><div class="h">512 to 1k</div><div class="h">1k to 2k</div><div class="h">over 2k</div>
+                <div class="h">in under 1k</div><div class="c l4">86%<small>18% of calls</small></div><div class="c l4">85%<small>9% of calls</small></div><div class="c l3">83%<small>2% of calls</small></div><div class="c l3">80%<small>0.5% of calls</small></div><div class="c"><span class="kit-dash" title="fewer than 50 evaluation items in this shape">—</span><small>0% of calls</small></div>
+                <div class="h">1k to 4k</div><div class="c l4">85%<small>22% of calls</small></div><div class="c l3">84%<small>14% of calls</small></div><div class="c l3">82%<small>4% of calls</small></div><div class="c l2">79%<small>1% of calls</small></div><div class="c l2">76%<small>0.2% of calls</small></div>
+                <div class="h">4k to 8k</div><div class="c l3">84%<small>9% of calls</small></div><div class="c l3">83%<small>7% of calls</small></div><div class="c l3">81%<small>3% of calls</small></div><div class="c l2">78%<small>0.6% of calls</small></div><div class="c l1">74%<small>0.1% of calls</small></div>
+                <div class="h">8k to 16k</div><div class="c l3">82%<small>3% of calls</small></div><div class="c l3">80%<small>3% of calls</small></div><div class="c l2">78%<small>1% of calls</small></div><div class="c l2">75%<small>0.4% of calls</small></div><div class="c l1">71%<small>0.1% of calls</small></div>
+                <div class="h">16k to 32k</div><div class="c l2">76%<small>1% of calls</small></div><div class="c l1">74%<small>0.8% of calls</small></div><div class="c l1">72%<small>0.3% of calls</small></div><div class="c l1">69%<small>0.1% of calls</small></div><div class="c"><span class="kit-dash" title="fewer than 50 evaluation items in this shape">—</span><small>0% of calls</small></div>
+              </div>
+              <div class="kit-legend" style="margin-top: 10px"><span><i style="background: #1B5128"></i>85% and above</span><span><i style="background: rgba(62,154,92,.48)"></i>80% to 84%</span><span><i style="background: rgba(62,154,92,.28)"></i>75% to 79%</span><span><i style="background: rgba(62,154,92,.12)"></i>below 75%</span><span>— fewer than 50 evaluation items</span></div>
+            </div>
+          </div>
+          <div>
+            <h3>Effective context and context rot</h3>
+            <div class="kit-small kit-muted" style="margin-top: 4px">Financial data processing quality by input length · window 32k tokens</div>
+            <svg role="img" aria-label="Context-rot curve: 86% on short inputs, 78% at 24k tokens, 71% at 32k; bar 78%; effective context 24k" viewBox="0 0 520 180" width="100%" height="180" style="display: block; margin-top: 10px">
+              <line x1="40" y1="20" x2="500" y2="20" stroke="#DADAD8" stroke-width="1"></line>
+              <line x1="40" y1="72" x2="500" y2="72" stroke="#DADAD8" stroke-width="1"></line>
+              <line x1="40" y1="124" x2="500" y2="124" stroke="#DADAD8" stroke-width="1"></line>
+              <text x="34" y="24" font-size="11" text-anchor="end" fill="#8A8A88">90%</text>
+              <text x="34" y="76" font-size="11" text-anchor="end" fill="#8A8A88">80%</text>
+              <text x="34" y="128" font-size="11" text-anchor="end" fill="#8A8A88">70%</text>
+              <line x1="40" y1="82.4" x2="500" y2="82.4" stroke="#8A8A88" stroke-width="1.2" stroke-dasharray="5 4"></line>
+              <text x="46" y="97" font-size="11" fill="#5C5C5A">bar 78%</text>
+              <line x1="385" y1="14" x2="385" y2="150" stroke="#C4262E" stroke-width="1.2" stroke-dasharray="4 4"></line>
+              <text x="380" y="12" font-size="11" text-anchor="end" fill="#5C5C5A">effective context 24k</text>
+              <polyline fill="none" stroke="#3E9A5C" stroke-width="2.5" stroke-linejoin="round" points="47.2,40.8 68.75,46 97.5,46 155,51.2 212.5,56.4 270,61.6 327.5,72 385,82.4 442.5,98 500,118.8"></polyline>
+              <circle cx="500" cy="118.8" r="3.5" fill="#3E9A5C"></circle>
+              <text x="496" y="140" font-size="11" text-anchor="end" fill="#1A1A1A">71% ± 5 at 32k</text>
+              <text x="40" y="170" font-size="11" text-anchor="middle" fill="#8A8A88">0</text>
+              <text x="155" y="170" font-size="11" text-anchor="middle" fill="#8A8A88">8k</text>
+              <text x="270" y="170" font-size="11" text-anchor="middle" fill="#8A8A88">16k</text>
+              <text x="385" y="170" font-size="11" text-anchor="middle" fill="#8A8A88">24k</text>
+              <text x="500" y="170" font-size="11" text-anchor="end" fill="#8A8A88">32k tokens</text>
+            </svg>
+            <div class="kit-legend"><span><i style="background: #3E9A5C"></i>Quality by input length, 0 to 32k tokens</span><span><i style="background: #8A8A88"></i>Bar</span><span><i style="background: #C4262E"></i>Effective context</span></div>
+            <dl class="kit-kv" style="margin-top: 12px; grid-template-columns: 140px 1fr">
+              <dt>Effective context</dt><dd>24k of 32k tokens</dd>
+              <dt>Context rot</dt><dd>−15 pts from short inputs to 32k · <span class="kit-interval">71% <span class="pm">± 5</span></span> at the limit</dd>
+              <dt>Calls past 24k</dt><dd>1.2% of Enterprise calls · 18% of UC-0254's</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="kit-divider"></div>
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><h3>Other layers, side by side</h3><span class="kit-small kit-muted">What the Cost, Latency and Suitability tabs show · same shapes and axes</span></div>
+        <div class="kit-grid3" style="margin-top: 12px">
+          <div>
+            <div style="font-weight: 500; margin-bottom: 8px">Cost · USD per 1,000 tasks <button class="kit-tip" type="button" aria-label="About the cost layer">i<span class="kit-tip-bubble" role="tooltip"><b>Cost layer.</b> USD per 1,000 tasks of that shape at the served medium setting, production aggregate, 30 days. Measured, so a shape with no Enterprise calls shows a dash.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></div>
+            <div class="kit-matrix" style="grid-template-columns: 52px repeat(5, minmax(0, 1fr))">
+              <div class="h"></div><div class="h">&lt;128</div><div class="h">128–512</div><div class="h">512–1k</div><div class="h">1–2k</div><div class="h">&gt;2k</div>
+              <div class="h">&lt;1k</div><div class="c l4" style="height: 36px">$0.40</div><div class="c l4" style="height: 36px">$0.90</div><div class="c l3" style="height: 36px">$1.80</div><div class="c l2" style="height: 36px">$3.40</div><div class="c" style="height: 36px"><span class="kit-dash" title="no Enterprise calls in this shape">—</span></div>
+              <div class="h">1–4k</div><div class="c l4" style="height: 36px">$1.10</div><div class="c l3" style="height: 36px">$1.60</div><div class="c l3" style="height: 36px">$2.50</div><div class="c l2" style="height: 36px">$4.10</div><div class="c l1" style="height: 36px">$7.20</div>
+              <div class="h">4–8k</div><div class="c l3" style="height: 36px">$2.30</div><div class="c l3" style="height: 36px">$2.80</div><div class="c l2" style="height: 36px">$3.70</div><div class="c l2" style="height: 36px">$5.30</div><div class="c l1" style="height: 36px">$8.40</div>
+              <div class="h">8–16k</div><div class="c l2" style="height: 36px">$4.50</div><div class="c l2" style="height: 36px">$5.00</div><div class="c l2" style="height: 36px">$5.90</div><div class="c l1" style="height: 36px">$7.50</div><div class="c l1" style="height: 36px">$10.60</div>
+              <div class="h">16–32k</div><div class="c l1" style="height: 36px">$8.80</div><div class="c l1" style="height: 36px">$9.30</div><div class="c l1" style="height: 36px">$10.20</div><div class="c l1" style="height: 36px">$11.80</div><div class="c" style="height: 36px"><span class="kit-dash" title="no Enterprise calls in this shape">—</span></div>
+            </div>
+            <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #1B5128"></i>under $1.50</span><span><i style="background: rgba(62,154,92,.48)"></i>$1.50 to $3</span><span><i style="background: rgba(62,154,92,.28)"></i>$3 to $7</span><span><i style="background: rgba(62,154,92,.12)"></i>over $7</span><span>— no Enterprise calls</span></div>
+          </div>
+          <div>
+            <div style="font-weight: 500; margin-bottom: 8px">Latency · TTFT p95 <button class="kit-tip" type="button" aria-label="About the latency layer">i<span class="kit-tip-bubble" role="tooltip"><b>Latency layer.</b> TTFT p95 per shape at the served medium setting, production aggregate, 30 days. Measured, so a shape with no Enterprise calls shows a dash.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></div>
+            <div class="kit-matrix" style="grid-template-columns: 52px repeat(5, minmax(0, 1fr))">
+              <div class="h"></div><div class="h">&lt;128</div><div class="h">128–512</div><div class="h">512–1k</div><div class="h">1–2k</div><div class="h">&gt;2k</div>
+              <div class="h">&lt;1k</div><div class="c l4" style="height: 36px">180 ms</div><div class="c l4" style="height: 36px">185 ms</div><div class="c l4" style="height: 36px">190 ms</div><div class="c l4" style="height: 36px">200 ms</div><div class="c" style="height: 36px"><span class="kit-dash" title="no Enterprise calls in this shape">—</span></div>
+              <div class="h">1–4k</div><div class="c l3" style="height: 36px">320 ms</div><div class="c l3" style="height: 36px">330 ms</div><div class="c l3" style="height: 36px">335 ms</div><div class="c l3" style="height: 36px">350 ms</div><div class="c l3" style="height: 36px">360 ms</div>
+              <div class="h">4–8k</div><div class="c l2" style="height: 36px">560 ms</div><div class="c l2" style="height: 36px">570 ms</div><div class="c l2" style="height: 36px">580 ms</div><div class="c l2" style="height: 36px">600 ms</div><div class="c l2" style="height: 36px">620 ms</div>
+              <div class="h">8–16k</div><div class="c l2" style="height: 36px">980 ms</div><div class="c l2" style="height: 36px">990 ms</div><div class="c l1" style="height: 36px" title="1,010 ms">1.0 s</div><div class="c l1" style="height: 36px" title="1,040 ms">1.0 s</div><div class="c l1" style="height: 36px" title="1,080 ms">1.1 s</div>
+              <div class="h">16–32k</div><div class="c l1" style="height: 36px" title="1,850 ms">1.9 s</div><div class="c l1" style="height: 36px" title="1,870 ms">1.9 s</div><div class="c l1" style="height: 36px" title="1,900 ms">1.9 s</div><div class="c l1" style="height: 36px" title="1,950 ms">2.0 s</div><div class="c" style="height: 36px"><span class="kit-dash" title="no Enterprise calls in this shape">—</span></div>
+            </div>
+            <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #1B5128"></i>under 250 ms</span><span><i style="background: rgba(62,154,92,.48)"></i>250 to 500 ms</span><span><i style="background: rgba(62,154,92,.28)"></i>500 ms to 1 s</span><span><i style="background: rgba(62,154,92,.12)"></i>over 1 s, past the interactive target</span><span>— no Enterprise calls</span></div>
+          </div>
+          <div>
+            <div style="font-weight: 500; margin-bottom: 8px">Suitability · cheapest model clearing every bar <button class="kit-tip end" type="button" aria-label="About the suitability layer">i<span class="kit-tip-bubble" role="tooltip"><b>Suitability layer.</b> The cheapest approved model that clears every bar on that shape, comparing Core 4.2 with Distil 4.2 on the same items and bars. Needs at least 50 evaluation items.<span class="src">Source: Official TL Index run 1180 · as of 11:58 ET</span></span></button></div>
+            <div class="kit-matrix" style="grid-template-columns: 52px repeat(5, minmax(0, 1fr))">
+              <div class="h"></div><div class="h">&lt;128</div><div class="h">128–512</div><div class="h">512–1k</div><div class="h">1–2k</div><div class="h">&gt;2k</div>
+              <div class="h">&lt;1k</div><div class="c l2" style="height: 36px">Distil</div><div class="c l2" style="height: 36px">Distil</div><div class="c l4" style="height: 36px">Core</div><div class="c l4" style="height: 36px">Core</div><div class="c" style="height: 36px"><span class="kit-dash" title="fewer than 50 evaluation items in this shape">—</span></div>
+              <div class="h">1–4k</div><div class="c l2" style="height: 36px">Distil</div><div class="c l4" style="height: 36px">Core</div><div class="c l4" style="height: 36px">Core</div><div class="c l4" style="height: 36px">Core</div><div class="c" style="height: 36px">none</div>
+              <div class="h">4–8k</div><div class="c l4" style="height: 36px">Core</div><div class="c l4" style="height: 36px">Core</div><div class="c l4" style="height: 36px">Core</div><div class="c l4" style="height: 36px">Core</div><div class="c" style="height: 36px">none</div>
+              <div class="h">8–16k</div><div class="c l4" style="height: 36px">Core</div><div class="c l4" style="height: 36px">Core</div><div class="c l4" style="height: 36px">Core</div><div class="c" style="height: 36px">none</div><div class="c" style="height: 36px">none</div>
+              <div class="h">16–32k</div><div class="c" style="height: 36px">none</div><div class="c" style="height: 36px">none</div><div class="c" style="height: 36px">none</div><div class="c" style="height: 36px">none</div><div class="c" style="height: 36px"><span class="kit-dash" title="fewer than 50 evaluation items in this shape">—</span></div>
+            </div>
+            <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #1B5128"></i>Core 4.2 is the pick</span><span><i style="background: rgba(62,154,92,.28)"></i>Distil 4.2 clears for less: recommended there</span><span><i style="background: var(--tint)"></i>none: a gap for Improve, not a routing choice</span><span>— fewer than 50 items</span></div>
+          </div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Quality from Official TL Index run 1180, items bucketed by token shape (cells under 50 items show a dash); cost and TTFT p95 per shape from the gateway serving log, production aggregate, 30 days, at the served medium setting; suitability compares Core 4.2 with the approved Distil 4.2 on the same items and bars; the context curve from the run's long-context slice of 840 items. Volume overlay from the gateway serving log, production aggregate, 30 days; no request content.</span></button></div>
+      </div>
+
+      <div class="kit-surface raised">
+        <div class="kit-surface-head">
+          <div><h3>Serving settings by outcome</h3><div class="sub">Accuracy against high precision, with cost and speed · run 1180 ran at medium</div></div>
+          <a class="kit-btn sm outline" href="M6-Registry-Serving.dc.html">Settings per version</a>
+        </div>
+        <table class="kit-small" style="margin-top: 12px">
+          <thead><tr><th>Precision setting</th><th class="num">Financial data</th><th class="num">Client care</th><th class="num">Compliance</th><th class="num">Safety</th><th class="num">Entities</th><th class="num">Other 11</th><th class="num">Cost per 1M tokens</th><th class="num">Typical task <button class="kit-tip" type="button" aria-label="About typical task latency">i<span class="kit-tip-bubble" role="tooltip"><b>Typical task.</b> TTFT p95 plus 150 output tokens at that setting's rate.<span class="src">Source: gateway serving log, October canary · as of 11:58 ET</span></span></button></th><th class="num">TTFT p95</th><th class="num">Tokens per second <button class="kit-tip end" type="button" aria-label="About tokens per second">i<span class="kit-tip-bubble" role="tooltip"><b>Tokens per second.</b> Per stream, p50, during the October canary.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b style="font-weight: 500">High</b> · BF16 weights<div style="margin-top: 4px"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Reference · 69% dearer</span></span></div></td>
+              <td class="num">reference</td><td class="num">reference</td><td class="num">reference</td><td class="num">reference</td><td class="num">reference</td>
+              <td class="num"><span class="kit-dash" title="eleven pillars arrive in Phase 2">—</span></td>
+              <td class="num">$0.71</td><td class="num">3.3 s</td><td class="num">560 ms</td><td class="num">54</td>
+            </tr>
+            <tr class="selected">
+              <td><b style="font-weight: 500">Medium</b> · FP8 weights · served now <span class="kit-chip brand">Recommended</span><div style="margin-top: 4px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No change · clears every bar</span></span></div></td>
+              <td class="num">0 pts</td><td class="num">−1 pt</td><td class="num">0 pts</td><td class="num">−1 pt</td><td class="num">0 pts</td>
+              <td class="num"><span class="kit-dash" title="eleven pillars arrive in Phase 2">—</span></td>
+              <td class="num">$0.42</td><td class="num">2.1 s</td><td class="num">410 ms</td><td class="num">88</td>
+            </tr>
+            <tr>
+              <td><b style="font-weight: 500">Low</b> · INT4 weights<div style="margin-top: 4px"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below the Safety and grounding gate</span></span></div></td>
+              <td class="num">−3 pts</td><td class="num">−3 pts</td><td class="num">−4 pts</td><td class="num">−6 pts</td><td class="num">−2 pts</td>
+              <td class="num"><span class="kit-dash" title="eleven pillars arrive in Phase 2">—</span></td>
+              <td class="num">$0.26</td><td class="num">1.6 s</td><td class="num">330 ms</td><td class="num">121</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="kit-note" style="margin-top: 12px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Recommended: medium. Every pillar stays inside its interval at 41% less cost than high. <button class="kit-tip" type="button" aria-label="About models left out">i<span class="kit-tip-bubble" role="tooltip"><b>Not compared.</b> Models that cannot be self-hosted, such as the two vendor models, are hidden from this comparison; their serving is the vendor's.</span></button></span></div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Accuracy deltas from Official TL Index run 1180 and its paired re-runs 1180-H and 1180-L on the same items; cost, TTFT and tokens per second (per stream, p50) from the gateway serving log at each setting during the October canary; latency for a typical task is TTFT p95 plus 150 output tokens at that rate.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-howtocall" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><h2>How to call <span class="kit-eng-label">Engineering view</span></h2><span class="sub">Through Relay · the snippet carries the telemetry contract</span></div>
+        <div class="kit-actions"><a class="kit-btn sm" href="v6-J0-StartProject.dc.html">Get a key: start a project</a><a class="kit-btn sm outline" href="K1-Help.dc.html">Relay docs</a></div>
+      </div>
+      <div class="kit-surface raised">
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) auto; gap: 24px; align-items: start">
+          <div>
+            <div class="kit-label"><a href="O6-ContractHealth.dc.html">Calls with all tags</a> <button class="kit-tip below" type="button" aria-label="About calls with all tags">i<span class="kit-tip-bubble" role="tooltip"><b>Calls with all tags.</b> Core 4.2 calls carrying use_case, stage, task, prompt_id and a hashed end_user, last 7 days.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></div>
+            <div class="kit-display" style="font-size: 34px; margin-top: 6px">97<span style="font-size: 14px; margin-left: 4px">%</span></div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">Core 4.2, 7 days · untagged calls warned from day 14</div>
+          </div>
+          <div>
+            <div class="kit-label"><a href="J7-Quality.dc.html">Requests with an outcome</a> <button class="kit-tip below" type="button" aria-label="About requests with an outcome">i<span class="kit-tip-bubble" role="tooltip"><b>Requests with an outcome.</b> Requests whose caller reported accepted, edited or discarded.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></div>
+            <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px"><span class="kit-display" style="font-size: 34px">64<span style="font-size: 14px; margin-left: 4px">%</span></span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Below the 80% target</span></span></div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">Accepted, edited or discarded</div>
+          </div>
+          <div>
+            <div class="kit-label"><a href="J7-Quality.dc.html">Requests with feedback</a> <button class="kit-tip below" type="button" aria-label="About requests with feedback">i<span class="kit-tip-bubble" role="tooltip"><b>Requests with feedback.</b> A 1 to 5 score and, sometimes, a reason; it feeds the self-healing marks.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></div>
+            <div class="kit-display" style="font-size: 34px; margin-top: 6px">11<span style="font-size: 14px; margin-left: 4px">%</span></div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">A score, sometimes a reason · feeds self-healing marks</div>
+          </div>
+          <div>
+            <div class="kit-label"><a href="M1-Catalogue.dc.html">Time to first call</a> <button class="kit-tip below" type="button" aria-label="About time to first call">i<span class="kit-tip-bubble" role="tooltip"><b>Time to first call.</b> Median time from a key being issued to its first call. Keys issued in October, all models.<span class="src">Source: the key register and the gateway serving log · as of 11:58 ET</span></span></button></div>
+            <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px"><span class="kit-display" style="font-size: 34px">5.2<span style="font-size: 14px; margin-left: 4px">h</span></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the 8 h target</span></span></div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">Median · keys issued in October, all models</div>
+          </div>
+          <a class="kit-btn sm outline" href="O6-ContractHealth.dc.html">Contract health</a>
+        </div>
+      </div>
+
+      <div class="kit-surface raised">
+        <div class="kit-surface-head">
+          <div><h3>Call it through Relay</h3><div class="sub">Needs a registered use case · production calls use dedicated endpoints only</div></div>
+          <div class="kit-actions"><button class="kit-btn sm outline" type="button">Copy snippet</button><a class="kit-btn sm outline" href="P1-Playground.dc.html">Try it in the playground</a><a class="kit-btn sm outline" href="J11-Traces.dc.html">See your traces</a></div>
+        </div>
+        <dl class="kit-kv" style="margin-top: 12px; grid-template-columns: 160px 1fr">
+          <dt>Model name</dt><dd><span class="kit-mono">tlm4-core:prod</span> follows the current release · <span class="kit-mono">tlm4-core-4.2</span> pins this version</dd>
+          <dt>Required tags</dt><dd><span class="kit-mono">use_case</span>, <span class="kit-mono">stage</span>, <span class="kit-mono">task</span>, <span class="kit-mono">prompt_id</span>, <span class="kit-mono">end_user</span> · end_user hashed on your side, never sent raw</dd>
+          <dt>Outcome</dt><dd><span class="kit-mono">client.outcome(request_id, "accepted")</span> · accepted, edited or discarded</dd>
+          <dt>Feedback</dt><dd><span class="kit-mono">client.feedback(request_id, score)</span> · 1 to 5, with an optional reason</dd>
+        </dl>
+        <div class="kit-label" style="margin-top: 14px">Python</div>
+        <pre class="kit-code" style="margin-top: 6px">from relay import Client
+
+client = Client(use_case="UC-0291", stage="pilot")         # key is scoped to the use case
+reply = client.generate(
+    model="tlm4-core:prod",                               # the alias is the model name
+    prompt_id="advisor-summary/v3",
+    task="summarise-meeting",
+    end_user=client.hash_user(advisor_id),                 # hashed here, never raw
+    input={"notes": notes},
+)
+print(reply.text, reply.request_id)
+
+client.outcome(reply.request_id, "accepted")              # accepted | edited | discarded
+client.feedback(reply.request_id, score=4)                 # optional reason="..."</pre>
+        <details style="margin-top: 10px">
+          <summary class="kit-small" style="cursor: pointer; font-weight: 500">Same call with curl</summary>
+          <pre class="kit-code" style="margin-top: 8px">curl (source link withheld) \
+  -H "Authorization: Bearer $RELAY_KEY" \
+  -H "X-TL-Use-Case: UC-0291" -H "X-TL-Stage: pilot" \
+  -H "X-TL-Task: summarise-meeting" -H "X-TL-Prompt-Id: advisor-summary/v3" \
+  -H "X-TL-End-User: sha256:9f2c41e0" \
+  -d '{"model":"tlm4-core:prod","messages":[{"role":"user","content":"..."}]}'
+
+curl (source link withheld) \
+  -H "Authorization: Bearer $RELAY_KEY" \
+  -d '{"request_id":"req_7Hq2","outcome":"accepted","score":4}'</pre>
+        </details>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Endpoint, aliases and tag names from the registry and the telemetry contract (TL-009); both snippets are generated from the registry entry, not typed. Access requires a registered use case; production use cases call dedicated endpoints only.</span></button></div>
+      </div>
+
+      <div class="kit-surface raised">
+        <div class="kit-surface-head">
+          <div><h3>Migration guides</h3><div class="sub">Vendor API: two lines plus the tags · Core 4.1: a model name and a re-evaluation</div></div>
+          <a class="kit-btn sm outline" href="M4-ReleaseBundle-Migration.dc.html">Full notes in the release bundle</a>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 24px; margin-top: 14px">
+          <div>
+            <div class="kit-label">From a vendor API</div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">Same chat-completions shape: change base URL and model, add the five tags</div>
+            <pre class="kit-code kit-diff" style="margin-top: 8px">from openai import OpenAI
+
+<span class="del">client = OpenAI(base_url="https://api.vendor.example/v1", api_key=VENDOR_KEY)</span>
+<span class="add">client = OpenAI(base_url="(source link withheld)", api_key=RELAY_KEY)</span>
+reply = client.chat.completions.create(
+<span class="del">    model="vendor-frontier-a",</span>
+<span class="add">    model="tlm4-core:prod",</span>
+    messages=messages,
+<span class="add">    extra_headers=vi_tags,   # use_case, stage, task, prompt_id, hashed end_user</span>
+)</pre>
+          </div>
+          <div>
+            <div class="kit-label">From Core 4.1</div>
+            <dl class="kit-kv" style="margin-top: 8px; grid-template-columns: 130px 1fr; font-size: 12px">
+              <dt>Model name</dt><dd><span class="kit-mono">tlm4-core-4.1</span> → <span class="kit-mono">tlm4-core-4.2</span></dd>
+              <dt>Or follow current</dt><dd>Bind <span class="kit-mono">tlm4-core:prod</span></dd>
+              <dt>Prompt template</dt><dd>Shorter preamble; citing built in, so own cite lines duplicate</dd>
+              <dt>Output format</dt><dd>Strict JSON: trailing prose is no longer returned</dd>
+              <dt>Re-evaluation</dt><dd>Required: Practice run, then Official run before changing prod</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="kit-label" style="margin-top: 16px">Differences from a vendor API</div>
+        <div class="kit-grid2" style="margin-top: 8px">
+          <div class="kit-rows">
+            <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr)"><div class="t">Context</div><div class="s">32k, best under 24k · longer inputs are refused, not truncated: split them</div></div>
+            <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr)"><div class="t">Output format</div><div class="s">Strict JSON drops trailing prose · citing is built in: drop your cite line</div></div>
+            <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr)"><div class="t">Tools</div><div class="s">One tool call per turn · no parallel calls yet; the first call still runs</div></div>
+            <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr)"><div class="t">Inputs</div><div class="s">Text only · image or audio parts error, naming the vision-model request</div></div>
+          </div>
+          <div class="kit-rows">
+            <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr)"><div class="t">Limits</div><div class="s">Tokens per minute set per use case at onboarding · a 429 names your limit</div></div>
+            <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr)"><div class="t">Scope</div><div class="s">Declines investment advice and out-of-scope asks, with a short reason</div></div>
+            <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr)"><div class="t">Cost and speed</div><div class="s">$0.42 per 1M tokens vs $6.00 for Vendor frontier model A · TTFT p95 410 ms</div></div>
+            <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr)"><div class="t">Re-evaluate</div><div class="s">Practice run first · production needs an Official run and a validation</div></div>
+          </div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Vendor differences checked against the gateway's compatibility tests of 2026-10-30; migration notes from the release bundle, reviewed by Elena R. on 2026-10-28.</span></button></div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7200}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

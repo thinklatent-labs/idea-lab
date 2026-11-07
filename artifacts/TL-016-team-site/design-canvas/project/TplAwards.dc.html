@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template · ThinkLatent quarterly awards</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F7F7F5;font-family:Inter,system-ui,sans-serif;color:#1A1A1A;font-size:16px;line-height:1.65}
+a{color:#2E6B3C}a:hover{color:#0C3F09}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:600;letter-spacing:-.01em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.cap{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:#5C5C5A}
+.card{background:#FFFFFF;border-radius:20px;box-shadow:0 1px 0 rgba(26,26,26,.04),0 10px 30px rgba(26,26,26,.06);padding:24px}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(26,26,26,.16);font-size:14px;font-weight:500;color:#1A1A1A;text-decoration:none;background:#FFFFFF;font-family:inherit}
+.pill:hover{color:#1A1A1A;border-color:#1A1A1A}
+.pill.go{background:#C4262E;color:#FFFFFF;border-color:#C4262E}
+.pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.nav a{color:#3A3A38;text-decoration:none;font-size:14px;font-weight:500;padding:0 12px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover{background:#F2F2EF;color:#1A1A1A}
+.nav a.on{background:#6CB769;color:#0C3F09}
+.tag{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#E9F3EC;color:#2E6B3C;font-size:12px;font-weight:600}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.av{width:72px;height:72px;border-radius:50%;background:#ECECEA;color:#3A3A38;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex:none;text-align:center;line-height:1.2}
+.guide{background:#FFF4CE;border:1px solid #E6E6E2;border-radius:0;padding:12px 14px;font-size:14px;line-height:1.55;color:#3A3A38;display:flex;flex-direction:column;gap:4px}
+.guide b{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.band{background:#E9F3EC;color:#1A1A1A}
+.fill{color:#5C5C5A}
+.win{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;padding:28px}
+.prop{display:flex;flex-direction:column;gap:2px;padding:12px 0;border-bottom:1px solid #EFEFEC;font-size:14px}
+.prop span:first-child{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500}
+.req{color:#9A1B22;font-weight:600}
+@media (max-width:760px){.wrap{padding:0 16px}}
+
+.pill.sm{min-height:38px;font-size:13px}
+.comments{border-top:1px solid #E6E6E2;padding:28px 0 0;display:flex;flex-direction:column;gap:12px;margin-top:48px}
+.comments input{width:100%;min-height:44px;border-radius:12px;border:1px solid #E6E6E2;padding:0 14px;font-family:inherit;font-size:14px;background:#FFFFFF}
+.owners{font-size:12px;color:#5C5C5A;display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-top:1px solid #EFEFEC}
+.nav a.on{background:#6CB769;color:#0C3F09}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<header style="background:#FFFFFF;border-top:4px solid #C4262E;border-bottom:1px solid #E6E6E2">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
+    <a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1A1A1A" aria-label="Home">
+      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">TL</span>
+      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:15px">ThinkLatent</span><span style="font-size:12px;color:#5C5C5A">Team site</span></span>
+    </a>
+    <nav class="nav" aria-label="Site" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
+      <a class="" href="Mandate.dc.html">Mandate</a><a class="" href="Products.dc.html">Products<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Wins.dc.html">Our work<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Blog.dc.html">Stories<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="on" href="Team.dc.html">Team</a>
+      <a class="pill go" href="Write.dc.html" style="margin-left:8px">Write for ThinkLatent</a>
+    </nav>
+  </div>
+</header>
+
+<div style="background:#FFF7EC;border-bottom:1px solid #F1DDC3">
+  <div class="wrap" style="padding-top:12px;padding-bottom:12px;font-size:14px;color:#6B3E10;display:flex;flex-wrap:wrap;gap:8px 20px">
+    <strong style="font-weight:600">Template · ThinkLatent quarterly awards</strong><span>One post a quarter, after the leadership review.</span><span>Highlighted boxes are instructions: delete them.</span><span>Category is preset to Award.</span>
+  </div>
+</div>
+
+<section class="band" style="min-height:460px;display:flex;align-items:flex-end">
+  <div class="wrap" style="width:100%;padding-top:72px;padding-bottom:48px;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span class="tag" style="background:#C4262E;color:#FFFFFF">ThinkLatent quarterly awards</span><span style="font-size:13px;color:#5C5C5A">Q[N] [YEAR]</span></div>
+    <h1 style="font-size:52px;line-height:1.06;font-weight:400;letter-spacing:-.03em;max-width:900px">The people who moved ThinkLatent forward in Q[N].</h1>
+    <p style="font-size:18px;color:#3A3A38;max-width:720px">[Two sentences from the Head of ThinkLatent: what this quarter was about, and thanks to everyone nominated.]</p>
+  </div>
+</section>
+
+<main class="wrap" style="display:flex;flex-direction:column;gap:28px;padding-top:40px;width:100%">
+  <div class="guide" style="max-width:860px"><b>How to fill this</b>One block per award, in the order below. Use only winners chosen in the quarterly leadership review. A category with no winner this quarter is deleted, never filled to make up the set. Every winner agrees to be named and to the photo before publishing.</div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+    <div style="flex:999 1 640px;min-width:0;display:flex;flex-direction:column;gap:20px">
+
+      <article class="card win">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span class="tag" style="align-self:flex-start">Research to Production</span>
+          <div style="display:flex;gap:16px;align-items:center"><span class="av">Photo</span><span><strong style="font-weight:600;display:block;font-size:20px">[Winner, or team]</strong><span style="font-size:14px;color:#5C5C5A">[Function] · [Location]</span></span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p>[Citation: what they did, in two or three sentences, gain before build.]</p>
+          <p style="font-size:14px;color:#3A3A38"><strong style="font-weight:600">What it changed:</strong> [number] · [source, DATE]</p>
+          <a href="#" style="font-size:14px">See the work</a>
+        </div>
+      </article>
+      <div class="guide"><b>Citation</b>Two or three sentences a reader outside ThinkLatent understands. What they did, for whom, and the one piece of evidence for that category (cycle time from Jira; the partner's number; time saved or people taught; what was published and who it reached; the venue; uptime or incidents avoided). Link the post, paper or record.</div>
+
+      <article class="card win">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span class="tag" style="align-self:flex-start">In People's Hands</span>
+          <div style="display:flex;gap:16px;align-items:center"><span class="av">Photo</span><span><strong style="font-weight:600;display:block;font-size:20px">[Winner, or team]</strong><span style="font-size:14px;color:#5C5C5A">[Function] · [Location]</span></span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p>[Citation.]</p>
+          <p style="font-size:14px;color:#3A3A38"><strong style="font-weight:600">What it changed:</strong> [partner's number] · [source, DATE]</p>
+          <a href="Wins.dc.html" style="font-size:14px">Read the win</a>
+        </div>
+      </article>
+
+      <article class="card win">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span class="tag" style="align-self:flex-start">AI-Native</span>
+          <div style="display:flex;gap:16px;align-items:center"><span class="av">Photo</span><span><strong style="font-weight:600;display:block;font-size:20px">[Winner, or team]</strong><span style="font-size:14px;color:#5C5C5A">[Function] · [Location]</span></span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p>[Citation.]</p>
+          <p style="font-size:14px;color:#3A3A38"><strong style="font-weight:600">What it changed:</strong> [time saved or people taught] · [source, DATE]</p>
+        </div>
+      </article>
+
+      <article class="card win">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span class="tag" style="align-self:flex-start;background:#E6F1EF;color:#1F4A44">Storyteller</span>
+          <div style="display:flex;gap:16px;align-items:center"><span class="av">Photo</span><span><strong style="font-weight:600;display:block;font-size:20px">[Winner]</strong><span style="font-size:14px;color:#5C5C5A">[Function] · [Location]</span></span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p>[Citation.]</p>
+          <p style="font-size:14px;color:#3A3A38"><strong style="font-weight:600">Reached:</strong> [who, how many] · [the post or session]</p>
+        </div>
+      </article>
+
+      <article class="card win">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span class="tag" style="align-self:flex-start;background:#E6F1EF;color:#1F4A44">Published</span>
+          <div style="display:flex;gap:16px;align-items:center"><span class="av">Photo</span><span><strong style="font-weight:600;display:block;font-size:20px">[Winner, with co-authors]</strong><span style="font-size:14px;color:#5C5C5A">[Function] · [Location]</span></span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p>[Citation.]</p>
+          <p style="font-size:14px;color:#3A3A38"><strong style="font-weight:600">Where:</strong> [venue, YEAR]</p>
+          <a href="Publications.dc.html" style="font-size:14px">In Publications</a>
+        </div>
+      </article>
+
+      <article class="card win">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span class="tag" style="align-self:flex-start;background:#F2F2EF;color:#3A3A38">Production Grade</span>
+          <div style="display:flex;gap:16px;align-items:center"><span class="av">Photo</span><span><strong style="font-weight:600;display:block;font-size:20px">[Winner, or team]</strong><span style="font-size:14px;color:#5C5C5A">[Function] · [Location]</span></span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p>[Citation.]</p>
+          <p style="font-size:14px;color:#3A3A38"><strong style="font-weight:600">What it changed:</strong> [uptime, incidents avoided, time to recover] · [source, DATE]</p>
+        </div>
+      </article>
+
+      <section class="card" style="display:flex;flex-direction:column;gap:10px">
+        <p class="cap">Also nominated this quarter</p>
+        <p class="fill">[Names, each with one line, only with their agreement.]</p>
+      </section>
+      <div class="guide"><b>Nominees</b>Thank the people nominated who did not win. It is the cheapest recognition we have; use it.</div>
+
+      <div class="card" style="background:#0C3F09;color:#FFFFFF;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding:28px">
+        <div><h2 style="font-size:22px;color:#FFFFFF">Next quarter's nominations close [DATE]</h2><p style="color:#D6E9DB;margin-top:6px">Nominate in the Enterprise's recognition portal.</p></div>
+        <a class="pill" href="#">Open [Enterprise recognition portal] ↗</a>
+      </div>
+      <div class="guide"><b>Before you publish</b>Winners chosen in the leadership review · every winner agreed to name and photo · every number sourced · the Head of ThinkLatent approves · also share in the town hall and the newsletter.</div>
+    </div>
+
+    <aside class="card" style="flex:1 1 260px;min-width:0;max-width:340px;padding:20px 24px" aria-label="Page properties">
+      <p class="cap" style="margin-bottom:4px">Page properties</p>
+      <p class="prop"><span>Category</span><span>Award (preset)</span></p>
+      <p class="prop"><span>Quarter</span><span>Q[N] [YEAR]</span></p>
+      <p class="prop"><span>Review date</span><span>[DATE of leadership review]</span></p>
+      <p class="prop"><span>Consent to name and photo <span class="req">required</span></span><span>[Yes, for every winner]</span></p>
+      <p class="prop" style="border-bottom:0"><span>Approved by</span><span>Head of ThinkLatent</span></p>
+    </aside>
+  </div>
+</main>
+
+<div class="wrap"><div class="comments"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><p class="cap">Comments · on, moderated by the editors</p><span class="meta">[N] comments</span></div><input placeholder="Add a comment, or ask the author a question" aria-label="Add a comment"></div></div>
+<footer style="background:#ECECEA;border-top:1px solid #E6E6E2;margin-top:72px">
+  <div class="wrap" style="padding-top:48px;padding-bottom:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px">
+    <div style="display:flex;flex-direction:column;gap:12px;min-width:240px"><p style="font-weight:600">ThinkLatent</p><p class="meta">The Enterprise's own intelligence, compounding. Internal to the Enterprise.</p><div style="display:flex;flex-wrap:wrap;gap:8px"><a class="pill sm" href="#">Follow this site</a><a class="pill sm" href="#">ThinkLatent on Viva Engage</a></div></div>
+    <div><p class="cap">Site</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="Mandate.dc.html" style="color:#3A3A38;text-decoration:none">Mandate</a></li><li><a href="Products.dc.html" style="color:#3A3A38;text-decoration:none">Products</a></li><li><a href="Wins.dc.html" style="color:#3A3A38;text-decoration:none">Our work</a></li><li><a href="Blog.dc.html" style="color:#3A3A38;text-decoration:none">Stories</a></li><li><a href="Team.dc.html" style="color:#3A3A38;text-decoration:none">Team</a></li><li><a href="Glossary.dc.html" style="color:#3A3A38;text-decoration:none">Glossary</a></li><li><a href="Glance.dc.html" style="color:#3A3A38;text-decoration:none">ThinkLatent at a glance</a></li></ul></div>
+    <div><p class="cap">Products</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="Products.dc.html" style="color:#3A3A38;text-decoration:none">TLM</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">ThinkLatent Portal ↗</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">TL Index ↗</a></li><li><a href="TLTrust.dc.html" style="color:#3A3A38;text-decoration:none">ThinkLatent Trust</a></li></ul></div>
+    <div><p class="cap">Elsewhere</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="(source link withheld)" style="color:#3A3A38;text-decoration:none">The university lab ↗</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">[Enterprise recognition portal] ↗</a></li><li><a href="Write.dc.html" style="color:#3A3A38;text-decoration:none">Write for ThinkLatent</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">Contact the editors</a></li></ul></div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3200}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

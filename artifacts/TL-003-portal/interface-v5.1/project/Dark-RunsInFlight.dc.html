@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Runs in flight (dark)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#000;color:#ECECEC}
+a{color:#6CB769}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2600px">
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-current="page" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Training · Runs in flight · Engineering view · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">R-2291 · TLM4 Domain-Advice v3</h1><div class="kit-caption" style="margin-top: 8px">UC-0291 Advisor summary · owner Priya N. · base TLM4 Core 4.2 · dataset advisor-notes-v4 · 4 nodes × 8 GPUs · <span class="kit-chip env">Non-production</span></div></div>
+      <div class="kit-actions"><a class="kit-btn outline" href="T3-RunHistory.dc.html">Run history</a><a class="kit-btn outline" href="T2-RunsInFlight-Logs.dc.html">Job logs</a><button class="kit-btn outline" type="button">Stop and keep</button><button class="kit-btn decision" type="button">Cancel run</button></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="T2-RunsInFlight.dc.html" aria-current="page">Monitor</a><a href="T2-RunsInFlight-Logs.dc.html">Job logs</a><a href="T2-RunsInFlight-UpNext.dc.html">Up next</a></nav>
+
+    <div class="kit-steps" aria-label="Run stages">
+      <span class="kit-step done"><span class="k">1</span>Queued</span><span class="arrow">→</span>
+      <span class="kit-step done"><span class="k">2</span>Data checks</span><span class="arrow">→</span>
+      <span class="kit-step now"><span class="k">3</span>Training · epoch 2 of 3</span><span class="arrow">→</span>
+      <span class="kit-step"><span class="k">4</span>Evaluating</span><span class="arrow">→</span>
+      <span class="kit-step"><span class="k">5</span>Gate</span><span class="arrow">→</span>
+      <span class="kit-step"><span class="k">6</span>Done</span>
+      <span class="kit-caption" style="margin-left: 8px">Started 07:12 ET · step 6,420 of 9,600</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr); gap: 16px">
+      <section class="kit-surface coloured" style="grid-row: span 2; display: flex; flex-direction: column; gap: 18px; padding: 24px">
+        <div class="kit-agent"><span class="av">R</span><span>Run headline · R-2291</span><span style="opacity: .7">· refreshed 11:58</span></div>
+        <div style="font-size: 26px; line-height: 1.25; letter-spacing: -0.01em">Validation loss 1.42, best so far; <span style="opacity: .75">cost $1,180 of $2,400 estimate, cap $3,000.</span></div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+          <div style="border-radius: 18px; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.14); padding: 12px 14px"><div class="kit-display" style="font-size: 30px">1.42</div><div class="kit-small" style="margin-top: 6px; opacity: .8">Validation loss · epoch 2</div></div>
+          <div style="border-radius: 18px; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.14); padding: 12px 14px"><div class="kit-display" style="font-size: 30px">49<span style="font-size: 14px; opacity: .7">%</span></div><div class="kit-small" style="margin-top: 6px; opacity: .8">Of the cost estimate spent</div></div>
+          <div style="border-radius: 18px; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.14); padding: 12px 14px"><div class="kit-display" style="font-size: 30px">1<span style="font-size: 14px; opacity: .7">h</span> 40<span style="font-size: 14px; opacity: .7">m</span></div><div class="kit-small" style="margin-top: 6px; opacity: .8">Estimated time to Gate</div></div>
+        </div>
+        <div class="kit-small" style="opacity: .85">On its current trajectory the run finishes inside the estimate and below the cap. Evaluation will run as a Practice TL Index run first; only the Official run after the Gate can be cited.</div>
+        <div class="kit-actions" style="margin-top: auto"><a class="kit-btn on-ink" href="T6-Checkpoints.dc.html">Open checkpoints</a><a class="kit-btn on-ink outline" href="T5-Preflight.dc.html">Pre-flight record</a></div>
+        <div class="kit-prov" style="color: rgba(255,255,255,.75)"><span>Basis: <b style="color: #fff">training pipeline, step 6,420</b></span><span>Cost: <b style="color: #fff">cluster metering, 11:55</b></span><span>Practice runs are never citable</span></div>
+      </section>
+
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><a class="kit-open" href="T6-Checkpoints.dc.html" aria-label="Open checkpoints">↗</a></div>
+        <div class="kit-tile-title">Status and ETA</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Training</div><div class="kit-tile-cap">ETA 1 h 40 m · epoch 2 of 3 · step 6,420 of 9,600</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>On track</span></span></div>
+      </section>
+
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="E1-EvaluationResults.dc.html" aria-label="Open evaluation">↗</a></div>
+        <div class="kit-tile-title">Validation loss vs best</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">1.42<span class="unit">best 1.42</span></div><div class="kit-tile-cap">Epoch 1 was 1.61 · v2 in production trained to 1.47</div></div><div class="kit-bars"><i style="height: 100%"></i><i style="height: 86%"></i><i style="height: 72%"></i><i style="height: 64%"></i><i class="lit" style="height: 58%"></i><i class="dash" style="height: 50%"></i></div></div>
+      </section>
+
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M9.5 9.5h3.5a1.5 1.5 0 0 1 0 3h-2a1.5 1.5 0 0 0 0 3h3.5"></path></svg></span><a class="kit-open" href="J5-Capacity.dc.html" aria-label="Open capacity">↗</a></div>
+        <div class="kit-tile-title">Cost so far</div>
+        <div class="kit-tile-bottom" style="flex-direction: column; align-items: stretch; gap: 10px"><div><div class="kit-display kit-tile-value">$1,180<span class="unit">of $2,400 est.</span></div><div class="kit-tile-cap">Cap $3,000 · pre-flight estimate from T5 · metered at 11:55</div></div><div class="kit-track" title="Spent 39% of cap; estimate sits at 80% of cap"><i style="width: 39%"></i></div></div>
+      </section>
+
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M9 9h6v6H9z"></path><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M2 12h2"></path><path d="M20 12h2"></path></svg></span><a class="kit-open" href="O2-Capacity.dc.html" aria-label="Open cluster capacity">↗</a></div>
+        <div class="kit-tile-title">GPU utilisation</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">91<span class="unit">% mean</span></div><div class="kit-tile-cap">32 GPUs · low 84% on node 3 · MFU 46%</div></div><div class="kit-bars"><i class="lit" style="height: 94%"></i><i class="lit" style="height: 92%"></i><i class="lit" style="height: 84%"></i><i class="lit" style="height: 93%"></i></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>GPU monitor · per node <span class="kit-eng-label">Engineering view</span></h2><div class="sub">Live from the cluster exporter every 15 s. Node 3 is pulling the mean down: lower utilisation, higher step time, 2 °C hotter than the rest.</div></div>
+        <div class="kit-seg"><button type="button" aria-pressed="true">Per node</button><button type="button" aria-pressed="false">Per GPU</button><button type="button" aria-pressed="false">Last hour</button></div>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Node</th><th>Health</th><th class="num">Utilisation</th><th class="num">VRAM</th><th class="num">Power</th><th class="num">Temperature</th><th class="num">Step time</th><th class="num">Tokens/s</th><th class="num">MFU</th></tr></thead>
+        <tbody>
+          <tr><td><a href="O2-Capacity.dc.html">hp-node-01</a><div class="kit-small kit-muted">8 × H100 80 GB</div></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Good</span></span></td><td class="num">94%</td><td class="num">71.2 / 80 GB</td><td class="num">612 W</td><td class="num">66 °C</td><td class="num">1.84 s</td><td class="num">31,400</td><td class="num">47%</td></tr>
+          <tr><td><a href="O2-Capacity.dc.html">hp-node-02</a><div class="kit-small kit-muted">8 × H100 80 GB</div></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Good</span></span></td><td class="num">92%</td><td class="num">71.0 / 80 GB</td><td class="num">604 W</td><td class="num">65 °C</td><td class="num">1.86 s</td><td class="num">31,100</td><td class="num">47%</td></tr>
+          <tr><td><a href="O2-Capacity.dc.html">hp-node-03</a><div class="kit-small kit-muted">8 × H100 80 GB</div></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Watch</span></span></td><td class="num">84%</td><td class="num">71.3 / 80 GB</td><td class="num">571 W</td><td class="num">68 °C</td><td class="num">2.05 s</td><td class="num">28,200</td><td class="num">42%</td></tr>
+          <tr><td><a href="O2-Capacity.dc.html">hp-node-04</a><div class="kit-small kit-muted">8 × H100 80 GB</div></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Good</span></span></td><td class="num">93%</td><td class="num">71.1 / 80 GB</td><td class="num">608 W</td><td class="num">66 °C</td><td class="num">1.85 s</td><td class="num">31,300</td><td class="num">47%</td></tr>
+          <tr><td><b style="font-weight: 500">Run mean</b><div class="kit-small kit-muted">32 GPUs · stragglers set the step</div></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Good</span></span></td><td class="num">91%</td><td class="num">71.2 / 80 GB</td><td class="num">599 W</td><td class="num">66 °C</td><td class="num">2.05 s</td><td class="num">122,000</td><td class="num">46%</td></tr>
+        </tbody>
+      </table>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; flex-wrap: wrap">
+        <div class="kit-agent"><span class="av">SR</span><span>SRE agent · 78% confidence</span><span class="kit-muted">· Node 3 step time is 10% above its peers; basis: 40 min of exporter samples. Suggests draining node 3 at the next checkpoint.</span></div>
+        <div class="kit-actions"><button class="kit-btn sm outline" type="button">Drain node 3 at checkpoint</button><button class="kit-btn sm outline" type="button">Dismiss</button></div>
+      </div>
+      <div class="kit-source">Source: cluster exporter via the training pipeline, R-2291 · MFU against H100 dense BF16 peak · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface raised" style="display: flex; flex-direction: column; gap: 14px">
+      <div class="kit-surface-head"><div><h2>Live curves <span class="kit-eng-label">Engineering view</span></h2><div class="sub">Step 0 to 6,420. Train loss shows raw samples and the smoothed line; the dashed line is the v2 production bar. Grad-norm spikes above 3× the running median are circled.</div></div><div class="kit-legend"><span><i style="background: #6CB769"></i>This run</span><span><i style="background: rgba(108,183,105,.35)"></i>Raw</span><span><i style="background: transparent; border-top: 1px dashed #9A9A9A; height: 0"></i>Target</span><span><i style="background: transparent; border: 1px solid #D08A4A; border-radius: 50%"></i>Spike</span></div></div>
+      <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap">
+        <span class="kit-label">Chart controls</span>
+        <div class="kit-seg" role="group" aria-label="Window"><button type="button" aria-pressed="false">Last 500 steps</button><button type="button" aria-pressed="false">Last 2,000</button><button type="button" aria-pressed="true">All steps</button></div>
+        <div class="kit-seg" role="group" aria-label="Smoothing"><button type="button" aria-pressed="false">Raw</button><button type="button" aria-pressed="true">Smoothing 0.6</button><button type="button" aria-pressed="false">0.9</button></div>
+        <div class="kit-seg" role="group" aria-label="Scale"><button type="button" aria-pressed="true">Linear</button><button type="button" aria-pressed="false">Log</button></div>
+        <label class="kit-switch on"><input type="checkbox" checked style="position: absolute; opacity: 0; width: 1px; height: 1px"><i aria-hidden="true"></i>Clip outliers</label>
+        <label class="kit-switch on"><input type="checkbox" checked style="position: absolute; opacity: 0; width: 1px; height: 1px"><i aria-hidden="true"></i>Flag grad-norm spikes</label>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+        <div>
+          <div class="kit-caption">Train loss · 2.84 → 1.38 · 3 outliers clipped</div>
+          <svg class="kit-spark" viewBox="0 0 100 40" width="100%" height="88" role="img" aria-label="Train loss falling from 2.84 to 1.38, raw and smoothed">
+            <polyline fill="none" stroke="#6CB769" stroke-opacity=".35" stroke-width=".8" points="0,4 4,9 8,6 12,12 16,10 20,16 24,13 28,19 32,17 36,22 40,20 44,24 48,22 52,26 56,24 60,27 64,26 68,28 72,27 76,29 80,28 84,30 88,29 92,30 96,29 100,30"></polyline>
+            <polyline fill="none" stroke="#6CB769" stroke-width="1.5" points="0,5 10,9 20,14 30,18 40,21 50,24 60,26 70,27.5 80,28.5 90,29.3 100,29.8"></polyline>
+            <line x1="0" y1="31" x2="100" y2="31" stroke="#9A9A9A" stroke-width=".6" stroke-dasharray="2 2"></line>
+            <text x="99" y="38" font-size="4" fill="#9A9A9A" text-anchor="end">v2 bar 1.47</text>
+          </svg>
+        </div>
+        <div>
+          <div class="kit-caption">Eval loss · per 800 steps</div>
+          <svg class="kit-spark" viewBox="0 0 100 40" width="100%" height="88" role="img" aria-label="Evaluation loss falling from 2.31 to 1.42">
+            <polyline fill="none" stroke="#6CB769" stroke-width="1.5" points="0,6 12.5,12 25,17 37.5,21 50,24 62.5,26 75,27.5 87.5,28.6 100,29.4"></polyline>
+            <line x1="0" y1="31" x2="100" y2="31" stroke="#9A9A9A" stroke-width=".6" stroke-dasharray="2 2"></line>
+            <text x="99" y="38" font-size="4" fill="#9A9A9A" text-anchor="end">best 1.42 · bar 1.47</text>
+          </svg>
+        </div>
+        <div>
+          <div class="kit-caption">Learning rate · cosine, 2e-5 peak</div>
+          <svg class="kit-spark" viewBox="0 0 100 40" width="100%" height="88" role="img" aria-label="Learning rate warm-up then cosine decay">
+            <polyline fill="none" stroke="#6CB769" stroke-width="1.5" points="0,34 4,20 8,6 16,6.6 24,8 32,10.4 40,13.4 48,16.8 56,20.5 64,24 70,26.4"></polyline>
+            <polyline fill="none" stroke="#6CB769" stroke-opacity=".35" stroke-width="1" stroke-dasharray="1.5 1.5" points="70,26.4 80,29.6 90,32.4 100,34"></polyline>
+            <line x1="0" y1="34" x2="100" y2="34" stroke="#9A9A9A" stroke-width=".6" stroke-dasharray="2 2"></line>
+            <text x="99" y="38" font-size="4" fill="#9A9A9A" text-anchor="end">now 9.2e-6 · floor 2e-6</text>
+          </svg>
+        </div>
+        <div>
+          <div class="kit-caption">Grad norm · clip at 1.0 · 2 spikes flagged</div>
+          <svg class="kit-spark" viewBox="0 0 100 40" width="100%" height="88" role="img" aria-label="Gradient norm settling below the clip line, with two flagged spikes at steps 3,724 and 5,072, both clipped and recovered">
+            <polyline fill="none" stroke="#6CB769" stroke-width="1.2" points="0,8 5,14 10,10 15,18 20,15 25,21 30,19 35,24 40,22 45,25 50,23 55,26 58,9 61,25 65,27 70,25 75,27 79,8 82,26 85,28 90,26 95,27 100,26"></polyline>
+            <line x1="0" y1="12" x2="100" y2="12" stroke="#9A9A9A" stroke-width=".6" stroke-dasharray="2 2"></line>
+            <circle cx="58" cy="9" r="1.8" fill="none" stroke="#D08A4A" stroke-width="0.8"></circle>
+            <circle cx="79" cy="8" r="1.8" fill="none" stroke="#D08A4A" stroke-width="0.8"></circle>
+            <text x="60.5" y="7" font-size="4" fill="#D08A4A">×3.1</text>
+            <text x="81.5" y="6" font-size="4" fill="#D08A4A">×3.4</text>
+            <text x="99" y="38" font-size="4" fill="#9A9A9A" text-anchor="end">clip 1.0 · now 0.41</text>
+          </svg>
+        </div>
+      </div>
+      <div class="kit-note"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg><span>The same view works on a phone: it stacks to one column with the headline card, the four curves and Stop and keep. Cancel asks you to confirm there too.</span></div>
+      <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap">
+        <span class="kit-small kit-muted">The same scalars stream to the team's own tools, from the recipe's logging section:</span>
+        <button class="kit-btn sm outline" type="button">TensorBoard · uc-0291 / r-2291 ↗</button>
+        <button class="kit-btn sm outline" type="button">W&amp;B · kit-advice / r-2291 ↗</button>
+        <a class="kit-btn sm outline" href="T2-RunsInFlight-Logs.dc.html">Job logs</a>
+      </div>
+      <div class="kit-source">Source: training pipeline metrics for R-2291, logged every 20 steps; spikes flagged against a 200-step running median · as of step 6,420, Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Other runs in flight <span class="kit-chip">1</span></h2><div class="sub">Everything else the cluster is training right now, with the queue behind it.</div></div><a class="kit-btn sm outline" href="T1-NewTrainingRun.dc.html">New training run</a></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 170px 150px">
+          <div><div class="t">R-2288 · Claims triage adapter v3</div><div class="s">UC-0142 · owner Marcus L. · 2 nodes · epoch 1 of 2 · evaluation agent proposal</div></div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Training</span></span>
+          <span class="kit-num">ETA 3 h 10 m · $420 of $1,100</span>
+          <div class="end"><a class="kit-btn sm outline" href="T2-RunsInFlight.dc.html">Open</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 170px 150px">
+          <div><div class="t">R-2293 · Fund document Q&amp;A, first adapter</div><div class="s">UC-0307 · owner Priya N. · queued behind R-2291 · pre-flight passed</div></div>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Queued</span></span>
+          <span class="kit-dash" title="not started">—</span>
+          <div class="end"><a class="kit-btn sm outline" href="T5-Preflight.dc.html">Pre-flight</a></div>
+        </div>
+      </div>
+      <div class="kit-source">Source: training scheduler queue · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

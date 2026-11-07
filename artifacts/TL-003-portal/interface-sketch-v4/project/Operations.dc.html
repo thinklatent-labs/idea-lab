@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Operations: cluster capacity, agents' activity, break-glass log, audit export</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1B1F24;background:linear-gradient(160deg,#F7F8FA 0%,#EEF2F1 55%,#E9EEF3 100%)}
+a{color:#0B5E4C}a:hover{color:#08463A}
+.card{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);box-shadow:0 1px 2px rgba(27,31,36,0.04),0 8px 24px rgba(27,31,36,0.05);border-radius:14px;padding:22px 24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.tile{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.tile .n{font-size:28px;font-weight:600;letter-spacing:-0.02em}.tile .l{font-size:13px;color:#57606A}
+.h1{margin:0;font-size:28px;font-weight:600;letter-spacing:-0.01em}.h2{margin:0;font-size:16px;font-weight:600}.h3{margin:0;font-size:14px;font-weight:600}
+.muted{color:#57606A;font-size:13px}.ph{color:#8C959F}.small{font-size:12px;color:#57606A}
+.btn{min-height:40px;padding:0 14px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);color:#1B1F24;font:500 13px Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn.primary{background:#0B5E4C;border-color:#0B5E4C;color:#fff}.btn.danger{color:#8A2A1B}.btn[disabled]{background:#EEF1F4;color:#8C959F;border-color:#E1E4E8;cursor:default}
+.pill{padding:2px 9px;border-radius:999px;font-size:11px;font-weight:600;display:inline-block}
+.pill.good{background:#E6F2EE;color:#0B5E4C}.pill.warn{background:#FBF1DD;color:#6B4A0B}.pill.crit{background:#FBE9E7;color:#8A2A1B}.pill.neutral{background:#EEF1F4;color:#3C4651}.pill.info{background:#E3ECF7;color:#1F4E79}
+.row{display:grid;gap:10px;align-items:center;padding:10px 12px;border:1px solid #E1E4E8;border-radius:10px;background:rgba(255,255,255,0.5);font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:#57606A;font-size:12px;font-weight:500;padding:8px;border-bottom:1px solid #E1E4E8}td{padding:10px 8px;border-bottom:1px solid #EEF1F4;vertical-align:top}tr:last-child td{border-bottom:0}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.bar{height:8px;border-radius:4px;background:#EEF1F4;overflow:hidden}.bar>div{height:8px;border-radius:4px;background:#0B5E4C}
+.env{padding:3px 9px;border-radius:6px;background:#EEF1F4;color:#3C4651;font-size:11px;font-weight:600;letter-spacing:0.02em}
+.src{font-size:11px;color:#8C959F}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;font-family:Inter,system-ui,sans-serif;color:#1B1F24">
+<nav aria-label="Areas" style="position:sticky;top:0;align-self:flex-start;flex:0 0 76px;height:100vh;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;background:rgba(255,255,255,0.55);backdrop-filter:blur(16px);border-right:1px solid rgba(255,255,255,0.7)"><a href="Catalogue.dc.html" title="ThinkLatent Portal" style="width:40px;height:40px;border-radius:12px;background:{{accent}};display:block;margin-bottom:6px"></a><a href="Home.dc.html" title="Home" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">H</span>Home</a><a href="Catalogue.dc.html" title="Models" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">M</span>Models</a><a href="Agents.dc.html" title="Agents" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">A</span>Agents</a><a href="Playground.dc.html" title="Playground" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">P</span>Playground</a><a href="Evaluation.dc.html" title="Evaluation" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">E</span>Evaluation</a><a href="Project.dc.html" title="Projects" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">J</span>Projects</a><a href="DataReview.dc.html" title="Data" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">D</span>Data</a><a href="Training.dc.html" title="Training" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">T</span>Training</a><a href="Operations.dc.html" title="Operations" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#0B5E4C;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:#0B5E4C;color:#fff;border:1px solid #0B5E4C">O</span>Operations</a><a href="Help.dc.html" title="Help" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">?</span>Help</a></nav>
+<div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
+<header style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;min-height:56px;padding:0 32px;background:rgba(255,255,255,0.5);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.7)"><nav aria-label="Breadcrumb" style="font-size:14px;flex:1 1 320px;min-width:0"><span style="color:#1B1F24;font-weight:500">Operations</span></nav><label for="q" style="position:absolute;left:-9999px">Search</label><input id="q" placeholder="Search models, agents, projects, people, answers" style="min-height:40px;width:320px;padding:0 12px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);font:400 13px Inter,system-ui,sans-serif"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><a href="Unregistered.dc.html" class="btn">Unregistered usage</a><button class="btn">Audit export</button></div></header>
+<main style="flex:1 1 auto;width:100%;max-width:1180px;margin:0 auto;padding:28px 32px 56px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px">
+
+<section style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end">
+  <div style="display:flex;flex-direction:column;gap:6px"><h1 class="h1">Operations</h1><p class="muted" style="margin:0;max-width:760px">ThinkLatent's own view: the cluster, what every portal agent did, who opened what in production, and the audit trail. Governance reads here too.</p></div>
+  <span class="src">as of [time] · sources: cluster, gateway, agents' activity, identity</span>
+</section>
+<section class="grid4" aria-label="Headline">
+  <div class="tile"><span class="l">Cluster saturation now</span><span class="n ph">[—]%</span><span class="l">peak hour 14:00 · headroom [—]</span></div>
+  <div class="tile"><span class="l">Agent proposals open</span><span class="n">5</span><span class="l">acceptance rate this month [—]%</span></div>
+  <div class="tile"><span class="l">Break-glass grants active</span><span class="n">1</span><span class="l">expires in [—] h · [use case]</span></div>
+  <div class="tile"><span class="l">Side-door share</span><span class="n ph">[—]%</span><span class="l">falling · [—] teams converted this quarter</span></div>
+</section>
+<section class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h2">Capacity across the cluster</h2><span class="small">dedicated machines per production use case · shared pools for sandbox, pilot and training</span></div>
+  <table><thead><tr><th>Endpoint or pool</th><th>Environment</th><th>Replicas</th><th>Saturation (peak)</th><th>Goodput</th><th>GPU hours this month</th><th>Headroom</th></tr></thead><tbody>
+  <tr><td>tlm4-call-summary</td><td><span class="env">PRODUCTION</span></td><td class="ph">[—]</td><td class="ph">[—]% (14:00)</td><td class="ph">[—]%</td><td class="ph">[—]</td><td style="color:#B7791F;font-weight:500">[—]% · budget 50% burned</td></tr>
+  <tr><td>tlm4-[use case 2]</td><td><span class="env">PRODUCTION</span></td><td class="ph">[—]</td><td class="ph">[—]%</td><td class="ph">[—]%</td><td class="ph">[—]</td><td class="ph">[—]%</td></tr>
+  <tr><td>pilot pool</td><td><span class="env">PILOT IN PRODUCTION</span></td><td class="ph">[—]</td><td class="ph">[—]%</td><td class="ph">[—]%</td><td class="ph">[—]</td><td class="ph">[—]%</td></tr>
+  <tr><td>sandbox pool</td><td><span class="env">SANDBOX · lower-tier GPUs</span></td><td class="ph">[—]</td><td class="ph">[—]%</td><td class="muted">not measured</td><td class="ph">[—]</td><td class="ph">[—]%</td></tr>
+  <tr><td>training pool</td><td><span class="env">TRAINING</span></td><td class="ph">[—] nodes</td><td class="ph">[—]% busy</td><td class="muted">—</td><td class="ph">[—]</td><td>queue [—] ahead</td></tr>
+  </tbody></table>
+  <span class="small">Rebalance requests go to the serving lead; a production endpoint never shares a machine.</span>
+</section>
+<section class="grid2">
+  <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">Agents' activity</h2><span class="small">every action has a row · proposals wait for a person</span></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto auto"><span class="pill crit">SRE</span><span>Diagnosed error-budget burn on call-summary; drafted runbook; proposed raising replicas 14:00–15:00</span><span class="small">[time]</span><a href="UC-Capacity.dc.html" style="font-weight:500">Decide</a></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto auto"><span class="pill warn">self-healing</span><span>Marked 3 data points do-not-use (summarisation); flagged "tax-form questions" as a new topic</span><span class="small">[time]</span><a href="DataInsight.dc.html" style="font-weight:500">Review</a></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto auto"><span class="pill info">onboarding</span><span>Created project "Advisor prep brief" in POC; sandbox key issued; first call seen 2 days later</span><span class="small">[date]</span><a href="Project.dc.html" style="font-weight:500">Open</a></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto auto"><span class="pill info">triage</span><span>Answered 11 questions; paged 2 to experts; opened 1 FAQ</span><span class="small">today</span><a href="Help.dc.html" style="font-weight:500">See</a></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto auto"><span class="pill neutral">analyst</span><span>Produced 4 on-demand graphs for 3 people; 1 saved to a page</span><span class="small">today</span><span class="small">—</span></div>
+    <div style="display:flex;gap:8px"><button class="btn">Pause an agent</button><button class="btn">Scopes and permissions</button></div>
+  </div>
+  <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">Break-glass log</h2><span class="small">production is sealed; this is the only way in</span></div>
+    <table><thead><tr><th>Who</th><th>Scope</th><th>Reason</th><th>Approver</th><th>Window</th><th></th></tr></thead><tbody>
+    <tr><td>[name] · serving</td><td>call-summary traces</td><td>incident TL-440: timeouts 14:00</td><td>[name]</td><td>[time] – [time] <span class="pill warn">active</span></td><td><button class="btn" style="min-height:28px">Revoke</button></td></tr>
+    <tr><td>[name] · SRE on call</td><td>[use case 2] logs</td><td>finish-reason spike</td><td>[name]</td><td>[date] · 2 h</td><td class="small">closed · 3 pages opened</td></tr>
+    <tr><td>[name] · validator</td><td>evaluation items only</td><td>validation of 4.3</td><td>n/a (role)</td><td>—</td><td class="small">not break-glass</td></tr>
+    </tbody></table>
+    <span class="small">Each grant shows a banner on the pages it unlocks; pages opened are logged; grants expire on their own.</span>
+  </div>
+</section>
+<section class="grid3">
+  <div class="card"><h2 class="h2">Audit export</h2><span class="muted">Every approval, phase move, alias move, threshold change, drill-in and grant, with who, what, when, why and the evidence id. Export per project, per model or per period.</span><button class="btn" style="align-self:flex-start">Export</button></div>
+  <div class="card"><h2 class="h2">Unregistered usage</h2><span class="muted">Calls without a record, tags missing, unknown prompt ids, the side door seen at egress; the grace policy (approved 2026-11-02, Risk concurrence pending for day 30).</span><a href="Unregistered.dc.html" class="btn" style="align-self:flex-start">Open</a></div>
+  <div class="card"><h2 class="h2">Contract and identity health</h2><div class="row" style="grid-template-columns:1fr auto"><span>Tag completeness, all production</span><span class="ph">[—]%</span></div><div class="row" style="grid-template-columns:1fr auto"><span>IAM group mirror lag</span><span class="ph">[—] min</span></div><div class="row" style="grid-template-columns:1fr auto"><span>Pages with a stale as-of (&gt; 1 h)</span><span class="ph">[—]</span></div></div>
+</section>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"$preview":{"width":1280,"height":1900}}'>
+class Component extends DCLogic {
+  renderVals() { return { accent: this.props.accent ?? '#0B5E4C' }; }
+}
+</script>
+</body>
+</html>

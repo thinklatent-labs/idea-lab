@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Contribution validation</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2000px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-current="page" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Evaluation · Contribute to the Index · DS-C-0031 Secure-message intents 2026 · practitioner validation · joined the candidate set 4 Nov · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Practitioners accept 91% of the reference routes so far</h1></div>
+      <div class="kit-actions"><a class="kit-btn outline" href="E8-Contribute-Profile.dc.html">Profile report</a><button class="kit-btn outline" type="button" aria-disabled="true">Open my sample</button><span class="kit-small kit-muted" style="align-self: center">Practitioners only</span></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px">
+      <nav class="kit-rail" aria-label="Evaluation"><a href="E1-EvaluationResults.dc.html">Results</a><a href="E2-Index.dc.html">Index</a><a href="E3-Leaderboard.dc.html">Leaderboard</a><a href="E4-Corrections.dc.html">Corrections</a><a href="E6-Requests.dc.html">Requests</a><a href="E7-Trials.dc.html">Trials</a><a href="E8-Contribute.dc.html" aria-current="page">Contribute</a><a href="E9-Pillar.dc.html">Pillars</a></nav>
+      <nav class="kit-subrail" aria-label="Sections"><a href="E8-Contribute.dc.html">Submit</a><a href="E8-Contribute-Profile.dc.html">Profile and decision</a><a href="E8-Contribute-Validation.dc.html" aria-current="page">Validation and credit</a><a href="E8-Contribute-Council.dc.html">Pillar council</a></nav>
+    </div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"></circle><path d="M3 20a6 6 0 0 1 12 0"></path><path d="M16 4.5a3 3 0 0 1 0 6"></path><path d="M18 20a6 6 0 0 0-2.5-4.9"></path></svg></span></div>
+        <div class="kit-tile-title">Practitioners</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2<span class="unit">of 3 done</span></div><div class="kit-tile-cap">Client Services team leads from three service teams · the third is due 9 Nov</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="dash" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path></svg></span></div>
+        <div class="kit-tile-title">Sample reviewed</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">120<span class="unit">of 180</span></div><div class="kit-tile-cap">60 items each, drawn at random across the 14 routing classes</div></div><div class="kit-track" style="width: 90px"><i style="width: 67%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span></div>
+        <div class="kit-tile-title">Agreement with the reference</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.91<span class="unit">± 0.04</span></div><div class="kit-tile-cap">Share of sampled items where a practitioner accepts the reference route · bar 0.85</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Above bar so far</span></span></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span><a class="kit-open" href="E9-Pillar-Composition.dc.html" aria-label="Open Client care composition">↗</a></div>
+        <div class="kit-tile-title">Becomes active</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Edition 2026-12</div><div class="kit-tile-cap">If validation passes by 20 Nov · contributors are credited when it does</div></div><span class="kit-chip brand">Candidate</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Practitioner validation</h2><div class="sub">People who do the work check that items and reference answers are real and right. Review is blind: each practitioner sees the item and the reference, never another practitioner's answer. Reviewers are named to the validator, not on this page.</div></div><span class="kit-chip">Sample of 180 · 60 each</span></div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Practitioner</th><th>Team</th><th class="num">Reviewed</th><th class="num">Accepted</th><th class="num">Changed the route</th><th class="num">Unsure</th><th class="num">Agreement</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Reviewer 1</td><td class="kit-small">Team lead, Retirement services</td><td class="num">60 of 60</td><td class="num">55</td><td class="num">4</td><td class="num">1</td><td class="num"><span class="kit-interval">0.92 <span class="pm">± 0.06</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done 4 Nov</span></span></td></tr>
+          <tr><td>Reviewer 2</td><td class="kit-small">Team lead, Brokerage services</td><td class="num">60 of 60</td><td class="num">54</td><td class="num">5</td><td class="num">1</td><td class="num"><span class="kit-interval">0.90 <span class="pm">± 0.07</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done 5 Nov</span></span></td></tr>
+          <tr><td>Reviewer 3</td><td class="kit-small">Team lead, Estate and trust services</td><td class="num">0 of 60</td><td class="num"><span class="kit-dash" title="not started">—</span></td><td class="num"><span class="kit-dash" title="not started">—</span></td><td class="num"><span class="kit-dash" title="not started">—</span></td><td class="num"><span class="kit-dash" title="not started">—</span></td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Due 9 Nov</span></span></td></tr>
+          <tr><td><strong>All so far</strong></td><td></td><td class="num"><strong>120 of 180</strong></td><td class="num"><strong>109</strong></td><td class="num"><strong>9</strong></td><td class="num"><strong>2</strong></td><td class="num"><span class="kit-interval">0.91 <span class="pm">± 0.04</span></span></td><td class="kit-small kit-muted">bar 0.85</td></tr>
+        </tbody>
+      </table>
+
+      <div class="kit-grid2" style="margin-top: 16px">
+        <div>
+          <div class="kit-label">Where practitioners changed the route · 9 items</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px">
+            <div><div style="display: flex; justify-content: space-between" class="kit-small"><span>Brokerage → Retirement (rollover questions)</span><span class="kit-num">5</span></div><div class="kit-track" style="margin-top: 4px"><i style="width: 56%"></i></div></div>
+            <div><div style="display: flex; justify-content: space-between" class="kit-small"><span>General enquiry → Complaint</span><span class="kit-num">3</span></div><div class="kit-track" style="margin-top: 4px"><i class="warn" style="width: 33%"></i></div></div>
+            <div><div style="display: flex; justify-content: space-between" class="kit-small"><span>Transfers → Estate services (class missing from the set)</span><span class="kit-num">1</span></div><div class="kit-track" style="margin-top: 4px"><i style="width: 11%"></i></div></div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <div class="kit-note"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>An item a practitioner changes goes back to the contributor and stays out of the set until two practitioners agree on it. The three missed complaints matter most: a complaint routed as a general enquiry is the error Client care exists to catch.</div></div>
+          <div class="kit-actions"><button class="kit-btn sm outline" type="button">Send the 9 items to the contributor</button><button class="kit-btn sm outline" type="button">Remind reviewer 3</button></div>
+        </div>
+      </div>
+      <div class="kit-source">Source: validation log for DS-C-0031 (blind review, 180-item random sample) · agreement intervals by bootstrap over sampled items · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Contributor credit</h2><div class="sub">A contribution is credited when it becomes active: in the Index edition notes, on the pillar page and on the contributor's portal profile. Credit stays after a set retires.</div></div><a class="kit-btn sm outline" href="E2-Index.dc.html">Edition 2026-11 notes</a></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 140px 160px 220px">
+          <div><div class="t">Client Services · Priya N. and team</div><div class="s">3 Client care: cc-escalation v2 and cc-resolution v4</div></div>
+          <div><div class="t">600</div><div class="s">active items</div></div>
+          <div><div class="t">14</div><div class="s">Official runs cited them this quarter</div></div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Credited · edition 2026-11</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 140px 160px 220px">
+          <div><div class="t">Institutional Ops · Marcus L. and the UC-0270 team</div><div class="s">3 Client care: cc-routing v3, from Ticket classes 2025</div></div>
+          <div><div class="t">400</div><div class="s">active items</div></div>
+          <div><div class="t">9</div><div class="s">Official runs cited them this quarter</div></div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Credited · edition 2026-11</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 140px 160px 220px">
+          <div><div class="t">ThinkLatent core team with the UC-0251 Call wrap-up notes team</div><div class="s">3 Client care: cc-wrapup v2</div></div>
+          <div><div class="t">200</div><div class="s">active items</div></div>
+          <div><div class="t">9</div><div class="s">Official runs cited them this quarter</div></div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Credited · edition 2026-11</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 140px 160px 220px">
+          <div><div class="t">Investment Mgmt · Fund factsheet charts</div><div class="s">Seed for candidate pillar 17 Visual and chart understanding</div></div>
+          <div><div class="t">480</div><div class="s">seed items</div></div>
+          <div><div class="t"><span class="kit-dash" title="a candidate pillar is not scored">—</span></div><div class="s">not scored until the pillar opens</div></div>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Seed credit · pillar council</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 140px 160px 220px">
+          <div><div class="t">Client Services · Secure-message intents 2026</div><div class="s">This set · 3 Client care candidate</div></div>
+          <div><div class="t">1 312</div><div class="s">candidate items</div></div>
+          <div><div class="t"><span class="kit-dash" title="not yet active">—</span></div><div class="s">not yet active</div></div>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Pending · edition 2026-12</span></span>
+        </div>
+      </div>
+      <div class="kit-source">Source: contribution register and the Index edition notes · citations counted from Official runs on editions 2026-10 and 2026-11 · as of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

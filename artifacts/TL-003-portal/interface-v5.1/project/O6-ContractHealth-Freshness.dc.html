@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Contract and identity health · Page freshness</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2000px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Operations · Telemetry contract and identity · Page freshness · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Contract and identity health</h1><div class="kit-muted" style="margin-top: 6px; max-width: 780px">Every page shows the as-of time of its numbers. When that is more than an hour old, the page says so beside its source line and is listed here with the source that is late and the person who owns it.</div></div>
+      <div class="kit-actions"><button class="kit-btn" type="button">Notify source owners</button><button class="kit-btn outline" type="button">Freshness rules</button></div>
+    </div>
+
+    <nav class="kit-rail" aria-label="Operations" style="align-self: flex-start"><a href="O1-UnregisteredUsage.dc.html">Unregistered usage</a><a href="O2-Capacity.dc.html">Capacity</a><a href="O3-AgentsActivity.dc.html">Agents' activity</a><a href="O4-BreakGlass.dc.html">Break-glass</a><a href="O5-AuditExport.dc.html">Audit export</a><a href="O6-ContractHealth.dc.html" aria-current="page">Contract health</a></nav>
+
+    <nav class="kit-subrail" aria-label="Sections"><a href="O6-ContractHealth.dc.html">Tags and identity</a><a href="O6-ContractHealth-Freshness.dc.html" aria-current="page">Page freshness</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><a class="kit-open" href="O6-ContractHealth-Freshness.dc.html" aria-label="Open stale pages">↗</a></div>
+        <div class="kit-tile-title">Pages older than an hour</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3<span class="unit">pages</span></div><div class="kit-tile-cap">Oldest 2 h 40 min · checked every 5 minutes</div></div><span class="kit-chip decision">Stale</span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path></svg></span><a class="kit-open" href="O6-ContractHealth-Freshness.dc.html" aria-label="Open late sources">↗</a></div>
+        <div class="kit-tile-title">Sources late</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3<span class="unit">of 7</span></div><div class="kit-tile-cap">One serving-log export, HyperPod accounting, one Jira sync</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="dash" style="height: 100%"></i><i class="dash" style="height: 100%"></i><i class="dash" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="O6-ContractHealth-Freshness.dc.html" aria-label="Open pages checked">↗</a></div>
+        <div class="kit-tile-title">Pages checked</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">64<span class="unit">pages</span></div><div class="kit-tile-cap">Every page with a source line · 61 within the hour</div></div><div class="kit-track" style="width: 120px"><i style="width: 95%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></span><a class="kit-open" href="O6-ContractHealth-Freshness.dc.html" aria-label="Open recovered pages">↗</a></div>
+        <div class="kit-tile-title">Recovered today</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2<span class="unit">pages</span></div><div class="kit-tile-cap">Leaderboard at 11:40 · Alerts and digest at 10:05</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Pages whose as-of is older than an hour <span class="kit-chip">3</span></h2><div class="sub">The page, the as-of time it is showing, how old that is, the source that is late, and who owns the source.</div></div>
+        <div class="kit-seg"><button type="button" aria-pressed="true">Older than 1 h</button><button type="button" aria-pressed="false">Older than 15 min</button></div>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Page</th><th>As of</th><th>Age</th><th>Late source</th><th>Source owner</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+          <tr><td><div style="font-weight: 500">Use case · Traffic</div><div class="kit-small kit-muted">UC-0142 Claims triage</div></td><td class="kit-num">09:18</td><td class="kit-num">2 h 40 min</td><td><div class="kit-small">Gateway serving log export for Institutional Ops, paused at 09:18 · TL-2230</div></td><td>R. Okafor <span class="kit-small kit-muted">· SRE on-call</span></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Over 2 h</span></span></td><td><div class="end"><a class="kit-btn sm outline" href="J4-Traffic.dc.html">Open page</a></div></td></tr>
+          <tr><td><div style="font-weight: 500">Run history</div><div class="kit-small kit-muted">TLM5 pre-training</div></td><td class="kit-num">10:31</td><td class="kit-num">1 h 27 min</td><td><div class="kit-small">HyperPod accounting export, 4 cycles late</div></td><td>ThinkLatent foundation team <span class="kit-small kit-muted">· on-call</span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stale</span></span></td><td><div class="end"><a class="kit-btn sm outline" href="T3-RunHistory.dc.html">Open page</a></div></td></tr>
+          <tr><td><div style="font-weight: 500">Project home</div><div class="kit-small kit-muted">UC-0307 Fund document Q&amp;A</div><span class="kit-chip env" style="height: 20px; margin-top: 4px">Non-production</span></td><td class="kit-num">10:44</td><td class="kit-num">1 h 14 min</td><td><div class="kit-small">Jira sync for the UC-0307 board, token expired at 10:44</div></td><td>Marcus L. <span class="kit-small kit-muted">· core team</span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stale</span></span></td><td><div class="end"><a class="kit-btn sm outline" href="J2-ProjectHome.dc.html">Open page</a></div></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-note" style="margin-top: 14px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>A stale page keeps its last numbers and says "older than an hour" beside its as-of time. It never fills the gap with zero, and agents do not cite it in a brief until it is current again.</div></div>
+      <div class="kit-source">Each page's as-of time from its source line, checked every 5 minutes against the source's last delivery. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Sources behind the pages</h2><div class="sub">Each source, when it last delivered, how often it should, and how many pages read it.</div></div></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 110px 130px"><div><div class="t">Gateway serving log</div><div class="s">Every minute · one export paused (Institutional Ops) since 09:18</div></div><span class="kit-num">11:57</span><span class="kit-small kit-muted">41 pages</span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Partly late</span></span></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 110px 130px"><div><div class="t">The record</div><div class="s">On every write</div></div><span class="kit-num">11:58</span><span class="kit-small kit-muted">30 pages</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Current</span></span></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 110px 130px"><div><div class="t">Official TL Index runs</div><div class="s">When a run completes</div></div><span class="kit-num">11:50</span><span class="kit-small kit-muted">18 pages</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Current</span></span></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 110px 130px"><div><div class="t">HyperPod accounting</div><div class="s">Every 15 minutes · 4 cycles missed</div></div><span class="kit-num">10:31</span><span class="kit-small kit-muted">9 pages</span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Late</span></span></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 110px 130px"><div><div class="t">Jira project ThinkLatent</div><div class="s">Every minute · one board's sync failed (UC-0307)</div></div><span class="kit-num">11:57</span><span class="kit-small kit-muted">6 pages</span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Partly late</span></span></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 110px 130px"><div><div class="t">IAM group mirror</div><div class="s">Every 5 minutes · one group over its lag target, see Tags and identity</div></div><span class="kit-num">11:56</span><span class="kit-small kit-muted">Access on every page</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Current</span></span></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 110px 130px"><div><div class="t">Egress proxy log</div><div class="s">Every 5 minutes · side-door calls only</div></div><span class="kit-num">11:55</span><span class="kit-small kit-muted">2 pages</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Current</span></span></div>
+      </div>
+      <div class="kit-source">Source delivery times from the portal's ingestion log. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

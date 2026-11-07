@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Evaluation results · Runs and spend</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2200px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-current="page" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Evaluation · Official TL Index run 1183 · TLM4 Domain-Advice v2 · UC-0291 Advisor summary · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Run 1183 cost $70.50 to evaluate; judge calls are half of recent evaluation spend</h1></div>
+      <div class="kit-actions"><a class="kit-btn" href="E6-Requests.dc.html">Request an evaluation</a><button class="kit-btn outline" type="button">Run the TL Index</button><button class="kit-btn outline" type="button" aria-disabled="true">Mark Official (validators)</button><span class="kit-small kit-muted" style="align-self: center">Already Official · marked by Elena R., 2 Nov</span></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <nav class="kit-rail" aria-label="Evaluation"><a href="E1-EvaluationResults.dc.html" aria-current="page">Results</a><a href="E2-Index.dc.html">Index</a><a href="E3-Leaderboard.dc.html">Leaderboard</a><a href="E4-Corrections.dc.html">Corrections</a><a href="E6-Requests.dc.html">Requests and live runs</a><a href="E7-Trials.dc.html">Model trials</a><a href="E8-Contribute.dc.html">Contribute a data set</a><a href="E9-Pillar.dc.html">Pillars</a></nav>
+      <nav class="kit-subrail" aria-label="Sections"><a href="E1-EvaluationResults.dc.html">Scores</a><a href="E1-EvaluationResults-Items.dc.html">Items and failure clusters</a><a href="E1-EvaluationResults-Judge.dc.html">Judge trust and method</a><a href="E1-EvaluationResults-Runs.dc.html" aria-current="page">Runs, evidence and spend</a></nav>
+    </div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></span><a class="kit-open" href="E6-Requests.dc.html" aria-label="Open live runs">↗</a></div>
+        <div class="kit-tile-title">Live runs</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2</div><div class="kit-tile-cap">1 Practice running at 64% · 1 Official queued for a validator</div></div><div class="kit-track" style="width: 90px"><i style="width: 64%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path></svg></span><a class="kit-open" href="E6-Requests.dc.html" aria-label="Open evaluation requests">↗</a></div>
+        <div class="kit-tile-title">Requests waiting</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3<span class="unit">oldest 2 d</span></div><div class="kit-tile-cap">Evaluation requests from three project teams · source: request queue</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i class="lit" style="height: 70%"></i><i class="lit" style="height: 40%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M15 9.5c0-1.4-1.3-2-3-2s-3 .8-3 2 1.3 1.7 3 2 3 .8 3 2-1.3 2-3 2-3-.6-3-2"></path></svg></span></div>
+        <div class="kit-tile-title">Spend on run 1183</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$70.50</div><div class="kit-tile-cap">Evaluator compute $28.70 · judge calls $41.80 (59%) · source: the gateway serving log</div></div><div class="kit-track" style="width: 90px"><i style="width: 59%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span></div>
+        <div class="kit-tile-title">Vendor evidence expiring</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">12 Nov</div><div class="kit-tile-cap">Frontier API run 1181 expires when the vendor's announced model update lands · re-run booked</div></div><span class="kit-chip brand">Re-run booked</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Runs · live and recent, with evaluator and judge spend</h2><div class="sub">Live runs link to their request. Spend is what each run cost to evaluate: evaluator compute to generate the answers, and judge calls to score them.</div></div>
+        <a class="kit-btn sm outline" href="E6-Requests.dc.html">All requests and live runs</a>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Run</th><th>Model</th><th>Kind</th><th>State</th><th class="num">Items × epochs</th><th class="num">Evaluator compute</th><th class="num">Judge calls</th><th class="num">Spend</th><th>Evidence</th></tr></thead>
+        <tbody>
+          <tr><td><a href="E6-Requests.dc.html">1198</a></td><td>TLM4 Domain-Advice v3<div class="kit-small kit-muted">R-2291 checkpoint 2 000</div></td><td><span class="kit-chip outline">Practice</span></td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Running · 64% · ends about 13:40</span></span></td><td class="num">1 200 × 3</td><td class="num">$18.40 so far</td><td class="num">$26.70 so far</td><td class="num">$45.10 so far</td><td class="kit-small kit-muted">Practice · never citable</td></tr>
+          <tr><td><a href="E6-Requests.dc.html">1189</a></td><td>UC-0142 Claims triage · adapter v3<div class="kit-small kit-muted">request R-0093 · Marcus L.</div></td><td><span class="kit-chip brand">Official</span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Queued · waits for a validator</span></span></td><td class="num">1 200 × 3</td><td class="num">est. $29.00</td><td class="num">est. $41.80</td><td class="num">est. $70.80</td><td class="kit-small kit-muted">Citable once it completes</td></tr>
+          <tr class="selected"><td><a href="E1-EvaluationResults.dc.html">1183</a></td><td>TLM4 Domain-Advice v2</td><td><span class="kit-chip brand">Official</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete · 2 Nov</span></span></td><td class="num">1 200 × 3</td><td class="num">$28.70</td><td class="num">$41.80</td><td class="num"><strong>$70.50</strong></td><td class="kit-small">Does not expire while weights and edition hold</td></tr>
+          <tr><td><a href="E1-EvaluationResults.dc.html">1181</a></td><td>Frontier API (aggregate)</td><td><span class="kit-chip brand">Official</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete · 1 Nov</span></span></td><td class="num">1 200 × 3</td><td class="num">$75.60<div class="kit-small kit-muted">API, published rate</div></td><td class="num">$41.80</td><td class="num">$117.40</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Expires 12 Nov</span></span></td></tr>
+          <tr><td><a href="E1-EvaluationResults.dc.html">1180</a></td><td>TLM4 Core 4.2</td><td><span class="kit-chip brand">Official</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete · 31 Oct</span></span></td><td class="num">1 200 × 3</td><td class="num">$31.20</td><td class="num">$41.80</td><td class="num">$73.00</td><td class="kit-small">Does not expire</td></tr>
+          <tr><td><a href="E1-EvaluationResults.dc.html">1179</a></td><td>TLM4 Distil 4.2</td><td><span class="kit-chip brand">Official</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete · 31 Oct</span></span></td><td class="num">1 200 × 3</td><td class="num">$9.40</td><td class="num">$41.80</td><td class="num">$51.20</td><td class="kit-small">Does not expire</td></tr>
+          <tr><td><a href="E1-EvaluationResults.dc.html">1178</a></td><td>Open-source 70B<div class="kit-small kit-muted">160 items errored on long inputs</div></td><td><span class="kit-chip brand">Official</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete · 30 Oct</span></span></td><td class="num">1 040 × 3</td><td class="num">$54.90</td><td class="num">$36.20</td><td class="num">$91.10</td><td class="kit-small">Does not expire · Entity recognition re-run 9 Nov</td></tr>
+          <tr><td colspan="5"><strong>Five complete runs since 30 Oct</strong></td><td class="num">$199.80</td><td class="num">$203.40</td><td class="num"><strong>$403.20</strong></td><td class="kit-small">Judge calls are 50% of spend</td></tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Source: the gateway serving log for every generation and judge call, priced at the internal GPU-hour rate; the frontier API at its published rate on measured tokens · live runs and requests from the request queue · as of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Vendor model evidence that expires</h2><div class="sub">Evidence on a vendor model lasts 90 days, or until the vendor changes the model behind its API, whichever comes first. A re-run is booked 14 days before expiry, or for the day of an announced change. Evidence on TLM and open-weights models does not expire while their weights and the Index edition are unchanged.</div></div></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 330px">
+          <div><div class="t">Frontier API (aggregate) · Official TL Index 1181 · scored 1 Nov</div><div class="s">Expires 12 Nov, the day the vendor's announced model update lands · re-run 1190 booked for 12 Nov 02:00 ET · cited by 2 records (UC-0311 Policy lookup agent, the UC-0291 comparison)</div></div>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Expires in 7 d</span></span>
+          <div class="end"><button class="kit-btn sm" type="button">Notify the 2 record owners</button><button class="kit-btn sm outline" type="button">Move the re-run</button></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 330px">
+          <div><div class="t">Frontier API (aggregate) · Official TL Index 1148 · scored 2 Aug</div><div class="s">Expired 31 Oct after 90 days · superseded by run 1181 · records that cited it now cite 1181</div></div>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Expired</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="E4-Corrections.dc.html">Evaluation record</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 330px">
+          <div><div class="t">Open-source 70B · Official TL Index 1178 · scored 30 Oct</div><div class="s">Open weights, pinned: does not expire · Entity recognition re-run booked for 9 Nov to lift n above the floor of 100</div></div>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Re-run booked</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="E6-Requests.dc.html">Open the booking</a></div>
+        </div>
+      </div>
+      <div class="kit-source">Source: evidence register for Official TL Index runs · vendor change notices from the model intake record · re-runs booked by the evaluation scheduler · as of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface raised">
+      <div class="kit-surface-head"><div><h2>Deep numbers for run 1183 <span class="kit-eng-label">Engineering view</span></h2><div class="sub">Build, judge and serving settings behind this run. Shown only with Engineering on.</div></div></div>
+      <dl class="kit-kv" style="margin-top: 12px; grid-template-columns: 200px 1fr 200px 1fr">
+        <dt>Seed</dt><dd class="kit-mono">1183</dd><dt>Prompt template</dt><dd class="kit-mono">advice-summary/v4 (hash 3c9e…)</dd>
+        <dt>Judge</dt><dd class="kit-mono">evaluator v2.3 · pairwise · ref pinned 28 Oct</dd><dt>Serving config</dt><dd class="kit-mono">vLLM 0.9 · 4-bit · max_tokens 512 · temp 0.2</dd>
+        <dt>Session</dt><dd class="kit-mono">Relay session · candidate alias</dd><dt>Bootstrap</dt><dd class="kit-mono">2 000 resamples · percentile 95%</dd>
+        <dt>Wall time</dt><dd class="kit-mono">3 h 41 m on 2 H100 · 3 600 generations</dd><dt>Judge calls</dt><dd class="kit-mono">3 600 · median 2 380 tokens per call</dd>
+      </dl>
+      <div class="kit-source">Source: run 1183 manifest and the gateway serving log · as of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2200}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

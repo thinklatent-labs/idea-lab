@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Approvals and insight · Data engineering</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2000px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-current="page" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Data · Approvals and insight · Data engineering · last 30 days · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Precision by reviewer and reason, and the rating model against reviews</h1></div>
+      <div class="kit-actions"><a class="kit-btn outline" href="D1-ReviewQueue-Quality.dc.html">Reviewer quality</a><a class="kit-btn outline" href="D2-TaggingPipelines-Engineering.dc.html">Thresholds and staging</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="D3-ApprovalsInsight.dc.html">Decisions</a><a href="D3-ApprovalsInsight-Patterns.dc.html">Patterns</a><a href="D3-ApprovalsInsight-Engineering.dc.html" aria-current="page">Data engineering</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="12" r="5"></circle><circle cx="15" cy="12" r="5"></circle></svg></span></div>
+        <div class="kit-tile-title">Rating model agrees with reviewers</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">85<span class="unit">%</span></div><div class="kit-tile-cap">468 of 550 decisions · κ 0.58 ± 0.08, moderate · its rating is hidden from reviewers</div></div><div class="kit-track" style="width: 90px"><i style="width: 85%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span></div>
+        <div class="kit-tile-title">Weakest reason code</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value"><span class="kit-interval">0.66 <span class="pm" style="font-size: 16px">± 0.12</span></span></div><div class="kit-tile-cap">Possible name in free text · n 58 · low for every reviewer</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Below 0.80</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16"></path><path d="M8 8l-4 4 4 4"></path><path d="M16 8l4 4-4 4"></path></svg></span></div>
+        <div class="kit-tile-title">Spread between reviewers</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.06</div><div class="kit-tile-cap">Account number code: 0.88 (Marcus L.) to 0.94 (Elena R.) · inside each other's intervals</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No outlier</span></span></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg></span></div>
+        <div class="kit-tile-title">Confirmed flags the rating model would have cleared</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">26<span class="unit">items</span></div><div class="kit-tile-cap">Rated false positive by the model · 23 confirmed and 3 needing redaction by a reviewer</div></div><span class="kit-chip brand">Advisory only</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface raised">
+      <div class="kit-surface-head">
+        <div><h2>Precision by reviewer and reason code <span class="kit-eng-label">Engineering view</span></h2><div class="sub">Precision of the PII pipeline's flags as each reviewer judged them, split by the reason code the pipeline gave. A cell is reported when n is at least 10; below that it is an em dash.</div></div>
+        <div class="kit-seg"><button type="button" aria-pressed="true">PII</button><button type="button" aria-pressed="false">Toxicity</button></div>
+      </div>
+      <div class="kit-matrix" style="grid-template-columns: 170px repeat(6, minmax(0, 1fr)); margin-top: 16px" role="img" aria-label="Precision by reviewer and reason code, PII, 412 decisions">
+        <div class="h"></div><div class="h">Direct identifier + DOB</div><div class="h">Account number</div><div class="h">Email address</div><div class="h">Phone number</div><div class="h">Possible name in free text</div><div class="h">Address fragment</div>
+        <div class="h" style="justify-content: flex-start">Elena R.</div><div class="c l4">1.00<small>n 24</small></div><div class="c l3">0.94<small>n 32</small></div><div class="c l4">0.96<small>n 27</small></div><div class="c l4">0.95<small>n 20</small></div><div class="c l1">0.70<small>n 20</small></div><div class="c l3">0.94<small>n 17</small></div>
+        <div class="h" style="justify-content: flex-start">Priya N.</div><div class="c l3">0.94<small>n 18</small></div><div class="c l3">0.92<small>n 24</small></div><div class="c l4">0.95<small>n 21</small></div><div class="c l4">1.00<small>n 15</small></div><div class="c l1">0.67<small>n 15</small></div><div class="c l3">0.92<small>n 12</small></div>
+        <div class="h" style="justify-content: flex-start">Marcus L.</div><div class="c l4">1.00<small>n 12</small></div><div class="c l2">0.88<small>n 16</small></div><div class="c l3">0.92<small>n 13</small></div><div class="c l3">0.90<small>n 10</small></div><div class="c l1">0.55<small>n 11</small></div><div class="c"><span class="kit-dash" title="n 8, under the 10 needed to report">—</span><small>n 8</small></div>
+        <div class="h" style="justify-content: flex-start">You (Jithin)</div><div class="c l4">1.00<small>n 10</small></div><div class="c l3">0.93<small>n 14</small></div><div class="c l3">0.92<small>n 12</small></div><div class="c"><span class="kit-dash" title="n 9, under the 10 needed to report">—</span><small>n 9</small></div><div class="c"><span class="kit-dash" title="n 8, under the 10 needed to report">—</span><small>n 8</small></div><div class="c"><span class="kit-dash" title="n 7, under the 10 needed to report">—</span><small>n 7</small></div>
+        <div class="h" style="justify-content: flex-start">Data steward pool</div><div class="c"><span class="kit-dash" title="n 6, under the 10 needed to report">—</span><small>n 6</small></div><div class="c"><span class="kit-dash" title="n 9, under the 10 needed to report">—</span><small>n 9</small></div><div class="c"><span class="kit-dash" title="n 7, under the 10 needed to report">—</span><small>n 7</small></div><div class="c"><span class="kit-dash" title="n 6, under the 10 needed to report">—</span><small>n 6</small></div><div class="c"><span class="kit-dash" title="n 4, under the 10 needed to report">—</span><small>n 4</small></div><div class="c"><span class="kit-dash" title="n 5, under the 10 needed to report">—</span><small>n 5</small></div>
+        <div class="h" style="justify-content: flex-start; font-weight: 600">All reviewers</div><div class="c l4">0.99<small>n 70</small></div><div class="c l3">0.93<small>n 95</small></div><div class="c l4">0.95<small>n 80</small></div><div class="c l4">0.95<small>n 60</small></div><div class="c l1">0.66<small>n 58</small></div><div class="c l3">0.90<small>n 49</small></div>
+      </div>
+      <div class="kit-legend" style="margin-top: 10px"><span><i style="background: #1B5128"></i>0.95 and above</span><span><i style="background: rgba(62,154,92,.48)"></i>0.90 to 0.94</span><span><i style="background: rgba(62,154,92,.28)"></i>0.80 to 0.89</span><span><i style="background: rgba(62,154,92,.12)"></i>Below 0.80</span><span><i style="background: #F4F4F2"></i>n under 10</span></div>
+      <div class="kit-surface" style="margin-top: 14px; padding: 16px">
+        <div class="kit-agent"><span class="av" style="background: rgba(26,26,26,.06); border-color: rgba(26,26,26,.12)">TA</span><span>Triage agent · proposal PII-T-03</span><span class="kit-muted">· 74% confidence</span></div>
+        <div style="margin-top: 8px; font-weight: 500">Send "possible name in free text" flags below 0.90 confidence to a second reviewer, instead of retuning the whole pipeline</div>
+        <div class="kit-small kit-muted" style="margin-top: 4px">Basis: the column is low for every reviewer (0.55 to 0.70), so the weakness is in the pipeline, not in any one person. A replay on the 58 decisions keeps every confirmed item and lifts this code's precision to <span class="kit-interval">0.81 <span class="pm">± 0.09</span></span>.</div>
+        <div class="kit-actions" style="margin-top: 12px"><button class="kit-btn sm" type="button">Send to tuning (ThinkLatent)</button><a class="kit-btn sm outline" href="D1-ReviewQueue.dc.html">Open the 58 items</a><button class="kit-btn sm outline" type="button">Dismiss</button></div>
+      </div>
+      <div class="kit-source">Source: review log, PII decisions 6 Oct to 5 Nov 2026 (n 412) · precision is approved over decided per cell · reason codes from PII pipeline v3.1 · agent replay on the same decisions · all data sets Non-production build data · as of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface raised">
+      <div class="kit-surface-head"><div><h2>Rating model against reviews <span class="kit-eng-label">Engineering view</span></h2><div class="sub">The rating model pre-rates every flagged item before a person sees it. Its rating is hidden from the reviewer to avoid anchoring and compared afterwards. Rows: what the model said. Columns: what the reviewer decided.</div></div><span class="kit-chip">Rating model r-2026.10</span></div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Rating model said</th><th class="num">Reviewer: confirmed</th><th class="num">Reviewer: needs redaction</th><th class="num">Reviewer: false positive</th><th class="num">Total</th><th class="num">Model right</th></tr></thead>
+        <tbody>
+          <tr><td>Confirm</td><td class="num"><b style="font-weight: 600">398</b></td><td class="num">14</td><td class="num">28</td><td class="num">440</td><td class="num">0.94<div class="kit-small kit-muted">412 of 440 confirmed or redacted</div></td></tr>
+          <tr><td>Redact</td><td class="num">6</td><td class="num"><b style="font-weight: 600">24</b></td><td class="num">8</td><td class="num">38</td><td class="num">0.63<div class="kit-small kit-muted">24 of 38</div></td></tr>
+          <tr class="selected"><td>False positive<div class="kit-small kit-muted">the costly row</div></td><td class="num">23</td><td class="num">3</td><td class="num"><b style="font-weight: 600">46</b></td><td class="num">72</td><td class="num">0.64<div class="kit-small kit-muted">46 of 72</div></td></tr>
+          <tr><td><b style="font-weight: 600">Total</b></td><td class="num">427</td><td class="num">41</td><td class="num">82</td><td class="num">550</td><td class="num"><span class="kit-dash" title="totals have no single precision">—</span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-note" style="margin-top: 12px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>26 items the model called false positive were confirmed by a reviewer, 23 of them as PII or toxic and 3 as needing redaction. That is why its rating stays advisory and never clears an item on its own. Agreement is 85% (κ <span class="kit-interval">0.58 <span class="pm">± 0.08</span></span>); a retrain on the 550 decisions is planned after the PII-T-03 change settles.</div></div>
+      <div class="kit-source">Source: rating model r-2026.10 log joined to the review log by item id, 6 Oct to 5 Nov 2026 · 550 decisions, PII and Toxicity · needs redaction counted as confirmed in "model right" · κ with a 95% interval · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

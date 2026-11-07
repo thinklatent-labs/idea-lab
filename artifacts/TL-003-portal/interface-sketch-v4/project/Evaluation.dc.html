@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Evaluation: results per run, leaderboard, corrections log</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1B1F24;background:linear-gradient(160deg,#F7F8FA 0%,#EEF2F1 55%,#E9EEF3 100%)}
+a{color:#0B5E4C}a:hover{color:#08463A}
+.card{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);box-shadow:0 1px 2px rgba(27,31,36,0.04),0 8px 24px rgba(27,31,36,0.05);border-radius:14px;padding:22px 24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.tile{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.tile .n{font-size:28px;font-weight:600;letter-spacing:-0.02em}.tile .l{font-size:13px;color:#57606A}
+.h1{margin:0;font-size:28px;font-weight:600;letter-spacing:-0.01em}.h2{margin:0;font-size:16px;font-weight:600}.h3{margin:0;font-size:14px;font-weight:600}
+.muted{color:#57606A;font-size:13px}.ph{color:#8C959F}.small{font-size:12px;color:#57606A}
+.btn{min-height:40px;padding:0 14px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);color:#1B1F24;font:500 13px Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn.primary{background:#0B5E4C;border-color:#0B5E4C;color:#fff}.btn.danger{color:#8A2A1B}.btn[disabled]{background:#EEF1F4;color:#8C959F;border-color:#E1E4E8;cursor:default}
+.pill{padding:2px 9px;border-radius:999px;font-size:11px;font-weight:600;display:inline-block}
+.pill.good{background:#E6F2EE;color:#0B5E4C}.pill.warn{background:#FBF1DD;color:#6B4A0B}.pill.crit{background:#FBE9E7;color:#8A2A1B}.pill.neutral{background:#EEF1F4;color:#3C4651}.pill.info{background:#E3ECF7;color:#1F4E79}
+.row{display:grid;gap:10px;align-items:center;padding:10px 12px;border:1px solid #E1E4E8;border-radius:10px;background:rgba(255,255,255,0.5);font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:#57606A;font-size:12px;font-weight:500;padding:8px;border-bottom:1px solid #E1E4E8}td{padding:10px 8px;border-bottom:1px solid #EEF1F4;vertical-align:top}tr:last-child td{border-bottom:0}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.bar{height:8px;border-radius:4px;background:#EEF1F4;overflow:hidden}.bar>div{height:8px;border-radius:4px;background:#0B5E4C}
+.env{padding:3px 9px;border-radius:6px;background:#EEF1F4;color:#3C4651;font-size:11px;font-weight:600;letter-spacing:0.02em}
+.src{font-size:11px;color:#8C959F}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;font-family:Inter,system-ui,sans-serif;color:#1B1F24">
+<nav aria-label="Areas" style="position:sticky;top:0;align-self:flex-start;flex:0 0 76px;height:100vh;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;background:rgba(255,255,255,0.55);backdrop-filter:blur(16px);border-right:1px solid rgba(255,255,255,0.7)"><a href="Catalogue.dc.html" title="ThinkLatent Portal" style="width:40px;height:40px;border-radius:12px;background:{{accent}};display:block;margin-bottom:6px"></a><a href="Home.dc.html" title="Home" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">H</span>Home</a><a href="Catalogue.dc.html" title="Models" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">M</span>Models</a><a href="Agents.dc.html" title="Agents" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">A</span>Agents</a><a href="Playground.dc.html" title="Playground" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">P</span>Playground</a><a href="Evaluation.dc.html" title="Evaluation" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#0B5E4C;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:#0B5E4C;color:#fff;border:1px solid #0B5E4C">E</span>Evaluation</a><a href="Project.dc.html" title="Projects" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">J</span>Projects</a><a href="DataReview.dc.html" title="Data" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">D</span>Data</a><a href="Training.dc.html" title="Training" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">T</span>Training</a><a href="Operations.dc.html" title="Operations" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">O</span>Operations</a><a href="Help.dc.html" title="Help" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">?</span>Help</a></nav>
+<div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
+<header style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;min-height:56px;padding:0 32px;background:rgba(255,255,255,0.5);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.7)"><nav aria-label="Breadcrumb" style="font-size:14px;flex:1 1 320px;min-width:0"><span style="color:#1B1F24;font-weight:500">Evaluation</span><span aria-hidden="true" style="color:#8C959F"> / </span><span style="color:#1B1F24;font-weight:500">Results · Official run [id]</span></nav><label for="q" style="position:absolute;left:-9999px">Search</label><input id="q" placeholder="Search models, agents, projects, people, answers" style="min-height:40px;width:320px;padding:0 12px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);font:400 13px Inter,system-ui,sans-serif"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><a href="Index.dc.html" class="btn">Index page</a><button class="btn">Run the TL Index</button><button class="btn primary">Mark Official</button></div></header>
+<main style="flex:1 1 auto;width:100%;max-width:1180px;margin:0 auto;padding:28px 32px 56px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px">
+
+<section style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end">
+  <div style="display:flex;flex-direction:column;gap:6px"><h1 class="h1">Results · TLM4 Core 27B 4.3 · Official run [id]</h1><p class="muted" style="margin:0;max-width:780px">Updated after every run, with the method and what was excluded stated up front. Validators run TL Index themselves from here; the results page is what the validation document cites. Every number carries its source and as-of date.</p></div>
+  <span class="src">run [date] · index release [version] · judge v[—] · items hash [—]</span>
+</section>
+<section class="grid4" aria-label="Headline">
+  <div class="tile"><span class="l">Composite</span><span class="n ph">[—] ± [—]</span><span class="l">n = [—] items · vs 4.2 ▲ [—]</span></div>
+  <div class="tile"><span class="l">Bars cleared</span><span class="n ph">[—] of [n]</span><span class="l">1 below bar: numbers and reconciliation</span></div>
+  <div class="tile"><span class="l">Use-case line items</span><span class="n ph">[—] of [n]</span><span class="l">pass on their own bars</span></div>
+  <div class="tile"><span class="l">Judge calibration</span><span class="n ph">κ [—]</span><span class="l">1 pillar stale · greyed below</span></div>
+</section>
+<section class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 class="h2">Scores by pillar</h2><div role="group" style="display:flex;gap:4px;padding:4px;background:rgba(255,255,255,0.7);border:1px solid #E1E4E8;border-radius:10px"><button class="btn primary" style="min-height:32px">Official</button><button class="btn" style="min-height:32px;border:0;background:transparent">Practice</button></div></div>
+  <table><thead><tr><th>Pillar</th><th>Bar</th><th>Score ± 95% interval</th><th>n</th><th>vs 4.2</th><th>Judge κ</th><th>Items</th></tr></thead><tbody>
+  <tr><td>Advice and planning</td><td class="ph">[—]</td><td class="ph">[—] ± [—]</td><td class="ph">[—]</td><td style="color:#0B5E4C;font-weight:500">▲ [—]</td><td class="ph">[—]</td><td><a href="#" style="font-weight:500">drill down</a></td></tr>
+  <tr><td>Compliance and policy</td><td class="ph">[—]</td><td style="color:#8C959F">[—] ± [—] (judge stale)</td><td class="ph">[—]</td><td class="muted">no change</td><td style="color:#B7791F">[—] stale</td><td><a href="#" style="font-weight:500">drill down</a></td></tr>
+  <tr><td>Client communication</td><td class="ph">[—]</td><td class="ph">[—] ± [—]</td><td class="ph">[—]</td><td style="color:#0B5E4C;font-weight:500">▲ [—]</td><td class="ph">[—]</td><td><a href="#" style="font-weight:500">drill down</a></td></tr>
+  <tr><td>Numbers and reconciliation</td><td class="ph">[—]</td><td class="ph">[—] ± [—]</td><td class="ph">[—]</td><td style="color:#8A2A1B;font-weight:500">below bar</td><td class="muted">exact match</td><td><a href="#" style="font-weight:500">drill down</a></td></tr>
+  <tr><td>Safety and refusal</td><td class="ph">[—]</td><td class="ph">[—] ± [—]</td><td class="ph">[—]</td><td class="muted">no change</td><td class="ph">[—]</td><td><a href="#" style="font-weight:500">drill down</a></td></tr>
+  <tr><td><strong>Line item · Call summary to CRM</strong></td><td class="ph">[—]</td><td class="ph">[—] ± [—]</td><td class="ph">[—]</td><td style="color:#0B5E4C;font-weight:500">▲ [—]</td><td class="ph">[—]</td><td><a href="UC-Quality.dc.html" style="font-weight:500">use case</a></td></tr>
+  </tbody></table>
+</section>
+<section class="grid2">
+  <div class="card"><h2 class="h2">Method and exclusions</h2>
+    <ul style="margin:0;padding-left:18px;font-size:13px;line-height:1.7;color:#3C4651"><li>Items: index release [version], hash [—]; [n] items; held-out from all training sets (leak check passed [date])</li><li>Judge: TLM4 Judge v[—], calibrated against [n] human labels per pillar; pillars below κ [—] are greyed</li><li>Decoding: temperature 0, max tokens [—]; endpoint build 2026.11; served exactly as production serves</li><li>Excluded: [—] items with ambiguous gold labels (listed); non-English items (none in this release)</li><li>Frontier columns on the index page run the same items from outside the boundary and may be days older</li></ul>
+    <span class="small">Published up front so nobody can say we ran our own tests and picked the results.</span>
+  </div>
+  <div class="card"><h2 class="h2">Drill-down · numbers and reconciliation</h2>
+    <div class="row" style="grid-template-columns:auto 1fr auto"><span class="pill crit">fail</span><span>Item [id]: amount transcribed as 14,500 instead of 15,400 · exact match</span><a href="Playground.dc.html" style="font-weight:500">replay</a></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto"><span class="pill crit">fail</span><span>Item [id]: percentage computed on the wrong base</span><a href="Playground.dc.html" style="font-weight:500">replay</a></div>
+    <div class="row" style="grid-template-columns:auto 1fr auto"><span class="pill good">pass</span><span>Item [id]: three-account reconciliation</span><a href="Playground.dc.html" style="font-weight:500">replay</a></div>
+    <span class="small">Failures cluster on spoken amounts; the deterministic reconciliation layer is the mitigation named on the card. Add to data set → curated eval v5.</span>
+  </div>
+</section>
+<section class="grid2">
+  <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">Leaderboard</h2><span class="small">intervals overlap → shown as a tie</span></div>
+    <table><thead><tr><th>#</th><th>Model</th><th>Composite</th><th>Bars</th><th>Cost per unit of quality</th></tr></thead><tbody>
+    <tr><td>1</td><td>[frontier A]</td><td class="ph">[—] ± [—]</td><td class="ph">[—]</td><td class="ph">[—]</td></tr>
+    <tr><td>1</td><td>TLM4 Core 27B 4.3</td><td class="ph">[—] ± [—]</td><td class="ph">[—]</td><td class="ph">[—]</td></tr>
+    <tr><td>3</td><td>TLM4 Core 27B 4.2</td><td class="ph">[—] ± [—]</td><td class="ph">[—]</td><td class="ph">[—]</td></tr>
+    <tr><td>4</td><td>TLM4 Distil · Gemma</td><td class="ph">[—] ± [—]</td><td class="ph">[—]</td><td class="ph">[—]</td></tr>
+    </tbody></table>
+    <span class="small">Ranking is by composite; the claim being tested is sufficiency over size, so bars and cost sit beside it.</span>
+  </div>
+  <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">Corrections log</h2><button class="btn" style="min-height:32px">Subscribe</button></div>
+    <div class="row" style="grid-template-columns:auto 1fr"><span class="small">[date]</span><span>Compliance pillar judge marked stale; scores greyed on runs [id], [id] until recalibration. <a href="#" style="font-weight:500">affected runs</a></span></div>
+    <div class="row" style="grid-template-columns:auto 1fr"><span class="small">[date]</span><span>Two items with wrong gold labels retired from the numbers pillar; composites recomputed for 4 runs.</span></div>
+    <div class="row" style="grid-template-columns:auto 1fr"><span class="small">[date]</span><span>Frontier column B re-run after a vendor API change; delta inside the interval.</span></div>
+    <span class="small">Annual report hub appears here once there is an annual edition: takeaways, chapters, leadership digest, data download, recorded launch, archive.</span>
+  </div>
+</section>
+<footer class="small" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>A validator's run from this page is the same pipeline ThinkLatent runs; Official marking needs the validator role.</span><a href="UC-Record.dc.html" style="font-weight:500">Cite this run on a record</a></footer>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"$preview":{"width":1280,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() { return { accent: this.props.accent ?? '#0B5E4C' }; }
+}
+</script>
+</body>
+</html>

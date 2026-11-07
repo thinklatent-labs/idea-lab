@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · New training run</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2500px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-current="page" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Training · Thu 5 Nov 2026, 11:58 ET · Project UC-0142 Claims triage · Institutional Ops</div><h1 style="margin-top: 6px">New training run</h1></div>
+      <div class="kit-actions"><a class="kit-btn outline" href="T3-RunHistory.dc.html">Run history</a><a class="kit-btn outline" href="T4-BaseModels.dc.html">Base models</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="T1-NewTrainingRun.dc.html" aria-current="page">Set up</a><a href="T1-NewTrainingRun-Recipe.dc.html">Recipe</a><a href="T1-NewTrainingRun-DryRun.dc.html">Dry run</a></nav>
+
+    <div class="kit-steps">
+      <span class="kit-step done"><span class="k">1</span>Start from</span><span class="arrow">→</span>
+      <span class="kit-step done"><span class="k">2</span>Train as</span><span class="arrow">→</span>
+      <span class="kit-step now"><span class="k">3</span>Data set</span><span class="arrow">→</span>
+      <span class="kit-step"><span class="k">4</span>Recipe</span><span class="arrow">→</span>
+      <span class="kit-step"><span class="k">5</span>Compute, cost and queue</span><span class="arrow">→</span>
+      <span class="kit-step"><span class="k">6</span>Name and start</span>
+    </div>
+
+    <section class="kit-surface" style="display: flex; flex-direction: column; gap: 22px">
+      <div class="kit-surface-head"><div><h2>All six steps on one page</h2><div class="sub">Start from a base or from a kept checkpoint, choose how it is trained, point it at a versioned data set, and see the cost and your place in the queue before anything starts. The pre-flight check runs on Start.</div></div><span class="kit-chip">Evaluation agent recommends</span></div>
+
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap"><div class="kit-label">1 · Start from</div><div class="kit-seg" role="group" aria-label="Start from"><button type="button" aria-pressed="true">A base model · new adapter</button><button type="button" aria-pressed="false">Continue a previous run</button></div></div>
+        <div class="kit-grid3" style="margin-top: 10px">
+          <label class="kit-radio on"><input type="radio" name="base" checked><div><div style="font-weight: 500">TLM4 Distil 4.2 <span class="kit-chip brand">Recommended</span></div><div class="kit-small kit-muted">7B · finalised · Apache-2.0 base · last the TL Index: Financial data processing <span class="kit-interval">0.75 <span class="pm">± 0.03</span></span> · Compliance and regulatory <span class="kit-interval">0.73 <span class="pm">± 0.03</span></span></div><div class="kit-small" style="margin-top: 6px">Smallest base that clears the record's bar of 0.78 after adapter training on UC-0142 (projected <span class="kit-interval">0.80 <span class="pm">± 0.04</span></span> from run R-2214). Half the cost of Core.</div></div></label>
+          <label class="kit-radio"><input type="radio" name="base"><div><div style="font-weight: 500">TLM4 Core 4.2</div><div class="kit-small kit-muted">32B · finalised · last the TL Index: Financial data processing <span class="kit-interval">0.83 <span class="pm">± 0.02</span></span> · Compliance and regulatory <span class="kit-interval">0.80 <span class="pm">± 0.02</span></span></div><div class="kit-small" style="margin-top: 6px">Clears the bar with more margin at about 2.1× the GPU hours.</div></div></label>
+          <label class="kit-radio"><input type="radio" name="base"><div><div style="font-weight: 500">Gemma 3 27B</div><div class="kit-small kit-muted">27B · finalised · Gemma licence · last the TL Index: Financial data processing <span class="kit-interval">0.77 <span class="pm">± 0.03</span></span> · Compliance and regulatory <span class="kit-interval">0.74 <span class="pm">± 0.03</span></span></div><div class="kit-small" style="margin-top: 6px">Clears the bar; external licence needs the record's licence line updated.</div></div></label>
+        </div>
+        <div class="kit-surface raised" style="padding: 14px 16px; margin-top: 12px">
+          <div class="kit-surface-head"><div><h3>Or continue training from a kept checkpoint</h3><div class="sub">Continuing keeps the source run's base and adapter shape and trains on the data set you choose in step 3. It is a new run with its own id; lineage records the parent; the source run is never changed.</div></div></div>
+          <div class="kit-rows" style="margin-top: 10px">
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 130px auto">
+              <div><div class="t">R-2241 · step 5,100 (best) · Claims adapter v2 <span class="kit-chip brand">Official</span></div><div class="s">TLM4 Distil 4.2 · trained on claims-triage-v5 · in production by exception · use-case score below the bar of 0.78</div></div>
+              <span class="kit-interval">0.76 <span class="pm">± 0.04</span></span>
+              <div class="end"><button class="kit-btn sm outline" type="button">Continue from this</button></div>
+            </div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 130px auto">
+              <div><div class="t">R-2214 · step 4,800 (best) · Claims on Distil <span class="kit-chip outline">Practice</span></div><div class="s">TLM4 Distil 4.2 · claims-triage-v5 · quick evaluation only and never citable; a run continued from it is judged on its own evaluation</div></div>
+              <span class="kit-interval">0.80 <span class="pm">± 0.04</span></span>
+              <div class="end"><button class="kit-btn sm outline" type="button">Continue from this</button></div>
+            </div>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Only checkpoints kept on this project's runs are listed. A checkpoint on a retiring base (TLM3) cannot be continued. <a href="T6-Checkpoints.dc.html">All checkpoints</a></div>
+        </div>
+      </div>
+
+      <div class="kit-grid2">
+        <div>
+          <div class="kit-label">2 · Train as</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px">
+            <label class="kit-radio"><input type="radio" name="trainas"><div><div style="font-weight: 500">Generate</div><div class="kit-small kit-muted">Writes free text: summaries, drafts, answers.</div></div></label>
+            <label class="kit-radio"><input type="radio" name="trainas"><div><div style="font-weight: 500">Extract</div><div class="kit-small kit-muted">Pulls fields and entities out of documents.</div></div></label>
+            <label class="kit-radio on"><input type="radio" name="trainas" checked><div><div style="font-weight: 500">Decide</div><div class="kit-small kit-muted">Chooses a route or label with a reason. Claims triage is a Decide use case in the record.</div></div></label>
+          </div>
+        </div>
+        <div>
+          <div class="kit-label">3 · Data set</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px">
+            <div class="kit-field"><label for="ds">Versioned data set</label><input class="kit-input" id="ds" type="text" value="claims-triage-v6 (versioned 2 Nov)"></div>
+            <div class="kit-surface raised" style="padding: 12px 14px">
+              <div style="display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap"><span>Eligible items after self-healing marks</span><b style="font-weight: 500">24,118 of 25,002</b></div>
+              <div class="kit-track" style="margin-top: 8px"><i style="width: 96%"></i></div>
+              <div class="kit-small kit-muted" style="margin-top: 6px">884 excluded: 612 marked low quality, 212 awaiting PII review, 60 near-duplicates of the eval set. <a href="D4-SelfHealingMarks.dc.html">See marks</a></div>
+            </div>
+            <div class="kit-small kit-muted">Split 80 / 10 / 10 · 6 of 6 checks passed · <a href="D5-DatasetVersions.dc.html">Versions</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kit-grid2">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap"><div class="kit-label">4 · Recipe</div><div class="kit-actions"><button class="kit-btn sm outline" type="button">Save as recipe</button><button class="kit-btn sm outline" type="button">Reset to defaults</button></div></div>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px">
+            <label class="kit-radio on"><input type="radio" name="recipe" checked><div><div style="font-weight: 500">Recommended</div><div class="kit-small kit-muted">Adapter, rank 16, 3 epochs, learning rate 2e-4 with cosine decay, early stop on validation. Chosen from run R-2214's outcome.</div></div></label>
+            <label class="kit-radio"><input type="radio" name="recipe"><div><div style="font-weight: 500">Saved recipe</div><div class="kit-small kit-muted">From the recipe library: claims-decide-r16 v2 (Marcus L., 12 Oct) and 4 more. <a href="T1-NewTrainingRun-Recipe.dc.html">Library</a></div></div></label>
+            <label class="kit-radio"><input type="radio" name="recipe"><div><div style="font-weight: 500">Custom</div><div class="kit-small kit-muted">Optimisation, schedule and logging sections, in an Engineering view. <a href="T1-NewTrainingRun-Recipe.dc.html">Open the recipe</a></div></div></label>
+            <label class="kit-radio"><input type="radio" name="recipe"><div><div style="font-weight: 500">Upload YAML</div><div class="kit-small kit-muted">A Relay recipe file; checked by the dry run.</div></div></label>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Metrics go to the portal, and from the recipe's logging section to the team's own TensorBoard and W&amp;B.</div>
+          <div class="kit-note" style="margin-top: 8px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>A recipe change is a new run, never an edit. Once a run starts its recipe is frozen with it; to change anything, start a new run from a copy.</span></div>
+        </div>
+        <div>
+          <div class="kit-label">5 · Compute, cost and queue</div>
+          <div class="kit-surface raised" style="padding: 14px; margin-top: 10px; display: flex; flex-direction: column; gap: 10px">
+            <dl class="kit-kv">
+              <dt>Environment</dt><dd>Build <span class="kit-chip env">Non-production</span></dd>
+              <dt>GPU tier</dt><dd>A10G × 4 (Build runs on the lower tier; Pilot and Production use H100)</dd>
+              <dt>Estimate</dt><dd><b style="font-weight: 500">38 GPU hours · about $410</b> · 9 h 30 m wall clock</dd>
+              <dt>Queue</dt><dd>Shared training pool · <b style="font-weight: 500">position 3</b> · 2 runs ahead · expected start about 12:40 ET</dd>
+              <dt>Project budget</dt><dd>$6,200 remaining of $12,000 this quarter</dd>
+              <dt>Cap</dt><dd>Pauses at 80% of remaining budget and keeps a checkpoint</dd>
+            </dl>
+            <div class="kit-small kit-muted">Shared pools serve sandbox, pilot and training only; production use cases serve from dedicated endpoints. Over budget asks the owner (Marcus L.) before the run starts; nothing is charged until Start.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="kit-label">6 · Name and start</div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: 12px; align-items: end; margin-top: 10px">
+          <div class="kit-field"><label for="runname">Run name · auto-named</label><input class="kit-input" id="runname" type="text" value="claims-triage · distil-4.2 · v6 · 5 Nov"></div>
+          <div class="kit-field"><label for="proj">Project</label><input class="kit-input" id="proj" type="text" value="" placeholder="Choose a project"></div>
+          <div class="kit-actions"><button class="kit-btn outline" type="button">Dry run · 60 steps</button><button class="kit-btn" type="button" aria-disabled="true">Start</button></div>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 6px">Named from the use case, base, data-set version and date; run id R-2296 is given on Start. Rename it if you like; the id never changes.</div>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 10px">
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Base model set</span></span>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Data set set</span></span>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Dry run passed · 11:41 ET</span></span><a class="kit-small" href="T1-NewTrainingRun-DryRun.dc.html">Dry-run results</a>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Project missing · Start stays off until it is set</span></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 8px">The dry run trains 60 steps on the shared pool (about 40 minutes, charged to the ThinkLatent training sandbox, not your project; no checkpoint kept) to prove the recipe, data loading, memory and logging before the full run. Start runs the <a href="T5-Preflight.dc.html">pre-flight check</a> first; no run begins without a passed validation and an estimate.</div>
+      </div>
+      <div class="kit-source">Base-model scores from Official TL Index runs 1180 (Core 4.2), 1176 (Distil 4.2) and 1172 (Gemma 3 27B) on two of the five live MVP pillars, the ones this use case's record names; projection from Practice run R-2214 (not citable); checkpoints from the training API run log; eligible counts from the self-healing pipeline on claims-triage-v6; estimate from the training API price list for Build; queue from the training scheduler. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Why Distil is recommended</h2><div class="sub">Evaluation agent · 84% confidence · basis: Official TL Index run 1176 and the last three adapter runs on this project.</div></div><div class="kit-agent"><span class="av">EA</span><span>Evaluation agent</span></div></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 160px 180px"><div><div class="t">Distil 4.2 adapter projected 0.80 ± 0.04 on the use-case set</div><div class="s">Record bar 0.78 · margin is inside the interval, so the gate decides after evaluation</div></div><span class="kit-interval">0.80 <span class="pm">± 0.04</span></span><div class="end"><a class="kit-btn sm outline" href="E1-EvaluationResults.dc.html">Evidence</a></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 160px 180px"><div><div class="t">Serving cost at pilot volume is 46% of Core 4.2</div><div class="s">From the capacity service's per-model price for Institutional Ops</div></div><span class="kit-dash" title="cost, not a score">—</span><div class="end"><a class="kit-btn sm outline" href="J5-Capacity.dc.html">Capacity</a></div></div>
+      </div>
+      <div class="kit-source">Agents propose, you decide. As of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2500}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

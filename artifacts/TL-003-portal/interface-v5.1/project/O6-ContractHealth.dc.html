@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Contract and identity health</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2100px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Operations · Telemetry contract and identity · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Contract and identity health</h1><div class="kit-muted" style="margin-top: 6px; max-width: 780px">Three things every page depends on, each shown as its own measure with no combined score: production calls carrying the tags the telemetry contract requires, the portal's mirror of IAM groups keeping up with IAM, and pages showing data no more than an hour old.</div></div>
+      <div class="kit-actions"><button class="kit-btn" type="button">Notify tag owners</button><button class="kit-btn outline" type="button">Resync IAM mirror</button><a class="kit-btn outline" href="O1-UnregisteredUsage-Kinds.dc.html">Usage kinds</a></div>
+    </div>
+
+    <nav class="kit-rail" aria-label="Operations" style="align-self: flex-start"><a href="O1-UnregisteredUsage.dc.html">Unregistered usage</a><a href="O2-Capacity.dc.html">Capacity</a><a href="O3-AgentsActivity.dc.html">Agents' activity</a><a href="O4-BreakGlass.dc.html">Break-glass</a><a href="O5-AuditExport.dc.html">Audit export</a><a href="O6-ContractHealth.dc.html" aria-current="page">Contract health</a></nav>
+
+    <nav class="kit-subrail" aria-label="Sections"><a href="O6-ContractHealth.dc.html" aria-current="page">Tags and identity</a><a href="O6-ContractHealth-Freshness.dc.html">Page freshness</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12 12 20l-8-8V4h8z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle></svg></span><a class="kit-open" href="O6-ContractHealth.dc.html" aria-label="Open tag completeness">↗</a></div>
+        <div class="kit-tile-title">Tag completeness · production</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">95.6<span class="unit">%</span></div><div class="kit-tile-cap">Production calls carrying all five required tags · 7 days · target 99%</div></div><div class="kit-track" style="width: 120px"><i class="warn" style="width: 95.6%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><path d="M16 4.5a3 3 0 0 1 0 5.8"></path><path d="M21 20c0-2.6-1.6-4.8-4-5.6"></path></svg></span><a class="kit-open" href="O6-ContractHealth.dc.html" aria-label="Open IAM mirror lag">↗</a></div>
+        <div class="kit-tile-title">IAM group mirror lag</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">4<span class="unit">min median</span></div><div class="kit-tile-cap">Worst group 38 min · target under 15 min · 24 groups mirrored</div></div><div class="kit-bars"><i style="height: 10%"></i><i style="height: 15%"></i><i style="height: 20%"></i><i style="height: 30%"></i><i style="height: 60%"></i><i class="lit" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><a class="kit-open" href="O6-ContractHealth-Freshness.dc.html" aria-label="Open page freshness">↗</a></div>
+        <div class="kit-tile-title">Pages older than an hour</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3<span class="unit">pages</span></div><div class="kit-tile-cap">Their as-of is more than 60 minutes old · oldest 2 h 40 min</div></div><span class="kit-chip decision">Stale</span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"></path><path d="M6 17h14"></path></svg></span><a class="kit-open" href="J9-Record.dc.html" aria-label="Open the contract">↗</a></div>
+        <div class="kit-tile-title">Telemetry contract</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">v1.2</div><div class="kit-tile-cap">Five required tags · in force since 1 Oct · next review 1 Dec</div></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Tag completeness across production</h2><div class="sub">Share of each production use case's calls in the last 7 days that carried each required tag, and all five together. The bottom row weights every use case by its calls.</div></div>
+        <div class="kit-seg"><button type="button" aria-pressed="true">7 days</button><button type="button" aria-pressed="false">Today</button><button type="button" aria-pressed="false">30 days</button></div>
+      </div>
+      <div class="kit-matrix" style="grid-template-columns: 230px repeat(6, minmax(0, 1fr)); margin-top: 14px">
+        <div class="h"></div><div class="h">use case id</div><div class="h">project id</div><div class="h">project stage</div><div class="h">session id</div><div class="h">prompt id</div><div class="h">All five</div>
+        <div class="h" style="justify-content: flex-start">UC-0291 Advisor summary</div><div class="c l4">100%<small>complete</small></div><div class="c l4">100%<small>complete</small></div><div class="c l3">99.8%<small>at target</small></div><div class="c l2">98.9%<small>below 99%</small></div><div class="c l2">97.6%<small>below 99%</small></div><div class="c l1">96.9%<small>below 99%</small></div>
+        <div class="h" style="justify-content: flex-start">UC-0142 Claims triage</div><div class="c l4">100%<small>complete</small></div><div class="c l4">100%<small>complete</small></div><div class="c">91.2%<small>below 95%</small></div><div class="c">90.8%<small>below 95%</small></div><div class="c l3">99.6%<small>at target</small></div><div class="c">90.1%<small>below 95%</small></div>
+        <div class="h" style="justify-content: flex-start">UC-0001 Portal help agent</div><div class="c l4">100%<small>complete</small></div><div class="c l4">100%<small>complete</small></div><div class="c l4">100%<small>complete</small></div><div class="c l4">100%<small>complete</small></div><div class="c l4">100%<small>complete</small></div><div class="c l4">100%<small>complete</small></div>
+        <div class="h" style="justify-content: flex-start">Other production · 7 use cases</div><div class="c l3">99.9%<small>at target</small></div><div class="c l3">99.8%<small>at target</small></div><div class="c l3">99.1%<small>at target</small></div><div class="c l2">98.4%<small>below 99%</small></div><div class="c l2">98.9%<small>below 99%</small></div><div class="c l2">97.6%<small>below 99%</small></div>
+        <div class="h" style="justify-content: flex-start; font-weight: 500">All production</div><div class="c l4">100%<small>complete</small></div><div class="c l3">99.9%<small>at target</small></div><div class="c l2">97.6%<small>below 99%</small></div><div class="c l1">96.6%<small>below 99%</small></div><div class="c l2">98.6%<small>below 99%</small></div><div class="c l1">95.6%<small>below 99%</small></div>
+      </div>
+      <div class="kit-legend" style="margin-top: 10px"><span><i style="background: #1B5128"></i>100%</span><span><i style="background: rgba(62,154,92,.48)"></i>99% or more · the target</span><span><i style="background: rgba(62,154,92,.28)"></i>97 to 99%</span><span><i style="background: rgba(62,154,92,.12)"></i>95 to 97%</span><span><i style="background: #F4F4F2; border: 1px solid #DADAD8"></i>Below 95%</span></div>
+      <div class="kit-note" style="margin-top: 14px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>UC-0142's gap is one key, <span class="kit-mono">vg-ops-claims-prod</span>, sending calls without project stage or session id; it is at grace day 16 and its untagged calls carry the warning header. Keys and calls with tags missing are listed on <a href="O1-UnregisteredUsage-Kinds.dc.html">Unregistered usage · Usage kinds</a>.</div></div>
+      <div class="kit-source">Tag counts from the gateway log, production calls only, aggregate per use case, 29 Oct to 4 Nov; required tags from telemetry contract v1.2 in the record. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>IAM group mirror lag</h2><div class="sub">The portal mirrors IAM groups into its roles every 5 minutes. Lag is the age of the oldest IAM change not yet in the portal. Target under 15 minutes.</div></div><a class="kit-btn sm outline" href="O4-BreakGlass.dc.html">Break-glass log</a></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 120px 150px 110px"><div><div class="t"><span class="kit-mono">kit-breakglass-approvers</span> → Break-glass approvers</div><div class="s">1 change waiting: T. Nair removed in IAM at 11:20, still an approver in the portal</div></div><span class="kit-num">38 min</span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Over target</span></span><div class="end"><button class="kit-btn sm" type="button">Resync now</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 120px 150px 110px"><div><div class="t"><span class="kit-mono">risk-readers</span> → Risk, read-only audit exports</div><div class="s">2 changes waiting · last mirrored 11:46</div></div><span class="kit-num">12 min</span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Near target</span></span><div class="end"><button class="kit-btn sm outline" type="button">Resync</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 120px 150px 110px"><div><div class="t"><span class="kit-mono">uc-0142-members</span> → UC-0142 project members</div><div class="s">Last mirrored 11:52</div></div><span class="kit-num">6 min</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>In sync</span></span><div class="end"><button class="kit-btn sm outline" type="button">Resync</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 120px 150px 110px"><div><div class="t"><span class="kit-mono">uc-0291-members</span> → UC-0291 project members</div><div class="s">Last mirrored 11:54</div></div><span class="kit-num">4 min</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>In sync</span></span><div class="end"><button class="kit-btn sm outline" type="button">Resync</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 120px 150px 110px"><div><div class="t"><span class="kit-mono">kit-validators</span> → Validators</div><div class="s">Last mirrored 11:55</div></div><span class="kit-num">3 min</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>In sync</span></span><div class="end"><button class="kit-btn sm outline" type="button">Resync</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 120px 150px 110px"><div><div class="t"><span class="kit-mono">kit-core-team</span> → Core team</div><div class="s">Last mirrored 11:56 · gates the core-team view</div></div><span class="kit-num">2 min</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>In sync</span></span><div class="end"><button class="kit-btn sm outline" type="button">Resync</button></div></div>
+      </div>
+      <div class="kit-source">IAM change log compared with the portal's group mirror; 6 of 24 groups shown, worst first. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2100}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

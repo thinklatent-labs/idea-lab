@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Quality · Signals</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2700px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">UC-0291 · Advisor summary · Retail Advice · Pilot in production · prod alias → TLM4 Domain-Advice v2</div><h1 style="margin-top: 6px">Quality</h1></div>
+      <div class="kit-actions"><a class="kit-btn" href="D1-ReviewQueue.dc.html">Claim 20 annotations</a><a class="kit-btn outline" href="W2-Datasets.dc.html">Add to data set</a></div>
+    </div>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+      <nav class="kit-rail" aria-label="Use case"><a href="J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Traffic</a><a href="J5-Capacity.dc.html">Capacity</a><a href="J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html" aria-current="page">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a><a href="J11-Traces.dc.html">Traces</a></nav>
+      <nav class="kit-rail" aria-label="Use case resources"><a href="W1-Prompts.dc.html">Prompts</a><a href="W2-Datasets.dc.html">Data sets</a><a href="W3-Alerts.dc.html">Alerts</a></nav>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="J7-Quality.dc.html" aria-current="page">Signals</a><a href="J7-Quality-Tasks.dc.html">Tasks</a><a href="J7-Quality-Review.dc.html">Review</a><a href="J7-Quality-Analysis.dc.html">Analysis</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="J7-Quality-Tasks.dc.html" aria-label="Open acceptance by task">↗</a></div>
+        <div class="kit-tile-title">Acceptance · used as written</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">71<span class="unit">%</span></div><div class="kit-tile-cap">Edited 20 % · discarded 9 % · 7 days · ↑ 2 pt</div></div><div class="kit-bars"><i style="height: 64%"></i><i style="height: 66%"></i><i style="height: 65%"></i><i style="height: 68%"></i><i style="height: 69%"></i><i style="height: 70%"></i><i class="lit" style="height: 71%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span><a class="kit-open" href="J7-Quality-Review.dc.html" aria-label="Open feedback and review">↗</a></div>
+        <div class="kit-tile-title">Explicit feedback</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value"><span class="kit-interval">4.1 <span class="pm" style="font-size: 20px">± 0.02</span></span><span class="unit">of 5</span></div><div class="kit-tile-cap">Score with a reason on 14 % of requests · ↑ 0.1 in 4 weeks</div></div><div class="kit-bars"><i style="height: 78%"></i><i style="height: 80%"></i><i style="height: 80%"></i><i class="lit" style="height: 82%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span><a class="kit-open" href="J7-Quality-Tasks.dc.html" aria-label="Open persistence by task">↗</a></div>
+        <div class="kit-tile-title">Persistence after 7 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">61<span class="unit">%</span></div><div class="kit-tile-cap">Still unchanged in the client record · 30 s 71 % · 10 min 64 % · 1 day 63 %</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i class="lit" style="height: 90%"></i><i class="lit" style="height: 89%"></i><i class="lit" style="height: 86%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path></svg></span><a class="kit-open" href="J7-Quality-Review.dc.html" aria-label="Open judge calibration">↗</a></div>
+        <div class="kit-tile-title">Judge score</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value"><span class="kit-interval">0.84 <span class="pm" style="font-size: 20px">± 0.03</span></span></div><div class="kit-tile-cap">Thread-level task completion · judge j-2026.10 · calibrated</div></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Quality signals from users</h2><div class="sub">What advisors do with each draft and what they tell us. Counted on drafts that carry an outcome event, 83 % of requests this week. Production requests stay sealed, so every figure here is an aggregate.</div></div>
+        <div class="kit-seg" role="group" aria-label="Split the numbers"><button type="button" aria-pressed="true">All requests</button><button type="button" aria-pressed="false">Split by task</button></div>
+      </div>
+      <div class="kit-grid3" style="margin-top: 14px">
+        <div class="kit-surface raised" style="padding: 16px">
+          <div class="kit-label">Acceptance · 7 days</div>
+          <div class="kit-track" style="margin-top: 12px; display: flex"><i style="width: 71%; border-radius: 999px 0 0 999px"></i><i style="width: 20%; border-radius: 0; background: #2F7A6D"></i><i style="width: 9%; border-radius: 0 999px 999px 0; background: #C9663A"></i></div>
+          <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #3E9A5C"></i>Used as written 71 %</span><span><i style="background: #2F7A6D"></i>Edited 20 %</span><span><i style="background: #C9663A"></i>Discarded 9 %</span></div>
+          <table style="margin-top: 10px">
+            <thead><tr><th>Outcome</th><th class="num">4 weeks ago</th><th class="num">Now</th></tr></thead>
+            <tbody>
+              <tr><td>Used as written</td><td class="num">66 %</td><td class="num">71 %</td></tr>
+              <tr><td>Edited, then used</td><td class="num">23 %</td><td class="num">20 %</td></tr>
+              <tr><td>Discarded</td><td class="num">11 %</td><td class="num">9 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="kit-surface raised" style="padding: 16px">
+          <div class="kit-label">Explicit feedback · score with a reason</div>
+          <div style="margin-top: 6px"><span class="kit-display kit-interval" style="font-size: 28px">4.1 <span class="pm">± 0.02</span></span><span class="kit-small kit-muted"> of 5 · n 6,750 · coverage 14 % of requests</span></div>
+          <div class="kit-small kit-muted" style="margin-top: 4px">Trend 3.9 → 4.0 → 4.0 → 4.1 over 4 weeks</div>
+          <table style="margin-top: 8px">
+            <thead><tr><th>Reason given on a 3 or lower</th><th class="num">Share</th></tr></thead>
+            <tbody>
+              <tr><td>Missed the next step</td><td class="num">34 %</td></tr>
+              <tr><td>Too long</td><td class="num">22 %</td></tr>
+              <tr><td>Wrong or stale figure</td><td class="num">17 %</td></tr>
+              <tr><td>Tone</td><td class="num">11 %</td></tr>
+              <tr><td>Other, in the advisor's words</td><td class="num">16 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="kit-surface raised" style="padding: 16px">
+          <div class="kit-label">Persistence · unchanged in the client record</div>
+          <svg class="kit-spark" viewBox="0 0 100 40" width="100%" height="120" aria-label="Share of drafts still unchanged, from 30 seconds to 7 days" style="margin-top: 12px"><line x1="0" y1="29" x2="100" y2="29" stroke="#8A8A88" stroke-width="0.6" stroke-dasharray="2 2"></line><text x="1" y="33.5" font-size="4" fill="#5C5C5A">target 60 % at 7 days</text><polyline fill="none" stroke="#3E9A5C" stroke-width="1.5" points="0,4.8 20,11.4 40,15.8 60,20.2 80,22.4 100,26.8"></polyline></svg>
+          <div class="kit-threshold" style="display: flex; justify-content: space-between; gap: 6px; margin-top: 6px"><span>30 s 71 %</span><span>10 min 64 %</span><span>1 day 63 %</span><span>7 days 61 %</span></div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">A draft persists while the note the advisor saved still matches it. A later change arrives as an edited outcome and moves the draft out of this line.</div>
+        </div>
+      </div>
+
+      <div class="kit-divider"></div>
+      <h3>Implicit signals and edits</h3>
+      <table style="margin-top: 8px">
+        <thead><tr><th>Signal</th><th>What counts</th><th class="num">7 days</th><th class="num">4 weeks ago</th><th>Read</th></tr></thead>
+        <tbody>
+          <tr><td>Copy</td><td class="kit-small">The advisor copied the draft into the client record or an email</td><td class="num">66 %</td><td class="num">63 %</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Up</span></span></td></tr>
+          <tr><td>Retry</td><td class="kit-small">The same request sent again within 2 minutes</td><td class="num">5 %</td><td class="num">6 %</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Down</span></span></td></tr>
+          <tr><td>Regenerate</td><td class="kit-small">The advisor asked for a new draft of the same notes</td><td class="num">8 %</td><td class="num">8 %</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Flat</span></span></td></tr>
+          <tr><td>Edit distance to the final version</td><td class="kit-small">Share of the draft changed before the advisor saved it; edited drafts only</td><td class="num">median 0.18 · p90 0.46</td><td class="num">median 0.20</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Smaller edits</span></span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="kit-divider"></div>
+      <h3>Also measured on every request</h3>
+      <div class="kit-grid2" style="margin-top: 8px">
+        <div class="kit-surface raised" style="padding: 14px 16px">
+          <div class="kit-label">Context reused</div>
+          <div style="margin-top: 4px"><span class="kit-display" style="font-size: 28px">41 %</span><span class="kit-small kit-muted"> of follow-up turns drew on earlier turns in the same session · median 2 earlier turns</span></div>
+        </div>
+        <div class="kit-surface raised" style="padding: 14px 16px">
+          <div class="kit-label">Checks run · PII, compliance, toxicity</div>
+          <div style="margin-top: 4px"><span class="kit-display" style="font-size: 28px">100 %</span><span class="kit-small kit-muted"> of responses checked · 0.7 % held: PII 0.4 %, compliance 0.3 %, toxicity under 0.1 %</span></div>
+        </div>
+      </div>
+      <div class="kit-source">Outcome and feedback events from Relay for UC-0291, 29 Oct to 4 Nov (40,010 outcomes, 6,750 ratings); copy, retry, regenerate, context reused and checks run from the gateway serving log; aggregates only. As of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Where the signals come from</h2><div class="sub">Each calling app sends an outcome event for every draft and a feedback event when the advisor rates it. An app that sends neither is left out of every number above.</div></div><span class="kit-chip">3 calling apps</span></div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Calling app</th><th class="num">Share of requests</th><th class="num">Outcome events</th><th class="num">Feedback coverage</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td>Advisor desktop · Salesforce panel<div class="kit-small kit-muted">Post-meeting summary, pre-meeting brief, action items, plan-change explanation</div></td><td class="num">81 %</td><td class="num">99.6 % of drafts</td><td class="num">17 %</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Sending</span></span></td></tr>
+          <tr><td>Advisor mobile · pilot cohort of 20<div class="kit-small kit-muted">Post-meeting summary</div></td><td class="num">2 %</td><td class="num">98.1 % of drafts</td><td class="num">9 %</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Sending</span></span></td></tr>
+          <tr><td>Outlook add-in · follow-up emails<div class="kit-small kit-muted">Follow-up email to the client · live since 27 Oct</div></td><td class="num">17 %</td><td class="num"><span class="kit-dash" title="no outcome events received since 27 Oct">—</span></td><td class="num"><span class="kit-dash" title="no feedback events received since 27 Oct">—</span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>No events</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-empty" style="margin-top: 14px">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg>
+        <h3>No outcome or feedback events from the Outlook add-in</h3>
+        <p class="kit-small" style="max-width: 680px">Nothing has arrived since it went live on 27 Oct, so its 17 % of requests are missing from acceptance, persistence and feedback on this page. When no events arrive for a whole use case, this page shows only this message. Add these two calls after each response; the score is 1 to 5 and the reason is the advisor's own words.</p>
+        <pre class="kit-code" style="text-align: left; width: 100%; max-width: 680px">client.outcome(request_id, "accepted"|"edited"|"discarded")
+client.feedback(request_id, score, reason)</pre>
+        <div class="kit-actions"><button class="kit-btn sm" type="button">Copy the two calls</button><button class="kit-btn sm outline" type="button">Send to the app owner</button></div>
+      </div>
+      <div class="kit-source">Event counts from the Relay event stream and the gateway serving log for UC-0291, 29 Oct to 4 Nov; a draft counts as covered when its outcome event arrives within 7 days. As of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · New evaluation request</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2400px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-current="page" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Evaluation · Requests and live runs · new request · any team can ask · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Ask for a model or a serving setting to be scored</h1></div>
+      <div class="kit-actions"><a class="kit-btn outline" href="E6-Requests.dc.html">Queue</a><a class="kit-btn outline" href="E6-Requests-Live.dc.html">Live runs</a><a class="kit-btn outline" href="K1-Help.dc.html">How runs are scored</a></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px">
+      <nav class="kit-rail" aria-label="Evaluation"><a href="E1-EvaluationResults.dc.html">Results</a><a href="E2-Index.dc.html">Index</a><a href="E3-Leaderboard.dc.html">Leaderboard</a><a href="E4-Corrections.dc.html">Corrections</a><a href="E6-Requests.dc.html" aria-current="page">Requests</a><a href="E7-Trials.dc.html">Trials</a><a href="E8-Contribute.dc.html">Contribute</a><a href="E9-Pillar.dc.html">Pillars</a></nav>
+      <nav class="kit-subrail" aria-label="Sections"><a href="E6-Requests.dc.html">Queue</a><a href="E6-Requests-Live.dc.html">Live runs</a><a href="E6-Requests-New.dc.html" aria-current="page">New request</a></nav>
+    </div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span></div>
+        <div class="kit-tile-title">Median wait to start</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3 h 10<span class="unit">m</span></div><div class="kit-tile-cap">Gate and correction requests 1 h 05 m · Practice 6 h 40 m · last 30 days</div></div><div class="kit-bars"><i style="height: 60%"></i><i style="height: 75%"></i><i style="height: 55%"></i><i style="height: 70%"></i><i style="height: 50%"></i><i class="lit" style="height: 45%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M9 10h6"></path><path d="M9 14h6"></path></svg></span></div>
+        <div class="kit-tile-title">Client Services evaluation budget</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$1,840<span class="unit">left</span></div><div class="kit-tile-cap">Of $3,000 this quarter · this request would use about $125</div></div><div class="kit-track" style="width: 90px"><i style="width: 61%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h10"></path></svg></span></div>
+        <div class="kit-tile-title">If you submit now</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Position 3</div><div class="kit-tile-cap">High · gate, behind Q-0519 and Q-0521 and ahead of Q-0520 · starts about 14:15 ET, when run 1196 finishes</div></div><span class="kit-chip">High · gate</span></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg></span></div>
+        <div class="kit-tile-title">Already asked</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3<span class="unit">similar</span></div><div class="kit-tile-cap">Listed under the form · follow one or add your ask instead of filing a duplicate</div></div><span class="kit-chip brand">Check first</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface" style="display: flex; flex-direction: column; gap: 20px">
+      <div class="kit-surface-head"><div><h2>New evaluation request</h2><div class="sub">Pick what to score and why. An Official run needs a reason a validator can check, and becomes citable only when a validator marks the finished run. A Practice run starts sooner and is never citable.</div></div><span class="kit-chip">Draft · saved 11:52</span></div>
+
+      <div class="kit-grid2">
+        <div class="kit-field"><label for="rq-model">Model</label><select class="kit-input" id="rq-model"><option selected>TLM4 Distil 4.2 · current</option><option>TLM4 Core 4.2 · current</option><option>TLM4 Core 4.3-rc · candidate</option><option>TLM4 Domain-Advice v2 · current</option><option>TLM4 Core 4.1 · previous</option><option>Open-source 70B</option><option>Frontier API (aggregate)</option></select><div class="kit-small kit-muted">Any registry version, or a model already on the Index. A model the Index does not carry yet is an ask; see the list below.</div></div>
+        <div class="kit-field"><label for="rq-requester">Requester</label><input class="kit-input" id="rq-requester" type="text" value="Priya N. · Client Services · UC-0251 Call wrap-up notes"><div class="kit-small kit-muted">From your sign-in. The project pays, and the requester hears at each step: queued, started, each pillar, finished, marked.</div></div>
+      </div>
+
+      <div>
+        <div class="kit-label">Serving setting</div>
+        <div class="kit-grid2" style="margin-top: 10px">
+          <label class="kit-radio"><input type="radio" name="rq-serving"><div><div style="font-weight: 500">S-11 · Index standard</div><div class="kit-small kit-muted">The model's published precision, batch 16, up to 512 output tokens. Comparable with every Index row.</div></div></label>
+          <label class="kit-radio"><input type="radio" name="rq-serving"><div><div style="font-weight: 500">S-12 · High throughput</div><div class="kit-small kit-muted">Same precision, batch 64. Checks that quality holds at volume and measures the cheaper cost per task.</div></div></label>
+          <label class="kit-radio"><input type="radio" name="rq-serving"><div><div style="font-weight: 500">S-11 at 8-bit</div><div class="kit-small kit-muted">Higher precision for a quality check; about 1.6 times the cost per task.</div></div></label>
+          <label class="kit-radio on"><input type="radio" name="rq-serving" checked><div><div style="font-weight: 500">Copy a use case's production setting</div><div class="kit-small kit-muted">UC-0251 prod: 4-bit, up to 1 024 output tokens, temperature 0. Copied onto evaluation capacity; production endpoints never serve an evaluation run.</div></div></label>
+        </div>
+      </div>
+
+      <div>
+        <div class="kit-label">Pillars</div>
+        <div class="kit-small kit-muted" style="margin-top: 4px">Five of the sixteen Index pillars are live in the MVP. When a run gates a record or a release, the three regression gate pillars are locked on and the workflow's own pillars are added from its record.</div>
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 10px">
+          <label class="kit-radio"><input type="checkbox"><div><div style="font-weight: 500">1 Financial data processing</div><div class="kit-small kit-muted">Live</div></div></label>
+          <label class="kit-radio on"><input type="checkbox" checked disabled><div><div style="font-weight: 500">3 Client care</div><div class="kit-small kit-muted">Live · regression gate · locked on</div></div></label>
+          <label class="kit-radio on"><input type="checkbox" checked disabled><div><div style="font-weight: 500">4 Compliance and regulatory</div><div class="kit-small kit-muted">Live · regression gate · locked on</div></div></label>
+          <label class="kit-radio on"><input type="checkbox" checked disabled><div><div style="font-weight: 500">6 Safety and grounding</div><div class="kit-small kit-muted">Live · regression gate · locked on</div></div></label>
+          <label class="kit-radio on"><input type="checkbox" checked><div><div style="font-weight: 500">7 Entity recognition</div><div class="kit-small kit-muted">Live · in UC-0251's record</div></div></label>
+        </div>
+        <div class="kit-small" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px 16px; margin-top: 12px">
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>2 Financial analysis and reasoning <span class="kit-dash" title="Phase 2">—</span><span class="kit-muted">Phase 2</span></label>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>5 Cybersecurity <span class="kit-dash" title="Phase 2">—</span><span class="kit-muted">Phase 2</span></label>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>8 Judging and scoring <span class="kit-dash" title="Phase 2">—</span><span class="kit-muted">Phase 2</span></label>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>9 Coding <span class="kit-dash" title="Phase 2">—</span><span class="kit-muted">Phase 2</span></label>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>10 Agentic competence <span class="kit-dash" title="Phase 2">—</span><span class="kit-muted">Phase 2</span></label>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>11 Document understanding <span class="kit-dash" title="Phase 2">—</span><span class="kit-muted">Phase 2</span></label>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>12 Multilingual <span class="kit-dash" title="Phase 2">—</span><span class="kit-muted">Phase 2</span></label>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>13 Long context <span class="kit-dash" title="Phase 2">—</span><span class="kit-muted">Phase 2</span></label>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>14 Instruction and format fidelity <span class="kit-dash" title="Phase 2">—</span><span class="kit-muted">Phase 2</span></label>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>15 Summarization <span class="kit-dash" title="Phase 2">—</span><span class="kit-muted">Phase 2 · in UC-0251's record</span></label>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>16 Deployability <span class="kit-dash" title="Phase 2">—</span><span class="kit-muted">Phase 2</span></label>
+          <span></span>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>17 Visual and chart understanding <span class="kit-dash" title="with the pillar council">—</span><span class="kit-muted">with the pillar council</span></label>
+          <label style="display: flex; gap: 6px; align-items: center"><input type="checkbox" disabled>18 UI and front-end generation <span class="kit-dash" title="with the pillar council">—</span><span class="kit-muted">with the pillar council</span></label>
+        </div>
+      </div>
+
+      <div class="kit-grid2">
+        <div>
+          <div class="kit-label">Official or Practice</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px">
+            <label class="kit-radio on"><input type="radio" name="rq-kind" checked><div><div style="font-weight: 500">Official</div><div class="kit-small kit-muted">Citable on a record once a validator marks the finished run. Needs a reason the validator can check.</div></div></label>
+            <label class="kit-radio"><input type="radio" name="rq-kind"><div><div style="font-weight: 500">Practice</div><div class="kit-small kit-muted">Direction only. Starts sooner; never citable on a record, the Index or external material.</div></div></label>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <div class="kit-field"><label for="rq-reason">Reason</label><textarea class="kit-input area" id="rq-reason">Quarterly re-check of UC-0251's production model at its production serving setting. The record's bar has to be re-confirmed by 30 Nov.</textarea></div>
+          <label class="kit-radio on"><input type="checkbox" checked><div><div style="font-weight: 500">This run gates a record or a release</div><div class="kit-small kit-muted">Sets priority High · gate. A ThinkLatent evaluation lead confirms the flag; a false flag goes back to Normal with a note.</div></div></label>
+        </div>
+      </div>
+
+      <div class="kit-surface raised" style="padding: 14px 16px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+        <div><div class="kit-label">Items</div><div style="font-weight: 500; margin-top: 4px">4 800 × 3 epochs</div><div class="kit-small kit-muted">1 200 held-out items per live pillar ticked</div></div>
+        <div><div class="kit-label">Time</div><div style="font-weight: 500; margin-top: 4px">About 2 h 50 m</div><div class="kit-small kit-muted">From start to the results page</div></div>
+        <div><div class="kit-label">Estimate</div><div style="font-weight: 500; margin-top: 4px">$125</div><div class="kit-small kit-muted">Charged to Client Services; nothing is charged if you withdraw before it starts</div></div>
+        <div><div class="kit-label">Queue position</div><div style="font-weight: 500; margin-top: 4px">3 · High · gate</div><div class="kit-small kit-muted">Starts about 14:15 ET</div></div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+        <div style="display: flex; gap: 14px; flex-wrap: wrap">
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Model and setting set</span></span>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Gate pillars included</span></span>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Reason given</span></span>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>15 Summarization is in the record but Phase 2, so it is not scored</span></span>
+        </div>
+        <div class="kit-actions"><button class="kit-btn outline" type="button">Save draft</button><button class="kit-btn" type="button">Submit request</button></div>
+      </div>
+
+      <div class="kit-note"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>Runs use the Index's held-out, anonymised items. Production request data never enters an evaluation run, and production endpoints never serve one.</div></div>
+      <div class="kit-source">Source: estimate from the price list for non-production evaluation capacity at the chosen setting <span class="kit-chip env">Non-production</span> · queue position from the live queue · pillar list from Index method v3 (sixteen pillars, five live in the MVP) · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Already asked</h2><div class="sub">Follow a request or add your ask instead of filing a duplicate. Three asks for something the Index does not offer yet put it on the Index owner's decision list with a 14-day answer target; the owner accepts or declines with a reason, and the ask count stays visible.</div></div></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 100px 300px 200px">
+          <div><div class="t">Q-0514 · Distil 4.2 with the cc-wrapup adapter, checkpoint 900</div><div class="s">Practice · Client Services · UC-0251 · a direction check on the adapter, not a re-check of the production model</div></div>
+          <span class="kit-chip outline">Practice</span>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>In the queue · position 6</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="E6-Requests.dc.html">Follow</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 100px 300px 200px">
+          <div><div class="t">Add Open-source 8B instruct to the Index for routing tasks</div><div class="s">Asked by UC-0270 Ticket classification, UC-0251 Call wrap-up notes and UC-0001 Portal help agent · not on the Index yet · owner: Jithin, Head of ThinkLatent</div></div>
+          <span class="kit-chip">3 asks</span>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>On the decision list · answer due 19 Nov</span></span>
+          <div class="end"><button class="kit-btn sm outline" type="button">Add your ask</button></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 100px 300px 200px">
+          <div><div class="t">Score models at a 2-bit serving setting</div><div class="s">Declined 30 Oct by the Index owner: "2-bit is not a supported serving setting; it lost 0.06 on 6 Safety and grounding in Practice run 1172."</div></div>
+          <span class="kit-chip">3 asks</span>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Declined with a reason</span></span>
+          <div class="end"><button class="kit-btn sm outline" type="button">Ask again with new evidence</button></div>
+        </div>
+      </div>
+      <div class="kit-source">Source: evaluation queue and the asks register · asks counted by distinct use case · answer target 14 days from the third ask · as of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2400}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

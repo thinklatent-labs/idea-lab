@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Improve · Loop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2500px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">UC-0291 · Advisor summary · Retail Advice · Pilot in production · prod alias → TLM4 Domain-Advice v2</div><h1 style="margin-top: 6px">Improve</h1></div>
+      <div class="kit-actions"><button class="kit-btn" type="button" aria-disabled="true">Train the next specialist</button><span class="kit-threshold" style="align-self: center">Unlocks at the data target, about 24 Nov</span><a class="kit-btn outline" href="J6-Models.dc.html">Canary judgement</a><button class="kit-btn decision" type="button">Roll back</button><span class="kit-threshold" style="align-self: center">Roll back never needs approval</span></div>
+    </div>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+      <nav class="kit-rail" aria-label="Use case"><a href="J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Traffic</a><a href="J5-Capacity.dc.html">Capacity</a><a href="J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html" aria-current="page">Improve</a><a href="J9-Record.dc.html">Record</a><a href="J11-Traces.dc.html">Traces</a></nav>
+      <nav class="kit-rail" aria-label="Use case resources"><a href="W1-Prompts.dc.html">Prompts</a><a href="W2-Datasets.dc.html">Data sets</a><a href="W3-Alerts.dc.html">Alerts</a></nav>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="J8-Improve.dc.html" aria-current="page">Loop</a><a href="J8-Improve-Data.dc.html">Data</a><a href="J8-Improve-Specialist.dc.html">Specialist</a><a href="J8-Improve-Release.dc.html">Release</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"></path><path d="M21 4v5h-5"></path></svg></span><a class="kit-open" href="J7-Quality-Tasks.dc.html" aria-label="Open tasks on Quality">↗</a></div>
+        <div class="kit-tile-title">Loops running</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2</div><div class="kit-tile-cap">Cycle 3 for all tasks at Canary · Post-meeting summary specialist at Data set</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path></svg></span><a class="kit-open" href="J8-Improve-Data.dc.html" aria-label="Open data for the next specialist">↗</a></div>
+        <div class="kit-tile-title">Next specialist data</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">62<span class="unit">%</span></div><div class="kit-tile-cap">3,120 of 5,000 eligible samples · about 19 days to target</div></div><div style="width: 90px"><div class="kit-track"><i style="width: 62%"></i></div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V14"></path><path d="M12 20V9"></path><path d="M20 20V4"></path></svg></span><a class="kit-open" href="J8-Improve-Release.dc.html" aria-label="Open the ramp plan">↗</a></div>
+        <div class="kit-tile-title">Canary ramp</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">5<span class="unit">%</span></div><div class="kit-tile-cap">Step 1 of 5, 50, 100 % · sample sufficient Fri 7 Nov</div></div><div class="kit-bars"><i class="lit" style="height: 10%"></i><i class="dash" style="height: 50%"></i><i class="dash" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></span><a class="kit-open" href="J8-Improve-Release.dc.html" aria-label="Open post-release re-scores">↗</a></div>
+        <div class="kit-tile-title">Re-score against the foundation</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">+0.05</div><div class="kit-tile-cap">Deployed v2 against Core 4.2 · Mon 2 Nov · next Mon 9 Nov</div></div><span class="kit-chip" style="background: rgba(255,255,255,.14); color: #fff">Within bar</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>The improvement loop · cycle 3</h2><div class="sub">Eight stages, each with its current state and the approval it needs. The loop runs forward only through approvals; it runs backward (roll back) without any. Watch feeds the next gap.</div></div>
+        <div class="kit-actions"><div class="kit-seg" role="group" aria-label="Loop shown"><button type="button" aria-pressed="true">Cycle 3 · all tasks</button><button type="button" aria-pressed="false">Specialist · Post-meeting summary</button></div><span class="kit-chip">Candidate: TLM4 Domain-Advice v3</span></div>
+      </div>
+      <div class="kit-steps" style="margin-top: 14px">
+        <span class="kit-step done"><span class="k">1</span>Capture</span><span class="arrow">→</span>
+        <span class="kit-step done"><span class="k">2</span>Gap</span><span class="arrow">→</span>
+        <span class="kit-step done"><span class="k">3</span>Data set</span><span class="arrow">→</span>
+        <span class="kit-step done"><span class="k">4</span>Train specialist</span><span class="arrow">→</span>
+        <span class="kit-step done"><span class="k">5</span>Evaluate vs incumbent</span><span class="arrow">→</span>
+        <span class="kit-step now"><span class="k">6</span>Canary · 5, 50, 100 %</span><span class="arrow">→</span>
+        <span class="kit-step"><span class="k">7</span>Promote</span><span class="arrow">→</span>
+        <span class="kit-step"><span class="k">8</span>Watch</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 16px">
+        <div class="kit-surface raised" style="padding: 14px">
+          <div class="kit-label">1 · Capture</div>
+          <div style="margin-top: 8px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></div>
+          <div class="kit-small" style="margin-top: 8px">1,840 threads with edits and ratings captured from the pilot, 6 Oct to 28 Oct.</div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Approval: none · automatic under the record's capture consent</div>
+        </div>
+        <div class="kit-surface raised" style="padding: 14px">
+          <div class="kit-label">2 · Gap</div>
+          <div style="margin-top: 8px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></div>
+          <div class="kit-small" style="margin-top: 8px">The self-healing system read the gap report for index line item <a href="E2-Index.dc.html">Client care 3.2 · next step stated</a>: 0.71 ± 0.03 against a bar of 0.80, lowest on inputs over 4k tokens. It found 410 matching captured threads and generated 220 more for review.</div>
+          <div class="kit-small" style="margin-top: 8px"><a href="T6-Checkpoints.dc.html">Gap report for each checkpoint</a></div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Approval: none to read · generated threads go to data review first</div>
+        </div>
+        <div class="kit-surface raised" style="padding: 14px">
+          <div class="kit-label">3 · Data set</div>
+          <div style="margin-top: 8px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></div>
+          <div class="kit-small" style="margin-top: 8px">advisor-notes-v3 released · PII review complete · 1,620 items after filtering, 180 of them from the gap step.</div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Approval: data owner (Marcus L.) · 29 Oct</div>
+        </div>
+        <div class="kit-surface raised" style="padding: 14px">
+          <div class="kit-label">4 · Train specialist</div>
+          <div style="margin-top: 8px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></div>
+          <div class="kit-small" style="margin-top: 8px">Practice run R-2276 · LoRA on Core 4.2 · pre-flight passed · 3.1 h · $412. The Official retrain, R-2291, is in flight.</div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Approval: project owner (Priya N.) against budget · 30 Oct</div>
+        </div>
+        <div class="kit-surface raised" style="padding: 14px">
+          <div class="kit-label">5 · Evaluate vs incumbent</div>
+          <div style="margin-top: 8px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></div>
+          <div class="kit-small" style="margin-top: 8px">Practice run on the use-case eval set · v3 +0.03 vs v2 · interval clear of zero.</div>
+          <div class="kit-small" style="margin-top: 8px"><a href="J8-Improve-Specialist.dc.html">Teacher comparison</a></div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Approval: validator (Elena R.) to proceed to canary · 31 Oct</div>
+        </div>
+        <div class="kit-surface raised" style="padding: 14px; border: 1px solid rgba(108,183,105,.6)">
+          <div class="kit-label">6 · Canary</div>
+          <div style="margin-top: 8px"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Not ready yet</span></span></div>
+          <div class="kit-small" style="margin-top: 8px">Ramp 5, 50, 100 %. At 5 % of traffic since 1 Nov · 3,420 of 5,000 samples · TTFT p95 critical metric marginal.</div>
+          <div class="kit-small" style="margin-top: 8px"><a href="J8-Improve-Release.dc.html">Ramp plan</a></div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Approval to step up: none while gated · sample sufficient by Fri 7 Nov · each step needs the gate on the one before</div>
+        </div>
+        <div class="kit-surface raised" style="padding: 14px">
+          <div class="kit-label">7 · Promote</div>
+          <div style="margin-top: 8px"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Waiting on canary</span></span></div>
+          <div class="kit-small" style="margin-top: 8px">Moves the prod alias to the candidate at 100 %. v2 stays on previous for 30 days as the roll-back target, then retires.</div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Approval: Head of ThinkLatent (Jithin) · Official TL Index run required first · roll back needs none</div>
+        </div>
+        <div class="kit-surface raised" style="padding: 14px">
+          <div class="kit-label">8 · Watch</div>
+          <div style="margin-top: 8px"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Watching v2 until promote</span></span></div>
+          <div class="kit-small" style="margin-top: 8px">The deployed model is re-scored every Monday against its foundation model. Drift beyond the bar opens a gap report, back to stage 2, or a roll back. v2 now: +0.05 over Core 4.2.</div>
+          <div class="kit-small" style="margin-top: 8px"><a href="J8-Improve-Release.dc.html">Re-scores</a></div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Approval: none to watch · roll back needs none</div>
+        </div>
+      </div>
+      <div class="kit-rows" style="margin-top: 14px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto auto"><div><div class="t">Approve: start the Official TL Index run for v3</div><div class="s">Needed before the 50 % step and Promote · Practice runs are never citable · Evaluation agent proposes · confidence 90 %</div></div><span class="kit-agent"><span class="av" style="background: rgba(26,26,26,.06); border-color: rgba(26,26,26,.12)">EA</span><span>Evaluation agent</span></span><div class="end"><a class="kit-btn sm" href="E1-EvaluationResults.dc.html">Approve run</a><button class="kit-btn sm outline" type="button">Not now</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto auto"><div><div class="t">Approve: schedule the 50 % step for Mon 9 Nov</div><div class="s">Runs only if the sample gate passes Fri 7 Nov and the Official run is signed · half of advisors would see the marginal TTFT · SRE agent proposes · confidence 72 %</div></div><span class="kit-agent"><span class="av" style="background: rgba(26,26,26,.06); border-color: rgba(26,26,26,.12)">SA</span><span>SRE agent</span></span><div class="end"><button class="kit-btn sm outline" type="button">Approve schedule</button><button class="kit-btn sm outline" type="button">Keep 5 %</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto auto"><div><div class="t">Not ready: Promote v3 to prod</div><div class="s">Two gates open: sample 1,580 short; TTFT p95 (critical) marginal. Shown here so you can see what is waiting, not as a greyed button.</div></div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not ready yet</span></span><div class="end"><a class="kit-btn sm outline" href="J6-Models.dc.html">See gates</a></div></div>
+      </div>
+      <div class="kit-source">Loop state from the pipeline and the record's approval log; the gap step from the self-healing system's gap report; canary from the Evaluation agent's judgement; as of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Loops by task</h2><div class="sub">Specialise on Quality starts a loop for one task. A task needs outcome or feedback events before anything can accumulate for it.</div></div><a class="kit-btn sm outline" href="J7-Quality-Tasks.dc.html">Tasks on Quality</a></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 170px"><div><div class="t">Cycle 3 · all tasks · Domain-Advice v3</div><div class="s">Started 6 Oct · stage 6, Canary at 5 %</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Not ready yet</span></span><div class="end"><span class="kit-chip outline">Shown above</span></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 170px"><div><div class="t">Specialist · Post-meeting summary · 58 % of requests</div><div class="s">Started from Quality on 2 Nov by Priya N. · stage 3, Data set · 3,120 of 5,000 eligible samples · about 24 Nov</div></div><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Accumulating</span></span><div class="end"><a class="kit-btn sm outline" href="J8-Improve-Data.dc.html">Open data</a></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 170px"><div><div class="t">Pre-meeting brief · 12 % of requests</div><div class="s">Not started · 640 eligible samples captured · judge 0.79 ± 0.05, the weakest task</div></div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not started</span></span><div class="end"><button class="kit-btn sm outline" type="button">Specialise</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 170px"><div><div class="t">Action items to the client record · 8 % of requests</div><div class="s">Not started · 520 eligible samples captured · target 2,000 for a structured task</div></div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not started</span></span><div class="end"><button class="kit-btn sm outline" type="button">Specialise</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 170px"><div><div class="t">Follow-up email to the client · 17 % of requests</div><div class="s">Cannot start: no outcome or feedback events from the Outlook add-in since 27 Oct</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>No events</span></span><div class="end"><a class="kit-btn sm outline" href="J8-Improve-Data.dc.html">See the two calls</a></div></div>
+      </div>
+      <div class="kit-source">Loops from the pipeline for UC-0291; task shares from the 5 Nov task mining on Quality; samples from the capture pipeline; as of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2500}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

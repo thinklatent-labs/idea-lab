@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Traffic · Engine telemetry</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2000px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">UC-0291 · Advisor summary · Retail Advice · Pilot in production · prod alias → TLM4 Domain-Advice v2</div><h1 style="margin-top: 6px">Engine telemetry</h1></div>
+      <div class="kit-actions" style="align-items: center"><div class="kit-seg" role="group" aria-label="Time window"><button type="button" aria-pressed="false">Live</button><button type="button" aria-pressed="false">24 h</button><button type="button" aria-pressed="true">7 d</button><button type="button" aria-pressed="false">30 d</button></div><button class="kit-switch on" type="button" aria-pressed="true" style="border: 0; background: transparent; padding: 0 4px; height: 36px"><i aria-hidden="true"></i>Compare to previous 7 d</button><a class="kit-btn outline" href="J5-Capacity-Engineering.dc.html">Throughput</a></div>
+    </div>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+      <nav class="kit-rail" aria-label="Use case"><a href="J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html" aria-current="page">Traffic</a><a href="J5-Capacity.dc.html">Capacity</a><a href="J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a><a href="J11-Traces.dc.html" title="Engineering view">Traces</a></nav>
+      <nav class="kit-rail" aria-label="Use case resources"><a href="W1-Prompts.dc.html">Prompts</a><a href="W2-Datasets.dc.html">Data sets</a><a href="W3-Alerts.dc.html">Alerts</a></nav>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="J4-Traffic.dc.html">Shapes</a><a href="J4-Traffic-Latency.dc.html">Latency</a><a href="J4-Traffic-Errors.dc.html">Errors and finishes</a><a href="J4-Traffic-Engineering.dc.html" aria-current="page">Engine telemetry</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span><a class="kit-open" href="J4-Traffic-Engineering.dc.html" aria-label="Open acceptance by position">↗</a></div>
+        <div class="kit-tile-title">Speculative acceptance</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.66</div><div class="kit-tile-cap">Mean over 4 draft positions · 2.6 tokens accepted per step · ↑ 0.02 vs previous 7 d</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M3 15h18"></path></svg></span><a class="kit-open" href="J5-Capacity-Engineering.dc.html" aria-label="Open throughput">↗</a></div>
+        <div class="kit-tile-title">Batch tokens per step</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3,840<span class="unit">p50</span></div><div class="kit-tile-cap">p99 8,020 of an 8,192-token step budget · ↑ 6 % vs previous 7 d</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>At budget</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h6"></path><path d="M4 12h10"></path><path d="M4 18h16"></path></svg></span><a class="kit-open" href="J4-Traffic-Latency.dc.html" aria-label="Open stalls">↗</a></div>
+        <div class="kit-tile-title">Chunked-prefill share</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">31<span class="unit">% of steps</span></div><div class="kit-tile-cap">Steps that carry a prefill chunk beside decode · ↑ 4 pt vs previous 7 d</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path></svg></span><a class="kit-open" href="J5-Capacity.dc.html" aria-label="Open saturation">↗</a></div>
+        <div class="kit-tile-title">Rescued requests</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.42<span class="unit">%</span></div><div class="kit-tile-cap">540 in 7 days preempted, then resumed with no error the advisor could see · warning at 1 %</div></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface raised">
+      <div class="kit-surface-head">
+        <div><h2>Speculative decoding: acceptance by draft position <span class="kit-eng-label" style="margin-left: 8px; vertical-align: 2px">Engineering view</span></h2><div class="sub">A small draft head proposes 4 tokens per step; the model keeps the ones it agrees with. Acceptance falls with each position, so the fourth token is the one to watch.</div></div>
+        <div class="kit-legend"><span><i style="background: #3E9A5C"></i>Last 7 days</span><span><i style="background: #8A8A88"></i>Previous 7 days</span></div>
+      </div>
+      <div class="kit-rows" style="margin-top: 14px">
+        <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr) 70px 70px">
+          <div><div class="t">Position 1</div><div class="s">first drafted token</div></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><div class="kit-track"><i style="width: 89%"></i></div><div class="kit-track"><i style="width: 88%; background: #8A8A88"></i></div></div>
+          <span class="kit-num" style="text-align: right">0.89</span><span class="kit-num kit-muted" style="text-align: right">0.88</span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr) 70px 70px">
+          <div><div class="t">Position 2</div><div class="s">kept only if 1 was kept</div></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><div class="kit-track"><i style="width: 72%"></i></div><div class="kit-track"><i style="width: 70%; background: #8A8A88"></i></div></div>
+          <span class="kit-num" style="text-align: right">0.72</span><span class="kit-num kit-muted" style="text-align: right">0.70</span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr) 70px 70px">
+          <div><div class="t">Position 3</div><div class="s">kept only if 1 and 2 were kept</div></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><div class="kit-track"><i style="width: 57%"></i></div><div class="kit-track"><i style="width: 55%; background: #8A8A88"></i></div></div>
+          <span class="kit-num" style="text-align: right">0.57</span><span class="kit-num kit-muted" style="text-align: right">0.55</span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr) 70px 70px">
+          <div><div class="t">Position 4</div><div class="s">last drafted token</div></div>
+          <div style="position: relative; display: flex; flex-direction: column; gap: 4px"><div class="kit-track"><i class="warn" style="width: 46%"></i></div><div class="kit-track"><i style="width: 43%; background: #8A8A88"></i></div><span style="position: absolute; left: 40%; top: -4px; bottom: -4px; border-left: 1px dashed #5C5C5A"></span></div>
+          <span class="kit-num" style="text-align: right">0.46</span><span class="kit-num kit-muted" style="text-align: right">0.43</span>
+        </div>
+      </div>
+      <div class="kit-threshold" style="margin-top: 10px">Dashed mark at 0.40: if position 4 stays below it for a week, the SRE agent proposes a 3-token draft. At 0.46 the fourth token still saves more decode time than it costs.</div>
+      <div class="kit-divider"></div>
+      <dl class="kit-kv" style="grid-template-columns: 200px 1fr">
+        <dt>Mean acceptance by task</dt><dd><span class="kit-mono">topic-tags</span> 0.81 · <span class="kit-mono">action-items</span> 0.74 · <span class="kit-mono">meeting-summary</span> 0.63 · <span class="kit-mono">client-email-draft</span> 0.61</dd>
+        <dt>Tokens per step, decode</dt><dd>3.6 on average with the draft, against 1.0 without; free prose accepts fewer drafts than structured output</dd>
+      </dl>
+      <div class="kit-source">vLLM engine speculative-decoding counters via the gateway serving log, prod alias, 7 days to 4 Nov against the 7 days before; 4-token draft head on the Domain-Advice v2 endpoint. As of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface raised">
+      <div class="kit-surface-head">
+        <div><h2>Engine signals per step <span class="kit-eng-label" style="margin-left: 8px; vertical-align: 2px">Engineering view</span></h2><div class="sub">What the engine does on each iteration: how many tokens and sequences it packs, how long requests wait for their adapter, how often prefill is chunked, and how many preempted requests it rescues.</div></div>
+        <a class="kit-btn sm outline" href="J5-Capacity-Engineering.dc.html">What this means for capacity</a>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Signal</th><th class="num">Last 7 days</th><th class="num">Previous 7 days</th><th>Threshold</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td>Speculative acceptance, mean<div class="kit-small kit-muted">positions 1 to 4: 0.89 · 0.72 · 0.57 · 0.46</div></td><td class="num">0.66</td><td class="num">0.64</td><td class="kit-small">Watch below 0.55</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Good</span></span></td></tr>
+          <tr><td>Batch tokens per iteration, p50 · p99<div class="kit-small kit-muted">decode plus prefill-chunk tokens in one engine step</div></td><td class="num">3,840 · 8,020</td><td class="num">3,610 · 7,700</td><td class="kit-small">p99 within 98 % of the 8,192 budget</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>At budget</span></span></td></tr>
+          <tr><td>Sequences per iteration, p50<div class="kit-small kit-muted">running streams packed into one step</div></td><td class="num">46</td><td class="num">43</td><td class="kit-small">Limit 64</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Good</span></span></td></tr>
+          <tr><td>Adapter wait p99<div class="kit-small kit-muted">time a request waits for its adapter to be resident</div></td><td class="num">180 ms</td><td class="num">170 ms</td><td class="kit-small">250 ms</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Good</span></span></td></tr>
+          <tr><td>Chunked-prefill share of steps<div class="kit-small kit-muted">18 % of prefill tokens arrive chunked</div></td><td class="num">31 %</td><td class="num">27 %</td><td class="kit-small">Info above 40 %</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Rising</span></span></td></tr>
+          <tr><td>Rescued-request rate<div class="kit-small kit-muted">preempted under KV pressure, resumed by recompute</div></td><td class="num">0.42 %</td><td class="num">0.31 %</td><td class="kit-small">Warning at 1 %</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Good</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-threshold" style="margin-top: 10px">The prod adapter stays pinned on both nodes; the canary adapter lives on node 2 and loads on demand, which is most of the adapter wait. Rescued requests saw a longer stream, not an error.</div>
+      <div class="kit-source">vLLM engine scheduler, LoRA and preemption metrics via the gateway serving log, prod and canary aliases, 7 days to 4 Nov against the 7 days before; thresholds from the record's monitoring section. As of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

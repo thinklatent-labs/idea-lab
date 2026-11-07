@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Open playground</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2300px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-current="page" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption"><a href="Home-Everyone.dc.html">Home</a> · Agents · Playground · no project needed · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Try models and agents</h1><div class="kit-muted" style="margin-top: 6px; max-width: 780px">For anyone at the Enterprise. Put two models or agents side by side on your own question and see how each one answers. Nothing is saved here; start a project when you want to keep a session, grade answers or build on them.</div></div>
+      <div class="kit-actions"><a class="kit-btn" href="J0-StartProject.dc.html">Start a project to save</a><a class="kit-btn outline" href="A1-AgentLibrary.dc.html">Agent library</a><a class="kit-btn outline" href="M1-Catalogue.dc.html">Model catalogue</a></div>
+    </div>
+
+    <div class="kit-note"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; flex: 1"><span><b style="font-weight: 500">Nothing here is saved.</b> Questions, answers and choices disappear when you leave this page. Nothing is kept, shared or counted as evidence. Please do not paste client data; the gateway masks it anyway.</span><a class="kit-btn sm" href="J0-StartProject.dc.html">Start a project to save</a></div></div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path></svg></span><a class="kit-open" href="M1-Catalogue.dc.html" aria-label="Open the model catalogue">↗</a></div>
+        <div class="kit-tile-title">Models to try</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">4<span class="unit">TLM</span></div><div class="kit-tile-cap">Core 4.2, Distil 4.2, Domain-Advice v2 and Core 4.1 · vendor models need a project</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path></svg></span><a class="kit-open" href="A1-AgentLibrary.dc.html" aria-label="Open the agent library">↗</a></div>
+        <div class="kit-tile-title">Agents to try</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3<span class="unit">adoptable</span></div><div class="kit-tile-cap">Knowledge, Document extraction and Advisor summary · the others run as demos below</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><a class="kit-open" href="K1-Help.dc.html" aria-label="Open playground limits">↗</a></div>
+        <div class="kit-tile-title">Your runs today</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">12<span class="unit">of 50</span></div><div class="kit-tile-cap">Resets at midnight ET · shared sandbox pool, best effort</div></div><div class="kit-bars"><i class="lit" style="height: 24%"></i><i class="dash" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="2"></rect><rect x="14" y="3" width="7" height="7" rx="2"></rect><rect x="3" y="14" width="7" height="7" rx="2"></rect><rect x="14" y="14" width="7" height="7" rx="2"></rect></svg></span><a class="kit-open" href="P1b-PlaygroundOpen.dc.html" aria-label="Open the demo gallery">↗</a></div>
+        <div class="kit-tile-title">Demo gallery</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">6<span class="unit">demos</span></div><div class="kit-tile-cap">Each labelled with what it is approved for today, from its governance status</div></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Side by side</h2><div class="sub">Same question, two choices. Runs on the shared sandbox pool; answers disappear when you leave.</div></div>
+        <div class="kit-actions" style="align-items: center"><span class="kit-chip env">Non-production</span><div class="kit-seg"><button type="button" aria-pressed="false">Two models</button><button type="button" aria-pressed="true">Model and agent</button><button type="button" aria-pressed="false">Two agents</button></div></div>
+      </div>
+      <div class="kit-grid2" style="margin-top: 14px">
+        <div class="kit-field"><label for="op-a">Left</label><select class="kit-input" id="op-a"><option>TLM4 Core 4.2</option><option>TLM4 Distil 4.2</option><option>TLM4 Domain-Advice v2</option><option>TLM4 Core 4.1</option></select></div>
+        <div class="kit-field"><label for="op-b">Right</label><select class="kit-input" id="op-b"><option>Knowledge agent 2.3 · public fund documents</option><option>Advisor summary agent 2.0 · sample transcripts</option><option>Document extraction agent 1.8 · synthetic statements</option></select></div>
+      </div>
+      <div class="kit-field" style="margin-top: 12px"><label for="op-q">Your question</label><textarea class="kit-input area" id="op-q" style="min-height: 72px">What are low-cost shares, and why is their expense ratio lower than other share classes of the same fund?</textarea></div>
+      <div class="kit-actions" style="margin-top: 12px; align-items: center"><button class="kit-btn" type="button">Run both</button><span class="kit-small kit-muted">Agents answer from demo corpora of public documents only</span></div>
+      <div class="kit-grid2" style="margin-top: 14px">
+        <div class="kit-surface raised" style="display: flex; flex-direction: column; gap: 10px">
+          <div class="kit-surface-head"><div><h3>TLM4 Core 4.2</h3><div class="sub">A model on its own, no documents</div></div><span class="kit-chip">Model</span></div>
+          <p>Low-cost shares are a lower-cost share class offered on many Enterprise funds. Their expense ratio is lower because the class serves larger or longer-held balances that cost less to run per dollar. I cannot confirm the exact figure for a particular fund without its prospectus.</p>
+          <div class="kit-prov"><span>Latency: <b>1.6 s</b></span><span>Tokens: <b>214</b></span><span>Sources: <b>none</b></span></div>
+          <div class="kit-actions" style="align-items: center"><button class="kit-btn sm outline" type="button">Copy answer</button><button class="kit-btn sm outline" type="button" aria-disabled="true">Save</button><span class="kit-small kit-muted">Start a project to save</span></div>
+        </div>
+        <div class="kit-surface raised" style="display: flex; flex-direction: column; gap: 10px">
+          <div class="kit-surface-head"><div><h3>Knowledge agent 2.3</h3><div class="sub">Answers from public fund documents, with citations</div></div><span class="kit-chip brand">Agent</span></div>
+          <p>Low-cost shares are the fund's lowest-cost share class: 0.11% in the 2025 prospectus, down from 0.14% in 2024 [1]. The share class guide says the lower ratio reflects a higher minimum investment, which spreads fixed costs over larger balances [2].</p>
+          <div class="kit-small kit-muted">[1] Fund prospectus 2025, p. 14 · [2] Share class guide, p. 3</div>
+          <div class="kit-prov"><span>Latency: <b>4.1 s</b></span><span>Tokens: <b>396</b></span><span>Sources: <b>2 cited</b></span></div>
+          <div class="kit-actions" style="align-items: center"><button class="kit-btn sm outline" type="button">Copy answer</button><button class="kit-btn sm outline" type="button" aria-disabled="true">Save</button><span class="kit-small kit-muted">Start a project to save</span></div>
+        </div>
+      </div>
+      <div class="kit-source">Answers through the gateway on the shared sandbox pool, best effort; nothing is stored once the page closes; latency and tokens from the gateway serving log. Demo corpora hold public documents only. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Demo gallery <span class="kit-chip">6</span></h2><div class="sub">Ready-made demos for colleagues who are not technical. Each carries a label taken from its governance status: what it is approved for today.</div></div><a class="kit-btn sm outline" href="A1-AgentLibrary.dc.html">Agent library</a></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 300px 150px"><div><div class="t">Summarise a client meeting</div><div class="s">Advisor summary agent 2.0 on a sample transcript · governance: pilot in production, UC-0291, Official TL Index run 1183</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved for advisors, reviewed before use</span></span><div class="end"><button class="kit-btn sm outline" type="button">Try this demo</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 300px 150px"><div><div class="t">Ask a fund prospectus</div><div class="s">Knowledge agent 2.3 on public fund documents · governance: adoptable, Official evaluation 4 Nov</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved for internal questions</span></span><div class="end"><button class="kit-btn sm outline" type="button">Try this demo</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 300px 150px"><div><div class="t">Pull the fields from a statement</div><div class="s">Document extraction agent 1.8 on synthetic statements · governance: adoptable, writes only after a person confirms</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved for operations teams</span></span><div class="end"><button class="kit-btn sm outline" type="button">Try this demo</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 300px 150px"><div><div class="t">Compare two models on your own question</div><div class="s">TLM4 Core 4.2 and Distil 4.2 · governance: catalogue models, no use case behind the demo</div></div><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>For trying only, not for client work</span></span><div class="end"><button class="kit-btn sm outline" type="button">Try this demo</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 300px 150px"><div><div class="t">Find the policy clause behind a question</div><div class="s">Policy lookup agent 0.4 · governance: POC, UC-0311, no Official evaluation yet</div></div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Demo only, not approved for use</span></span><div class="end"><button class="kit-btn sm outline" type="button">Watch the demo</button></div></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 300px 150px"><div><div class="t">Route a claim to the right queue</div><div class="s">Triage agent 3.1 · governance: production, UC-0142, Official result older than 21 days</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>New use paused while the evaluation is refreshed</span></span><div class="end"><button class="kit-btn sm outline" type="button">Watch the demo</button></div></div>
+      </div>
+      <div class="kit-source">Approved-use labels from each agent's governance status in the record, refreshed hourly; demos run on synthetic or public data only. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2300}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

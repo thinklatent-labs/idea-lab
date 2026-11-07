@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · TLM4 Core 4.2 · Serving</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2900px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption"><a href="M1-Catalogue.dc.html">Models</a> · <a href="M2-ModelPage.dc.html">TLM4 Core 4.2</a> · Serving · Thu 5 Nov 2026 · 11:58 ET</div><h1 style="margin-top: 6px">TLM4 Core 4.2 <span class="kit-chip brand" style="vertical-align: middle">Current</span></h1></div>
+      <div class="kit-actions"><a class="kit-btn" href="O2-Capacity.dc.html">Capacity</a><a class="kit-btn outline" href="M6-Registry-Serving.dc.html">Settings per version</a><a class="kit-btn outline" href="J10-Usage.dc.html">Usage and cost</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="M2-ModelPage.dc.html">Overview</a><a href="M2-ModelPage-Evidence.dc.html">Evidence</a><a href="M2-ModelPage-Serving.dc.html" aria-current="page">Serving</a><a href="M2-ModelPage-HowToCall.dc.html">How to call</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="O2-Capacity.dc.html" aria-label="Open capacity">↗</a></div>
+        <div class="kit-tile-title">Calls per day</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">1.1<span class="unit">M</span></div><div class="kit-tile-cap">Production aggregate, 7-day mean</div></div><svg class="kit-spark" aria-hidden="true" viewBox="0 0 100 40" width="100" height="40"><polyline fill="none" stroke="#3E9A5C" stroke-width="2" points="0,30 15,28 30,24 45,25 60,18 75,16 90,12 100,10"></polyline></svg></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span><a class="kit-open" href="J11-Traces.dc.html" aria-label="Open traces">↗</a></div>
+        <div class="kit-tile-title">TTFT p95</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">410<span class="unit">ms</span></div><div class="kit-tile-cap">Target under 600 ms · last 24 h, all use cases</div></div><div class="kit-track" style="width: 90px"><i style="width: 68%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span><a class="kit-open" href="W3-Alerts.dc.html" aria-label="Open alerts">↗</a></div>
+        <div class="kit-tile-title">Error rate</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.3<span class="unit">%</span></div><div class="kit-tile-cap">Alert above 1.0% · no SRE finding open</div></div><div class="kit-track" style="width: 90px"><i style="width: 30%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="J10-Usage.dc.html" aria-label="Open usage">↗</a></div>
+        <div class="kit-tile-title">Goodput</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">96<span class="unit">%</span></div><div class="kit-tile-cap">Responses inside the latency and quality bars</div></div><div class="kit-track" style="width: 90px"><i style="width: 96%"></i></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>How it behaves by token shape</h2><div class="sub">Each cell is one shape of task: how much goes in (rows) and how much comes out (columns). Pick a layer; the Enterprise-volume overlay shows where our calls actually land.</div></div>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap">
+          <div class="kit-seg" aria-label="Layer"><button type="button" aria-pressed="true">Quality</button><button type="button" aria-pressed="false">Cost</button><button type="button" aria-pressed="false">Latency</button><button type="button" aria-pressed="false">Suitability</button></div>
+          <button class="kit-switch on" type="button" aria-pressed="true" style="border: 0; background: transparent; padding: 0"><i></i>Enterprise volume</button>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px; margin-top: 16px">
+        <div>
+          <div class="kit-matrix" style="grid-template-columns: 84px repeat(5, minmax(0, 1fr))">
+            <div class="h"></div><div class="h">out under 128</div><div class="h">128 to 512</div><div class="h">512 to 1k</div><div class="h">1k to 2k</div><div class="h">over 2k</div>
+            <div class="h">in under 1k</div><div class="c l4">0.86<small>18% of calls</small></div><div class="c l4">0.85<small>9%</small></div><div class="c l3">0.83<small>2%</small></div><div class="c l3">0.80<small>0.5%</small></div><div class="c"><span class="kit-dash" title="fewer than 50 evaluation items in this shape">—</span><small>0%</small></div>
+            <div class="h">1k to 4k</div><div class="c l4">0.85<small>22%</small></div><div class="c l3">0.84<small>14%</small></div><div class="c l3">0.82<small>4%</small></div><div class="c l2">0.79<small>1%</small></div><div class="c l2">0.76<small>0.2%</small></div>
+            <div class="h">4k to 8k</div><div class="c l3">0.84<small>9%</small></div><div class="c l3">0.83<small>7%</small></div><div class="c l3">0.81<small>3%</small></div><div class="c l2">0.78<small>0.6%</small></div><div class="c l1">0.74<small>0.1%</small></div>
+            <div class="h">8k to 16k</div><div class="c l3">0.82<small>3%</small></div><div class="c l3">0.80<small>3%</small></div><div class="c l2">0.78<small>1%</small></div><div class="c l2">0.75<small>0.4%</small></div><div class="c l1">0.71<small>0.1%</small></div>
+            <div class="h">16k to 32k</div><div class="c l2">0.76<small>1%</small></div><div class="c l1">0.74<small>0.8%</small></div><div class="c l1">0.72<small>0.3%</small></div><div class="c l1">0.69<small>0.1%</small></div><div class="c"><span class="kit-dash" title="fewer than 50 evaluation items in this shape">—</span><small>0%</small></div>
+          </div>
+          <div class="kit-legend" style="margin-top: 10px"><span><i style="background: #1B5128"></i>0.85 and above</span><span><i style="background: rgba(62,154,92,.48)"></i>0.80 to 0.84</span><span><i style="background: rgba(62,154,92,.28)"></i>0.75 to 0.79</span><span><i style="background: rgba(62,154,92,.12)"></i>below 0.75</span><span>Small figure: share of Enterprise calls</span></div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Quality is the composite of the five live pillars on the items of that shape. Cost is per 1,000 tasks of that shape; latency is TTFT p95; suitability marks the shapes where Core 4.2 clears every bar at the lowest cost of the approved models.</div>
+        </div>
+        <div>
+          <h3>Effective context and the context-rot curve</h3>
+          <div class="kit-small kit-muted" style="margin-top: 4px">Financial data processing quality as inputs get longer. The window is 32k tokens; quality holds to about 24k, then falls below the bar.</div>
+          <svg class="kit-spark" role="img" aria-label="Context-rot curve: 0.86 on short inputs, 0.78 at 24k tokens, 0.71 at 32k" viewBox="0 0 100 40" width="100%" height="180" preserveAspectRatio="none" style="margin-top: 10px">
+            <line x1="0" y1="19.2" x2="100" y2="19.2" stroke="#8A8A88" stroke-width=".5" stroke-dasharray="2 2"></line>
+            <line x1="75" y1="0" x2="75" y2="40" stroke="#C4262E" stroke-width=".4" stroke-dasharray="1.5 1.5"></line>
+            <polyline fill="none" stroke="#3E9A5C" stroke-width="1.4" points="1.6,6.4 6.25,8 12.5,8 25,9.6 37.5,11.2 50,12.8 62.5,16 75,19.2 87.5,24 100,30.4"></polyline>
+            <text x="1" y="17.5" font-size="3.5" fill="#5C5C5A">bar 0.78</text>
+            <text x="76" y="4" font-size="3.5" fill="#5C5C5A">effective context 24k</text>
+          </svg>
+          <div class="kit-legend"><span><i style="background: #3E9A5C"></i>Quality by input length, 0 to 32k tokens</span><span><i style="background: #8A8A88"></i>Bar</span><span><i style="background: #C4262E"></i>Effective context</span></div>
+          <dl class="kit-kv" style="margin-top: 12px; grid-template-columns: 150px 1fr">
+            <dt>Effective context</dt><dd>24k of 32k tokens</dd>
+            <dt>Context rot</dt><dd>−0.15 from short inputs to 32k · <span class="kit-interval">0.71 <span class="pm">± 0.05</span></span> at the limit</dd>
+            <dt>Calls past 24k</dt><dd>1.2% of Enterprise calls · 18% of UC-0254's</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="kit-divider"></div>
+      <h3>The other three layers, side by side</h3>
+      <div class="kit-small kit-muted" style="margin-top: 4px">Same shapes and axes as the Quality layer: rows are tokens in, columns tokens out. Darker is better on every layer.</div>
+      <div class="kit-grid3" style="margin-top: 12px">
+        <div>
+          <div style="font-weight: 500; margin-bottom: 8px">Cost · USD per 1,000 tasks</div>
+          <div class="kit-matrix" style="grid-template-columns: 56px repeat(5, minmax(0, 1fr))">
+            <div class="h"></div><div class="h">&lt;128</div><div class="h">128–512</div><div class="h">512–1k</div><div class="h">1–2k</div><div class="h">&gt;2k</div>
+            <div class="h">&lt;1k</div><div class="c l4">$0.40</div><div class="c l4">$0.90</div><div class="c l3">$1.80</div><div class="c l2">$3.40</div><div class="c"><span class="kit-dash" title="no Enterprise calls in this shape">—</span></div>
+            <div class="h">1–4k</div><div class="c l4">$1.10</div><div class="c l3">$1.60</div><div class="c l3">$2.50</div><div class="c l2">$4.10</div><div class="c l1">$7.20</div>
+            <div class="h">4–8k</div><div class="c l3">$2.30</div><div class="c l3">$2.80</div><div class="c l2">$3.70</div><div class="c l2">$5.30</div><div class="c l1">$8.40</div>
+            <div class="h">8–16k</div><div class="c l2">$4.50</div><div class="c l2">$5.00</div><div class="c l2">$5.90</div><div class="c l1">$7.50</div><div class="c l1">$10.60</div>
+            <div class="h">16–32k</div><div class="c l1">$8.80</div><div class="c l1">$9.30</div><div class="c l1">$10.20</div><div class="c l1">$11.80</div><div class="c"><span class="kit-dash" title="no Enterprise calls in this shape">—</span></div>
+          </div>
+          <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #1B5128"></i>under $1.50</span><span><i style="background: rgba(62,154,92,.48)"></i>$1.50 to $3</span><span><i style="background: rgba(62,154,92,.28)"></i>$3 to $7</span><span><i style="background: rgba(62,154,92,.12)"></i>over $7</span></div>
+        </div>
+        <div>
+          <div style="font-weight: 500; margin-bottom: 8px">Latency · TTFT p95, ms</div>
+          <div class="kit-matrix" style="grid-template-columns: 56px repeat(5, minmax(0, 1fr))">
+            <div class="h"></div><div class="h">&lt;128</div><div class="h">128–512</div><div class="h">512–1k</div><div class="h">1–2k</div><div class="h">&gt;2k</div>
+            <div class="h">&lt;1k</div><div class="c l4">180</div><div class="c l4">185</div><div class="c l4">190</div><div class="c l4">200</div><div class="c"><span class="kit-dash" title="no Enterprise calls in this shape">—</span></div>
+            <div class="h">1–4k</div><div class="c l3">320</div><div class="c l3">330</div><div class="c l3">335</div><div class="c l3">350</div><div class="c l3">360</div>
+            <div class="h">4–8k</div><div class="c l2">560</div><div class="c l2">570</div><div class="c l2">580</div><div class="c l2">600</div><div class="c l2">620</div>
+            <div class="h">8–16k</div><div class="c l2">980</div><div class="c l2">990</div><div class="c l1">1,010</div><div class="c l1">1,040</div><div class="c l1">1,080</div>
+            <div class="h">16–32k</div><div class="c l1">1,850</div><div class="c l1">1,870</div><div class="c l1">1,900</div><div class="c l1">1,950</div><div class="c"><span class="kit-dash" title="no Enterprise calls in this shape">—</span></div>
+          </div>
+          <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #1B5128"></i>under 250</span><span><i style="background: rgba(62,154,92,.48)"></i>250 to 500</span><span><i style="background: rgba(62,154,92,.28)"></i>500 to 1,000</span><span><i style="background: rgba(62,154,92,.12)"></i>over 1,000, past the interactive target</span></div>
+        </div>
+        <div>
+          <div style="font-weight: 500; margin-bottom: 8px">Suitability · cheapest approved model that clears every bar</div>
+          <div class="kit-matrix" style="grid-template-columns: 56px repeat(5, minmax(0, 1fr))">
+            <div class="h"></div><div class="h">&lt;128</div><div class="h">128–512</div><div class="h">512–1k</div><div class="h">1–2k</div><div class="h">&gt;2k</div>
+            <div class="h">&lt;1k</div><div class="c l2">Distil</div><div class="c l2">Distil</div><div class="c l4">Core</div><div class="c l4">Core</div><div class="c"><span class="kit-dash" title="fewer than 50 evaluation items in this shape">—</span></div>
+            <div class="h">1–4k</div><div class="c l2">Distil</div><div class="c l4">Core</div><div class="c l4">Core</div><div class="c l4">Core</div><div class="c">none</div>
+            <div class="h">4–8k</div><div class="c l4">Core</div><div class="c l4">Core</div><div class="c l4">Core</div><div class="c l4">Core</div><div class="c">none</div>
+            <div class="h">8–16k</div><div class="c l4">Core</div><div class="c l4">Core</div><div class="c l4">Core</div><div class="c">none</div><div class="c">none</div>
+            <div class="h">16–32k</div><div class="c">none</div><div class="c">none</div><div class="c">none</div><div class="c">none</div><div class="c"><span class="kit-dash" title="fewer than 50 evaluation items in this shape">—</span></div>
+          </div>
+          <div class="kit-legend" style="margin-top: 8px"><span><i style="background: #1B5128"></i>Core 4.2 is the pick</span><span><i style="background: rgba(62,154,92,.28)"></i>Distil 4.2 clears for less</span><span><i style="background: var(--tint)"></i>none: no approved model clears</span></div>
+        </div>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">Where Distil 4.2 clears, the catalogue recommends it for that shape; where none clears, a request in that shape is a gap for the Improve loop, not a routing choice. Cost and latency are measured, so a shape with no Enterprise calls shows a dash; suitability needs at least 50 evaluation items.</div>
+      <div class="kit-source">Quality from Official TL Index run 1180, items bucketed by token shape (cells under 50 items show a dash); cost and TTFT p95 per shape from the gateway serving log, production aggregate, 30 days, at the served medium setting; suitability compares Core 4.2 with the approved Distil 4.2 on the same items and bars; the context curve from the run's long-context slice of 840 items. Volume overlay from the gateway serving log, production aggregate, 30 days; no request content. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface raised">
+      <div class="kit-surface-head">
+        <div><h2>Serving settings by outcome <span class="kit-eng-label">Engineering view</span></h2><div class="sub">Three precision settings, compared by what they change for the use case: accuracy per live pillar against high precision, cost, latency and throughput. Official run 1180 was run at medium, the served setting.</div></div>
+        <a class="kit-btn sm outline" href="M6-Registry-Serving.dc.html">Per version in the registry</a>
+      </div>
+      <table class="kit-small" style="margin-top: 12px">
+        <thead><tr><th>Setting</th><th class="num">Financial data</th><th class="num">Client care</th><th class="num">Compliance</th><th class="num">Safety</th><th class="num">Entities</th><th class="num">Other 11</th><th class="num">Cost per 1M tokens</th><th class="num">Latency, typical task</th><th class="num">TTFT p95</th><th class="num">Tokens per second</th><th>Reading</th></tr></thead>
+        <tbody>
+          <tr><td><b style="font-weight: 500">High precision</b><div class="kit-muted">BF16 weights</div></td><td class="num">reference</td><td class="num">reference</td><td class="num">reference</td><td class="num">reference</td><td class="num">reference</td><td class="num"><span class="kit-dash" title="eleven pillars arrive in Phase 2">—</span></td><td class="num">$0.71</td><td class="num">3.3 s</td><td class="num">560 ms</td><td class="num">54</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Reference · 69% dearer</span></span></td></tr>
+          <tr class="selected"><td><b style="font-weight: 500">Medium precision</b> <span class="kit-chip brand">Recommended</span><div class="kit-muted">FP8 weights · served now</div></td><td class="num">0.00</td><td class="num">−0.01</td><td class="num">0.00</td><td class="num">−0.01</td><td class="num">0.00</td><td class="num"><span class="kit-dash" title="eleven pillars arrive in Phase 2">—</span></td><td class="num">$0.42</td><td class="num">2.1 s</td><td class="num">410 ms</td><td class="num">88</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No change · clears every bar</span></span></td></tr>
+          <tr><td><b style="font-weight: 500">Low precision</b><div class="kit-muted">INT4 weights</div></td><td class="num">−0.03</td><td class="num">−0.03</td><td class="num">−0.04</td><td class="num">−0.06</td><td class="num">−0.02</td><td class="num"><span class="kit-dash" title="eleven pillars arrive in Phase 2">—</span></td><td class="num">$0.26</td><td class="num">1.6 s</td><td class="num">330 ms</td><td class="num">121</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below the Safety and grounding gate</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-note" style="margin-top: 12px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Recommended: medium. It keeps every pillar inside its interval at 41% less cost than high. Models that cannot be self-hosted, such as the two vendor models, are hidden from this comparison; their serving is the vendor's.</span></div>
+      <div class="kit-source">Accuracy deltas from Official TL Index run 1180 and its paired re-runs 1180-H and 1180-L on the same items; cost, TTFT and tokens per second (per stream, p50) from the gateway serving log at each setting during the October canary; latency for a typical task is TTFT p95 plus 150 output tokens at that rate. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Use cases on it</h2><div class="sub">Everything bound to this version by an alias, with the phase from the record and the hosting tier its owner chose at onboarding.</div></div><a class="kit-btn sm outline" href="J1-Projects.dc.html">All 12</a></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 210px 110px"><div><div class="t"><a href="J2-ProjectHome.dc.html">UC-0291 Advisor summary</a></div><div class="s">Retail Advice · Priya N. · via Domain-Advice v2 (built from 4.2)</div></div><span class="kit-chip">Pilot in production</span><span class="kit-small">Dedicated production · 99.9% · TTFT 800 ms</span><span class="kit-interval">0.84 <span class="pm">± 0.03</span></span></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 210px 110px"><div><div class="t"><a href="J2-ProjectHome.dc.html">UC-0218 Service note drafting</a></div><div class="s">Client Services · Priya N. · prod alias</div></div><span class="kit-chip">Production</span><span class="kit-small">Dedicated production · 99.9% · TTFT 600 ms</span><span class="kit-interval">0.80 <span class="pm">± 0.03</span></span></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 210px 110px"><div><div class="t"><a href="J2-ProjectHome.dc.html">UC-0254 Prospectus extraction</a></div><div class="s">Investment Mgmt · Marcus L. · prod alias</div></div><span class="kit-chip">Production</span><span class="kit-small">Dedicated production · 99.9% · TTFT 1.2 s</span><span class="kit-interval">0.87 <span class="pm">± 0.02</span></span></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 210px 110px"><div><div class="t"><a href="J2-ProjectHome.dc.html">UC-0307 Fund document Q&amp;A</a></div><div class="s">Investment Mgmt · Marcus L. · candidate alias</div></div><span class="kit-chip env">Active build</span><span class="kit-small">Shared non-production · 99.5%</span><span class="kit-dash" title="not in production">—</span></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 210px 110px"><div><div class="t"><a href="J2-ProjectHome.dc.html">UC-0311 Policy lookup agent</a></div><div class="s">Compliance · Marcus L. · POC alias</div></div><span class="kit-chip env">POC</span><span class="kit-small">Sandbox · best effort</span><span class="kit-dash" title="not in production">—</span></div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 150px 210px 110px"><div><div class="t kit-muted">7 more in production</div><div class="s">Open the full list for owners, phases and tiers</div></div><span class="kit-chip">Production</span><span class="kit-small">Dedicated production · 99.9%</span><span class="kit-dash" title="see full list">—</span></div>
+      </div>
+      <div class="kit-source">Alias bindings and hosting tiers from the record; service levels are targets, set at onboarding (dedicated production endpoint 99.9% and the use case's own TTFT target; shared non-production 99.5%; sandbox best effort). Production use cases run only on dedicated endpoints. Quality from each use case's latest Official TL Index run. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

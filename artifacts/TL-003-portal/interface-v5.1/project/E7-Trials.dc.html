@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Model trials</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2200px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-current="page" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Evaluation · Model trials · TR-0007 · Client Services · owner Priya N. · opened 30 Oct · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Can Distil 4.2 handle compliance pre-review?</h1></div>
+      <div class="kit-actions"><a class="kit-btn" href="E7-Trials-Decision.dc.html">Review the decision package</a><button class="kit-btn outline" type="button">Start a trial</button><a class="kit-btn outline" href="E2-Index.dc.html">Index</a></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px">
+      <nav class="kit-rail" aria-label="Evaluation"><a href="E1-EvaluationResults.dc.html">Results</a><a href="E2-Index.dc.html">Index</a><a href="E3-Leaderboard.dc.html">Leaderboard</a><a href="E4-Corrections.dc.html">Corrections</a><a href="E6-Requests.dc.html">Requests</a><a href="E7-Trials.dc.html" aria-current="page">Trials</a><a href="E8-Contribute.dc.html">Contribute</a><a href="E9-Pillar.dc.html">Pillars</a></nav>
+      <nav class="kit-subrail" aria-label="Sections"><a href="E7-Trials.dc.html" aria-current="page">Brief</a><a href="E7-Trials-Scenarios.dc.html">Scenarios</a><a href="E7-Trials-Results.dc.html">Run and compare</a><a href="E7-Trials-Decision.dc.html">Decision package</a></nav>
+    </div>
+
+    <div class="kit-steps">
+      <span class="kit-step done"><span class="k">1</span>Intent</span><span class="arrow">→</span>
+      <span class="kit-step done"><span class="k">2</span>Requirements</span><span class="arrow">→</span>
+      <span class="kit-step done"><span class="k">3</span>Skill declaration</span><span class="arrow">→</span>
+      <span class="kit-step done"><span class="k">4</span>Scenario build</span><span class="arrow">→</span>
+      <span class="kit-step done"><span class="k">5</span>Run and compare</span><span class="arrow">→</span>
+      <span class="kit-step now"><span class="k">6</span>Decision package or build request</span>
+    </div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span><a class="kit-open" href="E7-Trials-Results.dc.html" aria-label="Open results">↗</a></div>
+        <div class="kit-tile-title">Requirements met by Distil 4.2</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2<span class="unit">of 5</span></div><div class="kit-tile-cap">Misses catch rate and rule citation; ties the clean-draft bar · Official run 1186</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Not met</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path></svg></span><a class="kit-open" href="E7-Trials-Scenarios.dc.html" aria-label="Open scenarios">↗</a></div>
+        <div class="kit-tile-title">Scenarios</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">6<span class="unit">· 720 items</span></div><div class="kit-tile-cap">Built from Compliance review decisions, Jan 2025 to Sep 2026, anonymised</div></div><div class="kit-bars"><i class="lit" style="height: 60%"></i><i class="lit" style="height: 60%"></i><i class="lit" style="height: 50%"></i><i class="lit" style="height: 50%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 40%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M9 10h6"></path><path d="M9 14h6"></path></svg></span></div>
+        <div class="kit-tile-title">Trial cost</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$226<span class="unit">of $450</span></div><div class="kit-tile-cap">Two Practice iterations and two Official compare runs · charged to Client Services</div></div><div class="kit-track" style="width: 90px"><i style="width: 50%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="E7-Trials-Decision.dc.html" aria-label="Open decision package">↗</a></div>
+        <div class="kit-tile-title">Next step</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Owner decision</div><div class="kit-tile-cap">Package drafted 10:40 by the Evaluation agent · Priya N. decides by 12 Nov</div></div><span class="kit-chip brand">Step 6</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface" style="display: flex; flex-direction: column; gap: 18px">
+      <div class="kit-surface-head"><div><h2>Brief · intent, requirements and skill declaration</h2><div class="sub">Steps 1 to 3, agreed with Compliance on 30 Oct and 2 Nov. A trial answers one question about one task for one team; it never changes the Index.</div></div><span class="kit-chip">Steps 1 to 3 done</span></div>
+
+      <div class="kit-surface raised" style="padding: 16px">
+        <div class="kit-label">1 · Intent · Priya N., 30 Oct</div>
+        <p style="margin-top: 8px; line-height: 1.6">Pre-review outgoing client letters and secure-message replies for compliance issues before a person approves them. Clean drafts go to a fast lane; anything flagged goes to a Compliance reviewer with the rule that applies. The model never sends or approves a letter.</p>
+        <dl class="kit-kv" style="margin-top: 10px">
+          <dt>Volume</dt><dd>About 120 000 drafts a month across Client Services (gateway aggregate; production content stays sealed)</dd>
+          <dt>Who uses it</dt><dd>Client Services writers, and the Compliance communications reviewers who approve flagged drafts</dd>
+          <dt>Out of scope</dt><dd>Marketing material and anything published outside the Enterprise; final approval always stays with a person</dd>
+        </dl>
+      </div>
+
+      <div class="kit-grid2">
+        <div>
+          <div class="kit-label">2 · Requirements · agreed with the Compliance communications lead, 30 Oct</div>
+          <table style="margin-top: 8px">
+            <thead><tr><th>Requirement</th><th class="num">Bar</th><th>Why</th></tr></thead>
+            <tbody>
+              <tr><td>R1 Catch rate on real issues</td><td class="num">≥ 0.95</td><td class="kit-small">A missed issue reaches a client; the lower bound of the interval must clear</td></tr>
+              <tr><td>R2 Clean drafts passed without a flag</td><td class="num">≥ 0.80</td><td class="kit-small">Below this the fast lane saves reviewers no time</td></tr>
+              <tr><td>R3 Rule cited correctly when flagged</td><td class="num">≥ 0.90</td><td class="kit-small">Reviewers act on the cited rule</td></tr>
+              <tr><td>R4 Cost per draft</td><td class="num">≤ $0.002</td><td class="kit-small">About $240 a month at current volume</td></tr>
+              <tr><td>R5 Time to a result, p95</td><td class="num">≤ 3 s</td><td class="kit-small">Runs while the writer re-reads the draft</td></tr>
+              <tr><td>Hosting and service level</td><td class="num"><span class="kit-dash" title="set at onboarding, not measured in a trial">—</span></td><td class="kit-small">Dedicated production endpoint; 99.9% availability and the use case's own time-to-first-token target (targets, set at onboarding)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div class="kit-label">3 · Skill declaration · 2 Nov</div>
+          <table style="margin-top: 8px">
+            <thead><tr><th>Skill the task needs</th><th>Index pillar</th><th class="num">Distil 4.2 on the Index</th></tr></thead>
+            <tbody>
+              <tr><td>Know the communication rules and spot a breach</td><td>4 Compliance and regulatory</td><td class="num"><span class="kit-interval">0.71 <span class="pm">± 0.03</span></span></td></tr>
+              <tr><td>Cite the rule that applies; never invent one</td><td>6 Safety and grounding</td><td class="num"><span class="kit-interval">0.83 <span class="pm">± 0.03</span></span></td></tr>
+              <tr><td>Recognise products, funds and share classes</td><td>7 Entity recognition</td><td class="num"><span class="kit-interval">0.80 <span class="pm">± 0.03</span></span></td></tr>
+              <tr><td>Suggest a fix in plain, respectful language</td><td>3 Client care</td><td class="num"><span class="kit-interval">0.76 <span class="pm">± 0.03</span></span></td></tr>
+              <tr><td>Return flags in the reviewers' format</td><td>14 Instruction and format fidelity</td><td class="num"><span class="kit-dash" title="Phase 2">—</span> <span class="kit-small kit-muted">Phase 2</span></td></tr>
+              <tr><td>Read letter layout and tables</td><td>11 Document understanding</td><td class="num"><span class="kit-dash" title="Phase 2">—</span> <span class="kit-small kit-muted">Phase 2</span></td></tr>
+            </tbody>
+          </table>
+          <div class="kit-small kit-muted" style="margin-top: 8px">What the Index already says: Distil 4.2 is weakest exactly where this task leans hardest (4 Compliance and regulatory). The trial tests whether a narrow pre-review is easier than the pillar as a whole. If adopted, the regression gate covers 3, 4 and 6 plus the workflow's own pillar 7.</div>
+        </div>
+      </div>
+      <div class="kit-source">Source: trial TR-0007 record (intent and requirements signed by Priya N. and the Compliance communications lead on 30 Oct; skill declaration 2 Nov) · Index scores from Official TL Index run 1179 (Distil 4.2, 31 Oct) · volume is a gateway aggregate · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Other trials</h2><div class="sub">Every trial ends in a decision package or a build request. Closed trials stay as evidence for later ones.</div></div><div class="kit-seg"><button type="button" aria-pressed="true">All</button><button type="button" aria-pressed="false">Open</button><button type="button" aria-pressed="false">Closed</button></div></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: 90px minmax(0, 1fr) 220px 150px">
+          <span class="kit-chip outline">TR-0008</span>
+          <div><div class="t">Is Core 4.2 enough for statement explainers?</div><div class="s">UC-0263 Statement explainer · Retail Advice · Priya N. · opened 3 Nov · Practice run 1196 is scoring now</div></div>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Step 4 · scenario build</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="E7-Trials.dc.html">Open</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 90px minmax(0, 1fr) 220px 150px">
+          <span class="kit-chip outline">TR-0006</span>
+          <div><div class="t">Can Core 4.2 replace the frontier API for fund document Q&amp;A?</div><div class="s">UC-0307 · Investment Mgmt · decision package accepted 28 Oct: Core 4.2 for the build, about $0.016 less per task</div></div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Decided</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="E7-Trials-Decision.dc.html">Package</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 90px minmax(0, 1fr) 220px 150px">
+          <span class="kit-chip outline">TR-0005</span>
+          <div><div class="t">Can Distil 4.2 classify service tickets?</div><div class="s">UC-0270 Ticket classification · Institutional Ops · Marcus L. · build request BR-0012 accepted 20 Oct: a Distil 4.2 adapter, Train as Decide · re-trial due 12 Nov</div></div>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Build request</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="T3-RunHistory.dc.html">Training run</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 90px minmax(0, 1fr) 220px 150px">
+          <span class="kit-chip outline">TR-0004</span>
+          <div><div class="t">Does Domain-Advice v2 keep a client-care tone in advisor follow-ups?</div><div class="s">UC-0291 Advisor summary · Retail Advice · decision package accepted 14 Oct: yes, with a tone line added to the record</div></div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Decided</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="E7-Trials-Decision.dc.html">Package</a></div>
+        </div>
+      </div>
+      <div class="kit-source">Source: trials register (TR-0004 to TR-0008) · outcomes from each trial's decision log · as of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2200}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

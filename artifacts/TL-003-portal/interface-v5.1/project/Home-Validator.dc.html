@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Home · Validator</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2200px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-current="page" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Thursday, 5 November · 11:58 ET · Validator · model risk</div><h1 style="margin-top: 6px">Good morning, Elena</h1><div class="kit-small kit-muted" style="margin-top: 6px">SLAs: validation 5 business days, approvals 1 to 2 business days, as set in each record</div></div>
+      <div class="kit-actions"><a class="kit-btn" href="V2-Validation.dc.html">Validation queue</a><a class="kit-btn outline" href="V1-Approval.dc.html">Approvals</a><a class="kit-btn outline" href="V3-GovernancePortfolio.dc.html">Governance portfolio</a></div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
+      <span class="kit-label">Preview as</span>
+      <nav class="kit-rail" aria-label="Preview as">
+        <a href="Main.dc.html">Head of ThinkLatent</a>
+        <a href="Home-FoundationDev.dc.html">Foundation developer</a>
+        <a href="Home-AppTeam.dc.html">Application team</a>
+        <a href="Home-Validator.dc.html" aria-current="page">Validator</a>
+        <a href="Home-Everyone.dc.html">Everyone</a>
+      </nav>
+      <span class="kit-small kit-muted">The home each role gets. Previewing does not change your own access.</span>
+    </div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span><a class="kit-open" href="V2-Validation.dc.html" aria-label="Open validation queue">↗</a></div>
+        <div class="kit-tile-title">Validation queue</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">4<span class="unit">oldest 3 d</span></div><div class="kit-tile-cap">1 with evidence below the bar · 1 ready to validate · 1 done this week</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i style="height: 100%"></i></div></div>
+      </section>
+
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"></path><path d="M14 3v5h5"></path><path d="m9 15 2 2 4-4"></path></svg></span><a class="kit-open" href="V3-GovernancePortfolio.dc.html" aria-label="Open attestations due">↗</a></div>
+        <div class="kit-tile-title">Attestations due</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3<span class="unit">next 10 Nov</span></div><div class="kit-tile-cap">Production monitoring · judge calibration · Q4 validation</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i style="height: 60%"></i><i style="height: 30%"></i></div></div>
+      </section>
+
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg></span><a class="kit-open" href="V3-GovernancePortfolio.dc.html" aria-label="Open findings">↗</a></div>
+        <div class="kit-tile-title">Open findings</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">4<span class="unit">2 critical</span></div><div class="kit-tile-cap">F-0425 Claims triage · F-0412 Advisor summary · 1 Major · 1 Minor, yours</div></div><span class="kit-chip decision">2 critical</span></div>
+      </section>
+
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span><a class="kit-open" href="V1-Approval.dc.html" aria-label="Open approvals with an SLA">↗</a></div>
+        <div class="kit-tile-title">Approvals with an SLA</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2<span class="unit">1 due today</span></div><div class="kit-tile-cap">Cohort extension due 17:00, 5 h left · exception request due Fri 12:00</div></div><span class="kit-chip decision">5 h left</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Validation queue <span class="kit-chip">4 open</span></h2><div class="sub">Evidence waiting for your validation, oldest first. A use case moves on only when the lower bound of its interval clears every gate pillar: Safety and grounding, Compliance and regulatory and Client care, plus the workflow's own pillars.</div></div>
+        <a class="kit-btn sm outline" href="V2-Validation.dc.html">Open the full queue</a>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Item</th><th>Evidence</th><th>Gate pillars</th><th>Requested</th><th>Due</th><th>State</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Re-validate Claims adapter v2<div class="kit-small kit-muted">UC-0142 Claims triage · Production</div></td>
+            <td>Official TL Index run 1184<div><span class="kit-interval">0.76 <span class="pm">± 0.04</span></span></div></td>
+            <td>4 of 5 clear<div class="kit-small kit-muted">Entity recognition below its bar</div></td>
+            <td>Governance agent<div class="kit-small kit-muted">3 Nov · opened automatically</div></td>
+            <td>10 Nov</td>
+            <td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Evidence below the bar</span></span></td>
+            <td class="num"><a class="kit-btn sm outline" href="V2-Validation.dc.html">Open</a></td>
+          </tr>
+          <tr>
+            <td>Fund document Q&amp;A · Active build → Pilot<div class="kit-small kit-muted">UC-0307 · Investment Mgmt <span class="kit-chip env">Non-production</span></div></td>
+            <td>Official TL Index run 1182<div><span class="kit-interval">0.79 <span class="pm">± 0.03</span></span></div></td>
+            <td>5 of 5 clear</td>
+            <td>Priya N.<div class="kit-small kit-muted">3 Nov</div></td>
+            <td>10 Nov</td>
+            <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready to validate</span></span></td>
+            <td class="num"><a class="kit-btn sm" href="V2-Validation.dc.html">Validate</a></td>
+          </tr>
+          <tr>
+            <td>TLM4 Core 4.2 as base-model record<div class="kit-small kit-muted">6 use cases leaving Core 4.1</div></td>
+            <td>Official TL Index run 1180<div><span class="kit-interval">0.81 <span class="pm">± 0.03</span></span></div></td>
+            <td>3 of 3 clear<div class="kit-small kit-muted">own pillars checked per use case</div></td>
+            <td>Marcus L.<div class="kit-small kit-muted">2 Nov</div></td>
+            <td>9 Nov</td>
+            <td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>In review · 4 of 6</span></span></td>
+            <td class="num"><a class="kit-btn sm outline" href="V2-Validation.dc.html">Continue</a></td>
+          </tr>
+          <tr>
+            <td>Policy lookup agent · POC → Active build<div class="kit-small kit-muted">UC-0311 · Compliance <span class="kit-chip env">POC</span></div></td>
+            <td>Practice runs only<div class="kit-small kit-muted">never citable</div></td>
+            <td><span class="kit-dash" title="no Official run yet; one is scheduled for 9 Nov">—</span></td>
+            <td>Marcus L.<div class="kit-small kit-muted">4 Nov</div></td>
+            <td>13 Nov</td>
+            <td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Needs an Official run</span></span></td>
+            <td class="num"><a class="kit-btn sm outline" href="V2-Validation.dc.html">Open</a></td>
+          </tr>
+          <tr>
+            <td>Index edition 2026.11 · method and data<div class="kit-small kit-muted">TL Index · 7 models</div></td>
+            <td>Index method v3<div class="kit-small kit-muted">rank stability 0.99</div></td>
+            <td>5 live · 11 in Phase 2</td>
+            <td>ThinkLatent core team<div class="kit-small kit-muted">2 Nov</div></td>
+            <td>6 Nov</td>
+            <td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done 4 Nov · with Head of ThinkLatent</span></span></td>
+            <td class="num"><a class="kit-btn sm outline" href="E2-Index.dc.html">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Source: validation requests and due dates from the record; scores from the Official TL Index runs named per row; gate pillars from each workflow's record; Practice runs are listed but never count as evidence. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Attestations, findings and approvals <span class="kit-chip">9</span></h2><div class="sub">What is due from you, the findings you track, and approvals that wait on your concurrence, each with its SLA.</div></div>
+        <div class="kit-seg"><button type="button" aria-pressed="true">All</button><button type="button" aria-pressed="false">Attestations</button><button type="button" aria-pressed="false">Findings</button><button type="button" aria-pressed="false">Approvals</button></div>
+      </div>
+      <div class="kit-rows" style="margin-top: 14px">
+        <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr) 190px 200px">
+          <span class="kit-chip outline">Attestation</span>
+          <div><div class="t">Monitoring thresholds for Production · UC-0291 Advisor summary</div><div class="s">Co-signed with Jithin · five signals from the record · needed before the move on 12 Nov</div></div>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Due 10 Nov</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="J9-Record.dc.html">Sign</a><a class="kit-btn sm outline" href="J9-Record.dc.html">Open record</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr) 190px 200px">
+          <span class="kit-chip outline">Attestation</span>
+          <div><div class="t">Judge calibration · tone judge j-2026.10</div><div class="s">Recalibrate against 120 expert-graded answers · linked to finding F-0420</div></div>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Due 21 Nov</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="E1-EvaluationResults.dc.html">Open</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr) 190px 200px">
+          <span class="kit-chip outline">Attestation</span>
+          <div><div class="t">Q4 validation attestation</div><div class="s">6 models in production · 7 production use cases · validation status from the record</div></div>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Due 30 Nov</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="V3-GovernancePortfolio.dc.html">Open</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr) 190px 200px">
+          <span class="kit-chip">Finding</span>
+          <div><div class="t">F-0425 · UC-0142 Claims triage below its bar for 3 days</div><div class="s">Owner Marcus L. · raised 3 Nov by the Evaluation agent · root cause: 58% October data refresh, 27% adapter drift, 15% serving latency</div></div>
+          <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical · due 9 Nov</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="Main.dc.html">Why?</a><a class="kit-btn sm outline" href="V3-GovernancePortfolio.dc.html">Open</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr) 190px 200px">
+          <span class="kit-chip">Finding</span>
+          <div><div class="t">F-0412 · UC-0291 pass^3 below bar on long threads</div><div class="s">Owner Priya N. · raised 28 Oct by the Evaluation agent · blocks the Production approval</div></div>
+          <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical · due 12 Nov</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="J9-Record.dc.html">Open</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr) 190px 200px">
+          <span class="kit-chip">Finding</span>
+          <div><div class="t">F-0418 · UC-0291 length finishes above 3%</div><div class="s">Owner Marcus L. · raised 3 Nov by the Triage agent</div></div>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Major · due 14 Nov</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="J9-Record.dc.html">Open</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr) 190px 200px">
+          <span class="kit-chip">Finding</span>
+          <div><div class="t">F-0420 · UC-0291 tone judge below calibration floor</div><div class="s">Yours · raised 4 Nov · closes with the judge calibration attestation</div></div>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Minor · due 21 Nov</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="J9-Record.dc.html">Open</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr) 190px 200px">
+          <span class="kit-chip outline">Approval</span>
+          <div><div class="t">Cohort extension · UC-0291 · 212 → 400 advisors</div><div class="s">Validator concurrence · SLA 2 business days from 3 Nov · then Jithin, Head of ThinkLatent</div></div>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>5 h left · due 17:00</span></span>
+          <div class="end"><button class="kit-btn sm" type="button">Concur</button><a class="kit-btn sm outline" href="V1-Approval.dc.html">Open</a></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 110px minmax(0, 1fr) 190px 200px">
+          <span class="kit-chip outline">Approval</span>
+          <div><div class="t">Exception · UC-0142 keeps serving below its bar until adapter v3, 7 days</div><div class="s">Requested by Marcus L. today 09:40 · SLA 1 business day · Risk informed · ends on its own after 7 days</div></div>
+          <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Due Fri 12:00</span></span>
+          <div class="end"><a class="kit-btn sm outline" href="V1-Approval.dc.html">Open</a></div>
+        </div>
+      </div>
+      <div class="kit-source">Source: attestations, findings and approvals with their SLAs from the record; time left counts business hours from the request. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2200}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

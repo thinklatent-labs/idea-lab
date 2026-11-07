@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Leaderboard · Preference arena</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2000px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-current="page" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Evaluation · Leaderboard · Preference arena · Index edition 2026-11 · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">On Client care, people rate the frontier API and Domain-Advice v2 as a tie</h1></div>
+      <div class="kit-actions"><button class="kit-btn" type="button">Start voting</button><button class="kit-btn outline" type="button">Filter</button></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <nav class="kit-rail" aria-label="Evaluation"><a href="E1-EvaluationResults.dc.html">Results</a><a href="E2-Index.dc.html">Index</a><a href="E3-Leaderboard.dc.html" aria-current="page">Leaderboard</a><a href="E4-Corrections.dc.html">Corrections</a><a href="E6-Requests.dc.html">Requests and live runs</a><a href="E7-Trials.dc.html">Model trials</a><a href="E8-Contribute.dc.html">Contribute a data set</a><a href="E9-Pillar.dc.html">Pillars</a></nav>
+      <nav class="kit-subrail" aria-label="Sections"><a href="E3-Leaderboard.dc.html">Ranked</a><a href="E3-Leaderboard-Compare.dc.html">Compare two to four</a><a href="E3-Leaderboard-Dimensions.dc.html">Dimensions, accuracy and hallucination</a><a href="E3-Leaderboard-Arena.dc.html" aria-current="page">Preference arena</a></nav>
+    </div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="7" height="16" rx="2"></rect><rect x="14" y="4" width="7" height="16" rx="2"></rect></svg></span></div>
+        <div class="kit-tile-title">Votes this edition</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3 470</div><div class="kit-tile-cap">Blind pairwise votes since 3 Oct · source: arena log</div></div><div class="kit-bars"><i style="height: 40%"></i><i style="height: 55%"></i><i style="height: 70%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 85%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><path d="M16 11a3 3 0 1 0 0-6"></path><path d="M21 20c0-2.6-1.6-4.8-4-5.6"></path></svg></span></div>
+        <div class="kit-tile-title">Raters</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">214</div><div class="kit-tile-cap">Retail Advice advisors and Client care reviewers · no rater sees model names</div></div><span class="kit-chip outline">Blind</span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span></div>
+        <div class="kit-tile-title">Arena against the judge</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.96</div><div class="kit-tile-cap">Spearman between arena ratings and judge scores on Client care · same order, different leniency</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Agree on order</span></span></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span><a class="kit-open" href="E9-Pillar.dc.html" aria-label="Open the Client care pillar">↗</a></div>
+        <div class="kit-tile-title">Subjective pillars in the arena</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">1 live</div><div class="kit-tile-cap">3 Client care live · 15 Summarization in Phase 2 · 18 UI and front-end generation with the pillar council</div></div><span class="kit-chip brand">Client care</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Preference arena · 3 Client care</h2><div class="sub">Enterprise reviewers compare two anonymous answers to the same held-out client case and pick the better one. Ratings come from a Bradley–Terry fit with 95% bootstrap intervals and style control on. Human preference is shown beside the judge score, never blended into it.</div></div>
+        <div class="kit-seg"><button type="button" aria-pressed="true">3 Client care</button><button type="button" aria-pressed="false" aria-disabled="true" title="Phase 2">15 Summarization · Phase 2</button><button type="button" aria-pressed="false" aria-disabled="true" title="Candidate pillar with the pillar council">18 UI and front-end generation · with the pillar council</button></div>
+      </div>
+      <table style="margin-top: 14px">
+        <thead><tr><th>Rank</th><th>Model</th><th class="num">Preference rating</th><th class="num">Win rate against the field</th><th class="num">Votes</th><th class="num">Judge score · Client care</th></tr></thead>
+        <tbody>
+          <tr><td><span class="kit-chip">1–2 tie</span></td><td>Frontier API (aggregate)</td><td class="num"><span class="kit-interval">1 086 <span class="pm">± 21</span></span></td><td class="num">61%</td><td class="num">1 240</td><td class="num"><span class="kit-interval">0.90 <span class="pm">± 0.02</span></span></td></tr>
+          <tr class="selected"><td><span class="kit-chip">1–2 tie</span></td><td>TLM4 Domain-Advice v2</td><td class="num"><span class="kit-interval">1 071 <span class="pm">± 19</span></span></td><td class="num">58%</td><td class="num">1 310</td><td class="num"><span class="kit-interval">0.87 <span class="pm">± 0.03</span></span></td></tr>
+          <tr><td><span class="kit-chip">3–4 tie</span></td><td>TLM4 Core 4.2</td><td class="num"><span class="kit-interval">1 002 <span class="pm">± 18</span></span></td><td class="num">49%</td><td class="num">1 180</td><td class="num"><span class="kit-interval">0.82 <span class="pm">± 0.03</span></span></td></tr>
+          <tr><td><span class="kit-chip">3–4 tie</span></td><td>Open-source 70B</td><td class="num"><span class="kit-interval">991 <span class="pm">± 20</span></span></td><td class="num">47%</td><td class="num">1 020</td><td class="num"><span class="kit-interval">0.81 <span class="pm">± 0.03</span></span></td></tr>
+          <tr><td><span class="kit-chip">5</span></td><td>TLM4 Core 4.1</td><td class="num"><span class="kit-interval">955 <span class="pm">± 14</span></span></td><td class="num">43%</td><td class="num">890</td><td class="num"><span class="kit-interval">0.78 <span class="pm">± 0.03</span></span></td></tr>
+          <tr><td><span class="kit-chip">6</span></td><td>TLM4 Distil 4.2</td><td class="num"><span class="kit-interval">912 <span class="pm">± 22</span></span></td><td class="num">37%</td><td class="num">760</td><td class="num"><span class="kit-interval">0.74 <span class="pm">± 0.03</span></span></td></tr>
+          <tr><td><span class="kit-chip">7</span></td><td>TLM3</td><td class="num"><span class="kit-interval">855 <span class="pm">± 26</span></span></td><td class="num">30%</td><td class="num">540</td><td class="num"><span class="kit-interval">0.68 <span class="pm">± 0.04</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-note" style="margin-top: 12px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>People and the judge agree on the order. The judge is more lenient on tone (bias +0.05, finding F-0421), so until it is recalibrated the arena is the check on Client care. Summarization and UI and front-end generation join the arena when they go live.</div></div>
+      <div class="kit-source">Source: arena log, 3 470 blind votes from 214 raters, 3 Oct to 5 Nov · held-out synthetic client cases only · judge scores from Official TL Index runs in Index edition 2026-11 · as of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Vote · one blind pair</h2><div class="sub">Models stay hidden until you vote. Cases are held-out and synthetic; production content never appears here.</div></div><span class="kit-chip">Pair 4 of 20 today</span></div>
+      <div class="kit-surface raised" style="padding: 14px; margin-top: 12px"><div class="kit-label">Client case · summary</div><p style="margin-top: 6px">A client asks why their quarterly statement shows a lower balance after a fund paid a distribution, and whether they lost money.</p></div>
+      <div class="kit-grid2" style="margin-top: 12px">
+        <div class="kit-surface raised" style="padding: 14px"><div class="kit-label">Answer A · summary</div><p style="margin-top: 6px; line-height: 1.5">Explains that the price fell by the distribution amount, that the payment was reinvested as new shares and that the total value is unchanged; offers to walk through the statement line by line.</p></div>
+        <div class="kit-surface raised" style="padding: 14px"><div class="kit-label">Answer B · summary</div><p style="margin-top: 6px; line-height: 1.5">States that distributions lower the share price and that this is normal; does not say whether the payment was reinvested or paid as cash, and ends with a general market comment.</p></div>
+      </div>
+      <div class="kit-actions" style="margin-top: 14px"><button class="kit-btn" type="button">A is better</button><button class="kit-btn outline" type="button">B is better</button><button class="kit-btn outline" type="button">Tie</button><button class="kit-btn outline" type="button">Both fall short</button><button class="kit-btn outline" type="button">Skip</button></div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">Each vote counts once per pair and is never shown with your name. Up to 20 pairs a day.</div>
+      <div class="kit-source">Source: arena pair queue for 3 Client care · cases from cc-advisor-notes v7 (held out) · as of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

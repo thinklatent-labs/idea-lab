@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Catalogue card: TLM4 Core 27B release 4.2</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1B1F24;background:linear-gradient(160deg,#F7F8FA 0%,#EEF2F1 55%,#E9EEF3 100%)}
+a{color:#0B5E4C}a:hover{color:#08463A}
+.card{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);box-shadow:0 1px 2px rgba(27,31,36,0.04),0 8px 24px rgba(27,31,36,0.05);border-radius:14px;padding:22px 24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.tile{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.tile .n{font-size:28px;font-weight:600;letter-spacing:-0.02em}.tile .l{font-size:13px;color:#57606A}
+.h1{margin:0;font-size:28px;font-weight:600;letter-spacing:-0.01em}.h2{margin:0;font-size:16px;font-weight:600}.h3{margin:0;font-size:14px;font-weight:600}
+.muted{color:#57606A;font-size:13px}.ph{color:#8C959F}.small{font-size:12px;color:#57606A}
+.btn{min-height:40px;padding:0 14px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);color:#1B1F24;font:500 13px Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn.primary{background:#0B5E4C;border-color:#0B5E4C;color:#fff}.btn.danger{color:#8A2A1B}.btn[disabled]{background:#EEF1F4;color:#8C959F;border-color:#E1E4E8;cursor:default}
+.pill{padding:2px 9px;border-radius:999px;font-size:11px;font-weight:600;display:inline-block}
+.pill.good{background:#E6F2EE;color:#0B5E4C}.pill.warn{background:#FBF1DD;color:#6B4A0B}.pill.crit{background:#FBE9E7;color:#8A2A1B}.pill.neutral{background:#EEF1F4;color:#3C4651}.pill.info{background:#E3ECF7;color:#1F4E79}
+.row{display:grid;gap:10px;align-items:center;padding:10px 12px;border:1px solid #E1E4E8;border-radius:10px;background:rgba(255,255,255,0.5);font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:#57606A;font-size:12px;font-weight:500;padding:8px;border-bottom:1px solid #E1E4E8}td{padding:10px 8px;border-bottom:1px solid #EEF1F4;vertical-align:top}tr:last-child td{border-bottom:0}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.bar{height:8px;border-radius:4px;background:#EEF1F4;overflow:hidden}.bar>div{height:8px;border-radius:4px;background:#0B5E4C}
+.env{padding:3px 9px;border-radius:6px;background:#EEF1F4;color:#3C4651;font-size:11px;font-weight:600;letter-spacing:0.02em}
+.src{font-size:11px;color:#8C959F}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;font-family:Inter,system-ui,sans-serif;color:#1B1F24">
+<nav aria-label="Areas" style="position:sticky;top:0;align-self:flex-start;flex:0 0 76px;height:100vh;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;background:rgba(255,255,255,0.55);backdrop-filter:blur(16px);border-right:1px solid rgba(255,255,255,0.7)"><a href="Catalogue.dc.html" title="ThinkLatent Portal" style="width:40px;height:40px;border-radius:12px;background:{{accent}};display:block;margin-bottom:6px"></a><a href="Home.dc.html" title="Home" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">H</span>Home</a><a href="Catalogue.dc.html" title="Models" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#0B5E4C;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:#0B5E4C;color:#fff;border:1px solid #0B5E4C">M</span>Models</a><a href="Agents.dc.html" title="Agents" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">A</span>Agents</a><a href="Playground.dc.html" title="Playground" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">P</span>Playground</a><a href="Evaluation.dc.html" title="Evaluation" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">E</span>Evaluation</a><a href="Project.dc.html" title="Projects" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">J</span>Projects</a><a href="DataReview.dc.html" title="Data" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">D</span>Data</a><a href="Training.dc.html" title="Training" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">T</span>Training</a><a href="Operations.dc.html" title="Operations" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">O</span>Operations</a><a href="Help.dc.html" title="Help" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">?</span>Help</a></nav>
+<div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
+<header style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;min-height:56px;padding:0 32px;background:rgba(255,255,255,0.5);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.7)"><nav aria-label="Breadcrumb" style="font-size:14px;flex:1 1 320px;min-width:0"><a href="Catalogue.dc.html" style="text-decoration:none;color:#57606A">Models</a><span aria-hidden="true" style="color:#8C959F"> / </span><a href="Model.dc.html" style="text-decoration:none;color:#57606A">TLM4</a><span aria-hidden="true" style="color:#8C959F"> / </span><span style="color:#1B1F24;font-weight:500">Card · Core 27B · 4.2</span></nav><label for="q" style="position:absolute;left:-9999px">Search</label><input id="q" placeholder="Search models, agents, projects, people, answers" style="min-height:40px;width:320px;padding:0 12px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);font:400 13px Inter,system-ui,sans-serif"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><button class="btn">Export for the site</button><a href="Release.dc.html" class="btn">Release bundle</a><a href="Playground.dc.html" class="btn primary">Try it</a></div></header>
+<main style="flex:1 1 auto;width:100%;max-width:1180px;margin:0 auto;padding:28px 32px 56px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px">
+
+<section style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start">
+  <div style="display:flex;flex-direction:column;gap:8px;max-width:760px"><div style="display:flex;align-items:center;gap:10px"><h1 class="h1">TLM4 Core 27B · release 4.2</h1><span class="pill good">current</span><span class="pill good">approved for use</span></div><p class="muted" style="margin:0">The catalogue card is the one page a reader needs to decide whether to use this model and how to get access. Sections follow the model-card convention; every field has an owner and a last-reviewed date.</p></div>
+  <span class="src">last reviewed [date] by [name] · source: registry, TL Index Official run [id], record</span>
+</section>
+<section class="grid4" aria-label="Headline">
+  <div class="tile"><span class="l">Status</span><span class="n" style="font-size:22px">Current</span><span class="l">GA [date] · next 4.3 in validation</span></div>
+  <div class="tile"><span class="l">Index composite</span><span class="n ph">[—]</span><span class="l">± [—] · clears [—] of [n] bars</span></div>
+  <div class="tile"><span class="l">In production</span><span class="n">5 use cases</span><span class="l">[—] requests a day</span></div>
+  <div class="tile"><span class="l">Access</span><span class="n" style="font-size:22px">Sandbox now</span><span class="l">production through a project record</span></div>
+</section>
+<section class="grid2">
+  <div class="card"><h2 class="h2">Model details</h2>
+    <table><tbody>
+    <tr><td class="muted" style="width:40%">Developed by</td><td>ThinkLatent foundation team · owner [name]</td></tr>
+    <tr><td class="muted">Base and method</td><td>Gemma-based; width-pruned on curated Enterprise data; self-healing SFT; distilled from the 31B</td></tr>
+    <tr><td class="muted">Size and context</td><td>27B parameters · context [—] tokens</td></tr>
+    <tr><td class="muted">Languages</td><td>English; others not evaluated</td></tr>
+    <tr><td class="muted">Modalities</td><td>text in, text out (speech via TLM1 upstream)</td></tr>
+    <tr><td class="muted">Licence and boundary</td><td>Enterprise internal only; weights never leave the boundary</td></tr>
+    <tr><td class="muted">Model inventory id</td><td class="mono">[MRM-id]</td></tr>
+    </tbody></table>
+  </div>
+  <div class="card"><h2 class="h2">Intended use</h2>
+    <div class="row" style="grid-template-columns:auto 1fr"><span class="pill good">fit</span><span>Summarisation, extraction and drafting over Enterprise text; call summaries; compliance pre-checks with the Judge</span></div>
+    <div class="row" style="grid-template-columns:auto 1fr"><span class="pill warn">with care</span><span>Numeric reconciliation (use the deterministic layer); long multi-speaker transcripts over 16k tokens</span></div>
+    <div class="row" style="grid-template-columns:auto 1fr"><span class="pill crit">out of scope</span><span>Advice to clients without human review; non-English input; anything outside an approved use-case record</span></div>
+    <span class="small">Sources: evaluation results, findings on records, the red-team suite.</span>
+  </div>
+</section>
+<section class="grid2">
+  <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">Evaluation summary</h2><a href="Evaluation.dc.html" class="small" style="font-weight:500">Full results</a></div>
+    <table><thead><tr><th>Pillar</th><th>Bar</th><th>Score ± interval</th><th>vs 4.1</th></tr></thead><tbody>
+    <tr><td>Advice and planning</td><td class="ph">[—]</td><td class="ph">[—] ± [—]</td><td style="color:#0B5E4C;font-weight:500">▲ [—]</td></tr>
+    <tr><td>Compliance and policy</td><td class="ph">[—]</td><td class="ph">[—] ± [—]</td><td class="muted">no change</td></tr>
+    <tr><td>Client communication</td><td class="ph">[—]</td><td class="ph">[—] ± [—]</td><td style="color:#0B5E4C;font-weight:500">▲ [—]</td></tr>
+    <tr><td>Numbers and reconciliation</td><td class="ph">[—]</td><td class="ph">[—] ± [—]</td><td style="color:#8A2A1B;font-weight:500">below bar</td></tr>
+    <tr><td>Safety and refusal</td><td class="ph">[—]</td><td class="ph">[—] ± [—]</td><td class="muted">no change</td></tr>
+    </tbody></table>
+    <span class="small">Official run [id] · [n] items · judge calibration κ [—] · method and exclusions on the results page.</span>
+  </div>
+  <div class="card"><h2 class="h2">Limits, risks and known issues</h2>
+    <ul style="margin:0;padding-left:18px;font-size:13px;line-height:1.7;color:#3C4651"><li>Truncates calls over 16k tokens; finish reason "length" rises with input length (finding [id], open)</li><li>Amounts transcribed from speech can be wrong; pair with the reconciliation layer</li><li>Judge calibration for the compliance pillar is stale (finding [id])</li><li>Not evaluated on non-English calls</li></ul>
+    <div class="small">Mitigations live on each use case's record as thresholds and findings.</div>
+  </div>
+</section>
+<section class="grid3">
+  <div class="card"><h2 class="h2">How to get access</h2><ol style="margin:0;padding-left:20px;font-size:13px;line-height:1.7;color:#3C4651"><li>Try it in the playground, no project needed</li><li>Start a project: the onboarding agent creates the record, a sandbox key and the Relay snippet</li><li>Production comes with the record's approval and a production key</li></ol><a href="Project.dc.html" class="btn primary" style="align-self:flex-start">Start a project</a></div>
+  <div class="card"><h2 class="h2">Training data (what can be said)</h2><span class="muted">Curated Enterprise text with PII and compliance checks; sources, checks and set versions are listed in the Data area for members; content is never shown.</span><a href="DataInsight.dc.html" class="small" style="font-weight:500">Data-set versions and lineage</a></div>
+  <div class="card"><h2 class="h2">Lineage and health</h2><span class="muted">31B base → Core 27B 4.2 → Distil (Gemma, Phi) → Domain editions → specialists. Regression suite passing [date]; uptime [—]%.</span><a href="Lineage.dc.html" class="small" style="font-weight:500">Interactive lineage view</a></div>
+</section>
+<footer class="small" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>The ThinkLatent site shows only the outcome summary from this card; this page is the source.</span><a href="Model.dc.html" style="font-weight:500">Back to TLM4</a></footer>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"$preview":{"width":1280,"height":1760}}'>
+class Component extends DCLogic {
+  renderVals() { return { accent: this.props.accent ?? '#0B5E4C' }; }
+}
+</script>
+</body>
+</html>

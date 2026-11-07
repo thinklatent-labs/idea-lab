@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Use case overview · Outcomes and value</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1900px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">UC-0291 · Advisor summary · Retail Advice · Pilot in production · prod alias → TLM4 Domain-Advice v2</div><h1 style="margin-top: 6px">Outcomes and value</h1></div>
+      <div class="kit-actions" style="align-items: center"><span class="kit-chip outline" title="Outcome measures use rolling 28-day windows">Rolling 28 days to 4 Nov</span><button class="kit-switch on" type="button" aria-pressed="true" style="border: 0; background: transparent; padding: 0 4px; height: 36px"><i aria-hidden="true"></i>Compare to the 28 days to 28 Oct</button><a class="kit-btn outline" href="J9-Record.dc.html">Outcome definitions in the record</a></div>
+    </div>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+      <nav class="kit-rail" aria-label="Use case"><a href="J3-Overview.dc.html" aria-current="page">Overview</a><a href="J4-Traffic.dc.html">Traffic</a><a href="J5-Capacity.dc.html">Capacity</a><a href="J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a><a href="J11-Traces.dc.html" title="Engineering view">Traces</a></nav>
+      <nav class="kit-rail" aria-label="Use case resources"><a href="W1-Prompts.dc.html">Prompts</a><a href="W2-Datasets.dc.html">Data sets</a><a href="W3-Alerts.dc.html">Alerts</a></nav>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="J3-Overview.dc.html">Summary</a><a href="J3-Overview-Adoption.dc.html">Adoption</a><a href="J3-Overview-Outcomes.dc.html" aria-current="page">Outcomes and value</a><a href="J3-Overview-Tasks.dc.html">Tasks</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"></path><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"></path></svg></span><a class="kit-open" href="J9-Record.dc.html" aria-label="Open outcome definitions">↗</a></div>
+        <div class="kit-tile-title">Outcome events joined</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">81.4k<span class="unit">interactions</span></div><div class="kit-tile-cap">Client calls and meetings in the advice CRM matched to a summary · 96 % matched · ↑ 9 %</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="J3-Overview-Adoption.dc.html" aria-label="Open engaged and passive advisors">↗</a></div>
+        <div class="kit-tile-title">Specialist uplift</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value"><span class="kit-interval">+27 <span class="pm" style="font-size: 20px">± 6</span></span><span class="unit">pt</span></div><div class="kit-tile-cap">Notes filed within 24 h, engaged against passive advisors · observational</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="J7-Quality.dc.html" aria-label="Open acceptance">↗</a></div>
+        <div class="kit-tile-title">Automation rate</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value"><span class="kit-interval">58 % <span class="pm" style="font-size: 20px">± 3</span></span></div><div class="kit-tile-cap">Notes filed from the summary with under 10 % of the text edited · ↑ 4 pt</div></div><div class="kit-bars"><i style="height: 44%"></i><i style="height: 48%"></i><i style="height: 51%"></i><i style="height: 54%"></i><i class="lit" style="height: 58%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M9 10h6"></path><path d="M9 14h6"></path></svg></span><a class="kit-open" href="J5-Capacity-Nodes.dc.html" aria-label="Open serving cost">↗</a></div>
+        <div class="kit-tile-title">Cost avoided · Finance method</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$1,800<span class="unit">28 days</span></div><div class="kit-tile-cap">Vendor-equivalent $6,920 less ThinkLatent cost $5,120 · method v2 · ↑ $310</div></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Specialist uplift: engaged against passive advisors</h2><div class="sub">The same outcome events, compared between advisors who use Advisor summary most days and advisors in the same pilot who rarely do. Outcome events come from the business systems, not from the model.</div></div>
+        <div class="kit-legend"><span>Engaged: habitual and power, 138 advisors</span><span>Passive: novice and not active, 74 advisors</span></div>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Outcome event</th><th class="num">Engaged</th><th class="num">Passive</th><th class="num">Uplift</th><th class="num">Previous window</th><th>Judgement</th></tr></thead>
+        <tbody>
+          <tr><td>Notes filed within 24 h of the interaction<div class="kit-small kit-muted">Advice CRM · notes filed</div></td><td class="num">91 %</td><td class="num">64 %</td><td class="num"><span class="kit-interval">+27 pt <span class="pm">± 6</span></span></td><td class="num">+24 pt</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Uplift</span></span></td></tr>
+          <tr><td>Follow-up tasks created per interaction<div class="kit-small kit-muted">Advice CRM tasks · created</div></td><td class="num">1.9</td><td class="num">1.4</td><td class="num"><span class="kit-interval">+0.5 <span class="pm">± 0.2</span></span></td><td class="num">+0.4</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Uplift</span></span></td></tr>
+          <tr><td>Follow-ups completed by their due date<div class="kit-small kit-muted">Advice CRM tasks · completed</div></td><td class="num">78 %</td><td class="num">71 %</td><td class="num"><span class="kit-interval">+7 pt <span class="pm">± 5</span></span></td><td class="num">+5 pt</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Uplift</span></span></td></tr>
+          <tr><td>After-call work, median minutes<div class="kit-small kit-muted">Advice CRM · interaction closed minus call ended</div></td><td class="num">4.1</td><td class="num">7.6</td><td class="num"><span class="kit-interval">−3.5 min <span class="pm">± 0.9</span></span></td><td class="num">−3.1 min</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Uplift · less time</span></span></td></tr>
+          <tr><td>Client complaints citing the notes, per 10k interactions<div class="kit-small kit-muted">Complaints system · 12 in 28 days</div></td><td class="num">1.2</td><td class="num">1.6</td><td class="num"><span class="kit-interval">−0.4 <span class="pm">± 0.9</span></span></td><td class="num">−0.2</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>No difference</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-note" style="margin-top: 14px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>Groups are matched on tenure, book size and region. This is observational: engaged advisors may differ in ways the match misses, so read uplift as an upper bound until the staggered production rollout gives a cleaner comparison. Intervals are 95 %.</div></div>
+      <div class="kit-source">Outcome events from the advice CRM and the complaints system, joined on interaction id to summaries in the gateway serving log; pilot cohort, 28 days to 4 Nov against the 28 days to 28 Oct; aggregate only, no client or advisor named. As of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Where the outcome events and the value come from</h2><div class="sub">Events are joined from the business systems; automation and cost avoided follow the definitions in the record and the Finance method.</div></div>
+        <span class="kit-chip outline">Finance method v2</span>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Event</th><th>Business system</th><th>Joined on</th><th class="num">Events, 28 d</th><th class="num">Matched to a summary</th></tr></thead>
+        <tbody>
+          <tr><td>Interaction logged</td><td>Advice CRM</td><td class="kit-mono">interaction_id</td><td class="num">84,800</td><td class="num">96 %</td></tr>
+          <tr><td>Notes filed</td><td>Advice CRM</td><td class="kit-mono">interaction_id</td><td class="num">79,300</td><td class="num">96 %</td></tr>
+          <tr><td>Follow-up task created</td><td>Advice CRM tasks</td><td class="kit-mono">interaction_id</td><td class="num">151,700</td><td class="num">94 %</td></tr>
+          <tr><td>Follow-up completed</td><td>Advice CRM tasks</td><td class="kit-mono">task_id</td><td class="num">118,900</td><td class="num">94 %</td></tr>
+          <tr><td>Complaint citing the notes</td><td>Complaints system</td><td class="kit-mono">interaction_id</td><td class="num">12</td><td class="num">100 %</td></tr>
+        </tbody>
+      </table>
+      <div class="kit-divider"></div>
+      <dl class="kit-kv" style="grid-template-columns: 200px 1fr">
+        <dt>Automation rate</dt><dd>Interactions whose notes were filed from the summary with under 10 % of the text edited, of all interactions with a summary: <span class="kit-interval">58 % <span class="pm">± 3</span></span>, ↑ 4 pt</dd>
+        <dt>Cost avoided, the method</dt><dd>Tokens served × Finance's reference price card for the comparable vendor API tier, less ThinkLatent's chargeback for this use case over the same days</dd>
+        <dt>Tokens served, 28 d</dt><dd>1.03B input, of which 557M from the prefix cache · 171M output</dd>
+        <dt>Reference prices</dt><dd>$5.00 per M input · $0.50 per M cached input · $25.00 per M output · price card Q4 2026</dd>
+        <dt>Vendor-equivalent</dt><dd>$6,920</dd>
+        <dt>ThinkLatent cost</dt><dd>$5,120 · two dedicated nodes at the chargeback rate</dd>
+        <dt>Cost avoided</dt><dd>$1,800 · it rises with volume, because most of ThinkLatent's cost here is the fixed node allocation</dd>
+      </dl>
+      <div class="kit-source">Finance method v2, agreed with Finance on 2 Oct; chargeback from HyperPod accounting; tokens from the gateway serving log; automation from filed-note edit counts in the advice CRM. As of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Playground: try a model or an agent, compare, save as evidence</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1B1F24;background:linear-gradient(160deg,#F7F8FA 0%,#EEF2F1 55%,#E9EEF3 100%)}
+a{color:#0B5E4C}a:hover{color:#08463A}
+.card{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);box-shadow:0 1px 2px rgba(27,31,36,0.04),0 8px 24px rgba(27,31,36,0.05);border-radius:14px;padding:22px 24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.tile{background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.75);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.tile .n{font-size:28px;font-weight:600;letter-spacing:-0.02em}.tile .l{font-size:13px;color:#57606A}
+.h1{margin:0;font-size:28px;font-weight:600;letter-spacing:-0.01em}.h2{margin:0;font-size:16px;font-weight:600}.h3{margin:0;font-size:14px;font-weight:600}
+.muted{color:#57606A;font-size:13px}.ph{color:#8C959F}.small{font-size:12px;color:#57606A}
+.btn{min-height:40px;padding:0 14px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);color:#1B1F24;font:500 13px Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn.primary{background:#0B5E4C;border-color:#0B5E4C;color:#fff}.btn.danger{color:#8A2A1B}.btn[disabled]{background:#EEF1F4;color:#8C959F;border-color:#E1E4E8;cursor:default}
+.pill{padding:2px 9px;border-radius:999px;font-size:11px;font-weight:600;display:inline-block}
+.pill.good{background:#E6F2EE;color:#0B5E4C}.pill.warn{background:#FBF1DD;color:#6B4A0B}.pill.crit{background:#FBE9E7;color:#8A2A1B}.pill.neutral{background:#EEF1F4;color:#3C4651}.pill.info{background:#E3ECF7;color:#1F4E79}
+.row{display:grid;gap:10px;align-items:center;padding:10px 12px;border:1px solid #E1E4E8;border-radius:10px;background:rgba(255,255,255,0.5);font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:#57606A;font-size:12px;font-weight:500;padding:8px;border-bottom:1px solid #E1E4E8}td{padding:10px 8px;border-bottom:1px solid #EEF1F4;vertical-align:top}tr:last-child td{border-bottom:0}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.bar{height:8px;border-radius:4px;background:#EEF1F4;overflow:hidden}.bar>div{height:8px;border-radius:4px;background:#0B5E4C}
+.env{padding:3px 9px;border-radius:6px;background:#EEF1F4;color:#3C4651;font-size:11px;font-weight:600;letter-spacing:0.02em}
+.src{font-size:11px;color:#8C959F}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;font-family:Inter,system-ui,sans-serif;color:#1B1F24">
+<nav aria-label="Areas" style="position:sticky;top:0;align-self:flex-start;flex:0 0 76px;height:100vh;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;background:rgba(255,255,255,0.55);backdrop-filter:blur(16px);border-right:1px solid rgba(255,255,255,0.7)"><a href="Catalogue.dc.html" title="ThinkLatent Portal" style="width:40px;height:40px;border-radius:12px;background:{{accent}};display:block;margin-bottom:6px"></a><a href="Home.dc.html" title="Home" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">H</span>Home</a><a href="Catalogue.dc.html" title="Models" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">M</span>Models</a><a href="Agents.dc.html" title="Agents" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">A</span>Agents</a><a href="Playground.dc.html" title="Playground" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#0B5E4C;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:#0B5E4C;color:#fff;border:1px solid #0B5E4C">P</span>Playground</a><a href="Evaluation.dc.html" title="Evaluation" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">E</span>Evaluation</a><a href="Project.dc.html" title="Projects" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">J</span>Projects</a><a href="DataReview.dc.html" title="Data" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">D</span>Data</a><a href="Training.dc.html" title="Training" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">T</span>Training</a><a href="Operations.dc.html" title="Operations" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">O</span>Operations</a><a href="Help.dc.html" title="Help" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#57606A;font-size:10px;font-weight:600"><span style="width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;background:rgba(255,255,255,0.8);color:#3C4651;border:1px solid #E1E4E8">?</span>Help</a></nav>
+<div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column">
+<header style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;min-height:56px;padding:0 32px;background:rgba(255,255,255,0.5);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.7)"><nav aria-label="Breadcrumb" style="font-size:14px;flex:1 1 320px;min-width:0"><span style="color:#1B1F24;font-weight:500">Playground</span></nav><label for="q" style="position:absolute;left:-9999px">Search</label><input id="q" placeholder="Search models, agents, projects, people, answers" style="min-height:40px;width:320px;padding:0 12px;border-radius:9px;border:1px solid #C9CED4;background:rgba(255,255,255,0.85);font:400 13px Inter,system-ui,sans-serif"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><a href="Project.dc.html" class="btn">Save to project</a><button class="btn">View as code</button><button class="btn primary">Mark as evidence</button></div></header>
+<main style="flex:1 1 auto;width:100%;max-width:1180px;margin:0 auto;padding:28px 32px 56px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px">
+
+<section style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end">
+  <div style="display:flex;flex-direction:column;gap:6px"><h1 class="h1">Playground</h1><p class="muted" style="margin:0;max-width:760px">Try any ThinkLatent model or agent. Compare two side by side. Save a session to a project, turn it into code, or mark it as evidence so a validator's test is reproducible from the record.</p></div>
+  <span class="env">SANDBOX · shared serving · not production performance</span>
+</section>
+<section class="card" style="gap:12px">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:4px"><span class="small">Left</span><select style="min-height:44px;padding:0 10px;border-radius:9px;border:1px solid #C9CED4;background:#fff;font:400 14px Inter,system-ui,sans-serif"><option>TLM4 Core 27B · prod build</option><option>TLM4 Distil · Gemma</option><option>Knowledge agent v2 (TLM4)</option><option>Claude (via gateway, approved)</option></select></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><span class="small">Right (compare)</span><select style="min-height:44px;padding:0 10px;border-radius:9px;border:1px solid #C9CED4;background:#fff;font:400 14px Inter,system-ui,sans-serif"><option>TLM4 Core 27B · candidate 4.3</option><option>None</option></select></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><span class="small">System prompt</span><select style="min-height:44px;padding:0 10px;border-radius:9px;border:1px solid #C9CED4;background:#fff;font:400 14px Inter,system-ui,sans-serif"><option>call-summary prompt v8 (prod)</option><option>Blank</option><option>From my project…</option></select></div>
+    <div style="display:flex;gap:8px"><button class="btn">Parameters</button><button class="btn">Tools</button><button class="btn">Files</button></div>
+  </div>
+  <div class="small">temperature 0.2 · max tokens 1,024 · tools: none · files: none · session s-[id] · not saved</div>
+</section>
+<section class="grid2">
+  <div class="card" style="min-height:420px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">TLM4 Core 27B · prod</h2><span class="small">TTFT [—] ms · [—] tokens · [—] s</span></div>
+    <div style="padding:12px 14px;border-radius:10px;background:#F4F5F7;font-size:13px;line-height:1.6"><span class="small">you</span><br>Summarise this call for the CRM: [pasted transcript, 2,300 tokens]</div>
+    <div style="padding:12px 14px;border-radius:10px;border:1px solid #E1E4E8;font-size:13px;line-height:1.6"><span class="small">model</span><br>Client called about consolidating two retirement accounts… Facts: … Amounts: … Decision: … Next step: send the consolidation form by [date]. <span class="ph">[illustrative]</span></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn">Rate 1–5</button><button class="btn">Flag a problem</button><button class="btn">Copy</button></div>
+  </div>
+  <div class="card" style="min-height:420px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">TLM4 Core 27B · candidate 4.3</h2><span class="small">TTFT [—] ms · [—] tokens · [—] s</span></div>
+    <div style="padding:12px 14px;border-radius:10px;background:#F4F5F7;font-size:13px;line-height:1.6"><span class="small">you</span><br>Summarise this call for the CRM: [same transcript]</div>
+    <div style="padding:12px 14px;border-radius:10px;border:1px solid #E1E4E8;font-size:13px;line-height:1.6"><span class="small">model</span><br>Summary: … Amounts stated as figures with currency … Next step named with its date. <span class="ph">[illustrative]</span></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn">Prefer this</button><button class="btn">Rate 1–5</button><button class="btn">Flag a problem</button></div>
+  </div>
+</section>
+<section class="card">
+  <textarea aria-label="Message" placeholder="Send to both…" style="min-height:72px;padding:12px;border-radius:10px;border:1px solid #C9CED4;font:400 14px Inter,system-ui,sans-serif;resize:vertical"></textarea>
+  <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center"><div style="display:flex;gap:8px"><button class="btn primary">Send</button><button class="btn">Run the use case's eval set on both</button></div><span class="small">Your prompt and the outputs stay in the sandbox store for 30 days unless saved; nothing here is production evidence until marked.</span></div>
+</section>
+<section class="grid2">
+  <div class="card"><h2 class="h2">Saved sessions</h2>
+    <div class="row" style="grid-template-columns:1fr auto auto"><span>Red-team: amount hallucination probes · 14 turns · Core 27B</span><span class="pill crit">evidence · finding opened</span><a href="UC-Record.dc.html" style="font-weight:500">Record</a></div>
+    <div class="row" style="grid-template-columns:1fr auto auto"><span>Validation: compliance pre-check scenarios · 22 turns · 4.3 candidate</span><span class="pill good">evidence · reproducible</span><a href="Evaluation.dc.html" style="font-weight:500">In document</a></div>
+    <div class="row" style="grid-template-columns:1fr auto auto"><span>Prompt v9 trial · 6 turns</span><span class="pill neutral">project: Call summary</span><a href="Prompts.dc.html" style="font-weight:500">Prompts</a></div>
+  </div>
+  <div class="card"><h2 class="h2">What a session carries</h2>
+    <ul style="margin:0;padding-left:18px;font-size:13px;line-height:1.7;color:#3C4651"><li>Model or agent version, endpoint build, prompt version, parameters, tools and files by hash</li><li>Every turn with timings; ratings and flags; the preference when comparing</li><li>Who ran it, in which project, from which environment</li><li>Marked as evidence: frozen, replayable, cited by a validation document or a finding</li><li>View as code gives the Relay call that reproduces the first turn</li></ul>
+  </div>
+</section>
+<footer class="small" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>Sandbox endpoints on shared serving; latency here is not a production number.</span><a href="Agents.dc.html" style="font-weight:500">Try an agent instead</a></footer>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0B5E4C","options":["#0B5E4C","#1F4E79","#6B3FA0","#8A3B12"]},"$preview":{"width":1280,"height":1700}}'>
+class Component extends DCLogic {
+  renderVals() { return { accent: this.props.accent ?? '#0B5E4C' }; }
+}
+</script>
+</body>
+</html>

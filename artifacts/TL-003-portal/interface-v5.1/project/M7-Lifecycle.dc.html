@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Lifecycle</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2000px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption"><a href="M1-Catalogue.dc.html">Models</a> · TLM4 · Core 4.1 · previous alias · Lifecycle and dependents · Thu 5 Nov 2026 · 11:58 ET</div><h1 style="margin-top: 6px">Lifecycle · TLM4 Core 4.1 <span class="kit-chip outline" style="vertical-align: middle">Deprecated</span></h1></div>
+      <div class="kit-actions"><button class="kit-btn outline" type="button">Notify dependents</button><a class="kit-btn outline" href="M4-ReleaseBundle.dc.html">Replacement's migration notes</a><a class="kit-btn outline" href="M2-ModelPage.dc.html">Open Core 4.2</a><a class="kit-btn outline" href="M6-Registry.dc.html">Registry</a></div>
+    </div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span><a class="kit-open" href="M6-Registry.dc.html" aria-label="Open registry">↗</a></div>
+        <div class="kit-tile-title">State</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Deprecated</div><div class="kit-tile-cap">Since 2026-10-28 · replacement Core 4.2 · readable through Relay</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Still serving</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span><a class="kit-open" href="M1-Catalogue.dc.html" aria-label="Open retirement calendar">↗</a></div>
+        <div class="kit-tile-title">Retires</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">15 Jan 2027</div><div class="kit-tile-cap">71 days of notice · policy minimum 60</div></div><div class="kit-track" style="width: 90px"><i style="width: 10%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path></svg></span><a class="kit-open" href="J1-Projects.dc.html" aria-label="Open dependents">↗</a></div>
+        <div class="kit-tile-title">Dependents</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">7<span class="unit">6 use cases · 1 model</span></div><div class="kit-tile-cap">All owners notified · 2 migrations started</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i style="height: 100%"></i><i style="height: 100%"></i><i style="height: 100%"></i><i style="height: 100%"></i><i style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="O2-Capacity.dc.html" aria-label="Open capacity">↗</a></div>
+        <div class="kit-tile-title">Calls per day still on 4.1</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">340<span class="unit">k</span></div><div class="kit-tile-cap">Production aggregate, 7-day mean · falling 4% a week</div></div><svg class="kit-spark" aria-hidden="true" viewBox="0 0 100 40" width="100" height="40"><polyline fill="none" stroke="#6CB769" stroke-width="2" points="0,10 15,12 30,14 45,15 60,18 75,22 90,25 100,27"></polyline></svg></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Lifecycle</h2><div class="sub">Each state change is a decision by a named person on named evidence. The registry stores the state; Relay reads it (<span class="kit-mono">Registry().get("tlm4-core-4.1").status</span>).</div></div>
+        <span class="kit-chip outline">Replacement: <a href="M2-ModelPage.dc.html" style="margin-left: 4px">TLM4 Core 4.2</a></span>
+      </div>
+      <div class="kit-steps" style="margin-top: 16px">
+        <span class="kit-step done"><span class="k">1</span>Candidate <span class="kit-muted">· 2026-03-02</span></span><span class="arrow">→</span>
+        <span class="kit-step done"><span class="k">2</span>Evaluated <span class="kit-muted">· 2026-03-18 · Official 1141</span></span><span class="arrow">→</span>
+        <span class="kit-step done"><span class="k">3</span>Approved: pilot <span class="kit-muted">· 2026-04-01</span></span><span class="arrow">→</span>
+        <span class="kit-step done"><span class="k">4</span>Approved: production <span class="kit-muted">· 2026-04-22</span></span><span class="arrow">→</span>
+        <span class="kit-step done"><span class="k">5</span>Serving <span class="kit-muted">· 2026-04-24 to 2026-10-28 as prod</span></span><span class="arrow">→</span>
+        <span class="kit-step now"><span class="k">6</span>Deprecated <span style="opacity: .75">· 2026-10-28 · replaced by 4.2</span></span><span class="arrow">→</span>
+        <span class="kit-step"><span class="k">7</span>Retired <span class="kit-muted">· planned 2027-01-15</span></span>
+      </div>
+
+      <div class="kit-grid2" style="margin-top: 18px">
+        <div class="kit-surface raised" style="padding: 18px">
+          <h3>Retirement notice</h3>
+          <div class="kit-small kit-muted" style="margin-top: 4px">Policy: at least 60 days between notice and retirement, and every dependent owner holds a task. Setting a date opens a task on every dependent owner and writes the date to the registry.</div>
+          <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: end; margin-top: 14px">
+            <div class="kit-field"><label for="retire-date">Retirement date</label><input class="kit-input" id="retire-date" type="date" value="2027-01-15" min="2027-01-04"></div>
+            <button class="kit-btn decision" type="button">Set a retirement date</button>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px; flex-wrap: wrap">
+            <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>71 days of notice · meets the 60-day minimum</span></span>
+            <span class="kit-chip outline">Earliest allowed 2027-01-04</span>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 10px">Only the Head of ThinkLatent can set or move a retirement date. Moving it earlier than 60 days from today is refused by the registry.</div>
+        </div>
+
+        <div class="kit-surface raised" style="padding: 18px">
+          <h3>Registry state and endpoint <span class="kit-eng-label">Engineering view</span></h3>
+          <dl class="kit-kv" style="margin-top: 10px">
+            <dt>Registry state</dt><dd><span class="kit-mono">deprecated</span> · <span class="kit-mono">retire_at=2027-01-15</span> · <span class="kit-mono">replaced_by=tlm4-core-4.2</span></dd>
+            <dt>Aliases</dt><dd><span class="kit-mono">tlm4-core:previous</span> → 4.1 · <span class="kit-mono">tlm4-core:prod</span> → 4.2 since 2026-10-28</dd>
+            <dt>Endpoint build</dt><dd><span class="kit-mono">4.1.3-b42</span> · frozen, security patches only</dd>
+            <dt>Official run</dt><dd><a href="E1-EvaluationResults.dc.html">1141</a> · TL Index composite <span class="kit-interval">0.80 <span class="pm">± 0.03</span></span> on the five live pillars · 5 of 5 bars</dd>
+            <dt>On retirement</dt><dd>Gateway returns a deprecation error naming the replacement; the endpoint stays dark for 30 days, then capacity is released.</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="kit-source">States and dates from the registry lifecycle record; evidence from Official TL Index run 1141; traffic from the gateway log, production aggregate. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <div class="kit-grid2">
+      <section class="kit-surface">
+        <div class="kit-surface-head"><div><h2>Dependents</h2><div class="sub">Every use case and alias on this version, with its owner and whether the owner has been notified and holds a migration task.</div></div><button class="kit-btn sm" type="button">Notify dependents</button></div>
+        <div class="kit-rows" style="margin-top: 12px">
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px 150px"><div><div class="t"><a href="J2-ProjectHome.dc.html">UC-0203 Correspondence drafting</a></div><div class="s">Client Services · Priya N. · prod alias → 4.1</div></div><span class="kit-chip">Production</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Notified · migrating</span></span></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px 150px"><div><div class="t"><a href="J2-ProjectHome.dc.html">UC-0227 Form field extraction</a></div><div class="s">Institutional Ops · Marcus L. · prod alias → 4.1</div></div><span class="kit-chip">Production</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Notified · migrating</span></span></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px 150px"><div><div class="t"><a href="J2-ProjectHome.dc.html">UC-0235 Meeting note summary</a></div><div class="s">Retail Advice · Priya N. · prod alias → 4.1</div></div><span class="kit-chip">Production</span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Notified · task open</span></span></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px 150px"><div><div class="t"><a href="J2-ProjectHome.dc.html">UC-0249 Disclosure check</a></div><div class="s">Compliance · Marcus L. · prod alias → 4.1</div></div><span class="kit-chip">Production</span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Notified · task open</span></span></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px 150px"><div><div class="t"><a href="J2-ProjectHome.dc.html">UC-0263 Statement explainer</a></div><div class="s">Retail Advice · Priya N. · previous alias → 4.1 (pinned)</div></div><span class="kit-chip">Pilot</span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Notified · task open</span></span></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px 150px"><div><div class="t"><a href="J2-ProjectHome.dc.html">UC-0270 Ticket classification</a></div><div class="s">Institutional Ops · Marcus L. · prod alias → 4.1</div></div><span class="kit-chip">Production</span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Notified · no reply 14 d</span></span></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 110px 150px"><div><div class="t"><a href="M5-Lineage.dc.html">TLM4 Domain-Advice v1</a> <span class="kit-chip outline">model</span></div><div class="s">Built from 4.1 · retires with it · Priya N. · 1 use case of its own</div></div><span class="kit-chip outline">previous</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Notified · replaced by v2</span></span></div>
+        </div>
+        <div class="kit-source">Alias bindings from the record; notification and task state from the portal's task log. Acceptance: setting a retirement date opens a task on every dependent owner listed here. As of Thu 5 Nov 2026, 11:58 ET.</div>
+      </section>
+
+      <section class="kit-surface">
+        <div class="kit-surface-head"><div><h2>Activity</h2><div class="sub">Who changed the state, when, from what to what, and the evidence they cited.</div></div><a class="kit-btn sm outline" href="J9-Record.dc.html">Full record</a></div>
+        <div class="kit-rows" style="margin-top: 12px">
+          <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr)"><div><div class="t">2026-11-01 · 09:12</div><div class="s">Governance agent</div></div><div><div class="t">Reminder sent to 1 owner without a reply</div><div class="s">UC-0270 · Marcus L. · second notice · proposed escalation to the Head of ThinkLatent on day 21 <span class="kit-agent" style="display: inline-flex; margin-left: 6px"><span class="av" style="background: rgba(26,26,26,.08); border-color: rgba(26,26,26,.15)">GA</span>88% confidence</span></div></div></div>
+          <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr)"><div><div class="t">2026-10-28 · 16:40</div><div class="s">Jithin, Head of ThinkLatent</div></div><div><div class="t">Retirement date set: 2027-01-15</div><div class="s">79 days of notice at the time · 7 tasks opened on dependent owners · written to the registry</div></div></div>
+          <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr)"><div><div class="t">2026-10-28 · 16:05</div><div class="s">Elena R., validator</div></div><div><div class="t">serving → deprecated</div><div class="s">Replacement TLM4 Core 4.2 marked current · evidence Official TL Index runs 1180 (4.2) and 1141 (4.1) · prod alias moved</div></div></div>
+          <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr)"><div><div class="t">2026-04-24 · 10:00</div><div class="s">the gateway</div></div><div><div class="t">approved → serving</div><div class="s">prod alias bound · endpoint build 4.1.0-b19</div></div></div>
+          <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr)"><div><div class="t">2026-04-22 · 15:30</div><div class="s">Elena R., validator</div></div><div><div class="t">approved: pilot → approved: production</div><div class="s">Evidence Official TL Index run 1141 · 5 of 5 bars on the Index pillars · 21-day pilot without a finding</div></div></div>
+          <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr)"><div><div class="t">2026-04-01 · 11:20</div><div class="s">Elena R., validator</div></div><div><div class="t">evaluated → approved: pilot</div><div class="s">Evidence Official TL Index run 1141</div></div></div>
+          <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr)"><div><div class="t">2026-03-18 · 08:45</div><div class="s">the pipeline</div></div><div><div class="t">candidate → evaluated</div><div class="s">Official TL Index run 1141 complete · composite 0.80 ± 0.03 on the five live pillars</div></div></div>
+          <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr)"><div><div class="t">2026-03-02 · 07:30</div><div class="s">the pipeline</div></div><div><div class="t">registered as candidate</div><div class="s">Training run T-4310 · built from base 4.0</div></div></div>
+        </div>
+        <div class="kit-source">Lifecycle record in the registry; agent entries are proposals, people's entries are decisions. As of Thu 5 Nov 2026, 11:58 ET.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -72,6 +72,7 @@ _None recorded._
 | Artifact | Kind | In this repo | Live | Exported |
 | --- | --- | --- | --- | --- |
 | ThinkLatent site (team-site) — Idea card | doc | [artifacts/TL-016-team-site/idea-card.md](../artifacts/TL-016-team-site/idea-card.md) | [claude.ai](https://claude.ai/artifact/9ZtoVU9roiRiACFjqe5nJu) | 2026-11-04 |
+| ThinkLatent site — v7: the 42 feature decisions on the v3 site | design | [artifacts/TL-016-team-site/design-canvas/project/canvas.json](../artifacts/TL-016-team-site/design-canvas/project/canvas.json) | [claude.ai](https://claude.ai/artifact/4uZUcDCHWPTqtzMXZrLKQD) | 2026-11-07 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

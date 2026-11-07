@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Core team</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2700px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Core team · Portal build · Sprint 46 · Thu 5 Nov 2026, 11:58 ET <span class="kit-chip" style="margin-left: 6px">Core-team members only</span></div><h1 style="margin-top: 6px">Core team</h1><div class="kit-muted" style="margin-top: 6px; max-width: 780px">The portal's own backlog, the bridge to Claude Code, the AI guide and the sprint. The bridge: the portal writes a task, Claude Code on a core-team laptop acts, and writes back what it needs approved. Every message is logged with its sender and session.</div></div>
+      <div class="kit-actions"><button class="kit-btn" type="button">Send an instruction</button><a class="kit-btn outline" href="K1-Help.dc.html">The AI guide</a><button class="kit-btn outline" type="button">Open Jira board</button></div>
+    </div>
+
+    <nav class="kit-subrail" aria-label="Sections"><a href="C1-CoreTeam.dc.html" aria-current="page">Bridge</a><a href="C1-CoreTeam-Backlog.dc.html">Backlog</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="C1-CoreTeam.dc.html" aria-label="Open approvals">↗</a></div>
+        <div class="kit-tile-title">Claude Code requests awaiting approval</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3<span class="unit">oldest 24 min</span></div><div class="kit-tile-cap">2 sessions · 1 wants a write to the record schema</div></div><span class="kit-chip decision">Decide</span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></span><a class="kit-open" href="C1-CoreTeam.dc.html" aria-label="Open bridge">↗</a></div>
+        <div class="kit-tile-title">Bridge status</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Connected</div><div class="kit-tile-cap">Last heartbeat 11:57:41 · 2 sessions live, 1 offline · 0 missed in 24 h</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Healthy</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span><a class="kit-open" href="C1-CoreTeam.dc.html" aria-label="Open instructions">↗</a></div>
+        <div class="kit-tile-title">Instructions sent today</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">7<span class="unit">4 done</span></div><div class="kit-tile-cap">2 running · 1 queued for an offline session</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i style="height: 100%"></i><i style="height: 100%"></i><i class="dash" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"></path><path d="M6 17h14"></path></svg></span><a class="kit-open" href="K1-Help.dc.html" aria-label="Open AI guide">↗</a></div>
+        <div class="kit-tile-title">The AI guide</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">v1.4</div><div class="kit-tile-cap">14 chapters · 2 drafts open · read 310 times this week</div></div><a class="kit-btn sm outline" href="K1-Help.dc.html">Open</a></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Claude Code messages <span class="kit-chip">3 awaiting approval</span></h2><div class="sub">Sender, session, request. Approve lets the session act; Reject sends the reason back to the session. Every message, in both directions, is logged with sender and session.</div></div>
+        <div class="kit-seg"><button type="button" aria-pressed="true">Awaiting</button><button type="button" aria-pressed="false">All today</button><button type="button" aria-pressed="false">By session</button></div>
+      </div>
+      <div class="kit-rows" style="margin-top: 14px">
+        <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr) 210px">
+          <div><div class="kit-agent"><span class="av">CC</span><span class="t">Claude Code</span></div><div class="s" style="margin-top: 4px">Session cc-46-a17 · laptop: Marcus L.</div><div class="s">11:34 · 24 min ago</div></div>
+          <div><div class="t">Approve writing a migration that adds <span class="kit-mono">cost_estimate</span> to the training-run record schema</div><div class="s">Task from the portal: TL-2210 wire pre-flight cost estimate to the training API. The session has the migration ready and tests passing locally (14 of 14). Touches the shared record schema, so it needs a core-team approval before it runs.</div><div class="kit-actions" style="margin-top: 8px"><a class="kit-btn sm outline" href="C1-CoreTeam.dc.html">View diff</a><a class="kit-btn sm outline" href="C1-CoreTeam.dc.html">Session log</a></div></div>
+          <div class="end"><button class="kit-btn sm" type="button">Approve</button><button class="kit-btn sm outline" type="button">Reject</button><button class="kit-btn sm outline" type="button">Reply</button></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr) 210px">
+          <div><div class="kit-agent"><span class="av">CC</span><span class="t">Claude Code</span></div><div class="s" style="margin-top: 4px">Session cc-46-a17 · laptop: Marcus L.</div><div class="s">11:41 · 17 min ago</div></div>
+          <div><div class="t">Approve opening pull request TL-2210 against <span class="kit-mono">portal/main</span></div><div class="s">Depends on the migration above. Branch feat/preflight-cost · 6 files · CI green on the branch. Will not merge; the core team merges.</div></div>
+          <div class="end"><button class="kit-btn sm outline" type="button" aria-disabled="true">Approve</button><span class="kit-small kit-muted">after the migration</span><button class="kit-btn sm outline" type="button">Reject</button></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 150px minmax(0, 1fr) 210px">
+          <div><div class="kit-agent"><span class="av">CC</span><span class="t">Claude Code</span></div><div class="s" style="margin-top: 4px">Session cc-46-b03 · laptop: Priya N.</div><div class="s">11:52 · 6 min ago</div></div>
+          <div><div class="t">Approve running the AI guide link checker against the knowledge base (read only)</div><div class="s">Task from the portal: AI guide v1.5 draft, chapter 9. Reads 138 articles, writes nothing. Flagged for approval because it calls the knowledge-base API with a core-team token.</div></div>
+          <div class="end"><button class="kit-btn sm outline" type="button">Approve</button><button class="kit-btn sm outline" type="button">Reject</button><button class="kit-btn sm outline" type="button">Reply</button></div>
+        </div>
+      </div>
+      <div class="kit-divider"></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 10px; align-items: end">
+        <div class="kit-field"><label for="cc-instr">Send an instruction to a session</label><input class="kit-input" id="cc-instr" type="text" placeholder="e.g. Add a test for the dash case before opening the PR"></div>
+        <div class="kit-field"><label for="cc-session">Session</label><select class="kit-input" id="cc-session"><option>cc-46-a17 · Marcus L. · live</option><option>cc-46-b03 · Priya N. · live</option><option>cc-45-c09 · Elena R. · offline, queues until it reconnects</option></select></div>
+      </div>
+      <div class="kit-actions" style="margin-top: 10px; align-items: center"><button class="kit-btn sm outline" type="button">Send</button><span class="kit-small kit-muted">Sent as Jithin (Head of ThinkLatent) · logged to the bridge with the session id. An instruction to an offline session waits in the queue and is delivered when the session reconnects; it shows as Queued below until then.</span></div>
+      <div class="kit-divider"></div>
+      <div class="kit-label">Bridge log · last 7 messages</div>
+      <table style="margin-top: 8px">
+        <thead><tr><th>Time</th><th>Sender</th><th>Session</th><th>Message</th></tr></thead>
+        <tbody>
+          <tr><td class="kit-num">11:52</td><td>Claude Code</td><td class="kit-mono">cc-46-b03</td><td>Approval request: run link checker (read only)</td></tr>
+          <tr><td class="kit-num">11:45</td><td>Marcus L. (portal)</td><td class="kit-mono">cc-46-a17</td><td>Instruction: rebase feat/preflight-cost on main while the migration waits</td></tr>
+          <tr><td class="kit-num">11:41</td><td>Claude Code</td><td class="kit-mono">cc-46-a17</td><td>Approval request: open PR TL-2210</td></tr>
+          <tr><td class="kit-num">11:34</td><td>Claude Code</td><td class="kit-mono">cc-46-a17</td><td>Approval request: record schema migration</td></tr>
+          <tr><td class="kit-num">11:10</td><td>Jithin (portal)</td><td class="kit-mono">cc-46-a17</td><td>Instruction: keep the dash for runs with no estimate, never 0</td></tr>
+          <tr><td class="kit-num">11:05</td><td>Priya N. (portal)</td><td class="kit-mono">cc-46-b03</td><td>Instruction: draft chapter 9 of the AI guide from the bridge rules</td></tr>
+          <tr><td class="kit-num">10:58</td><td>Portal (task)</td><td class="kit-mono">cc-46-b03</td><td>Task: AI guide v1.5 chapters 9 to 11 from TL-2228</td></tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Bridge message store (portal ↔ Claude Code), both directions, with sender and session on every message; approvals recorded in the record. Last heartbeat 11:57:41 ET. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Instructions sent today <span class="kit-chip">7</span></h2><div class="sub">Each instruction with its session, its status and a link to what it produced. Queued instructions wait for an offline session to reconnect.</div></div>
+        <div class="kit-seg"><button type="button" aria-pressed="true">All</button><button type="button" aria-pressed="false">Running</button><button type="button" aria-pressed="false">Queued</button><button type="button" aria-pressed="false">Done</button></div>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Sent</th><th>Instruction</th><th>Session</th><th>Status</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td class="kit-num">11:45<div class="kit-small kit-muted">Marcus L.</div></td><td>Rebase feat/preflight-cost on main while the migration waits</td><td><span class="kit-mono">cc-46-a17</span><div class="kit-small kit-muted">Marcus L. · live</div></td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Running · 13 min</span></span></td><td><a href="C1-CoreTeam.dc.html">Session log</a></td></tr>
+          <tr><td class="kit-num">11:10<div class="kit-small kit-muted">Jithin</div></td><td>Keep the dash for runs with no estimate, never 0</td><td><span class="kit-mono">cc-46-a17</span><div class="kit-small kit-muted">Marcus L. · live</div></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done 11:22</span></span></td><td><a href="C1-CoreTeam.dc.html">Commit 4e1c9a2 · test added</a></td></tr>
+          <tr><td class="kit-num">11:05<div class="kit-small kit-muted">Priya N.</div></td><td>Draft chapter 9 of the AI guide from the bridge rules</td><td><span class="kit-mono">cc-46-b03</span><div class="kit-small kit-muted">Priya N. · live</div></td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Running · step 5 of 8</span></span></td><td><a href="C1-CoreTeam.dc.html">Session log</a></td></tr>
+          <tr><td class="kit-num">10:30<div class="kit-small kit-muted">Marcus L.</div></td><td>Profile the lineage query for TLM3 descendants (TL-2219)</td><td><span class="kit-mono">cc-46-a17</span><div class="kit-small kit-muted">Marcus L. · live</div></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done 10:58</span></span></td><td><a href="K1-Help-Problems.dc.html">Profile attached to TL-2219</a></td></tr>
+          <tr><td class="kit-num">10:20<div class="kit-small kit-muted">Jithin, from his phone</div></td><td>Rerun the link checker on knowledge-base articles changed this week</td><td><span class="kit-mono">cc-45-c09</span><div class="kit-small kit-muted">Elena R. · offline since 10:20</div></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Queued · delivers on reconnect</span></span></td><td><span class="kit-dash" title="No result until the session reconnects and runs it">—</span></td></tr>
+          <tr><td class="kit-num">09:40<div class="kit-small kit-muted">Marcus L.</div></td><td>Add a test for the dash case before opening the PR</td><td><span class="kit-mono">cc-46-a17</span><div class="kit-small kit-muted">Marcus L. · live</div></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done 09:52</span></span></td><td><a href="C1-CoreTeam.dc.html">Test run · 14 of 14 passed</a></td></tr>
+          <tr><td class="kit-num">09:15<div class="kit-small kit-muted">Jithin, from his phone</div></td><td>Summarise yesterday's failed CI on feat/preflight-cost</td><td><span class="kit-mono">cc-46-a17</span><div class="kit-small kit-muted">Marcus L. · live</div></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done 09:19</span></span></td><td><a href="C1-CoreTeam-Backlog.dc.html">Summary posted to TL-2210</a></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Bridge instruction queue and message store; status written back by each session; results link to the commit, test run, ticket or session log the session reported. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

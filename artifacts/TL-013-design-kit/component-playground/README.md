@@ -1,9 +1,9 @@
 <!-- Pointer to a claude.ai artifact, exported 2026-11-05. Read-only; the live page and the design-kit source are the source. -->
 # ThinkLatent component playground (TL-013 design-kit)
 
-Live page: https://claude.ai/artifact/JRE7gG189EucQ2xWPDxkvv (version 1793937433-4032, version 5, published 2026-11-06)
+Live page: https://claude.ai/artifact/JRE7gG189EucQ2xWPDxkvv (version 1794020648-d3a2, version 6, published 2026-11-07)
 
-Not copied here: the built app is 234 files and 31 MB of generated code, rebuilt from source on every change. It is reproducible from the private repository thinklatent-labs/design-kit at commit 10fc4d8:
+Not copied here: the built app is 234 files and 31 MB of generated code, rebuilt from source on every change. It is reproducible from the private repository thinklatent-labs/design-kit at commit 1a22b3a:
 
     pnpm install
     pnpm --filter catalog build      # needs ~6.6 GB of memory; output in apps/catalog/dist

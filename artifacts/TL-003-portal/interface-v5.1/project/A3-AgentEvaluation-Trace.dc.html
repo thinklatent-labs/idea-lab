@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Agent evaluation · Trace</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2300px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-current="page" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption"><a href="A1-AgentLibrary.dc.html">Agent library</a> · <a href="A2-AgentPage.dc.html">Knowledge agent</a> · Evaluation · Trace · Official run, 4 Nov · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Where does the agent go wrong on case KB-0317?</h1><div class="kit-muted" style="margin-top: 6px; max-width: 800px">One failing trial, step by step. Each step shows the skill it needs, the index pillar that skill belongs to and the model's score on that pillar, the failure tag the judge gave, and what the step cost.</div></div>
+      <div class="kit-actions"><button class="kit-btn" type="button">Add to regression suite</button><a class="kit-btn outline" href="A3-AgentEvaluation-Engineering.dc.html">Replay this case</a><a class="kit-btn outline" href="E4-Corrections.dc.html">Dispute the judgement</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="A3-AgentEvaluation.dc.html">Metrics</a><a href="A3-AgentEvaluation-Variants.dc.html">Variants</a><a href="A3-AgentEvaluation-Trace.dc.html" aria-current="page">Trace and steps</a><a href="A3-AgentEvaluation-Engineering.dc.html">Engineering</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg></span><a class="kit-open" href="A3-AgentEvaluation-Trace.dc.html" aria-label="Open the failing step">↗</a></div>
+        <div class="kit-tile-title">Failing step</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Step 4</div><div class="kit-tile-cap">fetch_passage pulled the 2024 fee table instead of the 2025 one</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path></svg></span><a class="kit-open" href="E9-Pillar.dc.html" aria-label="Open pillar 1">↗</a></div>
+        <div class="kit-tile-title">Pillar at the failing step</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Pillar 1</div><div class="kit-tile-cap">Financial data processing · Core 4.2 scores 0.81 ± 0.03 there, TL Index run 1180</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10M9 9.5c0-1 1.3-1.8 3-1.8s3 .8 3 1.8-1.3 1.6-3 1.9-3 .9-3 1.9 1.3 1.8 3 1.8 3-.8 3-1.8"></path></svg></span><a class="kit-open" href="A3-AgentEvaluation.dc.html" aria-label="Open cost metrics">↗</a></div>
+        <div class="kit-tile-title">Cost of this trial</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$0.036<span class="unit">6 steps</span></div><div class="kit-tile-cap">Drafting is 65% of it · gateway serving log</div></div><div class="kit-bars"><i style="height: 8%"></i><i style="height: 4%"></i><i style="height: 12%"></i><i style="height: 13%"></i><i class="lit" style="height: 100%"></i><i style="height: 17%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span><a class="kit-open" href="A3-AgentEvaluation-Engineering.dc.html" aria-label="Open failure clusters">↗</a></div>
+        <div class="kit-tile-title">Trials with the same failure tag</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">41<span class="unit">trials</span></div><div class="kit-tile-cap">Wrong-year source · 29% of failing trials · fixed in the 2.4 candidate</div></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Trajectory · failing case KB-0317</h2><div class="sub">"Which share class has the lowest expense ratio in the fund's 2025 prospectus?" · trial 2 of 3 failed · step 4 marked.</div></div>
+        <div class="kit-actions"><button class="kit-btn sm outline" type="button">Previous case</button><button class="kit-btn sm outline" type="button">Next case</button></div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin-top: 16px; align-items: stretch">
+        <div class="kit-surface raised" style="padding: 12px"><div class="kit-label">Step 1</div><div style="font-weight: 500; margin-top: 6px">Resolve intent</div><div class="kit-small kit-muted" style="margin-top: 4px">Expense ratio by share class, 2025 prospectus</div><div style="margin-top: 8px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Pass</span></span></div></div>
+        <div class="kit-surface raised" style="padding: 12px"><div class="kit-label">Step 2</div><div style="font-weight: 500; margin-top: 6px">search_corpus</div><div class="kit-small kit-muted" style="margin-top: 4px">"expense ratio share class 2025" · 8 hits</div><div style="margin-top: 8px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Pass</span></span></div></div>
+        <div class="kit-surface raised" style="padding: 12px"><div class="kit-label">Step 3</div><div style="font-weight: 500; margin-top: 6px">fetch_passage</div><div class="kit-small kit-muted" style="margin-top: 4px">Fee table, 2025 prospectus p. 14</div><div style="margin-top: 8px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Pass</span></span></div></div>
+        <div class="kit-surface ink" style="padding: 12px; border-radius: 20px"><div class="kit-label" style="color: #fff; opacity: .7">Step 4 · failing</div><div style="font-weight: 500; margin-top: 6px">fetch_passage</div><div class="kit-small" style="margin-top: 4px; opacity: .8">Fee table, 2024 prospectus p. 13</div><div style="margin-top: 8px"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span style="color: #fff">Fail</span></span></div></div>
+        <div class="kit-surface raised" style="padding: 12px"><div class="kit-label">Step 5</div><div style="font-weight: 500; margin-top: 6px">Draft answer</div><div class="kit-small kit-muted" style="margin-top: 4px">Quotes the 2024 figure for low-cost shares</div><div style="margin-top: 8px"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Downstream</span></span></div></div>
+        <div class="kit-surface raised" style="padding: 12px"><div class="kit-label">Step 6</div><div style="font-weight: 500; margin-top: 6px">Cite and return</div><div class="kit-small kit-muted" style="margin-top: 4px">Citation points to 2024 document</div><div style="margin-top: 8px"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Downstream</span></span></div></div>
+      </div>
+
+      <div class="kit-divider"></div>
+      <div class="kit-surface-head"><div><h3>Skill tandem · step by step</h3><div class="sub">Each step's skill sits beside the index pillar it belongs to, so a failing step points at a model weakness or at the agent's own logic. Pillars scored in the MVP: 1, 3, 4, 6 and 7; the rest show a dash until Phase 2.</div></div></div>
+      <table style="margin-top: 8px">
+        <thead><tr><th>Step</th><th>Skill</th><th>Pillar</th><th class="num">Core 4.2 on the pillar</th><th>Result</th><th>Failure tag</th><th class="num">Cost at the step</th></tr></thead>
+        <tbody>
+          <tr><td>1 · Resolve intent</td><td>Question understanding</td><td><a href="E9-Pillar.dc.html">7 · Entity recognition</a></td><td class="num"><span class="kit-interval">0.90 <span class="pm">± 0.02</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Pass</span></span></td><td><span class="kit-dash" title="No failure">—</span></td><td class="num">$0.0018</td></tr>
+          <tr><td>2 · search_corpus</td><td>Retrieval query</td><td><a href="E9-Pillar.dc.html">11 · Document understanding</a></td><td class="num"><span class="kit-dash" title="Pillar 11 is Phase 2; no index score yet">—</span> <span class="kit-small kit-muted">Phase 2</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Pass</span></span></td><td><span class="kit-dash" title="No failure">—</span></td><td class="num">$0.0006</td></tr>
+          <tr><td>3 · fetch_passage</td><td>Passage selection</td><td><a href="E9-Pillar.dc.html">11 · Document understanding</a></td><td class="num"><span class="kit-dash" title="Pillar 11 is Phase 2; no index score yet">—</span> <span class="kit-small kit-muted">Phase 2</span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Pass</span></span></td><td><span class="kit-dash" title="No failure">—</span></td><td class="num">$0.0029</td></tr>
+          <tr class="selected"><td><b style="font-weight: 500">4 · fetch_passage</b></td><td>Passage selection with a date scope</td><td><a href="E9-Pillar.dc.html">1 · Financial data processing</a></td><td class="num"><span class="kit-interval">0.81 <span class="pm">± 0.03</span></span></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Fail</span></span></td><td><span class="kit-chip decision">wrong-year source</span></td><td class="num">$0.0031</td></tr>
+          <tr><td>5 · Draft answer</td><td>Grounded drafting</td><td><a href="E9-Pillar.dc.html">6 · Safety and grounding</a></td><td class="num"><span class="kit-interval">0.88 <span class="pm">± 0.02</span></span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Downstream</span></span></td><td><span class="kit-chip outline">stale figure</span></td><td class="num">$0.0236</td></tr>
+          <tr><td>6 · Cite and return</td><td>Citation</td><td><a href="E9-Pillar.dc.html">6 · Safety and grounding</a></td><td class="num"><span class="kit-interval">0.88 <span class="pm">± 0.02</span></span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Downstream</span></span></td><td><span class="kit-chip outline">cites the wrong document</span></td><td class="num">$0.0041</td></tr>
+          <tr><td><b style="font-weight: 500">Trial total</b></td><td colspan="5" class="kit-small kit-muted">The model scores well on every live pillar it touches; the failure sits in the agent's tie-break between near-duplicate tables, not in the model.</td><td class="num"><b style="font-weight: 500">$0.0361</b></td></tr>
+        </tbody>
+      </table>
+
+      <div class="kit-surface raised" style="margin-top: 14px">
+        <div class="kit-agent"><span class="av">EV</span><span>Evaluation agent · judge rationale</span><span class="kit-muted">· step 4 · tool output use</span></div>
+        <p style="margin-top: 8px">The second fetch pulled the 2024 fee table although step 2 had already ranked the 2025 table first. The draft used the older figure (0.14% rather than 0.11% for low-cost shares) and cited the wrong year. Trials 1 and 3 passed because the agent stopped after the first fetch. Likely cause: the retriever's tie-break on near-duplicate tables. Proposal: add a year filter to fetch_passage when the question names a year; add this case to the regression suite.</p>
+        <div class="kit-actions" style="margin-top: 10px"><button class="kit-btn sm" type="button">Add to regression suite</button><button class="kit-btn sm outline" type="button">Open full trace</button><a class="kit-btn sm outline" href="E4-Corrections.dc.html">Dispute the judgement</a></div>
+      </div>
+      <div class="kit-source">Trace from Official evaluation run, case KB-0317 trial 2; judge rationale and failure tags recorded with the run; pillar scores from Official TL Index run 1180 (TLM4 Core 4.2); cost at each step from the gateway serving log. Evaluation cases are non-production data. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>N-1 replay from production</h2><div class="sub">Prefixes of real threads (all turns but the last) replayed as evaluation cases. Aggregate only.</div></div><span class="kit-chip">Sealed</span></div>
+      <dl class="kit-kv" style="margin-top: 12px">
+        <dt>Threads replayed</dt><dd>1,200 · sampled from the last 14 days</dd>
+        <dt>Agreement with production</dt><dd><span class="kit-interval">0.91 <span class="pm">± 0.02</span></span> <span class="kit-muted">same final action</span></dd>
+        <dt>Task success on replay</dt><dd><span class="kit-interval">0.84 <span class="pm">± 0.02</span></span></dd>
+        <dt>Prefix length</dt><dd>median 3 turns</dd>
+      </dl>
+      <p class="kit-small kit-muted" style="margin-top: 10px">Production thread content is sealed. Replays run inside the gateway; the portal receives counts and scores, never the text. Individual replay cases cannot be opened from here.</p>
+      <div class="kit-source">Gateway replay job, aggregate, 14-day window ending 4 Nov. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2300}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

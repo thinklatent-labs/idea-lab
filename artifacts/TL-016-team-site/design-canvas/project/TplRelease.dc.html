@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template · Release notes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F7F7F5;font-family:Inter,system-ui,sans-serif;color:#1A1A1A;font-size:16px;line-height:1.65}
+a{color:#2E6B3C}a:hover{color:#0C3F09}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:600;letter-spacing:-.01em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.cap{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:#5C5C5A}
+.card{background:#FFFFFF;border-radius:20px;box-shadow:0 1px 0 rgba(26,26,26,.04),0 10px 30px rgba(26,26,26,.06);padding:24px}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(26,26,26,.16);font-size:14px;font-weight:500;color:#1A1A1A;text-decoration:none;background:#FFFFFF;font-family:inherit}
+.pill:hover{color:#1A1A1A;border-color:#1A1A1A}
+.pill.go{background:#C4262E;color:#FFFFFF;border-color:#C4262E}
+.pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.nav a{color:#3A3A38;text-decoration:none;font-size:14px;font-weight:500;padding:0 12px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover{background:#F2F2EF;color:#1A1A1A}
+.nav a.on{background:#6CB769;color:#0C3F09}
+.tag{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#E6F1EF;color:#1F4A44;font-size:12px;font-weight:600}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.guide{background:#FFF4CE;border:1px solid #E6E6E2;border-radius:0;padding:12px 14px;font-size:14px;line-height:1.55;color:#3A3A38;display:flex;flex-direction:column;gap:4px}
+.guide b{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.band{background:#E9F3EC;color:#1A1A1A}
+.body h2{font-size:24px;margin-top:8px}
+.fill{color:#5C5C5A}
+.prop{display:flex;flex-direction:column;gap:2px;padding:12px 0;border-bottom:1px solid #EFEFEC;font-size:14px}
+.prop span:first-child{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500}
+.fact{display:flex;flex-direction:column;gap:2px;font-size:15px;font-weight:500}
+.fact small{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500;text-align:left;padding:10px 12px;border-bottom:1px solid #E6E6E2}
+td{padding:12px;border-bottom:1px solid #EFEFEC}
+td.n,th.n{text-align:right}
+@media (max-width:760px){.wrap{padding:0 16px}}
+
+.pill.sm{min-height:38px;font-size:13px}
+.comments{border-top:1px solid #E6E6E2;padding:28px 0 0;display:flex;flex-direction:column;gap:12px;margin-top:48px}
+.comments input{width:100%;min-height:44px;border-radius:12px;border:1px solid #E6E6E2;padding:0 14px;font-family:inherit;font-size:14px;background:#FFFFFF}
+.owners{font-size:12px;color:#5C5C5A;display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-top:1px solid #EFEFEC}
+.nav a.on{background:#6CB769;color:#0C3F09}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<header style="background:#FFFFFF;border-top:4px solid #C4262E;border-bottom:1px solid #E6E6E2">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
+    <a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1A1A1A" aria-label="Home">
+      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">TL</span>
+      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:15px">ThinkLatent</span><span style="font-size:12px;color:#5C5C5A">Team site</span></span>
+    </a>
+    <nav class="nav" aria-label="Site" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
+      <a class="" href="Mandate.dc.html">Mandate</a><a class="on" href="Products.dc.html">Products<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Wins.dc.html">Our work<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Blog.dc.html">Stories<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Team.dc.html">Team</a>
+      <a class="pill go" href="Write.dc.html" style="margin-left:8px">Write for ThinkLatent</a>
+    </nav>
+  </div>
+</header>
+
+<div style="background:#FFF7EC;border-bottom:1px solid #F1DDC3">
+  <div class="wrap" style="padding-top:12px;padding-bottom:12px;font-size:14px;color:#6B3E10;display:flex;flex-wrap:wrap;gap:8px 20px">
+    <strong style="font-weight:600">Template · Release notes</strong><span>One per TLM generation or product release, published on release day.</span><span>Highlighted boxes are instructions: delete them.</span><span>Category is preset to Release.</span>
+  </div>
+</div>
+
+<section class="band" style="min-height:420px;display:flex;align-items:flex-end">
+  <div class="wrap" style="width:100%;padding-top:72px;padding-bottom:44px;display:flex;flex-direction:column;gap:18px;max-width:1240px">
+    <div style="display:flex;flex-wrap:wrap;gap:8px"><span class="tag" style="background:#E6F1EF;color:#1F4A44">Release</span><span class="tag" style="background:#F2F2EF;color:#3A3A38">[Generally available · Preview]</span></div>
+    <h1 style="font-size:48px;line-height:1.08;font-weight:400;letter-spacing:-.03em;max-width:880px">[TLM generation or product, version]: [what is new, in outcomes]</h1>
+  </div>
+</section>
+
+<main class="wrap" style="display:flex;flex-direction:column;gap:32px;padding-top:40px;width:100%">
+  <div class="guide" style="max-width:880px"><b>Title area</b>Name the release, then the outcome. "[Generation]: answers grounded in [domain] in half the time" beats a list of features.</div>
+
+  <section class="card" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px;padding:24px 28px">
+    <span class="fact"><small>Released</small>[DATE]</span>
+    <span class="fact"><small>Replaces</small>[Previous generation]</span>
+    <span class="fact"><small>Who should move</small>[Teams]</span>
+    <span class="fact"><small>Move by</small>[DATE]</span>
+  </section>
+
+  <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+    <article class="body" style="flex:999 1 560px;min-width:0;max-width:760px;display:flex;flex-direction:column;gap:20px">
+      <h2>What is new</h2>
+      <div class="guide"><b>Three outcomes</b>Three bullets, each something a user can now do or do better. No architecture, no parameter counts on this page.</div>
+      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px" class="fill"><li>[Outcome one]</li><li>[Outcome two]</li><li>[Outcome three]</li></ul>
+
+      <h2>Compared with [previous generation]</h2>
+      <div class="guide"><b>From the index only</b>Every number comes from the TL Index run named in page properties. Show where it got worse too.</div>
+      <div class="card" style="padding:8px 12px;overflow-x:auto">
+        <table>
+          <thead><tr><th>Skill</th><th class="n">[Previous]</th><th class="n">[This release]</th><th class="n">Change</th></tr></thead>
+          <tbody>
+            <tr><td>[Skill]</td><td class="n">[N]</td><td class="n">[N]</td><td class="n">[±N]</td></tr>
+            <tr><td>[Skill]</td><td class="n">[N]</td><td class="n">[N]</td><td class="n">[±N]</td></tr>
+            <tr><td style="border-bottom:0">[Skill]</td><td class="n" style="border-bottom:0">[N]</td><td class="n" style="border-bottom:0">[N]</td><td class="n" style="border-bottom:0">[±N]</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Who should move, and how</h2>
+      <div class="guide"><b>Be specific</b>Which teams or use cases should switch, by when, and what they need to change. Link the step-by-step in the ThinkLatent Portal.</div>
+      <p class="fill">[Who should move and how.]</p>
+
+      <h2>Known limits</h2>
+      <div class="guide"><b>Say it plainly</b>What it does not do yet, where it is weaker, and what to use instead. Trust is built here.</div>
+      <p class="fill">[Known limits.]</p>
+
+      <h2>Getting started</h2>
+      <div class="guide"><b>How a team starts</b>Three steps, each a link: where to request access, the Relay call that reaches it, and the portal page with the full model card and the playground. No architecture.</div>
+      <ol class="fill" style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li>[Request access · link]</li><li>[The call, in Relay · link]</li><li>[The full model card and playground in the ThinkLatent Portal · link]</li></ol>
+
+      <h2>Acknowledgments</h2>
+      <div class="guide"><b>Who built it, who tried it first</b>The people and the partner teams, by name, with consent. The first team to run it in production gets the first line.</div>
+      <p class="fill">[Built by · tried first by.]</p>
+
+      <h2>Contact</h2>
+      <div class="guide"><b>One name</b>The release owner, and where to ask: the Viva Engage community or the form on the Products page.</div>
+      <p class="fill">[Release owner · where to ask.]</p>
+
+      <div class="card" style="background:#1F4A44;color:#FFFFFF;display:flex;flex-direction:column;gap:12px;padding:28px">
+        <h2 style="font-size:22px;margin:0;color:#FFFFFF">See it live</h2>
+        <p style="color:#D3ECE6">Ten-minute demo at AI Perspectives on [DATE]. Questions before then go to [owner].</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px"><a class="pill" href="Perspectives.dc.html">Join the demo</a><a class="pill" href="Products.dc.html" style="background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,.55)">Start in the ThinkLatent Portal</a></div>
+      </div>
+      <div class="guide"><b>Release day checklist</b>This page, a the intranet line, the demo slot, and the portal entry, all on the same day; links to the portal card and the index run, never to weights or code. 300 to 600 words.</div>
+    </article>
+
+    <aside class="card" style="flex:1 1 280px;min-width:0;max-width:360px;padding:20px 24px" aria-label="Page properties">
+      <p class="cap" style="margin-bottom:4px">Page properties</p>
+      <p class="prop"><span>Category</span><span>Release (preset)</span></p>
+      <p class="prop"><span>Product</span><span>[TLM Core · Distil · Domain · Portal · Index · Gateway]</span></p>
+      <p class="prop"><span>Generation or version</span><span>[Value]</span></p>
+      <p class="prop"><span>Index run</span><span>[Reference]</span></p>
+      <p class="prop"><span>Release owner</span><span>[Name]</span></p>
+      <p class="prop" style="border-bottom:0"><span>Portal card</span><span>[Link]</span></p>
+    </aside>
+  </div>
+</main>
+
+<div class="wrap"><div class="comments"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><p class="cap">Comments · on, moderated by the editors</p><span class="meta">[N] comments</span></div><input placeholder="Add a comment, or ask the author a question" aria-label="Add a comment"></div></div>
+<footer style="background:#ECECEA;border-top:1px solid #E6E6E2;margin-top:72px">
+  <div class="wrap" style="padding-top:48px;padding-bottom:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px">
+    <div style="display:flex;flex-direction:column;gap:12px;min-width:240px"><p style="font-weight:600">ThinkLatent</p><p class="meta">The Enterprise's own intelligence, compounding. Internal to the Enterprise.</p><div style="display:flex;flex-wrap:wrap;gap:8px"><a class="pill sm" href="#">Follow this site</a><a class="pill sm" href="#">ThinkLatent on Viva Engage</a></div></div>
+    <div><p class="cap">Site</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="Mandate.dc.html" style="color:#3A3A38;text-decoration:none">Mandate</a></li><li><a href="Products.dc.html" style="color:#3A3A38;text-decoration:none">Products</a></li><li><a href="Wins.dc.html" style="color:#3A3A38;text-decoration:none">Our work</a></li><li><a href="Blog.dc.html" style="color:#3A3A38;text-decoration:none">Stories</a></li><li><a href="Team.dc.html" style="color:#3A3A38;text-decoration:none">Team</a></li><li><a href="Glossary.dc.html" style="color:#3A3A38;text-decoration:none">Glossary</a></li><li><a href="Glance.dc.html" style="color:#3A3A38;text-decoration:none">ThinkLatent at a glance</a></li></ul></div>
+    <div><p class="cap">Products</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="Products.dc.html" style="color:#3A3A38;text-decoration:none">TLM</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">ThinkLatent Portal ↗</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">TL Index ↗</a></li><li><a href="TLTrust.dc.html" style="color:#3A3A38;text-decoration:none">ThinkLatent Trust</a></li></ul></div>
+    <div><p class="cap">Elsewhere</p><ul style="list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px"><li><a href="(source link withheld)" style="color:#3A3A38;text-decoration:none">The university lab ↗</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">[Enterprise recognition portal] ↗</a></li><li><a href="Write.dc.html" style="color:#3A3A38;text-decoration:none">Write for ThinkLatent</a></li><li><a href="#" style="color:#3A3A38;text-decoration:none">Contact the editors</a></li></ul></div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

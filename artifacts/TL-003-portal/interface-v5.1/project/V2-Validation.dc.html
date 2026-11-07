@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Queue and validation</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 4100px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-current="page" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Approvals · Queue and validation · validator view, Elena R. · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Queue and validation</h1><div class="kit-muted" style="margin-top: 6px; max-width: 820px">Models, agents and usages arrive here when an Official run and sealed evidence sessions are ready. The portal drafts the validation document from them; you edit it, ask questions and sign once. One sign-off marks the version approved for use in the portal and in Relay.</div></div>
+      <div class="kit-actions"><button class="kit-btn" type="button">Open next in queue</button><a class="kit-btn outline" href="E6-Requests.dc.html">Run TL Index again</a><a class="kit-btn outline" href="O5-AuditExport.dc.html">Export validation pack</a></div>
+    </div>
+
+    <nav class="kit-subrail" aria-label="Sections"><a href="V2-Validation.dc.html" aria-current="page">Queue and validation</a><a href="V1-Approval.dc.html">Decision</a><a href="V3-GovernancePortfolio.dc.html">Governance portfolio</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"></path><path d="M8 12h13"></path><path d="M8 18h13"></path><path d="M3 6h.01"></path><path d="M3 12h.01"></path><path d="M3 18h.01"></path></svg></span></div>
+        <div class="kit-tile-title">Ready for review</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">4<span class="unit">ready</span></div><div class="kit-tile-cap">1 model · 1 agent · 2 usages, each with an Official run and sealed sessions · 1 more waits on an Official run</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="dash" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span></div>
+        <div class="kit-tile-title">Validations signed · 30 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">6<span class="unit">median 2.6 d</span></div><div class="kit-tile-cap">Ready to signed · target 5 working days · base and method layers inherited, not re-reviewed</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>On target</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4"></path><path d="M8 2v4"></path><path d="M3 10h18"></path></svg></span></div>
+        <div class="kit-tile-title">Attestations due · 30 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3<span class="unit">next 12 Nov</span></div><div class="kit-tile-cap">Monitoring thresholds for UC-0291 Production, Priya N. · none overdue</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i style="height: 60%"></i><i style="height: 30%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span></div>
+        <div class="kit-tile-title">Approved for use</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">7<span class="unit">versions</span></div><div class="kit-tile-cap">Each signed once for the portal and Relay together · latest Knowledge agent 2.3, 20 Oct</div></div><span class="kit-chip brand">Approved for use</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Validation document · TLM4 Distil 4.2 · VD-0058</h2><div class="sub">Selected from the queue below. Drafted by the Evaluation agent at 07:10 from Official TL Index run 1179, three sealed evidence sessions and the questions log. Every claim names its source. Edit any section, then sign once.</div></div>
+        <div class="kit-actions" style="align-items: center"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Draft · 4 of 6 sections reviewed</span></span><a class="kit-btn sm outline" href="E6-Requests.dc.html">Run TL Index again</a></div>
+      </div>
+
+      <div class="kit-grid-main" style="margin-top: 16px; align-items: start">
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <div class="kit-surface raised" style="padding: 16px">
+            <div class="kit-surface-head"><div><h3>1 · Scope and intended use</h3></div><div class="kit-actions" style="align-items: center"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Reviewed</span></span><button class="kit-btn sm outline" type="button">Edit</button></div></div>
+            <table style="margin-top: 8px">
+              <thead><tr><th>Claim</th><th style="width: 200px">Source</th></tr></thead>
+              <tbody>
+                <tr><td>TLM4 Distil 4.2 for internal, low-risk generation and scoring. First use: UC-0001 Portal help agent in the ThinkLatent Portal project, in Production.</td><td class="kit-small">UC-0001 record · route change requested 30 Oct</td></tr>
+                <tr><td>Not for client-facing advice. A client-facing use needs its own use-case layer.</td><td class="kit-small">Policy C-2 §2</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="kit-surface raised" style="padding: 16px">
+            <div class="kit-surface-head"><div><h3>2 · Evidence relied on</h3></div><div class="kit-actions" style="align-items: center"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Reviewed</span></span><button class="kit-btn sm outline" type="button">Edit</button></div></div>
+            <table style="margin-top: 8px">
+              <thead><tr><th>Claim</th><th style="width: 200px">Source</th></tr></thead>
+              <tbody>
+                <tr><td>The base-model and index-method layers are inherited unchanged; only the use-case layer is new.</td><td class="kit-small">Layered evidence, beside this document</td></tr>
+                <tr><td>Official TL Index run 1179 covers the five live pillars and the UC-0001 help-agent set; no Practice run is cited.</td><td class="kit-small"><a href="E1-EvaluationResults.dc.html">Run 1179 manifest</a></td></tr>
+                <tr><td>Three evidence sessions are sealed: escalation when unsure (12 probes), answers from the knowledge base only (20 questions), tone for internal users (8 variants).</td><td class="kit-small"><a href="P1-Playground.dc.html">Playground evidence sessions</a></td></tr>
+                <tr><td>Neither run used a withdrawn data-set version.</td><td class="kit-small">Data-set lineage check, 07:10 today</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="kit-surface raised" style="padding: 16px">
+            <div class="kit-surface-head"><div><h3>3 · Results by pillar</h3><div class="sub">Edited by Elena R. at 10:40 · n 1 200 items per pillar in both runs · 95% intervals by bootstrap</div></div><div class="kit-actions" style="align-items: center"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Reviewed</span></span><button class="kit-btn sm outline" type="button">Edit</button></div></div>
+            <table style="margin-top: 8px">
+              <thead><tr><th>Pillar</th><th class="num">Distil 4.2 · run 1179</th><th class="num">Core 4.2 · run 1180</th><th>Reading</th></tr></thead>
+              <tbody>
+                <tr><td>1 · Financial data processing</td><td class="num"><span class="kit-interval">0.83 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.85 <span class="pm">± 0.03</span></span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Level</span></span></td></tr>
+                <tr><td>3 · Client care</td><td class="num"><span class="kit-interval">0.79 <span class="pm">± 0.04</span></span></td><td class="num"><span class="kit-interval">0.80 <span class="pm">± 0.04</span></span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Level</span></span></td></tr>
+                <tr><td>4 · Compliance and regulatory</td><td class="num"><span class="kit-interval">0.76 <span class="pm">± 0.04</span></span></td><td class="num"><span class="kit-interval">0.79 <span class="pm">± 0.03</span></span></td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Level, 0.03 lower</span></span></td></tr>
+                <tr><td>6 · Safety and grounding</td><td class="num"><span class="kit-interval">0.89 <span class="pm">± 0.02</span></span></td><td class="num"><span class="kit-interval">0.90 <span class="pm">± 0.02</span></span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Level</span></span></td></tr>
+                <tr><td>7 · Entity recognition</td><td class="num"><span class="kit-interval">0.85 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.86 <span class="pm">± 0.03</span></span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Level</span></span></td></tr>
+                <tr><td>Eleven more pillars<div class="kit-small kit-muted">2, 5 and 8 to 16</div></td><td class="num"><span class="kit-dash" title="Phase 2: these pillars are not live in the MVP">—</span></td><td class="num"><span class="kit-dash" title="Phase 2: these pillars are not live in the MVP">—</span></td><td class="kit-small kit-muted">Phase 2</td></tr>
+                <tr><td><strong>UC-0001 help-agent set</strong><div class="kit-small kit-muted">record bar 0.78 · n 600</div></td><td class="num"><span class="kit-interval">0.81 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.82 <span class="pm">± 0.03</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Above the bar</span></span></td></tr>
+              </tbody>
+            </table>
+            <table style="margin-top: 10px">
+              <thead><tr><th>Claim</th><th style="width: 200px">Source</th></tr></thead>
+              <tbody>
+                <tr><td>Distil 4.2 is level with Core 4.2 on all five live pillars and on the help-agent set; the widest gap is Compliance and regulatory, 0.03 lower with overlapping intervals.</td><td class="kit-small"><a href="E1-EvaluationResults.dc.html">Runs 1179 and 1180</a> · pillar table</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="kit-surface raised" style="padding: 16px">
+            <div class="kit-surface-head"><div><h3>4 · Limitations and conditions</h3></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Editing · Elena R.</span></span></div>
+            <div class="kit-field" style="margin-top: 10px"><label for="vd-s4">Section text · each claim keeps its source in brackets</label><textarea class="kit-input area" id="vd-s4" style="min-height: 132px">Not approved for client-facing advice [Policy C-2 §2]. Compliance and regulatory is weakest on fee-disclosure items, 96 of the 1 200 in that pillar, which account for most of the 0.03 gap [run 1179 item log]; any use that answers fee questions needs its own use-case layer. Re-validate when the help agent's prompt changes major version, or when a new endpoint build or serving setting is cut [Policy C-2 §11].</textarea></div>
+            <div class="kit-actions" style="margin-top: 10px"><button class="kit-btn sm outline" type="button">Save section</button><button class="kit-btn sm outline" type="button">Discard changes</button><button class="kit-btn sm outline" type="button">Ask the agent to redraft</button></div>
+          </div>
+
+          <div class="kit-surface raised" style="padding: 16px">
+            <div class="kit-surface-head"><div><h3>5 · Questions asked and answers</h3><div class="sub">Included verbatim from the questions log beside this document · 3 asked, 3 answered, 3 accepted</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Reviewed</span></span></div>
+          </div>
+
+          <div class="kit-surface raised" style="padding: 16px">
+            <div class="kit-surface-head"><div><h3>6 · Conclusion</h3><div class="sub">Drafted: "Recommend approval of TLM4 Distil 4.2 for the intended use in section 1, with the limitations in section 4." · Source: sections 1 to 5</div></div><div class="kit-actions" style="align-items: center"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not reviewed</span></span><button class="kit-btn sm outline" type="button">Review</button></div></div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px">
+          <div class="kit-surface raised">
+            <div class="kit-surface-head"><div><h3>Layered evidence</h3><div class="sub">Validate the method once and the base once; review only what is new.</div></div></div>
+            <div class="kit-rows" style="margin-top: 10px">
+              <div class="kit-row" style="grid-template-columns: minmax(0, 1fr)">
+                <div>
+                  <div style="display: flex; justify-content: space-between; gap: 8px; align-items: center"><span class="kit-label">1 · Base model</span><span class="kit-chip brand">Approved for use</span></div>
+                  <div class="t" style="margin-top: 6px"><a href="M2-ModelPage.dc.html">TLM4 Core 4.2</a> · <a href="E1-EvaluationResults.dc.html">Official run 1180</a></div>
+                  <div class="s">n 1 200 items per pillar · signed Elena R., 3 Oct 2026 · valid until 3 Oct 2027 · inherited, not re-reviewed</div>
+                </div>
+              </div>
+              <div class="kit-row" style="grid-template-columns: minmax(0, 1fr)">
+                <div>
+                  <div style="display: flex; justify-content: space-between; gap: 8px; align-items: center"><span class="kit-label">2 · Index method</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inherited</span></span></div>
+                  <div class="t" style="margin-top: 6px">TL Index method v1 · five live pillars</div>
+                  <div class="s">n 400 human labels for judge calibration, kappa 0.78 · signed by the pillar council and Elena R., 28 Sep 2026 · valid until 28 Sep 2027</div>
+                </div>
+              </div>
+              <div class="kit-row" style="grid-template-columns: minmax(0, 1fr)">
+                <div>
+                  <div style="display: flex; justify-content: space-between; gap: 8px; align-items: center"><span class="kit-label">3 · Use case</span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Needs your sign-off</span></span></div>
+                  <div class="t" style="margin-top: 6px">UC-0001 Portal help agent · <a href="E1-EvaluationResults.dc.html">Official run 1179</a> · <a href="P1-Playground.dc.html">3 sessions</a></div>
+                  <div class="s">n 600 items · 3 sealed sessions · sign-off: this document · valid 6 months from sign-off, or until a new build or setting</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="kit-surface raised">
+            <div class="kit-surface-head"><div><h3>Questions asked and answers</h3><div class="sub">Every question on this validation, who answered and when.</div></div><button class="kit-btn sm outline" type="button">Ask a question</button></div>
+            <div class="kit-rows" style="margin-top: 10px">
+              <div class="kit-row" style="grid-template-columns: minmax(0, 1fr)">
+                <div>
+                  <div class="t kit-small">Why is Compliance and regulatory lower on Distil than on Core?</div>
+                  <div class="s">Elena R. · 2 Nov 14:10</div>
+                  <div class="kit-small" style="margin-top: 6px">Evaluation agent · 2 Nov 14:12 · 84% confidence: 0.76 ± 0.04 against 0.79 ± 0.03, so the intervals overlap. Fee-disclosure items, 96 of 1 200, account for most of the gap. <span class="kit-muted">Accepted by Elena R.</span></div>
+                </div>
+              </div>
+              <div class="kit-row" style="grid-template-columns: minmax(0, 1fr)">
+                <div>
+                  <div class="t kit-small">Is the help-agent set held out from Distil's training data?</div>
+                  <div class="s">Elena R. · 3 Nov 09:30</div>
+                  <div class="kit-small" style="margin-top: 6px">Evaluation agent · 3 Nov 09:31: yes. The contamination check passed: 0 of 600 items appear in the Distil 4.2 training manifest. <span class="kit-muted">Accepted by Elena R.</span></div>
+                </div>
+              </div>
+              <div class="kit-row" style="grid-template-columns: minmax(0, 1fr)">
+                <div>
+                  <div class="t kit-small">What does the help agent do when Distil is unsure?</div>
+                  <div class="s">Elena R. · 4 Nov 16:00</div>
+                  <div class="kit-small" style="margin-top: 6px">Marcus L. · 4 Nov 16:45: below 70% confidence it pages the expert on duty and says so; it never answers from outside the knowledge base. <span class="kit-muted">Accepted by Elena R.</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="kit-surface raised">
+            <h3>Sign once</h3>
+            <div class="kit-small kit-muted" style="margin-top: 4px">One sign-off marks TLM4 Distil 4.2 approved for use in the portal catalogue and in Relay, and writes who, what, when and why to the record.</div>
+            <label class="kit-small" style="display: flex; gap: 8px; align-items: flex-start; margin-top: 12px"><input type="checkbox"><span>I have read sections 1 to 6 and the evidence they cite, and I approve Distil 4.2 for the intended use in section 1.</span></label>
+            <div class="kit-actions" style="margin-top: 12px; align-items: center"><button class="kit-btn decision" type="button" aria-disabled="true">Sign and approve</button><span class="kit-small kit-muted">Opens when sections 4 and 6 are reviewed.</span></div>
+            <div class="kit-actions" style="margin-top: 8px"><button class="kit-btn sm outline" type="button">Return to the owner with questions</button></div>
+            <div class="kit-divider"></div>
+            <div class="kit-label">On sign-off, in one action</div>
+            <div class="kit-small" style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px">
+              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="kit-chip brand">Approved for use</span><span>Portal catalogue and model page</span></div>
+              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="kit-chip brand">Approved for use</span><span>Relay model registry</span></div>
+              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="kit-chip outline">Record</span><span>Who, what, when and why · VD-0058</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="kit-source">Draft by the Evaluation agent from Official TL Index runs 1179 and 1180, three evidence sessions sealed on the record and the questions log; layer sign-offs and validity dates from the record. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Queue <span class="kit-chip">4 ready</span></h2><div class="sub">Models, agents and usages with an Official run and sealed evidence sessions, each with its service-level target. Attestations due and the versions most recently approved for use sit below.</div></div>
+        <div class="kit-seg" role="group" aria-label="Filter the queue"><button type="button" aria-pressed="true">All</button><button type="button" aria-pressed="false">Models</button><button type="button" aria-pressed="false">Agents</button><button type="button" aria-pressed="false">Usages</button></div>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Item</th><th>Kind</th><th>Official run</th><th class="num">Sessions</th><th>Waiting on</th><th>SLA</th><th>State</th><th></th></tr></thead>
+        <tbody>
+          <tr><td colspan="8"><span class="kit-label">Ready for review · 4</span></td></tr>
+          <tr class="selected">
+            <td>TLM4 Distil 4.2<div class="kit-small kit-muted">VD-0058 · first use UC-0001 Portal help agent</div></td>
+            <td>Model</td>
+            <td><a href="E1-EvaluationResults.dc.html">TL Index run 1179</a></td>
+            <td class="num">3</td>
+            <td>Elena R.</td>
+            <td>Fri 6 Nov 17:00<div class="kit-small kit-muted">1 d 5 h left · 5-day target</div></td>
+            <td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>In review</span></span></td>
+            <td><span class="kit-chip brand">Open now</span></td>
+          </tr>
+          <tr>
+            <td><a href="A2-AgentPage.dc.html">Knowledge agent 2.4</a><div class="kit-small kit-muted">VD-0059 · Advisor knowledge base</div></td>
+            <td>Agent</td>
+            <td>Agent evaluation, 4 Nov</td>
+            <td class="num">2</td>
+            <td>Elena R.</td>
+            <td>Wed 11 Nov 17:00<div class="kit-small kit-muted">4 working days left</div></td>
+            <td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Ready</span></span></td>
+            <td><div class="end"><button class="kit-btn sm outline" type="button">Open</button></div></td>
+          </tr>
+          <tr>
+            <td><a href="V1-Approval.dc.html">UA-0291 · Advisor summary</a><div class="kit-small kit-muted">Domain-Advice v2 · Pilot in production → Production</div></td>
+            <td>Usage</td>
+            <td><a href="E1-EvaluationResults.dc.html">TL Index run 1183</a></td>
+            <td class="num">2</td>
+            <td>Jithin, Head of ThinkLatent</td>
+            <td>Today 13:41<div class="kit-small kit-muted">1 h 43 m left · then Rohan K.</div></td>
+            <td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Decision due today</span></span></td>
+            <td><div class="end"><a class="kit-btn sm outline" href="V1-Approval.dc.html">Open decision</a></div></td>
+          </tr>
+          <tr>
+            <td>UA-0296 · Fund document Q&amp;A<div class="kit-small kit-muted">Knowledge agent 2.3 on Core 4.2 · Active build → Pilot in production</div></td>
+            <td>Usage</td>
+            <td>TL Index run 1188</td>
+            <td class="num">1</td>
+            <td>Governance agent checks, then Jithin</td>
+            <td>Mon 9 Nov 12:00<div class="kit-small kit-muted">2 working days left</div></td>
+            <td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Checks running</span></span></td>
+            <td><div class="end"><button class="kit-btn sm outline" type="button">Open</button></div></td>
+          </tr>
+          <tr><td colspan="8"><span class="kit-label">Not ready · 1</span></td></tr>
+          <tr>
+            <td>TLM4 Domain-Advice v3<div class="kit-small kit-muted">canary 5% on UC-0291 · Practice run R-2276 only; Official R-2291 in flight</div></td>
+            <td>Model</td>
+            <td><span class="kit-dash" title="Practice runs are never citable; an Official run is needed">—</span></td>
+            <td class="num"><span class="kit-dash" title="no sealed sessions yet">—</span></td>
+            <td>An Official run</td>
+            <td><span class="kit-dash" title="the clock starts when the item is ready">—</span></td>
+            <td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not ready</span></span></td>
+            <td><div class="end"><a class="kit-btn sm outline" href="E6-Requests.dc.html">Run TL Index again</a></div></td>
+          </tr>
+          <tr><td colspan="8"><span class="kit-label">Attestations due · 3</span></td></tr>
+          <tr>
+            <td>Monitoring thresholds for Production<div class="kit-small kit-muted">UC-0291 Advisor summary · needed before UA-0291 takes effect</div></td>
+            <td>Attestation</td>
+            <td><span class="kit-dash" title="an attestation does not need a run">—</span></td>
+            <td class="num"><span class="kit-dash" title="not applicable to an attestation">—</span></td>
+            <td>Priya N.</td>
+            <td>Thu 12 Nov<div class="kit-small kit-muted">7 days left</div></td>
+            <td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Due in 7 d</span></span></td>
+            <td><div class="end"><button class="kit-btn sm outline" type="button">Remind</button></div></td>
+          </tr>
+          <tr>
+            <td>Data consent re-attestation<div class="kit-small kit-muted">advisor-notes-v4 · UC-0291 Advisor summary</div></td>
+            <td>Attestation</td>
+            <td><span class="kit-dash" title="an attestation does not need a run">—</span></td>
+            <td class="num"><span class="kit-dash" title="not applicable to an attestation">—</span></td>
+            <td>Marcus L.</td>
+            <td>Fri 20 Nov<div class="kit-small kit-muted">15 days left</div></td>
+            <td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Due in 15 d</span></span></td>
+            <td><div class="end"><button class="kit-btn sm outline" type="button">Remind</button></div></td>
+          </tr>
+          <tr>
+            <td>Judge calibration re-check<div class="kit-small kit-muted">TL Index method v1 · evaluator v2.3</div></td>
+            <td>Attestation</td>
+            <td><span class="kit-dash" title="an attestation does not need a run">—</span></td>
+            <td class="num"><span class="kit-dash" title="not applicable to an attestation">—</span></td>
+            <td>Pillar council</td>
+            <td>Fri 4 Dec<div class="kit-small kit-muted">29 days left</div></td>
+            <td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Due in 29 d</span></span></td>
+            <td><div class="end"><button class="kit-btn sm outline" type="button">Remind</button></div></td>
+          </tr>
+          <tr><td colspan="8"><span class="kit-label">Recently approved for use · 3 of 7</span></td></tr>
+          <tr>
+            <td><a href="A2-AgentPage.dc.html">Knowledge agent 2.3</a><div class="kit-small kit-muted">VD-0053 · signed Elena R., 20 Oct</div></td>
+            <td>Agent</td>
+            <td>Agent evaluation, 18 Oct</td>
+            <td class="num">2</td>
+            <td><span class="kit-dash" title="nothing waiting">—</span></td>
+            <td>Signed in 1.9 days</td>
+            <td><span class="kit-chip brand">Approved for use</span></td>
+            <td><span class="kit-small kit-muted">Portal and Relay</span></td>
+          </tr>
+          <tr>
+            <td>TLM4 Domain-Advice v2<div class="kit-small kit-muted">VD-0051 · signed Elena R., 12 Oct</div></td>
+            <td>Model</td>
+            <td><a href="E1-EvaluationResults.dc.html">TL Index run 1183</a></td>
+            <td class="num">2</td>
+            <td><span class="kit-dash" title="nothing waiting">—</span></td>
+            <td>Signed in 2.8 days</td>
+            <td><span class="kit-chip brand">Approved for use</span></td>
+            <td><span class="kit-small kit-muted">Portal and Relay</span></td>
+          </tr>
+          <tr>
+            <td><a href="M2-ModelPage.dc.html">TLM4 Core 4.2</a><div class="kit-small kit-muted">VD-0049 · signed Elena R., 3 Oct</div></td>
+            <td>Model</td>
+            <td><a href="E1-EvaluationResults.dc.html">TL Index run 1180</a></td>
+            <td class="num">4</td>
+            <td><span class="kit-dash" title="nothing waiting">—</span></td>
+            <td>Signed in 4.6 days</td>
+            <td><span class="kit-chip brand">Approved for use</span></td>
+            <td><span class="kit-small kit-muted">Portal and Relay</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Queue from the approvals log; Official runs from the evaluation registry; sessions sealed on the record. Service-level targets: validation 5 working days from ready, usage decision 4 working hours from routing. Attestations from each record. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4100}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

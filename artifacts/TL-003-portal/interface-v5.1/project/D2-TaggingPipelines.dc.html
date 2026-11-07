@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Tagging pipelines</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2100px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-current="page" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Data · Tagging pipelines · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Which pipelines are tagging your data, and how well</h1></div>
+      <div class="kit-actions"><button class="kit-btn" type="button">Enable on a set</button><a class="kit-btn outline" href="D2-TaggingPipelines-Propose.dc.html">Propose a new pipeline</a><a class="kit-btn outline" href="D1-ReviewQueue.dc.html">Review queue</a><a class="kit-btn outline" href="D3-ApprovalsInsight.dc.html">Approvals and insight</a><a class="kit-btn outline" href="D5-DatasetVersions.dc.html">Data-set versions</a><a class="kit-btn outline" href="D6-KnowledgeGraph.dc.html">Knowledge graph</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="D2-TaggingPipelines.dc.html" aria-current="page">Pipelines</a><a href="D2-TaggingPipelines-Engineering.dc.html">Data engineering</a><a href="D2-TaggingPipelines-Propose.dc.html">Propose a pipeline</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span></div>
+        <div class="kit-tile-title">Pipelines live</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2<span class="unit">of 4</span></div><div class="kit-tile-cap">PII since day 1 · Toxicity since day 2</div></div><div class="kit-bars"><i class="lit" style="height: 100%"></i><i class="lit" style="height: 100%"></i><i class="dash" style="height: 100%"></i><i class="dash" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path></svg></span></div>
+        <div class="kit-tile-title">Data sets covered</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">9<span class="unit">of 11</span></div><div class="kit-tile-cap">2 sets have no pipeline enabled yet</div></div><div class="kit-bars"><i style="height: 40%"></i><i style="height: 55%"></i><i style="height: 70%"></i><i style="height: 80%"></i><i class="lit" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span></div>
+        <div class="kit-tile-title">Flagged yesterday</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">38<span class="unit">items</span></div><div class="kit-tile-cap">31 PII · 7 Toxicity · 7-day mean 41</div></div><div class="kit-bars"><i style="height: 60%"></i><i style="height: 80%"></i><i style="height: 100%"></i><i style="height: 70%"></i><i style="height: 65%"></i><i style="height: 75%"></i><i class="lit" style="height: 62%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span></div>
+        <div class="kit-tile-title">Nightly recompute</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">02:00</div><div class="kit-tile-cap">Coverage and precision recompute from review decisions · last run 02:04 today</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ran</span></span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Pipelines</h2><div class="sub">Coverage is the share of eligible rows the pipeline has scored. Precision is measured from human review decisions, recomputed every night. Thresholds are tuned by ThinkLatent; each card keeps its threshold history.</div></div>
+        <div class="kit-legend"><span><i style="background: #3E9A5C"></i>Items flagged per day</span><span><i style="background: #DADAD8"></i>7-day target</span></div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px">
+
+        <section class="kit-surface raised" style="padding: 18px">
+          <div class="kit-surface-head"><div><h3>PII</h3><div class="sub">Live since day 1 · v3.1 · 9 data sets</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px">
+            <div><div class="kit-label">Coverage</div><div class="kit-display" style="font-size: 28px; margin-top: 4px">98<span style="font-size: 14px; opacity: .6">%</span></div><div class="kit-small kit-muted">of 1.42 M rows</div></div>
+            <div><div class="kit-label">Precision from reviews</div><div style="margin-top: 4px"><span class="kit-interval kit-display" style="font-size: 28px">0.91 <span class="pm" style="font-size: 14px">± 0.03</span></span></div><div class="kit-small kit-muted">n 412 decisions, 30 d</div></div>
+            <div><div class="kit-label">Flagged per day</div><svg class="kit-spark" viewBox="0 0 100 40" width="120" height="48" aria-label="PII items flagged per day, last 14 days"><line x1="0" y1="18" x2="100" y2="18" stroke="#DADAD8" stroke-width="1" stroke-dasharray="3 3"></line><polyline fill="none" stroke="#3E9A5C" stroke-width="2" points="0,26 8,24 16,20 24,22 32,15 40,17 48,12 56,14 64,10 72,13 80,11 88,16 96,14 100,15"></polyline><text x="2" y="12" font-size="7" fill="#5C5C5A">target 40</text></svg></div>
+          </div>
+          <div style="margin-top: 14px">
+            <div style="display: flex; justify-content: space-between" class="kit-small"><span class="kit-muted">Threshold</span><span class="kit-num">0.80</span></div>
+            <div class="kit-track" style="margin-top: 6px" role="img" aria-label="Threshold 0.80"><i style="width: 80%"></i></div>
+            <div style="display: flex; justify-content: space-between; margin-top: 4px"><span class="kit-threshold">0.50 (recall)</span><span class="kit-threshold">1.00 (precision)</span></div>
+          </div>
+          <div class="kit-small" style="margin-top: 10px"><span class="kit-muted">Threshold history:</span> 0.70 at launch 1 Sep → 0.72 on 15 Sep → 0.80 on 28 Oct · each change traced to review decisions · <a href="D2-TaggingPipelines-Engineering.dc.html">full history</a></div>
+          <div class="kit-actions" style="margin-top: 14px"><button class="kit-btn sm" type="button">Enable on a set</button><button class="kit-btn sm outline" type="button">Tune thresholds (ThinkLatent)</button><a class="kit-btn sm outline" href="D1-ReviewQueue.dc.html">Queue · 8</a></div>
+          <div class="kit-source">Source: PII pipeline run log and tuning log · precision from the review log, recomputed 02:04 ET today · as of 11:58 ET.</div>
+        </section>
+
+        <section class="kit-surface raised" style="padding: 18px">
+          <div class="kit-surface-head"><div><h3>Toxicity</h3><div class="sub">Live since day 2 · v1.4 · 6 data sets</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px">
+            <div><div class="kit-label">Coverage</div><div class="kit-display" style="font-size: 28px; margin-top: 4px">87<span style="font-size: 14px; opacity: .6">%</span></div><div class="kit-small kit-muted">of 0.96 M rows</div></div>
+            <div><div class="kit-label">Precision from reviews</div><div style="margin-top: 4px"><span class="kit-interval kit-display" style="font-size: 28px">0.78 <span class="pm" style="font-size: 14px">± 0.06</span></span></div><div class="kit-small kit-muted">n 138 decisions, 30 d</div></div>
+            <div><div class="kit-label">Flagged per day</div><svg class="kit-spark" viewBox="0 0 100 40" width="120" height="48" aria-label="Toxicity items flagged per day, last 14 days"><line x1="0" y1="30" x2="100" y2="30" stroke="#DADAD8" stroke-width="1" stroke-dasharray="3 3"></line><polyline fill="none" stroke="#3E9A5C" stroke-width="2" points="0,34 8,33 16,31 24,30 32,32 40,29 48,28 56,30 64,27 72,29 80,28 88,30 96,31 100,30"></polyline><text x="2" y="26" font-size="7" fill="#5C5C5A">target 8</text></svg></div>
+          </div>
+          <div style="margin-top: 14px">
+            <div style="display: flex; justify-content: space-between" class="kit-small"><span class="kit-muted">Threshold</span><span class="kit-num">0.70</span></div>
+            <div class="kit-track" style="margin-top: 6px" role="img" aria-label="Threshold 0.70"><i class="warn" style="width: 70%"></i></div>
+            <div style="display: flex; justify-content: space-between; margin-top: 4px"><span class="kit-threshold">0.50 (recall)</span><span class="kit-threshold">1.00 (precision)</span></div>
+          </div>
+          <div class="kit-small" style="margin-top: 10px"><span class="kit-muted">Threshold history:</span> 0.70 at launch 2 Sep · unchanged; a pattern exclusion (TOX-P-07) is proposed instead of a retune · <a href="D2-TaggingPipelines-Engineering.dc.html">full history</a></div>
+          <div class="kit-actions" style="margin-top: 14px"><button class="kit-btn sm" type="button">Enable on a set</button><button class="kit-btn sm outline" type="button">Tune thresholds (ThinkLatent)</button><a class="kit-btn sm outline" href="D1-ReviewQueue.dc.html">Queue · 2</a></div>
+          <div class="kit-source">Source: Toxicity pipeline run log · precision from the review log, recomputed 02:04 ET today · wide interval because n is small · as of 11:58 ET.</div>
+        </section>
+
+        <section class="kit-surface raised" style="padding: 18px">
+          <div class="kit-surface-head"><div><h3>Financial advice claims</h3><div class="sub">Next · v0.3 candidate · shadow mode on 2 data sets</div></div><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Shadow</span></span></div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px">
+            <div><div class="kit-label">Coverage</div><div class="kit-display" style="font-size: 28px; margin-top: 4px">22<span style="font-size: 14px; opacity: .6">%</span></div><div class="kit-small kit-muted">advisor-notes-v4 only</div></div>
+            <div><div class="kit-label">Precision from reviews</div><div class="kit-display" style="font-size: 28px; margin-top: 4px"><span class="kit-dash" title="fewer than 50 review decisions; precision is not reported until n reaches 50">—</span></div><div class="kit-small kit-muted">n 17 of 50 needed</div></div>
+            <div><div class="kit-label">Flagged per day</div><svg class="kit-spark" viewBox="0 0 100 40" width="120" height="48" aria-label="Financial advice claims flagged per day, shadow mode"><line x1="0" y1="24" x2="100" y2="24" stroke="#DADAD8" stroke-width="1" stroke-dasharray="3 3"></line><polyline fill="none" stroke="#3E9A5C" stroke-width="2" points="0,38 8,38 16,37 24,36 32,34 40,33 48,30 56,28 64,27 72,26 80,25 88,24 96,22 100,22"></polyline><text x="2" y="20" font-size="7" fill="#5C5C5A">target 15</text></svg></div>
+          </div>
+          <div style="margin-top: 14px">
+            <div style="display: flex; justify-content: space-between" class="kit-small"><span class="kit-muted">Threshold (provisional)</span><span class="kit-num">0.75</span></div>
+            <div class="kit-track" style="margin-top: 6px" role="img" aria-label="Threshold 0.75"><i style="width: 75%"></i></div>
+            <div style="display: flex; justify-content: space-between; margin-top: 4px"><span class="kit-threshold">0.50 (recall)</span><span class="kit-threshold">1.00 (precision)</span></div>
+          </div>
+          <div class="kit-small" style="margin-top: 10px"><span class="kit-muted">Threshold history:</span> 0.75 provisional since shadow start 21 Oct · first tune once 50 decisions are in · <a href="D2-TaggingPipelines-Engineering.dc.html">full history</a></div>
+          <div class="kit-actions" style="margin-top: 14px; align-items: center"><button class="kit-btn sm" type="button" aria-disabled="true">Enable on a set</button><span class="kit-small kit-muted">Needs 50 review decisions first</span><button class="kit-btn sm outline" type="button">Tune thresholds (ThinkLatent)</button></div>
+          <div class="kit-source">Source: shadow run log · no flags reach the queue in shadow mode · as of 11:58 ET.</div>
+        </section>
+
+        <section class="kit-surface raised" style="padding: 18px">
+          <div class="kit-surface-head"><div><h3>Contamination vs eval index</h3><div class="sub">Next · checks training rows against held-out Index items · planned for day 9</div></div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Planned</span></span></div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px">
+            <div><div class="kit-label">Coverage</div><div class="kit-display" style="font-size: 28px; margin-top: 4px"><span class="kit-dash" title="pipeline not yet run">—</span></div><div class="kit-small kit-muted">not yet run</div></div>
+            <div><div class="kit-label">Precision from reviews</div><div class="kit-display" style="font-size: 28px; margin-top: 4px"><span class="kit-dash" title="no review decisions yet">—</span></div><div class="kit-small kit-muted">no decisions yet</div></div>
+            <div><div class="kit-label">Flagged per day</div><svg class="kit-spark" viewBox="0 0 100 40" width="120" height="48" aria-label="No data yet"><line x1="0" y1="24" x2="100" y2="24" stroke="#DADAD8" stroke-width="1" stroke-dasharray="3 3"></line><text x="2" y="20" font-size="7" fill="#5C5C5A">target to be set</text></svg></div>
+          </div>
+          <div style="margin-top: 14px">
+            <div style="display: flex; justify-content: space-between" class="kit-small"><span class="kit-muted">Threshold (exact match on 8-gram)</span><span class="kit-num">1.00</span></div>
+            <div class="kit-track" style="margin-top: 6px" role="img" aria-label="Threshold 1.00"><i style="width: 100%"></i></div>
+            <div style="display: flex; justify-content: space-between; margin-top: 4px"><span class="kit-threshold">0.50 (recall)</span><span class="kit-threshold">1.00 (precision)</span></div>
+          </div>
+          <div class="kit-small" style="margin-top: 10px"><span class="kit-muted">Threshold history:</span> fixed at 1.00 by design (exact match) · not tuned</div>
+          <div class="kit-actions" style="margin-top: 14px; align-items: center"><button class="kit-btn sm" type="button" aria-disabled="true">Enable on a set</button><span class="kit-small kit-muted">Available after the Index held-out rotation on 3 Dec</span><a class="kit-btn sm outline" href="E2-Index.dc.html">Index data</a></div>
+          <div class="kit-source">Source: pipeline roadmap, ThinkLatent core team · as of 11:58 ET.</div>
+        </section>
+      </div>
+      <div class="kit-source">All data sets here are Non-production build data <span class="kit-chip env">Non-production</span>. Coverage and precision recompute nightly at 02:00 ET from review decisions; a threshold change takes effect at the next nightly run.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Where each pipeline is enabled</h2><div class="sub">By data set. Enabling a pipeline on a set queues a full back-fill before new rows are scored.</div></div><a class="kit-btn sm outline" href="D5-DatasetVersions.dc.html">Data-set versions</a></div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Data set</th><th>Owner</th><th>PII</th><th>Toxicity</th><th>Financial advice claims</th><th>Contamination</th><th class="num">Rows</th></tr></thead>
+        <tbody>
+          <tr><td><a href="D5-DatasetVersions.dc.html">advisor-notes-v4</a><div class="kit-small kit-muted">UC-0291 Advisor summary</div></td><td>Priya N.</td><td><span class="kit-chip brand">On</span></td><td><span class="kit-chip brand">On</span></td><td><span class="kit-chip outline">Shadow</span></td><td><span class="kit-chip env">Planned</span></td><td class="num">412 800</td></tr>
+          <tr><td><a href="D5-DatasetVersions.dc.html">claims-notes-v2</a><div class="kit-small kit-muted">UC-0142 Claims triage</div></td><td>Marcus L.</td><td><span class="kit-chip brand">On</span></td><td><span class="kit-chip brand">On</span></td><td><span class="kit-chip outline">Off</span></td><td><span class="kit-chip env">Planned</span></td><td class="num">268 100</td></tr>
+          <tr><td><a href="D5-DatasetVersions.dc.html">fund-docs-v1</a><div class="kit-small kit-muted">UC-0307 Fund document Q&amp;A</div></td><td>Priya N.</td><td><span class="kit-chip brand">On</span></td><td><span class="kit-chip outline">Off</span></td><td><span class="kit-chip outline">Shadow</span></td><td><span class="kit-chip env">Planned</span></td><td class="num">91 400</td></tr>
+          <tr><td><a href="D5-DatasetVersions.dc.html">policy-corpus-v1</a><div class="kit-small kit-muted">UC-0311 Policy lookup agent</div></td><td>Marcus L.</td><td><span class="kit-chip outline">Off</span></td><td><span class="kit-chip outline">Off</span></td><td><span class="kit-chip outline">Off</span></td><td><span class="kit-chip env">Planned</span></td><td class="num">38 900</td></tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Source: pipeline configuration store · row counts from data-set version manifests · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2100}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

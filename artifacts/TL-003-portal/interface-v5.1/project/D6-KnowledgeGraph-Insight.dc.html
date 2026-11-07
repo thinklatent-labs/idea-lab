@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Enterprise-wide insight</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2400px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-current="page" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Data · Knowledge graph · Enterprise-wide insight · last 30 days · aggregate only · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">What Enterprise asks, where the models are weakest, and the data plan for the next generation</h1></div>
+      <div class="kit-actions"><a class="kit-btn outline" href="D2-TaggingPipelines-Propose.dc.html">Propose a pipeline</a><a class="kit-btn outline" href="D4-SelfHealingMarks.dc.html">Self-healing marks</a><a class="kit-btn outline" href="E2-Index.dc.html">Index</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="D6-KnowledgeGraph.dc.html">Status</a><a href="D6-KnowledgeGraph-Insight.dc.html" aria-current="page">Enterprise-wide insight</a><a href="D6-KnowledgeGraph-Coverage.dc.html">Topic coverage by project</a></nav>
+    <div class="kit-note"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>Interim scope while open decision 7 (scope and store) is undecided; counts may be re-based when it is made. Everything here is aggregate: no question, note or document text is stored or shown.</div></div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span></div>
+        <div class="kit-tile-title">Questions counted</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">1.84<span class="unit">M</span></div><div class="kit-tile-cap">30 days · production and pilot-in-production aggregates · 186 question types</div></div><div class="kit-bars"><i style="height: 70%"></i><i style="height: 80%"></i><i style="height: 85%"></i><i class="lit" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path></svg></span></div>
+        <div class="kit-tile-title">Most asked</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Account and plan rules</div><div class="kit-tile-cap">14.1% of questions · only 41% covered by training data</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span></div>
+        <div class="kit-tile-title">Weakest domain</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Tax forms and cost basis</div><div class="kit-tile-cap">6.4% asked · 22% covered · Index <span class="kit-interval">0.69 <span class="pm">± 0.05</span></span></div></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></span></div>
+        <div class="kit-tile-title">TLM5 data plan</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">5<span class="unit">lines</span></div><div class="kit-tile-cap">151 k items and 180 k pages to source by Q2 2027 · 2 started</div></div><span class="kit-chip brand">TLM5 in development</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Most-asked question types · 30 days</h2><div class="sub">A question is classified at the gateway and only its type and count reach the graph. Coverage is the share of each type's topics that some training set holds items for.</div></div><span class="kit-chip">Bars on a 0 to 30% scale</span></div>
+      <div class="kit-rows" style="margin-top: 12px">
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 240px 70px 90px 150px">
+          <div><div class="t">Account and plan rules</div><div class="s">Required minimum distributions, contribution limits, rollovers</div></div>
+          <div class="kit-track"><i style="width: 47%"></i></div><div class="kit-num" style="text-align: right">14.1%</div><div class="kit-num kit-small" style="text-align: right">259 k</div>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>41% covered</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 240px 70px 90px 150px">
+          <div><div class="t">Fees and expense ratios</div><div class="s">What a fund or account costs, and why a fee changed</div></div>
+          <div class="kit-track"><i style="width: 39%"></i></div><div class="kit-num" style="text-align: right">11.8%</div><div class="kit-num kit-small" style="text-align: right">217 k</div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>88% covered</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 240px 70px 90px 150px">
+          <div><div class="t">Fund comparison and fund facts</div><div class="s">Holdings, objectives, performance periods</div></div>
+          <div class="kit-track"><i style="width: 35%"></i></div><div class="kit-num" style="text-align: right">10.6%</div><div class="kit-num kit-small" style="text-align: right">195 k</div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>76% covered</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 240px 70px 90px 150px">
+          <div><div class="t">Claims and case status</div><div class="s">Institutional operations: where a claim or case stands</div></div>
+          <div class="kit-track"><i style="width: 31%"></i></div><div class="kit-num" style="text-align: right">9.2%</div><div class="kit-num kit-small" style="text-align: right">169 k</div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>92% covered</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 240px 70px 90px 150px">
+          <div><div class="t">Document summary</div><div class="s">Statements, letters and notices summarised for staff</div></div>
+          <div class="kit-track"><i style="width: 29%"></i></div><div class="kit-num" style="text-align: right">8.7%</div><div class="kit-num kit-small" style="text-align: right">160 k</div>
+          <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>84% covered</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 240px 70px 90px 150px">
+          <div><div class="t">Policy and procedure lookup</div><div class="s">Which internal rule applies, and its current version</div></div>
+          <div class="kit-track"><i style="width: 26%"></i></div><div class="kit-num" style="text-align: right">7.9%</div><div class="kit-num kit-small" style="text-align: right">145 k</div>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>63% covered</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 240px 70px 90px 150px">
+          <div><div class="t">Tax forms and cost basis</div><div class="s">Year-end forms, cost basis on sold or transferred lots</div></div>
+          <div class="kit-track"><i style="width: 21%"></i></div><div class="kit-num" style="text-align: right">6.4%</div><div class="kit-num kit-small" style="text-align: right">118 k</div>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>22% covered</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 240px 70px 90px 150px">
+          <div><div class="t">Client vulnerability and care</div><div class="s">Bereavement, hardship, a client who needs extra care</div></div>
+          <div class="kit-track"><i style="width: 7%"></i></div><div class="kit-num" style="text-align: right">2.1%</div><div class="kit-num kit-small" style="text-align: right">39 k</div>
+          <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>18% covered</span></span>
+        </div>
+        <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 240px 70px 90px 150px">
+          <div><div class="t">Other 178 types</div><div class="s">Each under 2% of questions</div></div>
+          <div class="kit-track"><i style="width: 97%; background: #8A8A88"></i></div><div class="kit-num" style="text-align: right">29.2%</div><div class="kit-num kit-small" style="text-align: right">537 k</div>
+          <span class="kit-dash" title="coverage is reported per type; the long tail is mixed">—</span>
+        </div>
+      </div>
+      <div class="kit-source">Source: gateway serving log, hourly aggregates 6 Oct to 5 Nov 2026 (production and pilot-in-production traffic; POC and build traffic left out) · question types from the gateway classifier · coverage from the knowledge graph topic index · as of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head"><div><h2>Weakest domains and the TLM5 data plan</h2><div class="sub">A domain is weak when it is asked often, thin in training data and low on the Index. Each has a line in the data plan for the next generation; the self-healing system proposes where the data can come from, and the data lead decides.</div></div><a class="kit-btn sm outline" href="D6-KnowledgeGraph-Coverage.dc.html">Coverage by project</a></div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Domain</th><th class="num">Asked</th><th class="num">Training coverage</th><th>Index score, live pillar</th><th>TLM5 data plan</th><th>Owner · due</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Retirement account rules<div class="kit-small kit-muted">RMDs, rollovers, contribution limits</div></td><td class="num">14.1%</td><td class="num">41%</td><td><span class="kit-interval">0.72 <span class="pm">± 0.04</span></span><div class="kit-small kit-muted">Compliance and regulatory</div></td><td>60 k items from policy-corpus and advisor notes, plus 4 k validator-written items</td><td>Priya N. · Q1 2027</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Started</span></span></td></tr>
+          <tr><td>Tax forms and cost basis<div class="kit-small kit-muted">Year-end forms, lot-level cost basis</div></td><td class="num">6.4%</td><td class="num">22%</td><td><span class="kit-interval">0.69 <span class="pm">± 0.05</span></span><div class="kit-small kit-muted">Financial data processing</div></td><td>45 k items from the tax-form document store, text-native only</td><td>Marcus L. · Q2 2027</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Planned</span></span></td></tr>
+          <tr><td>Client vulnerability and care</td><td class="num">2.1%</td><td class="num">18%</td><td><span class="kit-interval">0.74 <span class="pm">± 0.05</span></span><div class="kit-small kit-muted">Client care</div></td><td>12 k reviewed notes, once the <a href="D2-TaggingPipelines-Propose.dc.html">client vulnerability cues</a> pipeline exists</td><td>Elena R. · Q2 2027</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Blocked · needs the pipeline</span></span></td></tr>
+          <tr><td>Policy and procedure lookup</td><td class="num">7.9%</td><td class="num">63%</td><td><span class="kit-interval">0.77 <span class="pm">± 0.04</span></span><div class="kit-small kit-muted">Compliance and regulatory</div></td><td>30 k current-version policy items; superseded versions stay out (self-healing marks)</td><td>Marcus L. · Q1 2027</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Started</span></span></td></tr>
+          <tr><td>Scanned fund documents<div class="kit-small kit-muted">Within fund comparison and fund facts</div></td><td class="num"><span class="kit-dash" title="counted inside Fund comparison and fund facts, 10.6%">—</span></td><td class="num">76%<div class="kit-small kit-muted">text-native only</div></td><td><span class="kit-interval">0.79 <span class="pm">± 0.03</span></span><div class="kit-small kit-muted">Financial data processing</div></td><td>180 k scanned pages re-read; only pages above 0.6 recognition confidence enter</td><td>Priya N. · Q2 2027</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Planned</span></span></td></tr>
+          <tr><td>Multilingual client notes</td><td class="num">0.9%</td><td class="num">3%</td><td><span class="kit-dash" title="Phase 2: Multilingual is not live on the Index in the MVP">—</span><div class="kit-small kit-muted">Multilingual · Phase 2</div></td><td>Not in the TLM5 plan; revisit when Multilingual goes live on the Index</td><td>Jithin · <span class="kit-dash" title="deferred, no due date">—</span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Deferred</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Source: knowledge graph topic index joined to gateway serving log aggregates and the latest Official TL Index runs on the Index for each live pillar (95% intervals) · data plan from the TLM5 plan record · as of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2400}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

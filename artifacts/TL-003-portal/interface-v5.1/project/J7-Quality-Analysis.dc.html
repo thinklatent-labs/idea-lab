@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Quality · Analysis</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3300px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">UC-0291 · Advisor summary · Retail Advice · Pilot in production · prod alias → TLM4 Domain-Advice v2</div><h1 style="margin-top: 6px">Quality</h1></div>
+      <div class="kit-actions"><a class="kit-btn" href="D1-ReviewQueue.dc.html">Claim 20 annotations</a><a class="kit-btn outline" href="W2-Datasets.dc.html">Add to data set</a></div>
+    </div>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+      <nav class="kit-rail" aria-label="Use case"><a href="J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Traffic</a><a href="J5-Capacity.dc.html">Capacity</a><a href="J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html" aria-current="page">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a><a href="J11-Traces.dc.html">Traces</a></nav>
+      <nav class="kit-rail" aria-label="Use case resources"><a href="W1-Prompts.dc.html">Prompts</a><a href="W2-Datasets.dc.html">Data sets</a><a href="W3-Alerts.dc.html">Alerts</a></nav>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="J7-Quality.dc.html">Signals</a><a href="J7-Quality-Tasks.dc.html">Tasks</a><a href="J7-Quality-Review.dc.html">Review</a><a href="J7-Quality-Analysis.dc.html" aria-current="page">Analysis</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg></span><a class="kit-open" href="J7-Quality.dc.html" aria-label="Open the signals behind poor interactions">↗</a></div>
+        <div class="kit-tile-title">Poor interactions</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">11<span class="unit">%</span></div><div class="kit-tile-cap">Discarded, or rated 2 or lower · 7 days · ↓ 1 pt on the 29 Oct run</div></div><div class="kit-bars"><i style="height: 92%"></i><i style="height: 88%"></i><i style="height: 85%"></i><i class="lit" style="height: 78%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2"></circle><circle cx="18" cy="6" r="2"></circle><circle cx="12" cy="18" r="2"></circle><path d="M7.5 7.5 11 16.5"></path><path d="M16.5 7.5 13 16.5"></path></svg></span><a class="kit-open" href="J8-Improve.dc.html" aria-label="Open the fixes in Improve">↗</a></div>
+        <div class="kit-tile-title">Root causes</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">5<span class="unit">1 new</span></div><div class="kit-tile-cap">Notes not in English is new this run · next run Thu 12 Nov 06:00 ET</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></span><a class="kit-open" href="J8-Improve-Release.dc.html" aria-label="Open post-release re-scores">↗</a></div>
+        <div class="kit-tile-title">Re-score against the foundation</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">+0.05</div><div class="kit-tile-cap">Domain-Advice v2 0.84 ± 0.03 against Core 4.2 0.79 ± 0.03 · Mon 2 Nov · bar above +0.02</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Within bar</span></span></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span><a class="kit-open" href="W3-Alerts.dc.html" aria-label="Open drift alerts">↗</a></div>
+        <div class="kit-tile-title">Drift</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.14<span class="unit">input PSI</span></div><div class="kit-tile-cap">Auto band 0.06 to 0.12 · Warning 0.10 · Critical 0.25 · 3 consecutive windows above</div></div><span class="kit-chip" style="background: rgba(255,255,255,.14); color: #fff">Warning</span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Poor interactions by root cause</h2><div class="sub">Discarded or low-rated drafts, clustered, then grouped by why they went wrong, each with a proposed fix. Compared with the last run on 29 Oct; the next run is Thu 12 Nov 06:00 ET.</div></div>
+        <div class="kit-actions"><span class="kit-agent"><span class="av" style="background: rgba(26,26,26,.06); border-color: rgba(26,26,26,.12)">EA</span><span>Evaluation agent proposes · you decide</span></span><span class="kit-chip">Run 5 Nov against 29 Oct</span></div>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Root cause, then cluster</th><th class="num">Share now</th><th class="num">Last run</th><th class="num">Users</th><th>Summary check</th><th>Tier gate</th><th>Proposed fix</th></tr></thead>
+        <tbody>
+          <tr><td><b style="font-weight: 500">Context lost on long inputs</b></td><td class="num">38 %</td><td class="num">43 %</td><td class="num">186</td><td class="kit-small kit-muted">2 of 2 passed</td><td class="kit-small kit-muted">2 of 2 inside</td><td class="kit-small">Read long reviews in full instead of trimming the middle; add 4k+ threads to the next capture · confidence 84 % · basis 2,010 threads<div class="kit-actions" style="margin-top: 6px"><a class="kit-btn sm outline" href="J8-Improve.dc.html">Open in Improve</a><button class="kit-btn sm ghost" type="button">Dismiss</button></div></td></tr>
+          <tr><td style="padding-left: 32px">Long multi-topic reviews (4k+ input)</td><td class="num">26 %</td><td class="num">29 %</td><td class="num">122</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the boundary</span></span></td><td></td></tr>
+          <tr><td style="padding-left: 32px">Annual reviews across three or more accounts</td><td class="num">12 %</td><td class="num">14 %</td><td class="num">64</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the boundary</span></span></td><td></td></tr>
+          <tr><td><b style="font-weight: 500">Missing or vague next step</b></td><td class="num">27 %</td><td class="num">26 %</td><td class="num">179</td><td class="kit-small kit-muted">2 of 2 passed</td><td class="kit-small kit-muted">2 of 2 inside</td><td class="kit-small">Prompt v8: ask for one next step with an owner and a date, scored by the next-step evaluator · confidence 78 % · basis 1,430 threads<div class="kit-actions" style="margin-top: 6px"><a class="kit-btn sm outline" href="W1-Prompts.dc.html">Open prompts</a><button class="kit-btn sm ghost" type="button">Dismiss</button></div></td></tr>
+          <tr><td style="padding-left: 32px">Retirement income drawdown</td><td class="num">15 %</td><td class="num">14 %</td><td class="num">98</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the boundary</span></span></td><td></td></tr>
+          <tr><td style="padding-left: 32px">Rebalancing after a market move</td><td class="num">12 %</td><td class="num">12 %</td><td class="num">81</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the boundary</span></span></td><td></td></tr>
+          <tr><td><b style="font-weight: 500">Wrong or stale figure</b></td><td class="num">17 %</td><td class="num">18 %</td><td class="num">72</td><td class="kit-small kit-muted">1 passed · 1 rewritten</td><td class="kit-small kit-muted">2 of 2 inside</td><td class="kit-small">Take balances and figures from the plan record, never from the notes · confidence 81 % · basis 900 threads<div class="kit-actions" style="margin-top: 6px"><a class="kit-btn sm outline" href="J9-Record-Requirements.dc.html">See the requirement</a><button class="kit-btn sm ghost" type="button">Dismiss</button></div></td></tr>
+          <tr><td style="padding-left: 32px">Tax-loss harvesting questions <span class="kit-chip brand">NEW</span><div class="kit-small kit-muted">split from the cluster below this run</div></td><td class="num">9 %</td><td class="num"><span class="kit-dash" title="new this run">—</span></td><td class="num">41</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Rewritten</span></span><div class="kit-small kit-muted">first summary named a fund and a balance</div></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the boundary</span></span></td><td></td></tr>
+          <tr><td style="padding-left: 32px">Balance quoted from an old statement</td><td class="num">8 %</td><td class="num">18 %</td><td class="num">31</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the boundary</span></span></td><td></td></tr>
+          <tr><td><b style="font-weight: 500">Notes not in English</b> <span class="kit-chip brand">NEW</span><div class="kit-small kit-muted">mostly Spanish; one cluster</div></td><td class="num">9 %</td><td class="num"><span class="kit-dash" title="new this run">—</span></td><td class="num">33</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the boundary</span></span></td><td class="kit-small">Add 150 Spanish-language threads to the eval set and the capture set; the base model is not validated for Spanish · confidence 70 % · basis 480 threads<div class="kit-actions" style="margin-top: 6px"><a class="kit-btn sm outline" href="W2-Datasets.dc.html">Add to data set</a><button class="kit-btn sm ghost" type="button">Dismiss</button></div></td></tr>
+          <tr><td><b style="font-weight: 500">Tone too formal</b><div class="kit-small kit-muted">one cluster</div></td><td class="num">9 %</td><td class="num">13 %</td><td class="num">58</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the boundary</span></span></td><td class="kit-small">Retune once the tone judge clears the floor; 90 human ratings to go · confidence 62 % · basis 480 threads<div class="kit-actions" style="margin-top: 6px"><a class="kit-btn sm outline" href="J7-Quality-Review.dc.html">Open review</a><button class="kit-btn sm ghost" type="button">Dismiss</button></div></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-note" style="margin-top: 12px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div><b style="font-weight: 500">Summary check.</b> The Evaluation agent writes each cluster's summary inside the boundary, and an automatic check strips client names, account ids and balances before the summary shows. <b style="font-weight: 500">Tier gate.</b> This use case is Tier 3, so summaries are written and kept inside the boundary, and a cluster whose summary fails the check shows counts only. Two clusters under 30 users are counted in their root cause but not named.</div></div>
+      <div class="kit-source">Clustering run Thu 5 Nov 06:00 ET by the Evaluation agent on 5,300 poor interactions from 29 Oct to 4 Nov, compared with the run of 29 Oct; minimum 30 users per cluster; aggregates only. As of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Drift watch</h2><div class="sub">Input and output drift against the pilot baseline, with an automatic band for each signal beside the fixed thresholds from the record.</div></div>
+        <span class="kit-chip">Auto band · 14-day mean ± 1 SD</span>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Drift signal</th><th class="num">Baseline</th><th class="num">Now</th><th class="num">Auto band</th><th class="num">Warning</th><th class="num">Critical</th><th class="num">Consecutive windows</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td>Input PSI<div class="kit-small kit-muted">population stability of input length and topic mix vs the pilot baseline</div></td><td class="num">0.04</td><td class="num">0.14</td><td class="num">0.09 ± 0.03<div class="kit-small kit-muted">0.06 to 0.12</div></td><td class="num">0.10</td><td class="num">0.25</td><td class="num">3 of 3 needed</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Warning</span></span></td></tr>
+          <tr><td>Language<div class="kit-small kit-muted">share of notes not in English, mostly Spanish</div></td><td class="num">2.1 %</td><td class="num">5.8 %</td><td class="num">3.4 % ± 1.1<div class="kit-small kit-muted">2.3 to 4.5 %</div></td><td class="num">5 %</td><td class="num">10 %</td><td class="num">3 of 3 needed</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Warning</span></span></td></tr>
+          <tr><td>Speakers<div class="kit-small kit-muted">share of meetings with three or more speakers</div></td><td class="num">11 %</td><td class="num">17 %</td><td class="num">13.0 % ± 2.2<div class="kit-small kit-muted">10.8 to 15.2 %</div></td><td class="num">18 %</td><td class="num">25 %</td><td class="num">2 of 3</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Watching</span></span></td></tr>
+          <tr><td>Output length drift<div class="kit-small kit-muted">median output tokens vs baseline</div></td><td class="num">290</td><td class="num">310 (+7 %)</td><td class="num">302 ± 9<div class="kit-small kit-muted">293 to 311</div></td><td class="num">+10 %</td><td class="num">+25 %</td><td class="num">1 of 3</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Good</span></span></td></tr>
+          <tr><td>Embedding drift score<div class="kit-small kit-muted">distance of this week's input embeddings from baseline</div></td><td class="num">0.02</td><td class="num">0.06</td><td class="num">0.05 ± 0.01<div class="kit-small kit-muted">0.04 to 0.06</div></td><td class="num">0.08</td><td class="num">0.15</td><td class="num">2 of 3</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Good</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-threshold" style="margin-top: 10px">A drift alert needs three consecutive daily windows outside the auto band or above the fixed Warning. The auto band is each signal's 14-day mean ± 1 SD, recomputed every morning; the fixed thresholds come from the record; the baseline is the pilot's first two weeks (6 to 19 Oct). Input PSI and language have met that, which is why the Drift tile is lit.</div>
+
+      <div class="kit-divider"></div>
+      <div class="kit-surface-head"><div><h3>Post-release drift validation</h3><div class="sub">The deployed model is re-scored every Monday 06:00 ET against its foundation model on a fixed 400-thread probe set. Drift beyond the bar opens a gap report for the self-healing system, or a roll back when Critical.</div></div><a class="kit-btn sm outline" href="J8-Improve-Release.dc.html">Release and re-scores</a></div>
+      <table style="margin-top: 8px">
+        <thead><tr><th>Re-score</th><th class="num">Domain-Advice v2 · deployed</th><th class="num">Core 4.2 · foundation</th><th class="num">Gap</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td>Mon 12 Oct · release score</td><td class="num"><span class="kit-interval">0.84 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.79 <span class="pm">± 0.03</span></span></td><td class="num">+0.05</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Baseline</span></span></td></tr>
+          <tr><td>Mon 19 Oct</td><td class="num"><span class="kit-interval">0.84 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.79 <span class="pm">± 0.03</span></span></td><td class="num">+0.05</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Within bar</span></span></td></tr>
+          <tr><td>Mon 26 Oct</td><td class="num"><span class="kit-interval">0.83 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.79 <span class="pm">± 0.03</span></span></td><td class="num">+0.04</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Within bar</span></span></td></tr>
+          <tr><td>Mon 2 Nov</td><td class="num"><span class="kit-interval">0.84 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.79 <span class="pm">± 0.03</span></span></td><td class="num">+0.05</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Within bar</span></span></td></tr>
+          <tr><td>Mon 9 Nov · next</td><td class="num"><span class="kit-dash" title="scheduled for Mon 9 Nov 06:00 ET">—</span></td><td class="num"><span class="kit-dash" title="scheduled for Mon 9 Nov 06:00 ET">—</span></td><td class="num"><span class="kit-dash" title="scheduled">—</span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Scheduled</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-threshold" style="margin-top: 10px">Bar: Warning when the gap falls below +0.02 or v2 falls more than 0.03 below its release score, which opens a gap report; Critical when the gap reaches 0 or v2 falls below the record's 0.80, which proposes a roll back to previous for you to decide.</div>
+      <div class="kit-source">Drift from gateway aggregates against the pilot baseline, auto bands recomputed at 06:00 ET; re-scores from scheduled runs on the probe set with judge j-2026.10; thresholds from the record. As of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

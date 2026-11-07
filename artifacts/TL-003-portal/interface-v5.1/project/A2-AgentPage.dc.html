@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Knowledge agent</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2600px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-current="page" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption"><a href="A1-AgentLibrary.dc.html">Agent library</a> · Knowledge / RAG agent · v2.3 current · <a href="A1-AgentLibrary-Register.dc.html">AG-0004</a> on the agent register · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Knowledge agent</h1><div class="kit-muted" style="margin-top: 6px; max-width: 780px">Answers questions over a project's documents and cites the passages it used. Retrieves, grounds, then drafts; refuses when the corpus holds no answer. Business owner Marcus L. · Build owner Priya N. · Validator Elena R. Adopt opens Start a project with routing, eval set, budget and approval template filled in.</div></div>
+      <div class="kit-actions"><a class="kit-btn" href="J0-StartProject.dc.html">Adopt into a project</a><a class="kit-btn outline" href="P1b-PlaygroundOpen.dc.html">Try</a><a class="kit-btn outline" href="A1-AgentLibrary-Requests.dc.html">Request a feature</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="A2-AgentPage.dc.html" aria-current="page">Overview</a><a href="A2-AgentPage-Record.dc.html">Record and versions</a><a href="A2-AgentPage-RunsOn.dc.html">Runs on</a><a href="A2-AgentPage-Use.dc.html">Call and adopt</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path></svg></span><a class="kit-open" href="A3-AgentEvaluation.dc.html" aria-label="Open evaluation">↗</a></div>
+        <div class="kit-tile-title">pass^3 · v2.3</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.71<span class="unit">± 0.04</span></div><div class="kit-tile-cap">Official, 4 Nov · k = 3 · n = 420 cases</div></div><div class="kit-bars"><i style="height: 58%"></i><i style="height: 61%"></i><i style="height: 64%"></i><i style="height: 68%"></i><i class="lit" style="height: 71%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="A3-AgentEvaluation.dc.html" aria-label="Open task success">↗</a></div>
+        <div class="kit-tile-title">Task success · v2.3</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.86<span class="unit">± 0.03</span></div><div class="kit-tile-cap">Thread level · judge + human sample of 60</div></div><div class="kit-bars"><i style="height: 80%"></i><i style="height: 82%"></i><i style="height: 84%"></i><i style="height: 85%"></i><i class="lit" style="height: 86%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path></svg></span><a class="kit-open" href="A2-AgentPage-RunsOn.dc.html" aria-label="Open usage by project">↗</a></div>
+        <div class="kit-tile-title">Projects using it</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">9<span class="unit">2 in production</span></div><div class="kit-tile-cap">12.4k calls a day across them · UC-0307 Fund document Q&amp;A in active build</div></div><div class="kit-bars"><i style="height: 20%"></i><i style="height: 30%"></i><i style="height: 45%"></i><i style="height: 60%"></i><i style="height: 75%"></i><i class="lit" style="height: 100%"></i></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></span><a class="kit-open" href="A2-AgentPage-Record.dc.html" aria-label="Open the agent record">↗</a></div>
+        <div class="kit-tile-title">Agent owner</div>
+        <div><div class="kit-display kit-tile-value words">Priya N.</div><div class="kit-tile-cap">Build owner · office hours Tue and Thu, 14:00 to 15:00 ET · next today</div></div>
+        <div class="kit-actions" style="margin-top: 12px"><button class="kit-btn sm on-ink" type="button">Book office hours</button><a class="kit-btn sm on-ink outline" href="A2-AgentPage-Record.dc.html">Changelog</a><a class="kit-btn sm on-ink outline" href="A1-AgentLibrary-Build.dc.html">Cleared repository</a></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Agent metrics · v2.3</h2><div class="sub">Each metric states what it counts and over how many items. Evaluation metrics come from the Official run of 4 Nov (k = 3 trials, 420 cases, judge pinned); acceptance comes from adopters' feedback calls, aggregate only.</div></div>
+        <a class="kit-btn sm outline" href="A3-AgentEvaluation.dc.html">Full evaluation</a>
+      </div>
+      <table style="margin-top: 14px">
+        <thead><tr><th>Metric</th><th>What it counts</th><th class="num">n</th><th class="num">v2.3</th><th>Target</th><th>Against target</th></tr></thead>
+        <tbody>
+          <tr><td><b style="font-weight: 500">pass^3</b> · headline</td><td>Cases where all three trials succeed</td><td class="num">420 cases × 3</td><td class="num"><span class="kit-interval">0.71 <span class="pm">± 0.04</span></span></td><td><span class="kit-dash" title="No target set; tracked version to version">—</span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Tracked</span></span></td></tr>
+          <tr><td>pass@1</td><td>Single trials that succeed, averaged over all trials</td><td class="num">1,260 trials</td><td class="num"><span class="kit-interval">0.89 <span class="pm">± 0.02</span></span></td><td><span class="kit-dash" title="Secondary; no target">—</span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Tracked</span></span></td></tr>
+          <tr><td>Task success</td><td>The person's goal is met by the end of the thread; judge plus a human sample of 60</td><td class="num">420 threads</td><td class="num"><span class="kit-interval">0.86 <span class="pm">± 0.03</span></span></td><td>0.80 bar</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></td></tr>
+          <tr><td>Groundedness</td><td>Claims in the answer that a cited passage supports</td><td class="num">8,610 claims</td><td class="num"><span class="kit-interval">0.93 <span class="pm">± 0.01</span></span></td><td>0.90</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></td></tr>
+          <tr><td>Abstention when unsupported</td><td>Declines instead of guessing when the corpus holds no answer</td><td class="num">192 trials · 64 cases</td><td class="num"><span class="kit-interval">0.88 <span class="pm">± 0.05</span></span></td><td>0.85</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Meets, wide interval</span></span></td></tr>
+          <tr><td>Steps per task</td><td>Tool and model steps in a completed trace, mean</td><td class="num">1,260 traces</td><td class="num"><span class="kit-interval">3.1 <span class="pm">± 0.1</span></span></td><td>4 or fewer</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></td></tr>
+          <tr><td>Latency per task</td><td>End-to-end time for one trace, median; p95 is 9.8 s</td><td class="num">1,260 traces</td><td class="num">4.2 s</td><td>p50 5 s or less</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></td></tr>
+          <tr><td>Acceptance by adopting projects</td><td>Answers users accepted ÷ answers they rated through the feedback call · production, aggregate</td><td class="num">18,412 answers · 9 projects</td><td class="num"><span class="kit-interval">0.81 <span class="pm">± 0.01</span></span></td><td>0.75</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></td></tr>
+          <tr><td>Cost per successful task</td><td>Gateway serving cost of all trials ÷ successful threads</td><td class="num">361 threads</td><td class="num"><span class="kit-interval">$0.041 <span class="pm">± 0.003</span></span></td><td>$0.05 or less</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></td></tr>
+          <tr><td>Handoff success</td><td>Escalations that reached an expert with the full context</td><td class="num">26 escalations</td><td class="num"><span class="kit-interval">0.92 <span class="pm">± 0.05</span></span></td><td>0.90</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Meets, wide interval</span></span></td></tr>
+          <tr><td>Escalation rate</td><td>Threads handed to a person</td><td class="num">420 threads</td><td class="num"><span class="kit-interval">6.1% <span class="pm">± 1.0</span></span></td><td>below 8%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></td></tr>
+          <tr><td>Regression suite</td><td>Past fixes that still pass · 5 failed, all in date handling</td><td class="num">1,180 cases</td><td class="num"><span class="kit-interval">99.6% <span class="pm">± 0.3</span></span></td><td>99.5% bar</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-source">Official agent evaluation of Knowledge agent 2.3, 4 Nov 2026, judge version pinned; intervals are 95% bootstrap over cases · acceptance from feedback calls across 9 adopting projects, production aggregate, content sealed · latency and cost from the gateway serving log. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Roadmap and requests <span class="kit-chip">11 open</span></h2><div class="sub">Every count is people asking. Add your request to a planned item to be told when it ships; three asks put an open request on Priya N.'s decision list, answered within 14 days.</div></div>
+        <div class="kit-actions"><a class="kit-btn sm" href="A1-AgentLibrary-Requests.dc.html">Request a feature</a><a class="kit-btn sm outline" href="A1-AgentLibrary-Requests.dc.html">All requests</a></div>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; margin-top: 14px">
+        <div>
+          <div class="kit-label">Planned · add your request</div>
+          <div class="kit-rows" style="margin-top: 10px">
+            <div class="kit-row" style="grid-template-columns: 84px minmax(0, 1fr) 130px"><span class="kit-chip brand">v2.4</span><div><div class="t">Citations inside the answer body</div><div class="s">Candidate now · from request #214 · 31 asks</div></div><div class="end"><button class="kit-btn sm outline" type="button" aria-pressed="true" aria-label="You added your request for citations inside the answer body">Added</button></div></div>
+            <div class="kit-row" style="grid-template-columns: 84px minmax(0, 1fr) 130px"><span class="kit-chip">v2.5</span><div><div class="t">Multi-document answers with a conflict note</div><div class="s">Dec · from request #198 · 22 asks</div></div><div class="end"><button class="kit-btn sm outline" type="button" aria-label="Add my request for multi-document answers">Add my request</button></div></div>
+            <div class="kit-row" style="grid-template-columns: 84px minmax(0, 1fr) 130px"><span class="kit-chip">v2.5</span><div><div class="t">Freshness stamp on each cited document</div><div class="s">Dec · from request #221 · 12 asks</div></div><div class="end"><button class="kit-btn sm outline" type="button" aria-label="Add my request for freshness stamps">Add my request</button></div></div>
+            <div class="kit-row" style="grid-template-columns: 84px minmax(0, 1fr) 130px"><span class="kit-chip outline">Q1 2027</span><div><div class="t">TLM5 route when it becomes current</div><div class="s">Depends on a TLM5 Official run · 8 asks</div></div><div class="end"><button class="kit-btn sm outline" type="button" aria-label="Add my request for the TLM5 route">Add my request</button></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="kit-label">Open requests · ask counts and the decision clock</div>
+          <div class="kit-rows" style="margin-top: 10px">
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 70px 130px"><div><div class="t">Answer in the user's language when the corpus is English</div><div class="s">#230 · Priya N. reviewing · raised by 4 projects · decision list, day 9 of 14</div></div><span class="kit-chip">17</span><div class="end"><button class="kit-btn sm outline" type="button" aria-label="Add my request to 230">Add my request</button></div></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 70px 130px"><div><div class="t">Export an answer with its sources to the record</div><div class="s">#226 · raised by 2 projects · decision list, day 12 of 14 · answer due Sat 7 Nov</div></div><span class="kit-chip">11</span><div class="end"><button class="kit-btn sm outline" type="button" aria-label="Add my request to 226">Add my request</button></div></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 70px 130px"><div><div class="t">Confidence shown to the end user</div><div class="s">#233 · under review · raised by 3 projects · decision list, day 5 of 14</div></div><span class="kit-chip">9</span><div class="end"><button class="kit-btn sm outline" type="button" aria-label="Add my request to 233">Add my request</button></div></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 70px 130px"><div><div class="t">Smaller Distil route for low-risk queries</div><div class="s">#235 · raised by 1 project · decision list, day 1 of 14</div></div><span class="kit-chip">4</span><div class="end"><button class="kit-btn sm outline" type="button" aria-pressed="true" aria-label="You added your request to 235">Added</button></div></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 70px 130px"><div><div class="t">Answer from spreadsheets kept in the corpus</div><div class="s">#238 · new · one more ask puts it on the decision list</div></div><span class="kit-chip">2</span><div class="end"><button class="kit-btn sm outline" type="button" aria-label="Add my request to 238">Add my request</button></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="kit-note" style="margin-top: 14px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>Four of this agent's requests are on Priya N.'s decision list; the oldest, #226, is at day 12 of 14. Last decision: #227, write answers back to the CRM, declined on 28 Oct with the reason that write tools are outside Tier 1.</div></div>
+      <div class="kit-source">Requests, asks, decisions and roadmap placement from the portal's request store; the 14-day clock starts at the third ask; versions from the record. As of Thu 5 Nov 2026, 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Playground</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1900px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-current="page" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">Agents · Playground · Project UC-0291 Advisor summary · Thu 5 Nov 2026, 11:58 ET</div><h1 style="margin-top: 6px">Playground</h1><div class="kit-muted" style="margin-top: 6px; max-width: 780px">Try a model or agent on the same route production uses. Testers hit the same alias as production, so what you see here is what the use case gets. Sessions are non-production and can be saved as a prompt version, an evaluation case or a data-set row. Unsaved sessions are kept for 30 days; nothing counts as evidence until a validator marks it.</div></div>
+      <div class="kit-actions"><button class="kit-btn" type="button">Run both</button><a class="kit-btn outline" href="P1-Playground-EvalSet.dc.html">Run the eval set on both</a><button class="kit-btn outline" type="button">Replay on the live route</button><a class="kit-btn outline" href="P1-Playground-Code.dc.html">View as code</a><button class="kit-btn outline" type="button">Share within the project</button><a class="kit-btn outline" href="P1b-PlaygroundOpen.dc.html">Demo gallery</a></div>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="P1-Playground.dc.html" aria-current="page">Compare</a><a href="P1-Playground-EvalSet.dc.html">Eval set on both</a><a href="P1-Playground-Code.dc.html">View as code</a></nav>
+
+    <div style="display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" style="display: flex; flex-direction: column; gap: 14px">
+        <div class="kit-surface-head"><div><h2>Set-up</h2><div class="sub">Model or agent, route, prompt, parameters, tools, files.</div></div><span class="kit-chip env">Non-production</span></div>
+        <div class="kit-field"><label for="pg-target">Model or agent</label><select class="kit-input" id="pg-target"><option>Compare: TLM4 Core 4.2 vs Domain-Advice v2</option><option>TLM4 Core 4.2</option><option>TLM4 Domain-Advice v2</option><option>TLM4 Distil 4.2</option><option>Knowledge agent 2.3</option><option>Advisor summary agent 2.0</option><option>Claude via gateway (non-production)</option></select></div>
+        <div class="kit-field"><label for="pg-alias">Alias / endpoint</label><select class="kit-input" id="pg-alias"><option>prod · testers hit the same route as production</option><option>canary</option><option>candidate</option><option>previous</option></select><div class="kit-small kit-muted">Aliases, not raw model ids. prod → TLM4 Domain-Advice v2 for this project.</div></div>
+        <div class="kit-field"><label for="pg-system">System prompt · advisor-summary-v7</label><textarea class="kit-input area" id="pg-system">You summarise a client meeting for an Enterprise advisor. Use the firm's notes format: goals, decisions, follow-ups. Never invent figures; quote them from the transcript.</textarea></div>
+        <div class="kit-field"><label for="pg-user">Input</label><textarea class="kit-input area" id="pg-user" style="min-height: 72px">Transcript 2026-11-04 · 14 min · client reviewing retirement glide path and asking about low-cost shares expense ratio.</textarea></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+          <div class="kit-field"><label for="pg-temp">Temperature</label><input class="kit-input" id="pg-temp" type="number" value="0.2" min="0" max="1" step="0.1"></div>
+          <div class="kit-field"><label for="pg-max">Max tokens</label><input class="kit-input" id="pg-max" type="number" value="800" min="1"></div>
+        </div>
+        <div>
+          <div class="kit-label">Tools</div>
+          <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px">
+            <label class="kit-radio on"><input type="checkbox" checked><span><div style="font-weight: 500">fetch_passage</div><div class="kit-small kit-muted">Project corpus, read only</div></span></label>
+            <label class="kit-radio"><input type="checkbox"><span><div style="font-weight: 500">escalate_to_human</div><div class="kit-small kit-muted">Disabled in the playground</div></span></label>
+          </div>
+        </div>
+        <div>
+          <div class="kit-label">Files</div>
+          <div class="kit-rows" style="margin-top: 8px">
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 60px; padding: 8px 12px"><div><div class="t kit-small">transcript-2026-11-04.txt</div><div class="s">4.1k tokens · masked by the gateway</div></div><div class="end"><button class="kit-btn sm outline" type="button" aria-label="Remove file">Remove</button></div></div>
+          </div>
+          <label class="kit-btn sm outline" style="margin-top: 8px" for="pg-file">Add file<input id="pg-file" type="file" style="display: none"></label>
+        </div>
+        <div class="kit-source">Prompt from prompt store advisor-summary-v7; routes from the gateway configuration. As of Thu 5 Nov 2026, 11:58 ET.</div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface">
+          <div class="kit-surface-head"><div><h2>Responses · side by side</h2><div class="sub">Same prompt, same tools, two routes. Grade each cell 1–5, prefer one, or flag a problem; grades, preferences and flags go with the session when you save it.</div></div><div class="kit-seg"><button type="button" aria-pressed="true">Compare</button><button type="button" aria-pressed="false">Single</button><button type="button" aria-pressed="false">Diff</button></div></div>
+          <div class="kit-grid2" style="margin-top: 14px">
+            <div class="kit-surface raised" style="display: flex; flex-direction: column; gap: 10px">
+              <div class="kit-surface-head"><div><h3>TLM4 Core 4.2</h3><div class="sub">alias candidate · trace tr-7f21</div></div><span class="kit-chip">Core</span></div>
+              <p><b>Goals.</b> Client wants to stay on the current glide path to 2034 and understand what the expense ratio is on low-cost shares. <b>Decisions.</b> No change to allocation today. <b>Follow-ups.</b> Send the 2025 prospectus fee table; confirm the low-cost share expense ratio (transcript gives 0.11%). Schedule a review in March.</p>
+              <div class="kit-prov"><span>Tokens: <b>612</b></span><span>Latency: <b>1.9 s</b></span><span>Cost: <b>$0.0031</b></span><span>Tools: <b>1 call</b></span></div>
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span class="kit-small kit-muted">Grade</span><div class="kit-seg"><button type="button" aria-pressed="false" aria-label="Grade 1">1</button><button type="button" aria-pressed="false" aria-label="Grade 2">2</button><button type="button" aria-pressed="false" aria-label="Grade 3">3</button><button type="button" aria-pressed="true" aria-label="Grade 4">4</button><button type="button" aria-pressed="false" aria-label="Grade 5">5</button></div><button class="kit-btn sm outline" type="button">Note</button></div>
+              <div class="kit-actions"><button class="kit-btn sm outline" type="button" aria-pressed="false" aria-label="Prefer the Core 4.2 response">Prefer this</button><button class="kit-btn sm outline" type="button" aria-label="Flag a problem with the Core 4.2 response">Flag a problem</button></div>
+            </div>
+            <div class="kit-surface raised" style="display: flex; flex-direction: column; gap: 10px">
+              <div class="kit-surface-head"><div><h3>TLM4 Domain-Advice v2</h3><div class="sub">alias prod · trace tr-7f22</div></div><span class="kit-chip brand">Domain</span></div>
+              <p><b>Goals.</b> Keep the retirement glide path to 2034; understand low-cost shares costs. <b>Decisions.</b> Allocation unchanged. <b>Follow-ups.</b> Advisor to send the 2025 prospectus fee table showing the low-cost share expense ratio of 0.11% as stated in the meeting; book a March review; note the client's question on tax-loss harvesting for the next call.</p>
+              <div class="kit-prov"><span>Tokens: <b>684</b></span><span>Latency: <b>2.3 s</b></span><span>Cost: <b>$0.0038</b></span><span>Tools: <b>1 call</b></span></div>
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><span class="kit-small kit-muted">Grade</span><div class="kit-seg"><button type="button" aria-pressed="false" aria-label="Grade 1">1</button><button type="button" aria-pressed="false" aria-label="Grade 2">2</button><button type="button" aria-pressed="false" aria-label="Grade 3">3</button><button type="button" aria-pressed="false" aria-label="Grade 4">4</button><button type="button" aria-pressed="true" aria-label="Grade 5">5</button></div><button class="kit-btn sm outline" type="button">Note</button></div>
+              <div class="kit-actions" style="align-items: center"><button class="kit-btn sm outline" type="button" aria-pressed="true" aria-label="You prefer the Domain-Advice v2 response">Preferred</button><button class="kit-btn sm outline" type="button" aria-label="Flag a problem with the Domain-Advice v2 response">Flag a problem</button><span class="kit-small kit-muted">Your preference, 11:52</span></div>
+            </div>
+          </div>
+          <div class="kit-note" style="margin-top: 14px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; flex: 1"><span>One answer is an anecdote. Run the use case's eval set, 640 threads, on both routes before you choose: about 9 minutes, Practice.</span><a class="kit-btn sm outline" href="P1-Playground-EvalSet.dc.html">Run the eval set on both</a></div></div>
+          <div class="kit-divider"></div>
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
+            <span class="kit-small" style="font-weight: 500">Save session as</span>
+            <button class="kit-btn sm outline" type="button">Prompt version</button>
+            <button class="kit-btn sm outline" type="button">Evaluation case</button>
+            <button class="kit-btn sm outline" type="button">Data-set row</button>
+            <span class="kit-muted">·</span>
+            <button class="kit-btn sm" type="button">Mark as evidence</button>
+            <span class="kit-small kit-muted">Validators and red-teamers only. An evidence session replays identically from the record: route, prompt, parameters, files and outputs are sealed together.</span>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 10px">This session is unsaved: it is kept until Sat 5 Dec, then deleted. Grades, preferences and flags count as evidence only once a validator marks the session.</div>
+          <div class="kit-source">Outputs through the gateway, traces tr-7f21 and tr-7f22; tokens, latency and cost from the gateway serving log. Non-production session. As of Thu 5 Nov 2026, 11:58 ET.</div>
+        </section>
+
+        <section class="kit-surface">
+          <div class="kit-surface-head"><div><h2>Your sessions</h2><div class="sub">Yours in this project. Unsaved sessions are kept 30 days, then deleted; saved and shared ones stay; evidence sessions are sealed and replay from the record. Nothing counts as evidence until a validator marks it.</div></div><a class="kit-btn sm outline" href="W1-Prompts.dc.html">Prompt store</a></div>
+          <div class="kit-rows" style="margin-top: 12px">
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 80px"><div><div class="t">Glide path summary · Core vs Domain</div><div class="s">Today 11:52 · prod · graded 4 and 5 · Domain preferred · unsaved, kept until 5 Dec</div></div><span class="kit-chip brand">Open now</span><div class="end"><button class="kit-btn sm outline" type="button">Replay</button></div></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 80px"><div><div class="t">Fee question rephrasing · 3 variants</div><div class="s">2 Nov · prod · 1 flag on the Core answer · not saved</div></div><span class="kit-chip outline">Unsaved · 27 days left</span><div class="end"><button class="kit-btn sm outline" type="button">Replay</button></div></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 80px"><div><div class="t">Expense ratio phrasing · 6 variants</div><div class="s">4 Nov · candidate · saved as eval case AS-0412</div></div><span class="kit-chip decision">Evidence</span><div class="end"><button class="kit-btn sm outline" type="button">Replay</button></div></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 80px"><div><div class="t">Tone check · retiree persona</div><div class="s">3 Nov · canary · saved as prompt advisor-summary-v7</div></div><span class="kit-chip">Shared</span><div class="end"><button class="kit-btn sm outline" type="button">Replay</button></div></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) 170px 80px"><div><div class="t">Red-team · fabricated figure probe</div><div class="s">31 Oct · prod · Elena R. · 12 data-set rows</div></div><span class="kit-chip decision">Evidence</span><div class="end"><button class="kit-btn sm outline" type="button">Replay</button></div></div>
+          </div>
+          <div class="kit-source">Session records from the portal's playground store, 30-day retention for unsaved sessions; evidence seals from the record. As of Thu 5 Nov 2026, 11:58 ET.</div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

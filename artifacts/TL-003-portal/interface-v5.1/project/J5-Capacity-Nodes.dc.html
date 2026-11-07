@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Capacity · Dedicated nodes</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1900px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">UC-0291 · Advisor summary · Retail Advice · Pilot in production · prod alias → TLM4 Domain-Advice v2</div><h1 style="margin-top: 6px">Dedicated nodes</h1></div>
+      <div class="kit-actions" style="align-items: center"><div class="kit-seg" role="group" aria-label="Time window"><button type="button" aria-pressed="false">Live</button><button type="button" aria-pressed="false">24 h</button><button type="button" aria-pressed="true">7 d</button><button type="button" aria-pressed="false">30 d</button></div><button class="kit-switch on" type="button" aria-pressed="true" style="border: 0; background: transparent; padding: 0 4px; height: 36px"><i aria-hidden="true"></i>Compare to previous 7 d</button><a class="kit-btn outline" href="O2-Capacity.dc.html">Fleet view</a></div>
+    </div>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+      <nav class="kit-rail" aria-label="Use case"><a href="J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Traffic</a><a href="J5-Capacity.dc.html" aria-current="page">Capacity</a><a href="J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a><a href="J11-Traces.dc.html" title="Engineering view">Traces</a></nav>
+      <nav class="kit-rail" aria-label="Use case resources"><a href="W1-Prompts.dc.html">Prompts</a><a href="W2-Datasets.dc.html">Data sets</a><a href="W3-Alerts.dc.html">Alerts</a></nav>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="J5-Capacity.dc.html">Headroom</a><a href="J5-Capacity-Engineering.dc.html">Throughput</a><a href="J5-Capacity-Cache.dc.html">Cache and sessions</a><a href="J5-Capacity-Nodes.dc.html" aria-current="page">Dedicated nodes</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 9h6v6H9z"></path></svg></span><a class="kit-open" href="O2-Capacity.dc.html" aria-label="Open fleet utilisation">↗</a></div>
+        <div class="kit-tile-title">Utilisation of the dedicated nodes</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">40<span class="unit">%</span></div><div class="kit-tile-cap">24-hour mean of both nodes · 66 % in the busy window, 08:00–18:00 ET · ↑ 3 pt vs previous 7 d</div></div><div class="kit-track" style="width: 110px"><i style="width: 40%"></i></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></span><a class="kit-open" href="J5-Capacity-Nodes.dc.html" aria-label="Open utilisation by hour">↗</a></div>
+        <div class="kit-tile-title">Idle-allocated outside the busy window</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">79<span class="unit">%</span></div><div class="kit-tile-cap">Of GPU-hours from 18:00 to 08:00 ET are allocated but idle · ↓ 1 pt vs previous 7 d</div></div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>High</span></span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M9 10h6"></path><path d="M9 14h6"></path></svg></span><a class="kit-open" href="J3-Overview-Outcomes.dc.html" aria-label="Open cost avoided">↗</a></div>
+        <div class="kit-tile-title">Dedicated cost</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$5,490<span class="unit">a month</span></div><div class="kit-tile-cap">2 nodes × 8 H100 at the chargeback rate · 61 % of the $9k budget</div></div></div>
+      </section>
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path></svg></span><a class="kit-open" href="O2-Capacity.dc.html" aria-label="Open shared pools">↗</a></div>
+        <div class="kit-tile-title">Shared serving as an adapter</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$2,950<span class="unit">a month less</span></div><div class="kit-tile-cap">Allowed while in pilot; not from the production move on 12 Nov</div></div></div>
+      </section>
+    </div>
+
+    <section class="kit-surface raised">
+      <div class="kit-surface-head">
+        <div><h2>Utilisation by hour, both dedicated nodes <span class="kit-eng-label" style="margin-left: 8px; vertical-align: 2px">Engineering view</span></h2><div class="sub">Average weekday, share of the two nodes' GPU time doing work. The shaded band is the busy window; outside it the nodes stay allocated to this use case and mostly wait.</div></div>
+        <div class="kit-legend"><span><i style="background: #3E9A5C"></i>Last 7 days</span><span><i style="background: #8A8A88"></i>Previous 7 days (dashed)</span><span><i style="background: rgba(108,183,105,.25)"></i>Busy window</span></div>
+      </div>
+      <svg class="kit-spark" viewBox="0 0 100 40" width="100%" height="220" role="img" aria-label="Utilisation by hour peaks at 84 percent at 10:00 and falls to about 20 percent overnight; the busy window runs from 08:00 to 18:00" style="margin-top: 12px">
+        <rect x="37.33" y="2" width="36.67" height="34" fill="#6CB769" fill-opacity="0.12"></rect>
+        <line x1="8" y1="36" x2="98" y2="36" stroke="#DADAD8" stroke-width="0.3"></line>
+        <line x1="8" y1="2" x2="8" y2="36" stroke="#DADAD8" stroke-width="0.3"></line>
+        <line x1="8" y1="20" x2="98" y2="20" stroke="#DADAD8" stroke-width="0.2" stroke-dasharray="0.8 1.2"></line>
+        <line x1="8" y1="10.4" x2="98" y2="10.4" stroke="#B9742F" stroke-width="0.35" stroke-dasharray="1.5 1.5"></line>
+        <text x="0.5" y="36.6" font-size="2.2" fill="#5C5C5A">0 %</text>
+        <text x="0.5" y="20.6" font-size="2.2" fill="#5C5C5A">50 %</text>
+        <text x="0.5" y="4.6" font-size="2.2" fill="#5C5C5A">100 %</text>
+        <text x="80" y="9.4" font-size="2.2" fill="#B9742F">Warning 80 %</text>
+        <text x="38.2" y="4.6" font-size="2.4" fill="#1B5128">busy window 08:00–18:00 ET · 66 %</text>
+        <polyline fill="none" stroke="#8A8A88" stroke-width="0.7" stroke-dasharray="2 1.5" points="8,30.56 11.67,30.88 15.33,31.2 19,31.2 22.67,30.88 26.33,30.24 30,29.28 33.67,27.04 37.33,22.24 41,16.48 44.67,10.08 48.33,11.68 52,16.8 55.67,14.56 59.33,11.36 63,13.92 66.67,17.76 70.33,22.24 74,26.08 77.67,28 81.33,28.96 85,29.6 88.67,29.92 92.33,30.24 96,30.56"></polyline>
+        <polyline fill="none" stroke="#3E9A5C" stroke-width="1.1" points="8,30.24 11.67,30.56 15.33,30.88 19,30.88 22.67,30.56 26.33,29.92 30,28.96 33.67,26.4 37.33,21.28 41,15.52 44.67,9.12 48.33,10.72 52,15.84 55.67,13.6 59.33,10.4 63,12.96 66.67,16.8 70.33,21.28 74,25.44 77.67,27.68 81.33,28.64 85,29.28 88.67,29.6 92.33,29.92 96,30.24"></polyline>
+        <text x="46" y="7.6" font-size="2.4" fill="#1A1A1A">84 % at 10:00</text>
+        <text x="10" y="27.6" font-size="2.4" fill="#5C5C5A">overnight · 21 %</text>
+        <text x="77" y="25.4" font-size="2.4" fill="#5C5C5A">overnight · 21 %</text>
+        <text x="8" y="39.4" font-size="2.2" fill="#5C5C5A" text-anchor="middle">00</text>
+        <text x="30" y="39.4" font-size="2.2" fill="#5C5C5A" text-anchor="middle">06</text>
+        <text x="52" y="39.4" font-size="2.2" fill="#5C5C5A" text-anchor="middle">12</text>
+        <text x="74" y="39.4" font-size="2.2" fill="#5C5C5A" text-anchor="middle">18</text>
+        <text x="96" y="39.4" font-size="2.2" fill="#5C5C5A" text-anchor="middle">24</text>
+      </svg>
+      <div style="margin-top: 14px; border-radius: 18px; border: 1px solid #DADAD8; background: rgba(255,255,255,.55); padding: 14px 16px">
+        <div class="kit-agent"><span class="av">SR</span><span>SRE agent</span><span class="kit-muted">· 84% confidence · 11:45</span><a href="O2-Capacity.dc.html" style="margin-left: auto">View sources</a></div>
+        <div style="font-weight: 500; margin-top: 6px">Run on one node from 19:00 to 07:00 ET</div>
+        <div class="kit-small kit-muted" style="margin-top: 4px">Overnight load peaks at 33 % of two nodes, about two thirds of one, and one node holds it with KV use under 70 %. Saving $1,370 a month; the production service level does not change (99.9 % availability and TTFT p95 ≤ 800 ms, targets set at onboarding). The second node is back by 07:00, an hour before the busy window. Basis: gateway serving log and HyperPod utilisation, 28 days.</div>
+        <div class="kit-actions" style="margin-top: 10px"><button class="kit-btn sm" type="button">Request the schedule</button><button class="kit-btn sm outline" type="button">Ask for a different plan</button><button class="kit-btn sm outline" type="button">Dismiss</button></div>
+      </div>
+      <div class="kit-source">HyperPod GPU utilisation for this use case's two dedicated nodes, 5-minute mean, weekdays 29 Oct to 4 Nov against 22 to 28 Oct; load from the gateway serving log. As of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface raised">
+      <div class="kit-surface-head">
+        <div><h2>Hosting options for this use case <span class="kit-eng-label" style="margin-left: 8px; vertical-align: 2px">Engineering view</span></h2><div class="sub">What the same traffic would cost on each tier, with the tier's service level and when the tier is allowed. Service levels are targets, set at onboarding.</div></div>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Option</th><th>Hosting tier</th><th>Service level</th><th class="num">Cost a month</th><th class="num">Saving</th><th>When it is allowed</th></tr></thead>
+        <tbody>
+          <tr><td>Two dedicated nodes, always on<div class="kit-small kit-muted">today</div></td><td>Dedicated production endpoint</td><td class="kit-small">99.9 % availability · TTFT p95 ≤ 800 ms</td><td class="num">$5,490</td><td class="num"><span class="kit-dash" title="the current option, nothing to save">—</span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Current</span></span></td></tr>
+          <tr><td>One node from 19:00 to 07:00 ET<div class="kit-small kit-muted">proposed by the SRE agent</div></td><td>Dedicated production endpoint</td><td class="kit-small">99.9 % availability · TTFT p95 ≤ 800 ms</td><td class="num">$4,120</td><td class="num">$1,370</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Allowed in every phase</span></span></td></tr>
+          <tr><td>Adapter on the shared TLM4 Core 4.2 pool<div class="kit-small kit-muted">Domain-Advice v2 as an adapter beside other use cases</div></td><td>Shared non-production endpoint</td><td class="kit-small">99.5 % availability · adapter wait p99 420 ms with 3 adapters resident</td><td class="num">$2,540</td><td class="num">$2,950</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Pilot only, until 12 Nov</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-note" style="margin-top: 14px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>Production use cases run only on dedicated endpoints; shared pools serve sandbox, pilot and training only. UC-0291 moves to production on 12 Nov, so the shared option would save about $690 over 7 days and need two moves. The SRE agent does not recommend it. UC-0307 Fund document Q&amp;A, in Build, already shares the pool as an adapter.</div></div>
+      <div class="kit-source">Costs at the HyperPod chargeback rate for the same 28-day load; shared-pool adapter wait measured on the TLM4 Core 4.2 pool, 7 days; hosting rules and service-level targets from the record and the onboarding settings. As of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

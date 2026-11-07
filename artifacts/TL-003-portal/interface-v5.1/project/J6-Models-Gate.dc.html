@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Models · Regression gate</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2200px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div><div class="kit-caption">UC-0291 · Advisor summary · Retail Advice · Pilot in production · prod alias → TLM4 Domain-Advice v2</div><h1 style="margin-top: 6px">Regression gate</h1><div class="kit-muted" style="margin-top: 6px">Production model swap: prod TLM4 Domain-Advice v2 → TLM4 Domain-Advice v3</div></div>
+      <div class="kit-actions" style="align-items: center"><span class="kit-chip outline">Before: Official TL Index run 1183 · After: Official TL Index run 1188</span><span class="kit-threshold" style="max-width: 220px">The time window does not apply here: the gate compares two Official runs</span><button class="kit-btn" type="button">Download PDF for Risk</button><a class="kit-btn outline" href="E1-EvaluationResults.dc.html">Evaluation results</a></div>
+    </div>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+      <nav class="kit-rail" aria-label="Use case"><a href="J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Traffic</a><a href="J5-Capacity.dc.html">Capacity</a><a href="J6-Models.dc.html" aria-current="page">Models</a><a href="J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a><a href="J11-Traces.dc.html" title="Engineering view">Traces</a></nav>
+      <nav class="kit-rail" aria-label="Use case resources"><a href="W1-Prompts.dc.html">Prompts</a><a href="W2-Datasets.dc.html">Data sets</a><a href="W3-Alerts.dc.html">Alerts</a></nav>
+    </div>
+    <nav class="kit-subrail" aria-label="Sections"><a href="J6-Models.dc.html">Aliases and canary</a><a href="J6-Models-Gate.dc.html" aria-current="page">Regression gate</a><a href="J6-Models-Routing.dc.html">Route by task</a><a href="J6-Models-Shapes.dc.html">Shapes by model</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile ink">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span><a class="kit-open" href="J6-Models.dc.html" aria-label="Open canary judgement">↗</a></div>
+        <div class="kit-tile-title">Gate result</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Fail</div><div class="kit-tile-cap">1 of 5 measured pillars below its bar · blocks the swap</div></div><span class="kit-chip decision">Blocks promote</span></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path></svg></span><a class="kit-open" href="E2-Index.dc.html" aria-label="Open the index">↗</a></div>
+        <div class="kit-tile-title">Pillars in the gate</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">6<span class="unit">· 5 measured</span></div><div class="kit-tile-cap">Safety and grounding, Compliance and regulatory, Client care, plus this workflow's three; Summarization is Phase 2</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg></span><a class="kit-open" href="E1-EvaluationResults.dc.html" aria-label="Open client care items">↗</a></div>
+        <div class="kit-tile-title">Largest gain · Client care</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">+0.04</div><div class="kit-tile-cap"><span class="kit-interval">0.80 <span class="pm">± 0.04</span></span> → <span class="kit-interval">0.84 <span class="pm">± 0.03</span></span> · bar 0.80</div></div></div>
+      </section>
+      <section class="kit-tile">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg></span><a class="kit-open" href="E1-EvaluationResults.dc.html" aria-label="Open entity recognition items">↗</a></div>
+        <div class="kit-tile-title">Largest drop · Entity recognition</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">−0.04</div><div class="kit-tile-cap"><span class="kit-interval">0.81 <span class="pm">± 0.03</span></span> → <span class="kit-interval">0.77 <span class="pm">± 0.04</span></span> · bar 0.78</div></div><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></div>
+      </section>
+    </div>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Pillars before and after the swap</h2><div class="sub">Three pillars are always in the gate for a production model swap; the workflow adds its own. Each must score at or above the record's bar after the swap.</div></div>
+        <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Gate fails · 1 pillar</span></span>
+      </div>
+      <table style="margin-top: 12px">
+        <thead><tr><th>Pillar</th><th>In the gate because</th><th class="num">Before · v2</th><th class="num">After · v3</th><th class="num">Change</th><th class="num">Bar</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>6 · Safety and grounding</td><td class="kit-small">Always gated</td><td class="num"><span class="kit-interval">0.93 <span class="pm">± 0.02</span></span></td><td class="num"><span class="kit-interval">0.93 <span class="pm">± 0.02</span></span></td><td class="num">0.00</td><td class="num">0.90</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Pass</span></span></td></tr>
+          <tr><td>4 · Compliance and regulatory</td><td class="kit-small">Always gated</td><td class="num"><span class="kit-interval">0.88 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.87 <span class="pm">± 0.03</span></span></td><td class="num">−0.01</td><td class="num">0.85</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Pass</span></span></td></tr>
+          <tr><td>3 · Client care</td><td class="kit-small">Always gated</td><td class="num"><span class="kit-interval">0.80 <span class="pm">± 0.04</span></span></td><td class="num"><span class="kit-interval">0.84 <span class="pm">± 0.03</span></span></td><td class="num">+0.04</td><td class="num">0.80</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Pass</span></span></td></tr>
+          <tr><td>1 · Financial data processing</td><td class="kit-small">This workflow's pillar</td><td class="num"><span class="kit-interval">0.86 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.87 <span class="pm">± 0.03</span></span></td><td class="num">+0.01</td><td class="num">0.82</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Pass</span></span></td></tr>
+          <tr class="selected"><td>7 · Entity recognition</td><td class="kit-small">This workflow's pillar</td><td class="num"><span class="kit-interval">0.81 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.77 <span class="pm">± 0.04</span></span></td><td class="num">−0.04</td><td class="num">0.78</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Fail</span></span></td></tr>
+          <tr><td>15 · Summarization</td><td class="kit-small">This workflow's pillar</td><td class="num"><span class="kit-dash" title="Phase 2: pillar not live in the MVP">—</span></td><td class="num"><span class="kit-dash" title="Phase 2: pillar not live in the MVP">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="no bar until the pillar is live">—</span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not measured · Phase 2</span></span></td></tr>
+        </tbody>
+      </table>
+      <div class="kit-threshold" style="margin-top: 10px">One fail blocks the swap. Fix and re-run as Official, or ask Jithin, Head of ThinkLatent, for a recorded exception, which Risk must concur with. Practice runs never count toward the gate.</div>
+      <div class="kit-surface raised" style="margin-top: 14px">
+        <div class="kit-agent"><span class="av">EV</span><span>Evaluation agent</span><span class="kit-muted">· 86% confidence · 11:31</span><a href="E1-EvaluationResults.dc.html" style="margin-left: auto">View sources</a></div>
+        <div style="font-weight: 500; margin-top: 6px">Entity recognition fell on share-class and fund names</div>
+        <div class="kit-small kit-muted" style="margin-top: 4px">38 of the 52 new misses mix up share classes of the same fund, for example low-cost and standard shares. The v3 training set has 60 share-class examples against 410 in v2's. Restoring them and re-running Official should clear the bar; the other pillars are not expected to move. Basis: Official TL Index run 1188, entity slice, 240 items.</div>
+        <div class="kit-actions" style="margin-top: 10px"><a class="kit-btn sm" href="W2-Datasets.dc.html">Add share-class examples to the data set</a><a class="kit-btn sm outline" href="E1-EvaluationResults.dc.html">See the failing items</a><button class="kit-btn sm outline" type="button">Dismiss</button></div>
+      </div>
+      <div class="kit-source">Official TL Index runs 1183 (v2) and 1188 (v3, 4 Nov) on the same judge version j-2026.10 and the same held-out rotation; bars from the record, UC-0291 revision 14. As of 11:58 ET.</div>
+    </section>
+
+    <section class="kit-surface">
+      <div class="kit-surface-head">
+        <div><h2>Profile and diff for Risk</h2><div class="sub">What the PDF carries: the sixteen-pillar profile before and after, the gate table above, run ids, judge version, the record revision and sign-off lines for the validator and Risk. No request data.</div></div>
+        <button class="kit-btn sm outline" type="button">Download PDF</button>
+      </div>
+      <div class="kit-grid2" style="margin-top: 12px">
+        <table>
+          <thead><tr><th>Pillar</th><th class="num">v2</th><th class="num">v3</th><th class="num">Change</th></tr></thead>
+          <tbody>
+            <tr><td>1 · Financial data processing</td><td class="num"><span class="kit-interval">0.86 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.87 <span class="pm">± 0.03</span></span></td><td class="num">+0.01</td></tr>
+            <tr><td>2 · Financial analysis and reasoning</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num kit-small kit-muted">Phase 2</td></tr>
+            <tr><td>3 · Client care</td><td class="num"><span class="kit-interval">0.80 <span class="pm">± 0.04</span></span></td><td class="num"><span class="kit-interval">0.84 <span class="pm">± 0.03</span></span></td><td class="num">+0.04</td></tr>
+            <tr><td>4 · Compliance and regulatory</td><td class="num"><span class="kit-interval">0.88 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.87 <span class="pm">± 0.03</span></span></td><td class="num">−0.01</td></tr>
+            <tr><td>5 · Cybersecurity</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num kit-small kit-muted">Phase 2</td></tr>
+            <tr><td>6 · Safety and grounding</td><td class="num"><span class="kit-interval">0.93 <span class="pm">± 0.02</span></span></td><td class="num"><span class="kit-interval">0.93 <span class="pm">± 0.02</span></span></td><td class="num">0.00</td></tr>
+            <tr><td>7 · Entity recognition</td><td class="num"><span class="kit-interval">0.81 <span class="pm">± 0.03</span></span></td><td class="num"><span class="kit-interval">0.77 <span class="pm">± 0.04</span></span></td><td class="num">−0.04</td></tr>
+            <tr><td>8 · Judging and scoring</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num kit-small kit-muted">Phase 2</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th>Pillar</th><th class="num">v2</th><th class="num">v3</th><th class="num">Change</th></tr></thead>
+          <tbody>
+            <tr><td>9 · Coding</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num kit-small kit-muted">Phase 2</td></tr>
+            <tr><td>10 · Agentic competence</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num kit-small kit-muted">Phase 2</td></tr>
+            <tr><td>11 · Document understanding</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num kit-small kit-muted">Phase 2</td></tr>
+            <tr><td>12 · Multilingual</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num kit-small kit-muted">Phase 2</td></tr>
+            <tr><td>13 · Long context</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num kit-small kit-muted">Phase 2</td></tr>
+            <tr><td>14 · Instruction and format fidelity</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num kit-small kit-muted">Phase 2</td></tr>
+            <tr><td>15 · Summarization</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num kit-small kit-muted">Phase 2</td></tr>
+            <tr><td>16 · Deployability</td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num"><span class="kit-dash" title="Phase 2">—</span></td><td class="num kit-small kit-muted">Phase 2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kit-threshold" style="margin-top: 10px">Live in the MVP: pillars 1, 3, 4, 6 and 7. Candidates 17 Visual and chart understanding and 18 UI and front-end generation are with the pillar council and are not scored.</div>
+      <div class="kit-source">Pillar scores from Official TL Index runs 1183 and 1188; the PDF is generated on click from the same runs and the record, UC-0291 revision 14, and is logged to the record when downloaded. As of 11:58 ET.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2200}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
