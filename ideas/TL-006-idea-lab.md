@@ -20,7 +20,7 @@ standard: "v1"
 last_touched: 2026-11-04
 sensitivity: none
 critique_recorded: null
-next_step: "Jithin: approve or amend Portfolio session 1; paste the updated Project instructions (Roles rule) into the Idea Lab Project settings. Roles convention done 2026-11-07 (D-151)."
+next_step: "Jithin: approve or amend Portfolio session 1. Roles convention live everywhere 2026-11-07 (D-151, D-152), including the Project instructions."
 next_step_due: null
 ---
 
@@ -33,7 +33,7 @@ next_step_due: null
 
 Owner: Jithin. Appetite: not set. Score: not scored .
 
-Next step: Jithin: approve or amend Portfolio session 1; paste the updated Project instructions (Roles rule) into the Idea Lab Project settings. Roles convention done 2026-11-07 (D-151).
+Next step: Jithin: approve or amend Portfolio session 1. Roles convention live everywhere 2026-11-07 (D-151, D-152), including the Project instructions.
 
 Production surface: not named (reads as an H3 experiment).
 
