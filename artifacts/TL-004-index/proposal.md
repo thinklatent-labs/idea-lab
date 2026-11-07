@@ -1,4 +1,4 @@
-<!-- Exported from https://claude.ai/artifact/4pwnZVstw8ZpcAP6sofN4U (rev 39) on 2026-11-04. Read-only mirror; edit the live doc, not this file. -->
+<!-- Exported from https://claude.ai/artifact/4pwnZVstw8ZpcAP6sofN4U (rev 130) on 2026-11-07. Read-only mirror; edit the live doc, not this file. -->
 # TL Index (index) — Project Proposal
 
 Nov 1, 2026 · @Jithin Pradeep
@@ -10,20 +10,20 @@ Nov 1, 2026 · @Jithin Pradeep
 | ID and slug | TL-004 · index |
 | Type and parent | Feature · feature-of TL-003 portal |
 | Theme served | T-001 Sovereign AI: owned models on owned infrastructure |
-| Stage | Proposal. Stress test recorded 2026-11-01 (critique log and kill criteria below); ready for team review |
-| Horizon and appetite | H1 · two quarters to the first quarterly index report (Phase 0 to Phase 2) |
-| Owner | Head of ThinkLatent (sponsor); index lead and harness lead to be named |
-| Rubric | 4.0 proposed on 2026-11-01 after the stress test, pending Jithin: strategic fit 5, evidence of need 3, differentiation 4, feasibility 3, value at stake 4, governance exposure 4, reversibility 4, compounding 5 |
+| Stage | Building, from 2026-11-07 (Building gate passed: owner role, stream S-B, a 10 engineer-week appetite, Jithin's Friday review slot). The four-week decision spike runs 2026-11-16 to 2026-12-11; the appetite ends 2027-01-24. Stress test recorded 2026-11-01 (critique log and kill criteria below) |
+| Horizon and appetite | H1 · two quarters to the first quarterly index report (Phase 0 to Phase 2) · Building appetite: 10 engineer-weeks under S-B for the decision spike and Phase 0 (the circuit breaker, never extended) |
+| Owner | Index lead (Claude, playing the Research function, in chats kept apart from build work) · Harness and platform lead (Claude, as the S-B stream engineer) · Head of ThinkLatent (Jithin), sponsor and decider, and the practitioner who sets the spike's bars |
+| Rubric | 4.10, set by Jithin on 2026-11-07 on the quarter weights (3.95 on 2026-11-02): strategic fit 5, evidence of need 3, differentiation 4, feasibility 4, value at stake 4, governance exposure 4, reversibility 4, compounding 5. Feasibility is re-read at the end of the spike |
 | Reuses | AI Gateway; HyperPod serving; model compression pipeline; self-healing system; scheduled-task patterns; the university lab |
 | Creates | Evaluation register and harness; contribution flow; sandboxed tool replicas; skill-tandem records |
 | Links | depends-on TL-005 self-healing · related-to TL-001 neo |
 | Sensitivity | Internal strategy; no client data in this doc |
-| Standard and last reviewed | v1 · 2026-11-01 |
+| Standard and last reviewed | v1 · 2026-11-07 |
 | Register | [Idea Register](https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h) |
 
 ## Executive summary
 
-We propose building the TL Index (the TL Index) as a feature of the ThinkLatent Portal: a private, versioned evaluation layer that scores AI models on sixteen Enterprise-relevant capability pillars and on end-to-end use cases built from our own tools, and prices every score against cost and deployability. Its first job is to test one hypothesis: our workload does not need frontier models by default, and task-specific smaller models trained in-house outperform general models in our context. Its lasting job is to be the instrument every model decision at the Enterprise runs through: selection for a workflow, adoption of a new release, in-house training targets, production swaps and vendor spend.
+We propose building the TL Index as a feature of the ThinkLatent Portal: a private, versioned evaluation layer that scores AI models on sixteen Enterprise-relevant capability pillars and on end-to-end use cases built from our own tools, and prices every score against cost and deployability. Its first job is to test one hypothesis: our workload does not need frontier models by default, and task-specific smaller models trained in-house outperform general models in our context. Its lasting job is to be the instrument every model decision at the Enterprise runs through: selection for a workflow, adoption of a new release, in-house training targets, production swaps and vendor spend.
 
 The MVP proves the hypothesis on five pillars and three use cases within one quarter of foundation work; the full index and first quarterly report follow in the next. The ask of the team is to challenge the pillars, contribute datasets and use cases from their domains, own production bars with their business partners, and build the harness, scoring and product surface described below.
 
@@ -37,7 +37,7 @@ The MVP proves the hypothesis on five pillars and three use cases within one qua
 
 ## What the project is
 
-The TL Index (the TL Index) is a private, versioned benchmark that scores AI models on the capabilities the Enterprise's core operations actually depend on, and prices every score against cost, latency and deployability. It answers one question per model and per task family: is this model sufficient for this job at the Enterprise, and at what cost?
+The TL Index is a private, versioned benchmark that scores AI models on the capabilities the Enterprise's core operations actually depend on, and prices every score against cost, latency and deployability. It answers one question per model and per task family: is this model sufficient for this job at the Enterprise, and at what cost?
 
 It is built to test a specific hypothesis: the Enterprise's workload mix does not require frontier models by default. Most task families plateau at a model size well below frontier, and task-specific trained smaller models outperform general-purpose models in the Enterprise's context. Upgrading to each new frontier release on the strength of general-intelligence claims, without reference to our own task complexity, is spending money for gains we do not realise.
 
@@ -263,7 +263,7 @@ The public indices have each solved one part of the problem we face: Epoch solve
 
 | Index | What it measures | Method highlights | Borrow for the TL Index |
 | --- | --- | --- | --- |
-| [Epoch Capabilities Index (ECI)](https://epoch.ai/eci) | General capability on a single difficulty-weighted scale, stitched from \~40 public benchmarks across 2023 to present | Item Response Theory places models and benchmarks on one scale, so comparisons survive individual benchmarks saturating; domain-specific ECIs (software engineering, math, cyber) re-fit model parameters on a subset; takes the best score across inference settings; minimum of 4 benchmarks per model for a stable score; public code and data | IRT-based stitching so the TL Index scores stay comparable when a task set is retired or replaced; domain sub-indices per pillar on the same scale as the composite, so over- and under-performance per pillar is visible; a difficulty parameter per task, which is exactly the complexity rating the hypothesis needs |
+| [Epoch Capabilities Index (ECI)](https://epoch.ai/eci) | General capability on a single difficulty-weighted scale, stitched from \~40 public benchmarks across 2023 to present | Item Response Theory places models and benchmarks on one scale, so comparisons survive individual benchmarks saturating; domain-specific ECIs (software engineering, math, cyber) re-fit model parameters on a subset; takes the best score across inference settings; minimum of 4 benchmarks per model for a stable score; public code and data | IRT-based stitching so TL Index scores stay comparable when a task set is retired or replaced; domain sub-indices per pillar on the same scale as the composite, so over- and under-performance per pillar is visible; a difficulty parameter per task, which is exactly the complexity rating the hypothesis needs |
 | [Artificial Analysis Intelligence Index](https://artificialanalysis.ai/methodology/intelligence-benchmarking) | Composite of 9 evaluations (v5.0) weighted 25% each across knowledge work, coding, science and general; agentic, multilingual, hallucination, visual and speed reported separately | Standardised zero-shot runs at fixed temperature and token limits; pass@1 with repeats; a panel of three frontier judges rather than one; Omniscience scores accuracy and non-hallucination separately and rewards abstention over guessing; guardrail violations score zero on automation tasks; cost per index task computed from provider token counts; intelligence-vs-cost Pareto chart; open-weights and proprietary shown as two tracks | The two-track frontier/open-weights view; cost per task as a published metric and the quality-vs-cost Pareto chart; separate accuracy and hallucination components; zero credit for a guardrail breach in agentic tasks; judge panels drawn from several labs to limit same-family bias; a public methodology page with prompts and version history |
 | [Vals AI](https://www.vals.ai) | Professional-work benchmarks in finance, legal, healthcare and software (Finance Agent, Excel modelling, legal, custom repo-based coding), composed into a Vals Index weighted by sector share of US GDP | Private test sets with capped runs to block contamination; tasks built with domain experts from real working procedures; benchmarks retired when they stop separating models (CorpFin replaced by Excel Modelling in May 2026); custom suites from a client's own repo or data; frontier-risk benchmark covering cyber and safety | Treat task sets as consumables with a retirement rule; build tasks with Enterprise practitioners from real procedures, not from synthetic prompts; consider licensing their Finance Agent suite as an external reference pillar so TL Index results can be sanity-checked against a public finance benchmark |
 | LMArena and crowd-preference arenas | Human pairwise preference, Elo | Blind side-by-side votes from real users | An internal arena for client-care and summarization pillars, where associate preference is a legitimate signal and rubrics are weak |
@@ -596,9 +596,9 @@ Every result row carries: model, build or checkpoint id, serving setting, endpoi
 
 | Role | Owns | Proposed |
 | --- | --- | --- |
-| Sponsor | Decision rights on scope, funding and publication cadence | Head of ThinkLatent (Head of ThinkLatent) |
-| Index lead | Methodology, scoring model, hypothesis design, quarterly report | AI Research lead, to be named |
-| Harness and platform lead | Runner, sandbox, register, cost instrumentation, contribution portal | AI Platform lead, to be named |
+| Sponsor | Decision rights on scope, funding and publication cadence | Head of ThinkLatent |
+| Index lead | Methodology, scoring model, hypothesis design, quarterly report | Claude, playing the Research function: independent of TLM build work so the H1 and H3 results are credible |
+| Harness and platform lead | Runner, sandbox, register, cost instrumentation, contribution portal | Claude, as the S-B stream engineer (the AI Products seat, which owns the portal) |
 | Pillar owners (one per pillar) | Task sets, production bar with the business partner, dataset admission | Named per pillar by the team |
 | Use-case owners | Scenario definition, tool mirrors, instance validation | Named per use case by the team |
 | Business partners | Production bar sign-off, practitioner grading, dataset contribution | One per business line, recruited by pillar owners |
@@ -670,7 +670,7 @@ Build all sixteen pillars before making any decision; set bars without business 
 
 **Cost of attention**
 
-Phase 0 and the MVP need roughly four to six people from the forty-five for two quarters, plus practitioner time from three business lines, while the portal, the foundation models and the training pipeline compete for the same people. The case for spending it: the current constraint on ThinkLatent is evidence for adoption and governance throughput, and the TL Index relieves that constraint directly; of the ideas in the register it is the one that turns the flywheel (evidence, better models, more adoption, more data) fastest.
+Phase 0 and the MVP need roughly four to six people from the team for two quarters, plus practitioner time from three business lines, while the portal, the foundation models and the training pipeline compete for the same people. The case for spending it: the current constraint on ThinkLatent is evidence for adoption and governance throughput, and the TL Index relieves that constraint directly; of the ideas in the register it is the one that turns the flywheel (evidence, better models, more adoption, more data) fastest.
 
 **Kill and park criteria, pre-committed**
 
@@ -688,6 +688,8 @@ Phase 0 and the MVP need roughly four to six people from the forty-five for two 
 
 Feasibility moves from 4 to 3 (practitioner dependency and judge location unresolved); the rest hold. Composite 4.0 on equal weights, proposed, pending Jithin: strategic fit 5, evidence of need 3, differentiation 4, feasibility 3, value at stake 4, governance exposure 4, reversibility 4, compounding 5.
 
+Updated 2026-11-07: Jithin raised feasibility to 4 when the Building gate was filled (stream S-B, a 10 engineer-week appetite, the lead roles assigned). The composite is now 4.10 on the quarter weights. Dissent on record: naming leads is staffing, not evidence, so feasibility is re-read at the end of the spike against what the spike found.
+
 **Changes made to the proposal from this critique**
 
 1. A four-week decision spike precedes Phase 0 (see Scope, phasing and open questions).
@@ -702,7 +704,7 @@ Feasibility moves from 4 to 3 (practitioner dependency and judge location unreso
 The MVP proves the hypothesis on five pillars before the index is widened. Phases are gated on evidence, not on calendar.
 
 1. **Decision spike, four weeks, before Phase 0.** Three real bounded workflows, three model classes (small, mid-size, frontier), practitioner-set bars, run by hand with no harness. Exit gate: a first read on H1 at trivial cost. If no bounded workflow clears its bar on a smaller model, the TL Index is re-scoped to a regression gate and release-evaluation service before any platform is built.
-2. **Phase 0, foundation.** Harness built on an open base (HELM-style scenarios or an in-house runner), model register schema, cost and latency instrumentation, judge-panel and human-sampling loop, gateway telemetry classified into token-shape cells and pillar families. Exit gate: one public benchmark reproduced within published error bars; index lead and harness lead named.
+2. **Phase 0, foundation.** Harness built on an open base (HELM-style scenarios or an in-house runner), model register schema, and cost and latency instrumentation. The spike and Phase 0 together have a 10 engineer-week appetite under S-B (one engineer plus a coding agent). The judge panel and human-sampling loop wait on the judge-location ruling. Classifying gateway telemetry into token-shape cells and pillar families moves to the telemetry contract (TL-009). Exit gate: one public benchmark reproduced within published error bars.
 3. **Phase 1, MVP on five pillars.** Financial data processing, client care, entity recognition, compliance and regulatory, safety and grounding. Each with a practitioner-built private task set and an agreed production bar signed by a business partner. Run across one frontier model, two open-weight model classes and one Enterprise specialist. Exit gate: first sufficiency map, a first H1/H3 read, one real model decision and one governance approval made through the index.
 4. **Phase 2, full pillar set and first quarterly report.** Remaining eleven pillars, deployability axis including post-quantization scores, business-line composites re-weighted to current volume, IRT stitching so later task-set churn stays comparable, first independent audit of training batches. Exit gate: first Index report to leadership with a spend-impact estimate.
 5. **Phase 3, operationalise.** Regression gate wired into the model-swap process, release evaluation on every new model within ten working days, fine-tuning programme adopts the index as its evaluation standard, procurement scorecard in use, rotating held-out slices and the index-to-production correlation check running each quarter.
@@ -734,3 +736,6 @@ Open questions to settle before Phase 1:
 | 2026-11-01 | Candidate pillars 17 (visual and chart understanding) and 18 (UI generation) proposed for the pillar council | Jithin |
 | 2026-11-01 | Registered in the Idea Lab as TL-004; rubric 4.1 proposed, pending Jithin; critique log to be recorded before team review | Thinking partner, pending Jithin |
 | 2026-11-01 | Stress test recorded: critique log, pre-mortem, kill criteria; decision spike added before Phase 0; Phase 1 exit gate tightened; rubric revised to 4.0 proposed | Thinking partner, pending Jithin |
+| 2026-11-02 | Rubric score set at 3.95 on the proposed quarter weights | Jithin |
+| 2026-11-07 | Building gate passed; moved to Building. Index lead (Claude, as Research) and harness lead (Claude, as the S-B stream engineer); appetite 10 engineer-weeks under S-B for the spike and a trimmed Phase 0; Jithin reviews Fridays, 30 min; spike from 2026-11-16 | Jithin |
+| 2026-11-07 | Feasibility raised from 3 to 4; composite 4.10 on the quarter weights, re-read at the end of the spike | Jithin |

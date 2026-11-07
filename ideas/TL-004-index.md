@@ -6,22 +6,22 @@ aliases: ["The TL Index", "the index", "AI index", "model index"]
 type: Feature
 parent: "TL-003"
 themes: ["T-001"]
-stage: "Proposal"
-stage_since: "2026-11-01"
+stage: "Building"
+stage_since: "2026-11-07"
 horizon: "H1"
 stream: "S-B"
-appetite_weeks: null
-appetite_ends: null
-owner: "Head of ThinkLatent (sponsor); index lead and harness lead to be named"
-score: 3.95
+appetite_weeks: 10
+appetite_ends: "2027-01-24"
+owner: "Index lead (Claude, playing the Research function, in chats kept apart from build work); Harness and platform lead (Claude, as the S-B stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and the practitioner who sets the bars"
+score: 4.1
 score_status: set
 doc_url: "https://claude.ai/artifact/4pwnZVstw8ZpcAP6sofN4U"
 standard: "v1"
-last_touched: 2026-11-01
+last_touched: 2026-11-07
 sensitivity: none
 critique_recorded: true
-next_step: "Name the index and harness leads and set the appetite in engineer-weeks so the four-week decision spike can start under S-B (the Building gate; due 2026-11-15); set the score; share with the team. From TL-003 (2026-11-02): the per-use-case line item should run against the endpoint (the served system) once harnesses exist; the Judge domain model and the judge-location question are one decision; scout-brief-eval-governance.md (2026-11-02) lists ten presentation features for the index (intervals and n per score, item drill-down, Official versus Practice runs, judge calibration cards, sufficiency view). From TL-012 (2026-11-02): add the variant comparison card (variants against rubric, cost per task, latency, pass^k, a frontier baseline, the team's choice logged) to the index's presentation features; TL-012's H3, H4, H7 and H8 run on the index. From TL-016 (2026-11-05, scout-brief-team-site.md): add a living evaluations hub with method and exclusions stated, an index-as-artifact page (ranked graphic, method, data, plain-language explainer), an annual report hub (takeaways, chapters, leadership digest, data download, recorded launch, archive), a corrections log, the leaderboard as its own section, and a source and as-of date on every number; the site carries a TL Index summary tile and links here From Portfolio (2026-11-07): Now #1. Index lead (Claude) and harness lead (Claude) under the Roles rules (D-151); TL-004's chat closes q1 on that basis and sets the appetite (q3) and Jithin's weekly review slot (D-152), by 2026-11-15."
-next_step_due: "2026-11-15"
+next_step: "Decision spike week 1 from 2026-11-16 under S-B (Claude as index lead and harness lead): pick the three bounded workflows on public-data proxies, run three model classes by hand, with Jithin setting the bars as the practitioner; first Friday review 2026-11-20. Share the proposal with the team (a recorded red-team pass plus Jithin's comments); rename the artifact's browser title on claude.ai first, since it still carries the old name. From TL-003 (2026-11-02): the per-use-case line item should run against the endpoint (the served system) once harnesses exist; the Judge domain model and the judge-location question are one decision; scout-brief-eval-governance.md (2026-11-02) lists ten presentation features for the index (intervals and n per score, item drill-down, Official versus Practice runs, judge calibration cards, sufficiency view). From TL-012 (2026-11-02): add the variant comparison card (variants against rubric, cost per task, latency, pass^k, a frontier baseline, the team's choice logged) to the index's presentation features; TL-012's H3, H4, H7 and H8 run on the index. From TL-016 (2026-11-05, scout-brief-team-site.md): add a living evaluations hub with method and exclusions stated, an index-as-artifact page (ranked graphic, method, data, plain-language explainer), an annual report hub (takeaways, chapters, leadership digest, data download, recorded launch, archive), a corrections log, the leaderboard as its own section, and a source and as-of date on every number; the site carries a TL Index summary tile and links here"
+next_step_due: "2026-11-20"
 ---
 
 # TL Index
@@ -29,19 +29,18 @@ next_step_due: "2026-11-15"
 <!-- generated:start -->
 ## Lab record
 
-**TL-004 index** · Feature of TL-003 · Proposal (funded by default; stress test recorded 2026-11-01; Building gate not passed: leads unnamed, appetite unset) · H1 · S-B
+**TL-004 index** · Feature of TL-003 · Building (Building gate passed 2026-11-07 (D-152): owner role Index lead (Claude), stream S-B, appetite 10 engineer-weeks, Jithin's review slot Fridays 30 min; the four-week decision spike starts 2026-11-16) · H1 · S-B
 
-Owner: Head of ThinkLatent (sponsor); index lead and harness lead to be named. Appetite: Two quarters to the first quarterly index report (Phase 0 to Phase 2). Score: 3.95 (set).
+Owner: Index lead (Claude, playing the Research function, in chats kept apart from build work); Harness and platform lead (Claude, as the S-B stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and the practitioner who sets the bars. Appetite: 10 engineer-weeks, ends 2027-01-24. Score: 4.1 (set).
 
-Next step: Name the index and harness leads and set the appetite in engineer-weeks so the four-week decision spike can start under S-B (the Building gate; due 2026-11-15); set the score; share with the team. From TL-003 (2026-11-02): the per-use-case line item should run against the endpoint (the served system) once harnesses exist; the Judge domain model and the judge-location question are one decision; scout-brief-eval-governance.md (2026-11-02) lists ten presentation features for the index (intervals and n per score, item drill-down, Official versus Practice runs, judge calibration cards, sufficiency view). From TL-012 (2026-11-02): add the variant comparison card (variants against rubric, cost per task, latency, pass^k, a frontier baseline, the team's choice logged) to the index's presentation features; TL-012's H3, H4, H7 and H8 run on the index. From TL-016 (2026-11-05, scout-brief-team-site.md): add a living evaluations hub with method and exclusions stated, an index-as-artifact page (ranked graphic, method, data, plain-language explainer), an annual report hub (takeaways, chapters, leadership digest, data download, recorded launch, archive), a corrections log, the leaderboard as its own section, and a source and as-of date on every number; the site carries a TL Index summary tile and links here From Portfolio (2026-11-07): Now #1. Index lead (Claude) and harness lead (Claude) under the Roles rules (D-151); TL-004's chat closes q1 on that basis and sets the appetite (q3) and Jithin's weekly review slot (D-152), by 2026-11-15. (due 2026-11-15)
+Next step: Decision spike week 1 from 2026-11-16 under S-B (Claude as index lead and harness lead): pick the three bounded workflows on public-data proxies, run three model classes by hand, with Jithin setting the bars as the practitioner; first Friday review 2026-11-20. Share the proposal with the team (a recorded red-team pass plus Jithin's comments); rename the artifact's browser title on claude.ai first, since it still carries the old name. From TL-003 (2026-11-02): the per-use-case line item should run against the endpoint (the served system) once harnesses exist; the Judge domain model and the judge-location question are one decision; scout-brief-eval-governance.md (2026-11-02) lists ten presentation features for the index (intervals and n per score, item drill-down, Official versus Practice runs, judge calibration cards, sufficiency view). From TL-012 (2026-11-02): add the variant comparison card (variants against rubric, cost per task, latency, pass^k, a frontier baseline, the team's choice logged) to the index's presentation features; TL-012's H3, H4, H7 and H8 run on the index. From TL-016 (2026-11-05, scout-brief-team-site.md): add a living evaluations hub with method and exclusions stated, an index-as-artifact page (ranked graphic, method, data, plain-language explainer), an annual report hub (takeaways, chapters, leadership digest, data download, recorded launch, archive), a corrections log, the leaderboard as its own section, and a source and as-of date on every number; the site carries a TL Index summary tile and links here (due 2026-11-20)
 
 Production surface: Head of ThinkLatent, model owners, Risk reviewers · The ThinkLatent Portal's evidence layer (register API) · Model decisions and governance approvals made through the index per quarter
 
 Governance (separate team): not started, Judge-panel location and training-data wall sign-off
 
 ### Decisions due
-- Name the index lead and the harness lead (the Building gate; nothing starts without them) (needs the chat)
-- Set the appetite in engineer-weeks for the spike and Phase 0 (needs the chat)
+_None._
 
 ### Hypotheses
 | Claim | Confirmed if | Refuted if | Evidence | Confidence | Result |
@@ -59,7 +58,7 @@ Governance (separate team): not started, Judge-panel location and training-data 
 | No sufficiency decision for at least two real workflows within two quarters of Phase 1 start | no date | open | Kill, or re-scope to the regression gate only |
 | No model decision cites the index in the two quarters after the first report | no date | open | Park; the product is not used |
 | Any task-library item or near-duplicate found in a training batch | no date | open | Freeze both programmes until the wall is rebuilt and audited |
-| Index lead and harness lead not named | no date | open | Do not start Phase 0 |
+| Index lead and harness lead roles not assigned | no date | open | Do not start the spike or Phase 0 |
 
 ### Open questions
 | Question | Owner | Blocking |
@@ -94,7 +93,7 @@ Governance (separate team): not started, Judge-panel location and training-data 
 ### Artifacts
 | Artifact | Kind | In this repo | Live | Exported |
 | --- | --- | --- | --- | --- |
-| TL Index — Project Definition | doc | [artifacts/TL-004-index/proposal.md](../artifacts/TL-004-index/proposal.md) | [claude.ai](https://claude.ai/artifact/4pwnZVstw8ZpcAP6sofN4U) | 2026-11-04 |
+| TL Index (index) — Project Proposal | doc | [artifacts/TL-004-index/proposal.md](../artifacts/TL-004-index/proposal.md) | [claude.ai](https://claude.ai/artifact/4pwnZVstw8ZpcAP6sofN4U) | 2026-11-07 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -105,8 +104,20 @@ Governance (separate team): not started, Judge-panel location and training-data 
 | D-004 | 2026-11-01 | Registered as TL-004 with a lab record; rubric composite 4.1 proposed, pending Jithin; stress-test critique log to be recorded before team review | Thinking partner, pending Jithin | superseded |
 | D-009 | 2026-11-01 | Stress test recorded in the proposal: critique log, pre-mortem, kill criteria; four-week decision spike added before Phase 0; Phase 1 exit gate now requires one real model decision and one governance approval through the index; rubric revised to 4.0 proposed. Open: business partners, judge location, index and harness leads | Thinking partner, pending Jithin | superseded |
 | D-026 | 2026-11-02 | Set the rubric score: Set 3.95 (proposed quarter weights) (decided on the dashboard 2026-11-02) | Jithin (dashboard) | accepted |
+| D-155 | 2026-11-07 | Building gate passed under D-152; moved to Building. Owner role: Index lead, played by Claude as the Research function (independent of TLM build work, so H1 and H3 read as credible); harness and platform lead played by Claude as the S-B stream engineer; appetite 10 engineer-weeks under S-B for the four-week spike and a trimmed Phase 0 (judge panel waits on the judge-location ruling; telemetry classification moves to TL-009); review slot Fridays 30 min. Spike starts 2026-11-16; appetite ends 2027-01-24 | Jithin (on the thinking partner's recommendations) | accepted |
+| D-156 | 2026-11-07 | Rubric: feasibility 3 to 4, composite 4.10 on the quarter weights. Thinking partner recommended keeping 3.95 (assigning leads is not evidence); feasibility re-read at the end of the spike | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
 
 _Session notes and the idea card's prose live here; the register row and the generated block above are rewritten by `scripts/render-ideas.mjs`, this section is kept._
+
+### 2026-11-07 · Spec · the Building gate
+
+- The gate was settled as questions, each with a recommendation; Jithin took every recommendation. **Index lead: the Research function**, not Applied Research. Applied Research builds TLM, and H3 tests TLM-style specialists, so the result only reads as credible from outside that team. **Harness lead: the S-B stream engineer** (the AI Products seat), so there is no handoff between the stream and the harness. Under the roles model (D-134, D-151), Claude plays both, and the index-lead work is kept in chats apart from build work.
+- **Appetite: 10 engineer-weeks** under S-B, covering the four-week spike and a trimmed Phase 0 (harness, register schema, cost and latency instrumentation, one public benchmark reproduced). Phase 0 as first written did not fit six weeks for one engineer. The judge panel waits on the judge-location ruling, which can be a simulated Risk view at most. Telemetry classification moves to TL-009.
+- **Review slot:** Jithin reviews on Fridays for 30 minutes (D-152). The first review is 2026-11-20.
+- **Moved to Building** on 2026-11-07. The spike runs 2026-11-16 to 2026-12-11, and the appetite ends 2027-01-24 (the circuit breaker).
+- **Score: 4.10** (feasibility 3 → 4), set by Jithin. The thinking partner recommended keeping 3.95: assigning leads is not evidence. Feasibility is re-read at the end of the spike.
+- **Critique carried into the spike.** With Claude running it and Jithin setting the bars on public-data proxies, the spike tests H1 on proxies, not on Enterprise practitioners' bars. Read its result as a signal for shaping, not proof. Separate-agent critics and Jithin's Friday review are the only independent checks.
+- The proposal doc was updated: lab record, roles, rubric note, Phase 0, and the decision log, including the missing 3.95 line. Its browser-tab title still shows the employer's former name and cannot be changed from a session, so rename it on claude.ai before sharing.
