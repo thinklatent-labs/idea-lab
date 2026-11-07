@@ -20,7 +20,7 @@ standard: "v1"
 last_touched: 2026-11-04
 sensitivity: none
 critique_recorded: null
-next_step: "Jithin: approve or amend Portfolio session 1. Roles convention live everywhere 2026-11-07 (D-151, D-152), including the Project instructions."
+next_step: "Portfolio session 1 amended 2026-11-07 (D-133); next Portfolio session scores the Next rows. Roles convention live everywhere 2026-11-07 (D-151, D-152), including the Project instructions."
 next_step_due: null
 ---
 
@@ -33,7 +33,7 @@ next_step_due: null
 
 Owner: Jithin. Appetite: not set. Score: not scored .
 
-Next step: Jithin: approve or amend Portfolio session 1. Roles convention live everywhere 2026-11-07 (D-151, D-152), including the Project instructions.
+Next step: Portfolio session 1 amended 2026-11-07 (D-133); next Portfolio session scores the Next rows. Roles convention live everywhere 2026-11-07 (D-151, D-152), including the Project instructions.
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -82,6 +82,7 @@ _None recorded._
 | D-134 | 2026-11-07 | Role convention: the lab is Jithin and the thinking partner, so every named role (red-team seat, owner, lead, auditor, stream engineer) is assumed and played by one of the two until the lab moves into a company. Red-team roster (TL-006-q2): the thinking partner plays the feasibility and governance seats, and Jithin plays the business-line partner. A played critic runs in fresh context that has not seen the build work. | Jithin (Portfolio session) | accepted |
 | D-151 | 2026-11-07 | Roles model written into the Operating Model, the Project instructions, this repo and the register, extending D-134: every role stays in the structure and is played by Jithin (decides, owns direction, plays the business-line red-team seat) or Claude (leads, builds, plays the feasibility and Risk seats and audits, those as a separate agent that has not seen the work). No request to name people; Enterprise functions are simulated at most, marked simulated, and never block a lab stage; real people take the roles in the company version. Streams S-A to S-E are owned by Claude until then | Jithin | accepted |
 | D-152 | 2026-11-07 | Building gate restated for the two-person lab: an owner role assigned (played by Claude until the company version), a stream, an appetite in engineer-weeks, and a weekly review slot Jithin commits to. Ideas in Building never outnumber his review slots, since his review time is the constraint. Answers the open question in D-134 about what the gate means when Claude plays the owner | Jithin | accepted |
+| D-154 | 2026-11-07 | Portfolio session lines brought under the Roles rules (D-151, D-152): TL-004, TL-005 and TL-006 next steps and the TL-005 owner field reworded with no naming asks; red-team seats read Claude (separate agent) for feasibility and Risk (simulated), Jithin for evidence of need. | Jithin (Lab update); Claude (Portfolio session) | accepted |
 <!-- generated:end -->
 
 ## Notes
