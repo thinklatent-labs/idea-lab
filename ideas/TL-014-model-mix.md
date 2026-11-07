@@ -17,11 +17,11 @@ score: null
 score_status: none
 doc_url: "https://claude.ai/artifact/LEufPZM5G332V5Co5oDk8X"
 standard: "v1"
-last_touched: 2026-11-04
+last_touched: 2026-11-07
 sensitivity: none
 critique_recorded: null
-next_step: "Name the first use case and owner for the typed-decision dataset and settle whether 50 ms is model time or end-to-end; confirm multi-LoRA on vLLM 0.26; then build the dataset, run the first LoRA, and run the latency curve and index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment"
-next_step_due: null
+next_step: "Dataset lead (Claude): check the licences, then build the typed-decision dataset from Banking77, CLINC150 and the financial-news topic set (5-option questions, options set per row); confirm multi-LoRA on vLLM 0.26; train the general adapter leave-one-out for H-DM2 and on all three; run the latency curve (model time p50 and p95, end-to-end through Relay recorded) and the index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment"
+next_step_due: "2026-11-21"
 ---
 
 # TLM model mix — decision models (CLM, CDM) served through vLLM beside SLMs, BERT-style models, LLMs and TLM5 (the trajectory engine)
@@ -33,7 +33,7 @@ next_step_due: null
 
 Owner: Jithin. Appetite: not set. Score: not scored .
 
-Next step: Name the first use case and owner for the typed-decision dataset and settle whether 50 ms is model time or end-to-end; confirm multi-LoRA on vLLM 0.26; then build the dataset, run the first LoRA, and run the latency curve and index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment
+Next step: Dataset lead (Claude): check the licences, then build the typed-decision dataset from Banking77, CLINC150 and the financial-news topic set (5-option questions, options set per row); confirm multi-LoRA on vLLM 0.26; train the general adapter leave-one-out for H-DM2 and on all three; run the latency curve (model time p50 and p95, end-to-end through Relay recorded) and the index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment (due 2026-11-21)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -88,8 +88,31 @@ _None recorded._
 | D-074 | 2026-11-03 | HyperPod runs vLLM 0.26.0, so /v1/systemone is absent; TL-014 now depends on TL-008 for a per-endpoint environment on vLLM 0.32 or later; interim path on 0.26 is the generate runner with one-token allowed_token_ids and logprobs, so training and the shadow test are not blocked | Jithin (fact, direction); thinking partner (interim path) | accepted |
 | D-075 | 2026-11-03 | Dataset and deployment shape proposed: a common decision dataset and one general adapter as the default, a per-application adapter only when the index shows a gap, never per task; tasks are questions in the request, not heads; H-DM2 pre-registered; pending Jithin | thinking partner (proposal) | accepted |
 | D-081 | 2026-11-04 | Questions in one request run in parallel in vLLM's continuous batch (first-arrival prefix sharing to be measured); a task never gets its own LoRA: improvement ladder is rewrite the question, calibrate per task, add rows to the common dataset, then the application adapter | thinking partner (clarification); pending Jithin | proposed |
+| D-158 | 2026-11-07 | First use case and dataset settled on public data, as the lab requires: intent routing on Banking77 and CLINC150 plus the financial-news topic set, each row a typed question with its options set per row; the dataset is owned by the Dataset lead role, played by Claude (D-134). H-DM2 is tested leave-one-out (train on two, score the third, rotate), giving three held-out reads against the two required. The 50 ms target stays as pre-registered in H-DM1: p50 model time per request on the production GPU (FP8, warm prefix, prompt of 500 tokens or less, capped batch); p95 and end-to-end through Relay are measured and carry no target until TL-008's 0.32+ environment exists. The card's line drawing data from the Enterprise's own use cases is replaced by these public stand-ins inside the lab | Jithin (datasets, latency definition); thinking partner (leave-one-out design, public stand-ins) | accepted |
 <!-- generated:end -->
 
 ## Notes
 
 _Session notes and the idea card's prose live here; the register row and the generated block above are rewritten by `scripts/render-ideas.mjs`, this section is kept._
+
+### 2026-11-07 · Spec · D-158
+
+**First use case: three public datasets.** The lab runs on public data, so the card's plan to draw the typed-decision dataset from the Enterprise's own routing, intent and pre-review use cases is replaced, inside the lab, by public stand-ins:
+
+| Set | Decision type | Role |
+|---|---|---|
+| Banking77 | Intent routing, 77 banking intents | Closest analogue to the Enterprise's routing use case |
+| CLINC150 | Intent routing, 150 intents plus out-of-scope | Tests abstention and a broad option space |
+| Financial-news topic set | Topic tagging, 20 topics | Finance content, short texts |
+
+Each row becomes `state`, `questions`, `gold`: one 5-option question, with options drawn per row (the gold label plus confusable distractors), so the adapter learns to answer options set in the request rather than a fixed label set. Licences are checked before any row is built; a non-commercial or share-alike licence takes the set out.
+
+**H-DM2 runs leave-one-out.** With all three sets in the common dataset, no application is held out by default. The test trains the general adapter on two sets and scores the third, rotating, which gives three held-out reads against the two the hypothesis needs. The production general adapter then trains on all three.
+
+**Owner.** Dataset lead, played by Claude (Roles, D-134).
+
+**50 ms stays as pre-registered.** H-DM1's target is p50 model time per request on the production GPU: FP8 base, warm prefix, prompt of 500 tokens or less, 5 options, at the capped batch size. p95 model time and end-to-end time through Relay are measured on every latency-curve run but carry no target until TL-008's 0.32+ environment exists, because on the 0.26 interim path end-to-end time mostly measures serving work outside this idea.
+
+**Where it is thin.** The only published Gemma 4 E2B decision measurement on an H100 is 102 ms per question on long states, and E2B-class accuracy trails 4B on typed decisions. Both H-DM1 conditions remain the real risk; the dataset is now unblocked.
+
+**Register hygiene, flagged and not changed in this session.** `critiqueRecorded` is empty although the stage note records a Critic pass on 2026-11-03 (it must be set before Stress test can pass). D-075 is accepted but its text says pending. D-056, D-064, D-065 and D-081 are still proposed.

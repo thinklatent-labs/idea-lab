@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-07T13:40:00+05:30",
+  "asOf": "2026-11-07T13:55:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-05, ThinkLatent kit, command center and Jarvis), register rev 223.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 379,
+    "registerRev": 380,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1217,8 +1217,8 @@
       "docUrl": "https://claude.ai/artifact/LEufPZM5G332V5Co5oDk8X",
       "docTitle": "TLM model mix (model-mix) — Idea card",
       "standardVersion": "v1",
-      "lastTouched": "2026-11-04",
-      "nextStep": "Name the first use case and owner for the typed-decision dataset and settle whether 50 ms is model time or end-to-end; confirm multi-LoRA on vLLM 0.26; then build the dataset, run the first LoRA, and run the latency curve and index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment",
+      "lastTouched": "2026-11-07",
+      "nextStep": "Dataset lead (Claude): check the licences, then build the typed-decision dataset from Banking77, CLINC150 and the financial-news topic set (5-option questions, options set per row); confirm multi-LoRA on vLLM 0.26; train the general adapter leave-one-out for H-DM2 and on all three; run the latency curve (model time p50 and p95, end-to-end through Relay recorded) and the index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -1227,7 +1227,8 @@
       "recheckDate": null,
       "decisionsDue": [],
       "flags": [],
-      "createdOn": "2026-11-03"
+      "createdOn": "2026-11-03",
+      "nextStepDue": "2026-11-21"
     },
     {
       "id": "TL-015",
@@ -3625,6 +3626,19 @@
       "health": "on-track",
       "healthNote": "Shaping with a testable first step (H1 backfill) due 2026-11-21",
       "nextStepDue": "2026-11-21"
+    },
+    {
+      "date": "2026-11-07",
+      "scope": "TL-014 model-mix",
+      "ideaIds": [
+        "TL-014"
+      ],
+      "mode": "Spec",
+      "outcome": "Next step's two open questions answered (D-158): three public datasets as the first use case, Dataset lead played by Claude, 50 ms kept as p50 model time with p95 and end-to-end measured untargeted, H-DM2 leave-one-out. Next step rewritten under the Roles rules (no naming ask). Flagged, not changed: critiqueRecorded is empty although stageNote records a Critic pass on 2026-11-03; D-075 is accepted but its text says pending; D-056, D-064, D-065 and D-081 still proposed",
+      "docsTouched": "this register; ideas/TL-014-model-mix.md (Notes)",
+      "health": "at-risk",
+      "healthNote": "The only published Gemma 4 E2B decision measurement on an H100 is 102 ms per question on long states, and E2B-class accuracy trails 4B on typed decisions; the dataset is unblocked, but the 50 ms and accuracy conditions of H-DM1 are both open and the endpoint waits on TL-008",
+      "nextStepDue": "2026-11-21"
     }
   ],
   "decisions": [
@@ -5795,6 +5809,20 @@
       "door": "two-way",
       "infoLevel": null,
       "reviewOn": "2026-11-21",
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-158",
+      "ideaId": "TL-014",
+      "date": "2026-11-07",
+      "decision": "First use case and dataset settled on public data, as the lab requires: intent routing on Banking77 and CLINC150 plus the financial-news topic set, each row a typed question with its options set per row; the dataset is owned by the Dataset lead role, played by Claude (D-134). H-DM2 is tested leave-one-out (train on two, score the third, rotate), giving three held-out reads against the two required. The 50 ms target stays as pre-registered in H-DM1: p50 model time per request on the production GPU (FP8, warm prefix, prompt of 500 tokens or less, capped batch); p95 and end-to-end through Relay are measured and carry no target until TL-008's 0.32+ environment exists. The card's line drawing data from the Enterprise's own use cases is replaced by these public stand-ins inside the lab",
+      "by": "Jithin (datasets, latency definition); thinking partner (leave-one-out design, public stand-ins)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
       "supersedes": null,
       "type": "decision"
     }
