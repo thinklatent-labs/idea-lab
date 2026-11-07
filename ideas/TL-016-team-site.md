@@ -13,14 +13,14 @@ stream: null
 appetite_weeks: null
 appetite_ends: null
 owner: "Head of ThinkLatent (sponsor); site editor to be named"
-score: null
-score_status: none
+score: 3.5
+score_status: set
 doc_url: "https://claude.ai/artifact/9ZtoVU9roiRiACFjqe5nJu"
 standard: "v1"
 last_touched: 2026-11-07
 sensitivity: none
-critique_recorded: null
-next_step: "Critic session on TL-016 and record the critique: feasibility and Risk red-team seats played by Claude as separate agents that have not seen the work, the business-line seat by Jithin (pre-mortem, kill criteria, what would have to be true for the February 2027 launch, cost of the site editor's attention). Alongside it: the site editor (Claude) works through \"ThinkLatent site — launch brackets to fill\" by 21 Nov 2026. Jithin supplies rundown part 3 and the five wins. Role slots are played under the lab's Roles rules: intake owner and editorial board by Claude with Jithin as advisor. Brackets for real people's names stay [Name] until the company version. ThinkLatent Trust gets a simulated Risk review (Risk seat, Claude, marked simulated) using \"ThinkLatent Trust — page wording for Risk review\". The real Risk sign-off and the Comms contact (A8) are Enterprise functions that wait for the company version and do not block a lab stage. After the critique: the SharePoint build guide (stream 4) from canvas v8 and the custom.css request. ThinkLatent Day stays deferred until the Summit date is set."
+critique_recorded: true
+next_step: "Jithin shows the v8 Home board to five sponsors or partner leads by 5 Dec and counts who asks for the URL (business-line seat; three or more lifts evidence of need to 3 and the score is re-read). The site editor (Claude) works the launch brackets against the 21 Nov kill check; every number needs an owner, a source system and a date, and a person is not a source (35M+ and ~200 included). The Risk seat (Claude, simulated) reviews 'How we build responsibly — page wording for Risk review'; then the canvas's ThinkLatent Trust board and nav are renamed and redrawn to that wording. Next TL-016 chat: the SharePoint build guide from canvas v8 for the full scope, with a tier-1 fallback per board, the appetite and editor budget re-set from the critique (150–210 build hours, 25–35 upkeep hours a month), S1, S4 and S5 re-registered for SharePoint, and the custom.css request. Kill checks 21 Nov, 5 Dec, 12 Dec, 19 Dec. Real Risk sign-off, Comms review and real owner names are company-version steps. ThinkLatent Day stays deferred"
 next_step_due: "2026-11-21"
 ---
 
@@ -29,11 +29,11 @@ next_step_due: "2026-11-21"
 <!-- generated:start -->
 ## Lab record
 
-**TL-016 team-site** · Idea · Stress test (Moved to Stress test 2026-11-07 (D-141): canvas v8 (the v7 review, D-137, applied) is the design of record; launch brackets with the TPM; ThinkLatent Trust waits on Risk sign-off. Critique pass not yet recorded) · H1
+**TL-016 team-site** · Idea · Stress test (Stress test since 2026-11-07 (D-141). Critique recorded 2026-11-07 (D-191): feasibility and Risk seats (simulated) as separate agents, business-line seat Jithin. Score 3.50 set by Jithin against the critique's 2.85; full v8 scope held for February. Stays in Stress test: the Proposal gate needs the 5 Dec evidence read and Jithin's proceed) · H1
 
-Owner: Head of ThinkLatent (sponsor); site editor to be named. Appetite: not set. Score: not scored .
+Owner: Head of ThinkLatent (sponsor); site editor to be named. Appetite: not set. Score: 3.5 (set).
 
-Next step: Critic session on TL-016 and record the critique: feasibility and Risk red-team seats played by Claude as separate agents that have not seen the work, the business-line seat by Jithin (pre-mortem, kill criteria, what would have to be true for the February 2027 launch, cost of the site editor's attention). Alongside it: the site editor (Claude) works through "ThinkLatent site — launch brackets to fill" by 21 Nov 2026. Jithin supplies rundown part 3 and the five wins. Role slots are played under the lab's Roles rules: intake owner and editorial board by Claude with Jithin as advisor. Brackets for real people's names stay [Name] until the company version. ThinkLatent Trust gets a simulated Risk review (Risk seat, Claude, marked simulated) using "ThinkLatent Trust — page wording for Risk review". The real Risk sign-off and the Comms contact (A8) are Enterprise functions that wait for the company version and do not block a lab stage. After the critique: the SharePoint build guide (stream 4) from canvas v8 and the custom.css request. ThinkLatent Day stays deferred until the Summit date is set. (due 2026-11-21)
+Next step: Jithin shows the v8 Home board to five sponsors or partner leads by 5 Dec and counts who asks for the URL (business-line seat; three or more lifts evidence of need to 3 and the score is re-read). The site editor (Claude) works the launch brackets against the 21 Nov kill check; every number needs an owner, a source system and a date, and a person is not a source (35M+ and ~200 included). The Risk seat (Claude, simulated) reviews 'How we build responsibly — page wording for Risk review'; then the canvas's ThinkLatent Trust board and nav are renamed and redrawn to that wording. Next TL-016 chat: the SharePoint build guide from canvas v8 for the full scope, with a tier-1 fallback per board, the appetite and editor budget re-set from the critique (150–210 build hours, 25–35 upkeep hours a month), S1, S4 and S5 re-registered for SharePoint, and the custom.css request. Kill checks 21 Nov, 5 Dec, 12 Dec, 19 Dec. Real Risk sign-off, Comms review and real owner names are company-version steps. ThinkLatent Day stays deferred (due 2026-11-21)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -71,10 +71,10 @@ _None recorded._
 ### Artifacts
 | Artifact | Kind | In this repo | Live | Exported |
 | --- | --- | --- | --- | --- |
-| ThinkLatent site (team-site) — Idea card | doc | [artifacts/TL-016-team-site/idea-card.md](../artifacts/TL-016-team-site/idea-card.md) | [claude.ai](https://claude.ai/artifact/9ZtoVU9roiRiACFjqe5nJu) | 2026-11-04 |
+| ThinkLatent site (team-site) — Idea card | doc | [artifacts/TL-016-team-site/idea-card.md](../artifacts/TL-016-team-site/idea-card.md) | [claude.ai](https://claude.ai/artifact/9ZtoVU9roiRiACFjqe5nJu) | 2026-11-07 |
 | ThinkLatent site — v8: the v7 review applied | design | [artifacts/TL-016-team-site/design-canvas/project/canvas.json](../artifacts/TL-016-team-site/design-canvas/project/canvas.json) | [claude.ai](https://claude.ai/artifact/4uZUcDCHWPTqtzMXZrLKQD) | 2026-11-07 |
 | ThinkLatent site — launch brackets to fill (TL-016) | doc | [artifacts/TL-016-team-site/docs/launch-brackets.md](../artifacts/TL-016-team-site/docs/launch-brackets.md) | [claude.ai](https://claude.ai/artifact/38RGiipB795FZiQZCkzwAu) | 2026-11-07 |
-| ThinkLatent Trust — page wording for Risk review | doc | [artifacts/TL-016-team-site/docs/trust-risk-review.md](../artifacts/TL-016-team-site/docs/trust-risk-review.md) | [claude.ai](https://claude.ai/artifact/1G31Mjqx1usWaXoQEynMBD) | 2026-11-07 |
+| How we build responsibly — page wording for Risk review | doc | [artifacts/TL-016-team-site/docs/trust-risk-review.md](../artifacts/TL-016-team-site/docs/trust-risk-review.md) | [claude.ai](https://claude.ai/artifact/1G31Mjqx1usWaXoQEynMBD) | 2026-11-07 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -97,6 +97,7 @@ _None recorded._
 | D-137 | 2026-11-07 | Design canvas v7 reviewed board by board (25 boards): keep 18, change 5 (Home trimmed to ~7 sections; Mandate gets four measured targets; Blog cadence = leaders rotate, one leadership post a month, cap two posts a month; Use case sharpened against Win story; ThinkLatent Trust kept but live only after Risk sign-off), defer 1 (ThinkLatent Day until the Summit date is set), AI Perspectives kept with demo edition and podcast marked 'coming'. All eleven templates kept, Model card included, against the recommendation to cut it; Team keeps its three how-we-work numbers, so they need sources before launch. No cuts | Jithin | accepted |
 | D-141 | 2026-11-07 | Closing calls on the v7 review: canvas v8 built and published (Home cut to seven sections with the FAQ moved to At a glance; Mandate Target and Today lines; Blog limited to two posts a month with leaders in turn; Use case and Win story told apart; Model card rule that the portal card wins, checked quarterly; Perspectives panels labelled 'Coming'). Launch brackets go to a fill-in doc that the TPM collects by 21 Nov; Jithin's five open inputs become rows in it. The Head of AI Products asks Risk to sign off ThinkLatent Trust by 28 Nov using a summary Claude drafted. 35M+ interactions and ~200 per session go live with the Head of ThinkLatent as source. Stage moves to Stress test; a Critic session comes next | Jithin | accepted |
 | D-153 | 2026-11-07 | Next step rewritten under the lab's Roles rules (D-134, D-151, D-152). No naming asks. Site editor, intake owner and editors are played by Claude, with Jithin as advisor. Risk review is simulated by Claude's Risk seat; the real Risk sign-off and the Comms contact wait for the company version. Critic seats are assigned. Nothing else in the row changed | Jithin | accepted |
+| D-191 | 2026-11-07 | Stress-test critique recorded: feasibility seat (150–210 build hours for v8, 25–35 upkeep hours a month, ~53 empty brackets, customizer approval uncertain; Feasibility 2, Reversibility 4) and Risk seat, simulated (self-sourced 35M+, 'In production' chips and the Trust page read as control claims, no corrections path; Governance exposure 2), seven kill criteria set. Critique's composite 2.85 (re-scoped 3.35). Jithin: full v8 scope held for February against the recommended six-page launch; score set at 3.50 against the recommendation to set 2.85 (dissent recorded in the score note); evidence of need tested by showing the v8 Home board to five sponsors by 5 Dec; ThinkLatent Trust rewritten as 'How we build responsibly' (independent validation as Risk's step, absolutes removed, model inventory authoritative, corrections note) before a simulated Risk review. Idea card corrected: the site is a model-risk disclosure surface. Stays in Stress test | Jithin (calls); thinking partner and red-team seats (critique) | accepted |
 <!-- generated:end -->
 
 ## Notes
@@ -168,3 +169,11 @@ Template slots (filled by each author when writing) and ThinkLatent Day (deferre
 - ThinkLatent Trust: the Head of AI Products sends "ThinkLatent Trust — page wording for Risk review" (https://claude.ai/artifact/1G31Mjqx1usWaXoQEynMBD) to Risk by 28 Nov 2026. The page does not go live without sign-off.
 - The stage moves to Stress test. Next is a Critic session, which records the critique before the build goes past the test site.
 - Critic should test: whether one site editor and a three-person board can keep 24 boards and 11 templates current (Model card and Use case were kept against the recommendation); whether Team's three how-we-work numbers can be sourced at all; and whether the February 2027 date holds if the bracket content arrives late.
+
+### 2026-11-07 · Critic · Stress-test critique (D-191)
+
+- Seats: feasibility and Risk (simulated) played by Claude as separate agents that had not seen the work; business-line seat Jithin. Full critique log and kill criteria are in the idea card.
+- Critique composite 2.85 on the quarter weights (re-scoped six-page plan 3.35; 3.50 if the evidence test lands). Jithin set 3.50 and held the full v8 scope for February; dissent recorded in the score note.
+- Top risks: 150–210 hours of Jithin's own build time; 25–35 hours a month of upkeep against a 2-hours-a-week budget; ~53 empty brackets; customizer approval; self-sourced numbers and control claims.
+- Done in session: ThinkLatent Trust wording rewritten and renamed "How we build responsibly" (independent validation as Risk's step, absolutes removed, model inventory authoritative, corrections note, no Risk response time promised); idea card governance story corrected (the site is a model-risk disclosure surface).
+- Next: Jithin's five-sponsor test by 5 Dec; brackets against the 21 Nov check; simulated Risk review; then the build guide with tier-1 fallbacks and re-set appetite.
