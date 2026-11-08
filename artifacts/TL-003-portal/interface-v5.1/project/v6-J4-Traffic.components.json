@@ -1,0 +1,118 @@
+{
+  "board": "v6-J4-Traffic.dc.html",
+  "height": 5120,
+  "sections": [
+    {
+      "section": "Shell and header",
+      "components": [
+        "@kit/kit Shell D",
+        "@kit/ui command",
+        "@kit/ui breadcrumb",
+        "@kit/ui toggle-group",
+        "@kit/kit Status",
+        "@kit/kit Rail"
+      ]
+    },
+    {
+      "section": "KPI tiles",
+      "components": [
+        "@kit/kit Tile",
+        "@kit/kit Bars",
+        "@kit/kit Status",
+        "@kit/kit InfoTip (wraps @kit/ui tooltip and popover)",
+        "@kit/kit Num"
+      ]
+    },
+    {
+      "section": "Latency against the SLO (primary exhibit)",
+      "components": [
+        "@kit/charts ChartFrame",
+        "@kit/charts LineChart (thresholds)",
+        "@kit/kit DataTable (view as table)",
+        "@kit/kit Facts",
+        "@kit/kit Status"
+      ]
+    },
+    {
+      "section": "Needs a decision",
+      "components": [
+        "@kit/kit DataRows",
+        "@kit/kit AgentChip",
+        "@kit/kit AgentBrief",
+        "@kit/kit Status",
+        "@kit/ui button"
+      ]
+    },
+    {
+      "section": "On this page",
+      "components": [
+        "@kit/kit SectionBar (wraps kokonut scroll-index)"
+      ]
+    },
+    {
+      "section": "Service level objectives",
+      "components": [
+        "@kit/kit DataTable (origin data table on TanStack)",
+        "@kit/kit Meter",
+        "@kit/kit Status",
+        "@kit/kit InfoTip"
+      ]
+    },
+    {
+      "section": "Incident INC-0412",
+      "components": [
+        "@kit/kit Timeline (wraps origin timeline)",
+        "@kit/kit Facts",
+        "@kit/kit Interval",
+        "@kit/kit Status"
+      ]
+    },
+    {
+      "section": "Traffic",
+      "components": [
+        "@kit/charts ChartFrame",
+        "@kit/charts LineChart",
+        "@kit/kit DataTable (view as table)",
+        "@kit/kit Facts"
+      ]
+    },
+    {
+      "section": "Errors",
+      "components": [
+        "@kit/charts ChartFrame",
+        "@kit/charts LineChart (thresholds)",
+        "@kit/kit DataTable (view as table)",
+        "@kit/kit Facts",
+        "@kit/ui empty"
+      ]
+    },
+    {
+      "section": "Availability",
+      "components": [
+        "@kit/charts ChartFrame",
+        "@kit/charts Heatmap (calendar)",
+        "@kit/kit Facts",
+        "@kit/kit Status"
+      ]
+    },
+    {
+      "section": "Alerts in the window",
+      "components": [
+        "@kit/kit DataTable",
+        "@kit/kit Status",
+        "@kit/kit InfoTip"
+      ]
+    },
+    {
+      "section": "Serving detail (Engineering view)",
+      "components": [
+        "@kit/kit DataTable",
+        "@kit/kit Facts",
+        "@kit/kit Masked (sealed production requests)",
+        "@kit/ui alert",
+        "@kit/ui empty",
+        "@kit/kit InfoTip"
+      ]
+    }
+  ]
+}

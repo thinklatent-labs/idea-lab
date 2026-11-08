@@ -15,6 +15,10 @@
    "name": "v6 · batch 1: onboarding to production"
   },
   {
+   "id": "pb2",
+   "name": "v6 · batch 2: the live use case"
+  },
+  {
    "id": "p1",
    "name": "Home and shell"
   },
@@ -2055,6 +2059,106 @@
    "expand": "fill",
    "radius": 0,
    "page": "p0"
+  },
+  "v6-J4-Traffic.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 5120,
+   "title": "1 · J4 · Traffic, latency and errors (v6)",
+   "expand": "fill",
+   "radius": 0,
+   "page": "pb2"
+  },
+  "v6-J5-Capacity.dc.html": {
+   "x": 1520,
+   "y": 0,
+   "w": 1440,
+   "h": 3800,
+   "title": "2 · J5 · Capacity and cache (v6)",
+   "expand": "fill",
+   "radius": 0,
+   "page": "pb2"
+  },
+  "v6-J7-Quality.dc.html": {
+   "x": 3040,
+   "y": 0,
+   "w": 1440,
+   "h": 4640,
+   "title": "3 · J7 · Quality in production (v6)",
+   "expand": "fill",
+   "radius": 0,
+   "page": "pb2"
+  },
+  "v6-W3-Alerts.dc.html": {
+   "x": 4560,
+   "y": 0,
+   "w": 1440,
+   "h": 3900,
+   "title": "4 · W3 · Alerts (v6)",
+   "expand": "fill",
+   "radius": 0,
+   "page": "pb2"
+  },
+  "v6-J11-Traces.dc.html": {
+   "x": 6080,
+   "y": 0,
+   "w": 1440,
+   "h": 4080,
+   "title": "5 · J11 · Traces (v6)",
+   "expand": "fill",
+   "radius": 0,
+   "page": "pb2"
+  },
+  "v6-J8-Improve.dc.html": {
+   "x": 7600,
+   "y": 0,
+   "w": 1440,
+   "h": 6500,
+   "title": "6 · J8 · Improve (v6)",
+   "expand": "fill",
+   "radius": 0,
+   "page": "pb2"
+  },
+  "v6-W2-Datasets.dc.html": {
+   "x": 9120,
+   "y": 0,
+   "w": 1440,
+   "h": 6240,
+   "title": "7 · W2 · Datasets and eval sets (v6)",
+   "expand": "fill",
+   "radius": 0,
+   "page": "pb2"
+  },
+  "v6-J9-Record.dc.html": {
+   "x": 10640,
+   "y": 0,
+   "w": 1440,
+   "h": 9460,
+   "title": "8 · J9 · Use-case record (v6)",
+   "expand": "fill",
+   "radius": 0,
+   "page": "pb2"
+  },
+  "v6-V1b-Approval-R2.dc.html": {
+   "x": 12160,
+   "y": 0,
+   "w": 1440,
+   "h": 7640,
+   "title": "9 · V1b · Approval · UA-0291-R2, 20 Nov (v6)",
+   "expand": "fill",
+   "radius": 0,
+   "page": "pb2"
+  },
+  "v6-J1-Projects.dc.html": {
+   "x": 13680,
+   "y": 0,
+   "w": 1440,
+   "h": 4790,
+   "title": "10 · J1 · Projects (v6)",
+   "expand": "fill",
+   "radius": 0,
+   "page": "pb2"
   }
  },
  "order": [
@@ -2255,7 +2359,17 @@
   "v6-T2-RunsInFlight.dc.html",
   "v6-T6-Checkpoints.dc.html",
   "v6-V1-Approval.dc.html",
-  "v6-J6-Models.dc.html"
+  "v6-J6-Models.dc.html",
+  "v6-J4-Traffic.dc.html",
+  "v6-J5-Capacity.dc.html",
+  "v6-J7-Quality.dc.html",
+  "v6-W3-Alerts.dc.html",
+  "v6-J11-Traces.dc.html",
+  "v6-J8-Improve.dc.html",
+  "v6-W2-Datasets.dc.html",
+  "v6-J9-Record.dc.html",
+  "v6-V1b-Approval-R2.dc.html",
+  "v6-J1-Projects.dc.html"
  ],
  "notes": {
   "t0": {
@@ -2411,6 +2525,104 @@
    "kind": "title1",
    "maxW": 2960,
    "page": "p0"
+  },
+  "tb2": {
+   "x": 0,
+   "y": -300,
+   "text": "v6 batch 2 · the live use case UC-0291, pilot in production to the 20 Nov resubmission",
+   "kind": "title1",
+   "maxW": 15120,
+   "page": "pb2"
+  },
+  "cmp-v6-J4-Traffic": {
+   "x": 0,
+   "y": 5240,
+   "w": 1440,
+   "text": "Kit components (design-kit 1b277ff)\nShell and header: @kit/kit Shell D, @kit/ui command, @kit/ui breadcrumb, @kit/ui toggle-group, @kit/kit Status, @kit/kit Rail\nKPI tiles: @kit/kit Tile, @kit/kit Bars, @kit/kit Status, @kit/kit InfoTip (wraps @kit/ui tooltip and popover), @kit/kit Num\nLatency against the SLO (primary exhibit): @kit/charts ChartFrame, @kit/charts LineChart (thresholds), @kit/kit DataTable (view as table), @kit/kit Facts, @kit/kit Status\nNeeds a decision: @kit/kit DataRows, @kit/kit AgentChip, @kit/kit AgentBrief, @kit/kit Status, @kit/ui button\nOn this page: @kit/kit SectionBar (wraps kokonut scroll-index)\nService level objectives: @kit/kit DataTable (origin data table on TanStack), @kit/kit Meter, @kit/kit Status, @kit/kit InfoTip\nIncident INC-0412: @kit/kit Timeline (wraps origin timeline), @kit/kit Facts, @kit/kit Interval, @kit/kit Status\nTraffic: @kit/charts ChartFrame, @kit/charts LineChart, @kit/kit DataTable (view as table), @kit/kit Facts\nErrors: @kit/charts ChartFrame, @kit/charts LineChart (thresholds), @kit/kit DataTable (view as table), @kit/kit Facts, @kit/ui empty\nAvailability: @kit/charts ChartFrame, @kit/charts Heatmap (calendar), @kit/kit Facts, @kit/kit Status\nAlerts in the window: @kit/kit DataTable, @kit/kit Status, @kit/kit InfoTip\nServing detail (Engineering view): @kit/kit DataTable, @kit/kit Facts, @kit/kit Masked (sealed production requests), @kit/ui alert, @kit/ui empty, @kit/kit InfoTip",
+   "size": "s",
+   "fill": "gray",
+   "page": "pb2"
+  },
+  "cmp-v6-J5-Capacity": {
+   "x": 1520,
+   "y": 3920,
+   "w": 1440,
+   "text": "Kit components (design-kit 1b277ff)\nShell and header: @kit/kit Shell D, @kit/ui command, @kit/ui breadcrumb, @kit/ui toggle-group, @kit/kit Status, @kit/kit Rail\nKPI tiles: @kit/kit Tile, @kit/kit Bars, @kit/kit Status, @kit/kit InfoTip (wraps @kit/ui tooltip and popover), @kit/kit Num\nGPU use against the scale-out line (primary exhibit): @kit/charts ChartFrame, @kit/charts LineChart (thresholds), @kit/kit Facts, @kit/kit Status\nNeeds a decision: @kit/kit DataRows, @kit/kit AgentChip, @kit/kit AgentBrief, @kit/kit Facts, @kit/kit Status, @kit/ui button\nOn this page: @kit/kit SectionBar (wraps kokonut scroll-index)\nPeaks by week: @kit/kit DataTable (origin data table on TanStack), @kit/kit Status, @kit/kit InfoTip\nCache: @kit/kit Meter, @kit/kit Facts\nEndpoint and hosting: @kit/kit DataTable, @kit/kit Facts, @kit/kit Status, @kit/kit InfoTip\nSpend: @kit/kit DataTable, @kit/kit Num\nCapacity detail (Engineering view): @kit/kit DataTable, @kit/kit Status, @kit/kit InfoTip, @kit/ui empty",
+   "size": "s",
+   "fill": "gray",
+   "page": "pb2"
+  },
+  "cmp-v6-J7-Quality": {
+   "x": 3040,
+   "y": 4760,
+   "w": 1440,
+   "text": "Kit components (design-kit 1b277ff)\nHeader and use-case rail: @kit/kit PageHead, @kit/kit Breadcrumbs, @kit/ui toggle-group (kit Seg), @kit/kit Status, @kit/kit Rail\nKPI tiles (6): @kit/kit Tile, @kit/kit Interval, @kit/kit Status, @kit/kit InfoTip (wraps @kit/ui tooltip and popover)\nSection bar: @kit/kit SectionBar (wraps kokonut scroll-index)\nDaily quality in production (primary exhibit): @kit/kit Surface, @kit/kit Note, @kit/charts ChartFrame, @kit/charts LineChart, @kit/kit DataTable (view-as-table twin), @kit/kit DataTable, @kit/kit Interval, @kit/kit Status, @kit/kit InfoTip\nHow production is judged: @kit/kit Steps (wraps origin stepper), @kit/kit Facts, @kit/kit Masked, @kit/kit HoldToConfirm (wraps kokonut hold-button)\nOpen item F-0412: @kit/kit Surface, @kit/kit DataRows, @kit/kit Facts, @kit/kit AgentChip, @kit/kit Status, @kit/ui button\nWhere Safety and grounding falls short: @kit/kit DataTable, @kit/kit Interval, @kit/kit Status, @kit/kit AgentChip, @kit/kit InfoTip\nReview queue: @kit/kit DataTable (wraps origin data table), @kit/ui kbd, @kit/kit Status, @kit/kit InfoTip\nImprove loop for F-0412: @kit/charts ChartFrame, @kit/charts Timeline, @kit/kit Timeline (wraps origin timeline), @kit/kit Status\nAdvisor signals: @kit/ui empty, @kit/ui code-block\nTrace: @kit/kit Facts, @kit/kit DataTable, @kit/kit Status, @kit/kit InfoTip",
+   "size": "s",
+   "fill": "gray",
+   "page": "pb2"
+  },
+  "cmp-v6-W3-Alerts": {
+   "x": 4560,
+   "y": 4020,
+   "w": 1440,
+   "text": "Kit components (design-kit 1b277ff)\nHeader, use-case rail and workbench rail: @kit/kit PageHead, @kit/kit Breadcrumbs, @kit/ui toggle-group (kit Seg), @kit/kit Rail, @kit/kit Status\nKPI tiles (6): @kit/kit Tile, @kit/kit Status\nSection bar: @kit/kit SectionBar (wraps kokonut scroll-index)\nAlerts in the last 30 days (primary exhibit): @kit/kit DataTable (wraps origin data table), @kit/kit Status, @kit/kit InfoTip (wraps @kit/ui tooltip and popover), @kit/kit Note\nOpen alert AL-2211: @kit/kit Surface, @kit/kit DataRows, @kit/kit AgentChip, @kit/kit Status, @kit/ui button\nRules from the record: @kit/kit DataTable, @kit/kit Status\nHow an alert travels: @kit/kit Steps (wraps origin stepper), @kit/kit Facts, @kit/kit InfoTip\nINC-0412 escalation timeline: @kit/kit Timeline (wraps origin timeline), @kit/charts ChartFrame, @kit/charts LineChart, @kit/kit DataTable (view-as-table twin), @kit/kit Masked, @kit/kit HoldToConfirm (wraps kokonut hold-button), @kit/kit InfoTip\nWeekly digest: @kit/kit DataRows, @kit/kit Status, @kit/kit AgentChip, @kit/ui button\nTrace: @kit/kit Facts, @kit/kit InfoTip",
+   "size": "s",
+   "fill": "gray",
+   "page": "pb2"
+  },
+  "cmp-v6-J11-Traces": {
+   "x": 6080,
+   "y": 4200,
+   "w": 1440,
+   "text": "Kit components (design-kit 1b277ff)\nShell and page head: @kit/kit Shell D, @kit/ui command, @kit/ui breadcrumb, @kit/kit Status, @kit/ui toggle-group, @kit/kit Rail\nProduction traces sealed (banner): @kit/kit Surface, @kit/kit Status\nTiles: @kit/kit Tile, @kit/kit Status, @kit/kit InfoTip\nSection bar: @kit/kit SectionBar (kokonut scroll-index)\nTrace 9d2c41f0 (primary exhibit): @kit/ui trace, @kit/kit Facts, @kit/kit Masked (kokonut ai-redact), @kit/ui switch, @kit/kit InfoTip, @kit/kit AgentBrief, @kit/kit AgentChip, @kit/kit Sources\nCalls: @kit/kit DataTable (origin data table), @kit/kit Status, @kit/kit InfoTip, @kit/ui toggle-group\nWho sees what: @kit/kit DataTable (origin data table), @kit/kit Status\nBreak-glass: @kit/kit HoldToConfirm (kokonut hold-button), coss form via @kit/kit Form, @kit/kit Steps (origin stepper), @kit/kit Facts\nAccess log: @kit/kit DataTable (origin data table)",
+   "size": "s",
+   "fill": "gray",
+   "page": "pb2"
+  },
+  "cmp-v6-J8-Improve": {
+   "x": 7600,
+   "y": 6620,
+   "w": 1440,
+   "text": "Kit components (design-kit 1b277ff)\nPage head and use-case rail: @kit/kit Shell D, @kit/ui breadcrumb, @kit/ui command, @kit/kit Status, @kit/ui toggle-group\nSection bar: @kit/kit SectionBar (kokonut scroll-index)\nKPI tiles: @kit/kit Tile, @kit/kit Interval, @kit/kit Status, @kit/kit InfoTip (ui tooltip, ui popover)\nLoop (primary exhibit): @kit/charts ChartFrame, @kit/charts timeline chart (uc0291-improve-timeline), @kit/kit Timeline (origin timeline 530–541), @kit/kit Status\nCheckpoint 1 800 against Domain-Advice v2: @kit/charts ChartFrame, @kit/charts ForestPlot, @kit/kit DataTable (view as table), @kit/kit Facts, @kit/kit Interval, @kit/kit Diff, @kit/kit InfoTip\nNeeds a decision: @kit/kit DataRows, @kit/kit AgentBrief, @kit/kit AgentChip, @kit/kit Sources, @kit/ui sheet, @kit/kit Facts\nSelf-healing gap report: @kit/kit AgentChip, @kit/kit DataTable, @kit/kit Interval, @kit/kit Status, @kit/ui alert, @kit/kit InfoTip\nTraining run R-2291: @kit/kit DataTable, @kit/kit Interval, @kit/kit Facts, @kit/ai elements checkpoint (through @kit/kit wrapper)\nRelease plan: @kit/kit Steps (origin stepper 513–529), @kit/kit DataTable, @kit/kit HoldToConfirm (kokonut hold-button), @kit/kit Status, @kit/ui collapsible, @kit/kit InfoTip\nNext loop: specialist: @kit/kit Meter, @kit/kit DataTable, @kit/kit AgentBrief, @kit/kit Facts, @kit/ai elements plan (through @kit/kit wrapper), @kit/ui code-block, @kit/ui collapsible\nWatch: @kit/charts ChartFrame, @kit/charts LineChart (with thresholds), @kit/kit DataTable (view as table), @kit/kit Facts, @kit/kit InfoTip\nTrace: @kit/kit DataTable, @kit/kit Status, @kit/kit Sources",
+   "size": "s",
+   "fill": "gray",
+   "page": "pb2"
+  },
+  "cmp-v6-W2-Datasets": {
+   "x": 9120,
+   "y": 6360,
+   "w": 1440,
+   "text": "Kit components (design-kit 1b277ff)\nPage head: @kit/kit Shell D, @kit/ui breadcrumb, @kit/ui command, @kit/kit Status\nSection bar: @kit/kit SectionBar (kokonut scroll-index)\nKPI tiles: @kit/kit Tile, @kit/kit Status, @kit/kit InfoTip (ui tooltip, ui popover)\nThe data behind R-2291 (primary exhibit): @kit/kit Steps (origin stepper 513–529), @kit/kit DataTable, @kit/kit Masked (kokonut ai-redact), @kit/kit Status, @kit/kit InfoTip\nEval sets: TL Index edition 2026-11: @kit/kit DataTable, @kit/kit Meter, @kit/kit Facts, @kit/kit Status, @kit/ui alert, @kit/kit InfoTip\nNeeds a decision: @kit/kit DataRows, @kit/kit AgentBrief, @kit/kit AgentChip, @kit/kit Sources, @kit/kit InfoTip\nImport: @kit/kit Steps (origin stepper 513–529), origin file upload (through @kit/kit FileUpload wrapper), coss form, @kit/kit Meter, @kit/kit Facts, @kit/kit DataTable\nGenerate: @kit/kit Steps (origin stepper 513–529), @kit/kit AgentBrief, @kit/kit DataTable, @kit/kit Status, @kit/kit InfoTip\nQueues: @kit/kit DataTable, @kit/kit Status, @kit/kit InfoTip\nVersions: @kit/kit DataTable, @kit/kit Status, @kit/ai elements commit (through @kit/kit wrapper)",
+   "size": "s",
+   "fill": "gray",
+   "page": "pb2"
+  },
+  "cmp-v6-J9-Record": {
+   "x": 10640,
+   "y": 9580,
+   "w": 1440,
+   "text": "Kit components (design-kit 1b277ff)\nShell and page head: @kit/kit Shell D, @kit/ui command, @kit/ui breadcrumb, @kit/kit Status, @kit/ui badge, @kit/ui toggle-group\nUse-case rail and section bar: @kit/ui tabs, @kit/kit SectionBar (kokonut scroll-index)\nTiles: @kit/kit Tile, @kit/kit Meter, @kit/kit InfoTip (@kit/ui tooltip, popover)\nBars on the record, against run 1183 (primary exhibit): @kit/kit DataTable (origin data table), @kit/kit Interval, @kit/kit Num, @kit/kit Diff, @kit/kit Status, @kit/kit InfoTip\nNeeds a decision: @kit/kit DataRows, @kit/kit AgentBrief, @kit/kit AgentChip, @kit/kit Sources, @kit/ui sheet, @kit/kit Facts, @kit/ui button\nEvidence and validation: @kit/charts ChartFrame, @kit/charts ForestPlot, @kit/kit DataTable, @kit/kit DataRows, @kit/kit Interval, @kit/kit Status, @kit/ui badge\nFindings: @kit/kit DataTable, @kit/kit Status, @kit/charts ChartFrame, @kit/kit Timeline (origin timeline), @kit/ai elements queue, through a @kit/kit wrapper\nMonitoring, 30 days: @kit/kit Surface, @kit/kit Facts, @kit/kit DataRows, @kit/kit DataTable, @kit/kit Steps (origin stepper), @kit/kit HoldToConfirm (kokonut hold-button), @kit/kit Status, @kit/ui alert\nApproval history and sign-offs: @kit/kit Steps (origin stepper), @kit/kit Timeline (origin timeline), @kit/kit DataTable, @kit/ui collapsible\nOwner requirements v4: @kit/kit DataTable, @kit/kit Status, @kit/kit Interval, @kit/kit Timeline (origin timeline), @kit/ai elements commit, through a @kit/kit wrapper, @kit/ui collapsible\nRecord completeness: @kit/kit DataTable, @kit/kit Status, @kit/kit Facts\nAudit trail: @kit/kit DataTable, @kit/kit InfoTip, @kit/ui button",
+   "size": "s",
+   "fill": "gray",
+   "page": "pb2"
+  },
+  "cmp-v6-V1b-Approval-R2": {
+   "x": 12160,
+   "y": 7760,
+   "w": 1440,
+   "text": "Kit components (design-kit 1b277ff)\nShell and page head: @kit/kit Shell D, @kit/ui command, @kit/ui breadcrumb, @kit/kit Status, @kit/ui badge, @kit/kit InfoTip\nSection bar: @kit/kit SectionBar (kokonut scroll-index)\nTiles: @kit/kit Tile, @kit/kit Meter, @kit/kit Interval, @kit/kit InfoTip\nEvidence against the bars (primary exhibit): @kit/charts ChartFrame, @kit/charts ForestPlot, @kit/kit DataTable (origin data table), @kit/kit Interval, @kit/kit Num, @kit/kit Diff, @kit/kit Status, @kit/kit InfoTip\nNeeds a decision: @kit/kit Confirmation, @kit/kit HoldToConfirm (kokonut hold-button), @kit/kit AgentBrief, @kit/kit AgentChip, @kit/kit Sources, @kit/ui sheet, @kit/kit Facts, @kit/kit Markdown, @kit/ui toggle-group, @kit/ui field, @kit/ui input\nWhat this approval names: @kit/kit Surface, @kit/kit Facts\nEvidence: @kit/kit DataRows, @kit/kit Interval, @kit/ui badge\nPolicy checks: @kit/kit DataTable, @kit/ai elements test-results, through a @kit/kit wrapper, @kit/kit Status\nFindings: @kit/kit Facts, @kit/kit Status, @kit/kit DataRows\nConditions: @kit/kit DataRows, @kit/kit Status\nAttestations: @kit/kit DataRows, @kit/kit Status\nSimilar approvals: @kit/kit DataTable, @kit/kit AgentBrief, @kit/kit AgentChip\nAudit trail and notes: @kit/kit Timeline (origin timeline), @kit/ai elements checkpoint, through a @kit/kit wrapper, @kit/ui textarea, @kit/ui button\nServing setting and build: @kit/kit Facts, @kit/ui alert",
+   "size": "s",
+   "fill": "gray",
+   "page": "pb2"
+  },
+  "cmp-v6-J1-Projects": {
+   "x": 13680,
+   "y": 4910,
+   "w": 1440,
+   "text": "Kit components (design-kit 1b277ff)\nShell and page head: @kit/kit Shell D, @kit/ui command, @kit/ui toggle-group\nTiles: @kit/kit Tile, @kit/kit Status, @kit/kit InfoTip\nWhy nothing is in Production yet: @kit/kit Surface, @kit/kit Facts, @kit/kit Interval, @kit/kit DataRows, @kit/ui item, @kit/kit Status, @kit/kit AgentBrief, @kit/kit AgentChip, @kit/kit Sources\nSection bar: @kit/kit SectionBar (kokonut scroll-index)\nUse-case inventory (primary exhibit): @kit/charts ChartFrame, @kit/charts BarChart, @kit/kit DataTable (origin data table), @kit/kit Interval, @kit/kit Status, @kit/kit InfoTip, @kit/kit DotGrid\nPortfolio evidence: @kit/kit DataTable (origin data table), @kit/kit Interval, @kit/kit InfoTip\nApprovals: @kit/kit DataTable (origin data table), @kit/kit Timeline (origin timeline), @kit/kit Status\nAdoption: @kit/kit DataTable (origin data table), @kit/kit Facts, @kit/kit DataRows, @kit/kit Status, @kit/kit InfoTip\nValue: @kit/charts ChartFrame, @kit/charts WaterfallChart, @kit/kit Facts, @kit/kit DataTable (origin data table)\nIntake queue: @kit/kit DataTable (origin data table), @kit/kit Status",
+   "size": "s",
+   "fill": "gray",
+   "page": "pb2"
   }
  },
  "designSystems": []

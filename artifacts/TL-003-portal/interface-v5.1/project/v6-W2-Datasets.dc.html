@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Datasets and eval sets (v6)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status b.g{display:inline-flex;width:14px;justify-content:center;font-size:12px;font-weight:600}
+.kit-fig{margin:0;display:flex;flex-direction:column;gap:8px}
+.kit-fig .plot{overflow-x:auto}
+.kit-fig .plot svg{display:block;max-width:100%;height:auto}
+.kit-hold{position:relative;overflow:hidden}
+.kit-hold>i{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(255,255,255,.3);transition:width 1.6s linear}
+.kit-hold:not([aria-disabled="true"]):active>i{width:100%}
+.kit-hold>span{position:relative}
+@media (prefers-reduced-motion:reduce){.kit-hold>i{transition:none}}
+tbody th[scope="row"]{font-size:inherit;letter-spacing:0;text-transform:none;font-weight:500;color:var(--ink)}
+tr:last-child th[scope="row"]{border-bottom:0}
+.kit-hold{justify-self:start}
+.kit-drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:22px;border:1px dashed var(--hairline);border-radius:16px;text-align:center}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; width: 100%; box-sizing: border-box; min-height: 6240px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="v6-T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-current="page" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+
+  <main class="kit-main" style="width: 100%; max-width: 1440px; margin: 0 auto; box-sizing: border-box">
+
+    <!-- ORIENT -->
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="D1-ReviewQueue.dc.html">Data</a><span class="sep" aria-hidden="true">›</span><a href="v6-J3-Overview.dc.html">UC-0291 Advisor summary</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Datasets and eval sets</span></nav>
+      <div class="kit-page-head" style="align-items: center">
+        <h1>Datasets and eval sets</h1>
+        <div class="kit-actions" style="align-items: center">
+          <a class="kit-btn" href="#decide">Decide <span class="kit-chip decision" style="margin-left: 2px">3</span></a>
+          <a class="kit-btn outline" href="#sec-import">Upload or stage from S3</a>
+          <a class="kit-btn outline" href="#sec-generate">New generation</a>
+          <a class="kit-btn outline" href="v6-J8-Improve.dc.html">Improve loop</a>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center">
+        <a class="kit-chip outline" href="v6-J3-Overview.dc.html">UC-0291 Advisor summary · Retail Advice</a>
+        <span class="kit-chip brand">TL Index edition 2026-11</span>
+        <span class="kit-chip outline">Counts, schema and versions only</span>
+        <span class="kit-chip outline">Records never shown · masked previews</span>
+        <span class="kit-small kit-muted">Data owner Marcus L. · validator Elena R.</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+        <p style="font-size: 15px; margin: 0">The data behind training run R-2291, the TL Index items that judge it, and what is coming in.</p>
+        <span class="kit-asof">As of Thu 5 Nov 2026, 11:58 ET</span>
+      </div>
+    </div>
+
+    <nav class="kit-sectionbar" aria-label="On this page" style="align-self: flex-start"><a href="#sec-r2291" aria-current="true">Data behind R-2291</a><a href="#sec-eval">Eval sets</a><a href="#decide">Decide <span class="n">3</span></a><a href="#sec-import">Import</a><a href="#sec-generate">Generate</a><a href="#sec-queues">Queues <span class="n">4</span></a><a href="#sec-versions">Versions</a></nav>
+
+    <!-- JUDGE: tiles -->
+    <div class="kit-tiles" style="grid-template-columns: repeat(5, minmax(0, 1fr))">
+      <section class="kit-tile" aria-label="Training data">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path></svg></span><a class="kit-open" href="#sec-r2291" aria-label="Open the data behind R-2291">↗</a></div>
+        <div class="kit-tile-title">advisor-notes-v4</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">18,420<span class="unit">rows</span></div><div class="kit-tile-cap">Trains R-2291 · versioned Wed 28 Oct</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Eval set">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path></svg></span><a class="kit-open" href="#sec-eval" aria-label="Open the eval set">↗</a></div>
+        <div class="kit-tile-title">TL Index 2026-11<button class="kit-tip" type="button" aria-label="About scored items">i<span class="kit-tip-bubble" role="tooltip"><b>Scored items.</b> 1,200 items in the edition; 14 were excluded at item review, so every run scores the same 1,186 and runs pair on shared items.<span class="src">Source: TL Index edition 2026-11 manifest · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">1,186<span class="unit">scored</span></div><div class="kit-tile-cap">of 1,200 · 14 excluded · 5 pillars</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Staging">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"></path><path d="m7 8 5-5 5 5"></path><path d="M5 21h14"></path></svg></span><a class="kit-open" href="#sec-import" aria-label="Open import">↗</a></div>
+        <div class="kit-tile-title">Staging from S3</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">62%</div><div class="kit-tile-cap">advisor-notes-nov · 114 of 184 objects</div></div><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>In progress</span></span></div>
+      </section>
+      <section class="kit-tile" aria-label="Generated rows">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 5.5L20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5z"></path></svg></span><a class="kit-open" href="#sec-generate" aria-label="Open generated data">↗</a></div>
+        <div class="kit-tile-title">Generated, accepted</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">480<span class="unit">rows</span></div><div class="kit-tile-cap">gen v1 · GEN-0419 at the judge</div></div></div>
+      </section>
+      <section class="kit-tile ink" aria-label="PII review">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><a class="kit-open" href="#sec-queues" aria-label="Open queues">↗</a></div>
+        <div class="kit-tile-title">PII review</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">10<span class="unit">open</span></div><div class="kit-tile-cap">Oldest 3 days · target 5 · due Fri</div></div></div>
+      </section>
+    </div>
+
+    <!-- JUDGE: primary exhibit -->
+    <section id="sec-r2291" aria-labelledby="h-r2291" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-r2291">The data behind R-2291</h2><div class="sub">advisor-notes-v4 trains TLM4 Core 4.2 into candidate Domain-Advice v3 · counts, schema and versions only</div></div>
+        <div class="kit-actions"><button class="kit-btn sm outline" type="button">Export manifest</button><a class="kit-btn sm outline" href="v6-J8-Improve.dc.html#sec-training">Training run R-2291</a></div>
+      </div>
+      <div class="kit-surface">
+        <h3>Lineage</h3>
+        <div style="margin-top: 10px"><ol class="kit-steps" aria-label="Lineage of R-2291" style="list-style: none; margin: 0; padding: 0"><li class="kit-step done"><span class="k">✓</span>Sources · CRM export, S3 Oct stage, validators</li><li class="arrow" aria-hidden="true">→</li><li class="kit-step done"><span class="k">✓</span>advisor-notes-v4 · 28 Oct</li><li class="arrow" aria-hidden="true">→</li><li class="kit-step now"><span class="k">3</span>R-2291 on Core 4.2 · since 29 Oct</li><li class="arrow" aria-hidden="true">→</li><li class="kit-step done"><span class="k">✓</span>Checkpoint 1 800 · Practice run 1195</li><li class="arrow" aria-hidden="true">→</li><li class="kit-step"><span class="k">5</span>Final checkpoint · Official run 1203, 20 Nov</li></ol></div>
+        <div class="kit-grid2" style="margin-top: 16px; align-items: start">
+          <div>
+            <h3>Composition by task</h3>
+            <table style="margin-top: 8px">
+              <thead><tr><th scope="col">Task</th><th scope="col" class="num">Rows</th><th scope="col" class="num">Share</th><th scope="col">Against the 600-row floor</th></tr></thead>
+              <tbody>
+                <tr><th scope="row" class="kit-mono" style="font-weight: 400">meeting-summary</th><td class="num">10,870</td><td class="num">59%</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Met</span></span></td></tr>
+                <tr><th scope="row" class="kit-mono" style="font-weight: 400">client-email-draft</th><td class="num">4,240</td><td class="num">23%</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Met</span></span></td></tr>
+                <tr><th scope="row" class="kit-mono" style="font-weight: 400">action-items</th><td class="num">2,580</td><td class="num">14%</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Met</span></span></td></tr>
+                <tr><th scope="row" class="kit-mono" style="font-weight: 400">topic-tags</th><td class="num">730</td><td class="num">4%</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Met</span></span></td></tr>
+                <tr><th scope="row">All rows</th><td class="num">18,420</td><td class="num">100%</td><td class="kit-small">Split train 80% · validation 10% · test 10%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3>The corrected data for the gap report</h3>
+            <table style="margin-top: 8px">
+              <thead><tr><th scope="col">Gap tag</th><th scope="col">Where the rows came from</th><th scope="col">State</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Escalation when unsure</th><td class="kit-small">Captured threads matching the gap, rewritten by reviewers</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>In v4</span></span></td></tr>
+                <tr><th scope="row">Grounded in the source note</th><td class="kit-small">Captured threads matching the gap, rewritten by reviewers</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>In v4</span></span></td></tr>
+                <tr><th scope="row">Long threads, 4k–16k tokens</th><td class="kit-small">Written by validators for F-0412</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>In v4</span></span></td></tr>
+              </tbody>
+            </table>
+            <div class="kit-prov" style="margin-top: 10px"><span><b>Gap rows:</b></span><span>410 captured and rewritten</span><span>220 written by validators</span><span>no generated rows</span></div>
+          </div>
+        </div>
+        <div class="kit-divider"></div>
+        <div class="kit-surface-head">
+          <div><h3>Schema and masked preview</h3><div class="sub">Column names, types, roles and coverage. Values are masked in the backend; the browser never receives record text.</div></div>
+          <span class="kit-chip outline">Schema advisor_summary.v2</span>
+        </div>
+        <table style="margin-top: 8px">
+          <thead><tr><th scope="col">Column</th><th scope="col">Type</th><th scope="col">Role</th><th scope="col" class="num">Filled</th><th scope="col">Tag coverage</th><th scope="col">Preview<button class="kit-tip below end" type="button" aria-label="About masked previews">i<span class="kit-tip-bubble" role="tooltip"><b>Masked preview.</b> The shape of three rows with every value redacted before it leaves the backend. Reviewers see content only in the review tool.<span class="src">Source: ingest service · as of 11:58 ET</span></span></button></th></tr></thead>
+          <tbody><tr><th scope="row" class="kit-mono" style="font-weight: 400">task_instruction</th><td>string</td><td>instruction</td><td class="num">100%</td><td class="kit-small">Format 100%</td><td><span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span></td></tr><tr><th scope="row" class="kit-mono" style="font-weight: 400">meeting_notes</th><td>string</td><td>input</td><td class="num">100%</td><td class="kit-small">PII cleared 100%</td><td><span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span></td></tr><tr><th scope="row" class="kit-mono" style="font-weight: 400">advisor_summary</th><td>string</td><td>target</td><td class="num">97%</td><td class="kit-small">Quality 100%</td><td><span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span></td></tr><tr><th scope="row" class="kit-mono" style="font-weight: 400">task</th><td>enum, 4 values</td><td>tag</td><td class="num">100%</td><td class="kit-small">Format 100%</td><td><span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span></td></tr><tr><th scope="row" class="kit-mono" style="font-weight: 400">plan_id</th><td>string</td><td>variable</td><td class="num">100%</td><td class="kit-small">Format 100%</td><td><span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span></td></tr><tr><th scope="row" class="kit-mono" style="font-weight: 400">next_step_type</th><td>enum, 4 values</td><td>label</td><td class="num">92%</td><td class="kit-small">Format 100%</td><td><span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span></td></tr><tr><th scope="row" class="kit-mono" style="font-weight: 400">client_segment</th><td>enum, 5 values</td><td>tag</td><td class="num">88%</td><td class="kit-small">Format 100%</td><td><span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span></td></tr><tr><th scope="row" class="kit-mono" style="font-weight: 400">gap_tag</th><td>enum, 3 values</td><td>tag</td><td class="num">3%</td><td class="kit-small">Gap rows only</td><td><span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span></td></tr><tr><th scope="row" class="kit-mono" style="font-weight: 400">captured_at</th><td>datetime</td><td>ignore</td><td class="num">100%</td><td class="kit-small">—</td><td><span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span> <span class="kit-masked" role="img" aria-label="masked value"></span></td></tr></tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET · source: data-set register and manifest for advisor-notes-v4; tag coverage from the tagging pipeline; lineage from the training pipeline</div>
+      </div>
+    </section>
+
+    <!-- JUDGE: eval sets -->
+    <section id="sec-eval" aria-labelledby="h-eval" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-eval">Eval sets: TL Index edition 2026-11</h2><div class="sub">1,200 items · 14 excluded · 1,186 scored by every run on the edition · frozen so runs pair on shared items</div></div>
+        <div class="kit-actions"><a class="kit-btn sm outline" href="v6-E1-EvaluationResults.dc.html">Latest Official results</a><a class="kit-btn sm outline" href="E3-Leaderboard.dc.html">Leaderboard</a></div>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-grid-main" style="align-items: start">
+          <table>
+            <thead><tr><th scope="col">Pillar and line item</th><th scope="col" class="num">Items scored<button class="kit-tip below" type="button" aria-label="About items scored">i<span class="kit-tip-bubble" role="tooltip"><b>Items scored.</b> Items that reached a score on all three attempts. Under 100 items a pillar shows "too few" instead of a score.<span class="src">Source: TL Index edition 2026-11 · as of 11:58 ET</span></span></button></th><th scope="col">Of 240 a pillar</th><th scope="col" class="num">Interval, run 1183<button class="kit-tip below" type="button" aria-label="About the interval">i<span class="kit-tip-bubble" role="tooltip"><b>Interval.</b> The 95% half-width on Official run 1183, from 2,000 bootstrap resamples. Fewer items, wider interval.<span class="src">Source: Official TL Index run 1183 · as of 11:58 ET</span></span></button></th><th scope="col">UC-0291 bar<button class="kit-tip below end" type="button" aria-label="About UC-0291 bars">i<span class="kit-tip-bubble" role="tooltip"><b>Bars.</b> Client care and Compliance from the record; Safety from the 85% policy floor. Cleared only when score minus half-width is at or above the bar.<span class="src">Source: use-case record UC-0291, policy C-2 · as of 11:58 ET</span></span></button></th></tr></thead>
+            <tbody><tr><th scope="row">1 · Financial data processing</th><td class="num">238</td><td><div class="kit-track" role="img" aria-label="238 items" style="width: 140px"><i style="width: 99.2%"></i></div></td><td class="num">± 2</td><td>Regression gate only</td></tr><tr class="kit-small"><th scope="row" style="padding-left: 28px; font-weight: 400">Holdings and amounts</th><td class="num">119</td><td><div class="kit-track" role="img" aria-label="119 items" style="width: 140px"><i style="width: 49.6%; background: #8A8A88"></i></div></td><td class="num">± 3</td><td class="kit-muted">Line item</td></tr><tr class="kit-small"><th scope="row" style="padding-left: 28px; font-weight: 400">Dates and deadlines</th><td class="num">119</td><td><div class="kit-track" role="img" aria-label="119 items" style="width: 140px"><i style="width: 49.6%; background: #8A8A88"></i></div></td><td class="num">± 3</td><td class="kit-muted">Line item</td></tr><tr><th scope="row">3 · Client care</th><td class="num">237</td><td><div class="kit-track" role="img" aria-label="237 items" style="width: 140px"><i style="width: 98.8%"></i></div></td><td class="num">± 2</td><td>80% · record</td></tr><tr class="kit-small"><th scope="row" style="padding-left: 28px; font-weight: 400">Client-ready summary</th><td class="num">79</td><td><div class="kit-track" role="img" aria-label="79 items" style="width: 140px"><i style="width: 32.9%; background: #8A8A88"></i></div></td><td class="num">± 3</td><td class="kit-muted">Line item</td></tr><tr class="kit-small"><th scope="row" style="padding-left: 28px; font-weight: 400">Plain-language rewrite</th><td class="num">79</td><td><div class="kit-track" role="img" aria-label="79 items" style="width: 140px"><i style="width: 32.9%; background: #8A8A88"></i></div></td><td class="num">± 4</td><td class="kit-muted">Line item</td></tr><tr class="kit-small"><th scope="row" style="padding-left: 28px; font-weight: 400">Next action named</th><td class="num">79</td><td><div class="kit-track" role="img" aria-label="79 items" style="width: 140px"><i style="width: 32.9%; background: #8A8A88"></i></div></td><td class="num">± 4</td><td class="kit-muted">Line item</td></tr><tr><th scope="row">4 · Compliance and regulatory</th><td class="num">238</td><td><div class="kit-track" role="img" aria-label="238 items" style="width: 140px"><i style="width: 99.2%"></i></div></td><td class="num">± 3</td><td>80% · record</td></tr><tr class="kit-small"><th scope="row" style="padding-left: 28px; font-weight: 400">Required disclosures present</th><td class="num">119</td><td><div class="kit-track" role="img" aria-label="119 items" style="width: 140px"><i style="width: 49.6%; background: #8A8A88"></i></div></td><td class="num">± 3</td><td class="kit-muted">Line item</td></tr><tr class="kit-small"><th scope="row" style="padding-left: 28px; font-weight: 400">Suitability wording</th><td class="num">119</td><td><div class="kit-track" role="img" aria-label="119 items" style="width: 140px"><i style="width: 49.6%; background: #8A8A88"></i></div></td><td class="num">± 3</td><td class="kit-muted">Line item</td></tr><tr><th scope="row">6 · Safety and grounding</th><td class="num">233</td><td><div class="kit-track" role="img" aria-label="233 items" style="width: 140px"><i style="width: 97.1%"></i></div></td><td class="num">± 3</td><td>85% · policy floor</td></tr><tr class="kit-small"><th scope="row" style="padding-left: 28px; font-weight: 400">Escalation when unsure</th><td class="num">116</td><td><div class="kit-track" role="img" aria-label="116 items" style="width: 140px"><i style="width: 48.3%; background: #8A8A88"></i></div></td><td class="num">± 4</td><td class="kit-muted">Line item</td></tr><tr class="kit-small"><th scope="row" style="padding-left: 28px; font-weight: 400">Grounded in the source note</th><td class="num">117</td><td><div class="kit-track" role="img" aria-label="117 items" style="width: 140px"><i style="width: 48.8%; background: #8A8A88"></i></div></td><td class="num">± 4</td><td class="kit-muted">Line item</td></tr><tr><th scope="row">7 · Entity recognition</th><td class="num">240</td><td><div class="kit-track" role="img" aria-label="240 items" style="width: 140px"><i style="width: 100.0%"></i></div></td><td class="num">± 2</td><td>Regression gate only</td></tr><tr class="kit-small"><th scope="row" style="padding-left: 28px; font-weight: 400">Account and plan names</th><td class="num">120</td><td><div class="kit-track" role="img" aria-label="120 items" style="width: 140px"><i style="width: 50.0%; background: #8A8A88"></i></div></td><td class="num">± 3</td><td class="kit-muted">Line item</td></tr><tr class="kit-small"><th scope="row" style="padding-left: 28px; font-weight: 400">People and roles</th><td class="num">120</td><td><div class="kit-track" role="img" aria-label="120 items" style="width: 140px"><i style="width: 50.0%; background: #8A8A88"></i></div></td><td class="num">± 3</td><td class="kit-muted">Line item</td></tr><tr><th scope="row">Whole set · use-case score</th><td class="num">1,186</td><td class="kit-small kit-muted">of 1,200 · 14 excluded</td><td class="num">± 1</td><td>80% · record</td></tr></tbody>
+          </table>
+          <dl class="kit-kv" style="grid-template-columns: 120px 1fr; margin: 0">
+            <dt>Judge</dt><dd>evaluator v2.3, pinned for the edition</dd>
+            <dt>Attempts</dt><dd>3 per item</dd>
+            <dt>Interval</dt><dd>95%, 2,000 bootstrap resamples</dd>
+            <dt>Clearing</dt><dd>Lower end of the interval at or above the bar</dd>
+            <dt>Minimum</dt><dd>100 items for a pillar score</dd>
+            <dt>Changes</dt><dd>Only in the next edition, 2026-12</dd>
+          </dl>
+        </div>
+        <div class="kit-divider"></div>
+        <h3>Runs on this edition</h3>
+        <table style="margin-top: 8px">
+          <thead><tr><th scope="col">Run</th><th scope="col">Model</th><th scope="col">Kind</th><th scope="col" class="num">Items scored</th><th scope="col">Note</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1183</th><td>TLM4 Domain-Advice v2</td><td>Official</td><td class="num">1,186</td><td class="kit-small">Evidence for UA-0291</td></tr>
+            <tr><th scope="row">1180</th><td>TLM4 Core 4.2</td><td>Official</td><td class="num">1,186</td><td class="kit-small">The base for the regression gate</td></tr>
+            <tr><th scope="row">1195</th><td>TLM4 Domain-Advice v3</td><td><span class="kit-chip env">Practice</span></td><td class="num">1,186</td><td class="kit-small">Checkpoint 1 800 · never citable</td></tr>
+            <tr><th scope="row">1179</th><td>TLM4 Distil 4.2</td><td>Official</td><td class="num">1,186</td><td class="kit-small">The specialist's starting point</td></tr>
+            <tr><th scope="row">1181</th><td>Frontier API (aggregate)</td><td>Official</td><td class="num">948</td><td class="kit-small"><span class="kit-status warning"><b class="g" aria-hidden="true">!</b><span>Partial</span></span> Only 60 Compliance items may leave the Enterprise; expires 12 Nov</td></tr>
+            <tr><th scope="row">1178</th><td>Open-source 70B</td><td>Official</td><td class="num">946</td><td class="kit-small"><span class="kit-status warning"><b class="g" aria-hidden="true">!</b><span>Partial</span></span> 160 items errored on long inputs; Entity recognition re-run 9 Nov</td></tr>
+            <tr><th scope="row">1203</th><td>TLM4 Domain-Advice v3</td><td>Official</td><td class="num"><span class="kit-dash" title="not measured yet">—</span></td><td class="kit-small"><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Booked Fri 20 Nov</span></span> on R-2291's final checkpoint</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-note" style="margin-top: 12px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Items show counts and ids, never content. Production traces enter an eval set only through the review queue; their content stays sealed and validators read it in the review tool.</span></div>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET · source: TL Index edition 2026-11 manifest; run register</div>
+      </div>
+    </section>
+
+    <!-- DECIDE -->
+    <section id="decide" class="kit-surface kit-decide" aria-labelledby="h-decide">
+      <div class="kit-surface-head">
+        <div>
+          <h2 id="h-decide" style="display: flex; align-items: center; gap: 10px">Needs a decision <span class="kit-chip decision">3</span></h2>
+          <div class="sub">What comes in next, and where it goes.</div>
+        </div>
+        <span class="kit-small kit-muted">Agents propose, you decide</span>
+      </div>
+      <div class="kit-rows" style="margin-top: 16px">
+        <article class="kit-row" aria-labelledby="d1-t" style="grid-template-columns: minmax(0, 1fr); gap: 8px; border-color: #3E9A5C; box-shadow: 0 0 0 1px #3E9A5C">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>Open</span></span><span class="t" id="d1-t">Queue 23 corrections from Quality for edition 2026-12, not 2026-11</span><button class="kit-tip" type="button" aria-label="About frozen editions">i<span class="kit-tip-bubble" role="tooltip"><b>Frozen edition.</b> Adding items to 2026-11 now would break the pairing between runs 1183, 1195 and 1203, and the 20 Nov resubmission would compare on different items.<span class="src">Source: TL Index edition rules · as of 11:50 ET</span></span></button></div>
+          <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">EV</span><span>Evaluation agent</span></span><span>Basis: edition rules; 23 corrections waiting, oldest 4 days</span><span>88% confidence · 11:50</span><a href="#sec-eval">View sources</a></div>
+          <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Queue for 2026-12</button><a class="kit-btn sm outline" href="#sec-queues">Review the corrections</a><button class="kit-btn sm ghost" type="button">Dismiss</button></div>
+        </article>
+        <article class="kit-row" aria-labelledby="d2-t" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status warning"><b class="g" aria-hidden="true">!</b><span>New topic</span></span><span class="t" id="d2-t">Add required minimum distribution (RMD) questions to the scope of 2026-12</span><span class="kit-chip outline">Due today</span></div>
+          <div class="kit-small">3% of traffic, 96 users, no items in the edition · first seen 29 Oct. One more cluster sits under the 30-user privacy floor and stays hidden.</div>
+          <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">TR</span><span>Triage agent</span></span><span>Basis: topic clusters on gateway aggregates</span><span>74% confidence · 09:12</span><a href="J7-Quality.dc.html">View sources</a></div>
+          <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Add to scope</button><button class="kit-btn sm outline" type="button">Generate edge cases</button><button class="kit-btn sm ghost" type="button">Not in scope</button></div>
+        </article>
+        <article class="kit-row" aria-labelledby="d3-t" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>Open</span></span><span class="t" id="d3-t">Version advisor-notes-nov when staging and checks finish</span></div>
+          <div class="kit-small">62% copied. Versioning waits for the split and all six checks; 10 rows are still in PII review.</div>
+          <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">DA</span><span>Data agent</span></span><span>Basis: staging job and tagging pipeline on the staged copy</span><span>80% confidence · 11:55</span><a href="#sec-import">View sources</a></div>
+          <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button" aria-disabled="true" aria-describedby="d3-why">Approve versioning</button><span class="kit-threshold" id="d3-why">Opens after split and checks pass</span><button class="kit-btn sm outline" type="button">Remind me</button></div>
+        </article>
+      </div>
+      <div class="kit-asof" style="margin-top: 14px">As of 11:55 ET · source: the review service, Quality's topic clusters and the staging job</div>
+    </section>
+
+    <!-- ACT: import -->
+    <section id="sec-import" aria-labelledby="h-import" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-import">Import</h2><div class="sub">Upload a file or stage from S3 · status within one minute of each change · previews show names, types and counts only</div></div>
+      </div>
+      <div class="kit-surface">
+        <ol class="kit-steps" aria-label="Import steps" style="list-style: none; margin: 0; padding: 0"><li class="kit-step now"><span class="k">1</span>Upload or S3 stage</li><li class="arrow" aria-hidden="true">→</li><li class="kit-step"><span class="k">2</span>Preview and map</li><li class="arrow" aria-hidden="true">→</li><li class="kit-step"><span class="k">3</span>Split and checks</li><li class="arrow" aria-hidden="true">→</li><li class="kit-step"><span class="k">4</span>Version</li></ol>
+        <div class="kit-grid2" style="margin-top: 16px; align-items: start">
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <h3>Upload</h3>
+            <div class="kit-drop">
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3"></path><path d="m7 8 5-5 5 5"></path><path d="M5 21h14"></path></svg>
+              <span>Drop JSONL, JSON, CSV, Parquet, PDF or DOCX</span>
+              <button class="kit-btn sm outline" type="button">Choose files</button>
+              <span class="kit-small kit-muted">Files go to the project's staging area; nothing is versioned until you approve</span>
+            </div>
+            <table class="kit-small">
+              <thead><tr><th scope="col">Format</th><th scope="col">Read as</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">JSONL, JSON</th><td>One row per line or array item; chat, instruction or decision from the keys</td></tr>
+                <tr><th scope="row">CSV, Parquet</th><td>Header or schema read; roles from the columns you map</td></tr>
+                <tr><th scope="row">PDF, DOCX</th><td>Chunked by heading, up to 800 tokens with 80 overlap; section kept</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap"><h3>Staging job · advisor-notes-nov</h3><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>Copying · 62%</span></span></div>
+            <div class="kit-track" role="img" aria-label="62% staged"><i style="width: 62%"></i></div>
+            <dl class="kit-kv" style="grid-template-columns: 110px 1fr; margin: 0">
+              <dt>Source</dt><dd class="kit-mono">s3://retail-advice-staging/advisor-notes-nov/</dd>
+              <dt>Objects</dt><dd>114 of 184 copied · 2.1 GB of 3.4 GB</dd>
+              <dt>By format</dt><dd>160 JSONL · 12 Parquet · 12 DOCX</dd>
+              <dt>Rows so far</dt><dd>11,560, of them 1,140 from DOCX chunks</dd>
+              <dt>Detected</dt><dd>Instruction format · 97% confidence</dd>
+              <dt>Started</dt><dd>11:49 ET by Priya N.</dd>
+              <dt>Next</dt><dd>Preview when the copy finishes, about 4 min</dd>
+            </dl>
+            <div class="kit-actions"><button class="kit-btn sm outline" type="button">Stage again</button><button class="kit-btn sm ghost" type="button">Cancel staging</button></div>
+          </div>
+        </div>
+        <div class="kit-divider"></div>
+        <h3>Rejected in the last 30 days, by check</h3>
+        <table style="margin-top: 8px">
+          <thead><tr><th scope="col">Check</th><th scope="col" class="num">Rows rejected</th><th scope="col" class="num">Share of checked</th><th scope="col" class="num">Previous 30 days</th><th scope="col">What happens to them</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">PII, confirmed in review</th><td class="num">2,214</td><td class="num">6%</td><td class="num">2,960</td><td class="kit-small">Removed or redacted at source, never versioned</td></tr>
+            <tr><th scope="row">Compliance, advice outside policy</th><td class="num">388</td><td class="num">1%</td><td class="num">240</td><td class="kit-small">Removed; the data owner is told which source produced them</td></tr>
+            <tr><th scope="row">Duplicates</th><td class="num">316</td><td class="num">1%</td><td class="num">330</td><td class="kit-small">Dropped; the first copy is kept</td></tr>
+            <tr><th scope="row">All checks</th><td class="num">2,918</td><td class="num">8%</td><td class="num">3,530</td><td class="kit-small">Of 37,060 rows checked since 6 Oct</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET · source: staging job from the data pipeline; format detection from the ingest service; checks from the tagging pipeline and the review service</div>
+      </div>
+    </section>
+
+    <!-- ACT: generate -->
+    <section id="sec-generate" aria-labelledby="h-gen" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-gen">Generate</h2><div class="sub">People write the seeds and validators decide; the judge only filters · generated rows are tagged for life</div></div>
+        <div class="kit-actions"><button class="kit-btn sm" type="button">New generation</button><a class="kit-btn sm outline" href="J9-Record.dc.html">Generation rules in the record</a></div>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-surface-head"><div><h3>GEN-0418 · thin topics, rebalancing and beneficiary updates</h3><div class="sub">Versioned as advisor-edge-cases-gen v1 on Tue 3 Nov · after R-2291 started, so not in its data</div></div><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Versioned</span></span></div>
+        <div style="margin-top: 10px"><ol class="kit-steps" aria-label="Generation steps for GEN-0418" style="list-style: none; margin: 0; padding: 0"><li class="kit-step done"><span class="k">✓</span>Gap report · 2 thin topics</li><li class="arrow" aria-hidden="true">→</li><li class="kit-step done"><span class="k">✓</span>Seed rows · 24 by people</li><li class="arrow" aria-hidden="true">→</li><li class="kit-step done"><span class="k">✓</span>Generation · 600</li><li class="arrow" aria-hidden="true">→</li><li class="kit-step done"><span class="k">✓</span>Judge · 520 passed, 87%</li><li class="arrow" aria-hidden="true">→</li><li class="kit-step done"><span class="k">✓</span>Validators · 480 accepted</li></ol></div>
+        <div class="kit-small kit-muted" style="margin-top: 8px">Judge evaluator v2.3 discards anything under 0.70. Validators reviewed a stratified 20% plus every borderline row.</div>
+        <div class="kit-divider"></div>
+        <div class="kit-surface-head"><div><h3>GEN-0419 · four edge-case families for the gap report</h3><div class="sub">Proposed from the gap report, F-0412 and the record's refusal rules · accepted by Priya N. at 10:44</div></div><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>Running · judge</span></span></div>
+        <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">EV</span><span>Evaluation agent</span></span><span>Basis: self-healing gap report, 28 Oct; finding F-0412; refusal rules in the record</span><span>79% confidence · 10:40</span><a href="v6-J8-Improve.dc.html#sec-gap">View sources</a></div>
+        <table style="margin-top: 8px">
+          <thead><tr><th scope="col">Family</th><th scope="col">Expected behaviour</th><th scope="col" class="num">Rows</th><th scope="col">State</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Missing plan id</th><td class="kit-small">Asks for the plan id and never invents one</td><td class="num">40</td><td><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>At judge</span></span></td></tr>
+            <tr><th scope="row">Client asks for projected returns</th><td class="kit-small">Declines and hands back to the advisor</td><td class="num">40</td><td><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>At judge</span></span></td></tr>
+            <tr><th scope="row">Meeting over 16k input tokens</th><td class="kit-small">Stays consistent across attempts</td><td class="num">40</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Queued</span></span></td></tr>
+            <tr><th scope="row">Notes mention two clients</th><td class="kit-small">Summarises only the named client</td><td class="num">40</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Queued</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-divider"></div>
+        <h3>Executions</h3>
+        <table style="margin-top: 8px">
+          <thead><tr><th scope="col">Execution</th><th scope="col">Started</th><th scope="col">Purpose</th><th scope="col" class="num">Candidates</th><th scope="col" class="num">Judge passed<button class="kit-tip below" type="button" aria-label="About the judge floor">i<span class="kit-tip-bubble" role="tooltip"><b>Judge floor.</b> An execution stops when the judge passes fewer than 70% of its candidates. Passing the judge is not acceptance; validators decide.<span class="src">Source: generation service · as of 11:58 ET</span></span></button></th><th scope="col" class="num">Accepted</th><th scope="col">State</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">GEN-0419</th><td>Today 10:44</td><td class="kit-small">Edge cases, 4 families</td><td class="num">160</td><td class="num">96 judged so far</td><td class="num"><span class="kit-dash" title="not measured yet">—</span></td><td><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>Running</span></span></td></tr>
+            <tr><th scope="row">GEN-0418</th><td>Tue 3 Nov</td><td class="kit-small">Thin topics</td><td class="num">600</td><td class="num">520 · 87%</td><td class="num">480</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Versioned · gen v1</span></span></td></tr>
+            <tr><th scope="row">GEN-0411</th><td>Tue 27 Oct</td><td class="kit-small">Email tone variants</td><td class="num">400</td><td class="num">212 · 53%</td><td class="num"><span class="kit-dash" title="not measured yet">—</span></td><td><span class="kit-status critical"><b class="g" aria-hidden="true">✕</b><span>Stopped · under 70%</span></span></td></tr>
+            <tr><th scope="row">GEN-0406</th><td>Tue 20 Oct</td><td class="kit-small">Plan change variants</td><td class="num">300</td><td class="num">270 · 90%</td><td class="num">0</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Discarded · too close to seeds</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-small kit-muted" style="margin-top: 10px">Generated rows may train a model. Official runs report them on a separate line, and they never count as production evidence on the record.</div>
+        <div class="kit-asof" style="margin-top: 8px">As of 11:58 ET · source: generation service, UC-0291, every execution since 1 Oct; validator outcomes from the review service</div>
+      </div>
+    </section>
+
+    <!-- ACT: queues -->
+    <section id="sec-queues" aria-labelledby="h-queues" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-queues">Queues</h2><div class="sub">Every queue holding this use case's data back</div></div>
+        <a class="kit-btn sm outline" href="D1-ReviewQueue.dc.html">Review queue</a>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Queue</th><th scope="col" class="num">Open</th><th scope="col" class="num">Oldest</th><th scope="col">Service target<button class="kit-tip below" type="button" aria-label="About service targets">i<span class="kit-tip-bubble" role="tooltip"><b>Service target.</b> How long an item may wait before the queue owner is reminded. Reviewers see only what the review needs.<span class="src">Source: review service · as of 11:58 ET</span></span></button></th><th scope="col">State</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">PII review · advisor-notes-nov</th><td class="num">10</td><td class="num">3 days</td><td>5 days · due Fri</td><td><span class="kit-status warning"><b class="g" aria-hidden="true">!</b><span>Due Fri</span></span></td></tr>
+            <tr><th scope="row">Self-healing do-not-use marks</th><td class="num">4</td><td class="num">1 day</td><td>10 days</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>On target</span></span></td></tr>
+            <tr><th scope="row">Corrections from Quality</th><td class="num">23</td><td class="num">4 days</td><td>7 days</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>On target</span></span></td></tr>
+            <tr><th scope="row">New Quality topics to triage</th><td class="num">2</td><td class="num">7 days</td><td>7 days · due today</td><td><span class="kit-status warning"><b class="g" aria-hidden="true">!</b><span>Due today</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET · source: the review service, the self-healing service and Quality's topic clusters</div>
+      </div>
+    </section>
+
+    <!-- TRACE: versions -->
+    <section id="sec-versions" aria-labelledby="h-versions" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-versions">Versions</h2><div class="sub">Versions are immutable · each names its boundary, retention and who uses it</div></div>
+        <button class="kit-btn sm outline" type="button">Copy to another project</button>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Set</th><th scope="col">Kind</th><th scope="col" class="num">Rows</th><th scope="col">Boundary</th><th scope="col">Retention</th><th scope="col">Used by</th><th scope="col">Checks</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">advisor-notes-v4<div class="kit-small kit-muted" style="font-weight: 400">Wed 28 Oct</div></th><td>Training</td><td class="num">18,420</td><td class="kit-small">Retail Advice project · US data residency</td><td class="kit-small">Client records · 7 years</td><td class="kit-small">R-2291 → Domain-Advice v3</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>6 of 6</span></span></td></tr>
+            <tr><th scope="row">advisor-notes-v3</th><td>Training</td><td class="num"><span class="kit-dash" title="not measured yet">—</span></td><td class="kit-small">Retail Advice project</td><td class="kit-small">Client records · 7 years</td><td class="kit-small">Domain-Advice v2 · superseded by v4</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>6 of 6</span></span></td></tr>
+            <tr><th scope="row">TL Index edition 2026-11</th><td>Evaluation</td><td class="num">1,200</td><td class="kit-small">Held out · read by TL Index runs only</td><td class="kit-small">Evidence · 7 years after retirement</td><td class="kit-small">Runs 1183, 1180, 1195, 1203</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>1,186 scored</span></span></td></tr>
+            <tr><th scope="row">advisor-edge-cases-gen v1</th><td>Generated</td><td class="num">480</td><td class="kit-small">Retail Advice project · generated rows only</td><td class="kit-small">Operational · 2 years</td><td class="kit-small">Practice runs only · never production evidence</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>5 of 5</span></span></td></tr>
+            <tr><th scope="row">advisor-notes-nov</th><td>Staging</td><td class="num">11,560 so far</td><td class="kit-small">Staging area · Retail Advice project</td><td class="kit-small">Transient · purged 30 days after versioning</td><td class="kit-small">Next training data</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Not run</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-small kit-muted" style="margin-top: 10px">Export gives the manifest only: schema, counts, tag coverage, checks and lineage. Copying to another project needs the ThinkLatent data steward's approval.</div>
+        <div class="kit-asof" style="margin-top: 8px">As of Thu 5 Nov 2026, 11:58 ET · source: data-set register and manifests for UC-0291; boundaries and retention from the record</div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6240}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

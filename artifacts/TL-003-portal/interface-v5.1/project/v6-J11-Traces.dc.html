@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Traces (v6)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-hold{position:relative;overflow:hidden;isolation:isolate}
+.kit-hold .fill{position:absolute;inset:0 auto 0 0;width:0;background:rgba(255,255,255,.22);z-index:-1;transition:width 2s linear}
+.kit-hold:active .fill{width:100%}
+.kit-hold[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+.kit-hold[aria-disabled="true"]:active .fill{width:0}
+.kit-chart-svg{overflow-x:auto}
+.kit-chart-svg svg{max-width:100%;height:auto;display:block}
+.kit-chart-table summary{cursor:pointer}
+.kit-wf{display:grid;grid-template-columns:230px minmax(0,1fr) 130px;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--hairline);font-size:13px}
+.kit-wf .bar{position:relative;height:12px}
+.kit-wf .bar i{position:absolute;top:0;height:12px;border-radius:4px;min-width:3px}
+tbody th[scope=row]{font-size:14px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--ink)}
+tr:last-child th{border-bottom:0}
+tbody th[scope=row]{white-space:nowrap}
+tr.selected th{background:rgba(108,183,105,.12)}
+.kit-wf .g{padding-left:0}.kit-wf .c{padding-left:14px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; flex: 1 1 auto; width: 100%; box-sizing: border-box">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="v6-J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="v6-T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+  <main class="kit-main" style="width: 100%; max-width: 1440px; margin: 0 auto; box-sizing: border-box">
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="v6-J1-Projects.dc.html">Projects</a><span class="sep" aria-hidden="true">›</span><a href="v6-J2-ProjectHome.dc.html">Retail Advice</a><span class="sep" aria-hidden="true">›</span><a href="v6-J3-Overview.dc.html">UC-0291 Advisor summary</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Traces</span></nav>
+      <div class="kit-page-head" style="align-items: center">
+        <h1>Traces</h1>
+        <div class="kit-actions" style="align-items: center">
+          <div class="kit-seg" role="group" aria-label="Time window"><button type="button" aria-pressed="false">Live</button><button type="button" aria-pressed="true">Today</button><button type="button" aria-pressed="false">7 d</button></div>
+          <a class="kit-btn outline" href="#sec-log">Access log</a>
+          <a class="kit-btn outline" href="J4-Traffic.dc.html">Production aggregates</a>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center">
+        <span class="kit-eng-label">Engineering view</span>
+        <span class="kit-chip brand">Pilot in production</span>
+        <a class="kit-chip outline" href="v6-J6-Models.dc.html">prod → TLM4 Domain-Advice v2</a>
+        <span class="kit-chip outline"><svg width="14" height="14" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg> Production traces sealed</span>
+        <a class="kit-chip outline" href="v6-J3-Overview.dc.html#sec-alerts"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>1 open alert · AL-2211</span></span></a>
+        <span class="kit-small kit-muted">Owner Priya N.</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+        <p class="kit-muted">Which calls failed or ran slow, and what happened inside them. Pilot, POC and integration calls only, text masked at capture.</p>
+        <span class="kit-asof">As of Thu 5 Nov 2026, 11:58 ET</span>
+      </div>
+    </div>
+
+    <nav class="kit-rail" aria-label="Use case" style="align-self: flex-start"><a href="v6-J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Performance</a><a href="v6-J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a><a href="v6-J11-Traces.dc.html" aria-current="page">Traces</a></nav>
+
+    <section class="kit-surface" aria-labelledby="h-sealed" style="border-color: #1A1A1A">
+      <div class="kit-surface-head">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><span>Production traces are sealed</span></span>
+          <h2 id="h-sealed" style="font-size: 18px">Production requests, responses and application logs go only to the backend</h2>
+          <div class="sub">This page shows production as aggregates. Opening one production request from the portal is blocked: its content is client data and never leaves the backend. Engineers see pilot, POC and integration traces here, with every text field masked.</div>
+        </div>
+        <div class="kit-actions" style="align-items: center"><a class="kit-btn sm outline" href="#sec-breakglass">How break-glass works</a><a class="kit-btn sm outline" href="#sec-access">Who sees what</a></div>
+      </div>
+    </section>
+
+    <div class="kit-tiles">
+      <section class="kit-tile" aria-label="Pilot calls traced">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="J4-Traffic.dc.html" aria-label="Open traffic">↗</a></div>
+        <div class="kit-tile-title">Pilot calls traced · Wed 4 Nov</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">8,858</div><div class="kit-tile-cap">Every call carries a trace · 210,570 in 30 days</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Time to first token">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span><a class="kit-open" href="J4-Traffic-Latency.dc.html" aria-label="Open latency">↗</a></div>
+        <div class="kit-tile-title">Time to first token, p95 · 4 Nov<button class="kit-tip" type="button" aria-label="About time to first token">i<span class="kit-tip-bubble" role="tooltip"><b>Time to first token, p95.</b> 95 in 100 pilot calls start answering within this time. The SLO is 800 ms.<span class="src">Source: gateway serving log, UC-0291 pilot · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">619<span class="unit">ms</span></div><div class="kit-tile-cap">SLO 800 ms · 30-day 640 ms · p50 281 ms</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></div>
+      </section>
+      <section class="kit-tile" aria-label="Error rate">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path></svg></span><a class="kit-open" href="J4-Traffic-Errors.dc.html" aria-label="Open errors">↗</a></div>
+        <div class="kit-tile-title">Error rate · 4 Nov</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.27<span class="unit">%</span></div><div class="kit-tile-cap">Alert line 1% · 30-day 0.22% · one breach, INC-0412 on 24 Oct</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></div>
+      </section>
+      <section class="kit-tile" aria-label="Production traces">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></span><a class="kit-open" href="#sec-breakglass" aria-label="Open break-glass">↗</a></div>
+        <div class="kit-tile-title">Production traces</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">Sealed</div><div class="kit-tile-cap">Backend only · no break-glass grant open on UC-0291</div></div><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><span>Aggregates</span></span></div>
+      </section>
+    </div>
+
+    <nav class="kit-sectionbar" aria-label="On this page" style="align-self: flex-start"><a href="#sec-trace" aria-current="true">Trace</a><a href="#sec-calls">Calls <span class="n">7</span></a><a href="#sec-access">Who sees what</a><a href="#sec-breakglass">Break-glass</a><a href="#sec-log">Access log</a></nav>
+
+    <section id="sec-trace" aria-labelledby="h-trace" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-trace">Trace 9d2c41f0 · F-0412 replay, attempt 3 of 3</h2><div class="sub">Integration · Thu 5 Nov 10:42:18 ET · 6.87 s end to end · first token at 291 ms · 4,780 tokens in, 320 out</div></div>
+        <div class="kit-actions" style="align-items: center">
+          <span class="kit-chip env">Non-production · integration</span>
+          <button class="kit-switch on" type="button" role="switch" aria-checked="true" style="border: 0; background: transparent; padding: 0 4px; height: 30px"><i aria-hidden="true"></i>Sensitive · masked text shown</button><button class="kit-tip end" type="button" aria-label="About the sensitive switch">i<span class="kit-tip-bubble" role="tooltip"><b>Sensitive switch.</b> Off: spans, timings, tags and check results, no text. On: adds the request and response with every client, advisor and account value masked. Needs the data role; each view is logged.<span class="src">Source: access policy for UC-0291 · as of 11:58 ET</span></span></button>
+        </div>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-grid-main" style="align-items: start">
+          <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0" role="table" aria-label="Steps in trace 9d2c41f0, start and duration in milliseconds">
+            <div class="kit-wf kit-label" role="row" style="border-bottom: 1px solid var(--hairline)"><span role="columnheader">Step</span><span role="columnheader">0 to 6.87 s</span><span role="columnheader" style="text-align: right">Start · duration</span></div>
+            <div class="kit-wf" role="row"><div class="g" role="rowheader"><span class="kit-mono">gateway.receive</span></div><div class="bar" role="cell" aria-label="starts 0 ms, lasts 3 ms"><i style="left: 0.00%; width: 0.04%; background: #8A8A88"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">0 · 3 ms</div></div>
+            <div class="kit-wf" role="row"><div class="g" role="rowheader"><span class="kit-mono">auth.key</span></div><div class="bar" role="cell" aria-label="starts 3 ms, lasts 2 ms"><i style="left: 0.04%; width: 0.03%; background: #8A8A88"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">3 · 2 ms</div></div>
+            <div class="kit-wf" role="row"><div class="g" role="rowheader"><span class="kit-mono">check.pii.input</span><div class="kit-small kit-muted">4 entities masked at capture</div></div><div class="bar" role="cell" aria-label="starts 5 ms, lasts 31 ms"><i style="left: 0.07%; width: 0.45%; background: #B9742F"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">5 · 31 ms</div></div>
+            <div class="kit-wf" role="row"><div class="g" role="rowheader"><span class="kit-mono">check.compliance.input</span></div><div class="bar" role="cell" aria-label="starts 36 ms, lasts 17 ms"><i style="left: 0.52%; width: 0.25%; background: #B9742F"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">36 · 17 ms</div></div>
+            <div class="kit-wf" role="row"><div class="g" role="rowheader"><span class="kit-mono">route.by_alias</span><div class="kit-small kit-muted">int → TLM4 Domain-Advice v2</div></div><div class="bar" role="cell" aria-label="starts 53 ms, lasts 2 ms"><i style="left: 0.77%; width: 0.03%; background: #8A8A88"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">53 · 2 ms</div></div>
+            <div class="kit-wf" role="row" style="border-bottom: 0; padding-top: 10px"><span class="kit-label" role="rowheader">Endpoint ep-uc0291 · build 4.2.1<button class="kit-tip" type="button" aria-label="About endpoint steps">i<span class="kit-tip-bubble" role="tooltip"><b>Endpoint steps.</b> The steps the endpoint reports for each call; the build version identifies what ran them.<span class="src">Source: endpoint telemetry, integration · as of 11:58 ET</span></span></button></span><span role="cell"></span><span role="cell"></span></div>
+            <div class="kit-wf" role="row"><div class="c" role="rowheader"><span class="kit-mono">Read the source note</span></div><div class="bar" role="cell" aria-label="starts 55 ms, lasts 46 ms"><i style="left: 0.80%; width: 0.67%; background: #3E9A5C"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">55 · 46 ms</div></div>
+            <div class="kit-wf" role="row"><div class="c" role="rowheader"><span class="kit-mono">Queue</span></div><div class="bar" role="cell" aria-label="starts 101 ms, lasts 22 ms"><i style="left: 1.47%; width: 0.32%; background: #1B5128"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">101 · 22 ms</div></div>
+            <div class="kit-wf" role="row"><div class="c" role="rowheader"><span class="kit-mono">Prefill</span><div class="kit-small kit-muted">2,860 new tokens · 1,920 from cache · first token at 291 ms</div></div><div class="bar" role="cell" aria-label="starts 123 ms, lasts 168 ms"><i style="left: 1.79%; width: 2.45%; background: #1B5128"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">123 · 168 ms</div></div>
+            <div class="kit-wf" role="row"><div class="c" role="rowheader"><span class="kit-mono">Decode</span><div class="kit-small kit-muted">320 tokens · finish: stop</div></div><div class="bar" role="cell" aria-label="starts 291 ms, lasts 6,410 ms"><i style="left: 4.24%; width: 93.30%; background: #1B5128"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">291 · 6,410 ms</div></div>
+            <div class="kit-wf" role="row"><div class="c" role="rowheader"><span class="kit-mono">Check grounding against the note</span><div class="kit-small kit-muted">streams beside decode · passed</div></div><div class="bar" role="cell" aria-label="starts 291 ms, lasts 6,453 ms"><i style="left: 4.24%; width: 93.93%; background: #3E9A5C"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">291 · 6,453 ms</div></div>
+            <div class="kit-wf" role="row"><div class="c" role="rowheader"><span class="kit-mono">Escalate when unsure</span><div class="kit-small kit-muted">not needed</div></div><div class="bar" role="cell" aria-label="starts 6,744 ms, lasts 38 ms"><i style="left: 98.17%; width: 0.55%; background: #3E9A5C"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">6,744 · 38 ms</div></div>
+            <div class="kit-wf" role="row"><div class="g" role="rowheader"><span class="kit-mono">check.pii.output</span><div class="kit-small kit-muted">2 entities masked</div></div><div class="bar" role="cell" aria-label="starts 6,782 ms, lasts 41 ms"><i style="left: 98.72%; width: 0.60%; background: #B9742F"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">6,782 · 41 ms</div></div>
+            <div class="kit-wf" role="row"><div class="g" role="rowheader"><span class="kit-mono">check.compliance.output</span><div class="kit-small kit-muted">suitability wording · pass</div></div><div class="bar" role="cell" aria-label="starts 6,823 ms, lasts 36 ms"><i style="left: 99.32%; width: 0.52%; background: #B9742F"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">6,823 · 36 ms</div></div>
+            <div class="kit-wf" role="row"><div class="g" role="rowheader"><span class="kit-mono">gateway.respond</span></div><div class="bar" role="cell" aria-label="starts 6,859 ms, lasts 11 ms"><i style="left: 99.84%; width: 0.16%; background: #8A8A88"></i></div><div class="kit-num kit-small" role="cell" style="text-align: right">6,859 · 11 ms</div></div>
+            <div class="kit-legend" style="margin-top: 10px"><span><i style="background: #8A8A88"></i>Gateway</span><span><i style="background: #B9742F"></i>Checks</span><span><i style="background: #3E9A5C"></i>Endpoint step</span><span><i style="background: #1B5128"></i>Model engine</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px; min-width: 0">
+            <dl class="kit-kv" style="grid-template-columns: 110px 1fr; margin: 0">
+              <dt>Use case</dt><dd>UC-0291 Advisor summary</dd>
+              <dt>Environment</dt><dd>Integration <span class="kit-chip env">Non-production</span></dd>
+              <dt>Model</dt><dd>TLM4 Domain-Advice v2 · evidence Official run 1183</dd>
+              <dt>Endpoint</dt><dd><span class="kit-mono">ep-uc0291</span> · build 4.2.1</dd>
+              <dt>Task</dt><dd>meeting-summary · long thread</dd>
+              <dt>Replay set</dt><dd>F-0412 · same item, three attempts</dd>
+              <dt>Tokens</dt><dd>4,780 in · 320 out</dd>
+              <dt>Key</dt><dd><span class="kit-mono">int-0291-02</span></dd>
+            </dl>
+            <div class="kit-label">Request · masked</div>
+            <div class="kit-small" style="line-height: 2">Thread of 14 messages between <span class="kit-chip outline" style="height: 20px; font-size: 11px">ADVISOR</span> <span class="kit-masked" aria-label="masked"></span> and <span class="kit-chip outline" style="height: 20px; font-size: 11px">CLIENT</span> <span class="kit-masked" aria-label="masked"></span> about <span class="kit-chip outline" style="height: 20px; font-size: 11px">ACCOUNT</span> <span class="kit-masked" aria-label="masked"></span> and a rollover from <span class="kit-chip outline" style="height: 20px; font-size: 11px">PLAN</span> <span class="kit-masked" aria-label="masked"></span>, 4,780 tokens.</div>
+            <div class="kit-label">Response · masked</div>
+            <div class="kit-small" style="line-height: 2">Summary of the call with <span class="kit-chip outline" style="height: 20px; font-size: 11px">CLIENT</span> <span class="kit-masked" aria-label="masked"></span>; next action: send the rollover form for <span class="kit-chip outline" style="height: 20px; font-size: 11px">ACCOUNT</span> <span class="kit-masked" aria-label="masked"></span> by <span class="kit-chip outline" style="height: 20px; font-size: 11px">DATE</span> <span class="kit-masked" aria-label="masked"></span>; disclosure included.</div>
+            <div class="kit-small kit-muted">Masked at capture by the PII check: the portal never receives the values. Turning Sensitive off hides this text block.</div>
+          </div>
+        </div>
+        <div style="margin-top: 16px"><div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">EV</span><span>Evaluation agent</span></span><span>Basis: traces 9d2c41f0 and its two sibling attempts; F-0412 replay set</span><span>78% confidence</span><a href="J7-Quality.dc.html">View sources</a></div></div>
+        <p style="margin: 8px 0 0">Attempt 3 named a different next action from attempts 1 and 2. Grounding passed on all three, so the difference comes from drafting, not from the source note. This is the F-0412 pattern: answers differ across attempts on long threads (71% against the 75% bar).</p>
+        <div class="kit-actions" style="margin-top: 10px; align-items: center"><a class="kit-btn sm outline" href="J7-Quality.dc.html">Open F-0412</a><button class="kit-btn sm outline" type="button">Compare the three attempts</button><button class="kit-btn sm ghost" type="button">Dismiss</button><span class="kit-threshold">The agent proposes; the owner decides whether this item joins the training data</span></div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: gateway trace store, integration environment, trace 9d2c41f0; endpoint telemetry for build 4.2.1; masking applied at capture by the PII check. Model evidence from Official TL Index run 1183.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-calls" aria-labelledby="h-calls" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-calls">Calls</h2><div class="sub">One row per call through the gateway, newest first. Open a row for its steps.</div></div>
+        <div class="kit-actions" style="align-items: center">
+          <div class="kit-seg" role="group" aria-label="Environment"><button type="button" aria-pressed="true">All you can see</button><button type="button" aria-pressed="false">Integration</button><button type="button" aria-pressed="false">Pilot</button><button type="button" aria-pressed="false" aria-disabled="true" title="UC-0291 has passed POC; no POC calls">POC · none</button><button type="button" aria-pressed="false" aria-disabled="true" aria-describedby="prod-why"><svg width="12" height="12" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg> Production</button></div>
+        </div>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-small kit-muted" id="prod-why">Production is not a filter here: its calls are sealed in the backend. Use the aggregates on Performance, or request break-glass.</div>
+        <table style="margin-top: 12px">
+          <thead><tr><th scope="col">Call</th><th scope="col">Environment<button class="kit-tip" type="button" aria-label="About environments">i<span class="kit-tip-bubble" role="tooltip"><b>Environment.</b> Integration runs the endpoint against test threads before a change ships; Pilot is the pilot cohort's live traffic. Both show here with text masked.<span class="src">Source: gateway trace store · as of 11:58 ET</span></span></button></th><th scope="col">Task</th><th scope="col" class="num">Tokens in → out</th><th scope="col" class="num">First token · total<button class="kit-tip" type="button" aria-label="About first token">i<span class="kit-tip-bubble" role="tooltip"><b>First token · total.</b> Time until the answer starts, then until it ends. The SLO applies to first token: 800 ms at p95.<span class="src">Source: gateway trace store · as of 11:58 ET</span></span></button></th><th scope="col">Endpoint</th><th scope="col">Checks</th><th scope="col">Outcome</th></tr></thead>
+          <tbody>
+            <tr class="selected" aria-current="true"><th scope="row" ><a class="kit-mono" href="#sec-trace">9d2c41f0</a><div class="kit-small kit-muted">10:42:18 · F-0412 replay, attempt 3</div></th><td><span class="kit-chip env">Integration</span></td><td>meeting-summary</td><td class="num">4,780 → 320</td><td class="num">291 ms · 6.9 s</td><td class="kit-small">int → Domain-Advice v2<div class="kit-muted">build 4.2.1</div></td><td class="kit-small">PII · 6 masked<br>Compliance · pass</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Differs from attempts 1 and 2</span></span></td></tr>
+            <tr><th scope="row" ><span class="kit-mono">9d2c41e7</span><div class="kit-small kit-muted">10:42:11 · F-0412 replay, attempt 2</div></th><td><span class="kit-chip env">Integration</span></td><td>meeting-summary</td><td class="num">4,780 → 334</td><td class="num">287 ms · 7.1 s</td><td class="kit-small">int → Domain-Advice v2<div class="kit-muted">build 4.2.1</div></td><td class="kit-small">PII · 6 masked<br>Compliance · pass</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>OK</span></span></td></tr>
+            <tr><th scope="row" ><span class="kit-mono">9d2c41d2</span><div class="kit-small kit-muted">10:42:04 · F-0412 replay, attempt 1</div></th><td><span class="kit-chip env">Integration</span></td><td>meeting-summary</td><td class="num">4,780 → 331</td><td class="num">302 ms · 7.0 s</td><td class="kit-small">int → Domain-Advice v2<div class="kit-muted">build 4.2.1</div></td><td class="kit-small">PII · 6 masked<br>Compliance · pass</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>OK</span></span></td></tr>
+            <tr><th scope="row" ><span class="kit-mono">7f3a91c2</span><div class="kit-small kit-muted">10:41:57 · advisor</div></th><td><span class="kit-chip env">Pilot</span></td><td>action-items</td><td class="num">1,902 → 118</td><td class="num">276 ms · 2.6 s</td><td class="kit-small">prod → Domain-Advice v2</td><td class="kit-small">PII · pass<br>Compliance · pass</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>OK</span></span></td></tr>
+            <tr><th scope="row" ><span class="kit-mono">7f3a8e10</span><div class="kit-small kit-muted">10:41:40 · advisor</div></th><td><span class="kit-chip env">Pilot</span></td><td>meeting-summary</td><td class="num">6,840 → 412</td><td class="num">612 ms · 9.0 s</td><td class="kit-small">prod → Domain-Advice v2</td><td class="kit-small">PII · 3 masked<br>Compliance · pass</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>OK</span></span></td></tr>
+            <tr><th scope="row" ><span class="kit-mono">7f3a7c55</span><div class="kit-small kit-muted">10:40:12 · advisor</div></th><td><span class="kit-chip env">Pilot</span></td><td>client-email-draft</td><td class="num">2,410 → 388</td><td class="num">268 ms · 7.8 s</td><td class="kit-small">prod → Domain-Advice v2</td><td class="kit-small">PII · 2 masked<br>Compliance · flag</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Suitability wording · sent to review</span></span></td></tr>
+            <tr><th scope="row" ><span class="kit-mono">7f3a7311</span><div class="kit-small kit-muted">10:39:20 · advisor</div></th><td><span class="kit-chip env">Pilot</span></td><td>meeting-summary</td><td class="num">3,120 → —</td><td class="num">— · 0.2 s</td><td class="kit-small">Rejected at the gateway · queue full</td><td class="kit-small">—</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Error · retried</span></span></td></tr>
+          </tbody>
+        </table>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 12px">
+          <span class="kit-small kit-muted">7 of today's traced calls shown. Text fields are masked at capture; this table never holds them.</span>
+          <button class="kit-btn sm outline" type="button">Load 50 more</button>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: gateway trace store for UC-0291, integration and pilot environments, Thu 5 Nov to 11:58 ET; masked at capture by the PII check; production sealed.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-access" aria-labelledby="h-access" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-access">Who sees what</h2><div class="sub">Set in the access policy for every use case; the portal enforces it, it does not choose it</div></div></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Environment</th><th scope="col">What reaches the portal</th><th scope="col">Who can open a trace</th><th scope="col">Sensitive switch</th><th scope="col">Text</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Production</th><td>Aggregates only: volume, latency, errors, judged quality. Requests, responses and application logs flow only to the backend.</td><td>No one, from the portal. Break-glass opens the backend viewer for 1 hour, logged.</td><td>—</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><span>Sealed</span></span></td></tr>
+            <tr><th scope="row">Pilot in production</th><td>Every call's steps, timings, tags and check results</td><td>Engineering roles on the project</td><td>Off by default · On needs the data role</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Masked at capture</span></span></td></tr>
+            <tr><th scope="row">Integration</th><td>Every call's steps, timings, tags and check results</td><td>Engineering roles on the project</td><td>Off by default · On needs the data role</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Masked at capture</span></span></td></tr>
+            <tr><th scope="row">POC</th><td>Every call's steps, timings, tags and check results</td><td>Engineering roles on the project</td><td>Off by default · On needs the data role</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Masked at capture</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-threshold" style="margin-top: 10px">On 5 Nov no use case is in Production; UC-0291 and UC-0142 are pilots in production. In every environment the portal shows the steps the endpoint reports and the endpoint build.</div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: access policy for UC-0291 in the record; roles from the project's membership.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-breakglass" aria-labelledby="h-bg" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-bg">Break-glass</h2><div class="sub">For an incident only: one use case, 1 hour, a second person approves, and every action is logged</div></div></div>
+      <div class="kit-surface">
+        <div class="kit-grid2" style="align-items: start">
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <label class="kit-field" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-label">Incident or finding</span><select class="kit-input" aria-label="Incident or finding"><option>Choose an open incident</option><option>F-0412 · answers differ across attempts on long threads</option></select></label>
+            <label class="kit-field" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-label">Reason</span><textarea class="kit-input" rows="3" aria-label="Reason" placeholder="What you need to see that the aggregates and pilot traces cannot show"></textarea></label>
+            <dl class="kit-kv" style="grid-template-columns: 110px 1fr; margin: 0">
+              <dt>Scope</dt><dd>UC-0291, production traces only</dd>
+              <dt>Duration</dt><dd>1 hour, fixed; closes on its own</dd>
+              <dt>Approver</dt><dd>ThinkLatent on-call lead, then the owner is told</dd>
+              <dt>Where</dt><dd>The backend's sealed viewer; the portal stays on aggregates</dd>
+            </dl>
+            <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start"><button class="kit-btn kit-hold" type="button" aria-disabled="true" aria-describedby="bg-help"><i class="fill" aria-hidden="true"></i><span>Hold to request 1 hour of production trace access</span></button><span class="kit-small kit-muted" id="bg-help">Hold for 2 seconds · logged with your name, reason and every trace opened · not available today: UC-0291 has no Production traffic until it is approved; UA-0291 is due today, recommendation: send back with 2 findings</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <div class="kit-label">How a production request travels</div>
+            <div class="kit-rows">
+              <div class="kit-row" style="grid-template-columns: 28px minmax(0, 1fr); padding: 10px 12px"><span class="kit-num">1</span><div><div class="t">Gateway receives the call</div><div class="s">PII and compliance checks run on input and output</div></div></div>
+              <div class="kit-row" style="grid-template-columns: 28px minmax(0, 1fr); padding: 10px 12px"><span class="kit-num">2</span><div><div class="t">Trace written to the sealed store</div><div class="s">Request, response and application logs stay in the backend</div></div></div>
+              <div class="kit-row" style="grid-template-columns: 28px minmax(0, 1fr); padding: 10px 12px"><span class="kit-num">3</span><div><div class="t">Aggregates published to the portal</div><div class="s">Counts, latency, errors, judged quality; no request content</div></div></div>
+              <div class="kit-row" style="grid-template-columns: 28px minmax(0, 1fr); padding: 10px 12px"><span class="kit-num">4</span><div><div class="t">Break-glass, if granted</div><div class="s">1 hour in the backend viewer; the grant and each trace opened go to the access log</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: break-glass policy in the record; grant state from the access service.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-log" aria-labelledby="h-log" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-log">Access log</h2><div class="sub">Every trace opened, with its switch, and every break-glass grant · kept with the record</div></div><a class="kit-btn sm outline" href="O5-AuditExport.dc.html">Export for audit</a></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Time</th><th scope="col">Person</th><th scope="col">Action</th><th scope="col">Environment</th><th scope="col">Switch</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" >Thu 5 Nov 10:44</th><td>R. Iyer · engineer, Retail Advice</td><td>Opened trace 9d2c41f0</td><td><span class="kit-chip env">Integration</span></td><td>Sensitive · masked text</td></tr>
+            <tr><th scope="row">Thu 5 Nov 10:51</th><td>S. Okafor · platform engineer</td><td>Opened trace 7f3a7311</td><td><span class="kit-chip env">Pilot</span></td><td>Non-sensitive</td></tr>
+            <tr><th scope="row" >Last 30 days</th><td>—</td><td>No break-glass grant on UC-0291</td><td>Production</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip end" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: access service log for UC-0291.</span></button></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4080}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

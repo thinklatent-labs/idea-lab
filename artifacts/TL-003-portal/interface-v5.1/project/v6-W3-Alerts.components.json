@@ -1,0 +1,91 @@
+{
+  "board": "v6-W3-Alerts.dc.html",
+  "height": 3900,
+  "sections": [
+    {
+      "section": "Header, use-case rail and workbench rail",
+      "components": [
+        "@kit/kit PageHead",
+        "@kit/kit Breadcrumbs",
+        "@kit/ui toggle-group (kit Seg)",
+        "@kit/kit Rail",
+        "@kit/kit Status"
+      ]
+    },
+    {
+      "section": "KPI tiles (6)",
+      "components": [
+        "@kit/kit Tile",
+        "@kit/kit Status"
+      ]
+    },
+    {
+      "section": "Section bar",
+      "components": [
+        "@kit/kit SectionBar (wraps kokonut scroll-index)"
+      ]
+    },
+    {
+      "section": "Alerts in the last 30 days (primary exhibit)",
+      "components": [
+        "@kit/kit DataTable (wraps origin data table)",
+        "@kit/kit Status",
+        "@kit/kit InfoTip (wraps @kit/ui tooltip and popover)",
+        "@kit/kit Note"
+      ]
+    },
+    {
+      "section": "Open alert AL-2211",
+      "components": [
+        "@kit/kit Surface",
+        "@kit/kit DataRows",
+        "@kit/kit AgentChip",
+        "@kit/kit Status",
+        "@kit/ui button"
+      ]
+    },
+    {
+      "section": "Rules from the record",
+      "components": [
+        "@kit/kit DataTable",
+        "@kit/kit Status"
+      ]
+    },
+    {
+      "section": "How an alert travels",
+      "components": [
+        "@kit/kit Steps (wraps origin stepper)",
+        "@kit/kit Facts",
+        "@kit/kit InfoTip"
+      ]
+    },
+    {
+      "section": "INC-0412 escalation timeline",
+      "components": [
+        "@kit/kit Timeline (wraps origin timeline)",
+        "@kit/charts ChartFrame",
+        "@kit/charts LineChart",
+        "@kit/kit DataTable (view-as-table twin)",
+        "@kit/kit Masked",
+        "@kit/ui button",
+        "@kit/kit InfoTip"
+      ]
+    },
+    {
+      "section": "Weekly digest",
+      "components": [
+        "@kit/kit DataRows",
+        "@kit/kit Status",
+        "@kit/kit AgentChip",
+        "@kit/ui button"
+      ]
+    },
+    {
+      "section": "Trace",
+      "components": [
+        "@kit/kit Facts",
+        "@kit/kit InfoTip"
+      ]
+    }
+  ]
+}

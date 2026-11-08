@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Capacity and cache (v6)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-main{max-width:1440px;width:100%;margin:0 auto;box-sizing:border-box}
+.chart-plot svg{display:block;width:100%;height:auto;max-width:100%}
+details>summary{cursor:pointer;color:#1B5128;font-weight:500}
+tbody th[scope="row"]{text-align:left;font-size:inherit;letter-spacing:0;text-transform:none;font-weight:500;color:inherit}
+tr:last-child th{border-bottom:0}
+.kit-hold{position:relative;overflow:hidden}
+.kit-hold .fill{position:absolute;inset:0 auto 0 0;width:0;background:rgba(255,255,255,.25)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; flex: 1 1 auto; width: 100%; box-sizing: border-box; min-height: 3800px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="true">Engineering · on</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="v6-T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="J1-Projects.dc.html">Projects</a><span class="sep" aria-hidden="true">›</span><a href="v6-J2-ProjectHome.dc.html">Retail Advice</a><span class="sep" aria-hidden="true">›</span><a href="v6-J3-Overview.dc.html">UC-0291 Advisor summary</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Capacity and cache</span></nav>
+      <div class="kit-page-head" style="align-items: center">
+        <h1>Capacity and cache</h1>
+        <div class="kit-actions" style="align-items: center">
+          <div class="kit-seg" role="group" aria-label="Time window"><button type="button" aria-pressed="false">24 h</button><button type="button" aria-pressed="false">7 d</button><button type="button" aria-pressed="true">30 d</button></div>
+          <a class="kit-btn outline" href="v6-J4-Traffic.dc.html">Traffic, latency and errors</a>
+          <a class="kit-btn" href="#sec-decide">Review the scale-out proposal</a>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center">
+        <span class="kit-chip brand">Pilot in production</span>
+        <span class="kit-chip outline">Production · aggregates only</span>
+        <a class="kit-chip outline" href="v6-J6-Models.dc.html">prod → TLM4 Domain-Advice v2</a>
+        <span class="kit-chip outline">ep-uc0291 · dedicated · 2 × H100</span>
+        <a class="kit-chip outline" href="#sec-decide"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Weekday peaks over 85% on 14 of 22 weekdays</span></span></a>
+        <span class="kit-small kit-muted">Owner Priya N.</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+        <p class="kit-muted">Is there room for the weeks ahead, and is the cache pulling its weight? The average is comfortable; the weekday peaks are not.</p>
+        <span class="kit-asof">6 Oct to 4 Nov, 30 days · As of Thu 5 Nov 2026, 11:58 ET</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start"><nav class="kit-rail" aria-label="Use case"><a href="v6-J3-Overview.dc.html">Overview</a><a href="v6-J4-Traffic.dc.html" aria-current="page">Performance</a><a href="v6-J6-Models.dc.html">Models</a><a href="v6-J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a></nav><nav class="kit-subrail" aria-label="Performance"><a href="v6-J4-Traffic.dc.html">Traffic, latency and errors</a><a href="v6-J5-Capacity.dc.html" aria-current="page">Capacity and cache</a><a href="v6-J11-Traces.dc.html">Traces · pilot and build only</a></nav></div>
+
+    <div class="kit-tiles">
+      <section class="kit-tile" aria-label="GPU use, mean">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 9h6v6H9z"></path></svg></span><a class="kit-open" href="#sec-capacity" aria-label="Open GPU use">↗</a></div>
+        <div class="kit-tile-title">GPU use, mean<button class="kit-tip below" type="button" aria-label="About GPU use">i<span class="kit-tip-bubble" role="tooltip"><b>GPU use.</b> Share of the endpoint’s GPU time spent serving, averaged over each day; the peak is the busiest 5 minutes of the day.<span class="src">Source: HyperPod endpoint metrics · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">57<span class="unit">%</span></div><div class="kit-tile-cap">30 days · weekdays 65%, weekends 34%</div></div><div class="kit-bars" aria-hidden="true"><i style="height: 97%"></i><i style="height: 93%"></i><i style="height: 40%"></i><i style="height: 54%"></i><i style="height: 100%"></i><i style="height: 97%"></i><i class="lit" style="height: 94%"></i></div></div>
+      </section>
+      <section class="kit-tile" aria-label="GPU use, peak">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="#sec-capacity" aria-label="Open peaks">↗</a></div>
+        <div class="kit-tile-title">GPU use, peak</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">92<span class="unit">%</span></div><div class="kit-tile-cap"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over 85%</span></span> · Thu 15 Oct · on 14 of 22 weekdays</div></div><div class="kit-bars" aria-hidden="true"><i style="height: 100%"></i><i style="height: 92%"></i><i style="height: 57%"></i><i style="height: 58%"></i><i style="height: 99%"></i><i style="height: 98%"></i><i class="lit" style="height: 94%"></i></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Cache hits">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path></svg></span><a class="kit-open" href="#sec-cache" aria-label="Open cache">↗</a></div>
+        <div class="kit-tile-title">Cache hits<button class="kit-tip below" type="button" aria-label="About cache hits">i<span class="kit-tip-bubble" role="tooltip"><b>Cache hit.</b> Share of input tokens served from the prefix cache instead of being computed again. Hits shorten the time to first token and free GPU time.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">42<span class="unit">%</span></div><div class="kit-tile-cap">30 days · daily 38% to 46% · steady</div></div><div class="kit-bars" aria-hidden="true"><i style="height: 91%"></i><i style="height: 91%"></i><i style="height: 89%"></i><i style="height: 91%"></i><i style="height: 100%"></i><i style="height: 89%"></i><i class="lit" style="height: 93%"></i></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Spend">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M9 10h6"></path><path d="M9 14h6"></path></svg></span><a class="kit-open" href="#sec-spend" aria-label="Open spend">↗</a></div>
+        <div class="kit-tile-title">Spend, 30 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$2,105</div><div class="kit-tile-cap">$2,317 avoided against the frontier API · Finance method v1.2</div></div></div>
+      </section>
+    </div>
+
+    <section id="sec-capacity" aria-labelledby="h-capacity" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-capacity">GPU use against the scale-out line</h2><div class="sub">Daily mean and peak on ep-uc0291, 6 Oct to 4 Nov · scale-out line 85%</div></div>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-grid-main" style="align-items: start">
+          <figure class="chart" aria-labelledby="h-chart-capacity" style="margin: 0; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap"><h3 id="h-chart-capacity">GPU use</h3></div>
+<div class="chart-plot"><svg role="img" aria-label="GPU use" width="920" height="240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 920 240">
+<rect width="920" height="240" x="0" y="0" fill="none"></rect>
+<path d="M49.8 212.5L904 212.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr4-cls-11"></path>
+<path d="M49.8 174.5L904 174.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr4-cls-11"></path>
+<path d="M49.8 136.5L904 136.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr4-cls-11"></path>
+<path d="M49.8 98.5L904 98.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr4-cls-11"></path>
+<path d="M49.8 60.5L904 60.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr4-cls-11"></path>
+<path d="M49.8 22.5L904 22.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr4-cls-11"></path>
+<path d="M49.8 212.5L904 212.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-linecap="round" class="zr4-cls-11"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(41.84 212)" fill="#5C5C5A">0%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(41.84 174)" fill="#5C5C5A">20%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(41.84 136)" fill="#5C5C5A">40%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(41.84 98)" fill="#5C5C5A">60%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(41.84 60)" fill="#5C5C5A">80%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(41.84 22)" fill="#5C5C5A">100%</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(49.84 220)" fill="#5C5C5A">6 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(108.7476 220)" fill="#5C5C5A">8 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(167.6552 220)" fill="#5C5C5A">10 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(226.5628 220)" fill="#5C5C5A">12 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(285.4703 220)" fill="#5C5C5A">14 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(344.3779 220)" fill="#5C5C5A">16 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(403.2855 220)" fill="#5C5C5A">18 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(462.1931 220)" fill="#5C5C5A">20 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(521.1007 220)" fill="#5C5C5A">22 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(580.0083 220)" fill="#5C5C5A">24 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(638.9159 220)" fill="#5C5C5A">26 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(697.8234 220)" fill="#5C5C5A">28 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(756.731 220)" fill="#5C5C5A">30 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(815.6386 220)" fill="#5C5C5A">1 Nov</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(874.5462 220)" fill="#5C5C5A">3 Nov</text>
+<g clip-path="url(#zr4-c0)">
+<path d="M49.8 46.7L79.3 52.4L108.7 50.5L138.2 56.2L167.7 111.3L197.1 120.8L226.6 42.9L256 52.4L285.5 48.6L314.9 37.2L344.4 44.8L373.8 124.6L403.3 118.9L432.7 54.3L462.2 50.5L491.6 52.4L521.1 41L550.6 56.2L580 118.9L609.5 118.9L638.9 42.9L668.4 50.5L697.8 50.5L727.3 42.9L756.7 56.2L786.2 115.1L815.6 113.2L845.1 44.8L874.5 46.7L904 52.4L904 212L874.5 212L845.1 212L815.6 212L786.2 212L756.7 212L727.3 212L697.8 212L668.4 212L638.9 212L609.5 212L580 212L550.6 212L521.1 212L491.6 212L462.2 212L432.7 212L403.3 212L373.8 212L344.4 212L314.9 212L285.5 212L256 212L226.6 212L197.1 212L167.7 212L138.2 212L108.7 212L79.3 212L49.8 212Z" fill="#8A8A88" fill-opacity="0.06" class="zr4-cls-13"></path>
+<path d="M49.8 46.7L79.3 52.4L108.7 50.5L138.2 56.2L167.7 111.3L197.1 120.8L226.6 42.9L256 52.4L285.5 48.6L314.9 37.2L344.4 44.8L373.8 124.6L403.3 118.9L432.7 54.3L462.2 50.5L491.6 52.4L521.1 41L550.6 56.2L580 118.9L609.5 118.9L638.9 42.9L668.4 50.5L697.8 50.5L727.3 42.9L756.7 56.2L786.2 115.1L815.6 113.2L845.1 44.8L874.5 46.7L904 52.4L904 212L874.5 212L845.1 212L815.6 212L786.2 212L756.7 212L727.3 212L697.8 212L668.4 212L638.9 212L609.5 212L580 212L550.6 212L521.1 212L491.6 212L462.2 212L432.7 212L403.3 212L373.8 212L344.4 212L314.9 212L285.5 212L256 212L226.6 212L197.1 212L167.7 212L138.2 212L108.7 212L79.3 212L49.8 212Z" fill="url(#zr4-p0)" fill-opacity="0.06" class="zr4-cls-11"></path>
+<path d="M49.8 46.7L79.3 52.4L108.7 50.5L138.2 56.2L167.7 111.3L197.1 120.8L226.6 42.9L256 52.4L285.5 48.6L314.9 37.2L344.4 44.8L373.8 124.6L403.3 118.9L432.7 54.3L462.2 50.5L491.6 52.4L521.1 41L550.6 56.2L580 118.9L609.5 118.9L638.9 42.9L668.4 50.5L697.8 50.5L727.3 42.9L756.7 56.2L786.2 115.1L815.6 113.2L845.1 44.8L874.5 46.7L904 52.4" fill="none" pointer-events="visible" stroke="#8A8A88" stroke-width="1.25" stroke-linejoin="bevel" class="zr4-cls-13"></path>
+</g>
+<g clip-path="url(#zr4-c1)">
+<path d="M49.8 90.4L79.3 94.2L108.7 94.2L138.2 94.2L167.7 136L197.1 155L226.6 86.6L256 84.7L285.5 86.6L314.9 94.2L344.4 82.8L373.8 153.1L403.3 137.9L432.7 88.5L462.2 92.3L491.6 90.4L521.1 84.7L550.6 96.1L580 149.3L609.5 151.2L638.9 80.9L668.4 86.6L697.8 77.1L727.3 86.6L756.7 92.3L786.2 160.7L815.6 141.7L845.1 82.8L874.5 86.6L904 90.4L904 212L874.5 212L845.1 212L815.6 212L786.2 212L756.7 212L727.3 212L697.8 212L668.4 212L638.9 212L609.5 212L580 212L550.6 212L521.1 212L491.6 212L462.2 212L432.7 212L403.3 212L373.8 212L344.4 212L314.9 212L285.5 212L256 212L226.6 212L197.1 212L167.7 212L138.2 212L108.7 212L79.3 212L49.8 212Z" fill="#3E9A5C" fill-opacity="0.18" class="zr4-cls-13"></path>
+<path d="M49.8 90.4L79.3 94.2L108.7 94.2L138.2 94.2L167.7 136L197.1 155L226.6 86.6L256 84.7L285.5 86.6L314.9 94.2L344.4 82.8L373.8 153.1L403.3 137.9L432.7 88.5L462.2 92.3L491.6 90.4L521.1 84.7L550.6 96.1L580 149.3L609.5 151.2L638.9 80.9L668.4 86.6L697.8 77.1L727.3 86.6L756.7 92.3L786.2 160.7L815.6 141.7L845.1 82.8L874.5 86.6L904 90.4L904 212L874.5 212L845.1 212L815.6 212L786.2 212L756.7 212L727.3 212L697.8 212L668.4 212L638.9 212L609.5 212L580 212L550.6 212L521.1 212L491.6 212L462.2 212L432.7 212L403.3 212L373.8 212L344.4 212L314.9 212L285.5 212L256 212L226.6 212L197.1 212L167.7 212L138.2 212L108.7 212L79.3 212L49.8 212Z" fill="url(#zr4-p1)" fill-opacity="0.18" class="zr4-cls-11"></path>
+<path d="M49.8 90.4L79.3 94.2L108.7 94.2L138.2 94.2L167.7 136L197.1 155L226.6 86.6L256 84.7L285.5 86.6L314.9 94.2L344.4 82.8L373.8 153.1L403.3 137.9L432.7 88.5L462.2 92.3L491.6 90.4L521.1 84.7L550.6 96.1L580 149.3L609.5 151.2L638.9 80.9L668.4 86.6L697.8 77.1L727.3 86.6L756.7 92.3L786.2 160.7L815.6 141.7L845.1 82.8L874.5 86.6L904 90.4" fill="none" pointer-events="visible" stroke="#3E9A5C" stroke-width="2.5" stroke-linejoin="bevel" class="zr4-cls-13"></path>
+</g>
+<g clip-path="url(#zr4-c2)">
+<path d="" fill="none" pointer-events="visible" stroke="#3E9A5C" stroke-width="2" stroke-linejoin="bevel" class="zr4-cls-11"></path>
+</g>
+<path d="M49.8 50.5L904 50.5" fill="none" pointer-events="visible" stroke="#D08A4A" stroke-width="1.25" stroke-dasharray="5,2.5" ecmeta_series_index="2" ecmeta_data_index="0" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr4-cls-11"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:11px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="-5.5" transform="translate(899 45.5)" fill="#D08A4A">Scale-out · 85%</text>
+<defs >
+<clipPath id="zr4-c0">
+<path d="M49 21.4l857 0l0 191.3l-857 0Z" fill="#000" class="zr4-cls-12"></path>
+</clipPath>
+<pattern width="1" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)" id="zr4-p0">
+<g >
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+</g>
+</pattern>
+<clipPath id="zr4-c1">
+<path d="M48 20.8l858 0l0 192.5l-858 0Z" fill="#000" class="zr4-cls-12"></path>
+</clipPath>
+<pattern width="1" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)" id="zr4-p1">
+<g >
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+</g>
+</pattern>
+<clipPath id="zr4-c2">
+<path d="M48 21l858 0l0 192l-858 0Z" fill="#000" class="zr4-cls-11"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr4-cls-11:hover {
+pointer-events:none;
+}
+.zr4-cls-12:hover {
+cursor:pointer;
+fill:rgba(0,0,0,1);
+}
+.zr4-cls-13:hover {
+cursor:pointer;
+}
+
+]]>
+
+</style>
+</svg></div>
+<figcaption style="font-size: 14px">Mean 57%, peak 92%; weekday peaks cross the 85% scale-out line.</figcaption>
+<div class="kit-source" style="margin-top: 0">Source: HyperPod endpoint metrics, UC-0291</div>
+</figure>
+          <div class="kit-surface raised" style="padding: 16px">
+            <div class="kit-label">Reading the chart</div>
+            <dl class="kit-kv" style="grid-template-columns: 140px 1fr; margin: 10px 0 0">
+              <dt>Mean, 30 days</dt><dd>57%</dd>
+              <dt>Peak, 30 days</dt><dd>92% · Thu 15 Oct</dd>
+              <dt>Weekday peak</dt><dd>86% on average · <span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over the line</span></span></dd>
+              <dt>Weekend peak</dt><dd>50% on average · <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Room</span></span></dd>
+              <dt>Over 85%</dt><dd>14 of 22 weekdays · 3 of the last 5 · no weekend day</dd>
+              <dt>Growth</dt><dd>Traffic about 2.5% a week</dd>
+            </dl>
+            <div class="kit-threshold" style="margin-top: 12px">The mean hides the problem: weekends run at about a third of the endpoint, while weekday busy minutes come close to full.</div>
+          </div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: HyperPod endpoint metrics for ep-uc0291, 5-minute samples rolled up by day, 6 Oct to 4 Nov; scale-out line from the record (monitoring section).</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-decide" class="kit-surface kit-decide" aria-labelledby="h-decide">
+      <div class="kit-surface-head">
+        <div>
+          <h2 id="h-decide" style="display: flex; align-items: center; gap: 10px">Needs a decision <span class="kit-chip decision">1</span></h2>
+          <div class="sub">The SRE agent proposes a scale-out at 85% peak use. It cannot scale the endpoint itself: a person approves each scale-out.</div>
+        </div>
+        <span class="kit-small kit-muted">Agents propose, you decide</span>
+      </div>
+      <div class="kit-grid-main" style="margin-top: 14px; align-items: start">
+        <article class="kit-row" aria-labelledby="d1-t" aria-current="true" style="grid-template-columns: minmax(0, 1fr); gap: 10px; border-color: #3E9A5C; box-shadow: 0 0 0 1px #3E9A5C">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Proposal</span></span><span class="t" id="d1-t">Scale out ep-uc0291 for weekday busy hours</span><span class="kit-chip outline">Trigger: peak GPU use at or above 85%</span></div>
+          <div class="kit-small">Weekday peaks reached 85% or more on 14 of 22 weekdays, up to 92% on Thu 15 Oct. Traffic grows about 2.5% a week, and a move to Production (UA-0291, recommendation: send back with 2 findings · decision due today) would widen the audience, so the peaks will rise. The agent proposes one added GPU on weekdays, released each evening and at weekends, where the peak averages 50%.</div>
+          <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">SR</span><span>SRE agent</span></span><span>Proposed Thu 5 Nov, 10:40</span><span>Basis: HyperPod endpoint metrics, 30 days · gateway serving log, traffic growth · scale-out line 85% from the record</span><span>83% confidence</span><a href="#sec-engineering">View sources</a></div>
+          <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Approve: add a GPU on weekdays from Mon 9 Nov</button><button class="kit-btn sm outline" type="button">Ask for a different plan</button><button class="kit-btn sm ghost" type="button">Dismiss</button></div>
+          <div class="kit-threshold">Reversible: a scale-in goes through the same approval. Cost is priced with Finance method v1.2 before the change takes effect.</div>
+        </article>
+        <div class="kit-surface raised" style="padding: 16px">
+          <div class="kit-label">Who does what</div>
+          <dl class="kit-kv" style="grid-template-columns: 110px 1fr; margin: 10px 0 0">
+            <dt>SRE agent</dt><dd>Watches the 85% line, proposes, prices, carries out once approved</dd>
+            <dt>Owner</dt><dd>Priya N. approves or sends back</dd>
+            <dt>If ignored</dt><dd>Nothing changes; the agent re-proposes after the next weekday over 85%</dd>
+            <dt>Not affected</dt><dd>Model, setting and build stay pinned by GW-UA-0291</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <nav class="kit-sectionbar" aria-label="On this page" style="align-self: flex-start"><a href="#sec-weeks" aria-current="true">Peaks by week</a><a href="#sec-cache">Cache</a><a href="#sec-endpoint">Endpoint and hosting</a><a href="#sec-spend">Spend</a><a href="#sec-engineering">Engineering view</a></nav>
+
+    <section id="sec-weeks" aria-labelledby="h-weeks" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-weeks">Peaks by week</h2><div class="sub">Every full week crossed the line on 3 or 4 weekdays</div></div></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Week</th><th scope="col" class="num">Summaries</th><th scope="col" class="num">GPU use, mean</th><th scope="col" class="num">Highest peak</th><th scope="col" class="num">Weekdays at or over 85%<button class="kit-tip below" type="button" aria-label="About the scale-out line">i<span class="kit-tip-bubble" role="tooltip"><b>Scale-out line.</b> 85% peak GPU use. Above it the queue grows in busy minutes and the time to first token rises; the record sets it as the trigger for a scale-out proposal.<span class="src">Source: the record, monitoring section · as of 11:58 ET</span></span></button></th><th scope="col" class="num">Cache hits</th><th scope="col">Against the line</th></tr></thead>
+          <tbody><tr><th scope="row">29 Oct to 4 Nov</th><td class="num">49,296</td><td class="num">56%</td><td class="num">89% · Thu 29 Oct</td><td class="num">3 of 5</td><td class="num">41%</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over the line</span></span></td></tr><tr><th scope="row">22 to 28 Oct</th><td class="num">48,297</td><td class="num">57%</td><td class="num">90% · Thu 22 Oct</td><td class="num">4 of 5</td><td class="num">42%</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over the line</span></span></td></tr><tr><th scope="row">15 to 21 Oct</th><td class="num">49,574</td><td class="num">56%</td><td class="num">92% · Thu 15 Oct</td><td class="num">3 of 5</td><td class="num">41%</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over the line</span></span></td></tr><tr><th scope="row">8 to 14 Oct</th><td class="num">46,789</td><td class="num">56%</td><td class="num">89% · Mon 12 Oct</td><td class="num">3 of 5</td><td class="num">42%</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over the line</span></span></td></tr><tr><th scope="row">6 to 7 Oct · 2 days</th><td class="num">16,614</td><td class="num">63%</td><td class="num">87% · Tue 6 Oct</td><td class="num">1 of 2</td><td class="num">42%</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over the line</span></span></td></tr></tbody>
+        </table>
+        <div class="kit-threshold" style="margin-top: 12px">Latency held through every peak: the p95 stayed under 800 ms on all weekdays. The line is there to keep it that way as traffic grows. <a href="v6-J4-Traffic.dc.html#sec-latency">Latency against the SLO</a></div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: HyperPod endpoint metrics and the gateway serving log, weekly roll-up of daily values, 6 Oct to 4 Nov; cache hits as the mean of daily values.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-cache" aria-labelledby="h-cache" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-cache">Cache</h2><div class="sub">Prefix-cache hits, 30 days · steady, with no trend up or down</div></div></div>
+      <div class="kit-surface">
+        <div class="kit-grid2" style="align-items: start">
+          <div>
+            <div class="kit-label">Input served from the cache, 30 days</div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-top: 10px"><div class="kit-track" role="img" aria-label="42% of input from the cache" style="flex: 1; height: 12px"><i style="width: 42%"></i></div><span class="kit-display" style="font-size: 28px">42%</span></div>
+            <dl class="kit-kv" style="grid-template-columns: 150px 1fr; margin: 16px 0 0">
+              <dt>Lowest day</dt><dd>38% · Fri 16 Oct</dd>
+              <dt>Highest day</dt><dd>46% · Thu 8 Oct</dd>
+              <dt>Weekdays</dt><dd>41% on average · about the same at weekends</dd>
+              <dt>Last 7 days</dt><dd>41% on average</dd>
+            </dl>
+          </div>
+          <div>
+            <div class="kit-label">What it means for capacity</div>
+            <p class="kit-small" style="margin-top: 10px">About two inputs in five skip most of the prefill, mainly the shared instructions and earlier turns of a thread. A higher hit rate would lower the weekday peaks without adding GPUs, which is why the scale-out proposal is reversible: if a cache change lifts the rate, the added GPU may not be needed.</p>
+            <p class="kit-small" style="margin-top: 8px">Hit rate did not fall in the busiest weeks, so the cache is not being squeezed out by load yet.</p>
+          </div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: gateway serving log, prefix-cache counters, daily 6 Oct to 4 Nov, aggregate.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-endpoint" aria-labelledby="h-endpoint" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-endpoint">Endpoint and hosting</h2><div class="sub">Where UC-0291 runs, and the tiers it is allowed to run on</div></div><a class="kit-btn sm outline" href="v6-J10-Usage.dc.html">Usage and keys</a></div>
+      <div class="kit-surface">
+        <div class="kit-grid-main" style="align-items: start">
+          <table>
+            <thead><tr><th scope="col">Option</th><th scope="col">Hosting tier</th><th scope="col">When it is allowed<button class="kit-tip end below" type="button" aria-label="About hosting rules">i<span class="kit-tip-bubble" role="tooltip"><b>Hosting rules.</b> Production use cases run only on dedicated endpoints; shared pools serve sandbox, pilot and training.<span class="src">Source: the record and onboarding settings · as of 11:58 ET</span></span></button></th><th scope="col">State</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">ep-uc0291, always on</th><td>Dedicated endpoint · 2 × H100</td><td>Every phase</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Current</span></span></td></tr>
+              <tr><th scope="row">Add a GPU on weekdays</th><td>Dedicated endpoint, scaled out</td><td>Every phase · owner approves</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Proposed</span></span></td></tr>
+              <tr><th scope="row">Adapter on the shared TLM4 Core 4.2 pool</th><td>Shared, non-production</td><td>Pilot only · not in Production</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not recommended</span></span></td></tr>
+            </tbody>
+          </table>
+          <dl class="kit-kv" style="grid-template-columns: 140px 1fr; margin: 6px 0 0">
+            <dt>Endpoint</dt><dd class="kit-mono">ep-uc0291 · us-east</dd>
+            <dt>Hardware</dt><dd>2 × H100, dedicated to UC-0291</dd>
+            <dt>Model</dt><dd>TLM4 Domain-Advice v2 · 27B · 4-bit</dd>
+            <dt>Weekday use</dt><dd>65% mean · 86% average peak</dd>
+            <dt>Weekend use</dt><dd>34% mean · 50% average peak</dd>
+          </dl>
+        </div>
+        <div class="kit-threshold" style="margin-top: 12px">Moving to the shared pool would have to be undone before any move to Production; the SRE agent does not propose it.</div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: serving registry for the endpoint and hardware; HyperPod endpoint metrics, 30 days; hosting rules from the record and the onboarding settings.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-spend" aria-labelledby="h-spend" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-spend">Spend</h2><div class="sub">30 days to 4 Nov · Finance method v1.2</div></div><a class="kit-btn sm outline" href="v6-J10-Usage.dc.html">Showback</a></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Line</th><th scope="col">Basis</th><th scope="col" class="num">30 days</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Serving</th><td>210,570 summaries at $4.30 per 1,000</td><td class="num">$905</td></tr>
+            <tr><th scope="row">Dedicated endpoint share</th><td>ep-uc0291, HyperPod billing</td><td class="num">$1,200</td></tr>
+            <tr><th scope="row">Total paid</th><td></td><td class="num"><strong>$2,105</strong></td></tr>
+            <tr><th scope="row">Same summaries on the frontier API</th><td>$21.00 per 1,000</td><td class="num">$4,422</td></tr>
+            <tr><th scope="row">Avoided</th><td>Frontier API less total paid</td><td class="num">$2,317</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: gateway usage × cost per 1,000 tasks; endpoint share from HyperPod billing; Finance method v1.2.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-engineering" aria-labelledby="h-engineering" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-engineering">Capacity detail <span class="kit-eng-label">Engineering view</span></h2><div class="sub">The last 7 days day by day, and what the export does not yet carry</div></div><a class="kit-btn sm outline" href="v6-J4-Traffic.dc.html#sec-engineering">Serving detail</a></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Day</th><th scope="col" class="num">Summaries</th><th scope="col" class="num">Tokens</th><th scope="col" class="num">GPU mean</th><th scope="col" class="num">GPU peak<button class="kit-tip below" type="button" aria-label="About the daily peak">i<span class="kit-tip-bubble" role="tooltip"><b>Daily peak.</b> The busiest 5-minute mean of the day. Weekday peaks fall in advisor hours; weekend peaks stay near half.<span class="src">Source: HyperPod endpoint metrics · as of 11:58 ET</span></span></button></th><th scope="col" class="num">Cache hits</th><th scope="col" class="num">TTFT p95</th><th scope="col">Peak against 85%</th></tr></thead>
+          <tbody><tr><th scope="row">Thu 29 Oct</th><td class="num">9,609</td><td class="num">49.0M</td><td class="num">66%</td><td class="num">89%</td><td class="num">41%</td><td class="num">611 ms</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over 85%</span></span></td></tr><tr><th scope="row">Fri 30 Oct</th><td class="num">9,570</td><td class="num">48.8M</td><td class="num">63%</td><td class="num">82%</td><td class="num">41%</td><td class="num">629 ms</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Under 85%</span></span></td></tr><tr><th scope="row">Sat 31 Oct</th><td class="num">1,587</td><td class="num">8.1M</td><td class="num">27%</td><td class="num">51%</td><td class="num">40%</td><td class="num">622 ms</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Under 85%</span></span></td></tr><tr><th scope="row">Sun 1 Nov</th><td class="num">1,738</td><td class="num">8.9M</td><td class="num">37%</td><td class="num">52%</td><td class="num">41%</td><td class="num">603 ms</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Under 85%</span></span></td></tr><tr><th scope="row">Mon 2 Nov</th><td class="num">8,401</td><td class="num">42.8M</td><td class="num">68%</td><td class="num">88%</td><td class="num">45%</td><td class="num">639 ms</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over 85%</span></span></td></tr><tr><th scope="row">Tue 3 Nov</th><td class="num">9,533</td><td class="num">48.6M</td><td class="num">66%</td><td class="num">87%</td><td class="num">40%</td><td class="num">623 ms</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Over 85%</span></span></td></tr><tr><th scope="row">Wed 4 Nov</th><td class="num">8,858</td><td class="num">45.2M</td><td class="num">64%</td><td class="num">84%</td><td class="num">42%</td><td class="num">619 ms</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Under 85%</span></span></td></tr></tbody>
+        </table>
+        <div class="kit-empty" style="margin-top: 18px; padding: 18px">
+          <strong style="color: var(--ink)">Engine and cache telemetry is not in this export</strong>
+          <span class="kit-small">KV-cache use, running and waiting requests, preemptions, queue time, goodput and burn rate, throughput sweeps, adapter wait, cache hits by session depth and prefix survival need engine counters the 30-day series does not carry. They stay empty rather than estimated.</span>
+          <button class="kit-btn sm outline" type="button">Request engine counters in the export</button>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">Aggregates only. Production requests are sealed; no view on this page opens an individual request.</div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip end" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: HyperPod endpoint metrics and the gateway serving log, daily 29 Oct to 4 Nov, aggregate.</span></button></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3800}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

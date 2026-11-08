@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-08T11:55:00+05:30",
+  "asOf": "2026-11-08T12:40:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 405,
+    "registerRev": 406,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -199,8 +199,8 @@
       "docUrl": "https://claude.ai/artifact/QtTppN7KFdEDvjX7RRkEFn",
       "docTitle": "ThinkLatent Portal (portal) — Idea card",
       "standardVersion": "v1",
-      "lastTouched": "2026-11-07",
-      "nextStep": "PAUSED on DK-001 (D-203): resumes when the TL-013 design-kit session ships @kit/charts (kit v0.4.0) and closes the defect. On resume: draw v6 batch 2, the live use case UC-0291 (pilot in production, then production after the 20 Nov resubmission): Traffic, Capacity, Quality, Improve, Record, Alerts, Traces, Projects, Datasets and the UA-0291-R2 approval (10 pages), each a long page replacing its v5.1 boards, numbers from facts.md (portal 6d0104b) and components named per the Kit component map; lint, independent audit, then publish (the daily artifact limit blocked publishing on the night of 7 Nov). Before that, owed by Jithin: review v6 batch 1 (canvas version 1794058450-24d4) with the resolutions table in facts.md, and read the Kit component map. Convert the component map from project knowledge into a Docs artifact once the artifact limit resets. Generator v0.2 with batch 2: use-case inventory, usage, spend, the finance method and the model approval history (audit items 7, 12, 13). Smaller review items: J10's alias tlm4-core:prod for UC-0291; UC-0142's 78% use-case bar on T2 and T6; T6 '6 gaps'; M2 serving cost and latency figures are the 8-bit row's; Main and J0 still show UC-0142 in Production (D-201 moves it to pilot; fix in batch 2's pass). After the redraw: build thinklatent-labs/portal config-first on the scenario (decisions 13 to 15), every vendored component through a @kit/kit wrapper (D-202). Alongside: write the proposal from the requirements doc (beachhead Retail Advice, D-200); share the canvas and the requirements doc; Enterprise-side items as listed in D-149. Parked until the backend: Risk's concurrence on the grace policy, the SR 11-7 verification, Risk's model inventory, a request-to-access baseline, open decisions 4 to 8, and the C2 flag. From TL-013 (2026-11-08, D-205): DK-001 is closed; the portal can resume. Pin design-kit at c7b3cc9 (v0.4.0; supersedes the d76a3b3 line above): @kit/charts (ForestPlot, LineChart, Distribution, Heatmap, SmallMultiples, ChartFrame with table view) and the InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm wrappers are in. From TL-013 (2026-11-08, D-207): design-kit v0.5.0 at 26f394f adds BarChart, ScatterChart, Funnel, BulletChart (instead of gauges), SlopeChart and SparklineChart; pin 26f394f for the full chart set. From TL-013 (2026-11-08, D-209): pin design-kit at 9f8b147 (v0.6.0): the complete chart set on the colour system (adds area, histogram, dumbbell, waterfall, treemap, sankey, calendar heatmap, timeline); the chart guide in packages/charts/src/README.md says which to use where.",
+      "lastTouched": "2026-11-08",
+      "nextStep": "Jithin reviews v6 batches 1 and 2 on the canvas (version 1794121152-cd2c; batch 2 on its own page 'v6 · batch 2: the live use case') with the resolutions table at the end of facts.md (portal 7f92896), and the Kit component map. Then batch 3: the remaining v5.1 pages (models catalogue and lineage, data pages D1–D6, evaluation E2–E9, agents A1–A3 and the playground, operations O1–O6, help, settings, Ask ThinkLatent, inbox), drawn the same way: scenario first (v0.3: drift and PSI, advisor outcome events, review-queue counts, data-pipeline counts, the agent library with pre-review first), charts from @kit/charts, a kit-component note per board, lint, independent audit, one story. After the redraw: build the app in thinklatent-labs/portal on the pinned kit (React, Vite, TanStack Router and Query, Zod, MSW on the scenario, Vitest, Playwright; every vendored component through a @kit/kit wrapper; check-usable in CI). Alongside: write the proposal from the requirements doc (beachhead Retail Advice, D-200); share the canvas and the requirements doc; Enterprise-side items as listed in D-149. Smaller review items: the canvas title still says 'with v6 batch 1' (rename at the next publish); 212 advisors at about 43 summaries a day each (four drafts a call) to confirm. Parked until the backend: Risk's concurrence on the grace policy, the SR 11-7 verification, Risk's model inventory, a request-to-access baseline, open decisions 4 to 8, and the C2 flag.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -278,8 +278,8 @@
           "blocking": "Yes, for Stress test"
         }
       ],
-      "nextStepDue": "2026-11-15",
-      "nextStepOrigin": "TL-003 session 2026-11-07 (night)",
+      "nextStepDue": "2026-11-12",
+      "nextStepOrigin": "TL-003 session 2026-11-08",
       "appetiteEnds": null,
       "createdOn": "2026-10-31",
       "stageHistory": [
@@ -1339,7 +1339,7 @@
       "docTitle": "ThinkLatent design kit (design-kit) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-08",
-      "nextStep": "Kit lead (Claude): republish the component playground (its production build needs more than this session's 8 GB; build it in CI or on Jithin's laptop) so it shows the new gate status and demos. Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: Shell D and the record sheet upstreamed from the lab dashboard; the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release",
+      "nextStep": "Kit lead (Claude): republish the component playground (its production build needs more than this session's 8 GB; build it in CI or on Jithin's laptop) so it shows the new gate status and demos. Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: Shell D and the record sheet upstreamed from the lab dashboard; the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release From TL-003 (2026-11-08): DK-001 confirmed resolved for the portal at 1b277ff (pinned, D-216); @kit/charts renders server-side for the boards. Small nit for the kit: diff(1) writes '+1 pts' (singular 'pt' wanted?).",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -3041,7 +3041,7 @@
       "type": "depends-on",
       "toId": "TL-013",
       "toLabel": "design-kit",
-      "note": "Blocked on DK-001 (@kit/charts not built), raised 2026-11-07; the portal resumes when the kit ships v0.4.0"
+      "note": "Pinned to design-kit 1b277ff (v0.6.2) since 2026-11-08; DK-001 resolved"
     }
   ],
   "capabilities": [
@@ -4695,6 +4695,19 @@
       "health": "on-track",
       "healthNote": "No change to the kit",
       "nextStepDue": "2026-11-14"
+    },
+    {
+      "date": "2026-11-08",
+      "scope": "TL-003 portal",
+      "ideaIds": [
+        "TL-003"
+      ],
+      "mode": "Spec (build: kit pin, scenario v0.2, board charts; v6 batch 2) with an independent audit",
+      "outcome": "Portal resumed on design-kit 1b277ff (D-216). Scenario v0.2 with the live use case's operations and @kit/charts-rendered board charts (D-217). Batch 2's ten pages drawn by five builders, audited, fixed to one story together with batch 1, linted clean and published (D-218)",
+      "docsTouched": "thinklatent-labs/portal (63900aa to 7f92896); Interface canvas version 1794121152-cd2c; artifacts mirror; this register; TL-013 next-step line",
+      "health": "on-track",
+      "healthNote": "Unblocked; two batches of v6 drawn on one scenario; review owed by Jithin",
+      "nextStepDue": "2026-11-12"
     }
   ],
   "decisions": [
@@ -7693,6 +7706,48 @@
       "decision": "ReUI (keenthemes/reui, MIT) considered for the kit and dropped: it largely repeats Origin, coss and shadcn, and would have added six dependencies with react-table and shiki version clashes. The trial vendoring was reverted in full; nothing committed. The kit stays at 2,384 of 2,402 usable at design-kit 1b277ff",
       "by": "Jithin",
       "door": "two-way"
+    },
+    {
+      "id": "D-216",
+      "ideaId": "TL-003",
+      "date": "2026-11-08",
+      "decision": "Portal resumed on the kit (DK-001 resolved): the portal pins design-kit to commit 1b277ff (v0.6.2), not a tag, vendored by kit-pull with a kit-check that fails on a local edit; only components in the kit's gates/usable.json (check-usable in CI; the 18 in gates/excluded.json stay out); charts only from @kit/charts; numbers only through the kit's helpers (pct, diff, diffVerdict and the rest); GSAP's licence condition recorded (never in anything competing with Webflow's site or animation builders). Supersedes the pause in D-203. thinklatent-labs/portal 63900aa",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-217",
+      "ideaId": "TL-003",
+      "date": "2026-11-08",
+      "decision": "Scenario v0.2 (thinking partner; Jithin to review the resolutions in facts.md): the live use case's 30-day pilot operations (tasks, tokens, time to first token, errors, availability with INC-0412 on 24 Oct, cache, GPU, judged daily quality and Safety), alerts derived from the SLOs (AL-2209, AL-2210, AL-2211 on F-0412), spend under Finance method v1.2 ($2,105 paid against $4,422 on the frontier API), the use-case inventory (none in Production on 5 Nov under the 85% floor; two pilots), approval history, and the improve loop (R-2291 from 29 Oct, v3 canary at 5% from 1 Nov and 10% from 12 Nov, run 1203 and UA-0291-R2 on 20 Nov). UA-0291's latency check reads the 30-day p95 (640 ms). Board charts are rendered by @kit/charts itself (packages/boards, ECharts SSR, colours from the vendored tokens). 16 tests",
+      "by": "Platform lead (Claude)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-218",
+      "ideaId": "TL-003",
+      "date": "2026-11-08",
+      "decision": "v6 batch 2 drawn and published: the live use case UC-0291 on its own canvas page (Traffic, Capacity, Quality, Alerts, Traces, Improve, Datasets, Record, the 20 Nov UA-0291-R2 approval, Projects), every chart an @kit/charts SVG from the scenario, a kit-component note under each board. An independent audit found the scenario numbers right and 30 cross-page story conflicts; one agreed version of the story (send-back at 12:20 on 5 Nov, F-0412 closing on run 1203, the canary plan, endpoint ep-uc0291 with builds 4.2.1 and 4.3.0, pilot traces visible to engineering, hold-to-confirm on every one-way door) was applied to both batches; lint clean on both. Canvas version 1794121152-cd2c",
+      "by": "Platform lead (Claude); audit by the auditor role (Claude, separate agent)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
     }
   ],
   "syncLog": [

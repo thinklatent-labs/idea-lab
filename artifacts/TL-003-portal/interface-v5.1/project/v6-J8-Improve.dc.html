@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Improve (v6)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status b.g{display:inline-flex;width:14px;justify-content:center;font-size:12px;font-weight:600}
+.kit-fig{margin:0;display:flex;flex-direction:column;gap:8px}
+.kit-fig .plot{overflow-x:auto}
+.kit-fig .plot svg{display:block;max-width:100%;height:auto}
+.kit-hold{position:relative;overflow:hidden}
+.kit-hold>i{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(255,255,255,.3);transition:width 1.6s linear}
+.kit-hold:not([aria-disabled="true"]):active>i{width:100%}
+.kit-hold>span{position:relative}
+@media (prefers-reduced-motion:reduce){.kit-hold>i{transition:none}}
+tbody th[scope="row"]{font-size:inherit;letter-spacing:0;text-transform:none;font-weight:500;color:var(--ink)}
+tr:last-child th[scope="row"]{border-bottom:0}
+.kit-hold{justify-self:start}
+.kit-drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:22px;border:1px dashed var(--hairline);border-radius:16px;text-align:center}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; width: 100%; box-sizing: border-box; min-height: 6500px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="v6-T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+
+  <main class="kit-main" style="width: 100%; max-width: 1440px; margin: 0 auto; box-sizing: border-box">
+
+    <!-- ORIENT -->
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="J1-Projects.dc.html">Projects</a><span class="sep" aria-hidden="true">›</span><a href="v6-J2-ProjectHome.dc.html">Retail Advice</a><span class="sep" aria-hidden="true">›</span><a href="v6-J3-Overview.dc.html">UC-0291 Advisor summary</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Improve</span></nav>
+      <div class="kit-page-head" style="align-items: center">
+        <h1>Improve</h1>
+        <div class="kit-actions" style="align-items: center">
+          <a class="kit-btn" href="#decide">Decide <span class="kit-chip decision" style="margin-left: 2px">2</span></a>
+          <a class="kit-btn outline" href="v6-W2-Datasets.dc.html">Datasets and eval sets</a>
+          <a class="kit-btn outline" href="J9-Record.dc.html">Open the record</a>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center">
+        <span class="kit-chip brand">Pilot in production</span>
+        <span class="kit-chip outline">Production · aggregates only</span>
+        <a class="kit-chip outline" href="v6-J6-Models.dc.html">prod → TLM4 Domain-Advice v2</a>
+        <span class="kit-chip env">canary → checkpoint 1 800 · 5% since Sun 1 Nov</span>
+        <a class="kit-chip outline" href="#sec-watch"><span class="kit-status critical"><b class="g" aria-hidden="true">●</b><span>1 open critical alert · AL-2211</span></span></a>
+        <span class="kit-small kit-muted">Owner Priya N.</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+        <p style="font-size: 15px; margin: 0">UA-0291 · Recommendation: send back with 2 findings · decision due today. The loop below closes them and resubmits on Fri 20 Nov.</p>
+        <span class="kit-asof">Loop for F-0412, 28 Oct to 20 Nov · As of Thu 5 Nov 2026, 11:58 ET</span>
+      </div>
+    </div>
+
+    <nav class="kit-rail" aria-label="Use case" style="align-self: flex-start"><a href="v6-J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Performance</a><a href="v6-J6-Models.dc.html">Models</a><a href="J7-Quality.dc.html">Quality</a><a href="v6-J8-Improve.dc.html" aria-current="page">Improve</a><a href="J9-Record.dc.html">Record</a></nav>
+
+    <nav class="kit-sectionbar" aria-label="On this page" style="align-self: flex-start"><a href="#sec-loop" aria-current="true">Loop</a><a href="#sec-checkpoint">Checkpoint 1 800</a><a href="#decide">Decide <span class="n">2</span></a><a href="#sec-gap">Gap report</a><a href="#sec-training">Training R-2291</a><a href="#sec-release">Release plan</a><a href="#sec-specialist">Next specialist</a><a href="#sec-watch">Watch</a><a href="#sec-trace">Trace</a></nav>
+
+    <!-- JUDGE: tiles -->
+    <div class="kit-tiles">
+      <section class="kit-tile" aria-label="Consistency on long threads">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16"></path><path d="M4 6h16"></path><path d="M4 18h10"></path></svg></span><a class="kit-open" href="J7-Quality.dc.html" aria-label="Open the failing cluster">↗</a></div>
+        <div class="kit-tile-title">Consistency, long threads<button class="kit-tip" type="button" aria-label="About consistency across attempts">i<span class="kit-tip-bubble" role="tooltip"><b>Consistency across attempts (pass^3).</b> The share of long threads that succeed on all three repeat attempts. Finding F-0412.<span class="src">Source: production review, pilot window · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">71%</div><div class="kit-tile-cap">Bar 75% · 4 pts short · F-0412 open since Wed 28 Oct</div></div><span class="kit-status critical"><b class="g" aria-hidden="true">✕</b><span>Below bar</span></span></div>
+      </section>
+      <section class="kit-tile" aria-label="Safety and grounding">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span><a class="kit-open" href="v6-E1-EvaluationResults.dc.html" aria-label="Open Official run 1183">↗</a></div>
+        <div class="kit-tile-title">Safety and grounding<button class="kit-tip" type="button" aria-label="About the Safety floor">i<span class="kit-tip-bubble" role="tooltip"><b>Safety floor.</b> Policy C-2 holds every use case at 85%. A bar is cleared only when the score minus its half-width is at or above it.<span class="src">Source: policy C-2; Official TL Index run 1183 · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value"><span class="kit-interval">78% <span class="pm">± 3</span></span></div><div class="kit-tile-cap">Floor 85% · Official run 1183, Domain-Advice v2</div></div><span class="kit-status critical"><b class="g" aria-hidden="true">✕</b><span>Below bar</span></span></div>
+      </section>
+      <section class="kit-tile" aria-label="Checkpoint 1 800">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="#sec-checkpoint" aria-label="Open checkpoint 1 800">↗</a></div>
+        <div class="kit-tile-title">R-2291 · checkpoint 1 800</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value"><span class="kit-interval">85% <span class="pm">± 1</span></span></div><div class="kit-tile-cap">Practice run 1195, never citable · Safety <span class="kit-interval">80% <span class="pm">± 3</span></span>, still under the floor</div></div></div>
+      </section>
+      <section class="kit-tile ink" aria-label="Resubmission">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18"></path><path d="M8 3v4"></path><path d="M16 3v4"></path></svg></span><a class="kit-open" href="#sec-release" aria-label="Open the release plan">↗</a></div>
+        <div class="kit-tile-title">Resubmission</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">15<span class="unit">days</span></div><div class="kit-tile-cap">UA-0291-R2 on Fri 20 Nov · Official run 1203 booked</div></div><span class="kit-chip brand">On plan</span></div>
+      </section>
+    </div>
+
+    <!-- JUDGE: primary exhibit -->
+    <section id="sec-loop" aria-labelledby="h-loop" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-loop">The loop for F-0412</h2><div class="sub">From the finding on Wed 28 Oct to the resubmission on Fri 20 Nov · 6 steps done or running, 5 planned</div></div>
+        <div class="kit-legend"><span><i style="background: #3E9A5C"></i>Done or running</span><span><i style="background: #8A8A88"></i>Report read</span><span><i style="background: #477C8B"></i>Planned</span><span><i style="background: #1A1A1A"></i>Today, dashed</span></div>
+      </div>
+      <div class="kit-surface">
+        <figure class="kit-fig" aria-labelledby="fig-loop-t">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap"><h3 id="fig-loop-t">Improve loop for F-0412</h3><span class="kit-small kit-muted">Bars are spans of days; the dashed line is today, 5 Nov</span></div>
+<div class="plot"><svg role="img" aria-label="Improve loop for F-0412" width="920" height="220" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 920 220">
+<rect width="920" height="220" x="0" y="0" fill="none"></rect>
+<path d="M152.5 44L152.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M177.5 44L177.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M275.5 44L275.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M308.5 44L308.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M406.5 44L406.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M537.5 44L537.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M667.5 44L667.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M798.5 44L798.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M904.5 44L904.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 56.8333)" fill="#1A1A1A">F-0412 open</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 82.5)" fill="#1A1A1A">Gap report</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 108.1667)" fill="#1A1A1A">Training R-2291</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 133.8333)" fill="#1A1A1A">Canary 5%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 159.5)" fill="#1A1A1A">Canary 10%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 185.1667)" fill="#1A1A1A">Run 1203 + UA-0291-R2</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(177.0483 36)" fill="#5C5C5A">29 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(405.9665 36)" fill="#5C5C5A">5 Nov</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(536.777 36)" fill="#5C5C5A">9 Nov</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(667.5874 36)" fill="#5C5C5A">13 Nov</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(798.3978 36)" fill="#5C5C5A">17 Nov</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(275.1561 36)" fill="#5C5C5A">1 Nov</text>
+<path d="M158.3 50.4L864.9 50.4A6.4 6.4 0 0 1 871.3 56.8L871.3 56.8A6.4 6.4 0 0 1 864.9 63.3L158.3 63.3A6.4 6.4 0 0 1 151.8 56.8L151.8 56.8A6.4 6.4 0 0 1 158.3 50.4Z" fill="#3E9A5C" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<path d="M158.3 76.1L178.1 76.1A6.4 6.4 0 0 1 184.5 82.5L184.5 82.5A6.4 6.4 0 0 1 178.1 88.9L158.3 88.9A6.4 6.4 0 0 1 151.8 82.5L151.8 82.5A6.4 6.4 0 0 1 158.3 76.1Z" fill="#8A8A88" fill-opacity="0.55" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<path d="M191 101.8L603.3 101.8A6.4 6.4 0 0 1 609.7 108.2L609.7 108.2A6.4 6.4 0 0 1 603.3 114.6L191 114.6A6.4 6.4 0 0 1 184.5 108.2L184.5 108.2A6.4 6.4 0 0 1 191 101.8Z" fill="#3E9A5C" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<path d="M289.1 127.4L603.3 127.4A6.4 6.4 0 0 1 609.7 133.8A6.4 6.4 0 0 1 603.3 140.2L289.1 140.2A6.4 6.4 0 0 1 282.7 133.8A6.4 6.4 0 0 1 289.1 127.4Z" fill="#3E9A5C" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<path d="M648.8 153.1L864.9 153.1A6.4 6.4 0 0 1 871.3 159.5L871.3 159.5A6.4 6.4 0 0 1 864.9 165.9L648.8 165.9A6.4 6.4 0 0 1 642.4 159.5L642.4 159.5A6.4 6.4 0 0 1 648.8 153.1Z" fill="#477C8B" stroke="#ECECEA" ecmeta_series_index="0" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<path d="M906 178.8A2 2 0 0 1 908 180.8L908 189.6A2 2 0 0 1 906 191.6A2 2 0 0 1 904 189.6L904 180.8A2 2 0 0 1 906 178.8Z" fill="#477C8B" stroke="#ECECEA" ecmeta_series_index="0" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<g clip-path="url(#zr10-c0)">
+<path d="" fill="none" pointer-events="visible" stroke="#2F7A6D" stroke-width="2" stroke-linejoin="bevel" class="zr10-cls-25"></path>
+</g>
+<path d="M413.5 44L413.5 198" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-dasharray="4,2" ecmeta_series_index="1" ecmeta_data_index="0" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr10-cls-25"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:11px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="5.5" transform="translate(413.4609 203)" fill="#1A1A1A">Today</text>
+<defs >
+<clipPath id="zr10-c0">
+<path d="M150 43l756 0l0 156l-756 0Z" fill="#000" class="zr10-cls-25"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr10-cls-25:hover {
+pointer-events:none;
+}
+.zr10-cls-26:hover {
+cursor:pointer;
+}
+
+]]>
+
+</style>
+</svg></div>
+<figcaption class="kit-small">From the finding to the resubmission; today is 5 Nov.</figcaption>
+<div class="kit-source" style="margin-top: 0">Source: Use-case record UC-0291</div>
+</figure>
+        <div class="kit-divider"></div>
+        <table aria-label="Improve loop, step by step">
+          <thead><tr><th scope="col">Date</th><th scope="col">Step</th><th scope="col">Who decides</th><th scope="col">State</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Wed 28 Oct</th><td>Finding F-0412 opened from production review: answers differ across attempts on long threads, 71% against 75%</td><td>Evaluation agent raised it · Priya N. owns it</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Done</span></span></td></tr>
+            <tr><th scope="row">Wed 28 Oct</th><td>Self-healing gap report: Safety and grounding, escalation when unsure</td><td>Self-healing agent proposed the data fix · Priya N. accepted</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Done</span></span></td></tr>
+            <tr><th scope="row">Thu 29 Oct</th><td>Training run R-2291 started on TLM4 Core 4.2 with the corrected data</td><td>Priya N. approved against the project budget</td><td><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>Running</span></span></td></tr>
+            <tr><th scope="row">Sat 31 Oct</th><td>Checkpoint 1 800 promoted to a canary candidate</td><td>Priya N., after the Practice gate</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Done</span></span></td></tr>
+            <tr><th scope="row">Sun 1 Nov</th><td>Canary at 5% of UC-0291 pilot traffic on checkpoint 1 800</td><td>Priya N.</td><td><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>Running</span></span></td></tr>
+            <tr><th scope="row">Thu 5 Nov</th><td>Checkpoint 1 800 scored as Practice run 1195 · UA-0291 recommendation: send back with 2 findings · decision due today</td><td>Jithin, Head of ThinkLatent, decides UA-0291</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Done today</span></span></td></tr>
+            <tr><th scope="row">Fri 6 Nov</th><td>Canary judgement at 5% (5,000 judged samples)</td><td>Evaluation agent reports · Priya N. reads it</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Planned</span></span></td></tr>
+            <tr><th scope="row">Wed 11 Nov</th><td>R-2291 final checkpoint promoted to candidate Domain-Advice v3</td><td>Priya N., after the candidate gate</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Planned</span></span></td></tr>
+            <tr><th scope="row">Thu 12 Nov</th><td>Canary widened to 10% on the final checkpoint</td><td>You, on the canary plan below</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Planned</span></span></td></tr>
+            <tr><th scope="row">Thu 19 Nov</th><td>Canary closes · v3 holds at 10% until promote</td><td>Evaluation agent reports · the validator reads it</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Planned</span></span></td></tr>
+            <tr><th scope="row">Fri 20 Nov</th><td>Official run 1203 · resubmission UA-0291-R2 for Production</td><td>The approver on UA-0291-R2</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Planned</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET · source: use-case record UC-0291, the training pipeline and the approval log</div>
+      </div>
+    </section>
+
+    <!-- JUDGE: checkpoint -->
+    <section id="sec-checkpoint" aria-labelledby="h-checkpoint" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-checkpoint">Checkpoint 1 800 against Domain-Advice v2</h2><div class="sub">Paired on 1,186 shared items, TL Index edition 2026-11 · Entity recognition is worse and Client care better; the rest tie</div></div>
+        <span class="kit-chip env">Practice · never citable<button class="kit-tip below end" type="button" aria-label="About Practice runs">i<span class="kit-tip-bubble" role="tooltip"><b>Practice run.</b> Scored like an Official run but never evidence for an approval. Only Official run 1203 can support UA-0291-R2.<span class="src">Source: run register, edition 2026-11 · as of 11:58 ET</span></span></button></span>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-grid-main" style="align-items: start">
+          <div style="min-width: 0"><figure class="kit-fig" aria-labelledby="fig-forest-t">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap"><h3 id="fig-forest-t">Practice run 1195 (v3, checkpoint 1 800) against run 1183</h3><span class="kit-chip env">Practice · never citable</span></div>
+<div class="plot"><svg role="img" aria-label="Practice run 1195 (v3, checkpoint 1 800) against run 1183" width="920" height="260" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 920 260">
+<rect width="920" height="260" x="0" y="0" fill="none"></rect>
+<path d="M163.5 8L163.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr7-cls-19"></path>
+<path d="M264.5 8L264.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr7-cls-19"></path>
+<path d="M365.5 8L365.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr7-cls-19"></path>
+<path d="M466.5 8L466.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr7-cls-19"></path>
+<path d="M566.5 8L566.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr7-cls-19"></path>
+<path d="M667.5 8L667.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr7-cls-19"></path>
+<path d="M768.5 8L768.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr7-cls-19"></path>
+<path d="M466.5 232L466.5 8" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-linecap="round" class="zr7-cls-19"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 213.3333)" fill="#1A1A1A">Entity recognition</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 176)" fill="#1A1A1A">Safety and grounding</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 138.6667)" fill="#1A1A1A">Compliance and regulatory</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 101.3333)" fill="#1A1A1A">Client care</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 64)" fill="#1A1A1A">Financial data processing</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 26.6667)" fill="#1A1A1A">Use-case score</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(776.64 213.3333)" fill="#1A1A1A">−3 pts ± 2 · ▼ Worse</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(776.64 176)" fill="#1A1A1A">+2 pts ± 2 · = Tie</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(776.64 138.6667)" fill="#1A1A1A">+1 pts ± 2 · = Tie</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(776.64 101.3333)" fill="#1A1A1A">+2 pts ± 2 · ▲ Better</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(776.64 64)" fill="#1A1A1A">+1 pts ± 2 · = Tie</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(776.64 26.6667)" fill="#1A1A1A">+1 pts ± 1 · = Tie</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(162.88 240)" fill="#5C5C5A">−6 pts</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(263.84 240)" fill="#5C5C5A">−4 pts</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(364.8 240)" fill="#5C5C5A">−2 pts</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="6" transform="translate(465.76 240)" fill="#5C5C5A">0</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(566.72 240)" fill="#5C5C5A">+2 pts</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(667.68 240)" fill="#5C5C5A">+4 pts</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(768.64 240)" fill="#5C5C5A">+6 pts</text>
+<path d="M213.4 213.3L415.3 213.3" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M213.4 205.1L213.4 221.5" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M415.3 205.1L415.3 221.5" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M465.8 176L667.7 176" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M465.8 167.8L465.8 184.2" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M667.7 167.8L667.7 184.2" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M415.3 138.7L617.2 138.7" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M415.3 130.5L415.3 146.9" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M617.2 130.5L617.2 146.9" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M465.8 101.3L667.7 101.3" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M465.8 93.1L465.8 109.5" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M667.7 93.1L667.7 109.5" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M415.3 64L617.2 64" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M415.3 55.8L415.3 72.2" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M617.2 55.8L617.2 72.2" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M465.8 26.7L566.7 26.7" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M465.8 18.5L465.8 34.9" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M566.7 18.5L566.7 34.9" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<g clip-path="url(#zr7-c0)">
+<path d="" fill="none" pointer-events="visible" stroke="#477C8B" stroke-width="2" stroke-linejoin="bevel" class="zr7-cls-19"></path>
+</g>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(5,0,0,5,314.32,213.3333)" fill="#C4262E" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.2" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(5,0,0,5,566.72,176)" fill="#5C5C5A" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.2" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(5,0,0,5,516.24,138.6667)" fill="#5C5C5A" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.2" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(5,0,0,5,566.72,101.3333)" fill="#2F7A6D" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.2" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(5,0,0,5,516.24,64)" fill="#5C5C5A" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.2" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(6.5,0,0,6.5,516.24,26.6667)" fill="#5C5C5A" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.15384615384615385" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr7-cls-20"></path>
+<path d="M466.5 232L466.5 8" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-dasharray="4,2" ecmeta_series_index="2" ecmeta_data_index="0" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr7-cls-19"></path>
+<defs >
+<clipPath id="zr7-c0">
+<path d="M161 7l609 0l0 226l-609 0Z" fill="#000" class="zr7-cls-19"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr7-cls-19:hover {
+pointer-events:none;
+}
+.zr7-cls-20:hover {
+cursor:pointer;
+}
+
+]]>
+
+</style>
+</svg></div>
+<figcaption class="kit-small">Practice: never citable. Entity recognition is worse and Client care better; the rest tie.</figcaption>
+<div class="kit-source" style="margin-top: 0">Source: Paired test on shared items, TL Index edition 2026-11</div>
+<details><summary class="kit-small" style="cursor: pointer; font-weight: 500">View as table</summary><table class="kit-small" style="margin-top: 8px"><thead><tr><th scope="col">Pillar</th><th scope="col" class="num">Difference</th><th scope="col">Verdict</th><th scope="col" class="num">Shared items</th></tr></thead><tbody><tr><th scope="row">Use-case score</th><td class="num">+1 pts ± 1</td><td>= Tie</td><td class="num">1,186</td></tr><tr><th scope="row">Financial data processing</th><td class="num">+1 pts ± 2</td><td>= Tie</td><td class="num">238</td></tr><tr><th scope="row">Client care</th><td class="num">+2 pts ± 2</td><td>▲ Better</td><td class="num">237</td></tr><tr><th scope="row">Compliance and regulatory</th><td class="num">+1 pts ± 2</td><td>= Tie</td><td class="num">238</td></tr><tr><th scope="row">Safety and grounding</th><td class="num">+2 pts ± 2</td><td>= Tie</td><td class="num">233</td></tr><tr><th scope="row">Entity recognition</th><td class="num">−3 pts ± 2</td><td>▼ Worse</td><td class="num">240</td></tr></tbody></table></details>
+</figure></div>
+          <dl class="kit-kv" style="grid-template-columns: 150px 1fr; margin: 34px 0 0">
+            <dt>Use-case score</dt><dd><span class="kit-interval">85% <span class="pm">± 1</span></span> against <span class="kit-interval">84% <span class="pm">± 1</span></span> · +1 pts ± 1 · = Tie</dd>
+            <dt>Safety and grounding</dt><dd><span class="kit-interval">80% <span class="pm">± 3</span></span> · floor 85% · <span class="kit-status critical"><b class="g" aria-hidden="true">✕</b><span>Below bar</span></span></dd>
+            <dt>Entity recognition</dt><dd><span class="kit-interval">85% <span class="pm">± 2</span></span> against <span class="kit-interval">88% <span class="pm">± 2</span></span> · −3 pts ± 2 · <span class="kit-status critical"><b class="g" aria-hidden="true">▼</b><span>Worse</span></span></dd>
+            <dt>Hallucination</dt><dd><span class="kit-interval">2.1% <span class="pm">± 0.5</span></span> against <span class="kit-interval">2.6% <span class="pm">± 0.6</span></span></dd>
+            <dt>Items</dt><dd>250 rose, 215 fell, the rest held</dd>
+          </dl>
+        </div>
+        <div class="kit-divider"></div>
+        <h3>Line items to watch at the final checkpoint</h3>
+        <table style="margin-top: 8px">
+          <thead><tr><th scope="col">Line item</th><th scope="col">Pillar</th><th scope="col" class="num">v2 · run 1183</th><th scope="col" class="num">Checkpoint 1 800 · run 1195</th><th scope="col" class="num">Items</th><th scope="col">Why it matters</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Escalation when unsure</th><td>Safety and grounding</td><td class="num"><span class="kit-interval">78% <span class="pm">± 4</span></span></td><td class="num"><span class="kit-interval">79% <span class="pm">± 4</span></span></td><td class="num">116</td><td class="kit-small">The gap report's first fix</td></tr>
+            <tr><th scope="row">Grounded in the source note</th><td>Safety and grounding</td><td class="num"><span class="kit-interval">78% <span class="pm">± 4</span></span></td><td class="num"><span class="kit-interval">81% <span class="pm">± 4</span></span></td><td class="num">117</td><td class="kit-small">The gap report's second fix</td></tr>
+            <tr><th scope="row">Account and plan names</th><td>Entity recognition</td><td class="num"><span class="kit-interval">88% <span class="pm">± 3</span></span></td><td class="num"><span class="kit-interval">85% <span class="pm">± 3</span></span></td><td class="num">120</td><td class="kit-small">Fell with the corrected data</td></tr>
+            <tr><th scope="row">People and roles</th><td>Entity recognition</td><td class="num"><span class="kit-interval">88% <span class="pm">± 3</span></span></td><td class="num"><span class="kit-interval">85% <span class="pm">± 3</span></span></td><td class="num">120</td><td class="kit-small">Fell with the corrected data</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-small kit-muted" style="margin-top: 10px">A checkpoint is a direction, not a verdict: the 20 Nov resubmission rests on Official run 1203 alone.</div>
+        <div class="kit-asof" style="margin-top: 8px">As of 11:58 ET · source: Practice run 1195 and Official run 1183, paired on shared items, judge evaluator v2.3</div>
+      </div>
+    </section>
+
+    <!-- DECIDE -->
+    <section id="decide" class="kit-surface kit-decide" aria-labelledby="h-decide">
+      <div class="kit-surface-head">
+        <div>
+          <h2 id="h-decide" style="display: flex; align-items: center; gap: 10px">Needs a decision <span class="kit-chip decision">2</span></h2>
+          <div class="sub">Two proposals to keep the loop on plan for 20 Nov. Nothing moves forward without a person.</div>
+        </div>
+        <span class="kit-small kit-muted">Agents propose, you decide</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 460px; gap: 16px; margin-top: 16px; align-items: start">
+        <div class="kit-rows">
+          <article class="kit-row" aria-labelledby="d1-t" aria-current="true" style="grid-template-columns: minmax(0, 1fr); gap: 8px; border-color: #3E9A5C; box-shadow: 0 0 0 1px #3E9A5C">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status critical"><b class="g" aria-hidden="true">▼</b><span>Worse</span></span><span class="t" id="d1-t">Gate the 11 Nov candidate on Entity recognition</span><button class="kit-tip" type="button" aria-label="About the candidate gate">i<span class="kit-tip-bubble" role="tooltip"><b>Candidate gate.</b> The checks a final checkpoint passes before it becomes the candidate: no gate pillar Worse than v2 on shared items.<span class="src">Source: use-case record UC-0291 · as of 11:52 ET</span></span></button></div>
+            <div class="kit-small">Checkpoint 1 800 fell 3 pts ± 2 on Entity recognition, on both line items. Without the gate, the drop could reach the 10% canary.</div>
+            <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">EV</span><span>Evaluation agent</span></span><span>Basis: Practice run 1195 against Official run 1183, 240 shared Entity items</span><span>81% confidence · 11:52</span><a href="#sec-checkpoint">View sources</a></div>
+            <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Add to the candidate gate</button><a class="kit-btn sm outline" href="#sec-checkpoint">See the line items</a><button class="kit-btn sm ghost" type="button" aria-expanded="true" aria-controls="sheet-d1">Details</button><button class="kit-btn sm ghost" type="button">Dismiss</button></div>
+          </article>
+          <article class="kit-row" aria-labelledby="d2-t" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>Open</span></span><span class="t" id="d2-t">Approve the canary plan: widen to 10% of UC-0291 traffic on the final checkpoint, Thu 12 to Thu 19 Nov</span></div>
+            <div class="kit-small">The 5% canary on checkpoint 1 800 has run since Sun 1 Nov, about 440 summaries a weekday; at 10% from 12 Nov, about 900 a weekday on v3. v2 keeps the rest. The canary reads consistency on long threads and the serving SLOs.</div>
+            <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">SR</span><span>SRE agent with Evaluation agent</span></span><span>Basis: gateway serving log, 30 days (8,858 tasks on the last weekday); SLOs from the record</span><span>76% confidence · 11:40</span><a href="#sec-release">View sources</a></div>
+            <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Approve the canary plan</button><button class="kit-btn sm outline" type="button">Change the share</button><button class="kit-btn sm ghost" type="button">Dismiss</button><span class="kit-threshold">Roll back stays one hold away while the canary runs</span></div>
+          </article>
+        </div>
+
+        <aside class="kit-sheet" id="sheet-d1" aria-labelledby="sheet-d1-t">
+          <div class="kit-sheet-head">
+            <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <span class="kit-status critical"><b class="g" aria-hidden="true">▼</b><span>Worse at checkpoint 1 800</span></span>
+              <h3 id="sheet-d1-t">Entity recognition fell with the corrected data</h3>
+            </div>
+            <button class="kit-btn ghost sm icon" type="button" aria-label="Close detail"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button>
+          </div>
+          <dl class="kit-kv" style="grid-template-columns: 120px 1fr; margin: 14px 0 0">
+            <dt>Now</dt><dd><span class="kit-interval">85% <span class="pm">± 2</span></span> against <span class="kit-interval">88% <span class="pm">± 2</span></span> on 240 shared items</dd>
+            <dt>Difference</dt><dd>−3 pts ± 2 · ▼ Worse</dd>
+            <dt>Gate today</dt><dd>Regression gate on run 1183 against 1180: Entity +4 pts ± 2 · ▲ Better</dd>
+            <dt>If added</dt><dd>The final checkpoint must be = Tie or ▲ Better on Entity before 11 Nov</dd>
+            <dt>If not</dt><dd>The canary and run 1203 find it, a week later</dd>
+            <dt>Owner</dt><dd>Priya N. · decides by Tue 10 Nov</dd>
+          </dl>
+          <div class="kit-small kit-muted" style="margin-top: 12px">Basis is a Practice run: it can steer the gate, not support the approval.</div>
+          <div class="kit-asof" style="margin-top: 8px">As of 11:52 ET</div>
+        </aside>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px">
+        <span class="kit-small kit-muted">Dismissed proposals stay in the log with who and why</span>
+        <div class="kit-asof">As of 11:52 ET · source: Practice run 1195, Official runs 1183 and 1180, the gateway serving log and the record</div>
+      </div>
+    </section>
+
+    <!-- ACT: gap report -->
+    <section id="sec-gap" aria-labelledby="h-gap" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-gap">Self-healing gap report</h2><div class="sub">Read Wed 28 Oct · what the model misses, and the data that closes it</div></div>
+        <a class="kit-btn sm outline" href="v6-W2-Datasets.dc.html#sec-r2291">The corrected data</a>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">SH</span><span>Self-healing agent</span></span><span>Basis: Official TL Index run 1183 line items; production judged sample, 30 days; finding F-0412</span><span>83% confidence · Wed 28 Oct</span><a href="v6-E1-EvaluationResults.dc.html">View sources</a></div>
+        <table style="margin-top: 12px">
+          <thead><tr><th scope="col">Gap</th><th scope="col">Measure<button class="kit-tip below" type="button" aria-label="About the measures">i<span class="kit-tip-bubble" role="tooltip"><b>Measures.</b> Line items come from Official run 1183 with their item count. Consistency comes from production review. Daily safety is the judge on a production sample.<span class="src">Source: run 1183; production review · as of 11:58 ET</span></span></button></th><th scope="col" class="num">Now</th><th scope="col" class="num">Bar</th><th scope="col">Fix proposed</th><th scope="col">State</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Escalation when unsure</th><td class="kit-small">Safety and grounding line item · n 116</td><td class="num"><span class="kit-interval">78% <span class="pm">± 4</span></span></td><td class="num">85% floor</td><td class="kit-small">Corrected examples where the summary flags doubt and hands back to the advisor</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>In R-2291 data</span></span></td></tr>
+            <tr><th scope="row">Grounded in the source note</th><td class="kit-small">Safety and grounding line item · n 117</td><td class="num"><span class="kit-interval">78% <span class="pm">± 4</span></span></td><td class="num">85% floor</td><td class="kit-small">Corrected examples tied to the source note</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>In R-2291 data</span></span></td></tr>
+            <tr><th scope="row">Consistency on long threads</th><td class="kit-small">pass^3 · F-0412</td><td class="num">71%</td><td class="num">75%</td><td class="kit-small">Long-thread examples, 4k–16k input tokens</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>In R-2291 data</span></span></td></tr>
+            <tr><th scope="row">Safety in production</th><td class="kit-small">Judged daily, 30 days</td><td class="num">75% to 82% a day</td><td class="num">85% floor</td><td class="kit-small">No fix of its own: watched until v3</td><td><span class="kit-status warning"><b class="g" aria-hidden="true">!</b><span>Below floor every day</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-note" style="margin-top: 12px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>The gap report reads aggregates and the judged sample. The failing cluster's requests are pilot calls: engineering roles open them in Traces, with text behind the sensitive switch. Only Production traces are sealed behind break-glass.</span></div>
+        <div class="kit-actions" style="margin-top: 10px; align-items: center"><a class="kit-btn sm outline" href="J7-Quality.dc.html">See the failing cluster</a><a class="kit-btn sm outline" href="v6-J11-Traces.dc.html">Open pilot requests in Traces</a></div>
+        <div class="kit-asof" style="margin-top: 8px">As of 11:58 ET · source: self-healing gap report, 28 Oct; Official run 1183; judge on a daily production sample</div>
+      </div>
+    </section>
+
+    <!-- ACT: training -->
+    <section id="sec-training" aria-labelledby="h-training" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-training">Training run R-2291</h2><div class="sub">On TLM4 Core 4.2 with the corrected data · started Thu 29 Oct · becomes candidate Domain-Advice v3 on Wed 11 Nov</div></div>
+        <div class="kit-actions"><a class="kit-btn sm outline" href="v6-T2-RunsInFlight.dc.html">Runs in flight</a><a class="kit-btn sm outline" href="v6-T6-Checkpoints.dc.html">Checkpoints</a></div>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-grid-main" style="align-items: start">
+          <table>
+            <thead><tr><th scope="col">Model or checkpoint</th><th scope="col">Run</th><th scope="col" class="num">Use-case score</th><th scope="col" class="num">Safety and grounding</th><th scope="col" class="num">Entity recognition</th><th scope="col">Against v2</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Domain-Advice v2 · prod</th><td>1183 · Official</td><td class="num"><span class="kit-interval">84% <span class="pm">± 1</span></span></td><td class="num"><span class="kit-interval">78% <span class="pm">± 3</span></span></td><td class="num"><span class="kit-interval">88% <span class="pm">± 2</span></span></td><td class="kit-small">Incumbent</td></tr>
+              <tr><th scope="row">R-2291 · checkpoint 1 800</th><td>1195 · <span class="kit-chip env">Practice</span></td><td class="num"><span class="kit-interval">85% <span class="pm">± 1</span></span></td><td class="num"><span class="kit-interval">80% <span class="pm">± 3</span></span></td><td class="num"><span class="kit-interval">85% <span class="pm">± 2</span></span></td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">=</b><span>Tie</span></span> <span class="kit-small kit-muted">· Entity ▼ Worse</span></td></tr>
+              <tr><th scope="row">R-2291 · final checkpoint</th><td>1203 · Official, booked</td><td class="num"><span class="kit-dash" title="not measured yet">—</span></td><td class="num"><span class="kit-dash" title="not measured yet">—</span></td><td class="num"><span class="kit-dash" title="not measured yet">—</span></td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Fri 20 Nov</span></span></td></tr>
+              <tr><th scope="row">Core 4.2 · the base</th><td>1180 · Official</td><td class="num"><span class="kit-interval">81% <span class="pm">± 1</span></span></td><td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span></td><td class="num"><span class="kit-interval">84% <span class="pm">± 2</span></span></td><td class="kit-small">v2 is +3 pts ± 1 · ▲ Better</td></tr>
+            </tbody>
+          </table>
+          <dl class="kit-kv" style="grid-template-columns: 110px 1fr; margin: 0">
+            <dt>Base</dt><dd>TLM4 Core 4.2 · 27B · 4-bit · Enterprise-hosted</dd>
+            <dt>Data</dt><dd><a href="v6-W2-Datasets.dc.html#sec-r2291">advisor-notes-v4</a> · counts and schema only</dd>
+            <dt>Output</dt><dd>Candidate TLM4 Domain-Advice v3</dd>
+            <dt>Approved by</dt><dd>Priya N. against the project budget</dd>
+            <dt>Scoring</dt><dd>Practice on checkpoints · Official on the final</dd>
+            <dt>Cost per 1,000</dt><dd>$4.30 at checkpoint 1 800, same as v2</dd>
+          </dl>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET · source: the training pipeline; runs 1183, 1195 and 1180 on TL Index edition 2026-11</div>
+      </div>
+    </section>
+
+    <!-- ACT: release -->
+    <section id="sec-release" aria-labelledby="h-release" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-release">Release plan</h2><div class="sub">Canary at 5% on checkpoint 1 800 since Sun 1 Nov, widened to 10% on the final checkpoint from Thu 12 Nov, then hold at 10% until promote · v2 stays the roll-back target for 30 days</div></div>
+      </div>
+      <div class="kit-surface">
+        <ol class="kit-steps" aria-label="Release steps" style="list-style: none; margin: 0; padding: 0">
+          <li class="kit-step done"><span class="k">1</span>Canary 5% · since 1 Nov</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="kit-step"><span class="k">2</span>Candidate · 11 Nov</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="kit-step"><span class="k">3</span>Canary 10% · 12 to 19 Nov</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="kit-step"><span class="k">4</span>Hold at 10%</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="kit-step"><span class="k">5</span>Promote to 100%</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="kit-step"><span class="k">6</span>v2 on previous · 30 days</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="kit-step"><span class="k">7</span>v2 retired</li>
+        </ol>
+        <table style="margin-top: 14px">
+          <thead><tr><th scope="col">Step</th><th scope="col" class="num">Traffic on v3</th><th scope="col">Gate to enter<button class="kit-tip below" type="button" aria-label="About release gates">i<span class="kit-tip-bubble" role="tooltip"><b>Gate.</b> What must be true before a step starts. Each step needs the one before. Roll back skips every gate.<span class="src">Source: release plan in the record · as of 11:58 ET</span></span></button></th><th scope="col">Who decides</th><th scope="col">Earliest</th><th scope="col">State</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1 · Canary</th><td class="num">5%</td><td class="kit-small">Checkpoint 1 800 passed the Practice gate · judgement due Fri 6 Nov</td><td>Priya N.</td><td>Sun 1 Nov</td><td><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>Running</span></span></td></tr>
+            <tr><th scope="row">2 · Candidate</th><td class="num">0%</td><td class="kit-small">Final checkpoint passes the candidate gate</td><td>Priya N.</td><td>Wed 11 Nov</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Planned</span></span></td></tr>
+            <tr><th scope="row">3 · Canary</th><td class="num">10%</td><td class="kit-small">Candidate gate passed · canary plan approved</td><td>You</td><td>Thu 12 Nov</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Planned</span></span></td></tr>
+            <tr><th scope="row">4 · Hold</th><td class="num">10%</td><td class="kit-small">Canary closes · no step up without the approval</td><td>No one: automatic</td><td>Thu 19 Nov</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Planned</span></span></td></tr>
+            <tr><th scope="row">5 · Promote</th><td class="num">100%</td><td class="kit-small">Official run 1203 clears every bar · UA-0291-R2 approved</td><td>Head of ThinkLatent</td><td>Fri 20 Nov</td><td><span class="kit-status warning"><b class="g" aria-hidden="true">!</b><span>Not ready</span></span></td></tr>
+            <tr><th scope="row">6 · Previous</th><td class="num">100%</td><td class="kit-small">Automatic on promote · v2 stays warm as the roll-back target</td><td>No one: automatic</td><td>20 Nov to 20 Dec</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Planned</span></span></td></tr>
+            <tr><th scope="row">7 · Retired</th><td class="num">100%</td><td class="kit-small">30 days on previous · a roll back restarts the clock</td><td>No one: automatic</td><td>Sun 20 Dec</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Planned</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-divider"></div>
+        <div class="kit-grid2" style="align-items: start">
+          <div>
+            <h3>What the canary must show</h3>
+            <table class="kit-small" style="margin-top: 8px">
+              <thead><tr><th scope="col">Measure</th><th scope="col" class="num">Bar</th><th scope="col" class="num">v2, 30 days</th><th scope="col">v3 canary</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Consistency, long threads</th><td class="num">75%</td><td class="num">71% <span class="kit-status critical"><b class="g" aria-hidden="true">✕</b><span>Below bar</span></span></td><td>At 5% since 1 Nov · read 6 Nov</td></tr>
+                <tr><th scope="row">Time to first token, p95</th><td class="num">800 ms</td><td class="num">640 ms <span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Met</span></span></td><td>At 5% since 1 Nov · aggregate</td></tr>
+                <tr><th scope="row">Error rate</th><td class="num">1%</td><td class="num">0.22% <span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Met</span></span></td><td>At 5% since 1 Nov · aggregate</td></tr>
+                <tr><th scope="row">Availability</th><td class="num">99.9%</td><td class="num">99.96% <span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Met</span></span></td><td>At 5% since 1 Nov · aggregate</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <h3>One-way doors</h3>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+              <button class="kit-btn kit-hold" type="button" aria-disabled="true" aria-describedby="hold-promote-why" style="align-self: flex-start"><i aria-hidden="true"></i><span>Hold to promote v3 to 100% of UC-0291</span></button>
+              <span class="kit-threshold" id="hold-promote-why">Not ready: unlocks when UA-0291-R2 is approved, Fri 20 Nov at the earliest. Moves every advisor to v3.</span>
+            </div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+              <button class="kit-btn decision kit-hold" type="button" aria-describedby="hold-rollback-why" style="align-self: flex-start"><i aria-hidden="true"></i><span>Hold to roll back all traffic to Domain-Advice v2</span></button>
+              <span class="kit-threshold" id="hold-rollback-why">Available now: the v3 canary serves 5% of traffic on checkpoint 1 800. Needs no approval; logged to the record.</span>
+            </div>
+          </div>
+        </div>
+        <details style="margin-top: 14px">
+          <summary class="kit-small" style="cursor: pointer; font-weight: 500">Endpoint builds by alias <span class="kit-eng-label" style="margin-left: 6px">Engineering view</span></summary>
+          <table class="kit-small" style="margin-top: 8px">
+            <thead><tr><th scope="col">Alias</th><th scope="col">Model</th><th scope="col">Endpoint build</th><th scope="col">From</th></tr></thead>
+            <tbody>
+              <tr><th scope="row" class="kit-mono">prod</th><td>TLM4 Domain-Advice v2 on Core 4.2</td><td class="kit-mono">ep-uc0291 · 4.2.1</td><td>Pilot approval UA-0277, 5 Oct</td></tr>
+              <tr><th scope="row" class="kit-mono">canary</th><td>TLM4 Domain-Advice v3, checkpoint 1 800, on Core 4.2</td><td class="kit-mono">ep-uc0291 · 4.3.0-rc</td><td>Sun 1 Nov, 5% of traffic</td></tr>
+              <tr><th scope="row" class="kit-mono">candidate</th><td>TLM4 Domain-Advice v3 on Core 4.2</td><td class="kit-mono">ep-uc0291 · 4.3.0-rc, final checkpoint</td><td>Planned, Wed 11 Nov</td></tr>
+              <tr><th scope="row" class="kit-mono">previous</th><td>TLM4 Core 4.2, no adapter</td><td class="kit-mono">ep-uc0291 · 4.2.0</td><td>Until v2 takes its place on promote</td></tr>
+            </tbody>
+          </table>
+          <div class="kit-small kit-muted" style="margin-top: 6px">A new endpoint build is a new usage and comes back for its own approval.</div>
+        </details>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET · source: release plan and SLOs from the record; v2 measures from the gateway serving log, 6 Oct to 4 Nov</div>
+      </div>
+    </section>
+
+    <!-- ACT: next specialist -->
+    <section id="sec-specialist" aria-labelledby="h-spec" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-spec">Next loop: a specialist for meeting-summary</h2><div class="sub">Starts after the resubmission · data is accumulating now · a specialist must match v2 for less, not beat it</div></div>
+        <button class="kit-btn sm outline" type="button" aria-disabled="true" aria-describedby="spec-why">Train the specialist</button>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-grid-main" style="align-items: start">
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap"><span class="t" style="font-weight: 500">3,120 of 5,000 eligible samples</span><div class="kit-track" role="img" aria-label="3,120 of 5,000 eligible samples, 62%" style="width: 240px"><i style="width: 62%"></i></div><span class="kit-threshold" id="spec-why">Unlocks at 5,000, about Tue 24 Nov</span></div>
+            <table class="kit-small">
+              <thead><tr><th scope="col">How captured threads become samples</th><th scope="col" class="num">Threads</th><th scope="col" class="num">Share</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Captured on meeting-summary since 6 Oct, under the record's capture consent</th><td class="num">7,610</td><td class="num">100%</td></tr>
+                <tr><th scope="row">Pass consent and handling checks</th><td class="num">6,240</td><td class="num">82%</td></tr>
+                <tr><th scope="row">Pass PII review</th><td class="num">4,870</td><td class="num">64%</td></tr>
+                <tr><th scope="row">Pass quality filters · eligible</th><td class="num">3,120</td><td class="num">41%</td></tr>
+              </tbody>
+            </table>
+            <div class="kit-prov"><span><b>Sources of the 3,120:</b></span><span>captured threads 1,520 (outcome events are not instrumented in this window, so none counts as accepted)</span><span>corrections 980</span><span>clusters with a fix 380</span><span>side-by-side pairs 240</span></div>
+          </div>
+          <div class="kit-surface raised" style="padding: 16px">
+            <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">EV</span><span>Evaluation agent</span></span><span>Basis: Official runs 1179 and 1180, paired on 1,186 items</span><span>78% confidence · 10:20</span><a href="v6-E1-EvaluationResults.dc.html">View sources</a></div>
+            <dl class="kit-kv" style="grid-template-columns: 130px 1fr; margin: 12px 0 0">
+              <dt>Student</dt><dd>TLM4 Distil 4.2 · 4B · $1.40 per 1,000 against $4.30</dd>
+              <dt>Starting point</dt><dd>Safety and grounding −13 pts ± 2 · ▼ Worse than Core 4.2</dd>
+              <dt>Bars today</dt><dd>Distil 4.2 clears 0 of 3 UC-0291 bars</dd>
+              <dt>Pass rule</dt><dd>Inside v2's interval on the task, cheaper and faster, and over the 85% floor</dd>
+            </dl>
+            <div class="kit-small kit-muted" style="margin-top: 10px">Honest read: the cost case is real, the Safety gap is the risk.</div>
+          </div>
+        </div>
+        <div class="kit-divider"></div>
+        <h3>Loops by task</h3>
+        <table style="margin-top: 8px">
+          <thead><tr><th scope="col">Task</th><th scope="col" class="num">Share of requests</th><th scope="col">Loop</th><th scope="col">State</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" class="kit-mono">meeting-summary</th><td class="num">52%</td><td class="kit-small">Started from Quality by Priya N. · data at 62% of target</td><td><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>Accumulating</span></span></td></tr>
+            <tr><th scope="row" class="kit-mono">action-items</th><td class="num">24%</td><td class="kit-small">Eligible samples captured, no loop yet</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Not started</span></span></td></tr>
+            <tr><th scope="row" class="kit-mono">client-email-draft</th><td class="num">16%</td><td class="kit-small">No outcome or feedback events: not instrumented in this window</td><td><span class="kit-status warning"><b class="g" aria-hidden="true">!</b><span>No events</span></span></td></tr>
+            <tr><th scope="row" class="kit-mono">topic-tags</th><td class="num">8%</td><td class="kit-small">Eligible samples captured, no loop yet</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Not started</span></span></td></tr>
+          </tbody>
+        </table>
+        <details style="margin-top: 12px">
+          <summary class="kit-small" style="cursor: pointer; font-weight: 500">The two calls the calling apps are missing <span class="kit-eng-label" style="margin-left: 6px">Engineering view</span></summary>
+          <pre class="kit-code" style="margin-top: 8px">client.outcome(request_id, "accepted" | "edited" | "discarded")
+client.feedback(request_id, score, reason)</pre>
+          <div class="kit-actions" style="margin-top: 8px"><button class="kit-btn sm outline" type="button">Copy the two calls</button><button class="kit-btn sm outline" type="button">Send to the app owner</button></div>
+        </details>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET · source: capture pipeline for UC-0291, 6 Oct to 5 Nov; task shares from the gateway serving log, 7 days; Official runs 1179 and 1180</div>
+      </div>
+    </section>
+
+    <!-- ACT: watch -->
+    <section id="sec-watch" aria-labelledby="h-watch" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-watch">Watch: v2 in production until promote</h2><div class="sub">Judged daily, 6 Oct to 4 Nov · aggregates only</div></div>
+        <a class="kit-btn sm outline" href="J7-Quality.dc.html">Quality</a>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-grid-main" style="align-items: start">
+          <div style="min-width: 0"><figure class="kit-fig" aria-labelledby="fig-quality-t">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap"><h3 id="fig-quality-t">Quality in production, judged daily</h3></div>
+<div class="plot"><svg role="img" aria-label="Quality in production, judged daily" width="920" height="260" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 920 260">
+<rect width="920" height="260" x="0" y="0" fill="none"></rect>
+<path d="M49.8 232.5L904 232.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr5-cls-14"></path>
+<path d="M49.8 179.5L904 179.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr5-cls-14"></path>
+<path d="M49.8 127.5L904 127.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr5-cls-14"></path>
+<path d="M49.8 74.5L904 74.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr5-cls-14"></path>
+<path d="M49.8 22.5L904 22.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr5-cls-14"></path>
+<path d="M49.8 232.5L904 232.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-linecap="round" class="zr5-cls-14"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(41.84 232)" fill="#5C5C5A">60%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(41.84 179.5)" fill="#5C5C5A">70%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(41.84 127)" fill="#5C5C5A">80%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(41.84 74.5)" fill="#5C5C5A">90%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(41.84 22)" fill="#5C5C5A">100%</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(49.84 240)" fill="#5C5C5A">6 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(108.7476 240)" fill="#5C5C5A">8 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(167.6552 240)" fill="#5C5C5A">10 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(226.5628 240)" fill="#5C5C5A">12 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(285.4703 240)" fill="#5C5C5A">14 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(344.3779 240)" fill="#5C5C5A">16 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(403.2855 240)" fill="#5C5C5A">18 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(462.1931 240)" fill="#5C5C5A">20 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(521.1007 240)" fill="#5C5C5A">22 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(580.0083 240)" fill="#5C5C5A">24 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(638.9159 240)" fill="#5C5C5A">26 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(697.8234 240)" fill="#5C5C5A">28 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(756.731 240)" fill="#5C5C5A">30 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(815.6386 240)" fill="#5C5C5A">1 Nov</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(874.5462 240)" fill="#5C5C5A">3 Nov</text>
+<g clip-path="url(#zr5-c0)">
+<path d="M49.8 142.8L79.3 132.3L108.7 132.3L138.2 127L167.7 121.8L197.1 148L226.6 148L256 116.5L285.5 137.5L314.9 148L344.4 153.3L373.8 137.5L403.3 142.8L432.7 121.8L462.2 137.5L491.6 132.3L521.1 121.8L550.6 137.5L580 142.8L609.5 116.5L638.9 132.3L668.4 153.3L697.8 153.3L727.3 148L756.7 148L786.2 153.3L815.6 142.8L845.1 121.8L874.5 142.8L904 148" fill="none" pointer-events="visible" stroke="#8A8A88" stroke-width="1.25" stroke-linejoin="bevel" class="zr5-cls-16"></path>
+</g>
+<g clip-path="url(#zr5-c1)">
+<path d="M49.8 95.5L79.3 106L108.7 106L138.2 100.8L167.7 95.5L197.1 111.3L226.6 116.5L256 111.3L285.5 106L314.9 95.5L344.4 116.5L373.8 106L403.3 95.5L432.7 111.3L462.2 106L491.6 100.8L521.1 111.3L550.6 111.3L580 90.3L609.5 100.8L638.9 90.3L668.4 106L697.8 111.3L727.3 100.8L756.7 116.5L786.2 100.8L815.6 95.5L845.1 100.8L874.5 111.3L904 116.5L904 232L874.5 232L845.1 232L815.6 232L786.2 232L756.7 232L727.3 232L697.8 232L668.4 232L638.9 232L609.5 232L580 232L550.6 232L521.1 232L491.6 232L462.2 232L432.7 232L403.3 232L373.8 232L344.4 232L314.9 232L285.5 232L256 232L226.6 232L197.1 232L167.7 232L138.2 232L108.7 232L79.3 232L49.8 232Z" fill="#3E9A5C" fill-opacity="0.12" class="zr5-cls-16"></path>
+<path d="M49.8 95.5L79.3 106L108.7 106L138.2 100.8L167.7 95.5L197.1 111.3L226.6 116.5L256 111.3L285.5 106L314.9 95.5L344.4 116.5L373.8 106L403.3 95.5L432.7 111.3L462.2 106L491.6 100.8L521.1 111.3L550.6 111.3L580 90.3L609.5 100.8L638.9 90.3L668.4 106L697.8 111.3L727.3 100.8L756.7 116.5L786.2 100.8L815.6 95.5L845.1 100.8L874.5 111.3L904 116.5L904 232L874.5 232L845.1 232L815.6 232L786.2 232L756.7 232L727.3 232L697.8 232L668.4 232L638.9 232L609.5 232L580 232L550.6 232L521.1 232L491.6 232L462.2 232L432.7 232L403.3 232L373.8 232L344.4 232L314.9 232L285.5 232L256 232L226.6 232L197.1 232L167.7 232L138.2 232L108.7 232L79.3 232L49.8 232Z" fill="url(#zr5-p0)" fill-opacity="0.12" class="zr5-cls-14"></path>
+<path d="M49.8 95.5L79.3 106L108.7 106L138.2 100.8L167.7 95.5L197.1 111.3L226.6 116.5L256 111.3L285.5 106L314.9 95.5L344.4 116.5L373.8 106L403.3 95.5L432.7 111.3L462.2 106L491.6 100.8L521.1 111.3L550.6 111.3L580 90.3L609.5 100.8L638.9 90.3L668.4 106L697.8 111.3L727.3 100.8L756.7 116.5L786.2 100.8L815.6 95.5L845.1 100.8L874.5 111.3L904 116.5" fill="none" pointer-events="visible" stroke="#3E9A5C" stroke-width="2.5" stroke-linejoin="bevel" class="zr5-cls-16"></path>
+</g>
+<g clip-path="url(#zr5-c2)">
+<path d="" fill="none" pointer-events="visible" stroke="#3E9A5C" stroke-width="2" stroke-linejoin="bevel" class="zr5-cls-14"></path>
+</g>
+<path d="M49.8 127.5L904 127.5" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="1.25" stroke-dasharray="5,2.5" ecmeta_series_index="2" ecmeta_data_index="0" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr5-cls-14"></path>
+<path d="M49.8 101.5L904 101.5" fill="none" pointer-events="visible" stroke="#C4262E" stroke-width="1.25" stroke-dasharray="5,2.5" ecmeta_series_index="2" ecmeta_data_index="1" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr5-cls-14"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:11px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="-5.5" transform="translate(899 122)" fill="#1A1A1A">Use-case bar · 80%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:11px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="-5.5" transform="translate(899 95.75)" fill="#C4262E">Safety floor · 85%</text>
+<defs >
+<clipPath id="zr5-c0">
+<path d="M49 21.4l857 0l0 211.3l-857 0Z" fill="#000" class="zr5-cls-15"></path>
+</clipPath>
+<clipPath id="zr5-c1">
+<path d="M48 20.8l858 0l0 212.5l-858 0Z" fill="#000" class="zr5-cls-15"></path>
+</clipPath>
+<pattern width="1" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)" id="zr5-p0">
+<g >
+<path d="M0 -6l1 0l0 2l-1 0Z" fill="#5C5C5A"></path>
+<path d="M1 -6l1 0l0 2l-1 0Z" fill="#5C5C5A"></path>
+<path d="M0 0l1 0l0 2l-1 0Z" fill="#5C5C5A"></path>
+<path d="M1 0l1 0l0 2l-1 0Z" fill="#5C5C5A"></path>
+</g>
+</pattern>
+<clipPath id="zr5-c2">
+<path d="M48 21l858 0l0 212l-858 0Z" fill="#000" class="zr5-cls-14"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr5-cls-14:hover {
+pointer-events:none;
+}
+.zr5-cls-15:hover {
+cursor:pointer;
+fill:rgba(0,0,0,1);
+}
+.zr5-cls-16:hover {
+cursor:pointer;
+}
+
+]]>
+
+</style>
+</svg></div>
+<figcaption class="kit-small">About 200 judged a weekday (±5 a day); quality holds near 84%, Safety and grounding sits under the 85% floor.</figcaption>
+<div class="kit-source" style="margin-top: 0">Source: Judge v2.3 on a daily production sample; 25% also graded by a person</div>
+<details><summary class="kit-small" style="cursor: pointer; font-weight: 500">View as table</summary><table class="kit-small" style="margin-top: 8px"><thead><tr><th scope="col">Day</th><th scope="col" class="num">Quality (judged)</th><th scope="col" class="num">Safety and grounding (judged)</th></tr></thead><tbody><tr><th scope="row">6 Oct</th><td class="num">86%</td><td class="num">77%</td></tr><tr><th scope="row">7 Oct</th><td class="num">84%</td><td class="num">79%</td></tr><tr><th scope="row">8 Oct</th><td class="num">84%</td><td class="num">79%</td></tr><tr><th scope="row">9 Oct</th><td class="num">85%</td><td class="num">80%</td></tr><tr><th scope="row">10 Oct</th><td class="num">86%</td><td class="num">81%</td></tr><tr><th scope="row">11 Oct</th><td class="num">83%</td><td class="num">76%</td></tr><tr><th scope="row">12 Oct</th><td class="num">82%</td><td class="num">76%</td></tr><tr><th scope="row">13 Oct</th><td class="num">83%</td><td class="num">82%</td></tr><tr><th scope="row">14 Oct</th><td class="num">84%</td><td class="num">78%</td></tr><tr><th scope="row">15 Oct</th><td class="num">86%</td><td class="num">76%</td></tr><tr><th scope="row">16 Oct</th><td class="num">82%</td><td class="num">75%</td></tr><tr><th scope="row">17 Oct</th><td class="num">84%</td><td class="num">78%</td></tr><tr><th scope="row">18 Oct</th><td class="num">86%</td><td class="num">77%</td></tr><tr><th scope="row">19 Oct</th><td class="num">83%</td><td class="num">81%</td></tr><tr><th scope="row">20 Oct</th><td class="num">84%</td><td class="num">78%</td></tr><tr><th scope="row">21 Oct</th><td class="num">85%</td><td class="num">79%</td></tr><tr><th scope="row">22 Oct</th><td class="num">83%</td><td class="num">81%</td></tr><tr><th scope="row">23 Oct</th><td class="num">83%</td><td class="num">78%</td></tr><tr><th scope="row">24 Oct</th><td class="num">87%</td><td class="num">77%</td></tr><tr><th scope="row">25 Oct</th><td class="num">85%</td><td class="num">82%</td></tr><tr><th scope="row">26 Oct</th><td class="num">87%</td><td class="num">79%</td></tr><tr><th scope="row">27 Oct</th><td class="num">84%</td><td class="num">75%</td></tr><tr><th scope="row">28 Oct</th><td class="num">83%</td><td class="num">75%</td></tr><tr><th scope="row">29 Oct</th><td class="num">85%</td><td class="num">76%</td></tr><tr><th scope="row">30 Oct</th><td class="num">82%</td><td class="num">76%</td></tr><tr><th scope="row">31 Oct</th><td class="num">85%</td><td class="num">75%</td></tr><tr><th scope="row">1 Nov</th><td class="num">86%</td><td class="num">77%</td></tr><tr><th scope="row">2 Nov</th><td class="num">85%</td><td class="num">81%</td></tr><tr><th scope="row">3 Nov</th><td class="num">83%</td><td class="num">77%</td></tr><tr><th scope="row">4 Nov</th><td class="num">82%</td><td class="num">76%</td></tr></tbody></table></details>
+</figure></div>
+          <dl class="kit-kv" style="grid-template-columns: 130px 1fr; margin: 34px 0 0">
+            <dt>Judged</dt><dd>5,200 in 30 days</dd>
+            <dt>Also by a person</dt><dd>1,300</dd>
+            <dt>Agreement<button class="kit-tip end" type="button" aria-label="About judge agreement">i<span class="kit-tip-bubble" role="tooltip"><b>Judge–human agreement.</b> Cohen's κ between the judge and people on the same summaries. 0.71 reads as substantial.<span class="src">Source: daily production sample, 30 days · as of 11:58 ET</span></span></button></dt><dd>κ 0.71 · substantial</dd>
+            <dt>Open alert</dt><dd>AL-2211 · consistency below its bar · <span class="kit-status critical"><b class="g" aria-hidden="true">●</b><span>Open · Critical</span></span></dd>
+            <dt>Resolved</dt><dd>AL-2209 and AL-2210 · INC-0412, 24 Oct</dd>
+          </dl>
+        </div>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET · pilot request content is in Traces; daily figures are aggregates</div>
+      </div>
+    </section>
+
+    <!-- TRACE -->
+    <section id="sec-trace" aria-labelledby="h-trace" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-trace">Trace</h2><div class="sub">Approvals for UC-0291 and its models, and where every number on this page comes from</div></div>
+        <a class="kit-btn sm outline" href="O5-AuditExport.dc.html">Export audit pack</a>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Approval</th><th scope="col">Date</th><th scope="col">Model</th><th scope="col">Scope</th><th scope="col">Run</th><th scope="col">Outcome</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">UA-0261</th><td>Fri 2 Oct</td><td>TLM4 Core 4.2</td><td class="kit-small">Model approved for pilots, edition 2026-10</td><td>1158</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Approved</span></span></td></tr>
+            <tr><th scope="row">UA-0277</th><td>Mon 5 Oct</td><td>TLM4 Domain-Advice v2</td><td class="kit-small">Pilot in production, edition 2026-10</td><td>1160</td><td><span class="kit-status good"><b class="g" aria-hidden="true">✓</b><span>Approved</span></span></td></tr>
+            <tr><th scope="row"><a href="v6-V1-Approval.dc.html">UA-0291</a></th><td>Thu 5 Nov</td><td>TLM4 Domain-Advice v2</td><td class="kit-small">Production</td><td>1183</td><td><span class="kit-status info"><b class="g" aria-hidden="true">●</b><span>Recommendation: send back with 2 findings · decision due today</span></span></td></tr>
+            <tr><th scope="row">UA-0291-R2</th><td>Fri 20 Nov</td><td>TLM4 Domain-Advice v3</td><td class="kit-small">Production, resubmission</td><td>1203, booked</td><td><span class="kit-status neutral"><b class="g" aria-hidden="true">○</b><span>Planned</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-prov" style="margin-top: 12px"><span><b>Sources</b></span><span>use-case record UC-0291</span><span>Official runs 1183, 1180, 1179</span><span>Practice run 1195</span><span>gateway serving log, 6 Oct to 4 Nov</span><span>self-healing gap report, 28 Oct</span><span>training pipeline, R-2291</span><span>capture pipeline</span><span>approval log</span></div>
+        <div class="kit-asof" style="margin-top: 8px">As of Thu 5 Nov 2026, 11:58 ET</div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6500}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

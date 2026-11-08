@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · Projects (v6)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-hold{position:relative;overflow:hidden;isolation:isolate}
+.kit-hold .fill{position:absolute;inset:0 auto 0 0;width:0;background:rgba(255,255,255,.22);z-index:-1;transition:width 2s linear}
+.kit-hold:active .fill{width:100%}
+.kit-hold[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+.kit-hold[aria-disabled="true"]:active .fill{width:0}
+.kit-chart-svg{overflow-x:auto}
+.kit-chart-svg svg{max-width:100%;height:auto;display:block}
+.kit-chart-table summary{cursor:pointer}
+.kit-wf{display:grid;grid-template-columns:230px minmax(0,1fr) 130px;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--hairline);font-size:13px}
+.kit-wf .bar{position:relative;height:12px}
+.kit-wf .bar i{position:absolute;top:0;height:12px;border-radius:4px;min-width:3px}
+tbody th[scope=row]{font-size:14px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--ink)}
+tr:last-child th{border-bottom:0}
+tbody th[scope=row]{white-space:nowrap}
+tr.selected th{background:rgba(108,183,105,.12)}
+.kit-wf .g{padding-left:0}.kit-wf .c{padding-left:14px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; flex: 1 1 auto; width: 100%; box-sizing: border-box">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="v6-J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="v6-T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+  <main class="kit-main" style="width: 100%; max-width: 1440px; margin: 0 auto; box-sizing: border-box">
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div class="kit-page-head" style="align-items: center">
+        <h1>Projects</h1>
+        <div class="kit-actions" style="align-items: center">
+          <div class="kit-seg" role="group" aria-label="Whose projects"><button type="button" aria-pressed="true">All</button><button type="button" aria-pressed="false">Mine</button></div>
+          <a class="kit-btn" href="v6-J0-StartProject.dc.html">Start a project</a>
+          <a class="kit-btn outline" href="#sec-intake">Bring us a problem</a>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+        <p class="kit-muted">Every use case across the Enterprise's business lines: where it stands, what holds it, what it costs and what it saves.</p>
+        <span class="kit-asof">All business lines · as of Thu 5 Nov 2026, 11:58 ET</span>
+      </div>
+    </div>
+
+    <div class="kit-tiles" style="grid-template-columns: repeat(5, minmax(0, 1fr))">
+      <section class="kit-tile" aria-label="Use cases">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></span><a class="kit-open" href="#sec-inventory" aria-label="Open the inventory">↗</a></div>
+        <div class="kit-tile-title">Use cases</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">6</div><div class="kit-tile-cap">POC 2 · Active build 2 · Pilot in production 2</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="In Production">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span><a class="kit-open" href="#sec-why" aria-label="Why none in Production">↗</a></div>
+        <div class="kit-tile-title">In Production<button class="kit-tip" type="button" aria-label="About the Safety floor">i<span class="kit-tip-bubble" role="tooltip"><b>Safety and grounding floor.</b> Policy C-2 sets 85% for every use case. A bar is cleared only when score − half-width is at or above it.<span class="src">Source: the record, policy C-2 · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0</div><div class="kit-tile-cap">No model clears the 85% Safety and grounding floor</div></div><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Held</span></span></div>
+      </section>
+      <section class="kit-tile" aria-label="Pilots in production">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="#sec-adoption" aria-label="Open adoption">↗</a></div>
+        <div class="kit-tile-title">Tasks a weekday, UC-0291</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">9,194</div><div class="kit-tile-cap">Largest pilot · UC-0142 runs 3,100</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Avoided in 30 days">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M9 10h6"></path><path d="M9 14h6"></path></svg></span><a class="kit-open" href="#sec-value" aria-label="Open value">↗</a></div>
+        <div class="kit-tile-title">Avoided in 30 days<button class="kit-tip" type="button" aria-label="About cost avoided">i<span class="kit-tip-bubble" role="tooltip"><b>Cost avoided.</b> The same tasks priced on the frontier API at $21.00 per 1,000, less what the Enterprise paid. Finance method v1.2.<span class="src">Source: gateway usage and HyperPod billing · as of 11:58 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">$2,317</div><div class="kit-tile-cap">UC-0291 pilot · $2,105 paid against $4,422</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Next decision">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><a class="kit-open" href="#sec-approvals" aria-label="Open approvals">↗</a></div>
+        <div class="kit-tile-title">Next decision</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">Today</div><div class="kit-tile-cap">UA-0291 · recommendation: send back · resubmission 20 Nov</div></div><span class="kit-status open"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Open</span></span></div>
+      </section>
+    </div>
+
+    <section id="sec-why" class="kit-surface kit-decide" aria-labelledby="h-why">
+      <div class="kit-surface-head">
+        <div>
+          <h2 id="h-why" style="display: flex; align-items: center; gap: 10px">Why nothing is in Production yet <span class="kit-chip decision">3</span></h2>
+          <div class="sub">The 85% Safety and grounding floor applies to every use case, and no Official run clears it. UC-0291's resubmission is due Fri 20 Nov.</div>
+        </div>
+        <span class="kit-small kit-muted">Agents propose, you decide</span>
+      </div>
+      <div class="kit-grid2" style="margin-top: 14px; align-items: start">
+        <dl class="kit-kv" style="grid-template-columns: 210px 1fr; margin: 0">
+          <dt>The floor</dt><dd>85%, policy C-2 · cleared when score − half-width ≥ 85%</dd>
+          <dt>Best Official, frontier</dt><dd>Run 1181 · <span class="kit-interval">84% <span class="pm">± 2</span></span> · <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></dd>
+          <dt>Best Official, TLM</dt><dd>Run 1183 · TLM4 Domain-Advice v2 · <span class="kit-interval">78% <span class="pm">± 3</span></span> · <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></dd>
+          <dt>Practice, not citable</dt><dd>Run 1195 · Domain-Advice v3, checkpoint 1 800 · <span class="kit-interval">80% <span class="pm">± 3</span></span> <span class="kit-chip env">Practice</span></dd>
+          <dt>Next evidence</dt><dd>Official run 1203 on Domain-Advice v3 · resubmission UA-0291-R2 due Fri 20 Nov</dd>
+        </dl>
+        <div class="kit-rows">
+          <article class="kit-row" aria-labelledby="w1" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status open"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Open</span></span><span class="t" id="w1">UC-0291 resubmits on Domain-Advice v3, due 20 Nov</span></div>
+            <div class="kit-small kit-muted">UA-0291 · Recommendation: send back with 2 findings · decision due today: Safety and grounding, and consistency on long threads (71% against 75%)</div>
+            <div class="kit-actions"><a class="kit-btn sm outline" href="v6-V1-Approval.dc.html">Open UA-0291</a><a class="kit-btn sm ghost" href="J8-Improve.dc.html">See the improve loop</a></div>
+          </article>
+          <article class="kit-row" aria-labelledby="w2" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Held by the floor</span></span><span class="t" id="w2">UC-0307 asked for Pilot; Core 4.2 clears 1 of 2 bars</span></div>
+            <div class="kit-small kit-muted">Safety and grounding <span class="kit-interval">76% <span class="pm">± 3</span></span> on run 1180 · Tomás R. owns</div>
+            <div class="kit-actions"><button class="kit-btn sm outline" type="button">Keep in Active build</button><button class="kit-btn sm ghost" type="button">Reply to Tomás R.</button></div>
+          </article>
+          <article class="kit-row" aria-labelledby="w3" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Held by the floor</span></span><span class="t" id="w3">UC-0142 stays a pilot in production</span></div>
+            <div class="kit-small kit-muted">Claims adapter v2 on TLM4 Distil 4.2 · base Safety and grounding <span class="kit-interval">63% <span class="pm">± 3</span></span> on run 1179 · Marcus L. owns</div>
+            <div class="kit-actions"><a class="kit-btn sm outline" href="v6-J2-ProjectHome.dc.html">Open UC-0142</a></div>
+          </article>
+        </div>
+      </div>
+      <div style="margin-top: 14px"><div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">PF</span><span>Portfolio agent</span></span><span>Basis: sufficiency for UC-0291, UC-0142, UC-0307, UC-0311 and R-0418 on Official runs 1179 to 1183; the record's approval log</span><span>81% confidence</span><a href="v6-E1-EvaluationResults.dc.html">View sources</a></div></div>
+      <p style="margin: 8px 0 0">Keep every use case at its stage until an Official run clears the floor. Put UC-0291's resubmission first; if run 1203 clears, the same corrected safety data is the shortest path for UC-0307 and R-0418, which miss only on safety.</p>
+      <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Official TL Index runs 1179, 1180, 1181 and 1183; Practice run 1195; bars and policy C-2 from the record; approvals from the record's approval log.</span></button></div>
+    </section>
+
+    <nav class="kit-sectionbar" aria-label="On this page" style="align-self: flex-start"><a href="#sec-inventory" aria-current="true">Inventory <span class="n">6</span></a><a href="#sec-portfolio">Portfolio</a><a href="#sec-approvals">Approvals</a><a href="#sec-adoption">Adoption</a><a href="#sec-value">Value</a><a href="#sec-intake">Intake <span class="n">5</span></a></nav>
+
+    <section id="sec-inventory" aria-labelledby="h-inv" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-inv">Use-case inventory</h2><div class="sub">Six use cases in four business lines · none in Production</div></div>
+        <div class="kit-actions" style="align-items: center"><div class="kit-seg" role="group" aria-label="Stage"><button type="button" aria-pressed="true">All stages</button><button type="button" aria-pressed="false">POC</button><button type="button" aria-pressed="false">Active build</button><button type="button" aria-pressed="false">Pilot in production</button><button type="button" aria-pressed="false">Production · 0</button></div><button class="kit-btn sm outline" type="button">Export CSV</button></div>
+      </div>
+      <div class="kit-surface">
+        <figure class="kit-chart" style="margin: 0; display: flex; flex-direction: column; gap: 8px"><h3>Use cases by stage, 5 Nov</h3><div class="kit-chart-svg"><svg role="img" aria-label="Use cases by stage, 5 Nov" width="640" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 640 200">
+<rect width="640" height="200" x="0" y="0" fill="none"></rect>
+<path d="M115.5 16L115.5 172" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr11-cls-27"></path>
+<path d="M240.5 16L240.5 172" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr11-cls-27"></path>
+<path d="M366.5 16L366.5 172" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr11-cls-27"></path>
+<path d="M492.5 16L492.5 172" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr11-cls-27"></path>
+<path d="M617.5 16L617.5 172" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr11-cls-27"></path>
+<path d="M115.5 16L115.5 172" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-linecap="round" class="zr11-cls-27"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(106.76 35.5)" fill="#1A1A1A">POC</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(106.76 74.5)" fill="#1A1A1A">Active build</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(106.76 113.5)" fill="#1A1A1A">Pilot in production</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(106.76 152.5)" fill="#1A1A1A">Production</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="6" transform="translate(114.76 180)" fill="#5C5C5A">0</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="6" transform="translate(240.48 180)" fill="#5C5C5A">0.5</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="6" transform="translate(366.2 180)" fill="#5C5C5A">1</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="6" transform="translate(491.92 180)" fill="#5C5C5A">1.5</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="6" transform="translate(617.64 180)" fill="#5C5C5A">2</text>
+<path d="M114.8 22L613.6 22A4 4 0 0 1 617.6 26L617.6 45A4 4 0 0 1 613.6 49L114.8 49L114.8 22Z" fill="#3E9A5C" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr11-cls-28"></path>
+<path d="M114.8 22L613.6 22A4 4 0 0 1 617.6 26L617.6 45A4 4 0 0 1 613.6 49L114.8 49L114.8 22Z" fill="url(#zr11-p0)" class="zr11-cls-27"></path>
+<path d="M114.8 61L613.6 61A4 4 0 0 1 617.6 65L617.6 84A4 4 0 0 1 613.6 88L114.8 88L114.8 61Z" fill="#3E9A5C" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr11-cls-28"></path>
+<path d="M114.8 61L613.6 61A4 4 0 0 1 617.6 65L617.6 84A4 4 0 0 1 613.6 88L114.8 88L114.8 61Z" fill="url(#zr11-p0)" class="zr11-cls-27"></path>
+<path d="M114.8 100L613.6 100A4 4 0 0 1 617.6 104L617.6 123A4 4 0 0 1 613.6 127L114.8 127L114.8 100Z" fill="#3E9A5C" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr11-cls-28"></path>
+<path d="M114.8 100L613.6 100A4 4 0 0 1 617.6 104L617.6 123A4 4 0 0 1 613.6 127L114.8 127L114.8 100Z" fill="url(#zr11-p0)" class="zr11-cls-27"></path>
+<path d="M114.8 139L114.8 166L114.8 139Z" fill="#3E9A5C" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr11-cls-28"></path>
+<path d="M114.8 139L114.8 166L114.8 139Z" fill="url(#zr11-p0)" class="zr11-cls-27"></path>
+<defs >
+<pattern width="1" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)" id="zr11-p0">
+<g >
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+</g>
+</pattern>
+</defs>
+<style ><![CDATA[
+.zr11-cls-27:hover {
+pointer-events:none;
+}
+.zr11-cls-28:hover {
+cursor:pointer;
+}
+
+]]>
+
+</style>
+</svg></div><figcaption style="display: flex; flex-direction: column; gap: 4px"><span>None in Production yet: no model clears the 85% Safety floor until run 1203 on 20 Nov.</span><span class="kit-small kit-muted">Source: Use-case records</span></figcaption></figure>
+        <table style="margin-top: 16px">
+          <thead><tr><th scope="col">Use case</th><th scope="col">Business line</th><th scope="col">Stage<button class="kit-tip" type="button" aria-label="About stages">i<span class="kit-tip-bubble" role="tooltip"><b>Stage.</b> From the record: POC, Active build, Pilot in production, Production. Pilot in production serves a fixed cohort; Production serves everyone and needs the floor cleared.<span class="src">Source: the record · as of 11:58 ET</span></span></button></th><th scope="col">Model</th><th scope="col">Owner</th><th scope="col" class="num">Tasks a weekday<button class="kit-tip" type="button" aria-label="About tasks a weekday">i<span class="kit-tip-bubble" role="tooltip"><b>Tasks a weekday.</b> Mean weekday volume through the gateway; pilots only. Earlier stages run in the sandbox and are not counted.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></th><th scope="col" class="num">Safety and grounding</th><th scope="col">85% floor</th><th scope="col">Note</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><a href="v6-J3-Overview.dc.html">UC-0291</a><div class="kit-small kit-muted">Advisor summary</div></th><td>Retail Advice</td><td><span class="kit-chip brand">Pilot in production</span></td><td class="kit-small">TLM4 Domain-Advice v2</td><td style="white-space: nowrap">Priya N.</td><td class="num">9,194</td><td class="num"><span class="kit-interval">78% <span class="pm">± 3</span></span></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td class="kit-small">Live use case · resubmission due 20 Nov on v3</td></tr>
+            <tr><th scope="row"><a href="v6-J3-Overview.dc.html">UC-0142</a><div class="kit-small kit-muted">Claims triage</div></th><td>Institutional Ops</td><td><span class="kit-chip brand">Pilot in production</span></td><td class="kit-small">Claims adapter v2 on TLM4 Distil 4.2</td><td style="white-space: nowrap">Marcus L.</td><td class="num">3,100</td><td class="num"><span class="kit-interval">63% <span class="pm">± 3</span></span><div class="kit-small kit-muted">base model</div></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td class="kit-small">Held below Production by the 85% Safety floor</td></tr>
+            <tr><th scope="row"><a href="v6-J3-Overview.dc.html">UC-0218</a><div class="kit-small kit-muted">Meeting notes to CRM</div></th><td>Retail Advice</td><td><span class="kit-chip env">Active build</span></td><td class="kit-small">TLM4 Core 4.2</td><td style="white-space: nowrap">Dana K.</td><td class="num">—</td><td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td class="kit-small">Practice run 1199 in flight</td></tr>
+            <tr><th scope="row"><a href="v6-J3-Overview.dc.html">UC-0307</a><div class="kit-small kit-muted">Fund document Q&amp;A</div></th><td>Investment Mgmt</td><td><span class="kit-chip env">Active build</span></td><td class="kit-small">TLM4 Core 4.2</td><td style="white-space: nowrap">Tomás R.</td><td class="num">—</td><td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td class="kit-small">Requested Pilot</td></tr>
+            <tr><th scope="row"><a href="v6-J3-Overview.dc.html">UC-0311</a><div class="kit-small kit-muted">Policy lookup agent</div></th><td>Compliance</td><td><span class="kit-chip env">POC</span></td><td class="kit-small">TLM4 Core 4.2</td><td style="white-space: nowrap">Aisha B.</td><td class="num">—</td><td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td class="kit-small">—</td></tr>
+            <tr><th scope="row"><a href="v6-J3-Overview.dc.html">R-0418</a><div class="kit-small kit-muted">Custodian breaks</div></th><td>Institutional Ops</td><td><span class="kit-chip env">POC</span></td><td class="kit-small">TLM4 Core 4.2 (sandbox)</td><td style="white-space: nowrap">Marcus L.</td><td class="num">—</td><td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span></td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td class="kit-small">Started 5 Nov</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-threshold" style="margin-top: 10px">Non-members see names, stage, owner and counts only; request-level data stays with project members.</div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: use-case records; Safety and grounding from the latest Official run of each model (1183, 1180, 1179); tasks from the gateway serving log, aggregate.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-portfolio" aria-labelledby="h-port" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-port">Portfolio evidence</h2><div class="sub">Each use case's model on its own bars · operations for pilots only, 6 Oct to 4 Nov</div></div>
+        <a class="kit-btn sm outline" href="v6-E1-EvaluationResults.dc.html">Official runs</a>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Use case</th><th scope="col">Model</th><th scope="col" class="num">Official run</th><th scope="col" class="num">Quality</th><th scope="col" class="num">Safety and grounding</th><th scope="col">Bars cleared<button class="kit-tip" type="button" aria-label="About bars cleared">i<span class="kit-tip-bubble" role="tooltip"><b>Bars cleared.</b> The use case's bars from its record plus the 85% floor; cleared when score − half-width is at or above the bar.<span class="src">Source: sufficiency on Official runs · as of 11:58 ET</span></span></button></th><th scope="col" class="num">Cost per 1,000 tasks</th><th scope="col">Pilot operations, 30 days</th><th scope="col">Approval</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">UC-0291</th><td class="kit-small">TLM4 Domain-Advice v2</td><td class="num">1183</td><td class="num"><span class="kit-interval">84% <span class="pm">± 1</span></span></td><td class="num"><span class="kit-interval">78% <span class="pm">± 3</span></span></td><td class="kit-small">2 of 3 · misses safety</td><td class="num">$4.30</td><td class="kit-small">p95 first token 640 ms · 99.96% available · 0.22% errors</td><td class="kit-small">UA-0291 · recommendation: send back · decision due today</td></tr>
+            <tr><th scope="row">UC-0142</th><td class="kit-small">Claims adapter v2 · base TLM4 Distil 4.2</td><td class="num">1179 · base</td><td class="num"><span class="kit-interval">72% <span class="pm">± 1</span></span></td><td class="num"><span class="kit-interval">63% <span class="pm">± 3</span></span></td><td class="kit-small">Base 0 of 3 · adapter not scored on edition 2026-11</td><td class="num">$1.40 · base</td><td class="kit-small">Not in this window</td><td class="kit-small">UA-0284 pilot, 21 Oct</td></tr>
+            <tr><th scope="row">UC-0218</th><td class="kit-small">TLM4 Core 4.2</td><td class="num">1180</td><td class="num"><span class="kit-interval">81% <span class="pm">± 1</span></span></td><td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span></td><td class="kit-small">Bars not set yet</td><td class="num">$5.20</td><td class="kit-small"><span class="kit-chip env">Non-production</span></td><td class="kit-small">—</td></tr>
+            <tr><th scope="row">UC-0307</th><td class="kit-small">TLM4 Core 4.2</td><td class="num">1180</td><td class="num"><span class="kit-interval">81% <span class="pm">± 1</span></span></td><td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span></td><td class="kit-small">1 of 2 · misses safety</td><td class="num">$5.20</td><td class="kit-small"><span class="kit-chip env">Non-production</span></td><td class="kit-small">Pilot requested</td></tr>
+            <tr><th scope="row">UC-0311</th><td class="kit-small">TLM4 Core 4.2</td><td class="num">1180</td><td class="num"><span class="kit-interval">81% <span class="pm">± 1</span></span></td><td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span></td><td class="kit-small">0 of 2 · misses compliance and safety</td><td class="num">$5.20</td><td class="kit-small"><span class="kit-chip env">Non-production</span></td><td class="kit-small">—</td></tr>
+            <tr><th scope="row">R-0418</th><td class="kit-small">TLM4 Core 4.2</td><td class="num">1180</td><td class="num"><span class="kit-interval">81% <span class="pm">± 1</span></span></td><td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span></td><td class="kit-small">4 of 5 · misses safety</td><td class="num">$5.20</td><td class="kit-small"><span class="kit-chip env">Non-production</span></td><td class="kit-small">—</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-threshold" style="margin-top: 10px">One open alert across the portfolio: AL-2211 on UC-0291, consistency across attempts 71% against 75% (F-0412). Loop state per use case lives on its Improve page.</div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Official TL Index runs 1179, 1180 and 1183 on edition 2026-11; sufficiency per use case; pilot operations from the gateway serving log, UC-0291, 6 Oct to 4 Nov; alerts from the alert service.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-approvals" aria-labelledby="h-appr" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-appr">Approvals</h2><div class="sub">Pilot approvals in October on edition 2026-10; production decisions on edition 2026-11</div></div><a class="kit-btn sm outline" href="V2-Validation.dc.html">All approvals</a></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Approval</th><th scope="col">Date</th><th scope="col">Model</th><th scope="col">Use case</th><th scope="col">Scope</th><th scope="col" class="num">Run</th><th scope="col">Outcome</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">UA-0291-R2</th><td>Fri 20 Nov · due</td><td>advice-v3</td><td>UC-0291</td><td>Production (resubmission)</td><td class="num">1203</td><td><span class="kit-status open"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Open · due 20 Nov</span></span></td></tr>
+            <tr><th scope="row"><a href="v6-V1-Approval.dc.html">UA-0291</a></th><td>Thu 5 Nov</td><td>advice-v2</td><td>UC-0291</td><td>Production</td><td class="num">1183</td><td><span class="kit-status open"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Recommendation: send back with 2 findings · decision due today</span></span></td></tr>
+            <tr><th scope="row">UA-0284</th><td>Wed 21 Oct</td><td>distil-4.2</td><td>UC-0142</td><td>Pilot in production for the Claims adapter v2</td><td class="num">1173</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved</span></span></td></tr>
+            <tr><th scope="row">UA-0277</th><td>Mon 5 Oct</td><td>advice-v2</td><td>UC-0291</td><td>Pilot in production (edition 2026-10)</td><td class="num">1160</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved</span></span></td></tr>
+            <tr><th scope="row">UA-0261</th><td>Fri 2 Oct</td><td>core-4.2</td><td>—</td><td>Model approved for pilots (edition 2026-10)</td><td class="num">1158</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: the record's approval log.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-adoption" aria-labelledby="h-adopt" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-adopt">Adoption</h2><div class="sub">Who is using ThinkLatent, how far each line has got, and where teams are stuck</div></div><a class="kit-btn sm outline" href="v6-J10-Usage.dc.html">Usage across projects</a></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Business line</th><th scope="col">Use cases</th><th scope="col">Furthest stage</th><th scope="col" class="num">Tasks a weekday</th><th scope="col">Adopted<button class="kit-tip" type="button" aria-label="About adopted">i<span class="kit-tip-bubble" role="tooltip"><b>Adopted business line.</b> At least one use case with a Production call in the last 30 days. Pilots do not count.<span class="src">Source: gateway serving log · as of 11:58 ET</span></span></button></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Retail Advice</th><td>UC-0291, UC-0218</td><td>Pilot in production</td><td class="num">9,194</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not yet · no Production</span></span></td></tr>
+            <tr><th scope="row">Institutional Ops</th><td>UC-0142, R-0418</td><td>Pilot in production</td><td class="num">3,100</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not yet · no Production</span></span></td></tr>
+            <tr><th scope="row">Investment Mgmt</th><td>UC-0307</td><td>Active build</td><td class="num">—</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not yet</span></span></td></tr>
+            <tr><th scope="row">Compliance</th><td>UC-0311</td><td>POC</td><td class="num">—</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not yet</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-grid2" style="margin-top: 16px; align-items: start">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div class="kit-label">Path to Production</div>
+            <p style="margin: 0">POC 2 → Active build 2 → Pilot in production 2 → Production 0. The last step is where every use case stops: the 85% floor.</p>
+            <div class="kit-label" style="margin-top: 8px">UC-0291 pilot reach, 30 days</div>
+            <dl class="kit-kv" style="grid-template-columns: 170px 1fr; margin: 0">
+              <dt>Tasks</dt><dd>210,570 · about 2.5% more a week</dd>
+              <dt>Judged in production</dt><dd>5,200 · 1,300 also by a person</dd>
+              <dt>Judge and people agree</dt><dd>κ 0.71 · substantial</dd>
+            </dl>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div class="kit-label">Stuck points and champions</div>
+            <div class="kit-rows">
+              <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto; padding: 10px 12px"><div><div class="t">UC-0218 · waits on Practice run 1199</div><div class="s">Practice is not citable; a Pilot request needs an Official run</div></div><button class="kit-btn sm outline" type="button">Pair with Priya N.</button></div>
+              <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto; padding: 10px 12px"><div><div class="t">UC-0311 · clears 0 of 2 bars on Core 4.2</div><div class="s">Compliance <span class="kit-interval">80% <span class="pm">± 2</span></span> and safety below their bars</div></div><button class="kit-btn sm outline" type="button">Pair with Elena R.</button></div>
+              <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto; padding: 10px 12px"><div><div class="t">R-0418 · started today</div><div class="s">Core 4.2 clears 4 of 5 bars in the sandbox; safety is the miss</div></div><button class="kit-btn sm outline" type="button">Ask a champion</button></div>
+            </div>
+            <div class="kit-small kit-muted">Champions: Priya N. (Retail Advice), Marcus L. (Institutional Ops), Elena R. (Validation). They see names, stage and the question, never request-level data.</div>
+          </div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: use-case records; gateway serving log, aggregate; judge v2.3 on the daily production sample of UC-0291, 6 Oct to 4 Nov.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-value" aria-labelledby="h-value" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-value">Value</h2><div class="sub">Finance method v1.2 · 30 days, 6 Oct to 4 Nov · pilots only until a use case reaches Production</div></div><a class="kit-btn sm outline" href="v6-J10-Usage.dc.html">Cost showback</a></div>
+      <div class="kit-surface">
+        <div class="kit-grid-main" style="align-items: start">
+          <figure class="kit-chart" style="margin: 0; display: flex; flex-direction: column; gap: 8px"><h3>Spend over 30 days</h3><div class="kit-chart-svg"><svg role="img" aria-label="Spend over 30 days" width="920" height="240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 920 240">
+<rect width="920" height="240" x="0" y="0" fill="none"></rect>
+<path d="M56 188.5L904 188.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr9-cls-23"></path>
+<path d="M56 155.5L904 155.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr9-cls-23"></path>
+<path d="M56 121.5L904 121.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr9-cls-23"></path>
+<path d="M56 88.5L904 88.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr9-cls-23"></path>
+<path d="M56 55.5L904 55.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr9-cls-23"></path>
+<path d="M56 22.5L904 22.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr9-cls-23"></path>
+<path d="M56 188.5L904 188.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-linecap="round" class="zr9-cls-23"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(47.96 188)" fill="#5C5C5A">$0</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(47.96 154.8)" fill="#5C5C5A">$1,000</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(47.96 121.6)" fill="#5C5C5A">$2,000</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(47.96 88.4)" fill="#5C5C5A">$3,000</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(47.96 55.2)" fill="#5C5C5A">$4,000</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" transform="translate(47.96 22)" fill="#5C5C5A">$5,000</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(161.965 196)" fill="#1A1A1A">Frontier API </text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="18" transform="translate(161.965 196)" fill="#1A1A1A">path</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(373.975 196)" fill="#1A1A1A">Owned </text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="18" transform="translate(373.975 196)" fill="#1A1A1A">serving </text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="30" transform="translate(373.975 196)" fill="#1A1A1A">instead</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(585.985 196)" fill="#1A1A1A">Dedicated </text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="18" transform="translate(585.985 196)" fill="#1A1A1A">endpoint </text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="30" transform="translate(585.985 196)" fill="#1A1A1A">share</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(797.995 196)" fill="#1A1A1A">What the </text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="18" transform="translate(797.995 196)" fill="#1A1A1A">Enterprise </text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="30" transform="translate(797.995 196)" fill="#1A1A1A">pays</text>
+<path d="M142 188l40 0l0 0l-40 0Z" fill="none" pointer-events="visible" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr9-cls-23"></path>
+<path d="M142 188l40 0l0 0l-40 0Z" fill="url(#zr9-p0)" class="zr9-cls-23"></path>
+<path d="M354 188l40 0l0 -30l-40 0Z" fill="none" pointer-events="visible" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr9-cls-23"></path>
+<path d="M354 188l40 0l0 -30l-40 0Z" fill="url(#zr9-p0)" class="zr9-cls-23"></path>
+<path d="M566 188l40 0l0 -30l-40 0Z" fill="none" pointer-events="visible" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr9-cls-23"></path>
+<path d="M566 188l40 0l0 -30l-40 0Z" fill="url(#zr9-p0)" class="zr9-cls-23"></path>
+<path d="M778 188l40 0l0 0l-40 0Z" fill="none" pointer-events="visible" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr9-cls-23"></path>
+<path d="M778 188l40 0l0 0l-40 0Z" fill="url(#zr9-p0)" class="zr9-cls-23"></path>
+<path d="M145 41.2L179 41.2A3 3 0 0 1 182 44.2L182 185A3 3 0 0 1 179 188L145 188A3 3 0 0 1 142 185L142 44.2A3 3 0 0 1 145 41.2Z" fill="#3E9A5C" ecmeta_series_index="1" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr9-cls-24"></path>
+<path d="M145 41.2L179 41.2A3 3 0 0 1 182 44.2L182 185A3 3 0 0 1 179 188L145 188A3 3 0 0 1 142 185L142 44.2A3 3 0 0 1 145 41.2Z" fill="url(#zr9-p1)" class="zr9-cls-23"></path>
+<path d="M357 41.2L391 41.2A3 3 0 0 1 394 44.2L394 155A3 3 0 0 1 391 158L357 158A3 3 0 0 1 354 155L354 44.2A3 3 0 0 1 357 41.2Z" fill="#2F7A6D" ecmeta_series_index="1" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr9-cls-24"></path>
+<path d="M357 41.2L391 41.2A3 3 0 0 1 394 44.2L394 155A3 3 0 0 1 391 158L357 158A3 3 0 0 1 354 155L354 44.2A3 3 0 0 1 357 41.2Z" fill="url(#zr9-p1)" class="zr9-cls-23"></path>
+<path d="M569 118.1L603 118.1A3 3 0 0 1 606 121.1L606 155A3 3 0 0 1 603 158L569 158A3 3 0 0 1 566 155L566 121.1A3 3 0 0 1 569 118.1Z" fill="#C4262E" ecmeta_series_index="1" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr9-cls-24"></path>
+<path d="M569 118.1L603 118.1A3 3 0 0 1 606 121.1L606 155A3 3 0 0 1 603 158L569 158A3 3 0 0 1 566 155L566 121.1A3 3 0 0 1 569 118.1Z" fill="url(#zr9-p1)" class="zr9-cls-23"></path>
+<path d="M781 118.1L815 118.1A3 3 0 0 1 818 121.1L818 185A3 3 0 0 1 815 188L781 188A3 3 0 0 1 778 185L778 121.1A3 3 0 0 1 781 118.1Z" fill="#3E9A5C" ecmeta_series_index="1" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr9-cls-24"></path>
+<path d="M781 118.1L815 118.1A3 3 0 0 1 818 121.1L818 185A3 3 0 0 1 815 188L781 188A3 3 0 0 1 778 185L778 121.1A3 3 0 0 1 781 118.1Z" fill="url(#zr9-p1)" class="zr9-cls-23"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:11px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="-5.5" transform="translate(161.965 36.1896)" fill="#1A1A1A">$4,422.00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:11px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="-5.5" transform="translate(373.975 36.1896)" fill="#1A1A1A">−$3,517.00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:11px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="-5.5" transform="translate(585.985 113.114)" fill="#1A1A1A">+$1,200.00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:11px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="-5.5" transform="translate(797.995 113.114)" fill="#1A1A1A">$2,105.00</text>
+<defs >
+<pattern width="1" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)" id="zr9-p0">
+<g >
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+</g>
+</pattern>
+<pattern width="10" height="10" patternUnits="userSpaceOnUse" id="zr9-p1">
+<g >
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+<path d="" fill="none"></path>
+</g>
+</pattern>
+</defs>
+<style ><![CDATA[
+.zr9-cls-23:hover {
+pointer-events:none;
+}
+.zr9-cls-24:hover {
+cursor:pointer;
+}
+
+]]>
+
+</style>
+</svg></div><figcaption style="display: flex; flex-direction: column; gap: 4px"><span>Finance method v1.2: $2,105 paid against $4,422 on the frontier API, $2,317 avoided.</span><span class="kit-small kit-muted">Source: Gateway usage × cost per 1,000 tasks; endpoint share from HyperPod billing</span></figcaption></figure>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <dl class="kit-kv" style="grid-template-columns: 170px 1fr; margin: 0">
+              <dt>Tasks served</dt><dd class="kit-num">210,570</dd>
+              <dt>Serving at $4.30 per 1,000</dt><dd class="kit-num">$905</dd>
+              <dt>Dedicated endpoint share</dt><dd class="kit-num">$1,200</dd>
+              <dt>Paid</dt><dd class="kit-num">$2,105</dd>
+              <dt>Frontier API at $21.00 per 1,000</dt><dd class="kit-num">$4,422</dd>
+              <dt>Avoided</dt><dd class="kit-num"><b>$2,317</b></dd>
+            </dl>
+            <div class="kit-small kit-muted">Avoided cost compares price, not quality: the frontier API also misses the 85% floor (run 1181, <span class="kit-interval">84% <span class="pm">± 2</span></span>).</div>
+          </div>
+        </div>
+        <div class="kit-label" style="margin-top: 16px">Statements for Finance</div>
+        <table style="margin-top: 6px">
+          <thead><tr><th scope="col">Statement</th><th scope="col">Scope</th><th scope="col">Method</th><th scope="col">State</th><th scope="col">Files</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">30 days to 4 Nov</th><td>UC-0291 pilot · paid $2,105 · avoided $2,317</td><td>Finance method v1.2</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Issued</span></span></td><td><a href="#sec-value">PDF</a> · <a href="#sec-value">CSV</a></td></tr>
+            <tr><th scope="row">November 2026</th><td>Open month · closes Mon 30 Nov</td><td>Finance method v1.2</td><td><span class="kit-status open"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Open</span></span></td><td>—</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-threshold" style="margin-top: 10px">Production totals and owners' declared hours start with the first use case in Production. None on 5 Nov.</div>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: gateway usage × cost per 1,000 tasks; dedicated endpoint share from HyperPod billing; Finance method v1.2.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-intake" aria-labelledby="h-intake" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-intake">Intake queue</h2><div class="sub">Stage requests and new problems, reviewed Thursdays at 11:00 · every requester sees their place</div></div><a class="kit-btn sm" href="v6-J0-StartProject.dc.html">Start a project</a></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col" class="num">Place</th><th scope="col">Request</th><th scope="col">Type</th><th scope="col">From</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" class="num">1</th><td>UC-0291 · Pilot in production → Production<div class="kit-small kit-muted">Resubmission UA-0291-R2 on Domain-Advice v3, due Fri 20 Nov</div></td><td>Stage request</td><td>Priya N. · Retail Advice</td><td><span class="kit-status open"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Open · due 20 Nov</span></span></td></tr>
+            <tr><th scope="row" class="num">2</th><td>UC-0307 · Active build → Pilot in production<div class="kit-small kit-muted">Core 4.2 clears 1 of 2 bars; safety below the floor</div></td><td>Stage request</td><td>Tomás R. · Investment Mgmt</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Held by the floor</span></span></td></tr>
+            <tr><th scope="row" class="num">3</th><td>UC-0311 · POC → Active build<div class="kit-small kit-muted">Needs an Official run on its own set</div></td><td>Stage request</td><td>Aisha B. · Compliance</td><td><span class="kit-status open"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Waiting for an Official run</span></span></td></tr>
+            <tr><th scope="row" class="num">4</th><td>R-0418 · Custodian breaks<div class="kit-small kit-muted">Sent as a problem; POC started 5 Nov with a sandbox key</div></td><td>New project</td><td>Marcus L. · Institutional Ops</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Started</span></span></td></tr>
+            <tr><th scope="row" class="num">5</th><td>R-0421 · Draft RFP answers from past responses<div class="kit-small kit-muted">Sent from the ThinkLatent site, 2 Nov</div></td><td>Not yet a project</td><td>Institutional Sales</td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>New</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:58 ET <button class="kit-tip end" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: intake queue and the record's stage log; places recomputed after each Thursday review.</span></button></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4790}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

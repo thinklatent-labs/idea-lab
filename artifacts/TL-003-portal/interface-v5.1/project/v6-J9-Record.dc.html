@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>J9 · Use-case record · UC-0291 (v6)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}tbody th{font-size:14px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:500}tr:last-child th{border-bottom:0}tr.selected th{background:rgba(108,183,105,.12)}.kit-figure-plot svg{display:block;max-width:100%;height:auto}.kit-hold{position:relative;overflow:hidden;isolation:isolate}.kit-hold i{position:absolute;inset:0 auto 0 0;width:0;background:rgba(255,255,255,.28);z-index:-1;transition:width 2s linear}.kit-hold:active i{width:100%}.kit-hold.outline i{background:rgba(196,38,46,.14)}.kit-tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}.kit-tl li{display:grid;grid-template-columns:110px 22px minmax(0,1fr) auto;gap:12px;align-items:start;padding:10px 0;border-top:1px solid var(--hairline)}.kit-tl li:first-child{border-top:0}.kit-tl .d{font-size:13px;font-weight:500;font-variant-numeric:tabular-nums}.kit-tl .dot{width:12px;height:12px;border-radius:50%;margin-top:4px;border:2px solid var(--companion);background:var(--companion)}.kit-tl .dot.plan{background:transparent;border-style:dashed;border-color:var(--muted)}.kit-tl .dot.back{background:var(--decision);border-color:var(--decision)}
+</style>
+</helmet>
+<div class="kit-app" data-layout="expand" style="display: flex; flex-direction: column; flex: 1 1 auto; width: 100%; box-sizing: border-box; min-height: 9460px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="v6-J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="v6-T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main" style="width: 100%; max-width: 1440px; margin: 0 auto; box-sizing: border-box">
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="v6-J1-Projects.dc.html">Projects</a><span class="sep" aria-hidden="true">›</span><a href="v6-J2-ProjectHome.dc.html">Retail Advice</a><span class="sep" aria-hidden="true">›</span><a href="v6-J3-Overview.dc.html">UC-0291 Advisor summary</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Record</span></nav>
+      <div class="kit-page-head" style="align-items: flex-start">
+        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+          <h1>Advisor summary · record</h1>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center">
+            <span class="kit-chip brand">Pilot in production</span>
+            <span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Production sent back 5 Nov · 2 findings</span></span>
+            <a class="kit-chip outline" href="v6-M2-ModelPage.dc.html">prod → TLM4 Domain-Advice v2</a>
+            <span class="kit-chip">Risk tier 2 of 4</span>
+            <span class="kit-chip">Sensitivity tier 3 of 3</span>
+            <span class="kit-chip outline">Production · aggregates only</span>
+          </div>
+          <p style="font-size: 15px">Run 1183 clears the use-case, Client care and Compliance bars but not the 85% Safety and grounding floor, so UA-0291 went back today. The resubmission, UA-0291-R2 on Domain-Advice v3, is planned for Fri 20 Nov.</p>
+          <div class="kit-asof">Retail Advice · owner Priya N. · validator Elena R. · approver Jithin, Head of ThinkLatent · As of Thu 5 Nov 2026, 16:30 ET</div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px">
+          <div class="kit-actions"><a class="kit-btn" href="#decide">Decide</a><button class="kit-btn outline" type="button">Request a change</button><a class="kit-btn outline" href="O5-AuditExport.dc.html">Export audit pack</a></div>
+          <a class="kit-small" href="v6-V1-Approval.dc.html">Open UA-0291, sent back</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="kit-rail" aria-label="Use case" style="align-self: flex-start"><a href="v6-J3-Overview.dc.html">Overview</a><a href="v6-J4-Traffic.dc.html">Performance</a><a href="v6-J6-Models.dc.html">Models</a><a href="v6-J7-Quality.dc.html">Quality</a><a href="v6-J8-Improve.dc.html">Improve</a><a href="v6-J9-Record.dc.html" aria-current="page">Record</a></nav>
+
+    <nav class="kit-sectionbar" aria-label="On this page" style="align-self: flex-start"><a href="#sec-bars" aria-current="true">Bars <span class="n">2 of 3</span></a><a href="#decide">Decide <span class="n">2</span></a><a href="#sec-evidence">Evidence</a><a href="#sec-findings">Findings <span class="n">4 open</span></a><a href="#sec-monitoring">Monitoring <span class="n">1 alert</span></a><a href="#sec-approvals">Approvals <span class="n">1 planned</span></a><a href="#sec-requirements">Requirements <span class="n">v4</span></a><a href="#sec-completeness">Completeness <span class="n">11 of 12</span></a><a href="#sec-audit">Audit trail</a></nav>
+
+    <div class="kit-tiles">
+      <section class="kit-tile" aria-label="Phase">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4"></path><path d="M4 4h12l-2 4 2 4H4"></path></svg></span><a class="kit-open" href="#sec-approvals" aria-label="Open approval history">↗</a></div>
+        <div class="kit-tile-title">Phase</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">Pilot<span class="unit">in production</span></div><div class="kit-tile-cap">Since 5 Oct · UA-0277 · Production sent back 5 Nov</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Bars cleared by run 1183">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path></svg></span><a class="kit-open" href="#sec-bars" aria-label="Open the bars">↗</a></div>
+        <div class="kit-tile-title">Bars cleared, run 1183<button class="kit-tip" type="button" aria-label="About clearing a bar">i<span class="kit-tip-bubble" role="tooltip"><b>Cleared.</b> The lower end of the 95% interval is at or above the bar. 84% ± 1 clears 80%; 78% ± 3 does not clear 85%.<span class="src">Source: Official TL Index run 1183 · as of 16:30 ET</span></span></button></div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">2<span class="unit">of 3</span></div><div class="kit-tile-cap">Safety and grounding 78% ± 3 under the 85% floor</div></div><div class="kit-track" role="img" aria-label="2 of 3 bars cleared" style="width: 80px"><i class="crit" style="width: 67%"></i></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Open findings">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span><a class="kit-open" href="#sec-findings" aria-label="Open findings">↗</a></div>
+        <div class="kit-tile-title">Open findings</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">4<span class="unit">2 Critical</span></div><div class="kit-tile-cap">F-0412 and F-0431 block Production</div></div><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Blocks</span></span></div>
+      </section>
+      <section class="kit-tile" aria-label="Summaries, 30 days">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="v6-J4-Traffic.dc.html" aria-label="Open traffic">↗</a></div>
+        <div class="kit-tile-title">Summaries, 30 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">210,570</div><div class="kit-tile-cap">8,858 on the last weekday · aggregates only</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Record completeness">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><path d="M14 3v6h6"></path></svg></span><a class="kit-open" href="#sec-completeness" aria-label="Open record completeness">↗</a></div>
+        <div class="kit-tile-title">Record completeness</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">11<span class="unit">of 12</span></div><div class="kit-tile-cap">Validation 2 of 3 · monitoring plan signed 14 Oct</div></div><div class="kit-track" role="img" aria-label="11 of 12 parts complete" style="width: 80px"><i class="warn" style="width: 92%"></i></div></div>
+      </section>
+      <section class="kit-tile ink" aria-label="Next approval">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18"></path><path d="M8 3v4"></path><path d="M16 3v4"></path></svg></span><a class="kit-open" href="#sec-approvals" aria-label="Open the planned resubmission">↗</a></div>
+        <div class="kit-tile-title">Next approval</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">20<span class="unit">Nov</span></div><div class="kit-tile-cap">UA-0291-R2 · Official run 1203 on Domain-Advice v3</div></div><span class="kit-chip brand">Planned</span></div>
+      </section>
+    </div>
+
+    <section id="sec-bars" aria-labelledby="h-bars" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-bars">Bars on the record, against run 1183</h2><div class="sub">8 of 10 met · the record's three bars: Client care and Compliance cleared, the Safety and grounding floor missed · regression gate holds</div></div>
+        <div class="kit-legend"><span><i style="background: #3E9A5C"></i>Run 1183 with its 95% interval</span><span><i style="background: #5C5C5A"></i>Bar, dashed</span></div>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Requirement</th><th scope="col" class="num">Bar<button class="kit-tip" type="button" aria-label="About the bars">i<span class="kit-tip-bubble" role="tooltip"><b>Bars.</b> The owner sets the use-case, Client care and Compliance bars on the record. Safety and grounding is the 85% policy floor every use case holds. Financial data processing and Entity recognition have no bar; they only must not fall against the base.</span></button></th><th scope="col" class="num">Run 1183<button class="kit-tip" type="button" aria-label="About run 1183">i<span class="kit-tip-bubble" role="tooltip"><b>Official run 1183.</b> TLM4 Domain-Advice v2 on the Advisor summary set, 1,186 items. ± is the 95% interval.<span class="src">Source: TL Index edition 2026-11</span></span></button></th><th scope="col">Against the bar · 60–100%</th><th scope="col" class="num">Base, run 1180<button class="kit-tip" type="button" aria-label="About the regression gate">i<span class="kit-tip-bubble" role="tooltip"><b>Regression gate.</b> Each pillar against TLM4 Core 4.2 on Official run 1180, paired on shared items. The gate holds when no pillar is Worse.<span class="src">Source: paired test, TL Index edition 2026-11</span></span></button></th><th scope="col">Bar from</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" style="font-weight: 500">Use-case score</th><td class="num">≥ 80%</td><td class="num"><span class="kit-interval">84% <span class="pm">± 1</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="84% ± 1 against the 80% bar, cleared"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="92" y="6" width="8" height="8" rx="4" fill="#A8D5B5"></rect><line x1="80" y1="2" x2="80" y2="18" stroke="#5C5C5A" stroke-width="1.5" stroke-dasharray="2 1.5"></line><circle cx="96" cy="10" r="4" fill="#3E9A5C"></circle></svg></td><td class="num"><span class="kit-dash" title="Not part of the regression gate">—</span></td><td class="kit-small">UC-0291 record</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr><tr><th scope="row" style="font-weight: 500">Client care<div class="kit-small kit-muted">gate pillar</div></th><td class="num">≥ 80%</td><td class="num"><span class="kit-interval">87% <span class="pm">± 2</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="87% ± 2 against the 80% bar, cleared"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="100" y="6" width="16" height="8" rx="4" fill="#A8D5B5"></rect><line x1="80" y1="2" x2="80" y2="18" stroke="#5C5C5A" stroke-width="1.5" stroke-dasharray="2 1.5"></line><circle cx="108" cy="10" r="4" fill="#3E9A5C"></circle></svg></td><td class="num"><span class="kit-interval">82% <span class="pm">± 2</span></span> <span class="kit-small kit-muted">+5 pts ± 2 · ▲ Better</span></td><td class="kit-small">UC-0291 record</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr><tr><th scope="row" style="font-weight: 500">Compliance and regulatory<div class="kit-small kit-muted">gate pillar</div></th><td class="num">≥ 80%</td><td class="num"><span class="kit-interval">83% <span class="pm">± 3</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="83% ± 3 against the 80% bar, lower end on the bar"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="80" y="6" width="24" height="8" rx="4" fill="#A8D5B5"></rect><line x1="80" y1="2" x2="80" y2="18" stroke="#5C5C5A" stroke-width="1.5" stroke-dasharray="2 1.5"></line><circle cx="92" cy="10" r="4" fill="#3E9A5C"></circle></svg></td><td class="num"><span class="kit-interval">80% <span class="pm">± 2</span></span> <span class="kit-small kit-muted">+3 pts ± 2 · ▲ Better</span></td><td class="kit-small">UC-0291 record</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met, thin</span></span></td></tr><tr><th scope="row" style="font-weight: 500">Safety and grounding<div class="kit-small kit-muted">gate pillar</div></th><td class="num">≥ 85%</td><td class="num"><span class="kit-interval">78% <span class="pm">± 3</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="78% ± 3 against the 85% floor, below"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="60" y="6" width="24" height="8" rx="4" fill="#DADAD8"></rect><line x1="100" y1="2" x2="100" y2="18" stroke="#5C5C5A" stroke-width="1.5" stroke-dasharray="2 1.5"></line><circle cx="72" cy="10" r="4" style="fill: var(--decision)"></circle></svg></td><td class="num"><span class="kit-interval">76% <span class="pm">± 3</span></span> <span class="kit-small kit-muted">+2 pts ± 2 · = Tie</span></td><td class="kit-small">Policy C-2 floor, every use case</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar · F-0431</span></span></td></tr><tr><th scope="row" style="font-weight: 500">Financial data processing<div class="kit-small kit-muted">workflow pillar</div></th><td class="num">gate only</td><td class="num"><span class="kit-interval">86% <span class="pm">± 2</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="86% ± 2, regression gate only"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="96" y="6" width="16" height="8" rx="4" fill="#A8D5B5"></rect><circle cx="104" cy="10" r="4" fill="#3E9A5C"></circle></svg></td><td class="num"><span class="kit-interval">85% <span class="pm">± 2</span></span> <span class="kit-small kit-muted">+1 pts ± 2 · = Tie</span></td><td class="kit-small">Regression gate</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Gate holds</span></span></td></tr><tr><th scope="row" style="font-weight: 500">Entity recognition<div class="kit-small kit-muted">workflow pillar</div></th><td class="num">gate only</td><td class="num"><span class="kit-interval">88% <span class="pm">± 2</span></span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="88% ± 2, regression gate only"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><rect x="104" y="6" width="16" height="8" rx="4" fill="#A8D5B5"></rect><circle cx="112" cy="10" r="4" fill="#3E9A5C"></circle></svg></td><td class="num"><span class="kit-interval">84% <span class="pm">± 2</span></span> <span class="kit-small kit-muted">+4 pts ± 2 · ▲ Better</span></td><td class="kit-small">Regression gate</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Gate holds</span></span></td></tr><tr><th scope="row" style="font-weight: 500">Consistency across attempts<div class="kit-small kit-muted">pass^3 · long threads</div></th><td class="num">≥ 75%</td><td class="num"><span class="kit-interval">71%</span></td><td><svg viewBox="0 0 160 20" width="160" height="20" role="img" aria-label="71% against the 75% bar, below"><line x1="0" y1="10" x2="160" y2="10" stroke="#DADAD8" stroke-width="2"></line><line x1="60" y1="2" x2="60" y2="18" stroke="#5C5C5A" stroke-width="1.5" stroke-dasharray="2 1.5"></line><circle cx="44" cy="10" r="4" style="fill: var(--decision)"></circle></svg></td><td class="num"><span class="kit-dash" title="Not compared">—</span></td><td class="kit-small">UC-0291 record</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar · F-0412</span></span></td></tr><tr><th scope="row" style="font-weight: 500">Interval half-width<div class="kit-small kit-muted">use-case score</div></th><td class="num">≤ 5 pts</td><td class="num">1 pt</td><td><span class="kit-dash" title="Not a score">—</span></td><td class="num"><span class="kit-dash" title="Not compared">—</span></td><td class="kit-small">TL Index method</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr><tr><th scope="row" style="font-weight: 500">Time to first token, p95<div class="kit-small kit-muted">pilot, 30 days</div></th><td class="num">≤ 800 ms</td><td class="num">640 ms</td><td><span class="kit-dash" title="Not a score">—</span></td><td class="num"><span class="kit-dash" title="Not compared">—</span></td><td class="kit-small">SLO, set at onboarding</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr><tr><th scope="row" style="font-weight: 500">Availability<div class="kit-small kit-muted">30 days</div></th><td class="num">≥ 99.9%</td><td class="num">99.96%</td><td><span class="kit-dash" title="Not a score">—</span></td><td class="num"><span class="kit-dash" title="Not compared">—</span></td><td class="kit-small">SLO, set at onboarding</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">Scores from Official TL Index runs 1183 and 1180; consistency from the pilot evaluation window, 6 Oct to 4 Nov; time to first token and availability from the gateway serving log, aggregates · as of 16:30 ET</div>
+      </div>
+    </section>
+
+    <section class="kit-surface kit-decide" id="decide" aria-labelledby="h-decide">
+      <div class="kit-surface-head">
+        <div>
+          <h2 id="h-decide" style="display: flex; align-items: center; gap: 10px">Needs a decision <span class="kit-chip decision">2</span></h2>
+          <div class="sub">UA-0291 is back with two findings. The record needs the resubmission booked and an answer on the cohort.</div>
+        </div>
+        <span class="kit-small kit-muted">Agents propose; you decide</span>
+      </div>
+      <div class="kit-agentline" style="margin-top: 10px"><span class="kit-agent"><span class="av kit-avatar agent">GA</span><span>Governance agent with the Evaluation agent</span></span><span>Basis: UA-0291 sent back 5 Nov · Official run 1183 · F-0412 · training run R-2291 · Practice run 1195</span><span>Confidence: high on the plan, medium on the date</span><a href="#sec-evidence">View sources</a></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 16px; margin-top: 16px; align-items: start">
+        <div class="kit-rows">
+          <article class="kit-row" aria-labelledby="d1-t" aria-current="true" style="grid-template-columns: minmax(0, 1fr); gap: 8px; border-color: #3E9A5C; box-shadow: 0 0 0 1px #3E9A5C">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Recommended</span></span><span class="t" id="d1-t">Book the resubmission UA-0291-R2 for Fri 20 Nov</span><span class="kit-chip outline">Domain-Advice v3</span></div>
+            <div class="s">Training run R-2291 targets both findings. Its final checkpoint becomes the v3 candidate on 11 Nov, replaces checkpoint 1 800 in the canary (5% of traffic since 1 Nov) as it widens to 10% on 12 Nov, and is scored as Official run 1203 on 20 Nov.</div>
+            <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Book UA-0291-R2 for 20 Nov</button><button class="kit-btn sm ghost" type="button" aria-expanded="true" aria-controls="sheet-plan">Details</button><span class="kit-threshold">Reversible: the date can move</span></div>
+          </article>
+          <article class="kit-row" aria-labelledby="d3-t" style="grid-template-columns: minmax(0, 1fr); gap: 8px">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Requested 3 Nov</span></span><span class="t" id="d3-t">Cohort extension, 212 to 400 advisors</span></div>
+            <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">GA</span><span>Governance agent</span></span><span>Basis: Safety and grounding below the floor on run 1183 and judged daily</span><span>Confidence: high</span><a href="#sec-monitoring">View sources</a></div>
+            <div class="s">Recommends holding the cohort at 212 until Production: a larger pilot would widen exposure while the floor is missed.</div>
+            <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Hold at 212 until Production</button><button class="kit-btn sm outline kit-hold" type="button" aria-describedby="hold-help-ext"><i aria-hidden="true"></i>Hold to approve the extension</button><span class="kit-threshold" id="hold-help-ext">Press and hold 2 seconds · one-way: widens the cohort to 400 advisors · logged on the record</span></div>
+          </article>
+        </div>
+
+        <aside class="kit-sheet" id="sheet-plan" aria-labelledby="sheet-t">
+          <div class="kit-sheet-head">
+            <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">GA</span><span>Governance agent · plan</span></span><span>Drafted 12:30 ET</span></div>
+              <h3 id="sheet-t">Resubmit on Domain-Advice v3</h3>
+            </div>
+            <button class="kit-btn ghost sm icon" type="button" aria-label="Close plan detail"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg></button>
+          </div>
+          <dl class="kit-kv" style="grid-template-columns: 120px 1fr; margin: 14px 0 0">
+            <dt>Why</dt><dd>Both findings need a new model: Safety and grounding 78% ± 3 against the 85% floor, and consistency 71% against 75%.</dd>
+            <dt>Early sign</dt><dd>Practice run 1195 (checkpoint 1 800): Safety and grounding 80% ± 3, Entity recognition −3 pts ± 2 ▼ Worse against run 1183. Practice is never citable; it shapes the plan only.</dd>
+            <dt>Would change it</dt><dd>Consistency under 75% when the canary closes on 19 Nov, or any gate pillar Worse on run 1203.</dd>
+            <dt>Cost</dt><dd>$4.30 per 1,000 tasks, the same as v2.</dd>
+          </dl>
+          <div class="kit-prov" style="margin-top: 12px"><span>Basis: <b>Official run 1183</b></span><span><b>Practice run 1195</b></span><span><b>R-2291</b></span><span><b>F-0412</b></span></div>
+          <div class="kit-asof" style="margin-top: 8px">Plan 12:30 ET · runs from the TL Index run log</div>
+        </aside>
+      </div>
+      <div class="kit-asof" style="margin-top: 12px">As of 16:30 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: the Governance and Evaluation agents on the UC-0291 record; training run R-2291 from Training; Practice run 1195 from the TL Index run log; the cohort request from the limits ledger.</span></button></div>
+    </section>
+
+    <section id="sec-evidence" aria-labelledby="h-evidence" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-evidence">Evidence and validation</h2><div class="sub">Official runs only are citable · validation 2 of 3 components signed</div></div><a class="kit-btn sm outline" href="v6-E1-EvaluationResults.dc.html">Open run 1183</a></div>
+      <div class="kit-surface">
+        <figure class="kit-figure" aria-labelledby="h-forest" style="margin: 0; display: flex; flex-direction: column; gap: 8px"><h3 id="h-forest">Run 1183 (Domain-Advice v2) against base run 1180 (Core 4.2)</h3><div class="kit-figure-plot"><svg role="img" aria-label="Run 1183 (Domain-Advice v2) against base run 1180 (Core 4.2)" width="920" height="260" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 920 260">
+<rect width="920" height="260" x="0" y="0" fill="none"></rect>
+<path d="M163.5 8L163.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr6-cls-17"></path>
+<path d="M239.5 8L239.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr6-cls-17"></path>
+<path d="M354.5 8L354.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr6-cls-17"></path>
+<path d="M469.5 8L469.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr6-cls-17"></path>
+<path d="M584.5 8L584.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr6-cls-17"></path>
+<path d="M699.5 8L699.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr6-cls-17"></path>
+<path d="M776.5 8L776.5 232" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr6-cls-17"></path>
+<path d="M469.5 232L469.5 8" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-linecap="round" class="zr6-cls-17"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 213.3333)" fill="#1A1A1A">Entity recognition</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 176)" fill="#1A1A1A">Safety and grounding</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 138.6667)" fill="#1A1A1A">Compliance and regulatory</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 101.3333)" fill="#1A1A1A">Client care</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 64)" fill="#1A1A1A">Financial data processing</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(154.88 26.6667)" fill="#1A1A1A">Use-case score</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(784.2 213.3333)" fill="#1A1A1A">+4 pts ± 2 · ▲ Better</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(784.2 176)" fill="#1A1A1A">+2 pts ± 2 · = Tie</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(784.2 138.6667)" fill="#1A1A1A">+3 pts ± 2 · ▲ Better</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(784.2 101.3333)" fill="#1A1A1A">+5 pts ± 2 · ▲ Better</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(784.2 64)" fill="#1A1A1A">+1 pts ± 2 · = Tie</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(784.2 26.6667)" fill="#1A1A1A">+3 pts ± 1 · ▲ Better</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(162.88 240)" fill="#5C5C5A">−8 pts</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(239.545 240)" fill="#5C5C5A">−6 pts</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(354.5425 240)" fill="#5C5C5A">−3 pts</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="6" transform="translate(469.54 240)" fill="#5C5C5A">0</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(584.5375 240)" fill="#5C5C5A">+3 pts</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(699.535 240)" fill="#5C5C5A">+6 pts</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(776.2 240)" fill="#5C5C5A">+8 pts</text>
+<path d="M546.2 213.3L699.5 213.3" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M546.2 205.1L546.2 221.5" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M699.5 205.1L699.5 221.5" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M469.5 176L622.9 176" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M469.5 167.8L469.5 184.2" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M622.9 167.8L622.9 184.2" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M507.9 138.7L661.2 138.7" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M507.9 130.5L507.9 146.9" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M661.2 130.5L661.2 146.9" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M584.5 101.3L737.9 101.3" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M584.5 93.1L584.5 109.5" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M737.9 93.1L737.9 109.5" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M431.2 64L584.5 64" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M431.2 55.8L431.2 72.2" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M584.5 55.8L584.5 72.2" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M546.2 26.7L622.9 26.7" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M546.2 18.5L546.2 34.9" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M622.9 18.5L622.9 34.9" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-width="2" ecmeta_series_index="0" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<g clip-path="url(#zr6-c0)">
+<path d="" fill="none" pointer-events="visible" stroke="#477C8B" stroke-width="2" stroke-linejoin="bevel" class="zr6-cls-17"></path>
+</g>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(5,0,0,5,622.87,213.3333)" fill="#2F7A6D" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.2" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(5,0,0,5,546.205,176)" fill="#5C5C5A" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.2" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(5,0,0,5,584.5375,138.6667)" fill="#2F7A6D" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.2" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(5,0,0,5,661.2025,101.3333)" fill="#2F7A6D" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.2" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(5,0,0,5,507.8725,64)" fill="#5C5C5A" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.2" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(6.5,0,0,6.5,584.5375,26.6667)" fill="#2F7A6D" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="0.15384615384615385" stroke-opacity="0.8" ecmeta_series_index="1" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr6-cls-18"></path>
+<path d="M469.5 232L469.5 8" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-dasharray="4,2" ecmeta_series_index="2" ecmeta_data_index="0" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr6-cls-17"></path>
+<defs >
+<clipPath id="zr6-c0">
+<path d="M161 7l617 0l0 226l-617 0Z" fill="#000" class="zr6-cls-17"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr6-cls-17:hover {
+pointer-events:none;
+}
+.zr6-cls-18:hover {
+cursor:pointer;
+}
+
+]]>
+
+</style>
+</svg></div><figcaption class="kit-small">The regression gate holds on every pillar.</figcaption><div class="kit-source" style="margin-top: 0">Source: Paired test on shared items, TL Index edition 2026-11</div><details style="margin-top: 4px"><summary class="kit-small" style="cursor: pointer; font-weight: 500">View as table</summary><div style="max-height: 360px; overflow: auto; margin-top: 8px"><table><caption class="kit-small kit-muted" style="text-align: left; caption-side: top; padding-bottom: 6px">Run 1183 (Domain-Advice v2) against base run 1180 (Core 4.2)</caption><thead><tr><th scope="col">Pillar</th><th scope="col" class="num">Difference</th><th scope="col" class="num">Verdict</th><th scope="col" class="num">Shared items</th></tr></thead><tbody><tr><th scope="row">Use-case score</th><td class="num">+3 pts ± 1</td><td>▲ Better</td><td class="num">1,186</td></tr><tr><th scope="row">Financial data processing</th><td class="num">+1 pts ± 2</td><td>= Tie</td><td class="num">238</td></tr><tr><th scope="row">Client care</th><td class="num">+5 pts ± 2</td><td>▲ Better</td><td class="num">237</td></tr><tr><th scope="row">Compliance and regulatory</th><td class="num">+3 pts ± 2</td><td>▲ Better</td><td class="num">238</td></tr><tr><th scope="row">Safety and grounding</th><td class="num">+2 pts ± 2</td><td>= Tie</td><td class="num">233</td></tr><tr><th scope="row">Entity recognition</th><td class="num">+4 pts ± 2</td><td>▲ Better</td><td class="num">240</td></tr></tbody></table></div></details></figure>
+        <div class="kit-divider"></div>
+        <div class="kit-rows">
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t"><a href="v6-E1-EvaluationResults.dc.html">Official TL Index run 1183</a> · TLM4 Domain-Advice v2</div><div class="s"><span class="kit-interval">84% <span class="pm">± 1</span></span> · 1,186 items · judge evaluator v2.3 · cited by UA-0291</div></div>
+            <span class="kit-chip brand">Official</span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t"><a href="v6-E1-EvaluationResults.dc.html">Official TL Index run 1180</a> · TLM4 Core 4.2, the base</div><div class="s"><span class="kit-interval">81% <span class="pm">± 1</span></span> · 1,186 shared items · the regression gate's reference</div></div>
+            <span class="kit-chip brand">Official</span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t">Practice run 1195 · Domain-Advice v3, checkpoint 1 800 · 5 Nov</div><div class="s"><span class="kit-interval">85% <span class="pm">± 1</span></span> · never citable; Official run 1203 is required before UA-0291-R2</div></div>
+            <span class="kit-chip">Practice</span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t"><a href="v6-J7-Quality.dc.html">Pilot evaluation window</a> · 6 Oct to 4 Nov</div><div class="s">5,200 judged · 1,300 also graded by a person · judge–human agreement κ 0.71, substantial</div></div>
+            <span class="kit-chip outline">Production sample</span>
+          </div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto">
+            <div><div class="t">Retail Advice pilot study · 212 advisors · Oct 2026</div><div class="s">Uploaded by Priya N. · evidence from outside the portal, accepted below Production; Official runs replace it at Production</div></div>
+            <span class="kit-chip outline">Outside the portal</span>
+          </div>
+        </div>
+        <div class="kit-divider"></div>
+        <h3>Validation · three components</h3>
+        <div class="kit-grid3" style="margin-top: 10px">
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr); gap: 6px"><div class="t">Conceptual soundness</div><div class="s">Design and data-lineage note v2 · base-model record for TLM4 Core 4.2, report VR-2026-031 · owner requirements v4</div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Signed · Elena R., 1 Oct</span></span></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr); gap: 6px"><div class="t">Outcomes analysis</div><div class="s">Official runs 1183 and 1180 · regression gate holds on every pillar</div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Signed · Elena R., 3 Nov</span></span></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr); gap: 6px"><div class="t">Ongoing monitoring</div><div class="s">Monitoring plan v3 · six signals, signed 14 Oct by Priya N. · the validator's review of it is pending</div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Pending · due 10 Nov</span></span></div>
+        </div>
+        <div class="kit-asof" style="margin-top: 12px">As of 16:30 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: Official TL Index runs 1183 and 1180, paired on 1,186 shared items; Practice run 1195 from the run log; the pilot evaluation window from the judge service (judge v2.3, 25% also graded by a person); validation sign-offs from the record.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-findings" aria-labelledby="h-findings" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-findings">Findings</h2><div class="sub">4 open · 2 Critical block Production · a Critical finding opens a review; the use case keeps serving</div></div><a class="kit-btn sm outline" href="v6-J8-Improve.dc.html">Open Improve</a></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Finding</th><th scope="col">Severity<button class="kit-tip" type="button" aria-label="About severity">i<span class="kit-tip-bubble" role="tooltip"><b>Severity.</b> Critical blocks approval to Production until closed. Major and Minor carry an owner and a due date.</span></button></th><th scope="col">Owner</th><th scope="col">Due</th><th scope="col">State</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" style="font-weight: 500">Answers differ across attempts on long threads<div class="kit-small kit-muted">F-0412 · opened 28 Oct · 71% against 75% · alert AL-2211</div></th><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></td><td>Priya N.</td><td>20 Nov</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Open · blocks Production</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Safety and grounding under the 85% floor<div class="kit-small kit-muted">F-0431 · raised 5 Nov by UA-0291 · 78% ± 3 on run 1183</div></th><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></td><td>Priya N.</td><td>20 Nov</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Open · blocks Production</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Summaries cut off at the length limit<div class="kit-small kit-muted">F-0418 · raised 3 Nov by the Triage agent</div></th><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Major</span></span></td><td>Marcus L.</td><td>14 Nov</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Open</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Client care judge below its calibration floor<div class="kit-small kit-muted">F-0420 · raised 4 Nov by Elena R. · κ 0.68 against 0.70</div></th><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Minor</span></span></td><td>Elena R.</td><td>21 Nov</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Open</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Prompt v6 put an account id in a summary<div class="kit-small kit-muted">F-0391 · raised 2 Oct · fixed in prompt v7</div></th><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></td><td>Priya N.</td><td>10 Oct</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Closed 9 Oct</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-divider"></div>
+        <figure class="kit-figure" aria-labelledby="h-loop" style="margin: 0; display: flex; flex-direction: column; gap: 8px"><h3 id="h-loop">Improve loop for F-0412</h3><div class="kit-figure-plot"><svg role="img" aria-label="Improve loop for F-0412" width="920" height="220" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 920 220">
+<rect width="920" height="220" x="0" y="0" fill="none"></rect>
+<path d="M152.5 44L152.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M177.5 44L177.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M275.5 44L275.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M308.5 44L308.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M406.5 44L406.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M537.5 44L537.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M667.5 44L667.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M798.5 44L798.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<path d="M904.5 44L904.5 198" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr10-cls-25"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 56.8333)" fill="#1A1A1A">F-0412 open</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 82.5)" fill="#1A1A1A">Gap report</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 108.1667)" fill="#1A1A1A">Training R-2291</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 133.8333)" fill="#1A1A1A">Canary 5%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 159.5)" fill="#1A1A1A">Canary 10%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-weight:500;" xml:space="preserve" transform="translate(143.84 185.1667)" fill="#1A1A1A">Run 1203 + UA-0291-R2</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(177.0483 36)" fill="#5C5C5A">29 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(405.9665 36)" fill="#5C5C5A">5 Nov</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(536.777 36)" fill="#5C5C5A">9 Nov</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(667.5874 36)" fill="#5C5C5A">13 Nov</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(798.3978 36)" fill="#5C5C5A">17 Nov</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px Inter, ui-sans-serif, system-ui, sans-serif" xml:space="preserve" y="-6" transform="translate(275.1561 36)" fill="#5C5C5A">1 Nov</text>
+<path d="M158.3 50.4L864.9 50.4A6.4 6.4 0 0 1 871.3 56.8L871.3 56.8A6.4 6.4 0 0 1 864.9 63.3L158.3 63.3A6.4 6.4 0 0 1 151.8 56.8L151.8 56.8A6.4 6.4 0 0 1 158.3 50.4Z" fill="#3E9A5C" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<path d="M158.3 76.1L178.1 76.1A6.4 6.4 0 0 1 184.5 82.5L184.5 82.5A6.4 6.4 0 0 1 178.1 88.9L158.3 88.9A6.4 6.4 0 0 1 151.8 82.5L151.8 82.5A6.4 6.4 0 0 1 158.3 76.1Z" fill="#8A8A88" fill-opacity="0.55" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<path d="M191 101.8L603.3 101.8A6.4 6.4 0 0 1 609.7 108.2L609.7 108.2A6.4 6.4 0 0 1 603.3 114.6L191 114.6A6.4 6.4 0 0 1 184.5 108.2L184.5 108.2A6.4 6.4 0 0 1 191 101.8Z" fill="#3E9A5C" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<path d="M289.1 127.4L603.3 127.4A6.4 6.4 0 0 1 609.7 133.8A6.4 6.4 0 0 1 603.3 140.2L289.1 140.2A6.4 6.4 0 0 1 282.7 133.8A6.4 6.4 0 0 1 289.1 127.4Z" fill="#3E9A5C" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<path d="M648.8 153.1L864.9 153.1A6.4 6.4 0 0 1 871.3 159.5L871.3 159.5A6.4 6.4 0 0 1 864.9 165.9L648.8 165.9A6.4 6.4 0 0 1 642.4 159.5L642.4 159.5A6.4 6.4 0 0 1 648.8 153.1Z" fill="#477C8B" stroke="#ECECEA" ecmeta_series_index="0" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<path d="M906 178.8A2 2 0 0 1 908 180.8L908 189.6A2 2 0 0 1 906 191.6A2 2 0 0 1 904 189.6L904 180.8A2 2 0 0 1 906 178.8Z" fill="#477C8B" stroke="#ECECEA" ecmeta_series_index="0" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr10-cls-26"></path>
+<g clip-path="url(#zr10-c0)">
+<path d="" fill="none" pointer-events="visible" stroke="#2F7A6D" stroke-width="2" stroke-linejoin="bevel" class="zr10-cls-25"></path>
+</g>
+<path d="M413.5 44L413.5 198" fill="none" pointer-events="visible" stroke="#1A1A1A" stroke-dasharray="4,2" ecmeta_series_index="1" ecmeta_data_index="0" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr10-cls-25"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:11px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" y="5.5" transform="translate(413.4609 203)" fill="#1A1A1A">Today</text>
+<defs >
+<clipPath id="zr10-c0">
+<path d="M150 43l756 0l0 156l-756 0Z" fill="#000" class="zr10-cls-25"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr10-cls-25:hover {
+pointer-events:none;
+}
+.zr10-cls-26:hover {
+cursor:pointer;
+}
+
+]]>
+
+</style>
+</svg></div><figcaption class="kit-small">From the finding to the resubmission; today is 5 Nov.</figcaption><div class="kit-source" style="margin-top: 0">Source: Use-case record UC-0291</div></figure>
+        <ol class="kit-tl" aria-label="Improve loop for F-0412, dated steps" style="margin-top: 8px"><li><span class="d">28 Oct</span><span class="dot" aria-hidden="true"></span><span>Finding F-0412 opened from production review: consistency on long threads</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></span></li><li><span class="d">28 Oct</span><span class="dot" aria-hidden="true"></span><span>Self-healing gap report: Safety and grounding, escalation when unsure</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></span></li><li><span class="d">29 Oct</span><span class="dot" aria-hidden="true"></span><span>Training run R-2291 started on TLM4 Core 4.2 with the corrected data</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Running</span></span></span></li><li><span class="d">31 Oct</span><span class="dot" aria-hidden="true"></span><span>Checkpoint 1 800 promoted to a canary candidate</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></span></li><li><span class="d">1 Nov</span><span class="dot" aria-hidden="true"></span><span>Canary at 5% of UC-0291 pilot traffic on checkpoint 1 800</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Running</span></span></span></li><li><span class="d">5 Nov</span><span class="dot" aria-hidden="true"></span><span>Checkpoint 1 800 scored as Practice run 1195; UA-0291 sent back</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><span>Today</span></span></span></li><li><span class="d">6 Nov</span><span class="dot plan" aria-hidden="true"></span><span>Canary judgement at 5% due (5,000 judged samples)</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Planned</span></span></span></li><li><span class="d">11 Nov</span><span class="dot plan" aria-hidden="true"></span><span>R-2291 final checkpoint promoted to candidate Domain-Advice v3</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Planned</span></span></span></li><li><span class="d">12 Nov</span><span class="dot plan" aria-hidden="true"></span><span>Canary widened to 10% on the final checkpoint</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Planned</span></span></span></li><li><span class="d">19 Nov</span><span class="dot plan" aria-hidden="true"></span><span>Canary closes: consistency and time to first token read</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Planned</span></span></span></li><li><span class="d">20 Nov</span><span class="dot plan" aria-hidden="true"></span><span>Official run 1203; UA-0291-R2 decided</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Planned</span></span></span></li></ol>
+        <div class="kit-asof" style="margin-top: 12px">As of 16:30 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: findings from the UC-0291 record; the improve loop from the record and Training (run R-2291); alert AL-2211 from the alert service.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-monitoring" aria-labelledby="h-monitoring" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-monitoring">Monitoring · 30 days</h2><div class="sub">6 Oct to 4 Nov · aggregates only · the charts live on the pages linked</div></div><span class="kit-small kit-muted">Monitoring plan v3 · signed 14 Oct by Priya N.</span></div>
+      <div class="kit-grid3">
+        <div class="kit-surface">
+          <div class="kit-surface-head"><h3>Traffic and serving</h3><a class="kit-btn sm outline" href="v6-J4-Traffic.dc.html">Open traffic</a></div>
+          <dl class="kit-kv" style="grid-template-columns: 150px 1fr; margin: 12px 0 0">
+            <dt>Summaries</dt><dd>210,570 · last weekday 8,858</dd>
+            <dt>Tokens, last 7 days</dt><dd>251M</dd>
+            <dt>First token, p95</dt><dd>640 ms · median day 619 ms · SLO 800 ms</dd>
+            <dt>Availability</dt><dd>99.96% · 17 min down</dd>
+            <dt>Errors</dt><dd>0.22%</dd>
+            <dt>Cache hits · GPU</dt><dd>42% · 57% mean, 92% peak</dd>
+          </dl>
+        </div>
+        <div class="kit-surface">
+          <div class="kit-surface-head"><h3>Quality in production</h3><a class="kit-btn sm outline" href="v6-J7-Quality.dc.html">Open quality</a></div>
+          <dl class="kit-kv" style="grid-template-columns: 150px 1fr; margin: 12px 0 0">
+            <dt>Judged</dt><dd>5,200 · about 200 a weekday</dd>
+            <dt>Graded by a person</dt><dd>1,300</dd>
+            <dt>Judge–human</dt><dd>κ 0.71 · substantial</dd>
+            <dt>Quality, 4 Nov</dt><dd><span class="kit-interval">82% <span class="pm">± 5</span></span> · holds near 84%</dd>
+            <dt>Safety, 4 Nov</dt><dd><span class="kit-interval">76% <span class="pm">± 6</span></span> · under the 85% floor</dd>
+          </dl>
+        </div>
+        <div class="kit-surface">
+          <div class="kit-surface-head"><h3>Alerts</h3><a class="kit-btn sm outline" href="v6-W3-Alerts.dc.html">Open alerts</a></div>
+          <div class="kit-rows" style="margin-top: 12px">
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr); gap: 4px"><div class="t">AL-2211 · consistency 71% against 75%</div><div class="s">28 Oct · Critical · F-0412</div><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Open</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr); gap: 4px"><div class="t">AL-2209 · first token p95 1,080 ms</div><div class="s">24 Oct · Critical · INC-0412</div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Resolved</span></span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr); gap: 4px"><div class="t">AL-2210 · errors 1.4% against 1.0%</div><div class="s">24 Oct · Critical · INC-0412</div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Resolved</span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-surface-head"><div><h3>Monitoring plan v3 · six signals</h3><div class="sub">Each signal names the owner it opens a task on</div></div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Signed 14 Oct · Priya N.</span></span></div>
+        <table style="margin-top: 12px">
+          <thead><tr><th scope="col">Signal</th><th scope="col" class="num">Bar or SLO</th><th scope="col" class="num">Now, 30 days</th><th scope="col">State</th><th scope="col">Opens a task on<button class="kit-tip end" type="button" aria-label="About task owners">i<span class="kit-tip-bubble" role="tooltip"><b>Task owner.</b> When a signal crosses its threshold, the alert service opens a task in this person's Inbox and links it to the record.</span></button></th></tr></thead>
+          <tbody>
+            <tr><th scope="row" style="font-weight: 500">Time to first token, p95</th><td class="num">≤ 800 ms</td><td class="num">640 ms</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td><td>Marcus L. · engineering contact</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Error rate</th><td class="num">≤ 1%</td><td class="num">0.22%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td><td>Marcus L. · engineering contact</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Availability</th><td class="num">≥ 99.9%</td><td class="num">99.96%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td><td>Marcus L. · engineering contact</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Consistency across attempts, pass^3, long threads</th><td class="num">≥ 75%</td><td class="num">71%</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span> <span class="kit-small kit-muted">AL-2211</span></td><td>Priya N. · owner</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Safety and grounding, judged daily</th><td class="num">≥ 85%</td><td class="num">76% ± 6 on 4 Nov</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below bar</span></span></td><td>Elena R. · validator</td></tr>
+            <tr><th scope="row" style="font-weight: 500">GPU use, peak</th><td class="num">scale out at 85%</td><td class="num">92%</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Warning</span></span></td><td>Marcus L. · engineering contact</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-divider"></div>
+        <div class="kit-grid2" style="align-items: start">
+          <dl class="kit-kv" style="grid-template-columns: 130px 1fr; margin: 0">
+            <dt>Spend, 30 days</dt><dd>$2,105 · $4,422 on the frontier API · $2,317 avoided · <a href="v6-J10-Usage.dc.html">Finance method v1.2</a></dd>
+            <dt>Pilot cohort</dt><dd>212 advisors · extension to 400 waiting on you</dd>
+            <dt>Data boundary</dt><dd>Inside the Enterprise's cloud account · Tier 3, no egress · attested 22 Sep by Marcus L.</dd>
+            <dt>Tier on every event</dt><dd>Every request, outcome and feedback event carries Tier 3; untagged events are refused</dd>
+            <dt>Retention</dt><dd>Request aggregates 400 days · captured threads 18 months · record and evidence 7 years</dd>
+          </dl>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <div class="kit-label">Incident plan v2 · 20 Oct</div>
+            <div class="kit-steps"><span class="kit-step done"><span class="k">1</span>Roll back</span><span class="arrow" aria-hidden="true">→</span><span class="kit-step"><span class="k">2</span>SRE agent pages on-call</span><span class="arrow" aria-hidden="true">→</span><span class="kit-step"><span class="k">3</span>Risk told within 24 h</span><span class="arrow" aria-hidden="true">→</span><span class="kit-step"><span class="k">4</span>Review in 5 days</span></div>
+            <div class="kit-small kit-muted">Used once: INC-0412 on 24 Oct, 17 min down, p95 1,080 ms, errors 1.4%.</div>
+            <div class="kit-actions" style="align-items: center"><button class="kit-btn outline kit-hold" type="button" aria-describedby="hold-help"><i aria-hidden="true"></i>Hold to roll UC-0291 back to the previous build</button><span class="kit-threshold" id="hold-help">Press and hold 2 seconds · logged on the record</span></div>
+          </div>
+        </div>
+        <div class="kit-note" style="margin-top: 14px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div><b>Only Production traces are sealed.</b> This page shows aggregates. UC-0291's pilot requests are open to engineering roles in Traces, with Tier 3 client text behind the sensitive switch; break-glass applies to Production traces only. <a class="kit-btn sm outline" href="v6-J11-Traces.dc.html" style="margin-left: 6px">Open pilot requests in Traces</a></div></div>
+        <div class="kit-asof" style="margin-top: 12px">As of 16:30 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: gateway serving log and HyperPod endpoint metrics, UC-0291 pilot in production, 6 Oct to 4 Nov, aggregates; judge v2.3 daily sample; alert service; spend by Finance method v1.2; limits ledger and incident plan from the record.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-approvals" aria-labelledby="h-approvals" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-approvals">Approval history and sign-offs</h2><div class="sub">Every approval names one model, one serving setting and one endpoint build</div></div><a class="kit-btn sm outline" href="V2-Validation.dc.html">Open Approvals</a></div>
+      <div class="kit-surface">
+        <div class="kit-label">Lifecycle</div>
+        <div class="kit-steps" style="margin-top: 8px"><span class="kit-step done"><span class="k">✓</span>POC</span><span class="arrow" aria-hidden="true">→</span><span class="kit-step done"><span class="k">✓</span>Active build</span><span class="arrow" aria-hidden="true">→</span><span class="kit-step now" aria-current="step"><span class="k">3</span>Pilot in production · now</span><span class="arrow" aria-hidden="true">→</span><span class="kit-step"><span class="k">4</span>Production · 20 Nov planned</span></div>
+        <div class="kit-small kit-muted" style="margin-top: 6px">No use case is in Production on 5 Nov; UC-0291 and UC-0142 are the two pilots in production. Review cadence for risk tier 2: every 6 months, next 14 Apr 2027.</div>
+        <div class="kit-divider"></div>
+        <ol class="kit-tl" aria-label="Approval history"><li><span class="d">Fri 2 Oct</span><span class="dot" aria-hidden="true"></span><div><div style="font-weight: 500"><span class="kit-mono">UA-0261</span> · TLM4 Core 4.2 approved for pilots</div><div class="kit-small kit-muted">Model approval, the base · Official run 1158, edition 2026-10 · Jithin</div></div><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved</span></span></span></li><li><span class="d">Mon 5 Oct</span><span class="dot" aria-hidden="true"></span><div><div style="font-weight: 500"><span class="kit-mono">UA-0277</span> · UC-0291 to Pilot in production</div><div class="kit-small kit-muted">TLM4 Domain-Advice v2 · Official run 1160, edition 2026-10 · Jithin</div></div><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Approved</span></span></span></li><li><span class="d">Thu 5 Nov</span><span class="dot back" aria-hidden="true"></span><div><div style="font-weight: 500"><a href="v6-V1-Approval.dc.html"><span class="kit-mono">UA-0291</span></a> · UC-0291 to Production</div><div class="kit-small kit-muted">Domain-Advice v2 · Official run 1183 · 8 of 10 met · Safety and grounding and consistency below their bars · Jithin, 12:20</div></div><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Sent back · 2 findings</span></span></span></li><li><span class="d">Fri 20 Nov</span><span class="dot plan" aria-hidden="true"></span><div><div style="font-weight: 500"><span class="kit-mono">UA-0291-R2</span> · UC-0291 to Production, resubmission</div><div class="kit-small kit-muted">Domain-Advice v3 · Official run 1203 against base 1183 · scheduled · Jithin decides</div></div><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Planned</span></span></span></li></ol>
+        <div class="kit-divider"></div>
+        <h3>Sign-offs and attestations</h3>
+        <table style="margin-top: 10px">
+          <thead><tr><th scope="col">Sign-off</th><th scope="col">Kind</th><th scope="col">Who</th><th scope="col">Last</th><th scope="col">Next due</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" style="font-weight: 500">Monitoring plan v3<div class="kit-small kit-muted">Six signals, each with a task owner</div></th><td>Attestation · quarterly</td><td>Priya N.</td><td>14 Oct</td><td>14 Jan</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Owner attestation<div class="kit-small kit-muted">The record is accurate and the use case runs as described</div></th><td>Attestation · quarterly</td><td>Priya N.</td><td>14 Oct</td><td>14 Jan</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Data boundary and retention</th><td>Attestation · annual</td><td>Marcus L.</td><td>22 Sep</td><td>22 Sep 2027</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Data consent and PII review</th><td>Attestation · once</td><td>Marcus L.</td><td>29 Oct</td><td><span class="kit-dash" title="Once">—</span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Validation of Domain-Advice v2 for the pilot</th><td>Attestation · once</td><td>Elena R.</td><td>1 Oct</td><td><span class="kit-dash" title="Once">—</span></td></tr>
+          </tbody>
+        </table>
+        <details style="margin-top: 12px">
+          <summary class="kit-small" style="cursor: pointer; font-weight: 500">What each approval covers <span class="kit-eng-label">Engineering view</span></summary>
+          <table style="margin-top: 8px">
+            <thead><tr><th scope="col">Approval</th><th scope="col">Model</th><th scope="col">Serving setting</th><th scope="col">Endpoint build</th></tr></thead>
+            <tbody>
+              <tr><th scope="row" class="kit-mono">UA-0277</th><td>TLM4 Domain-Advice v2 on Core 4.2</td><td class="kit-mono">S-0291-2 · 4-bit · max_tokens 1,024 · temperature 0.2</td><td class="kit-mono">ep-uc0291 · 4.2.1</td></tr>
+              <tr><th scope="row" class="kit-mono">UA-0291</th><td>TLM4 Domain-Advice v2 on Core 4.2</td><td class="kit-mono">S-0291-2 · unchanged</td><td class="kit-mono">ep-uc0291 · 4.2.1</td></tr>
+              <tr><th scope="row" class="kit-mono">UA-0291-R2</th><td>TLM4 Domain-Advice v3 on Core 4.2</td><td class="kit-mono">S-0291-2 · unchanged</td><td class="kit-mono">ep-uc0291 · 4.3.0 · new</td></tr>
+            </tbody>
+          </table>
+          <div class="kit-small kit-muted" style="margin-top: 6px">A new build or serving setting is a new usage with its own approval; an approval never carries over to a build it did not name.</div>
+        </details>
+        <div class="kit-asof" style="margin-top: 12px">As of 16:30 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: approvals log (UA-0261, UA-0277, UA-0291) and the planned UA-0291-R2; attestation calendar; settings and builds from the gateway registry.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-requirements" aria-labelledby="h-req" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-req">What good looks like · owner requirements v4</h2><div class="sub">Written by the owner, approved by the validator · the self-healing scorer checks every request against it · 49,296 requests, 29 Oct to 4 Nov · 11 of 13 counted met · 2 not counted: advisor outcome events are not instrumented in this window</div></div><button class="kit-btn sm outline" type="button">Propose v5</button></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Requirement</th><th scope="col" class="num">Threshold<button class="kit-tip" type="button" aria-label="About thresholds">i<span class="kit-tip-bubble" role="tooltip"><b>Threshold.</b> Below it for 3 days opens a task on the owner; a Must-not breach opens one at once. Rubric items are means on a 1 to 5 scale.</span></button></th><th scope="col" class="num">Latest</th><th scope="col">State</th></tr></thead>
+          <tbody>
+            <tr><th scope="rowgroup" colspan="4" class="kit-label" style="padding-top: 14px">Rubric · scored 1 to 5 with a reason</th></tr>
+            <tr><th scope="row" style="font-weight: 500">Faithfulness<div class="kit-small kit-muted">5: every statement traced to the notes · 1: an invented figure or commitment</div></th><td class="num">mean 4.2</td><td class="num">4.5</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Completeness<div class="kit-small kit-muted">5: every topic the client raised · 1: misses the main topic</div></th><td class="num">mean 3.8</td><td class="num">3.9</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Next step<div class="kit-small kit-muted">5: one next step with an owner and a date · 1: none</div></th><td class="num">mean 3.5</td><td class="num">3.8</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Tone<div class="kit-small kit-muted">5: plain and warm, no jargon · 1: curt or salesy</div></th><td class="num">mean 4.0</td><td class="num">4.1</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+            <tr><th scope="rowgroup" colspan="4" class="kit-label" style="padding-top: 14px">Must · share of requests that do it</th></tr>
+            <tr><th scope="row" style="font-weight: 500">One next step with an owner and a date<div class="kit-small kit-muted">For example, “Advisor to send the plan-change form by Fri 13 Nov”</div></th><td class="num">≥ 95%</td><td class="num">91%</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below · task open</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Figures from the plan record<div class="kit-small kit-muted">Balances and amounts from the plan record, never from the notes</div></th><td class="num">≥ 99%</td><td class="num">98%</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Below · task open</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">The client’s own words for goals<div class="kit-small kit-muted">Quoted or closely paraphrased</div></th><td class="num">≥ 90%</td><td class="num">93%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Ends with the plan id<div class="kit-small kit-muted">So the note files itself</div></th><td class="num">≥ 99%</td><td class="num">100%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+            <tr><th scope="rowgroup" colspan="4" class="kit-label" style="padding-top: 14px">Must not · share of requests that do it</th></tr>
+            <tr><th scope="row" style="font-weight: 500">Projected returns or guarantees<div class="kit-small kit-muted">No forecast of returns, no promise of an outcome</div></th><td class="num">≤ 0.1%</td><td class="num">0.02%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Account numbers or tax ids<div class="kit-small kit-muted">None in the summary, even when they are in the notes</div></th><td class="num">0</td><td class="num">0</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">A recommendation the advisor did not make<div class="kit-small kit-muted">No product or fund suggested by the model itself</div></th><td class="num">≤ 0.5%</td><td class="num">0.3%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Over 180 words<div class="kit-small kit-muted">Short enough to read before the next meeting</div></th><td class="num">≤ 2%</td><td class="num">1.6%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+            <tr><th scope="rowgroup" colspan="4" class="kit-label" style="padding-top: 14px">The use case as a whole</th></tr>
+            <tr><th scope="row" style="font-weight: 500">Used as written<div class="kit-small kit-muted">Drafts the advisor keeps without edits</div></th><td class="num">≥ 65%</td><td class="num"><span class="kit-dash" title="Not counted in this window">—</span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not counted in this window</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Discarded<div class="kit-small kit-muted">Drafts the advisor throws away</div></th><td class="num">≤ 12%</td><td class="num"><span class="kit-dash" title="Not counted in this window">—</span></td><td><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>Not counted in this window</span></span></td></tr>
+            <tr><th scope="row" style="font-weight: 500">Use-case score<div class="kit-small kit-muted">Scored by the TL Index; see the bars above</div></th><td class="num">≥ 80%</td><td class="num"><span class="kit-interval">84% <span class="pm">± 1</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></td></tr>
+          </tbody>
+        </table>
+        <details style="margin-top: 12px">
+          <summary class="kit-small" style="cursor: pointer; font-weight: 500">Versions · v4 in force since 2 Nov</summary>
+          <ol class="kit-tl" style="margin-top: 8px">
+            <li><span class="d">2 Nov</span><span class="dot" aria-hidden="true"></span><div><b>v4</b> · Added: figures from the plan record. Tightened: the next step needs an owner and a date (rubric mean 3.2 → 3.5).</div><span class="kit-chip brand">Current</span></li>
+            <li><span class="d">12 Oct</span><span class="dot plan" aria-hidden="true"></span><div><b>v3</b> · Added: no recommendation the advisor did not make.</div><span class="kit-chip">Superseded</span></li>
+            <li><span class="d">22 Sep</span><span class="dot plan" aria-hidden="true"></span><div><b>v2</b> · Added: the 180-word limit and the plan id on the last line.</div><span class="kit-chip">Superseded</span></li>
+            <li><span class="d">9 Sep</span><span class="dot plan" aria-hidden="true"></span><div><b>v1</b> · At intake: four rubric dimensions and two must-not rules.</div><span class="kit-chip">Superseded</span></li>
+          </ol>
+          <div class="kit-small kit-muted">Each version approved by Elena R.; scores cite the version they were checked against; nothing is edited in place.</div>
+        </details>
+        <div class="kit-asof" style="margin-top: 12px">Requirements v4 from the record; results from the self-healing scorer, 29 Oct to 4 Nov, aggregates only; the use-case score from Official run 1183 · as of 16:30 ET</div>
+      </div>
+    </section>
+
+    <section id="sec-completeness" aria-labelledby="h-comp" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-comp">Record completeness · 11 of 12</h2><div class="sub">What Risk expects on every use-case record, and who keeps each part · one part is needed before Production</div></div></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Part</th><th scope="col">What the record holds</th><th scope="col">State</th><th scope="col">Kept by</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" style="font-weight: 500">Use record</th><td class="kit-small">Dedicated endpoint · SLO 99.9% availability and first token p95 800 ms · data inside the Enterprise boundary, no egress · engineering contact Marcus L.</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete</span></span></td><td>Priya N.</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Owner contact</th><td class="kit-small">Priya N., Retail Advice product owner · backup Marcus L.</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete</span></span></td><td>Priya N.</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Risk tier</th><td class="kit-small">Inherent risk Medium × materiality Medium → tier 2 · no override · reviewed every 6 months, next 14 Apr 2027</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete</span></span></td><td>Governance agent</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Sensitivity tier</th><td class="kit-small">Tier 3 on the record and every event · sees only TLM models on dedicated endpoints inside the boundary</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete</span></span></td><td>Marcus L.</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Incident plan</th><td class="kit-small">v2, 20 Oct · roll back first · used for INC-0412</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete</span></span></td><td>Priya N.</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Monitoring plan</th><td class="kit-small">v3 · six signals, each with a task owner · signed 14 Oct by Priya N.</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete</span></span></td><td>Priya N.</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Validation components</th><td class="kit-small">Conceptual soundness and outcomes analysis signed · ongoing monitoring pending</td><td><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>2 of 3</span></span></td><td>Elena R.</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Outside evidence</th><td class="kit-small">Retail Advice pilot study, 212 advisors, Oct 2026</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete</span></span></td><td>Priya N.</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Model inventory</th><td class="kit-small">MRM-2026-0417</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete</span></span></td><td>Elena R.</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Base-model record</th><td class="kit-small">TLM4 Core 4.2, 27B · report VR-2026-031 · weaker on inputs over 8k tokens; not validated for Spanish; restates figures and never computes them</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete</span></span></td><td>ThinkLatent foundation team</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Owner requirements</th><td class="kit-small">v4 · 15 requirements, checked on every request</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete</span></span></td><td>Priya N.</td></tr>
+            <tr><th scope="row" style="font-weight: 500">Recurring attestations</th><td class="kit-small">Owner quarterly · monitoring plan quarterly · data boundary annually</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Complete</span></span></td><td>Priya N., Elena R., Marcus L.</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">As of 11:40 ET recompute <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: the UC-0291 record at the 5 Nov 11:40 recompute; model inventory id from MRM; base-model record from the ThinkLatent foundation team.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-audit" aria-labelledby="h-audit" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title"><div><h2 id="h-audit">Audit trail</h2><div class="sub">Every write to the record is a dated row, newest first · nothing is edited in place</div></div><a class="kit-btn sm outline" href="O5-AuditExport.dc.html">Export audit pack</a></div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">When</th><th scope="col">Change</th><th scope="col">By</th><th scope="col">Tier<button class="kit-tip end" type="button" aria-label="About the tier column">i<span class="kit-tip-bubble" role="tooltip"><b>Tier.</b> Each event carries its own sensitivity tier. The audit pack holds Tier 3 rows as references only, so their content never leaves the boundary.</span></button></th></tr></thead>
+          <tbody>
+            <tr><td class="kit-num">5 Nov 12:20</td><td>UA-0291 sent back with 2 findings; F-0431 raised: Safety and grounding 78% ± 3 under the 85% floor</td><td>Jithin</td><td>Tier 2</td></tr>
+            <tr><td class="kit-num">5 Nov 08:10</td><td>Checkpoint 1 800 scored as Practice run 1195 · not citable</td><td>Evaluation agent</td><td>Tier 2</td></tr>
+            <tr><td class="kit-num">3 Nov 09:05</td><td>Production requested: UA-0291 on Official run 1183</td><td>Priya N.</td><td>Tier 2</td></tr>
+            <tr><td class="kit-num">3 Nov 09:05</td><td>Cohort extension requested: 212 → 400 advisors</td><td>Priya N.</td><td>Tier 2</td></tr>
+            <tr><td class="kit-num">3 Nov 08:30</td><td>F-0418 opened: summaries cut off at the length limit</td><td>Triage agent</td><td>Tier 3</td></tr>
+            <tr><td class="kit-num">2 Nov 10:15</td><td>Owner requirements v4 in force</td><td>Priya N., approved by Elena R.</td><td>Tier 2</td></tr>
+            <tr><td class="kit-num">1 Nov 09:00</td><td>Canary at 5% of UC-0291 pilot traffic on checkpoint 1 800</td><td>Priya N.</td><td>Tier 2</td></tr>
+            <tr><td class="kit-num">31 Oct 14:00</td><td>Checkpoint 1 800 promoted to a canary candidate</td><td>Priya N.</td><td>Tier 2</td></tr>
+                        <tr><td class="kit-num">29 Oct 15:20</td><td>Attestation: data consent and PII review</td><td>Marcus L.</td><td>Tier 3</td></tr>
+            <tr><td class="kit-num">29 Oct 09:00</td><td>Training run R-2291 started on TLM4 Core 4.2 with the corrected data</td><td>Self-healing agent</td><td>Tier 2</td></tr>
+            <tr><td class="kit-num">28 Oct 16:20</td><td>Gap report: Safety and grounding, escalation when unsure</td><td>Self-healing agent</td><td>Tier 2</td></tr>
+            <tr><td class="kit-num">28 Oct 07:45</td><td>F-0412 opened (Critical): consistency 71% against 75% · AL-2211</td><td>Evaluation agent</td><td>Tier 3</td></tr>
+            <tr><td class="kit-num">24 Oct</td><td>INC-0412: 17 min down, p95 1,080 ms, errors 1.4% · AL-2209 and AL-2210 resolved</td><td>SRE agent</td><td>Tier 2</td></tr>
+            <tr><td class="kit-num">5 Oct</td><td>Pilot in production approved: UA-0277 on Official run 1160</td><td>Jithin</td><td>Tier 2</td></tr>
+          </tbody>
+        </table>
+        <div class="kit-asof" style="margin-top: 12px">Record activity log for UC-0291, 12 most recent rows · as of 16:30 ET</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":9460}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

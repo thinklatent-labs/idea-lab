@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent Portal · W3 · Alerts (v6)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-main{width:100%;max-width:1440px;box-sizing:border-box;margin:0 auto}
+.kit-fig-svg svg{display:block;width:100%;max-width:920px;height:auto}
+.kit-fig.small .kit-fig-svg svg{max-width:600px}
+.kit-hold{position:relative;overflow:hidden;isolation:isolate}
+.kit-hold .fill{position:absolute;inset:0 auto 0 0;width:0;background:rgba(255,255,255,.28);z-index:-1}
+.kit-hold:active .fill{width:100%;transition:width 1.5s linear}
+@media (prefers-reduced-motion:reduce){.kit-hold:active .fill{transition:none}}
+.kit-hold.outline .fill{background:rgba(26,26,26,.12)}
+table tbody th[scope=row]{text-transform:none;letter-spacing:0;font-size:13px;font-weight:400;color:var(--ink);text-align:left}
+.kit-sealed{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:16px;border:1px dashed var(--hairline);font-size:13px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3900px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, use cases, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Theme</button><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button><a class="kit-btn outline icon" href="S1-Settings.dc.html" aria-label="Settings and notifications"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg></a></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="v6-Main.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="X1-AskTL.dc.html" aria-label="Ask ThinkLatent"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+    <a href="M1-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg></a>
+    <a href="J1-Projects.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M3 10h18"></path><path d="M9 10v10"></path></svg></a>
+    <a href="v6-T2-RunsInFlight.dc.html" aria-label="Training"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-8 4 5"></path><path d="M3 21h18"></path></svg></a>
+    <a href="D1-ReviewQueue.dc.html" aria-label="Data"><span class="n">10</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg></a>
+    <a href="v6-E1-EvaluationResults.dc.html" aria-label="Evaluation"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg></a>
+    <a href="A1-AgentLibrary.dc.html" aria-label="Agents"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><path d="M12 8V4"></path><circle cx="9" cy="14" r="1"></circle><circle cx="15" cy="14" r="1"></circle></svg></a>
+    <a href="V2-Validation.dc.html" aria-label="Approvals"><span class="n">3</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></a>
+    <a href="X2-Inbox.dc.html" aria-label="Inbox"><span class="n">2</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg></a>
+    <a href="K1-Help.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><path d="M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <nav class="kit-crumbs" aria-label="Breadcrumb"><a href="J1-Projects.dc.html">Projects</a><span class="sep" aria-hidden="true">›</span><a href="v6-J2-ProjectHome.dc.html">Retail Advice</a><span class="sep" aria-hidden="true">›</span><a href="v6-J3-Overview.dc.html">UC-0291 Advisor summary</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Alerts</span></nav>
+      <div class="kit-page-head" style="align-items: center">
+        <h1>Alerts</h1>
+        <div class="kit-actions" style="align-items: center">
+          <div class="kit-seg" role="group" aria-label="Time window"><button type="button" aria-pressed="false">7 d</button><button type="button" aria-pressed="true">30 d</button></div>
+          <a class="kit-btn outline" href="J9-Record-Monitoring.dc.html">Thresholds in the record</a>
+          <a class="kit-btn" href="#sec-decide">See the open alert</a>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center">
+        <span class="kit-chip brand">Pilot in production</span>
+        <span class="kit-chip outline">Production · aggregates only</span>
+        <a class="kit-chip outline" href="#sec-decide"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5" fill="currentColor"></circle></svg><span>1 open · AL-2211 Critical</span></span></a>
+        <span class="kit-small kit-muted">Owner Priya N.</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap">
+        <p class="kit-muted" style="margin: 0">What fired, what it led to, and who hears about it. Thresholds and routes come from the record and change only there.</p>
+        <span class="kit-asof">6 Oct to 4 Nov · As of Thu 5 Nov 2026, 11:58 ET</span>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center">
+      <nav class="kit-rail" aria-label="Use case" style="align-self: flex-start"><a href="v6-J3-Overview.dc.html">Overview</a><a href="J4-Traffic.dc.html">Performance</a><a href="v6-J6-Models.dc.html">Models</a><a href="v6-J7-Quality.dc.html">Quality</a><a href="J8-Improve.dc.html">Improve</a><a href="J9-Record.dc.html">Record</a></nav>
+      <nav class="kit-subrail" aria-label="Workbench"><a href="W1-Prompts.dc.html">Prompts</a><a href="W2-Datasets.dc.html">Data sets</a><a href="v6-W3-Alerts.dc.html" aria-current="page">Alerts</a></nav>
+    </div>
+
+    <div class="kit-tiles" style="grid-template-columns: repeat(3, minmax(0, 1fr))">
+      <section class="kit-tile" aria-label="Open alerts">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg></span><a class="kit-open" href="#sec-decide" aria-label="Open the open alert">↗</a></div>
+        <div class="kit-tile-title">Open alerts</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">1</div><div class="kit-tile-cap"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5" fill="currentColor"></circle></svg><span>Open · Critical</span></span> · AL-2211 · 8 days · linked to F-0412</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Fired in 30 days">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 5-8 4 5"></path></svg></span><a class="kit-open" href="#sec-alerts" aria-label="Open the alerts table">↗</a></div>
+        <div class="kit-tile-title">Fired in 30 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">3</div><div class="kit-tile-cap">2 resolved with INC-0412 · 1 open · all Critical</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Availability">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><a class="kit-open" href="J4-Traffic.dc.html" aria-label="Open performance">↗</a></div>
+        <div class="kit-tile-title">Availability, 30 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">99.96%</div><div class="kit-tile-cap"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span> · SLO 99.9% · 17 min down on Sat 24 Oct</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Time to first token">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span><a class="kit-open" href="J4-Traffic-Latency.dc.html" aria-label="Open latency">↗</a></div>
+        <div class="kit-tile-title">Time to first token, p95</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">640<span class="unit">ms</span></div><div class="kit-tile-cap"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span> · SLO 800 ms · median day 619 ms</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Error rate">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path></svg></span><a class="kit-open" href="J4-Traffic-Errors.dc.html" aria-label="Open errors">↗</a></div>
+        <div class="kit-tile-title">Error rate, 30 days</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value">0.22%</div><div class="kit-tile-cap"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span> · threshold 1.0% · one breach, 1.4% on Sat 24 Oct</div></div></div>
+      </section>
+      <section class="kit-tile" aria-label="Weekly digest">
+        <div class="kit-tile-top"><span class="kit-ring"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span><a class="kit-open" href="#sec-digest" aria-label="Open the digest">↗</a></div>
+        <div class="kit-tile-title">Weekly digest</div>
+        <div class="kit-tile-bottom"><div><div class="kit-display kit-tile-value words">Mon 9 Nov</div><div class="kit-tile-cap">08:00 ET · to 12 subscribers and Slack #retail-advice-ai</div></div></div>
+      </section>
+    </div>
+
+    <nav class="kit-sectionbar" aria-label="On this page" style="align-self: flex-start"><a href="#sec-alerts" aria-current="true">Alerts <span class="n">3</span></a><a href="#sec-decide">Open alert <span class="n">1</span></a><a href="#sec-rules">Rules <span class="n">4</span></a><a href="#sec-escalation">Escalation</a><a href="#sec-incident">INC-0412</a><a href="#sec-digest">Weekly digest</a><a href="#sec-trace">Trace</a></nav>
+
+    <section id="sec-alerts" aria-labelledby="h-alerts" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-alerts">Alerts in the last 30 days</h2><div class="sub">Every alert UC-0291 raised, 6 Oct to 4 Nov, with what it led to</div></div>
+        <a class="kit-btn sm outline" href="#sec-rules">The rules behind them</a>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Alert</th><th scope="col">Date</th><th scope="col">Rule<button class="kit-tip" type="button" aria-label="About rules">i<span class="kit-tip-bubble" role="tooltip"><b>Rule.</b> A threshold from the record for UC-0291. Changing one is a record change, signed by the owner and the validator.<span class="src">Source: the record, monitoring section · as of 11:58 ET</span></span></button></th><th scope="col" class="num">Value</th><th scope="col" class="num">Threshold<button class="kit-tip" type="button" aria-label="About thresholds">i<span class="kit-tip-bubble" role="tooltip"><b>Threshold.</b> The line the value crossed. Latency and errors use the daily figure from the gateway; consistency uses production review.<span class="src">Source: the record · as of 11:58 ET</span></span></button></th><th scope="col">Severity<button class="kit-tip" type="button" aria-label="About severity">i<span class="kit-tip-bubble" role="tooltip"><b>Critical.</b> Never held in quiet hours. Opens a task on the owner; unacknowledged after 60 minutes, it pages ThinkLatent on-call.<span class="src">Source: escalation policy · as of 11:58 ET</span></span></button></th><th scope="col">State<button class="kit-tip" type="button" aria-label="About state">i<span class="kit-tip-bubble" role="tooltip"><b>State.</b> Open until the metric is back inside its threshold for a full window. Acknowledging stops renotification but does not close an alert.<span class="src">Source: alert service · as of 11:58 ET</span></span></button></th><th scope="col">Linked</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><span class="kit-mono">AL-2211</span></th><td>Wed 28 Oct</td><td>Consistency across attempts below its bar (pass^3, long threads)</td><td class="num">71%</td><td class="num">75%</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5" fill="currentColor"></circle></svg><span>Open</span></span></td><td><a href="v6-J7-Quality.dc.html#sec-decide">F-0412</a></td></tr>
+            <tr><th scope="row"><span class="kit-mono">AL-2210</span></th><td>Sat 24 Oct</td><td>Error rate above 1%</td><td class="num">1.4%</td><td class="num">1.0%</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Resolved</span></span></td><td><a href="#sec-incident">INC-0412</a></td></tr>
+            <tr><th scope="row"><span class="kit-mono">AL-2209</span></th><td>Sat 24 Oct</td><td>Time to first token p95 above the SLO</td><td class="num">1,080 ms</td><td class="num">800 ms</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Resolved</span></span></td><td><a href="#sec-incident">INC-0412</a></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-note" role="note" style="margin-top: 14px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01"></path><path d="M12 12v4"></path></svg><div>Production Safety and grounding is not an alert: it sits under the 85% floor every day (judged 75% to 82%, Official run 1183 at <span class="kit-interval">78% <span class="pm">± 3</span></span>), and that is why the use case is a pilot. It is held on the approval, not paged. <a href="v6-J7-Quality.dc.html#sec-judge">See Quality</a></div></div>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET</div>
+      </div>
+    </section>
+
+    <section id="sec-decide" class="kit-surface kit-decide" aria-labelledby="h-decide">
+      <div class="kit-surface-head">
+        <div>
+          <h2 id="h-decide" style="display: flex; align-items: center; gap: 10px">Open alert <span class="kit-chip decision">1</span></h2>
+          <div class="sub">AL-2211 stays open until an Official run shows consistency at 75% or above</div>
+        </div>
+        <span class="kit-small kit-muted">Agents propose, you decide</span>
+      </div>
+      <article class="kit-row" aria-labelledby="a-t" style="grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 14px; border-color: #3E9A5C; box-shadow: 0 0 0 1px #3E9A5C">
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5" fill="currentColor"></circle></svg><span>Open · 8 days</span></span><span class="t" id="a-t">AL-2211 · Consistency across attempts 71%, below its 75% bar</span><span class="kit-chip outline">Acknowledged by Priya N., Wed 28 Oct</span></div>
+        <div class="kit-small kit-muted">Fired from production review on long threads · task on the owner · Slack #retail-advice-ai · opened finding F-0412 the same day</div>
+        <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">TR</span><span>Triage agent</span></span><span>Basis: production review, 6 Oct to 4 Nov; finding F-0412; the improve loop for UC-0291</span><span>84% confidence</span><a href="v6-J7-Quality.dc.html#sec-decide">View sources</a></div>
+        <div class="kit-small"><b style="font-weight: 500">Why it is still open:</b> the model is unchanged, so the metric has not moved. <b style="font-weight: 500">Proposes:</b> keep the alert open and silence renotification until the Official run booked for Fri 20 Nov; no threshold change. The fix runs in the improve loop (R-2291, candidate Domain-Advice v3).</div>
+        <div class="kit-actions" style="align-items: center"><button class="kit-btn sm" type="button">Silence renotification to 20 Nov</button><a class="kit-btn sm outline" href="v6-J7-Quality.dc.html#sec-improve">Open the improve loop</a><button class="kit-btn sm ghost" type="button">Dismiss</button></div>
+        <div class="kit-threshold">Silencing stops reminders only; AL-2211 closes on the metric, never by hand.</div>
+      </article>
+    </section>
+
+    <section id="sec-rules" aria-labelledby="h-rules" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-rules">Rules from the record</h2><div class="sub">Each rule carries its threshold, severity, window, route, noise control and what no data means</div></div>
+        <a class="kit-btn sm outline" href="J9-Record-Monitoring.dc.html">Propose a threshold change</a>
+      </div>
+      <div class="kit-surface">
+        <table>
+          <thead><tr><th scope="col">Rule</th><th scope="col" class="num">Threshold</th><th scope="col">Severity</th><th scope="col">Window</th><th scope="col">Route and noise control</th><th scope="col">No data</th><th scope="col" class="num">Now, 30 days</th><th scope="col">State</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Time to first token p95 above the SLO</th><td class="num">800 ms</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></td><td>Day</td><td class="kit-small">Webhook to SRE · owner task · renotify 1 h</td><td class="kit-small">Warning to SRE after 15 min</td><td class="num">640 ms</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Quiet</span></span></td></tr>
+            <tr><th scope="row">Error rate above 1%</th><td class="num">1.0%</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></td><td>Day</td><td class="kit-small">Webhook to SRE · email owner · renotify 30 min</td><td class="kit-small">No calls in a business hour is a Warning</td><td class="num">0.22%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Quiet</span></span></td></tr>
+            <tr><th scope="row">Availability below the SLO</th><td class="num">99.9%</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></td><td>30 days</td><td class="kit-small">Webhook to SRE · owner task</td><td class="kit-small">Treated as down</td><td class="num">99.96%</td><td><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Quiet</span></span></td></tr>
+            <tr><th scope="row">Consistency across attempts below its bar (pass^3, long threads)</th><td class="num">75%</td><td><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></td><td>Production review</td><td class="kit-small">Owner task · Slack #retail-advice-ai · renotify 24 h</td><td class="kit-small">Hold the last state</td><td class="num">71%</td><td><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5" fill="currentColor"></circle></svg><span>Open</span></span></td></tr>
+          </tbody>
+        </table>
+        <div class="kit-threshold" style="margin-top: 10px">A rule that fires more than 4 times in a month without an action is flagged for threshold review. None is flagged this month.</div>
+        <div class="kit-asof" style="margin-top: 8px">As of 11:58 ET</div>
+      </div>
+    </section>
+
+    <section id="sec-escalation" aria-labelledby="h-escalation" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-escalation">How an alert travels</h2><div class="sub">The escalation chain every rule follows · ThinkLatent-wide policy, UC-0291 settings from the record</div></div>
+        <a class="kit-btn sm outline" href="S1-Settings.dc.html">Notification settings</a>
+      </div>
+      <div class="kit-surface">
+        <ol class="kit-steps" aria-label="Escalation chain" style="list-style: none; margin: 0; padding: 0">
+          <li class="kit-step done"><span class="k">1</span>Fires</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="kit-step done"><span class="k">2</span>Routed to owner and channel</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="kit-step done"><span class="k">3</span>Acknowledged</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="kit-step"><span class="k">4</span>60 min unacknowledged: page on-call</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="kit-step"><span class="k">5</span>Resolved with an outcome</li>
+        </ol>
+        <dl class="kit-kv" style="grid-template-columns: 200px 1fr; margin: 18px 0 0">
+          <dt>Page ThinkLatent on-call</dt><dd>A Critical nobody acknowledges within 60 minutes · 0 pages on UC-0291 in 30 days</dd>
+          <dt>Quiet hours</dt><dd>20:00 to 07:00 ET: Warnings wait for 07:00; Criticals and pages are never held</dd>
+          <dt>Governance reminders</dt><dd>14 days before an attestation, a re-score or a retirement, to the owner and the approver</dd>
+          <dt>Threshold review</dt><dd>More than 4 firings in a month without an action flags the rule in the record</dd>
+        </dl>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for this section">i<span class="kit-tip-bubble" role="tooltip">Source: escalation policy (ThinkLatent-wide) and the UC-0291 record, monitoring section; paging history from the on-call rota, 6 Oct to 4 Nov.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-incident" aria-labelledby="h-incident" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-incident">INC-0412 · Sat 24 Oct</h2><div class="sub">17 minutes down · time to first token p95 1,080 ms · errors 1.4% · 30-day availability holds at 99.96%</div></div>
+        <span class="kit-chip outline"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Resolved Sat 24 Oct</span></span></span>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-grid2" style="align-items: start">
+          <ol class="kit-stepper" aria-label="INC-0412 escalation timeline">
+            <li class="done"><span class="mk">1</span><div><div class="st"><h3>14:12 · AL-2209 fires</h3><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></div><div class="sum">p95 above 800 ms · webhook to SRE and a task on Priya N. · not held, a Critical</div></div></li>
+            <li class="done"><span class="mk">2</span><div><div class="st"><h3>14:13 · AL-2210 fires</h3><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9z"></path><path d="m9 9 6 6"></path><path d="m15 9-6 6"></path></svg><span>Critical</span></span></div><div class="sum">Error rate above 1% · grouped with AL-2209 as INC-0412</div></div></li>
+            <li class="done"><span class="mk">3</span><div><div class="st"><h3>14:20 · Acknowledged</h3><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 min</span></span></div><div class="sum">ThinkLatent SRE on-call, inside the 60-minute clock · no page needed</div></div></li>
+            <li class="done"><span class="mk">4</span><div><div class="st"><h3>14:31 · Serving restored</h3><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>17 min down</span></span></div><div class="sum">The day closes at 98.82% available, p95 1,080 ms, errors 1.4%</div></div></li>
+            <li class="done"><span class="mk">5</span><div><div class="st"><h3>Sat 24 Oct · Resolved</h3><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Resolved</span></span></div><div class="sum">Back inside both thresholds the same day; Sun 25 Oct p95 608 ms, errors 0.18% · postmortem waiting for sign-off from Priya N.</div></div></li>
+          </ol>
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <figure class="kit-fig small" aria-labelledby="fig-uc0291-latency-t" style="margin: 0; display: flex; flex-direction: column; gap: 8px">
+<h3 id="fig-uc0291-latency-t" style="margin: 0">Time to first token</h3>
+<div class="kit-fig-svg"><svg role="img" aria-label="Time to first token" width="920" height="260" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 920 260">
+<rect width="920" height="260" x="0" y="0" fill="none"></rect>
+<path d="M68.6 232.5L904 232.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr1-cls-3"></path>
+<path d="M68.6 197.5L904 197.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr1-cls-3"></path>
+<path d="M68.6 162.5L904 162.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr1-cls-3"></path>
+<path d="M68.6 127.5L904 127.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr1-cls-3"></path>
+<path d="M68.6 92.5L904 92.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr1-cls-3"></path>
+<path d="M68.6 57.5L904 57.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr1-cls-3"></path>
+<path d="M68.6 22.5L904 22.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-dasharray="4,2" class="zr1-cls-3"></path>
+<path d="M68.6 232.5L904 232.5" fill="none" pointer-events="visible" stroke="#DADAD8" stroke-linecap="round" class="zr1-cls-3"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(60.56 232)" fill="#5C5C5A">0 ms</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(60.56 197)" fill="#5C5C5A">200 ms</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(60.56 162)" fill="#5C5C5A">400 ms</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(60.56 127)" fill="#5C5C5A">600 ms</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(60.56 92)" fill="#5C5C5A">800 ms</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(60.56 57)" fill="#5C5C5A">1,000 ms</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" transform="translate(60.56 22)" fill="#5C5C5A">1,200 ms</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(68.56 240)" fill="#5C5C5A">6 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(126.1766 240)" fill="#5C5C5A">8 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(183.7931 240)" fill="#5C5C5A">10 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(241.4097 240)" fill="#5C5C5A">12 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(299.0262 240)" fill="#5C5C5A">14 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(356.6428 240)" fill="#5C5C5A">16 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(414.2593 240)" fill="#5C5C5A">18 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(471.8759 240)" fill="#5C5C5A">20 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(529.4924 240)" fill="#5C5C5A">22 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(587.109 240)" fill="#5C5C5A">24 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(644.7255 240)" fill="#5C5C5A">26 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(702.3421 240)" fill="#5C5C5A">28 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(759.9586 240)" fill="#5C5C5A">30 Oct</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(817.5752 240)" fill="#5C5C5A">1 Nov</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="6" transform="translate(875.1917 240)" fill="#5C5C5A">3 Nov</text>
+<g clip-path="url(#zr1-c0)">
+<path d="M68.6 182.5L97.4 180L126.2 180.6L155 180.6L183.8 182.1L212.6 184.2L241.4 180.4L270.2 179.5L299 182.3L327.8 181.1L356.6 179.7L385.5 183.7L414.3 184.1L443.1 182.8L471.9 181.9L500.7 182.6L529.5 180.6L558.3 180.2L587.1 182.6L615.9 182.8L644.7 180L673.5 181.1L702.3 179.9L731.2 182.1L760 178.6L788.8 185.8L817.6 183.9L846.4 181.1L875.2 180.6L904 182.8" fill="none" pointer-events="visible" stroke="#8A8A88" stroke-width="1.25" stroke-linejoin="bevel" class="zr1-cls-5"></path>
+</g>
+<g clip-path="url(#zr1-c1)">
+<path d="M68.6 128.8L97.4 130L126.2 123.5L155 123.7L183.8 129.3L212.6 129.3L241.4 120.2L270.2 130.9L299 124.9L327.8 125.1L356.6 122.1L385.5 128.9L414.3 131.6L443.1 125.1L471.9 123.5L500.7 121.4L529.5 120L558.3 126.1L587.1 43L615.9 125.6L644.7 119.1L673.5 122.3L702.3 126.1L731.2 125.1L760 121.9L788.8 123.2L817.6 126.5L846.4 120.2L875.2 123L904 123.7L904 232L875.2 232L846.4 232L817.6 232L788.8 232L760 232L731.2 232L702.3 232L673.5 232L644.7 232L615.9 232L587.1 232L558.3 232L529.5 232L500.7 232L471.9 232L443.1 232L414.3 232L385.5 232L356.6 232L327.8 232L299 232L270.2 232L241.4 232L212.6 232L183.8 232L155 232L126.2 232L97.4 232L68.6 232Z" fill="#3E9A5C" fill-opacity="0.12" class="zr1-cls-5"></path>
+<path d="M68.6 128.8L97.4 130L126.2 123.5L155 123.7L183.8 129.3L212.6 129.3L241.4 120.2L270.2 130.9L299 124.9L327.8 125.1L356.6 122.1L385.5 128.9L414.3 131.6L443.1 125.1L471.9 123.5L500.7 121.4L529.5 120L558.3 126.1L587.1 43L615.9 125.6L644.7 119.1L673.5 122.3L702.3 126.1L731.2 125.1L760 121.9L788.8 123.2L817.6 126.5L846.4 120.2L875.2 123L904 123.7L904 232L875.2 232L846.4 232L817.6 232L788.8 232L760 232L731.2 232L702.3 232L673.5 232L644.7 232L615.9 232L587.1 232L558.3 232L529.5 232L500.7 232L471.9 232L443.1 232L414.3 232L385.5 232L356.6 232L327.8 232L299 232L270.2 232L241.4 232L212.6 232L183.8 232L155 232L126.2 232L97.4 232L68.6 232Z" fill="url(#zr1-p0)" fill-opacity="0.12" class="zr1-cls-3"></path>
+<path d="M68.6 128.8L97.4 130L126.2 123.5L155 123.7L183.8 129.3L212.6 129.3L241.4 120.2L270.2 130.9L299 124.9L327.8 125.1L356.6 122.1L385.5 128.9L414.3 131.6L443.1 125.1L471.9 123.5L500.7 121.4L529.5 120L558.3 126.1L587.1 43L615.9 125.6L644.7 119.1L673.5 122.3L702.3 126.1L731.2 125.1L760 121.9L788.8 123.2L817.6 126.5L846.4 120.2L875.2 123L904 123.7" fill="none" pointer-events="visible" stroke="#3E9A5C" stroke-width="2.5" stroke-linejoin="bevel" class="zr1-cls-5"></path>
+</g>
+<g clip-path="url(#zr1-c2)">
+<path d="" fill="none" pointer-events="visible" stroke="#3E9A5C" stroke-width="2" stroke-linejoin="bevel" class="zr1-cls-3"></path>
+</g>
+<path d="M68.6 92.5L904 92.5" fill="none" pointer-events="visible" stroke="#C4262E" stroke-width="1.25" stroke-dasharray="5,2.5" ecmeta_series_index="2" ecmeta_data_index="0" ecmeta_ssr_type="chart" ecmeta_silent="true" class="zr1-cls-3"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:11px;font-family:Inter, ui-sans-serif, system-ui, sans-serif;" xml:space="preserve" y="-5.5" transform="translate(899 87)" fill="#C4262E">SLO · 800 ms</text>
+<defs >
+<clipPath id="zr1-c0">
+<path d="M67 21.4l838 0l0 211.3l-838 0Z" fill="#000" class="zr1-cls-4"></path>
+</clipPath>
+<clipPath id="zr1-c1">
+<path d="M67 20.8l839 0l0 212.5l-839 0Z" fill="#000" class="zr1-cls-4"></path>
+</clipPath>
+<pattern width="1" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)" id="zr1-p0">
+<g >
+<path d="M0 -6l1 0l0 2l-1 0Z" fill="#5C5C5A"></path>
+<path d="M1 -6l1 0l0 2l-1 0Z" fill="#5C5C5A"></path>
+<path d="M0 0l1 0l0 2l-1 0Z" fill="#5C5C5A"></path>
+<path d="M1 0l1 0l0 2l-1 0Z" fill="#5C5C5A"></path>
+</g>
+</pattern>
+<clipPath id="zr1-c2">
+<path d="M67 21l839 0l0 212l-839 0Z" fill="#000" class="zr1-cls-3"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr1-cls-3:hover {
+pointer-events:none;
+}
+.zr1-cls-4:hover {
+cursor:pointer;
+fill:rgba(0,0,0,1);
+}
+.zr1-cls-5:hover {
+cursor:pointer;
+}
+
+]]>
+
+</style>
+</svg></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14px">p95 stayed under the 800 ms SLO except on 24 Oct (INC-0412).</span><span class="kit-source" style="margin-top: 0">Source: Gateway serving log, UC-0291 pilot in production, 6 Oct to 4 Nov</span></figcaption>
+<details><summary class="kit-small" style="cursor: pointer; font-weight: 500">View as table</summary><table style="margin-top: 8px"><caption class="kit-small kit-muted" style="text-align: left; caption-side: top; padding-bottom: 6px">Time to first token, 6 Oct to 4 Nov</caption><thead><tr><th scope="col">Day</th><th scope="col" class="num">p95</th><th scope="col" class="num">p50</th></tr></thead><tbody><tr><th scope="row" style="font-weight: 400">6 Oct</th><td class="num">590 ms</td><td class="num">283 ms</td></tr><tr><th scope="row" style="font-weight: 400">7 Oct</th><td class="num">583 ms</td><td class="num">297 ms</td></tr><tr><th scope="row" style="font-weight: 400">8 Oct</th><td class="num">620 ms</td><td class="num">294 ms</td></tr><tr><th scope="row" style="font-weight: 400">9 Oct</th><td class="num">619 ms</td><td class="num">294 ms</td></tr><tr><th scope="row" style="font-weight: 400">10 Oct</th><td class="num">587 ms</td><td class="num">285 ms</td></tr><tr><th scope="row" style="font-weight: 400">11 Oct</th><td class="num">587 ms</td><td class="num">273 ms</td></tr><tr><th scope="row" style="font-weight: 400">12 Oct</th><td class="num">639 ms</td><td class="num">295 ms</td></tr><tr><th scope="row" style="font-weight: 400">13 Oct</th><td class="num">578 ms</td><td class="num">300 ms</td></tr><tr><th scope="row" style="font-weight: 400">14 Oct</th><td class="num">612 ms</td><td class="num">284 ms</td></tr><tr><th scope="row" style="font-weight: 400">15 Oct</th><td class="num">611 ms</td><td class="num">291 ms</td></tr><tr><th scope="row" style="font-weight: 400">16 Oct</th><td class="num">628 ms</td><td class="num">299 ms</td></tr><tr><th scope="row" style="font-weight: 400">17 Oct</th><td class="num">589 ms</td><td class="num">276 ms</td></tr><tr><th scope="row" style="font-weight: 400">18 Oct</th><td class="num">574 ms</td><td class="num">274 ms</td></tr><tr><th scope="row" style="font-weight: 400">19 Oct</th><td class="num">611 ms</td><td class="num">281 ms</td></tr><tr><th scope="row" style="font-weight: 400">20 Oct</th><td class="num">620 ms</td><td class="num">286 ms</td></tr><tr><th scope="row" style="font-weight: 400">21 Oct</th><td class="num">632 ms</td><td class="num">282 ms</td></tr><tr><th scope="row" style="font-weight: 400">22 Oct</th><td class="num">640 ms</td><td class="num">294 ms</td></tr><tr><th scope="row" style="font-weight: 400">23 Oct</th><td class="num">605 ms</td><td class="num">296 ms</td></tr><tr><th scope="row" style="font-weight: 400">24 Oct</th><td class="num">1,080 ms</td><td class="num">282 ms</td></tr><tr><th scope="row" style="font-weight: 400">25 Oct</th><td class="num">608 ms</td><td class="num">281 ms</td></tr><tr><th scope="row" style="font-weight: 400">26 Oct</th><td class="num">645 ms</td><td class="num">297 ms</td></tr><tr><th scope="row" style="font-weight: 400">27 Oct</th><td class="num">627 ms</td><td class="num">291 ms</td></tr><tr><th scope="row" style="font-weight: 400">28 Oct</th><td class="num">605 ms</td><td class="num">298 ms</td></tr><tr><th scope="row" style="font-weight: 400">29 Oct</th><td class="num">611 ms</td><td class="num">285 ms</td></tr><tr><th scope="row" style="font-weight: 400">30 Oct</th><td class="num">629 ms</td><td class="num">305 ms</td></tr><tr><th scope="row" style="font-weight: 400">31 Oct</th><td class="num">622 ms</td><td class="num">264 ms</td></tr><tr><th scope="row" style="font-weight: 400">1 Nov</th><td class="num">603 ms</td><td class="num">275 ms</td></tr><tr><th scope="row" style="font-weight: 400">2 Nov</th><td class="num">639 ms</td><td class="num">291 ms</td></tr><tr><th scope="row" style="font-weight: 400">3 Nov</th><td class="num">623 ms</td><td class="num">294 ms</td></tr><tr><th scope="row" style="font-weight: 400">4 Nov</th><td class="num">619 ms</td><td class="num">281 ms</td></tr></tbody></table></details>
+</figure>
+          </div>
+        </div>
+        <div class="kit-sealed" role="note" style="margin-top: 16px"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="flex: none; margin-top: 2px"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><div style="display: flex; flex-direction: column; gap: 8px"><div><b style="font-weight: 500">The failed requests are pilot calls.</b> This page shows the incident as aggregates. Engineering roles open the 24 Oct requests in Traces, with client text behind the sensitive switch; only Production traces are sealed behind break-glass.</div><div class="kit-actions" style="align-items: center"><a class="kit-btn sm outline" href="v6-J11-Traces.dc.html">Open the requests in Traces</a></div></div></div>
+        <div class="kit-asof" style="margin-top: 10px">As of 11:58 ET <button class="kit-tip" type="button" aria-label="Source for the incident">i<span class="kit-tip-bubble" role="tooltip">Source: alert service and on-call log for INC-0412; daily figures from the gateway serving log, UC-0291 pilot in production, aggregate.</span></button></div>
+      </div>
+    </section>
+
+    <section id="sec-digest" aria-labelledby="h-digest" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-digest">Weekly digest</h2><div class="sub">As sent Mon 2 Nov 08:00 ET for the week of 26 Oct to 1 Nov · last week's figures in brackets · next Mon 9 Nov</div></div>
+        <div class="kit-actions" style="align-items: center"><button class="kit-btn sm outline" type="button">Send me a test</button><button class="kit-btn sm outline" type="button">Subscribe</button></div>
+      </div>
+      <div class="kit-surface">
+        <div class="kit-small kit-muted">To Priya N. (owner), Elena R. (validator), Marcus L. and 9 more · Slack #retail-advice-ai · 9 of 12 opened</div>
+        <div class="kit-rows" style="margin-top: 12px">
+          <div class="kit-row" style="grid-template-columns: 200px minmax(0, 1fr)"><span class="t">1 · Needs a decision</span><div class="kit-small" style="display: flex; flex-direction: column; gap: 6px"><div><b style="font-weight: 500">UA-0291 for Production</b> · decide Thu 5 Nov · Jithin · <span class="kit-muted">since sent:</span> <span class="kit-status open"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4" fill="currentColor"></circle></svg><span>Recommendation: send back with 2 findings · decision due today</span></span></div><div><b style="font-weight: 500">Claim long threads for F-0412</b> · Priya N. · <span class="kit-muted">since sent:</span> <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>20 claimed</span></span></div></div></div>
+          <div class="kit-row" style="grid-template-columns: 200px minmax(0, 1fr)"><span class="t">2 · Alerts</span><div class="kit-small">AL-2211 opened Wed 28 Oct, consistency 71% against 75% · <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5" fill="currentColor"></circle></svg><span>Open</span></span> · INC-0412 alerts AL-2209 and AL-2210 resolved Sat 24 Oct</div></div>
+          <div class="kit-row" style="grid-template-columns: 200px minmax(0, 1fr)"><span class="t">3 · Quality and safety</span><div class="kit-small">1,200 judged, 300 graded by a person (1,200 · 300) · Quality 82% to 87% a day (83% to 87%) · Safety and grounding 75% to 79% a day (77% to 82%), under the 85% floor every day</div></div>
+          <div class="kit-row" style="grid-template-columns: 200px minmax(0, 1fr)"><span class="t">4 · Traffic and serving</span><div class="kit-small">50,039 summaries (48,749) · p95 603 to 645 ms a day (605 to 1,080 ms) · errors 0.15% to 0.25% a day (0.18% to 1.4%) · 100% available every day (98.82% on 24 Oct)</div></div>
+          <div class="kit-row" style="grid-template-columns: 200px minmax(0, 1fr)"><span class="t">5 · Improve loop</span><div class="kit-small">Gap report Wed 28 Oct: Safety and grounding, escalation when unsure · training run R-2291 started Thu 29 Oct on TLM4 Core 4.2 · canary at 5% on checkpoint 1 800 from Sun 1 Nov</div></div>
+          <div class="kit-row" style="grid-template-columns: 200px minmax(0, 1fr)"><span class="t">6 · Coming up</span><div class="kit-small">UA-0291 decision Thu 5 Nov · R-2291 checkpoint 1 800 scored as a Practice run</div></div>
+        </div>
+        <div class="kit-threshold" style="margin-top: 10px">Reply MUTE 4 to stop one section or MUTE ALL to stop the digest. Decisions also wait in your <a href="X2-Inbox.dc.html">Inbox</a>.</div>
+        <div class="kit-agentline"><span class="kit-agent"><span class="av kit-avatar agent">TR</span><span>Triage agent</span></span><span>Basis: gateway serving log (aggregate), Judge v2.3 daily sample, the record and the alert service, 26 Oct to 1 Nov</span><span>90% confidence</span><a href="#sec-trace">View sources</a></div>
+        <div class="kit-asof" style="margin-top: 8px">Sent Mon 2 Nov 08:00 ET · "since sent" as of Thu 5 Nov, 11:58 ET</div>
+      </div>
+    </section>
+
+    <section id="sec-trace" aria-labelledby="h-trace" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="kit-section-title">
+        <div><h2 id="h-trace">Trace</h2><div class="sub">Where each number on this page comes from</div></div>
+        <a class="kit-btn sm outline" href="J9-Record.dc.html">Open the record</a>
+      </div>
+      <div class="kit-surface">
+        <dl class="kit-kv" style="grid-template-columns: 200px 1fr; margin: 0">
+          <dt>Alerts</dt><dd>Alert service, UC-0291, 6 Oct to 4 Nov: AL-2209, AL-2210, AL-2211</dd>
+          <dt>Thresholds and routes</dt><dd>The record, monitoring section · SLOs: p95 800 ms, errors 1%, availability 99.9%</dd>
+          <dt>Serving figures</dt><dd>Gateway serving log, UC-0291 pilot in production, aggregate</dd>
+          <dt>Quality figures</dt><dd>Judge v2.3 on the daily production sample; Official run 1183</dd>
+          <dt>Incident and finding</dt><dd>INC-0412 (24 Oct) and F-0412 (opened 28 Oct), from the record</dd>
+        </dl>
+        <div class="kit-asof" style="margin-top: 12px">As of Thu 5 Nov 2026, 11:58 ET <button class="kit-tip end" type="button" aria-label="Source for this page">i<span class="kit-tip-bubble" role="tooltip">Source: alert service; gateway serving log (aggregate; pilot request content is in Traces); Judge v2.3 daily sample; the UC-0291 record; the escalation policy.</span></button></div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
