@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-08T15:40:00+05:30",
+  "asOf": "2026-11-08T17:20:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 402,
+    "registerRev": 403,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1324,7 +1324,7 @@
         "T-001"
       ],
       "stage": "Shaping",
-      "stageNote": "idea card 2026-11-02; decision 2 taken: shadcn on Base UI, not forked; look, navigation and colour system v1.1 fixed; the kit runs as code in the kit-test playground; every free component library vendored and reviewed in the component playground, 2026-11-05; open: decisions 1, 3, 4, H2's compact density and AA contrast run, inventory from row 31; 2026-11-07: first adoption set chosen (AgentConversation, eight pieces, ThinkLatent message type); v0.1.0 release commit 8653232, tag pending; v0.2.0 built (3fa04b6): AgentConversation, red-team pass recorded; 2026-11-07 evening: v0.2.1 red-team follow-ups shipped; adoption replaced by seven automated gates (D-183), Commons Clause allowed (D-184); v0.3.0 has 2,208 of 2,449 vendored components usable; v0.3.1 (d76a3b3): Radix variants dropped, 3D-only render failures pass, 2,269 of 2,402 usable; v0.4.0 (c7b3cc9, 2026-11-08): @kit/charts built, DK-001 closed, six portal wrappers and the number rule in @kit/kit; v0.5.0 (26f394f): the full chart set; v0.5.1 (b0f2703) charts on the colour system; v0.6.0 (9f8b147) the complete chart set, nineteen charts; v0.6.1 (c124e2c): render walk interacts before judging, 2,366 of 2,402 usable",
+      "stageNote": "idea card 2026-11-02; decision 2 taken: shadcn on Base UI, not forked; look, navigation and colour system v1.1 fixed; the kit runs as code in the kit-test playground; every free component library vendored and reviewed in the component playground, 2026-11-05; open: decisions 1, 3, 4, H2's compact density and AA contrast run, inventory from row 31; 2026-11-07: first adoption set chosen (AgentConversation, eight pieces, ThinkLatent message type); v0.1.0 release commit 8653232, tag pending; v0.2.0 built (3fa04b6): AgentConversation, red-team pass recorded; 2026-11-07 evening: v0.2.1 red-team follow-ups shipped; adoption replaced by seven automated gates (D-183), Commons Clause allowed (D-184); v0.3.0 has 2,208 of 2,449 vendored components usable; v0.3.1 (d76a3b3): Radix variants dropped, 3D-only render failures pass, 2,269 of 2,402 usable; v0.4.0 (c7b3cc9, 2026-11-08): @kit/charts built, DK-001 closed, six portal wrappers and the number rule in @kit/kit; v0.5.0 (26f394f): the full chart set; v0.5.1 (b0f2703) charts on the colour system; v0.6.0 (9f8b147) the complete chart set, nineteen charts; v0.6.1 (c124e2c): render walk interacts before judging, 2,366 of 2,402 usable; v0.6.2 (0680087): dependency-licence gate, 36 resolved, 2,366 usable",
       "stageSince": null,
       "horizon": "H1",
       "appetite": null,
@@ -1339,7 +1339,7 @@
       "docTitle": "ThinkLatent design kit (design-kit) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-08",
-      "nextStep": "Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: Shell D and the record sheet upstreamed from the lab dashboard; the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release",
+      "nextStep": "Jithin: decide GSAP (its standard 'no charge' licence is outside the allowlist; 18 react-bits components depend on it): record a licence exception, or keep them blocked. Kit lead (Claude): rewrite only the GSAP pieces a product asks for on the kit's motion library. Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: Shell D and the record sheet upstreamed from the lab dashboard; the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -4656,6 +4656,19 @@
       "health": "on-track",
       "healthNote": "99% of vendored components usable; 36 left",
       "nextStepDue": "2026-11-14"
+    },
+    {
+      "date": "2026-11-08",
+      "scope": "TL-013 design-kit (the 36)",
+      "ideaIds": [
+        "TL-013"
+      ],
+      "mode": "Spec (build)",
+      "outcome": "All 36 resolved (D-213); dependency-licence gate found 37 components on Remix Icon or GSAP; Remix swapped to Lucide or excluded; 2,366 usable, 18 excluded, 18 blocked on GSAP. design-kit 0680087.",
+      "docsTouched": "thinklatent-labs/design-kit 0680087; gates/excluded.json; gates/verified.json",
+      "health": "on-track",
+      "healthNote": "One licence decision open (GSAP)",
+      "nextStepDue": "2026-11-14"
     }
   ],
   "decisions": [
@@ -7611,6 +7624,20 @@
       "id": "D-212",
       "decision": "Wrapper choices confirmed: DataTable pages its rows (25, 50, 100) rather than one long scrolling list; InfoTip is one popover that opens on hover, keyboard focus, tap or Enter",
       "by": "Jithin",
+      "door": "two-way"
+    },
+    {
+      "ideaId": "TL-013",
+      "date": "2026-11-08",
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "id": "D-213",
+      "decision": "The 36 components the render walk could not judge are resolved (Jithin: do it now): 23 render with kit-written demos and are usable, 10 excluded with reasons (6 React Aria variants, a barrel and a helper, GIF-filled text, the canvas connection line), 3 blocked by licence. The gates now check every imported package's licence: 37 components had passed while depending on Remix Icon or GSAP. Remix Icon swapped for Lucide in six components; eight built on third-party brand marks excluded. gates/excluded.json and gates/verified.json (evidence-backed) added; the component playground shows each component's real gate status. 2,366 of 2,402 usable, 18 excluded, 18 blocked pending a GSAP licence decision. design-kit 0680087 (v0.6.2)",
+      "by": "Jithin (asked); Kit lead (Claude) and a builder agent",
       "door": "two-way"
     }
   ],
