@@ -48,7 +48,7 @@ function ViewHeader({ kicker, title, caption, actions }: { kicker: ReactNode; ti
     <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
       <div className="min-w-0">
         <div className="kit-caption">{kicker}</div>
-        <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">{title}</h1>
+        <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight @min-[640px]:text-[34px]">{title}</h1>
         <p className="mt-1.5 max-w-[720px] text-sm text-muted-foreground">{caption}</p>
       </div>
       {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
@@ -145,7 +145,7 @@ export default function Graph() {
       />
 
       {(dates.length > 1 || trail.length > 1) && (
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-6">
+        <div className="flex flex-col gap-3 @min-[900px]:flex-row @min-[900px]:items-center @min-[900px]:gap-6">
           {dates.length > 1 && (
             <div className="flex min-w-0 flex-1 flex-col gap-2 rounded-[22px] border border-foreground/10 bg-background/60 px-4 py-2.5 backdrop-blur sm:flex-row sm:items-center sm:gap-4 sm:rounded-full sm:py-2">
               <span className="kit-caption shrink-0">Time-lapse</span>
@@ -169,7 +169,7 @@ export default function Graph() {
       )}
 
       <Surface padding="none" className="overflow-hidden">
-        <div className="overflow-x-auto overscroll-x-contain px-2 py-3 md:px-4">
+        <div className="overflow-x-auto overscroll-x-contain px-2 py-3 @min-[640px]:px-4">
           <svg className="block h-auto w-full select-none" style={{ minWidth: Math.round(layout.width * 0.74) }} viewBox={`0 0 ${layout.width} ${layout.height}`} role="img" aria-label={`Idea graph: ${layout.nodes.length} nodes, ${layout.edges.length} links`}>
             <defs>
               <marker id="g-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">

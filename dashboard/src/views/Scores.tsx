@@ -6,7 +6,7 @@ import { Slider } from '@kit/ui/components/slider';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@kit/ui/components/tooltip';
 import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
-import { rankUnder, evidenceMap, predictionLedger, calibration } from '../lib/derive2';
+import { rankUnder, evidenceMap, predictionLedger, calibration, isScored } from '../lib/derive2';
 import { fmtDate, plural } from '../lib/format';
 import { CRITERIA, type Criterion, type Weights } from '../lib/types';
 import { RUBRIC } from '../lib/rubric';
@@ -31,7 +31,7 @@ function ViewHeader({ kicker, title, caption, actions }: { kicker: ReactNode; ti
     <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
       <div className="min-w-0">
         <div className="kit-caption">{kicker}</div>
-        <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">{title}</h1>
+        <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight @min-[640px]:text-[34px]">{title}</h1>
         <p className="mt-1.5 max-w-[720px] text-sm text-muted-foreground">{caption}</p>
       </div>
       {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
@@ -54,7 +54,9 @@ export default function Scores() {
   }, [trial, sum]);
   const inForce = useMemo(() => rankUnder(reg, reg.weights), [reg]);
   const scenario = useMemo(() => rankUnder(reg, normalised), [reg, normalised]);
-  const scored = visibleIdeas.filter((i) => i.score.criteria);
+  // A row is scored when it has a composite; a composite set without the eight criteria is shown as "composite only"
+  // and cannot re-rank under trial weights (audit B2: TL-003's 3.75 was dropped).
+  const scored = visibleIdeas.filter(isScored);
   const unscored = visibleIdeas.length - scored.length;
   const bar = reg.portfolioBar ?? reg.proposedPortfolioBar ?? null;
   const points = useMemo(() => evidenceMap(reg).filter((p) => visibleIdeas.some((i) => i.id === p.ideaId)), [reg, visibleIdeas]);
@@ -63,7 +65,13 @@ export default function Scores() {
   const resolved = ledger.filter((r) => r.result === 'confirmed' || r.result === 'refuted').length;
 
   const rows = scored
-    .map((i) => ({ i, a: inForce.find((r) => r.id === i.id)!, b: scenario.find((r) => r.id === i.id)! }))
+    .map((i) => {
+      if (!i.score.criteria) {
+        const fixed = { id: i.id, composite: i.score.composite, rank: null as number | null };
+        return { i, a: fixed, b: fixed, only: true };
+      }
+      return { i, a: inForce.find((r) => r.id === i.id)!, b: scenario.find((r) => r.id === i.id)!, only: false };
+    })
     .sort((x, y) => (y.b.composite ?? 0) - (x.b.composite ?? 0));
   const above = bar != null ? rows.filter((r) => r.b.composite != null && r.b.composite >= bar).length : null;
   const presetWord = preset === 'in-force' ? 'in-force' : preset === 'proposed' ? 'proposed' : 'trial';
@@ -113,9 +121,9 @@ export default function Scores() {
     <div className="flex flex-col gap-5">
       {header}
 
-      <Stagger className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" gap={0.06}>
+      <Stagger className="grid gap-4 sm:grid-cols-2 @min-[1150px]:grid-cols-3" gap={0.06}>
         <StaggerItem>
-          <Tile icon={<Gauge />} title="Scored rows" value={<CountUp value={scored.length} />} unit={`of ${visibleIdeas.length}`} caption={unscored ? `${plural(unscored, 'row')} not yet; scores land at Stress test` : 'every row carries the eight criteria'} spark={<DotGrid on={scored.length} total={Math.max(scored.length, Math.min(24, visibleIdeas.length))} cols={8} />} />
+          <Tile icon={<Gauge />} title="Scored rows" value={<CountUp value={scored.length} />} unit={`of ${visibleIdeas.length}`} caption={unscored ? `${plural(unscored, 'row')} not yet; scores land at Stress test` : 'every row carries a score'} spark={<DotGrid on={scored.length} total={Math.max(scored.length, Math.min(24, visibleIdeas.length))} cols={8} />} />
         </StaggerItem>
         <StaggerItem>
           <Tile
@@ -127,7 +135,7 @@ export default function Scores() {
             spark={rows.length > 1 ? <Bars values={rows.map((r) => r.b.composite ?? 0)} lit={0} /> : undefined}
           />
         </StaggerItem>
-        <StaggerItem className="sm:col-span-2 xl:col-span-1">
+        <StaggerItem className="sm:col-span-2 @min-[1150px]:col-span-1">
           <Tile icon={<FlaskConical />} title="Predictions" value={<CountUp value={ledger.length} />} unit={`${resolved} resolved`} caption="pre-registered hypotheses; calibration needs resolved ones" spark={ledger.length ? <DotGrid on={resolved} total={Math.min(24, ledger.length)} cols={8} /> : undefined} />
         </StaggerItem>
       </Stagger>
@@ -137,27 +145,27 @@ export default function Scores() {
           title="Weights"
           caption={`${preset === 'in-force' ? 'The weights in force this quarter' : preset === 'proposed' ? 'The weights proposed for the quarter' : 'A trial set, unsaved'}; normalised to sum to 1. Hover a criterion for what a 5 and a 1 mean.`}
         />
-        <div className="mt-4 hidden grid-cols-[minmax(0,190px)_1fr_150px_64px] items-center gap-4 px-4 pb-1 md:grid">
+        <div className="mt-4 hidden grid-cols-[minmax(0,190px)_1fr_150px_64px] items-center gap-4 px-4 pb-1 @min-[640px]:grid">
           <span className="kit-caption">Criterion</span>
           <span className="kit-caption">Trial weight</span>
           <span className="kit-caption">In force and proposed</span>
           <span className="kit-caption text-right">Trial</span>
         </div>
-        <div className="mt-2 space-y-1.5 md:mt-0">
+        <div className="mt-2 space-y-1.5 @min-[640px]:mt-0">
           {CRITERIA.map((c, k) => {
             const f = reg.weights[c];
             const p = reg.proposedWeights?.[c];
             return (
-              <div key={c} className="lab-row grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-2 px-4 py-3 md:grid-cols-[minmax(0,190px)_1fr_150px_64px]">
+              <div key={c} className="lab-row grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-2 px-4 py-3 @min-[640px]:grid-cols-[minmax(0,190px)_1fr_150px_64px]">
                 <Tooltip>
                   <TooltipTrigger render={<span className="w-fit cursor-help text-sm font-medium underline decoration-foreground/15 decoration-dotted underline-offset-4">{RUBRIC[c].name}</span>} />
                   <TooltipContent className="max-w-xs">
                     A 5 is “{RUBRIC[c].five}”; a 1 is “{RUBRIC[c].one}”
                   </TooltipContent>
                 </Tooltip>
-                <span className="kit-display kit-num text-right text-[22px] md:order-last">{pct(normalised[c])}</span>
-                <Slider className="col-span-2 md:col-span-1" min={0} max={40} step={1} value={[Math.round(trial[c] * 100)]} onValueChange={(v) => setOne(c, (Array.isArray(v) ? Number(v[0]) : Number(v)) / 100)} aria-label={`${RUBRIC[c].name} trial weight`} />
-                <div className="col-span-2 space-y-1 md:col-span-1">
+                <span className="kit-display kit-num text-right text-[22px] @min-[640px]:order-last">{pct(normalised[c])}</span>
+                <Slider className="col-span-2 @min-[640px]:col-span-1" min={0} max={40} step={1} value={[Math.round(trial[c] * 100)]} onValueChange={(v) => setOne(c, (Array.isArray(v) ? Number(v[0]) : Number(v)) / 100)} aria-label={`${RUBRIC[c].name} trial weight`} />
+                <div className="col-span-2 space-y-1 @min-[640px]:col-span-1">
                   <PairBar label="in force" value={f} delay={0.03 * k} />
                   {p != null ? <PairBar label="proposed" value={p} delay={0.03 * k + 0.05} brand /> : <span className="text-[11px] text-muted-foreground">no proposed set</span>}
                 </div>
@@ -189,7 +197,7 @@ export default function Scores() {
                 <span className="kit-caption text-right">Rank</span>
               </div>
               <Stagger className="space-y-1.5" gap={0.04}>
-                {rows.map(({ i, a, b }) => {
+                {rows.map(({ i, a, b, only }) => {
                   const below = bar != null && b.composite != null && b.composite < bar;
                   return (
                     <StaggerItem key={i.id} y={8}>
@@ -201,6 +209,7 @@ export default function Scores() {
                           <span className="block text-[11px] text-muted-foreground">
                             {i.score.status}
                             {i.score.date ? `, ${fmtDate(i.score.date)}` : ''}
+                            {only ? ', composite only' : ''}
                           </span>
                         </span>
                         {CRITERIA.map((c) => {
@@ -223,7 +232,7 @@ export default function Scores() {
                           </span>
                         </span>
                         <span className="text-right">
-                          <span className="kit-num text-sm font-medium">{b.rank != null ? `#${b.rank}` : '—'}</span>
+                          <span className="kit-num text-sm font-medium" title={only ? 'No criteria breakdown, so it cannot rank under trial weights' : undefined}>{b.rank != null ? `#${b.rank}` : '—'}</span>
                           {a.rank != null && b.rank != null && a.rank !== b.rank && <span className="block text-[11px] text-muted-foreground">was #{a.rank}</span>}
                         </span>
                       </button>
@@ -265,7 +274,7 @@ export default function Scores() {
           <EmptyNote className="mt-4">No pre-registered hypotheses in the register yet.</EmptyNote>
         ) : (
           <div className="mt-4 space-y-1.5">
-            <div className="hidden grid-cols-[72px_1fr_96px_120px_104px_110px] gap-3 px-4 pb-1 md:grid">
+            <div className="hidden grid-cols-[72px_1fr_96px_120px_104px_110px] gap-3 px-4 pb-1 @min-[640px]:grid">
               {['Idea', 'Claim', 'Confidence', 'Evidence', 'Resolve by', 'Result'].map((h) => (
                 <span key={h} className="kit-caption">
                   {h}
@@ -273,13 +282,13 @@ export default function Scores() {
               ))}
             </div>
             {ledger.map((r, n) => (
-              <div key={n} className="lab-row grid gap-x-3 gap-y-1.5 px-4 py-3 md:grid-cols-[72px_1fr_96px_120px_104px_110px] md:items-center">
+              <div key={n} className="lab-row grid gap-x-3 gap-y-1.5 px-4 py-3 @min-[640px]:grid-cols-[72px_1fr_96px_120px_104px_110px] @min-[640px]:items-center">
                 <IdLink id={r.ideaId} onOpen={select} className="kit-num w-fit text-xs" />
                 <p className="text-sm leading-snug">{r.claim}</p>
                 <span className="text-sm">
                   {r.confidence != null ? (
                     <>
-                      <span className="kit-num font-medium">{r.confidence}%</span> <span className="text-[11px] text-muted-foreground md:block">confident</span>
+                      <span className="kit-num font-medium">{r.confidence}%</span> <span className="text-[11px] text-muted-foreground @min-[640px]:block">confident</span>
                     </>
                   ) : (
                     <Dash reason="not recorded" />

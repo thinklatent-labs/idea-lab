@@ -1,3 +1,4 @@
+import { localDay } from './day';
 // Date and text helpers. Dates are shown relative where a glance matters, absolute on tap.
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -35,6 +36,7 @@ export function plural(n: number, one: string, many = `${one}s`): string {
   return `${n} ${n === 1 ? one : many}`;
 }
 
+/** The viewer's local calendar day (not UTC). */
 export function todayISO(now: Date): string {
-  return now.toISOString().slice(0, 10);
+  return localDay(now);
 }

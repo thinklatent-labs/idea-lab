@@ -2,7 +2,7 @@
 // Validates a register.json against the data contract (schema/register.schema.json)
 // and runs the referential checks the schema cannot express.
 // Usage: node scripts/validate-register.mjs public/data/register.json
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
@@ -71,6 +71,13 @@ if (data.proposedWeights) {
 if (data.portfolio) {
   for (const key of ['now', 'next', 'later', 'capabilitiesToWatch'])
     for (const id of data.portfolio[key] ?? []) if (!ideaIds.has(id)) problems.push(`portfolio.${key}: ${id} not in ideas`);
+}
+
+// Every snapshot the history index lists must exist next to it, or the Changes view diffs against nothing (audit N3).
+const histIdx = path.join(path.dirname(dataPath), 'history', 'index.json');
+if (existsSync(histIdx)) {
+  const idx = JSON.parse(readFileSync(histIdx, 'utf8'));
+  for (const sn of idx.snapshots ?? []) if (!existsSync(path.join(path.dirname(histIdx), path.basename(sn.file)))) problems.push(`history/index.json: ${sn.file} is listed but missing`);
 }
 
 if (problems.length) {

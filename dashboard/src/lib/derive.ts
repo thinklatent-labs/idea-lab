@@ -1,6 +1,7 @@
 // Everything the page derives from register.json. Nothing here is stored; the register is the source.
 // Rules come from the Operating Model (portfolio view, staleness windows, links) and Portfolio session 1.
 import type { Capability, Criterion, Idea, Link, Register, Stage, Weights } from './types';
+import { calendarDaysUntil } from './day';
 import { CRITERIA } from './types';
 
 export type Lane = 'Now' | 'Next' | 'Later' | 'Graduated' | 'Capabilities' | 'Killed';
@@ -50,6 +51,11 @@ const DAY = 86_400_000;
 
 /** Whole days from an ISO date (YYYY-MM-DD or date-time) to `now`, never negative. */
 export function daysBetween(from: string, now: Date | string): number {
+  // A calendar date against the viewer's today counts calendar days, local (TL-007 maintenance, B1).
+  if (from.length === 10 && typeof now !== 'string') {
+    const d = -calendarDaysUntil(from, now);
+    return Number.isNaN(d) ? 0 : Math.max(0, d);
+  }
   const a = Date.parse(from.length === 10 ? `${from}T00:00:00Z` : from);
   const b = typeof now === 'string' ? Date.parse(now.length === 10 ? `${now}T00:00:00Z` : now) : now.getTime();
   if (Number.isNaN(a) || Number.isNaN(b)) return 0;
@@ -187,8 +193,10 @@ export function deriveAll(reg: Register, now: Date): Map<string, Derived> {
     if (blockedBy.length) reasons.push({ kind: 'blocked', label: `waits on ${blockedBy.join(', ')}`, weight: 15 });
     const active = idea.stage !== 'Graduated' && idea.stage !== 'Killed';
     if (active) for (const f of idea.flags.slice(0, 3)) reasons.push({ kind: 'flag', label: f, weight: 8 });
-    if (active && daysSinceDecision != null && daysSinceDecision >= 30) reasons.push({ kind: 'quiet', label: `no decision in ${daysSinceDecision} days`, weight: 20 });
-    if (active && daysSinceDecision == null) reasons.push({ kind: 'quiet', label: 'no decision logged yet', weight: 10 });
+    // With the decision log hidden from an audience, silence is not evidence of a quiet row (fix review 5).
+    const decisionsKnown = reg.decisions.length > 0;
+    if (active && decisionsKnown && daysSinceDecision != null && daysSinceDecision >= 30) reasons.push({ kind: 'quiet', label: `no decision in ${daysSinceDecision} days`, weight: 20 });
+    if (active && decisionsKnown && daysSinceDecision == null) reasons.push({ kind: 'quiet', label: 'no decision logged yet', weight: 10 });
 
     const attention = idea.stage === 'Killed' ? 0 : reasons.reduce((a, r) => a + r.weight, 0);
 

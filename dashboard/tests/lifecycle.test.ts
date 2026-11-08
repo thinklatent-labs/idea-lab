@@ -22,7 +22,7 @@ describe('lifecycle v1.2', () => {
   it('fails the Building gate for the TL Index (leads unnamed, no appetite) and passes it for the dashboard', () => {
     const index = buildingGate(reg.ideas.find((i) => i.id === 'TL-004')!);
     expect(index.passed).toBe(false);
-    expect(index.missing).toContain('an owner who is not Jithin');
+    expect(index.missing).toContain('an owner role');
     expect(index.missing).toContain('an appetite in engineer-weeks');
     expect(buildingGate(reg.ideas.find((i) => i.id === 'TL-007')!).passed).toBe(true);
   });

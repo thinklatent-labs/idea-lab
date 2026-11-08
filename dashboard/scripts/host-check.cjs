@@ -114,9 +114,78 @@ const hostOrigin = `http://localhost:${hostPort}`;
       }
     }
   }
+  // Layout at the widths people use, phone to wide desk (TL-007 maintenance, audit S1 to S3): the pixel comparison above only proves host
+  // and plain agree at 1440, so a clipped logo passed it. Here, on the plain page: no sideways scroll, no text spilling
+  // out of its box in the header or the view, no truncated header chip, and the same with Jarvis docked at 1280.
+  const layoutProbe = () => {
+    const out = [];
+    const vw = window.innerWidth;
+    if (document.documentElement.scrollWidth > vw + 1) out.push(`page scrolls sideways (${document.documentElement.scrollWidth} > ${vw})`);
+    const label = (el) => `${el.tagName.toLowerCase()} "${(el.textContent || '').trim().slice(0, 28)}"`;
+    const hasText = (el) => [...el.childNodes].some((c) => c.nodeType === 3 && c.textContent.trim());
+    for (const el of document.querySelectorAll('[data-app-header] *, header *, main *')) {
+      if (!hasText(el) || el.closest('svg,[data-layout-truncate-ok]')) continue;
+      const cs = getComputedStyle(el);
+      // Skip inline runs, hidden text and screen-reader-only labels (1 px boxes clipped on purpose).
+      if (cs.display === 'inline' || cs.visibility === 'hidden' || el.clientWidth <= 1 || el.closest('.sr-only,[hidden]') || cs.clip !== 'auto' || cs.clipPath !== 'none') continue;
+      if (cs.textOverflow === 'ellipsis') {
+        if (el.closest('[data-app-header]') && el.scrollWidth - el.clientWidth > 1) out.push(`header text truncated: ${label(el)}`);
+        continue;
+      }
+      // Measure the text itself, so overflow on both sides of a centred box counts (scrollWidth sees only the right).
+      const box = el.getBoundingClientRect();
+      const range = document.createRange();
+      const lines = new Set();
+      let left = Infinity;
+      let right = -Infinity;
+      for (const c of el.childNodes) {
+        if (c.nodeType !== 3 || !c.textContent.trim()) continue;
+        range.selectNodeContents(c);
+        for (const r of range.getClientRects()) {
+          if (r.width === 0) continue;
+          left = Math.min(left, r.left);
+          right = Math.max(right, r.right);
+          lines.add(Math.round(r.top));
+        }
+      }
+      if (left === Infinity) continue;
+      const spill = Math.max(box.left - left, right - box.right);
+      if (spill > 1 && cs.overflowX === 'visible') out.push(`text spills ${Math.round(spill)}px out of its box: ${label(el)}`);
+      if (el.closest('[data-app-header]') && lines.size > 1) out.push(`header text wraps onto ${lines.size} lines: ${label(el)}`);
+    }
+    return [...new Set(out)].slice(0, 8);
+  };
+  const layouts = [
+    { w: 390, h: 844, view: '' },
+    { w: 768, h: 1024, view: '' },
+    { w: 1024, h: 768, view: '' },
+    { w: 1024, h: 768, view: '', jarvis: true },
+    { w: 1280, h: 800, view: '' },
+    { w: 1280, h: 800, view: '', jarvis: true },
+    { w: 1920, h: 1080, view: '' },
+    { w: 1280, h: 800, view: 'scores' },
+    { w: 390, h: 844, view: 'register' },
+  ];
+  for (const scheme of ['light', 'dark']) {
+    for (const L of layouts) {
+      const ctx = await browser.newContext({ viewport: { width: L.w, height: L.h }, colorScheme: scheme, reducedMotion: 'reduce' });
+      const pg = await ctx.newPage();
+      await pg.goto(`${pageOrigin}/plain/${L.view ? `#${L.view}` : ''}`, { waitUntil: 'networkidle' });
+      await pg.waitForTimeout(1200);
+      if (L.jarvis) {
+        await pg.locator('header button[aria-pressed]').first().click();
+        await pg.waitForTimeout(900);
+      }
+      const problems = await pg.evaluate(layoutProbe);
+      await ctx.close();
+      if (problems.length) failed++;
+      console.log(`${problems.length ? 'LAYOUT' : 'layout'} ${scheme.padEnd(5)} ${String(L.w).padEnd(4)} ${(L.view || 'command center') + (L.jarvis ? ' + Jarvis' : '')}${problems.length ? `: ${problems.join('; ')}` : ' ok'}`);
+    }
+  }
+
   await browser.close();
   pageServer.close();
   hostServer.close();
-  console.log(failed ? `${failed} render(s) differ under host conditions: not published.` : 'Every render matches under host conditions (D-107).');
+  console.log(failed ? `${failed} check(s) failed (host renders or layout): not published.` : 'Every render matches under host conditions (D-107) and every layout check passes.');
   process.exit(failed ? 1 : 0);
 })();

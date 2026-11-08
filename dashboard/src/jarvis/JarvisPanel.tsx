@@ -13,6 +13,7 @@ import { JarvisOrb } from './Orb';
 import { useJarvis, type JMsg, type Proposal, type Tier } from './useJarvis';
 import { Segmented } from '../kit/parts';
 import { spring } from '../kit/motion';
+import { foreignDialogOpen, isTopLayer, pushLayer } from '../lib/layers';
 
 const TIERS: { value: Tier; label: string }[] = [
   { value: 'quick', label: 'Fast' },
@@ -102,11 +103,11 @@ function ProposalCard({ p, msgId }: { p: Proposal; msgId: string }) {
         </p>
       )}
       <div className="mt-3 flex flex-wrap items-center gap-2">
-        {p.state === 'open' && (
+        {(p.state === 'open' || p.state === 'failed') && (
           <>
             <Button size="sm" className="rounded-full" disabled={!canWrite} onClick={() => j.confirm(msgId, p.pid)}>
               {p.type === 'quick' ? <Check /> : <Inbox />}
-              {p.type === 'quick' ? 'Record my decision' : 'Queue for the chat'}
+              {p.state === 'failed' ? 'Try again' : p.type === 'quick' ? 'Record my decision' : 'Queue for the chat'}
             </Button>
             <Button size="sm" variant="outline" className="rounded-full" onClick={() => j.dismiss(msgId, p.pid)}>
               Dismiss
@@ -117,7 +118,7 @@ function ProposalCard({ p, msgId }: { p: Proposal; msgId: string }) {
         {p.state === 'recorded' && <Status tone="good" word="Recorded; Claude applies it at the next lab chat or the morning pickup" />}
         {p.state === 'queued' && <Status tone="good" word="Queued; raised at the start of the next lab chat" />}
         {p.state === 'dismissed' && <Status tone="neutral" word="Dismissed" />}
-        {p.state === 'failed' && <Status tone="critical" word="Not saved; try again from the card" />}
+        {p.state === 'failed' && <Status tone="critical" word={inbox.error ?? 'Not saved; try again'} />}
       </div>
     </motion.div>
   );
@@ -190,6 +191,25 @@ export function JarvisPanel({ docked, suggestions }: { docked: boolean; suggesti
   useEffect(() => {
     if (j.open) window.setTimeout(() => input.current?.focus(), 120);
   }, [j.open]);
+  // The floating panel (below 1280 px) is a dialog: Escape closes it unless the palette sits on top, and focus goes
+  // back where it was (audit N6). The docked panel is part of the page and keeps its place.
+  useEffect(() => {
+    if (docked) return;
+    const back = document.activeElement as HTMLElement | null;
+    const dropLayer = pushLayer('jarvis');
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape' || foreignDialogOpen() || !isTopLayer('jarvis')) return;
+      j.setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      dropLayer();
+      window.removeEventListener('keydown', onKey);
+      // Return focus only when nothing else is now on top of the page.
+      if (back?.isConnected && !document.querySelector('[data-lab-sheet]')) back.focus({ preventScroll: true });
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [docked]);
   const send = () => {
     if (!draft.trim() || j.busy) return;
     j.ask(draft);
@@ -201,6 +221,7 @@ export function JarvisPanel({ docked, suggestions }: { docked: boolean; suggesti
   const panel = (
     <motion.aside
       aria-label="Jarvis"
+      {...(docked ? {} : { role: 'dialog', 'data-jarvis-float': '' })}
       initial={{ opacity: 0, x: 24 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 24 }}

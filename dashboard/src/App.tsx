@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AnimatePresence, MotionConfig, motion } from 'motion/react';
 import { Boxes, Columns3, Gauge, GitCompareArrows, LayoutDashboard, ListChecks, ScrollText, Table2, Waypoints } from 'lucide-react';
 import { Status } from '@kit/kit';
@@ -7,7 +7,9 @@ import { deriveAll, attentionQueue, hoursBetween } from './lib/derive';
 import { openNextSteps } from './lib/derive2';
 import { ALL_AUDIENCE, LabContext, parseHash, toHash, useLab, VIEWS, type View } from './lib/context';
 import { fmtDateTime, relHours } from './lib/format';
-import { readLastVisit, writeLastVisit, readPrefs, writePrefs } from './lib/storage';
+import { rollLastVisit, readPrefs, writePrefs } from './lib/storage';
+import { localDay } from './lib/day';
+import { audienceRegister } from './lib/audience';
 import { useInbox } from './lib/inbox';
 import { Shell, type AgendaChip, type DockItem } from './kit/shell';
 import { spring } from './kit/motion';
@@ -15,6 +17,7 @@ import { JarvisProvider, useJarvis } from './jarvis/useJarvis';
 import { JarvisPanel } from './jarvis/JarvisPanel';
 import { localBrief, whenText } from './jarvis/brain';
 import Palette from './components/Palette';
+import { ViewBoundary } from './components/ViewBoundary';
 import DetailSheet from './components/DetailSheet';
 import Command from './views/Command';
 import Queue from './views/Queue';
@@ -70,12 +73,13 @@ export default function App() {
   const [queueFilter, setQueueFilterState] = useState<string>(() => readPrefs().queueFilter ?? 'all');
   const [audienceId, setAudienceId] = useState<string>(() => readPrefs().audience ?? 'jithin');
   const [dark, setDark] = useState(initialDark);
-  const [lastVisit] = useState<string | null>(() => {
-    const prev = readLastVisit();
-    writeLastVisit(new Date().toISOString().slice(0, 10));
-    return prev;
-  });
-  const now = useMemo(() => new Date(), []);
+  // The previous calendar day this browser opened the page; reloads on one day keep it (audit N1).
+  const [lastVisit] = useState<string | null>(() => rollLastVisit(localDay(new Date())));
+  // The clock moves: every five minutes and whenever the tab is looked at again, so a tab left open
+  // overnight shows today's dates and raises the freshness alert (audit S7).
+  const [now, setNow] = useState(() => new Date());
+  const [reloadKey, setReloadKey] = useState(0);
+  const latestRev = useRef('');
   const inbox = useInbox();
 
   useEffect(() => {
@@ -83,20 +87,47 @@ export default function App() {
   }, [dark]);
 
   useEffect(() => {
+    let lastFetch = Date.now();
+    const tick = () => setNow(new Date());
+    const timer = window.setInterval(tick, 5 * 60_000);
+    const onVisible = () => {
+      if (document.visibilityState !== 'visible') return;
+      tick();
+      // Re-read the register when the tab comes back after a while: a sync may have landed.
+      if (Date.now() - lastFetch > 5 * 60_000) {
+        lastFetch = Date.now();
+        setReloadKey((k) => k + 1);
+      }
+    };
+    document.addEventListener('visibilitychange', onVisible);
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
+  }, []);
+
+  useEffect(() => {
     let alive = true;
+    const refresh = reloadKey > 0;
     fetch(DATA_URL, { cache: 'no-store' })
       .then(async (r) => {
         if (!r.ok) throw new Error(`register.json: HTTP ${r.status}`);
         const reg = (await r.json()) as Register;
         const known = ['1.0', '1.1', '1.2', '1.3'];
         if (!known.includes(reg.schemaVersion)) throw new Error(`register.json schema ${reg.schemaVersion} is not one of ${known.join(', ')}; rebuild the page or re-export`);
-        if (alive) setLoad({ status: 'ready', reg });
+        // A refresh keeps the page as it is unless the register actually moved; when it moved, the diff snapshot moves too.
+        const unchanged = refresh && latestRev.current === `${reg.source.registerRev}|${reg.asOf}`;
+        if (unchanged || !alive) return;
+        latestRev.current = `${reg.source.registerRev}|${reg.asOf}`;
+        setLoad({ status: 'ready', reg });
         if (reg.history?.indexUrl) {
           try {
             const ir = await fetch(reg.history.indexUrl, { cache: 'no-store' });
             if (!ir.ok) return;
             const idx = (await ir.json()) as SnapshotIndex;
-            const earlier = idx.snapshots.filter((s) => s.asOf < reg.asOf).sort((a, b) => b.asOf.localeCompare(a.asOf))[0];
+            // Compare instants, not strings: snapshots may carry different offsets (audit N2).
+            const t = (iso: string) => Date.parse(iso);
+            const earlier = idx.snapshots.filter((s) => t(s.asOf) < t(reg.asOf)).sort((a, b) => t(b.asOf) - t(a.asOf))[0];
             if (!earlier) return;
             const sr = await fetch(earlier.file, { cache: 'no-store' });
             if (!sr.ok) return;
@@ -108,12 +139,13 @@ export default function App() {
         }
       })
       .catch((e: unknown) => {
-        if (alive) setLoad({ status: 'error', message: e instanceof Error ? e.message : String(e) });
+        // A failed refresh keeps the register already on screen.
+        if (alive && !refresh) setLoad({ status: 'error', message: e instanceof Error ? e.message : String(e) });
       });
     return () => {
       alive = false;
     };
-  }, []);
+  }, [reloadKey]);
 
   useEffect(() => {
     const onHash = () => setRoute(parseHash(window.location.hash));
@@ -149,7 +181,15 @@ export default function App() {
     });
   }, []);
 
-  const derived = useMemo(() => (load.status === 'ready' ? deriveAll(load.reg, now) : null), [load, now]);
+  const fullReg = load.status === 'ready' ? load.reg : null;
+  const audiences: Audience[] = fullReg?.audiences && fullReg.audiences.length ? fullReg.audiences : [ALL_AUDIENCE];
+  const audience = audiences.find((a) => a.id === audienceId) ?? audiences[0];
+  // Every view, rule and Jarvis tool reads the register as this audience may see it (audit S4).
+  // Rows flagged in either copy stay hidden in both, so the diff never shows a newly flagged row as removed.
+  const flaggedAnywhere = useMemo(() => [...(fullReg?.ideas ?? []), ...(previous?.reg.ideas ?? [])].filter((i) => i.sensitivity === 'flagged').map((i) => i.id), [fullReg, previous]);
+  const viewReg = useMemo(() => (fullReg ? audienceRegister(fullReg, audience, flaggedAnywhere) : null), [fullReg, audience, flaggedAnywhere]);
+  const derived = useMemo(() => (viewReg ? deriveAll(viewReg, now) : null), [viewReg, now]);
+  const previousView = useMemo(() => (previous ? audienceRegister(previous.reg, audience, flaggedAnywhere) : null), [previous, audience, flaggedAnywhere]);
 
   if (load.status === 'loading')
     return (
@@ -169,11 +209,9 @@ export default function App() {
       </div>
     );
 
-  const reg = load.reg;
-  const audiences: Audience[] = reg.audiences && reg.audiences.length ? reg.audiences : [ALL_AUDIENCE];
-  const audience = audiences.find((a) => a.id === audienceId) ?? audiences[0];
+  const reg = viewReg!;
   const hidden = (section: string) => audience.hide.includes(section);
-  const visibleIdeas = audience.hideFlaggedRows ? reg.ideas.filter((i) => i.sensitivity !== 'flagged') : reg.ideas;
+  const visibleIdeas = reg.ideas;
 
   return (
     <LabContext.Provider
@@ -192,7 +230,8 @@ export default function App() {
         setAudience,
         hidden,
         visibleIdeas,
-        previous: previous?.reg ?? null,
+        // The snapshot goes through the same audience filter, or the diff would surface what the preset hides (fix review 1).
+        previous: previousView,
         previousLabel: previous?.label ?? null,
         inbox,
       }}
@@ -229,7 +268,7 @@ function Frame({ dark, toggleDark, audiences }: { dark: boolean; toggleDark: () 
   }, [jarvis]);
 
   const queueCount = attentionQueue(reg, derived).filter((i) => derived.get(i.id)!.needsDecision).length;
-  const changed = lab.lastVisit ? visibleIdeas.filter((i) => i.lastTouched > lab.lastVisit!).length : 0;
+  const changed = lab.lastVisit ? visibleIdeas.filter((i) => i.lastTouched >= lab.lastVisit!).length : 0;
   const dock: DockItem[] = VIEWS.map((v) => ({ id: v, label: NAV[v].label, Icon: NAV[v].Icon, badge: v === 'queue' ? queueCount : v === 'changes' ? changed : undefined }));
 
   // The day's agenda in the pill bar: what is due, most urgent first; the lead chip carries the brand colour.
@@ -263,7 +302,7 @@ function Frame({ dark, toggleDark, audiences }: { dark: boolean; toggleDark: () 
       status={
         <span className="inline-flex items-center gap-2">
           {audiences.length > 1 && (
-            <select aria-label="View as" value={audience.id} onChange={(e) => setAudience(e.target.value)} className="h-7 rounded-full border border-foreground/15 bg-background/70 px-2 text-xs">
+            <select aria-label="View as" value={audience.id} onChange={(e) => setAudience(e.target.value)} className="h-7 w-[168px] shrink-0 rounded-full border border-foreground/15 bg-background/70 px-2 text-xs">
               {audiences.map((a) => (
                 <option key={a.id} value={a.id}>
                   View as {a.name}
@@ -271,7 +310,10 @@ function Frame({ dark, toggleDark, audiences }: { dark: boolean; toggleDark: () 
               ))}
             </select>
           )}
+          {/* The preset select stays from 1024 px; the sync pill joins it from 1280 px, where the bar has room (re-check N-C). */}
+          <span className="hidden xl:inline-flex">
           <Status tone={ageH > 36 ? 'warning' : 'good'} word={`rev ${reg.source.registerRev} · ${ageH > 36 ? `${relHours(ageH)}, not refreshed` : `synced ${relHours(ageH)}`}`} />
+          </span>
         </span>
       }
       jarvisOpen={jarvis.open}
@@ -281,7 +323,9 @@ function Frame({ dark, toggleDark, audiences }: { dark: boolean; toggleDark: () 
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.div key={view} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ ...spring.soft, opacity: { duration: 0.16 } }}>
-          <Current />
+          <ViewBoundary key={view} resetOn={reg.source.registerRev} name={NAV[view].label}>
+            <Current />
+          </ViewBoundary>
         </motion.div>
       </AnimatePresence>
       <AnimatePresence>{jarvis.open && !wide && <JarvisPanel key="float" docked={false} suggestions={suggestions} />}</AnimatePresence>

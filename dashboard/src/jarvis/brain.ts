@@ -5,8 +5,8 @@ import { attentionQueue } from '../lib/derive';
 import { appetiteState, buildingGate, evaluateRules, healthOf, openNextSteps, type RuleHit } from '../lib/derive2';
 import { dueItems, type DueItem, type Idea, type Register } from '../lib/types';
 import type { InboxDoc } from '../lib/inbox';
+import { calendarDaysUntil, localDay, weekdayOf } from '../lib/day';
 
-const DAY = 86_400_000;
 const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -14,15 +14,16 @@ export const dayLabel = (iso: string) => {
   const d = new Date(`${iso.slice(0, 10)}T00:00:00Z`);
   return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}`;
 };
-const daysTo = (iso: string, now: Date) => Math.round((Date.parse(`${iso.slice(0, 10)}T00:00:00Z`) - Date.parse(`${now.toISOString().slice(0, 10)}T00:00:00Z`)) / DAY);
+const daysTo = (iso: string, now: Date) => calendarDaysUntil(iso, now);
 
 /** "due Friday" within a week, "due 12 Nov" beyond, "3 days overdue" past. */
 export function whenText(iso: string, now: Date): string {
   const d = daysTo(iso, now);
+  if (Number.isNaN(d)) return `due ${iso}`;
   if (d < 0) return `${-d} ${d === -1 ? 'day' : 'days'} overdue`;
   if (d === 0) return 'due today';
   if (d === 1) return 'due tomorrow';
-  if (d < 7) return `due ${WEEKDAYS[new Date(`${iso.slice(0, 10)}T00:00:00Z`).getUTCDay()]}`;
+  if (d < 7) return `due ${WEEKDAYS[weekdayOf(iso)]}`;
   return `due ${dayLabel(iso)}`;
 }
 
@@ -77,7 +78,7 @@ export interface DigestInput {
 export function buildDigest({ reg, derived, now, inbox, lastVisit, visibleIdeas }: DigestInput): string {
   const out: string[] = [];
   const live = visibleIdeas.filter((i) => !['Graduated', 'Killed'].includes(i.stage));
-  out.push(`REGISTER rev ${reg.source.registerRev}, as of ${reg.asOf}. ${visibleIdeas.length} rows, ${live.length} live. Today is ${now.toISOString().slice(0, 10)} (${WEEKDAYS[now.getUTCDay()]}).${lastVisit ? ` Jithin last opened the dashboard on ${lastVisit}.` : ''}`);
+  out.push(`REGISTER rev ${reg.source.registerRev}, as of ${reg.asOf}. ${visibleIdeas.length} rows, ${live.length} live. Today is ${localDay(now)} (${WEEKDAYS[now.getDay()]}).${lastVisit ? ` Jithin last opened the dashboard on ${lastVisit}.` : ''}`);
   out.push('', 'ROWS (most in need of attention first):');
   const order = attentionQueue(reg, derived).filter((i) => visibleIdeas.includes(i));
   const rest = visibleIdeas.filter((i) => !order.includes(i));
@@ -126,14 +127,14 @@ export function rules(digest: string): string {
     `- Views you can open: pulse (the command center), queue, register, board, graph, catalogue, scores, changes, log.`,
     '- End with exactly one line: "Confidence: high|medium|low — <what it rests on>".',
     '',
-    'Lab rules: stages Seed, Shaping, Stress test, Proposal (funded by default; Jithin rejects explicitly), Building, Shipped (a first user in production and the metric read), Graduated, Parked, Killed. No idea passes Stress test without a recorded critique. The Building gate: an owner who is not Jithin, a stream, an appetite in engineer-weeks. Staleness windows: Seed 60, Shaping 30, Stress test 21, Proposal 14, Shipped 30 days; Building runs by its appetite. Five streams S-A to S-E. Modes: Brainstorm, Critic, Scout, Spec, Portfolio, Comms. A chat opens with "Lab session · TL-### slug · Mode".',
+    'Lab rules: stages Seed, Shaping, Stress test, Proposal (funded by default; Jithin rejects explicitly), Building, Shipped (a first user in production and the metric read), Graduated, Parked, Killed. No idea passes Stress test without a recorded critique. The Building gate (D-152): an owner role (played by Claude until the company version; owner fields read role then player), a stream, an appetite in engineer-weeks, and a weekly review slot Jithin commits to; ideas in Building never outnumber his review slots. The register has no review-slot field yet, so say a slot is not recorded rather than missing. Staleness windows: Seed 60, Shaping 30, Stress test 21, Proposal 14, Shipped 30 days; Building runs by its appetite. Five streams S-A to S-E. Modes: Brainstorm, Critic, Scout, Spec, Portfolio, Comms. A chat opens with "Lab session · TL-### slug · Mode".',
     '',
     digest,
   ].join('\n');
 }
 
 export function briefPrompt(digest: string, now: Date, lastVisit: string | null): string {
-  return `${rules(digest)}\n\nJithin asks for his lab brief for ${WEEKDAYS[now.getUTCDay()]} ${dayLabel(now.toISOString())}. In at most five sentences, spoken style (it may be read aloud), no bullets: what changed${lastVisit ? ` since ${dayLabel(lastVisit)}` : ' recently'}, what needs him today (most blocking first, with IDs), and the one move that would unblock the most. Then the Confidence line.`;
+  return `${rules(digest)}\n\nJithin asks for his lab brief for ${WEEKDAYS[now.getDay()]} ${dayLabel(localDay(now))}. In at most five sentences, spoken style (it may be read aloud), no bullets: what changed${lastVisit ? ` since ${dayLabel(lastVisit)}` : ' recently'}, what needs him today (most blocking first, with IDs), and the one move that would unblock the most. Then the Confidence line.`;
 }
 
 // ---------- The brief the page writes by itself ----------

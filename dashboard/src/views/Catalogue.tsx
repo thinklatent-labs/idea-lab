@@ -83,12 +83,12 @@ export default function Catalogue() {
           <div className="kit-caption">
             Capability catalogue · {plural(caps.length, 'capability', 'capabilities')} · {plural(reg.links.filter((l) => l.type === 'reuses' || l.type === 'creates').length, 'reuse or create link')}
           </div>
-          <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">Catalogue</h1>
+          <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight @min-[640px]:text-[34px]">Catalogue</h1>
           <p className="mt-1.5 max-w-[760px] text-sm text-muted-foreground">What ideas reuse and create. A capability reused by three or more ideas is a platform priority whatever ships first; one nobody reuses after two quarters is reviewed for retirement.</p>
         </div>
       </header>
 
-      <Stagger className="grid grid-cols-2 gap-3 md:gap-4 xl:grid-cols-4" gap={0.06}>
+      <Stagger className="grid grid-cols-2 gap-3 @min-[640px]:gap-4 @min-[1150px]:grid-cols-4" gap={0.06}>
         <StaggerItem>
           <Tile icon={<Boxes />} title="Capabilities" value={<CountUp value={caps.length} />} caption={`${built} built or in production`} spark={<DotGrid on={Math.min(12, built)} total={Math.min(12, Math.max(caps.length, 1))} />} />
         </StaggerItem>
@@ -161,7 +161,7 @@ export default function Catalogue() {
         <div className="mt-3 flex max-w-full">
           <Segmented id="cat-kind" size="sm" options={[{ value: 'all' as KindFilter, label: 'All', count: caps.length }, ...KINDS.filter((k) => caps.some((c) => c.kind === k)).map((k) => ({ value: k as KindFilter, label: k, count: caps.filter((c) => c.kind === k).length }))]} value={kind} onChange={setKind} />
         </div>
-        <div className="mt-4 hidden grid-cols-[minmax(0,1.4fr)_100px_120px_minmax(0,1fr)_minmax(0,1.2fr)_72px_150px] gap-3.5 px-4 xl:grid">
+        <div className="mt-4 hidden grid-cols-[minmax(0,1.4fr)_100px_120px_minmax(0,1fr)_minmax(0,1.2fr)_72px_150px] gap-3.5 px-4 @min-[1150px]:grid">
           {['Capability', 'Kind', 'Maturity', 'Created by', 'Reused by', 'Demand', 'Flag'].map((h) => (
             <span key={h} className="kit-caption uppercase tracking-wider">
               {h}
@@ -210,7 +210,7 @@ function CapRow({ cap: c, onOpen, selected }: { cap: Capability; onOpen: () => v
   return (
     <motion.button type="button" onClick={onOpen} whileHover={{ y: -2 }} whileTap={{ scale: 0.99 }} transition={spring.snappy} aria-current={selected ? 'true' : undefined} className={cn('lab-row w-full px-4 py-3.5 text-left', selected && 'ring-2 ring-[var(--kit-brand)]')}>
       {/* Wide */}
-      <div className="hidden grid-cols-[minmax(0,1.4fr)_100px_120px_minmax(0,1fr)_minmax(0,1.2fr)_72px_150px] items-center gap-3.5 xl:grid">
+      <div className="hidden grid-cols-[minmax(0,1.4fr)_100px_120px_minmax(0,1fr)_minmax(0,1.2fr)_72px_150px] items-center gap-3.5 @min-[1150px]:grid">
         <div className="min-w-0">
           <div className="truncate text-sm font-medium" title={c.name}>
             {c.name}
@@ -235,7 +235,7 @@ function CapRow({ cap: c, onOpen, selected }: { cap: Capability; onOpen: () => v
         <span>{flagEl}</span>
       </div>
       {/* Narrow */}
-      <div className="xl:hidden">
+      <div className="@min-[1150px]:hidden">
         <div className="flex items-start gap-3">
           <div className="min-w-0 flex-1">
             <div className="text-sm font-medium">{c.name}</div>

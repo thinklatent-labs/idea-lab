@@ -32,8 +32,8 @@ export interface Inbox {
   docs: Map<string, InboxDoc>;
   decide: (doc: Omit<InboxDoc, 'decidedAt' | 'decidedBy' | 'status'>) => Promise<boolean>;
   request: (ideaId: string | null, text: string, via?: InboxDoc['via']) => Promise<boolean>;
-  /** Count a Jarvis conversation the owner started (H5). Silent and best-effort. */
-  logJarvis: (how: JarvisStart) => boolean;
+  /** Count a Jarvis conversation the owner started (H5). Resolves true only when the write landed; never throws. */
+  logJarvis: (how: JarvisStart) => Promise<boolean>;
   withdraw: (itemId: string) => Promise<void>;
   error: string | null;
 }
@@ -41,6 +41,28 @@ export interface Inbox {
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type ClaudeGlobal = { use: (name: string) => Promise<any> };
 const claudeGlobal = (): ClaudeGlobal | null => ((window as any).claude?.use ? ((window as any).claude as ClaudeGlobal) : null);
+
+/**
+ * Whether a call may still be changed: absent or waiting. Claude marks applied calls `applied` and chat-bound ones
+ * `needs-chat`; a stale tab must not reset or delete those (audit S9). Returns the refusal text, or null when open.
+ */
+export async function refusalFor(db: any, itemId: string): Promise<string | null> {
+  const snap = await db.collection('inbox').doc(itemId).get();
+  const cur = snap?.exists ? (snap.data() as InboxDoc) : null;
+  if (!cur || cur.status === 'waiting') return null;
+  return cur.status === 'applied' ? `Claude already applied this call${cur.decisionId ? ` (${cur.decisionId})` : ''}; change it in a lab chat.` : 'This call was sent to a lab chat; change it there.';
+}
+
+/** Write one Jarvis conversation to usage (H5); true only when the write landed. */
+export async function writeJarvisUsage(db: any, how: JarvisStart, now = new Date()): Promise<boolean> {
+  const j = jarvisDoc(now, how);
+  try {
+    await db.collection('usage').doc(j.id).set(j.data);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 export function useInbox(): Inbox {
   const [state, setState] = useState<Inbox['state']>('loading');
@@ -111,10 +133,22 @@ export function useInbox(): Inbox {
     };
   }, []);
 
+  /**
+   * Refuse to change a call Claude has already applied or sent to a chat (audit S9). The db has no conditional
+   * write, so this reads the live document first: a stale tab showing "Change" or "Withdraw" can no longer
+   * reset an applied call to waiting or delete its audit record.
+   */
+  const stillOpen = async (itemId: string): Promise<boolean> => {
+    const refusal = await refusalFor(api!.db, itemId);
+    if (refusal) setError(refusal);
+    return !refusal;
+  };
+
   const decide: Inbox['decide'] = async (d) => {
     if (!api) return false;
     setError(null);
     try {
+      if (!(await stillOpen(d.itemId))) return false;
       await api.db.collection('inbox').doc(d.itemId).set({ kind: 'quick', via: 'page', ...d, decidedAt: new Date().toISOString(), decidedBy: api.uid, status: 'waiting' });
       return true;
     } catch (e: any) {
@@ -148,17 +182,14 @@ export function useInbox(): Inbox {
   };
   const withdraw: Inbox['withdraw'] = async (itemId) => {
     if (!api) return;
+    setError(null);
     try {
+      if (!(await stillOpen(itemId))) return;
       await api.db.collection('inbox').doc(itemId).delete();
     } catch {
       setError('The decision was not withdrawn; try again.');
     }
   };
-  const logJarvis: Inbox['logJarvis'] = (how) => {
-    if (!api || !canWrite) return false;
-    const j = jarvisDoc(new Date(), how);
-    api.db.collection('usage').doc(j.id).set(j.data).catch(() => undefined);
-    return true;
-  };
+  const logJarvis: Inbox['logJarvis'] = async (how) => (api && canWrite ? writeJarvisUsage(api.db, how) : false);
   return { state, canWrite, docs, decide, request, withdraw, logJarvis, error };
 }

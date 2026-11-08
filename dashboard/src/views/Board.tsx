@@ -69,7 +69,7 @@ export default function Board() {
             Portfolio board · {plural(visibleIdeas.length, 'row')}
             {p ? ` · portfolio session ${p.status}` : ''}
           </div>
-          <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">Board</h1>
+          <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight @min-[640px]:text-[34px]">Board</h1>
           <p className="mt-1.5 max-w-[760px] text-sm text-muted-foreground">
             {lens === 'lifecycle'
               ? 'Lanes follow the lifecycle: Now is Building or Shipped, Next is Proposal, Stress test or Shaping, Later is Seed or Parked; rows are grouped by horizon inside each lane.'
@@ -150,7 +150,7 @@ export default function Board() {
         </div>
 
         {(caps.length > 0 || killed.length > 0) && (
-          <div className="grid gap-3 md:grid-cols-2 2xl:grid-cols-4">
+          <div className="grid gap-3 @min-[640px]:grid-cols-2 @min-[1400px]:grid-cols-4">
             {caps.length > 0 && (
               <motion.section layout className="kit-surface-frame flex min-w-0 flex-col gap-2 p-3.5" aria-label="Capabilities to watch">
                 <div className="flex items-baseline justify-between px-1">
@@ -194,7 +194,7 @@ export default function Board() {
 function BoardCard({ idea, index, quiet = false }: { idea: Idea; index: number; quiet?: boolean }) {
   const { derived, select, selectedId, lastVisit } = useLab();
   const d = derived.get(idea.id)!;
-  const isNew = !!lastVisit && idea.lastTouched > lastVisit;
+  const isNew = !!lastVisit && idea.lastTouched >= lastVisit;
   return (
     <motion.button
       type="button"

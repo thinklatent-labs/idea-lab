@@ -35,7 +35,7 @@ export default function Queue() {
       <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
         <div className="min-w-0">
           <div className="kit-caption">Attention queue · {plural(inQueue.length, 'row')} with a reason · ranked by the lab's rules</div>
-          <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">Queue</h1>
+          <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight @min-[640px]:text-[34px]">Queue</h1>
           <p className="mt-1.5 max-w-[760px] text-sm text-muted-foreground">Decisions waiting on you come first, then features holding a parent, stale rows, parked rows past re-check and open blocking questions; the oldest touch breaks ties.</p>
         </div>
         <Button variant="outline" className="rounded-full bg-background/60" onClick={() => jarvis.ask(`Look at my attention queue (${label.toLowerCase()}). What should I do first, and why? Name the rows.`)}>
@@ -72,7 +72,7 @@ export default function Queue() {
 function QueueRow({ idea, rank }: { idea: Idea; rank: number }) {
   const { derived, select, selectedId, lastVisit } = useLab();
   const d = derived.get(idea.id)!;
-  const isNew = !!lastVisit && idea.lastTouched > lastVisit;
+  const isNew = !!lastVisit && idea.lastTouched >= lastVisit;
   return (
     <motion.button
       type="button"

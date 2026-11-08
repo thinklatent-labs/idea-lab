@@ -9,11 +9,12 @@ import { useLab } from '../lib/context';
 import { attentionQueue, stageCounts } from '../lib/derive';
 import { decisionIndex, evaluateRules, funnel, healthOf, openNextSteps, updateState, appetiteState, buildingGate, type RuleHit } from '../lib/derive2';
 import { dueItems, type Idea, type Stage } from '../lib/types';
-import { fmtDate, plural } from '../lib/format';
+import { fmtDate, fmtDateTime, plural } from '../lib/format';
 import DueCard from '../components/DueCard';
 import { BriefHero } from '../jarvis/BriefHero';
 import { whenText } from '../jarvis/brain';
 import { EmptyNote, Fold, IdLink, Meter, SectionHead, STAGE_VAR, StageTag } from '../kit/parts';
+import { awaitingAccept, presetLogPending } from '../lib/handoff';
 import { CountUp, Stagger, StaggerItem, spring } from '../kit/motion';
 
 const PIPE: Stage[] = ['Seed', 'Shaping', 'Stress test', 'Proposal', 'Building', 'Shipped', 'Graduated'];
@@ -41,6 +42,12 @@ export default function Command() {
   const quickPending = quickOpen.filter(({ item }) => !inbox.docs.has(item.id)).length;
   const inputDue = allDue.filter(({ item }) => item.kind === 'input');
   const requests = [...inbox.docs.values()].filter((d) => d.kind === 'request');
+  // Lines the thinking partner proposed that wait for Jithin's accept: shown apart from the quick calls (S6).
+  const awaiting = hidden('decisions') ? 0 : reg.decisions.filter(awaitingAccept).length;
+  const toPending = () => {
+    presetLogPending();
+    go('log', null);
+  };
   const alerts = hits.filter((h) => h.level === 'alert');
   const warns = hits.filter((h) => h.level === 'warn');
   const lead = queue.find((i) => visibleIdeas.includes(i) && derived.get(i.id)!.attention > 0) ?? null;
@@ -77,7 +84,7 @@ export default function Command() {
           <div className="kit-caption">
             {now.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })} · register rev {reg.source.registerRev} · {plural(visibleIdeas.length, 'row')}, {live.length} live
           </div>
-          <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">{greeting(now)}, Jithin</h1>
+          <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight @min-[640px]:text-[34px]">{greeting(now)}, Jithin</h1>
         </div>
         <div className="flex flex-wrap gap-2">
           <Button className="rounded-full" onClick={() => toQueue('decision')}>
@@ -96,19 +103,20 @@ export default function Command() {
       </header>
 
       {/* Judge: Jarvis's brief and the tiles */}
-      <Stagger className="grid gap-4 md:grid-cols-2 xl:grid-cols-[1.3fr_1fr_1fr]" gap={0.06}>
-        <StaggerItem className="md:col-span-2 xl:col-span-1 xl:row-span-2">
+      <Stagger className="grid gap-4 @min-[640px]:grid-cols-2 @min-[1150px]:grid-cols-[1.3fr_1fr_1fr]" gap={0.06}>
+        <StaggerItem className="@min-[640px]:col-span-2 @min-[1150px]:col-span-1 @min-[1150px]:row-span-2">
           <BriefHero />
         </StaggerItem>
         <StaggerItem>
           <Tile className="h-full" icon={<Layers />} title="Live rows" value={<CountUp value={live.length} />} unit={`of ${visibleIdeas.length}`} caption="Seed to Shipped; Graduated and Killed left the lab" onOpen={() => go('register', null)} spark={<Bars values={stageBars.map((v) => Math.max(v, 0.15))} lit={maxStage} />} />
         </StaggerItem>
         <StaggerItem>
-          <Tile className="h-full" icon={<CircleCheck />} title="Needs you" value={<CountUp value={quickPending + inputDue.length} />} unit={quickPending + inputDue.length === 1 ? 'decision' : 'decisions'} caption={`${plural(quickPending, 'quick call')} here · ${inputDue.length} for the chat`} onOpen={() => toQueue('decision')} spark={<DotGrid on={Math.min(12, quickPending + inputDue.length)} />} />
+          <Tile className="h-full" icon={<CircleCheck />} title="Needs you" value={<CountUp value={quickPending + inputDue.length} />} unit={quickPending + inputDue.length === 1 ? 'decision' : 'decisions'} caption={`${plural(quickPending, 'quick call')} here · ${inputDue.length} for the chat${awaiting ? ` · ${plural(awaiting, 'line')} awaiting your accept` : ''}`} onOpen={() => toQueue('decision')} spark={<DotGrid on={Math.min(12, quickPending + inputDue.length)} />} />
         </StaggerItem>
         <StaggerItem>
           <Tile className="h-full" icon={<Hammer />} title="Streams building" value={<CountUp value={streamsUsed} />} unit={`of ${streams.length || 5}`} caption={`${named} of ${streams.length || 5} engineers named; ${plural(building.length, 'row')} in Building or Shipped`} onOpen={() => go('board', null)} spark={<DotGrid on={streamsUsed} total={streams.length || 5} cols={5} />} />
         </StaggerItem>
+        {!hidden('flags') && (
         <StaggerItem>
           <Tile
             className="h-full"
@@ -122,6 +130,7 @@ export default function Command() {
             spark={alerts[0]?.ideaId ? <Badge className="rounded-full bg-[var(--kit-decision)] text-white">{alerts[0].ideaId}</Badge> : undefined}
           />
         </StaggerItem>
+        )}
       </Stagger>
 
       {/* The one exhibit: the pipeline */}
@@ -136,9 +145,9 @@ export default function Command() {
               </Button>
             }
           />
-          <div className="mt-5 grid items-end gap-6 lg:grid-cols-[200px_1fr]">
+          <div className="mt-5 grid items-end gap-6 @min-[900px]:grid-cols-[200px_1fr]">
             <div>
-              <div className="kit-display text-[88px] md:text-[96px]">
+              <div className="kit-display text-[88px] @min-[640px]:text-[96px]">
                 <CountUp value={live.length} />
               </div>
               <div className="mt-2 text-xs text-muted-foreground">
@@ -187,15 +196,22 @@ export default function Command() {
               </ul>
             </div>
           )}
+          {awaiting > 0 && (
+            <button type="button" onClick={toPending} className="lab-row flex w-full flex-wrap items-center gap-x-3 gap-y-1.5 px-4 py-3 text-left text-sm transition-transform active:scale-[0.99]">
+              <Status tone="neutral" word="Awaiting your accept" />
+              <span className="min-w-[12rem] flex-1 text-muted-foreground">{plural(awaiting, 'decision line')} the thinking partner proposed; accept or amend them in a chat.</span>
+              <span className="kit-num shrink-0 text-xs">Open the Log</span>
+            </button>
+          )}
           {inbox.error && <p className="text-sm text-[var(--lab-crit)]">{inbox.error}</p>}
         </div>
       </Surface>
 
       {/* Act */}
-      <div className="grid gap-4 xl:grid-cols-[1.45fr_1fr]">
+      <div className="grid gap-4 @min-[1150px]:grid-cols-[1.45fr_1fr]">
         <Surface>
-          <SectionHead title="Streams" caption="Five streams, one engineer plus a coding agent each. A row starts Building only with an owner who is not Jithin, a stream and an appetite; the bar is the appetite used." />
-          <div className="mt-4 grid gap-2.5 sm:grid-cols-2 2xl:grid-cols-3">
+          <SectionHead title="Streams" caption="Five streams, one engineer plus a coding agent each (played by Claude until the company version). A row starts Building only with an owner role, a stream, an appetite in engineer-weeks and a weekly review slot Jithin commits to (D-152); Building never outnumbers his review slots. The bar is the appetite used." />
+          <div className="mt-4 grid gap-2.5 sm:grid-cols-2 @min-[1400px]:grid-cols-3">
             {streams.map((st) => (
               <StreamCard key={st.id} id={st.id} name={st.name} owner={st.owner ?? null} focus={st.focus} rows={visibleIdeas.filter((i) => i.streamId === st.id)} />
             ))}
@@ -245,7 +261,8 @@ export default function Command() {
       </div>
 
       {/* Trace */}
-      <div className="grid gap-4 xl:grid-cols-2">
+      <div className="grid gap-4 @min-[1150px]:grid-cols-2">
+        {!hidden('decisions') && (
         <Surface>
           <SectionHead
             title={lastVisit ? 'Since your last visit' : 'Latest decisions'}
@@ -276,7 +293,9 @@ export default function Command() {
               ))}
           </ol>
         </Surface>
+        )}
 
+        {!hidden('flags') && (
         <Surface>
           <SectionHead title="Health and alerts" caption="Health is the thinking partner's call at the end of each session; alerts come from the register's rule table (R-01 to R-18)." />
           <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -331,6 +350,7 @@ export default function Command() {
             </Fold>
           )}
         </Surface>
+        )}
       </div>
 
       {reg.portfolio && !hidden('portfolio') && (
@@ -344,7 +364,7 @@ export default function Command() {
               </Button>
             }
           />
-          <div className="mt-4 grid gap-2.5 md:grid-cols-3">
+          <div className="mt-4 grid gap-2.5 @min-[640px]:grid-cols-3">
             {(
               [
                 ['Now', reg.portfolio.now],
@@ -429,7 +449,7 @@ export default function Command() {
       )}
 
       <p className="px-1 text-xs text-muted-foreground">
-        Source: the register (rev {reg.source.registerRev}), synced from thinklatent-labs/idea-lab. {reg.generatedBy}
+        Source: the register (rev {reg.source.registerRev}, as of {fmtDateTime(reg.asOf)}), synced from thinklatent-labs/idea-lab.
       </p>
     </div>
   );

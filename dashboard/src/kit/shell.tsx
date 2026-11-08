@@ -72,22 +72,24 @@ export function Shell({
         </div>
       )}
 
-      <header className="relative z-30 flex items-center gap-2 px-1 pt-1 md:gap-3 md:px-2 md:pt-2">
-        <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--kit-brand-green-900),var(--kit-brand-green-500))] text-xs font-semibold text-white" aria-label="ThinkLatent Idea Lab">
+      <header data-app-header="" className="relative z-30 flex items-center gap-2 px-1 pt-1 md:gap-3 md:px-2 md:pt-2">
+        {/* The badge sizes to the wordmark: a fixed 36 px box clipped "ThinkLatent" at every width (audit S1). */}
+        <span className="inline-flex h-9 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--kit-brand-green-900),var(--kit-brand-green-500))] px-2.5 text-xs font-semibold whitespace-nowrap text-white" aria-label="ThinkLatent Idea Lab">
           ThinkLatent
         </span>
-        <span className="hidden text-[15px] font-medium tracking-tight sm:inline">Idea Lab</span>
+        <span className="hidden shrink-0 text-[15px] font-medium tracking-tight whitespace-nowrap sm:inline">Idea Lab</span>
         <button
           type="button"
           onClick={onAsk}
           className="flex h-9 min-w-0 flex-1 items-center gap-2.5 rounded-full border border-foreground/15 bg-background/70 px-3.5 text-left text-muted-foreground backdrop-blur transition-colors hover:border-foreground/25 md:max-w-[340px] md:flex-none md:w-[340px]"
         >
           <Search className="size-4 shrink-0" />
-          <span className="min-w-0 flex-1 truncate">Ask Jarvis or jump to a row</span>
+          <span className="min-w-0 flex-1 truncate" data-layout-truncate-ok="">Ask Jarvis or jump to a row</span>
           <Kbd className="hidden md:inline-flex">⌘K</Kbd>
         </button>
 
-        <div className="mx-auto hidden h-10 min-w-0 items-center gap-1.5 rounded-full border border-foreground/15 bg-background/70 pr-1.5 pl-3.5 backdrop-blur xl:flex">
+        {/* The agenda shows from 1536 px, where its chips fit whole; below that they truncated to "TL-0…" (audit S2). */}
+        <div className="mx-auto hidden h-10 min-w-0 items-center gap-1.5 overflow-hidden rounded-full border border-foreground/15 bg-background/70 pr-1.5 pl-3.5 backdrop-blur 2xl:flex">
           <span className="mr-1.5 whitespace-nowrap">{agendaDate}</span>
           {agenda.length === 0 && <span className="pr-2 text-xs text-muted-foreground">Nothing due today</span>}
           {agenda.map((c) => (
@@ -96,7 +98,7 @@ export function Shell({
               type="button"
               onClick={c.onClick}
               className={cn(
-                'h-7 max-w-[220px] truncate rounded-full px-2.5 text-xs font-medium transition-transform active:scale-95',
+                'h-7 shrink-0 rounded-full px-2.5 text-xs font-medium whitespace-nowrap transition-transform active:scale-95',
                 c.lead ? 'bg-[var(--kit-brand)] text-[var(--kit-brand-fg)]' : 'bg-secondary text-secondary-foreground hover:bg-accent',
               )}
             >
@@ -179,7 +181,8 @@ export function Shell({
           })}
         </nav>
 
-        <main className="min-w-0 flex-1 px-1 pb-10 md:px-0 md:pr-2">{children}</main>
+        {/* A size container: the views lay out by the width left to them, so docking Jarvis reflows them (audit S3). */}
+        <main className="@container min-w-0 flex-1 px-1 pb-10 md:px-0 md:pr-2">{children}</main>
         {aside}
       </div>
     </div>

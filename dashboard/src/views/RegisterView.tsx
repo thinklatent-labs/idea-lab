@@ -24,8 +24,8 @@ const SORTS: { value: SortKey; label: string }[] = [
   { value: 'attention', label: 'Attention' },
 ];
 // ID · title and next step · stage · in stage · health · score · stream and horizon · touched
-const COLS = 'lg:grid-cols-[150px_minmax(0,1fr)_118px_100px_124px_92px_96px_96px]';
-const COLS_NO_SCORE = 'lg:grid-cols-[150px_minmax(0,1fr)_118px_100px_124px_96px_96px]';
+const COLS = '@min-[900px]:grid-cols-[150px_minmax(0,1fr)_118px_100px_124px_92px_96px_96px]';
+const COLS_NO_SCORE = '@min-[900px]:grid-cols-[150px_minmax(0,1fr)_118px_100px_124px_96px_96px]';
 
 /** Every row as the register holds it: search, filter, sort, and the row's record one tap away. */
 export default function RegisterView() {
@@ -112,7 +112,7 @@ export default function RegisterView() {
           <div className="kit-caption">
             Register · rev {reg.source.registerRev} · {plural(visibleIdeas.length, 'row')} · standard {reg.standardVersion}
           </div>
-          <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">Register</h1>
+          <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight @min-[640px]:text-[34px]">Register</h1>
           <p className="mt-1.5 max-w-[760px] text-sm text-muted-foreground">Every row as the live register holds it. Tap a row for its lab record, links, decisions and next step.</p>
         </div>
         <div className="flex max-w-full min-w-0 flex-wrap items-center gap-2">
@@ -170,7 +170,7 @@ export default function RegisterView() {
       </div>
 
       {/* Column heads, wide screens only; small screens get stacked cards. */}
-      <div className={cn('hidden items-center gap-3.5 px-4 lg:grid', showScore ? COLS : COLS_NO_SCORE)}>
+      <div className={cn('hidden items-center gap-3.5 px-4 @min-[900px]:grid', showScore ? COLS : COLS_NO_SCORE)}>
         {head('id', 'ID')}
         {head(null, 'Row and next step')}
         {head('stage', 'Stage')}
@@ -219,7 +219,7 @@ function Filter({ id, label, value, onChange, all, children }: { id: string; lab
 function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index: number; showScore: boolean; stalled: boolean }) {
   const { reg, derived, now, select, selectedId, lastVisit } = useLab();
   const d = derived.get(i.id)!;
-  const isNew = !!lastVisit && i.lastTouched > lastVisit;
+  const isNew = !!lastVisit && i.lastTouched >= lastVisit;
   const ended = i.stage === 'Graduated' || i.stage === 'Killed';
   const h = healthOf(reg, i.id);
   const u = updateState(reg, i, now);
@@ -297,7 +297,7 @@ function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index
       className={cn('lab-row cursor-pointer px-4 py-3.5 transition-shadow outline-none hover:shadow-[0_8px_28px_rgba(0,0,0,0.06)] focus-visible:ring-2 focus-visible:ring-ring', selectedId === i.id && 'ring-2 ring-[var(--kit-brand)]')}
     >
       {/* Wide: one grid row. */}
-      <div className={cn('hidden items-center gap-3.5 lg:grid', showScore ? COLS : COLS_NO_SCORE)}>
+      <div className={cn('hidden items-center gap-3.5 @min-[900px]:grid', showScore ? COLS : COLS_NO_SCORE)}>
         <div className="min-w-0">
           <div className="kit-num text-sm font-medium">{i.id}</div>
           <div className="truncate text-xs text-muted-foreground">{i.slug}</div>
@@ -321,7 +321,7 @@ function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index
       </div>
 
       {/* Phone and tablet: a stacked card with the same facts. */}
-      <div className="lg:hidden">
+      <div className="@min-[900px]:hidden">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
           <span className="kit-num text-sm font-medium">{i.id}</span>
           <span className="text-xs text-muted-foreground">{i.slug}</span>

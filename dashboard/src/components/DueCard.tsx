@@ -20,6 +20,7 @@ export default function DueCard({ idea, item, showIdea = false }: { idea: Idea; 
   const rec = inbox.docs.get(item.id);
   const [changing, setChanging] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
+  const [failed, setFailed] = useState(false);
   const quick = item.kind === 'quick' && (item.options?.length ?? 0) > 0;
   const live = inbox.state === 'ready' || inbox.state === 'slow';
   const canPick = quick && live && inbox.canWrite;
@@ -27,9 +28,12 @@ export default function DueCard({ idea, item, showIdea = false }: { idea: Idea; 
   const pick = async (optId: string) => {
     const o = item.options!.find((x) => x.id === optId)!;
     setBusy(optId);
-    await inbox.decide({ itemId: item.id, ideaId: idea.id, itemText: item.text, optionId: o.id, optionLabel: o.label, effect: o.effect });
+    setFailed(false);
+    const ok = await inbox.decide({ itemId: item.id, ideaId: idea.id, itemText: item.text, optionId: o.id, optionLabel: o.label, effect: o.effect });
     setBusy(null);
-    setChanging(false);
+    // A refused or failed save stays open on the card with the reason, instead of closing silently (audit N7).
+    if (ok) setChanging(false);
+    else setFailed(true);
   };
 
   return (
@@ -102,6 +106,7 @@ export default function DueCard({ idea, item, showIdea = false }: { idea: Idea; 
               </Button>
             )}
           </div>
+          {failed && <p className="mt-2 text-xs text-[var(--lab-crit)]">{inbox.error ?? 'The decision was not saved; try again.'}</p>}
           {!live && <p className="mt-2 text-xs text-muted-foreground">{inbox.state === 'loading' ? 'Connecting to the decision inbox…' : 'Decisions are made on the claude.ai dashboard; this copy is read-only.'}</p>}
           {live && !inbox.canWrite && <p className="mt-2 text-xs text-muted-foreground">Only Jithin records decisions here.</p>}
         </>

@@ -4,6 +4,7 @@ import type { Capability, Decision, Health, Idea, Register, Rule, Stage, Weights
 import { CRITERIA, STAGES } from './types';
 import { daysBetween, hoursBetween, laneOf, type Derived, type Lane } from './derive';
 import { canonicalId } from './graph';
+import { calendarDaysUntil } from './day';
 
 export type Level = 'alert' | 'warn' | 'info';
 
@@ -16,11 +17,10 @@ export interface RuleHit {
   capabilityId?: string;
 }
 
-const DAY = 86_400_000;
 
+/** Calendar days from the viewer's local today to `date` (TL-007 maintenance, B1). */
 function daysUntil(date: string, now: Date): number {
-  const t = Date.parse(`${date}T00:00:00Z`);
-  return Math.floor((t - now.getTime()) / DAY);
+  return calendarDaysUntil(date, now);
 }
 
 /** The latest health call made at a session end on this idea. */
@@ -123,6 +123,9 @@ export function capabilityFlag(c: Capability): string | null {
 }
 
 /** Composite and rank under any weight vector; rows without eight criteria rank last. */
+/** A row counts as scored when it has a composite, with or without the eight criteria (audit B2). */
+export const isScored = (i: Idea): boolean => i.score.composite != null || !!i.score.criteria;
+
 export function rankUnder(reg: Register, weights: Weights): { id: string; composite: number | null; rank: number | null }[] {
   const rows = reg.ideas.map((i) => {
     const c = i.score.criteria;
@@ -327,7 +330,7 @@ export function openNextSteps(reg: Register, now: Date): OpenStep[] {
       ideaId: i.id,
       step: i.nextStep,
       due: i.nextStepDue ?? null,
-      daysLeft: i.nextStepDue ? daysUntil(i.nextStepDue, now) : null,
+      daysLeft: i.nextStepDue && !Number.isNaN(daysUntil(i.nextStepDue, now)) ? daysUntil(i.nextStepDue, now) : null,
       origin: i.nextStepOrigin ? (reg.decisions.find((d) => d.id === i.nextStepOrigin) ?? null) : null,
     }))
     .sort((a, b) => (a.daysLeft ?? 9999) - (b.daysLeft ?? 9999));
@@ -336,6 +339,7 @@ export function openNextSteps(reg: Register, now: Date): OpenStep[] {
 export function appetiteState(idea: Idea, now: Date): { daysLeft: number; level: 'ok' | 'warn' | 'expired' } | null {
   if (!idea.appetiteEnds) return null;
   const d = daysUntil(idea.appetiteEnds, now);
+  if (Number.isNaN(d)) return null;
   return { daysLeft: d, level: d < 0 ? 'expired' : d <= 14 ? 'warn' : 'ok' };
 }
 
@@ -461,11 +465,17 @@ export interface GateCheck {
   ownerNamed: boolean;
   streamNamed: boolean;
   appetiteSet: boolean;
+  /** D-152's fourth condition. 'not-recorded' until the register carries a review-slot field (owed by Lab operations). */
+  reviewSlot: 'set' | 'missing' | 'not-recorded';
   passed: boolean;
   missing: string[];
 }
 
-/** The Building gate: the TL Index's rule generalised. No owner, no stream or no appetite means no start. */
+/**
+ * The Building gate as D-152 restates it for the two-person lab: an owner role (played by Claude until the company
+ * version; owner fields read role then player), a stream, an appetite in engineer-weeks, and a weekly review slot
+ * Jithin commits to. The slot is checked only once the register records it; until then it is reported, not failed.
+ */
 export function buildingGate(idea: Idea): GateCheck {
   // The sponsor is not an owner; a segment that says "to be named" is unmet; anything left that is not Jithin counts.
   const segments = idea.owner.split(/[;,]/).map((x) => x.trim()).filter(Boolean);
@@ -474,10 +484,13 @@ export function buildingGate(idea: Idea): GateCheck {
   const streamNamed = !!idea.streamId;
   const appetiteSet = idea.appetiteWeeks != null && idea.appetiteWeeks > 0;
   const missing: string[] = [];
-  if (!ownerNamed) missing.push('an owner who is not Jithin');
+  const slot = idea.buildingGate && 'reviewSlot' in idea.buildingGate ? idea.buildingGate.reviewSlot : undefined;
+  const reviewSlot: GateCheck['reviewSlot'] = slot === undefined ? 'not-recorded' : slot ? 'set' : 'missing';
+  if (!ownerNamed) missing.push('an owner role');
   if (!streamNamed) missing.push('a stream');
   if (!appetiteSet) missing.push('an appetite in engineer-weeks');
-  return { ownerNamed, streamNamed, appetiteSet, passed: missing.length === 0, missing };
+  if (reviewSlot === 'missing') missing.push('a weekly review slot');
+  return { ownerNamed, streamNamed, appetiteSet, reviewSlot, passed: missing.length === 0, missing };
 }
 
 export interface DecisionRow extends Decision {

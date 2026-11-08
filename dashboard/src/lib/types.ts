@@ -233,7 +233,7 @@ export interface Idea {
   governance?: Governance | null;
   shipped?: Shipped | null;
   rejectedBy?: string | null;
-  buildingGate?: { ownerNamed: boolean; streamNamed: boolean; appetiteSet: boolean; startedOn?: string | null } | null;
+  buildingGate?: { ownerNamed: boolean; streamNamed: boolean; appetiteSet: boolean; startedOn?: string | null; /** D-152: the weekly review slot Jithin commits to; a field Lab operations still owes. */ reviewSlot?: string | null } | null;
   hypotheses?: Hypothesis[];
   openQuestions?: OpenQuestion[];
   killCriteria?: KillCriterion[];

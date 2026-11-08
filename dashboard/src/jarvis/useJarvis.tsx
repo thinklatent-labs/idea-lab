@@ -12,6 +12,7 @@ import { healthOf, buildingGate } from '../lib/derive2';
 import { briefPrompt, buildDigest, forSpeech, rules, VIEW_NAMES } from './brain';
 import { canSpeak, hush, speak } from './voice';
 import type { OrbState } from './Orb';
+import { conversationCounter } from '../lib/usage';
 
 export type Tier = 'quick' | 'default' | 'complex';
 export type Proposal =
@@ -101,14 +102,12 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
   const sampleRef = useRef<SampleFn | null>(null);
   const toolsRef = useRef(false);
   const ctlRef = useRef<AbortController | null>(null);
-  // H5: a conversation is counted once, when its first question or brief is sent to Claude (a brief replayed from the
-  // page's cache counts as started too); Clear starts a new one. Not marked counted until the write could be made, so a
-  // question asked before the database is ready is counted at the next one.
-  const convRef = useRef(false);
-  const countConversation = (how: 'ask' | 'brief') => {
-    if (convRef.current) return;
-    if (labRef.current.inbox.logJarvis(how)) convRef.current = true;
-  };
+  // H5: a conversation is counted once, when Claude first answers in it (a brief replayed from the page's cache counts,
+  // a question that fails or is refused does not); Clear starts a new one. Marked counted only when the usage write
+  // landed, so a conversation whose write failed is counted at its next answer (TL-007 maintenance, audit S8).
+  const counterRef = useRef<ReturnType<typeof conversationCounter> | null>(null);
+  if (!counterRef.current) counterRef.current = conversationCounter((how) => labRef.current.inbox.logJarvis(how));
+  const countConversation = (how: 'ask' | 'brief') => counterRef.current!.count(how);
 
   useEffect(() => {
     let alive = true;
@@ -123,7 +122,8 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
       if (!alive) return;
       if (!s) return setAvailability('unavailable');
       sampleRef.current = s;
-      const lim = await s.limits().catch(() => null);
+      // A limits() call that never settles left Jarvis on "Connecting to Claude…" for good (audit N8).
+      const lim = await Promise.race([s.limits().catch(() => null), new Promise<null>((r) => setTimeout(() => r(null), 8000))]);
       toolsRef.current = !!lim?.tools;
       if (alive) setAvailability('ready');
     })();
@@ -269,7 +269,7 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
     ];
   };
 
-  const run = async (msgId: string, input: any, opts: any) => {
+  const run = async (msgId: string, input: any, opts: any, how: 'ask' | 'brief') => {
     const s = sampleRef.current!;
     const ctl = new AbortController();
     ctlRef.current = ctl;
@@ -282,6 +282,7 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
       });
       patch(msgId, (m) => ({ ...m, text: res.text, status: 'done', tierApplied: res.modelTierApplied, error: res.truncated ? 'Cut short; ask for less at a time.' : undefined }));
       if (voice) say(res.text);
+      void countConversation(how);
     } catch (e: any) {
       const code: string = e?.code ?? 'upstream_error';
       if (code === 'cancelled') patch(msgId, (m) => ({ ...m, text: e?.text ?? m.text, status: 'stopped' }));
@@ -330,9 +331,8 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
       }
     }
     const input = [{ role: 'user', content: rules(digest()) }, ...history.slice(-12), { role: 'user', content: text }];
-    countConversation('ask');
     setMsgs((ms) => [...ms, userMsg, jm]);
-    void run(jm.id, input, { modelTier: tier, cache: false, ...(toolsRef.current ? { tools: tools(jm.id) } : {}) });
+    void run(jm.id, input, { modelTier: tier, cache: false, ...(toolsRef.current ? { tools: tools(jm.id) } : {}) }, 'ask');
   };
 
   const brief = () => {
@@ -347,16 +347,16 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
     const jm: JMsg = { id: uid(), role: 'jarvis', text: '', at: now, kind: 'brief', status: 'thinking' };
     setBriefMsg(jm);
     setMsgs((ms) => [...ms, { id: uid(), role: 'user', text: 'Brief me', at: now }, jm]);
-    countConversation('brief');
     const l = labRef.current;
     // No tools, so the answer can be replayed for six hours while the register and inbox stay the same.
-    void run(jm.id, briefPrompt(digest(), l.now, l.lastVisit), { modelTier: 'default', cache: { gcTime: 6 * 3600_000 } });
+    void run(jm.id, briefPrompt(digest(), l.now, l.lastVisit), { modelTier: 'default', cache: { gcTime: 6 * 3600_000 } }, 'brief');
   };
 
   const confirm = async (msgId: string, pid: string) => {
     const m = msgsRef.current.find((x) => x.id === msgId);
     const p = m?.proposals?.find((x) => x.pid === pid);
-    if (!p || p.state !== 'open') return;
+    // A failed card can be tried again (audit S10).
+    if (!p || (p.state !== 'open' && p.state !== 'failed')) return;
     const inbox = labRef.current.inbox;
     const ok = p.type === 'quick' ? await inbox.decide({ itemId: p.itemId, ideaId: p.ideaId, itemText: p.itemText, optionId: p.optionId, optionLabel: p.label, effect: p.effect, via: 'jarvis' }) : await inbox.request(p.ideaId, p.text, 'jarvis');
     patch(msgId, (mm) => ({ ...mm, proposals: mm.proposals?.map((x) => (x.pid === pid ? ({ ...x, state: ok ? (x.type === 'quick' ? 'recorded' : 'queued') : 'failed' } as Proposal) : x)) }));
@@ -370,9 +370,19 @@ export function JarvisProvider({ children }: { children: ReactNode }) {
   };
   const clear = () => {
     stop();
-    convRef.current = false;
+    counterRef.current?.reset();
     setMsgs([]);
+    setBriefMsg(null);
   };
+  // Answers were written for one audience's register; switching "View as" must not leave them on screen (fix review 6).
+  const audienceId = lab.audience.id;
+  const firstAudience = useRef(audienceId);
+  useEffect(() => {
+    if (firstAudience.current === audienceId) return;
+    firstAudience.current = audienceId;
+    clear();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [audienceId]);
   const setOpen = (b: boolean) => {
     setOpenState(b);
     if (!b) {

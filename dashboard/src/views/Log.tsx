@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from 'react';
+import { awaitingAccept, takeLogPreset } from '../lib/handoff';
 import { Status, Surface } from '@kit/kit';
 import { Badge } from '@kit/ui/components/badge';
 import { Button } from '@kit/ui/components/button';
@@ -17,7 +18,7 @@ function ViewHeader({ kicker, title, caption, actions }: { kicker: ReactNode; ti
     <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
       <div className="min-w-0">
         <div className="kit-caption">{kicker}</div>
-        <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">{title}</h1>
+        <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight @min-[640px]:text-[34px]">{title}</h1>
         <p className="mt-1.5 max-w-[720px] text-sm text-muted-foreground">{caption}</p>
       </div>
       {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
@@ -31,7 +32,7 @@ export default function Log() {
   const { reg, now, select, lastVisit, hidden } = useLab();
   const [pendingFirst, setPendingFirst] = useState(true);
   const [ideaFilter, setIdeaFilter] = useState('');
-  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>(() => takeLogPreset() ?? 'all');
   const [typeFilter, setTypeFilter] = useState<TypeFilter>('all');
   const [shown, setShown] = useState(PAGE);
   const [sessionsShown, setSessionsShown] = useState(6);
@@ -46,7 +47,7 @@ export default function Log() {
       return b.date.localeCompare(a.date);
     });
   const sessions = [...reg.sessions].reverse();
-  const pendingCount = reg.decisions.filter((d) => d.pending).length;
+  const pendingCount = reg.decisions.filter(awaitingAccept).length;
   const count = (f: (d: (typeof indexed)[number]) => boolean) => indexed.filter((d) => (!ideaFilter || d.ideaId === ideaFilter) && f(d)).length;
 
   return (
@@ -121,7 +122,7 @@ export default function Log() {
           <>
             <ol className="relative mt-5 ml-1.5 space-y-2 border-l border-foreground/10 pl-5">
               {decisions.slice(0, shown).map((d, n) => {
-                const isNew = !!lastVisit && d.date > lastVisit;
+                const isNew = !!lastVisit && d.date >= lastVisit;
                 const status = statusOf(d);
                 return (
                   <li key={`${d.id ?? ''}-${n}`} className="relative">
@@ -188,7 +189,7 @@ export default function Log() {
         )}
       </Surface>
 
-      <div className="grid gap-4 xl:grid-cols-[1.4fr_1fr]">
+      <div className="grid gap-4 @min-[1150px]:grid-cols-[1.4fr_1fr]">
         <Surface>
           <SectionHead title="Sessions" count={reg.sessions.length} caption="One row per lab chat, newest first, with the health call it ended on." />
           <ol className="relative mt-5 ml-1.5 space-y-2 border-l border-foreground/10 pl-5">

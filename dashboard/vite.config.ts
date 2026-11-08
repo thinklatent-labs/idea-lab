@@ -34,5 +34,7 @@ export default defineConfig({
   test: {
     environment: 'node',
     include: ['tests/**/*.test.ts'],
+    // Day counts depend on the zone: pin it so results do not depend on the machine (tests that need a zone set their own).
+    env: { TZ: 'UTC' },
   },
 });

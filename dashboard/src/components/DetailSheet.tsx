@@ -17,6 +17,8 @@ import DueCard from './DueCard';
 import { Block, CopyLine, Dash, EmptyNote, FactList, Fold, HealthTag, IdLink, ReasonTags, Segmented, StageTag } from '../kit/parts';
 import { CountUp, spring } from '../kit/motion';
 import { useJarvis } from '../jarvis/useJarvis';
+import { calendarDaysUntil } from '../lib/day';
+import { foreignDialogOpen, isTopLayer, pushLayer } from '../lib/layers';
 
 function useWide(px: number) {
   const [w, setW] = useState(() => window.matchMedia(`(min-width: ${px}px)`).matches);
@@ -36,19 +38,27 @@ export default function DetailSheet({ id, onClose, opaque, rightInset = 0 }: { i
   const drag = useDragControls();
   const closeRef = useRef<HTMLButtonElement>(null);
   const returnTo = useRef<HTMLElement | null>(null);
+  // App passes a new onClose each render; reading it through a ref keeps the effect below tied to the open row only,
+  // so a re-render no longer re-pushes the sheet to the top or steals focus back (re-check N-A).
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
   useEffect(() => {
     if (!id) return;
     if (!returnTo.current) returnTo.current = document.activeElement as HTMLElement | null;
     const t = window.setTimeout(() => closeRef.current?.focus({ preventScroll: true }), 60);
+    const dropLayer = pushLayer('sheet');
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      // One Escape closes only the top layer (audit N6, fix review 2).
+      if (e.key !== 'Escape' || foreignDialogOpen() || !isTopLayer('sheet')) return;
+      onCloseRef.current();
     };
     window.addEventListener('keydown', onKey);
     return () => {
+      dropLayer();
       window.clearTimeout(t);
       window.removeEventListener('keydown', onKey);
     };
-  }, [id, onClose]);
+  }, [id]);
   useEffect(() => {
     if (id) return;
     returnTo.current?.focus?.({ preventScroll: true });
@@ -64,6 +74,7 @@ export default function DetailSheet({ id, onClose, opaque, rightInset = 0 }: { i
           <motion.aside
             key="sheet"
             role="dialog"
+            data-lab-sheet=""
             aria-modal="true"
             aria-label={`Record ${id}`}
             className={cn(
@@ -164,7 +175,8 @@ function IdeaDetail({ idea }: { idea: Idea }) {
   const appetite = appetiteState(idea, now);
   const active = idea.stage !== 'Graduated' && idea.stage !== 'Killed';
   const mentions = (reg.mentions ?? []).filter((m) => m.ideaId === idea.id);
-  const stepDue = idea.nextStepDue ? Math.floor((Date.parse(`${idea.nextStepDue}T00:00:00Z`) - now.getTime()) / 86_400_000) : null;
+  const stepDueRaw = idea.nextStepDue ? calendarDaysUntil(idea.nextStepDue, now) : null;
+  const stepDue = stepDueRaw != null && !Number.isNaN(stepDueRaw) ? stepDueRaw : null;
   const gate = buildingGate(idea);
   const stream = idea.streamId ? (reg.streams ?? []).find((st) => st.id === idea.streamId) : null;
   const rejection = idea.rejectedBy ? reg.decisions.find((x) => x.id === idea.rejectedBy) : null;
@@ -178,7 +190,7 @@ function IdeaDetail({ idea }: { idea: Idea }) {
   const decisions = reg.decisions.filter((x) => x.ideaId === idea.id).slice().reverse();
   const sessions = reg.sessions.filter((s) => (s.ideaIds ?? []).includes(idea.id)).slice().reverse();
   const gates = readiness(idea, reg);
-  const isNew = !!lastVisit && idea.lastTouched > lastVisit;
+  const isNew = !!lastVisit && idea.lastTouched >= lastVisit;
   const asCapability = idea.capabilityId ? reg.capabilities.find((c) => c.id === idea.capabilityId) : null;
   const blockingFirst = [...(idea.openQuestions ?? [])].sort((a, b) => Number(/^yes/i.test(b.blocking)) - Number(/^yes/i.test(a.blocking)));
   const due = dueItems(idea);
@@ -279,11 +291,23 @@ function IdeaDetail({ idea }: { idea: Idea }) {
       </Block>
 
       {showGate && (
-        <Block title="Building gate" caption={gate.passed ? (idea.stage === 'Building' ? 'Passed; building.' : 'Passed; it can start.') : idea.stage === 'Proposal' ? 'Funded by default at Proposal; it starts Building when all three are present.' : "The TL Index's rule, generalised: unnamed, not started."}>
+        <Block title="Building gate" caption={gate.passed ? (idea.stage === 'Building' ? 'Passed; building.' : 'Passed; it can start.') : idea.stage === 'Proposal' ? 'Funded by default at Proposal; it starts Building when all four are present (D-152).' : "The TL Index's rule, generalised: unnamed, not started."}>
           <ul className="lab-row space-y-2.5 px-4 py-3.5">
-            <Check met={gate.ownerNamed} label="An owner who is not Jithin" detail={idea.owner} />
+            <Check met={gate.ownerNamed} label="An owner role" detail={idea.owner} />
             <Check met={gate.streamNamed} label="A stream" detail={stream ? `${stream.id} ${stream.name}${stream.owner ? `, ${stream.owner}` : ', engineer to be named'}` : 'none'} />
             <Check met={gate.appetiteSet} label="An appetite in engineer-weeks" detail={idea.appetiteWeeks != null ? `${idea.appetiteWeeks} engineer-weeks${idea.appetiteEnds ? `, ends ${fmtDate(idea.appetiteEnds)}` : ''}` : (idea.appetite ?? 'not set')} />
+            {gate.reviewSlot === 'not-recorded' ? (
+              <li className="flex items-start gap-3">
+                <span className="mt-0.5">
+                  <Status tone="neutral" word="Not recorded" />
+                </span>
+                <span className="min-w-0 text-sm">
+                  A weekly review slot <span className="text-muted-foreground">— the register has no field for it yet (owed by Lab operations); see the row's decision lines.</span>
+                </span>
+              </li>
+            ) : (
+              <Check met={gate.reviewSlot === 'set'} label="A weekly review slot" detail={idea.buildingGate?.reviewSlot ?? 'not set'} />
+            )}
           </ul>
         </Block>
       )}

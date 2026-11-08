@@ -14,7 +14,7 @@ function ViewHeader({ kicker, title, caption, actions }: { kicker: ReactNode; ti
     <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
       <div className="min-w-0">
         <div className="kit-caption">{kicker}</div>
-        <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight md:text-[34px]">{title}</h1>
+        <h1 className="mt-1.5 text-[30px] leading-tight font-normal tracking-tight @min-[640px]:text-[34px]">{title}</h1>
         <p className="mt-1.5 max-w-[720px] text-sm text-muted-foreground">{caption}</p>
       </div>
       {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
@@ -63,8 +63,8 @@ export default function Changes() {
     }
     return m;
   }, [diff]);
-  const touchedSinceVisit = lastVisit ? reg.ideas.filter((i) => i.lastTouched > lastVisit) : [];
-  const decisionsSinceVisit = lastVisit ? reg.decisions.filter((d) => d.date > lastVisit) : [];
+  const touchedSinceVisit = lastVisit ? reg.ideas.filter((i) => i.lastTouched >= lastVisit) : [];
+  const decisionsSinceVisit = lastVisit ? reg.decisions.filter((d) => d.date >= lastVisit) : [];
 
   return (
     <div className="flex flex-col gap-5">
@@ -83,7 +83,7 @@ export default function Changes() {
         <EmptyNote>No earlier snapshot is published beside this page yet, so there is nothing to diff. Once the nightly sync keeps one file per export in data/history, this view compares the two most recent.</EmptyNote>
       ) : (
         <>
-          <Stagger className="grid grid-cols-2 gap-3 xl:grid-cols-4" gap={0.05}>
+          <Stagger className="grid grid-cols-2 gap-3 @min-[1150px]:grid-cols-4" gap={0.05}>
             <StaggerItem>
               <Kpi n={diff.changes.length} label="Field changes" caption={`across ${plural(byIdea.size, 'row')}`} lit={diff.changes.length > 0} />
             </StaggerItem>
@@ -166,7 +166,7 @@ export default function Changes() {
       )}
 
       <Surface>
-        <SectionHead title="Since your last visit" caption={lastVisit ? `Rows touched and decisions logged after ${fmtDate(lastVisit)}, the last time this browser opened the dashboard.` : 'This is the first visit from this browser.'} count={lastVisit ? touchedSinceVisit.length + decisionsSinceVisit.length : undefined} />
+        <SectionHead title="Since your last visit" caption={lastVisit ? `Rows touched and decisions logged on or after ${fmtDate(lastVisit)}, the last day this browser opened the dashboard.` : 'This is the first visit from this browser.'} count={lastVisit ? touchedSinceVisit.length + decisionsSinceVisit.length : undefined} />
         <div className="mt-4">
           {!lastVisit ? (
             <EmptyNote>The next visit from this browser will list what moved in between.</EmptyNote>
