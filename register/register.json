@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-10T20:00:00+05:30",
+  "asOf": "2026-11-10T23:00:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 410,
+    "registerRev": 411,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -200,7 +200,7 @@
       "docTitle": "ThinkLatent Portal (portal) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-10",
-      "nextStep": "Jithin walks the prototype (https://claude.ai/artifact/XxhCieUgDt6CCiMtxbs2Z9) on desktop and phone, one workspace at a time across the story days, following only the next step: Application team first (reads W1 to W3), then Approver, Foundation team, Head, Operations, Explore; note every time All is needed or 'where do I…' comes up. Two or three real users per workspace would be better evidence than one reviewer. Jithin to decide: who decides an approval in the product, the outside validator or the Head of ThinkLatent (the sample shows Jithin in both workspaces); and lightningcss (MPL-2.0, build-time only) as a licence exception. Then: fixes from the walk-through; an interaction test pass (Playwright: hold-to-confirm, flows end to end, playground); scenario v0.3 (pre-pilot evaluation scores, drift, outcome events, per-day queue and usage readings, scale-out cost); a fake HTTP API on the contract when the app leaves the hosted page; the phone design once design-kit ships DK-002; Ask, Help, Settings, Agents, Lineage, Prompts, Traces and Governance pages (still 'not in this prototype'). Alongside: the proposal from the requirements doc, updated for workspaces. Parked until the backend: as listed in D-149.",
+      "nextStep": "Restore in this order (D-226 to D-229): (1) shared design layer and vocabulary in the prototype: page header with chip strip, four sparkline tiles, one exhibit, AgentBrief everywhere, Needs-a-decision block, section bar on the journey, type scale, ⓘ and as-of; vocabulary as one string module; (2) each workspace rebuilt on it, with its P1 features: Approver validation (drafted validation document, validation queue for models and agents, one sign-off for the portal and Relay) and Foundation data review (claim, rubric, approve or reject with reason); (3) model page and agent library (pre-review first); (4) the rest of the missing features by priority from the review's tables; Shell D when design-kit ships DK-003. Every control click-tested before each publish. Then Jithin walks it (W1 to W3). Still open: lightningcss licence exception; who decides approvals (sample shows Jithin). Parked until the backend: as listed in D-149.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -278,8 +278,8 @@
           "blocking": "Yes, for Stress test"
         }
       ],
-      "nextStepDue": "2026-11-14",
-      "nextStepOrigin": "TL-003 session 2026-11-10 (workspaces)",
+      "nextStepDue": "2026-11-17",
+      "nextStepOrigin": "TL-003 session 2026-11-10 (review)",
       "appetiteEnds": null,
       "createdOn": "2026-10-31",
       "stageHistory": [
@@ -1339,7 +1339,7 @@
       "docTitle": "ThinkLatent design kit (design-kit) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-08",
-      "nextStep": "Kit lead (Claude): republish the component playground (its production build needs more than this session's 8 GB; build it in CI or on Jithin's laptop) so it shows the new gate status and demos. Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: Shell D and the record sheet upstreamed from the lab dashboard; the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release From TL-003 (2026-11-08): DK-001 confirmed resolved for the portal at 1b277ff (pinned, D-216); @kit/charts renders server-side for the boards. Small nit for the kit: diff(1) writes '+1 pts' (singular 'pt' wanted?). From TL-003 (2026-11-10): request DK-002: a phone shell with a bottom bar (4 items plus More) for phones only, as an exception to the no-bottom-bar rule; desktop keeps the top dock. The portal uses a top drawer until it ships.",
+      "nextStep": "Kit lead (Claude): republish the component playground (its production build needs more than this session's 8 GB; build it in CI or on Jithin's laptop) so it shows the new gate status and demos. Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: Shell D and the record sheet upstreamed from the lab dashboard; the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release From TL-003 (2026-11-08): DK-001 confirmed resolved for the portal at 1b277ff (pinned, D-216); @kit/charts renders server-side for the boards. Small nit for the kit: diff(1) writes '+1 pts' (singular 'pt' wanted?). From TL-003 (2026-11-10): request DK-002: a phone shell with a bottom bar (4 items plus More) for phones only, as an exception to the no-bottom-bar rule; desktop keeps the top dock. The portal uses a top drawer until it ships. From TL-003 (2026-11-10): request DK-003: export Shell (D, dock inside the frame, ⌘K, fields backdrop) plus KpiStrip and MetaStrip from @kit/kit; they live only in the playground app today, and the portal may not write its own (D-202). Pairs with DK-002 (phone bottom bar).",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -4760,6 +4760,19 @@
       "health": "on-track",
       "healthNote": "Health unchanged",
       "nextStepDue": "2026-11-14"
+    },
+    {
+      "date": "2026-11-10",
+      "scope": "TL-003 portal (review)",
+      "ideaIds": [
+        "TL-003"
+      ],
+      "mode": "Critic (review against past work), then decisions",
+      "outcome": "Three separate agents checked the prototype against the requirements doc and gap backlog, all 208 past boards, and the design and wording; review doc written; four decisions on questions with recommendations (D-226 to D-229); DK-003 raised to TL-013",
+      "docsTouched": "project knowledge: Prototype review 2026-11-10; artifacts/TL-003-portal/review-2026-11-10; this register; TL-013 next-step line",
+      "health": "at-risk",
+      "healthNote": "The prototype covers a thin slice of the designed portal; restore planned",
+      "nextStepDue": "2026-11-17"
     }
   ],
   "decisions": [
@@ -7891,6 +7904,62 @@
       "date": "2026-11-10",
       "decision": "Defect found by Jithin and fixed: the workspace switcher never opened (a dropdown published without a click test), so only the Application team workspace was reachable. Replaced by a side sheet with one button per workspace, also in the phone drawer (portal 708c169; prototype version 1794320190-ba47). Practice from now on: every interactive control is click-tested in a browser before a publish; done here for the switcher at both widths, a guided flow end to end, a detail panel, the story-day arrows, hold-to-confirm and the playground",
       "by": "Platform lead (Claude)",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-226",
+      "ideaId": "TL-003",
+      "date": "2026-11-10",
+      "decision": "Prototype review against past work (claude/ThinkLatent Portal (portal) - Prototype review 2026-11-10.md; three independent checks): of 556 board features 38 present, 150 partial, 361 missing, 7 moved on purpose; of 174 requirements 5 met, 107 partial, 52 missing; P1 gaps are validation (V2, G-04, E5) and data review (D1, E6). The role workspaces and journey stay; the prototype lost the kit's visual layer and most areas outside the Application team journey",
+      "by": "Thinking partner; checks by separate agents",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-227",
+      "ideaId": "TL-003",
+      "date": "2026-11-10",
+      "decision": "Restore the full v6 look on the journey structure: Shell D with the dock and ⌘K, glass, sparkline tiles with 52 px numbers, one exhibit per first screen, every agent proposal as an AgentBrief, a Needs-a-decision block in Decision Red, the v6 section bar instead of 'Look closer', the v6 type scale with ⓘ and as-of on every surface. Shell needs the design kit to export it (request DK-003 to TL-013)",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-228",
+      "ideaId": "TL-003",
+      "date": "2026-11-10",
+      "decision": "Missing features come back inside the workspaces, by role, not as the old pages: P1 first (validation in Approver; data review in Foundation team), then the model page and the agent library, then the rest of the 361 by priority",
+      "by": "Jithin",
+      "pending": false,
+      "status": "accepted",
+      "door": "two-way",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision"
+    },
+    {
+      "id": "D-229",
+      "ideaId": "TL-003",
+      "date": "2026-11-10",
+      "decision": "Controlled vocabulary adopted for the portal: stages Set up · Try · Build · Pilot · Production; 'use case' everywhere; Pilot approval and Production approval ('Ask for … approval', 'Ask again'); 'bar' and 'policy bar'; check, measure (pillar only on TL Index pages); To do · Blocked by … · Waiting on/until … · Done, bars Met; Health, History and the section bar; Fix findings; Add data and evaluate; one 'TL Index' page; workspace Everyone; Demo date; 'Consistency on long threads'; 'trial on 10% of traffic' (canary in engineering view); requests led by words. The requirements doc takes the same words",
+      "by": "Jithin",
       "pending": false,
       "status": "accepted",
       "door": "two-way",
