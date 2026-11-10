@@ -78,3 +78,24 @@ Each stage gets a one-line goal under the tracker, for example *Build: agree the
 ## Detail
 
 Full tables are in the idea-lab repository under `artifacts/TL-003-portal/review-2026-11-10/`: `req-audit.md` (174 requirements, graded), `board-audit.md` (556 board features, graded, by canvas page), `design-vocab.md` (element-by-element design comparison and the full vocabulary).
+
+## Status after the restore (11 Nov 2026)
+
+Prototype version 1794338271-fb86, portal 7a51791. Decisions D-230 and D-231.
+
+### Done
+- **Design layer and vocabulary** (section 2 rows 2 to 8, section 3): on every page. Row 6 is a view bar that swaps the page body, not the kit's scrolling section bar.
+- **P1 Validation:** validation queue for models and agents, a validation document drafted by the Evidence agent (what is validated, evidence, questions asked, limits), one hold-to-approve sign-off for the portal and Relay, the pattern validated once. Validators are simulated.
+- **P1 Data review:** claim a row, tick the rubric, approve, or reject with a reason; self-healing marks with confirm or overrule and the 14-day escalation. The record itself is never shown.
+- **Whole areas restored:** model page (lineage, lifecycle, release bundle, runs, agents on it), agent library and agent pages (pre-review first; agent pick in set-up), prompts, traces (production sealed, break-glass ask), help (ask an expert, problem register, kept answers), Ask (five questions answered with a chart), settings, governance portfolio, TL Index corrections and edition sign-off, search (⌘K).
+- **Inside existing areas:** gated promote with trial judgement, record completeness, members and join requests, monitoring plan with owners, limits, attestations, incident plan, spend ceiling with forecast and a temporary-increase ask, what an approval covers.
+
+### Not done
+- Shell D with the dock (waits on DK-003) and the phone bottom bar (DK-002).
+- TL Index as a product: arena, pillar pages, contribute, evaluation requests, follow a model.
+- Training: live monitor, dry run, pre-flight, checkpoint export. Data: tagging-pipeline detail, knowledge graph.
+- Use-case level: intake, adoption, value ledger, advisor signals (acceptance, feedback).
+- Approval detail: policy checks list, SLA escalation, conditional approval.
+- Agents' activity log with pause; side-door view of vendor APIs; inbox and real notifications.
+- Engineering switch and membership gating on every page (membership is shown on traces and the record only).
+- The requirements doc has not been re-graded against this build; the 38 of 556 and 5 of 174 counts above are from before the restore.
