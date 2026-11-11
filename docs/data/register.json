@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-11T21:25:00+05:30",
+  "asOf": "2026-11-11T22:20:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 424,
+    "registerRev": 425,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -200,7 +200,7 @@
       "docTitle": "ThinkLatent Portal (portal) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-11",
-      "nextStep": "Jithin and Claude: finish the vision questions, one at a time (D-249, D-250). Open: which kinds of usage the cockpit shows; who approves an increment now that there are no roles; where the budget is held; how the model catalogue is grouped; 'reversion model' read as reranker, to confirm. Then designer and builder (Claude), by 2026-11-13: draw the structure on the canvas in the approved design for Jithin's approval before any build: the Home cockpit, organization, team, project and feature pages, the model catalogue and a model's page, My work; then write the structure into the sample data, rework the Models and Projects areas, take 'Preview as' off Home, and fold the role-home boards (H2 to H5) into Models, Projects, Approvals and Home. Platform lead (Claude): decide how Pilot and Production text is kept out of the portal's read, by 2026-11-18. Still open from D-237: a value index across use cases; a separate critic re-grades against the requirements; Jithin tries the guide inside claude.ai.",
+      "nextStep": "Designer (Claude), by 2026-11-13: draw the new structure on the canvas in the approved design, for Jithin's approval before anything more is built (D-249 to D-251): the Home cockpit first, then organization, team, project and feature pages on the chosen navigation (dock plus scope bar), the model catalogue by generation and a model's page, the request-status page that replaces approvals, and My work. Questions that the drawings raise go to Jithin one at a time. After approval, builder (Claude): write the structure into the sample data (organization, team, project, feature, increment, models of every kind with a job in each feature, change requests with status), rework the Models and Projects areas, take 'Preview as' off Home, fold the role-home boards into Models, Projects and Home, and mark the approval features in docs/features/status.json as moved outside by D-251. Platform lead (Claude): decide how Pilot and Production text is kept out of the portal's read, by 2026-11-18. Still open from D-237: a value index across use cases; a separate critic re-grades against the requirements; Jithin tries the guide inside claude.ai.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -8378,6 +8378,20 @@
       "id": "D-250",
       "by": "Jithin",
       "decision": "Vision, continued (follows D-249). (1) Levels: Organization, Team, Project, Feature, with models under features; a project carries its team as owner and can move teams without losing its history (Claude's caution, not yet confirmed). (2) Membership: people join a project; a team's owners can open and manage every project the team holds; everyone else gets the open view. (3) Rule for the whole navigation: every level shows the breakdown of the level below it, and the detail (traces, sessions, operations) lives at the project; a model's page shows improvement, API calls and tokens, adoption and value. (4) Two-level navigation, option A, chosen from three drawn options (canvas 'navigation options'): the approved dock stays and gets shorter; a clickable scope bar says where you are (Organization, Team, Project, Feature); tabs under the title change with the level. (5) Home is a cockpit, not one list: TLM model adoption and what is running in production today by stage; usage by kind; an adoption and usage leaderboard at team level with a double-click into a team's projects; and the AI agent in front, which understands the ask, brings the information and routes the person to the right place, flattening the path from onboarding to approvals. (6) Jithin's ask for what follows: Claude keeps asking questions one at a time until the vision is clear, then designs the UX and UI in the approved design and draws it by hand so it fits; nothing more is built until then."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-11",
+      "door": "two-way",
+      "id": "D-251",
+      "by": "Jithin",
+      "decision": "Vision, continued (follows D-250). (1) Usage by kind of work comes off Home for now and is parked for later as a Home exhibit; Home keeps models live by kind and requests split into live and background. (2) Approvals sit outside the portal, for projects and for models alike. A deployment triggers a workflow in the Enterprise's change system and the change request is approved by the ThinkLatent team; model approval is also recorded in an outside system. The portal prepares the evidence, raises the request and shows its status; it approves nothing. The approver queues and hold-to-approve screens for use cases and validations on the earlier boards become request status. (3) The model catalogue is grouped by generation first (TLM1 to TLM5), with the kinds of model inside each. (4) Budgets are held by the team; spend and value are counted per project and feature and roll up to team and organization. (5) Taken as settled unless Jithin says otherwise: the agent on Home is one line at the top of the cockpit (Claude's recommendation after Jithin asked for analysis); 'reversion model' is read as reranker."
     }
   ],
   "syncLog": [
