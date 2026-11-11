@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-11T08:55:00+05:30",
+  "asOf": "2026-11-11T10:10:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 414,
+    "registerRev": 415,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -200,7 +200,7 @@
       "docTitle": "ThinkLatent Portal (portal) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-11",
-      "nextStep": "Jithin walks the restored prototype (W1 to W3) and says what is wrong in look, words or flow. Then: a separate critic re-grades it against the requirements doc and the board features (the 38 of 556 and 5 of 174 counts are from before the restore); the requirements doc takes the new words; the not-done list in the review doc is worked by priority (TL Index arena and pillar pages, training monitor, intake and value ledger, approval policy checks and conditional approval, engineering switch); Shell D when design-kit ships DK-003; phone bottom bar on DK-002. Still open for Jithin: lightningcss licence exception; who decides approvals (sample shows Jithin as Approver and Head). Parked until the backend: as listed in D-149. From TL-013 (2026-11-11, D-232): DK-002 and DK-003 are done in design-kit v0.7.0 (75d06a2): re-pin, replace the portal's own shell with Shell from @kit/kit (renderLink for the router, phone=\"bar\", the workspace switch in the more slot), KpiRow with KpiStrip, and use MetaStrip under page titles; diff(1) now writes '+1 pt'.",
+      "nextStep": "Jithin opens the rebuilt prototype on a desktop-width screen and says whether the command centre is back and what is still missing against the boards; he also tries the guide and the onboarding conversation inside claude.ai (the live-AI path is untested there). Then: match the command-centre pages to the boards one by one, starting with the home (v6-Main: time window, preview as, the Why? sheet, attestations) and the use-case overview (v6-J3); make the guide act on the page it is beside; a separate critic re-grades the build against the requirements doc and board features; the requirements doc takes the new words. Open: Shell D shows the dock as icons with tooltips; say if labels are wanted. Parked until the backend: as listed in D-149.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -278,7 +278,7 @@
           "blocking": "Yes, for Stress test"
         }
       ],
-      "nextStepDue": "2026-11-17",
+      "nextStepDue": "2026-11-13",
       "nextStepOrigin": "TL-003 session 2026-11-10 (review)",
       "appetiteEnds": null,
       "createdOn": "2026-10-31",
@@ -4812,6 +4812,19 @@
       "health": "on-track",
       "healthNote": "Portal requests closed",
       "nextStepDue": "2026-11-14"
+    },
+    {
+      "date": "2026-11-11",
+      "scope": "TL-003 portal (command centre rebase, guide)",
+      "ideaIds": [
+        "TL-003"
+      ],
+      "mode": "Spec (build)",
+      "outcome": "Jithin stopped the journey-first build: the command centre had been lost. Rebased on the boards: command-centre home and use-case pages on the kit's Shell D, journey as one tab, portal guide and conversational onboarding; 2,632 page states crawled at desktop width and 658 at phone width, four click-test suites pass at 1280 and 390; prototype republished with the Claude capability declared; portal commit b873742",
+      "docsTouched": "thinklatent-labs/portal; prototype artifact; artifacts/TL-003-portal; this register",
+      "health": "at-risk",
+      "healthNote": "Two rebuilds in two days because the journey replaced the command centre instead of joining it; the new build has not been walked by Jithin and the live guide is untested inside claude.ai",
+      "nextStepDue": "2026-11-13"
     }
   ],
   "decisions": [
@@ -8048,6 +8061,48 @@
       "decision": "design-kit v0.7.0 closes the portal's requests DK-002 and DK-003: Shell (D), KpiStrip and MetaStrip are exported from @kit/kit; the shell takes a phone bottom bar (phone=\"bar\": four items plus More, below 768 px only) as a recorded exception to the no-bottom-bar rule, the top strip staying the default; diff(1) writes '+1 pt'. Not included: the record sheet and the dock's spring animation. design-kit 75d06a2 on main",
       "by": "Jithin (request); thinking partner (build)",
       "door": "two-way"
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-11",
+      "id": "D-233",
+      "by": "Jithin",
+      "door": "two-way",
+      "decision": "Portal housekeeping calls: lightningcss (MPL-2.0) approved as a build-only licence exception; Jithin stays as both Approver and Head of ThinkLatent in the sample data; hold-to-approve stays below the evidence on request and validation pages, with the decision block above it"
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-11",
+      "id": "D-234",
+      "by": "Jithin",
+      "door": "two-way",
+      "decision": "The command centre is the portal's home and its frame, not the journey. Purpose, in order: show and tell what ThinkLatent's models and their use cases are doing at the Enterprise (adoption, centralisation); self-serve (evaluate a use case, pick a model, train, deploy, onboard, run and monitor in one place); AI runs it. The journey is one tab in the nav that guides each role to its next step and sends people into the command-centre pages. Rebuild on the v5.1 and v6 boards with the side dock; keep the features built since and rehouse them. Kit pin moves to design-kit 75d06a2 (v0.7.0), whose shell the portal uses. Onboarding is a conversation with an agent, not a form. The portal has a guide chat on every page: live AI with a scripted fallback, right level of detail, components drawn in the chat, links to the pages with more, and it can page a person from the ThinkLatent team. This narrows D-219 to D-222 and D-226: role workspaces and the journey stay, as a tab and a role lens, not as the product's structure"
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-11",
+      "id": "D-235",
+      "by": "Claude",
+      "door": "two-way",
+      "decision": "Built and published on D-234: kit Shell D with the dock (bottom bar on phones); command-centre home (KPI strip, quality against the bar across use cases, live traffic, needs a decision, ways in); use-case command centre with its views; Journey tab holding the role next steps, stage tracker and checklist; portal guide docked beside any page and at /ask, answering through the artifact's Claude capability with a scripted fallback, drawing charts and tiles, linking to pages and offering to page a person; onboarding as a conversation that ends in a proposed use case the person creates. Also in this build: TL Index arena, pillar pages, contribute and evaluation requests, the training run page, pipeline detail and knowledge graph. The live-AI path was tested with a stand-in for Claude, not inside claude.ai. The command-centre pages follow the boards' structure with scenario numbers; they are not yet a board-by-board match"
     }
   ],
   "syncLog": [

@@ -99,3 +99,19 @@ Prototype version 1794338271-fb86, portal 7a51791. Decisions D-230 and D-231.
 - Agents' activity log with pause; side-door view of vendor APIs; inbox and real notifications.
 - Engineering switch and membership gating on every page (membership is shown on traces and the record only).
 - The requirements doc has not been re-graded against this build; the 38 of 556 and 5 of 174 counts above are from before the restore.
+
+## Rebase on the command centre (11 Nov 2026, later)
+
+Prototype version 1794371511-924f, portal b873742. Decisions D-233 to D-235.
+
+Jithin stopped the journey-first build: the command centre from the boards had been replaced by the journey, and the portal read as boxes to click. What changed:
+
+- **Frame:** the kit's Shell D with the dock at the side (kit pin moved to v0.7.0); a bottom bar on phones.
+- **Home:** the command centre: KPI strip, quality against the bar across every use case, live traffic, what needs a decision, then the ways in.
+- **Use case:** its own command centre (Overview, Performance, Models, Quality, Improve, Record, Cost).
+- **Journey:** one tab. It holds each role's next step, the stage tracker and the checklist, and sends people into the command-centre pages.
+- **Guide:** a chat beside any page and at Ask. It answers through Claude where the page may ask and from a script elsewhere, draws charts and numbers in the conversation, links to the page with more, and offers to page a person.
+- **Onboarding:** a conversation with the Onboarding agent that ends in a proposed use case for the person to create. The four-step form stays as a fallback.
+- **Also built:** TL Index arena, pillar pages, contribute and evaluation requests; the training run page; pipeline detail and the knowledge graph.
+
+Still not done: a board-by-board match of the command-centre pages (time window, preview as, the Why? sheet, attestations on the home); the guide acting on the page it is beside; intake, adoption and value ledger; approval policy checks and conditional approval; agents' activity log; inbox; engineering switch; the re-grade against the requirements.
