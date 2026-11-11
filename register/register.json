@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-11T01:30:00+05:30",
+  "asOf": "2026-11-11T08:55:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 413,
+    "registerRev": 414,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -200,7 +200,7 @@
       "docTitle": "ThinkLatent Portal (portal) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-11",
-      "nextStep": "Jithin walks the restored prototype (W1 to W3) and says what is wrong in look, words or flow. Then: a separate critic re-grades it against the requirements doc and the board features (the 38 of 556 and 5 of 174 counts are from before the restore); the requirements doc takes the new words; the not-done list in the review doc is worked by priority (TL Index arena and pillar pages, training monitor, intake and value ledger, approval policy checks and conditional approval, engineering switch); Shell D when design-kit ships DK-003; phone bottom bar on DK-002. Still open for Jithin: lightningcss licence exception; who decides approvals (sample shows Jithin as Approver and Head). Parked until the backend: as listed in D-149.",
+      "nextStep": "Jithin walks the restored prototype (W1 to W3) and says what is wrong in look, words or flow. Then: a separate critic re-grades it against the requirements doc and the board features (the 38 of 556 and 5 of 174 counts are from before the restore); the requirements doc takes the new words; the not-done list in the review doc is worked by priority (TL Index arena and pillar pages, training monitor, intake and value ledger, approval policy checks and conditional approval, engineering switch); Shell D when design-kit ships DK-003; phone bottom bar on DK-002. Still open for Jithin: lightningcss licence exception; who decides approvals (sample shows Jithin as Approver and Head). Parked until the backend: as listed in D-149. From TL-013 (2026-11-11, D-232): DK-002 and DK-003 are done in design-kit v0.7.0 (75d06a2): re-pin, replace the portal's own shell with Shell from @kit/kit (renderLink for the router, phone=\"bar\", the workspace switch in the more slot), KpiRow with KpiStrip, and use MetaStrip under page titles; diff(1) now writes '+1 pt'.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -1339,7 +1339,7 @@
       "docTitle": "ThinkLatent design kit (design-kit) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-08",
-      "nextStep": "Kit lead (Claude): republish the component playground (its production build needs more than this session's 8 GB; build it in CI or on Jithin's laptop) so it shows the new gate status and demos. Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: Shell D and the record sheet upstreamed from the lab dashboard; the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release From TL-003 (2026-11-08): DK-001 confirmed resolved for the portal at 1b277ff (pinned, D-216); @kit/charts renders server-side for the boards. Small nit for the kit: diff(1) writes '+1 pts' (singular 'pt' wanted?). From TL-003 (2026-11-10): request DK-002: a phone shell with a bottom bar (4 items plus More) for phones only, as an exception to the no-bottom-bar rule; desktop keeps the top dock. The portal uses a top drawer until it ships. From TL-003 (2026-11-10): request DK-003: export Shell (D, dock inside the frame, ⌘K, fields backdrop) plus KpiStrip and MetaStrip from @kit/kit; they live only in the playground app today, and the portal may not write its own (D-202). Pairs with DK-002 (phone bottom bar).",
+      "nextStep": "DK-002 and DK-003 closed in v0.7.0 (75d06a2, D-232): Shell, KpiStrip and MetaStrip exported from @kit/kit, phone bottom bar as phone=\"bar\", diff(1) writes '+1 pt'. Kit lead (Claude): republish the component playground (its production build needs more than this session's 8 GB; build it in CI or on Jithin's laptop) so it shows the new gate status and demos. Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: the record sheet upstreamed from the lab dashboard (Shell D shipped in v0.7.0); the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release From TL-003 (2026-11-08): DK-001 confirmed resolved for the portal at 1b277ff (pinned, D-216); @kit/charts renders server-side for the boards.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -4799,6 +4799,19 @@
       "health": "on-track",
       "healthNote": "The restore is built; it has not been walked by Jithin or re-graded against the requirements",
       "nextStepDue": "2026-11-17"
+    },
+    {
+      "date": "2026-11-11",
+      "scope": "TL-013 design-kit (portal requests)",
+      "ideaIds": [
+        "TL-013"
+      ],
+      "mode": "Spec (build)",
+      "outcome": "DK-002 and DK-003 built and released as v0.7.0 (D-232): Shell, phone bottom bar, KpiStrip, MetaStrip, singular point; 60 kit tests pass; checked at 1280 and 390 px.",
+      "docsTouched": "design-kit CHANGELOG and README",
+      "health": "on-track",
+      "healthNote": "Portal requests closed",
+      "nextStepDue": "2026-11-14"
     }
   ],
   "decisions": [
@@ -8021,6 +8034,20 @@
       "reviewOn": null,
       "supersedes": null,
       "type": "decision"
+    },
+    {
+      "ideaId": "TL-013",
+      "date": "2026-11-11",
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "id": "D-232",
+      "decision": "design-kit v0.7.0 closes the portal's requests DK-002 and DK-003: Shell (D), KpiStrip and MetaStrip are exported from @kit/kit; the shell takes a phone bottom bar (phone=\"bar\": four items plus More, below 768 px only) as a recorded exception to the no-bottom-bar rule, the top strip staying the default; diff(1) writes '+1 pt'. Not included: the record sheet and the dock's spring animation. design-kit 75d06a2 on main",
+      "by": "Jithin (request); thinking partner (build)",
+      "door": "two-way"
     }
   ],
   "syncLog": [
