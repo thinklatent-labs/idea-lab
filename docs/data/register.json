@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-11T13:45:00+05:30",
+  "asOf": "2026-11-11T14:10:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 417,
+    "registerRev": 418,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -200,7 +200,7 @@
       "docTitle": "ThinkLatent Portal (portal) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-11",
-      "nextStep": "Build the Index pages on D-238 (5): a sortable leaderboard with score, cost, speed and preference rating; the single-model page; a trends page with frontier, open and TLM models over time; then the Real Enterprise category with a score per use case. Jithin: confirm the rename of 'use case' to 'project' on screen; decide whether to ask Vals AI for a quote on its licensed validation sets; send the benchmark ask to the team after the practitioners correct the category list. Platform lead (Claude): decide how Pilot and Production text is kept out of the portal's read of the backend (masking at ingestion or a restricted read), by 2026-11-18. Still open from D-237: a value index across use cases; reword approvals and operations pages; a separate critic re-grades against the requirements; Jithin tries the guide inside claude.ai.",
+      "nextStep": "Build the Index pages under D-240 (form chosen first, written in each page's header): leaderboard as a kit table with a score-against-cost scatter; the single-model page with rank tiles and a section bar; a trends page with frontier, open and TLM models over time; then the Real Enterprise category with a score per use case. Replace the 20 hand-built pieces left (representation.baseline.json), starting with the command-centre leaderboard and the preference-rating table. Jithin: confirm the rename of 'use case' to 'project' on screen; decide whether to ask Vals AI for a quote on its licensed validation sets; send the benchmark ask to the team after the practitioners correct the category list. Platform lead (Claude): decide how Pilot and Production text is kept out of the portal's read of the backend (masking at ingestion or a restricted read), by 2026-11-18. Still open from D-237: a value index across use cases; reword approvals and operations pages; a separate critic re-grades against the requirements; Jithin tries the guide inside claude.ai.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -279,7 +279,7 @@
         }
       ],
       "nextStepDue": "2026-11-13",
-      "nextStepOrigin": "TL-003 session 2026-11-11 (observe and index direction)",
+      "nextStepOrigin": "TL-003 session 2026-11-11 (representation rule)",
       "appetiteEnds": null,
       "createdOn": "2026-10-31",
       "stageHistory": [
@@ -1339,7 +1339,7 @@
       "docTitle": "ThinkLatent design kit (design-kit) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-08",
-      "nextStep": "DK-002 and DK-003 closed in v0.7.0 (75d06a2, D-232): Shell, KpiStrip and MetaStrip exported from @kit/kit, phone bottom bar as phone=\"bar\", diff(1) writes '+1 pt'. Kit lead (Claude): republish the component playground (its production build needs more than this session's 8 GB; build it in CI or on Jithin's laptop) so it shows the new gate status and demos. Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: the record sheet upstreamed from the lab dashboard (Shell D shipped in v0.7.0); the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release From TL-003 (2026-11-08): DK-001 confirmed resolved for the portal at 1b277ff (pinned, D-216); @kit/charts renders server-side for the boards.",
+      "nextStep": "DK-002 and DK-003 closed in v0.7.0 (75d06a2, D-232): Shell, KpiStrip and MetaStrip exported from @kit/kit, phone bottom bar as phone=\"bar\", diff(1) writes '+1 pt'. Kit lead (Claude): republish the component playground (its production build needs more than this session's 8 GB; build it in CI or on Jithin's laptop) so it shows the new gate status and demos. Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: the record sheet upstreamed from the lab dashboard (Shell D shipped in v0.7.0); the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release From TL-003 (2026-11-08): DK-001 confirmed resolved for the portal at 1b277ff (pinned, D-216); @kit/charts renders server-side for the boards. From the portal session of 11 Nov (D-240), asks the portal cannot meet from the kit: a chart of the steps of one request on a millisecond axis (TimelineChart is by day); a FlowGraph wrapper with a tree twin; route tabs as a wrapper (the portal has three hand-built pill navigations); Masked, UptimeBars and Diff wrappers from the kit component map; gaps in a LineChart series in its type. Also settle whether pages may import @kit/ui base components directly or only through @kit/kit (the portal imports button, sheet, command, tooltip and native-select directly today).",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -4851,6 +4851,19 @@
       "health": "at-risk",
       "healthNote": "Scope grew four times inside one session and the Index pages Jithin asked for are not built yet; the index's research independence (D-155) is unsettled by the merge; every number shown is a sample",
       "nextStepDue": "2026-11-13"
+    },
+    {
+      "date": "2026-11-11",
+      "scope": "TL-003 portal (representation rule)",
+      "ideaIds": [
+        "TL-003"
+      ],
+      "mode": "Spec (build)",
+      "outcome": "Jithin challenged how exhibits were being chosen (D-240). Audited the portal against the kit, wrote docs/representation.md, added check:representation with a baseline of 20, put the rule in the repository's CLAUDE.md, and moved the observe, flow-watch and model-page tables to the kit table. Crawl and five click suites pass; portal commit 5fdcb65; prototype republished. The Index pages are still not built.",
+      "docsTouched": "thinklatent-labs/portal (docs/representation.md, CLAUDE.md, scripts/check-representation.mjs); prototype artifact; this register",
+      "health": "at-risk",
+      "healthNote": "The rule is new and unproven: the next screens are its first test. The Index pages Jithin approved are a second session late",
+      "nextStepDue": "2026-11-13"
     }
   ],
   "decisions": [
@@ -8185,6 +8198,20 @@
       "id": "D-239",
       "by": "Claude",
       "decision": "Built and published on D-238: Traces (list and one page per request with its steps on the clock), Sessions (list and replay), Scores and review (score kinds, review queue), Flow watch (size map, answer-length spread, kinds of request by week, entities, Watch agent flags), the same rolled up on each model page with every use case as a row; Head to head with the preference rating. All of it is a seeded sample of 412 requests across six use cases; the Watch agent flags only changes it can tell from chance, and two of its three flags are changes written into the sample on purpose. Pilot and Production text is shown as sealed, which the backend does not yet enforce. Not built: the Index pages modelled on the public leaderboard, single-model and trends pages; the Real Enterprise category in the Index (the ask to the team is written, no items exist); agent graph; filters by tag, user and score. The word for a use case stays 'use case' on screen until Jithin confirms the rename to 'project'."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-11",
+      "door": "two-way",
+      "id": "D-240",
+      "by": "Jithin",
+      "decision": "The form of every exhibit is chosen before it is built. Jithin called out that screens were being built from whatever was nearest to hand and that it is hurting the portal. From now: before any screen, the builder reads docs/representation.md in the portal repository and writes, per thing shown, the reader's question, the form, the kit component and why not the next best; picks in the order kit block, kit chart, base component, wrapped vendored component; and asks the design-kit session when nothing fits. A check (check:representation) counts hand-built tables, charts and pill navigation per file and fails if a count rises. Audit on the day: the portal used 5 of the kit's 64 base components and none of the 2,384 usable vendored ones, with 14 hand-built tables against 5 kit tables; 20 hand-built pieces remain after the observe and model pages moved to the kit table."
     }
   ],
   "syncLog": [
