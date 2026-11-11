@@ -57,6 +57,16 @@ Langfuse stops at its own project. The portal rolls every use case up to the cat
 
 This is where a model owner sees whether a gap is the model or one use case's prompts and data.
 
+## Flow watch: what Jithin asked for that these tools do not show
+
+Performance tools track time and errors. Jithin's point: the same request can come back as one word or two thousand, so an average hides how the platform behaves, and the content of the traffic is itself a signal. Built as the Flow watch page:
+
+- requests by size: tokens in against tokens out, with time, cost and judge score for each cell, and how far the answer length spreads for the same size of request;
+- what the requests are about (each classified when logged) and the kinds of entity in them, week by week;
+- a Watch agent that compares the last 7 days with the 28 before and flags a change in topic mix, a new kind of entity, request or answer length, time, or the share refused or failed. It flags only what it can tell from chance. In the product it would run hourly and daily and raise alerts; here it is by day, on the sample.
+
+Not built: the classifier and entity extraction themselves (the sample assigns them), flags at model level across use cases, and the agent acting on a flag.
+
 ## Thin spots, said plainly
 
 - Every number is a seeded sample (412 requests across six use cases). The real volumes come from the daily totals; the sample is drawn so rated and reviewed requests show up, so shares read off it are not rates.
