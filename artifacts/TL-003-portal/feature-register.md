@@ -13,30 +13,30 @@ Totals: 556 canvas features, 85 requirements, 46 from conversation, 25 proposed 
 
 ## Build of 11 Nov: what changed
 
-The lists now live in the portal repository (`docs/features/`: canvas, requested, new, vision) with a status file (`docs/features/status.json`) that each build updates, and the prototype shows the result on its Coverage page (Help, Coverage). The state columns below stay as recorded on 10 and 11 Nov; this table is what the build of 11 Nov changed. After it: 71 built, 226 partly, 377 not built, 6 moved, 3 open decisions, 4 not a screen, 25 five-year proposals.
+The lists now live in the portal repository (`docs/features/`: canvas, requested, new, vision) with a status file (`docs/features/status.json`) that each build updates, and the prototype shows the result on its Coverage page (Help, Coverage). The state columns below stay as recorded on 10 and 11 Nov; this table is what the builds of 11 Nov changed, the last being Home redone to board H1 (D-248). After them: 71 built, 226 partly, 377 not built, 6 moved, 3 open decisions, 4 not a screen, 25 five-year proposals.
 
 | ID | State now | Screen | Note |
 |---|---|---|---|
 | C-p1-01 | Partly | / | Four tiles as on board H1. Only evaluation runs are compared with the day before; decisions, attestations and models show today's count. |
 | C-p1-02 | Built | / | Today, 7 days, 30 days, quarter, with compare to the window before; the quality table, the bullet and the runs tile follow it. |
-| C-p1-03 | Built | /my-work | The role views are in My work, open to everyone; Home has no preview control because Home is the same for everyone (proposal decision 2, default taken). |
-| C-p1-04 | Built | / | Every use case with score, interval, its bar, change and this week's call; a bullet for each live use case. |
+| C-p1-03 | Built | / | Preview as is on Home as board H1 has it: picking a role shows that role's home in place. The same views are kept in My work. |
+| C-p1-04 | Built | / | One card as on the board: the brief, a row a use case with the score, its interval drawn against its bar, the change and this week's call, and the legend. |
 | C-p1-05 | Built | / | One sentence over the quality table with agents, confidence and time. |
-| C-p1-06 | Built | / | Why? for finding F-0425: shares of the fall, daily score with the bar, proposal and sources. |
+| C-p1-06 | Built | / | Why? is docked beside the list as on the board: shares of the fall with a meter, the proposal, the daily score with the regression date marked, sources. |
 | C-p1-07 | Partly | / | Review and rerun open the pages behind them; notify says what would happen and sends nothing. |
-| C-p1-08 | Built | / | Numbered in the order to take them, filter by decisions, attestations, tasks and Jira. |
+| C-p1-08 | Built | / | One card as on the board: numbered rows, two actions a row with one-way doors in red, filter by kind, tasks behind a disclosure. |
 | C-p1-09 | Partly | / | Listed from the date the edition is reviewed; the sign-off itself is not built. |
 | C-p1-10 | Partly | / | Listed with due dates; the attestation form is not built. |
 | C-p1-11 | Partly | / | The review queue is a task on the list; reviews are not yet assigned to a person. |
 | C-p1-12 | Partly | / | Callers and the grace policy are shown; the day count per caller and the block on day 30 are not. |
 | C-p1-13 | Partly | / | Back on Home as the boards have it, from sample data; no link to Jira. |
-| C-p1-14 | Built | / | Missed, scoring now with the time due, and every finished run by group. |
-| C-p1-15 | Built | / | Actions, proposals open, accepted in 30 days, state; pause asks for a reason. |
+| C-p1-14 | Built | / | One table in groups as on the board: missed, scoring now with the time due, and the rest by group behind a disclosure. |
+| C-p1-15 | Built | / | By agent and an action log as on the board; pause asks for a reason. |
 | C-p12-12 | Partly | / | On Home per agent; pause all is not built. |
 | C-p1-44 | Partly | /settings | Theme, density and engineering detail are in the top bar and remembered on the device; not yet on the Settings page. |
 | Q-3-02 | Partial | / | The switch is in the top bar; so far it adds sample sizes on Home. Masked fields are not built. |
 | Q-4-10 | Partial | / | Breadcrumb on every page and search on ⌘K; the use-case rail of six is not built. |
-| N-01 | Built (sample data) | / | Board H1, the same for everyone. |
+| N-01 | Built (sample data) | / | Board H1 in composition as well as content, checked side by side at 1,440; the same for everyone. |
 | N-02 | Partly | /my-work | My work holds the journey and the five role views. Tasks assigned to the person are on Home's list, not yet here. |
 | N-34 | Partly | / | The shell is done: content beside the dock, filling the window, checked at 1,280, 1,440 and 1,920. Pages inside are re-laid to the boards one at a time; Home is the first. |
 | N-45 | Partly | /coverage | This page: every feature with its state and the screen it is on. |

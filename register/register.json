@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-11T18:00:00+05:30",
+  "asOf": "2026-11-11T19:35:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 421,
+    "registerRev": 422,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -200,7 +200,7 @@
       "docTitle": "ThinkLatent Portal (portal) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-11",
-      "nextStep": "Builder (Claude), by 2026-11-13: carry on page by page from the boards until every row of the feature register is marked, each screen with its form chosen first (D-240) and its state written to the portal's docs/features/status.json (D-245). Order: the model catalogue and model page from boards p2 (the Index leaderboard, single-model page and trends are built, D-246); then the use-case space and its running and quality pages (p3 to p5); training and data (p7, p8); approvals and governance; operations; then the 20 hand-built pieces the representation check still counts. Jithin: open the prototype at desktop width (https://claude.ai/artifact/XxhCieUgDt6CCiMtxbs2Z9), look at Home, My work and Help, Coverage, and say what is off; override any of the eight proposal defaults taken in D-244. Platform lead (Claude): decide how Pilot and Production text is kept out of the portal's read, by 2026-11-18. Still open from D-237: a value index across use cases; a separate critic re-grades against the requirements; Jithin tries the guide inside claude.ai.",
+      "nextStep": "Builder (Claude), by 2026-11-13: strictly board by board (D-247), each screen copied from its board's composition, compared side by side at 1,440 before it is published, and its features marked in the portal's docs/features/status.json. Next on canvas page 1, in order: H2 Foundation home, H3 Application team home, H4 Validator home, H5 Everyone (the homes that 'Preview as' and My work show), then Settings, Ask and the Inbox; then page 2 (models), pages 3 to 5 (use case space, running, quality), training and data, the Index boards, approvals and governance, operations. Jithin: open Home at desktop width (https://claude.ai/artifact/XxhCieUgDt6CCiMtxbs2Z9) and say what still differs from board H1; override any default in D-244. Platform lead (Claude): decide how Pilot and Production text is kept out of the portal's read, by 2026-11-18. Still open from D-237: a value index across use cases; a separate critic re-grades against the requirements; Jithin tries the guide inside claude.ai.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -279,7 +279,7 @@
         }
       ],
       "nextStepDue": "2026-11-13",
-      "nextStepOrigin": "TL-003 session 2026-11-11 (build: shell, Home, My work, coverage, Index pages)",
+      "nextStepOrigin": "TL-003 session 2026-11-11 (build: Home to board H1; boards first)",
       "appetiteEnds": null,
       "createdOn": "2026-10-31",
       "stageHistory": [
@@ -1339,7 +1339,7 @@
       "docTitle": "ThinkLatent design kit (design-kit) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-08",
-      "nextStep": "DK-002 and DK-003 closed in v0.7.0 (75d06a2, D-232): Shell, KpiStrip and MetaStrip exported from @kit/kit, phone bottom bar as phone=\"bar\", diff(1) writes '+1 pt'. Kit lead (Claude): republish the component playground (its production build needs more than this session's 8 GB; build it in CI or on Jithin's laptop) so it shows the new gate status and demos. Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: the record sheet upstreamed from the lab dashboard (Shell D shipped in v0.7.0); the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release From TL-003 (2026-11-08): DK-001 confirmed resolved for the portal at 1b277ff (pinned, D-216); @kit/charts renders server-side for the boards. From the portal session of 11 Nov (D-240), asks the portal cannot meet from the kit: a chart of the steps of one request on a millisecond axis (TimelineChart is by day); a FlowGraph wrapper with a tree twin; route tabs as a wrapper (the portal has three hand-built pill navigations); Masked, UptimeBars and Diff wrappers from the kit component map; gaps in a LineChart series in its type. Also settle whether pages may import @kit/ui base components directly or only through @kit/kit (the portal imports button, sheet, command, tooltip and native-select directly today). From TL-003's build of 2026-11-11 (portal docs/representation.md): four asks of the kit: the shell's agenda from 1,280 wide (it shows from 1,536; the boards draw it at 1,440); a mark inside a DataTable cell for a value, its interval and its bar; a dated mark on LineChart; a second line on Tile for the value on the day before.",
+      "nextStep": "DK-002 and DK-003 closed in v0.7.0 (75d06a2, D-232): Shell, KpiStrip and MetaStrip exported from @kit/kit, phone bottom bar as phone=\"bar\", diff(1) writes '+1 pt'. Kit lead (Claude): republish the component playground (its production build needs more than this session's 8 GB; build it in CI or on Jithin's laptop) so it shows the new gate status and demos. Kit lead (Claude), next: the 36 vendored components still blank after the interactive walk (react-bits text and background animations, 11 animate-ui primitives, cult-ui code-block, sortable-list and text-gif, indie-ui slider and separators, one origin piece): fix the ones a product is likely to want, mark the rest excluded with a reason. Kit lead (Claude), next: teach the render walk to open overlays and hover before judging (Jithin chose this 2026-11-07), rerun it and clear the 133 blank renders that are not broken. Charts and wrappers approved by Jithin 2026-11-08 (D-210). Jithin still owes the skim of the ported components and the agent conversation review. Wrapper text: gate words Passed, Failed, Pending and the wrappers' default text sit in props, not yet in strings.ts. Portal asks still open after v0.4.0: the record sheet upstreamed from the lab dashboard (Shell D shipped in v0.7.0); the other six wrappers (FlowGraph, Masked, AgentChip, UptimeBars, Diff, Num/Diff components); a data-volume test of the origin tables and React Flow at portal sizes. Licence check (report-only) still lists lightningcss (MPL-2.0, build-time) without a recorded exception in licenses.exceptions.json, though it was excepted 2026-11-06. Still open: Jithin rules on 'below target'; compact density and the AA contrast run to close H2; decision 3 (ECharts); colour system against the brand guide when Jithin has access; decisions 1 and 4 and inventory from row 31. Carried asks: the v6 pilot pieces from TL-003 (info tooltip, sticky section bar, stepper, timeline, light-surface agent chip, dark-tile tooltip, number rule); the Cortex blocks from TL-017; the dashboard wrappers and Jarvis panel from TL-007 (and TL-007 can drop its own @source for the markdown renderer at v0.2.1+); the site's light system and the pattern generator from TL-016. From TL-003 (2026-11-07, D-203): defect DK-001, blocker for the portal: @kit/charts is specified but not built. Build ChartFrame, LineChart with thresholds, ForestPlot for paired differences, Distribution with whiskers, Heatmap and SmallMultiples on ECharts with view-as-table, tested on the portal's scenario fixtures, released as v0.4.0 (brief in project knowledge: claude/design-kit defect DK-001 - charts not built (blocks portal).md). Also asked: wrappers InfoTip, SectionBar, Steps, Timeline, DataTable and HoldToConfirm (portal's Kit component map, section 4); this session decides their release From TL-003 (2026-11-08): DK-001 confirmed resolved for the portal at 1b277ff (pinned, D-216); @kit/charts renders server-side for the boards. From the portal session of 11 Nov (D-240), asks the portal cannot meet from the kit: a chart of the steps of one request on a millisecond axis (TimelineChart is by day); a FlowGraph wrapper with a tree twin; route tabs as a wrapper (the portal has three hand-built pill navigations); Masked, UptimeBars and Diff wrappers from the kit component map; gaps in a LineChart series in its type. Also settle whether pages may import @kit/ui base components directly or only through @kit/kit (the portal imports button, sheet, command, tooltip and native-select directly today). From TL-003's build of 2026-11-11 (portal docs/representation.md): four asks of the kit: the shell's agenda from 1,280 wide (it shows from 1,536; the boards draw it at 1,440); a mark inside a DataTable cell for a value, its interval and its bar; a dated mark on LineChart; a second line on Tile for the value on the day before. Since D-247 (2026-11-11) the portal builds three of these in the page to match board H1 (the cell mark, a share with a meter, the dated line mark), listed in portal representation.exceptions.json; when the kit has them the portal switches to the kit's.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -4880,15 +4880,15 @@
     },
     {
       "date": "2026-11-11",
-      "scope": "TL-003 portal (build: shell, Home, My work, coverage, Index pages)",
+      "scope": "TL-003 portal (build: shell, Home to board H1, My work, coverage, Index pages)",
       "ideaIds": [
         "TL-003"
       ],
       "mode": "Spec",
-      "outcome": "On Jithin's go (D-243) the rebuild from the boards started. Done and published: the desktop shell, Home as board H1 for everyone, My work with the journey and the role views, and a Coverage page that lists all 712 features with their state and screen (D-245). The eight proposal decisions proceed on defaults (D-244). Then the Index leaderboard, a page for each model and trends, with the Real Enterprise score (D-246). Checks: 632 desktop pages and 237 phone pages crawled across the eight demo dates with no error, overflow or off-vocabulary word; six click suites pass; kit, licence, usable-component and representation checks pass (20 hand-built pieces remain, none added).",
-      "docsTouched": "thinklatent-labs/portal (1641329, 87f6125); prototype (republished after each part); artifacts/TL-003-portal (feature-register.md, prototype.pointer.md); this register",
+      "outcome": "On Jithin's go (D-243) the rebuild from the boards started. Done and published: the desktop shell, Home as board H1 for everyone, My work with the journey and the role views, and a Coverage page that lists all 712 features with their state and screen (D-245). The eight proposal decisions proceed on defaults (D-244). Then the Index leaderboard, a page for each model and trends, with the Real Enterprise score (D-246). Checks: 632 desktop pages and 237 phone pages crawled across the eight demo dates with no error, overflow or off-vocabulary word; six click suites pass; kit, licence, usable-component and representation checks pass (20 hand-built pieces remain, none added). Jithin then asked why the build was not following the boards: Home matched H1 in content but not in composition. He set the rule that the boards come first and approved hand-building what the kit cannot draw (D-247); Home was redone to the board and checked side by side (D-248).",
+      "docsTouched": "thinklatent-labs/portal (1641329, 87f6125, a0cf07a); prototype (republished after each part); artifacts/TL-003-portal (feature-register.md, prototype.pointer.md); this register",
       "health": "at-risk",
-      "healthNote": "The layout is corrected, every feature is tracked on a screen the team can open, and the Index pages asked for on 11 Nov are in. But only Home has been re-laid to its board: 377 of the 683 features to build are not on a screen and 226 are partial.",
+      "healthNote": "Home now follows its board in composition, and the rule that caused the drift is changed: a board's form is copied, not re-chosen, and each screen is compared with its board before it is published. Still only one board of the canvas is done: 377 of the 683 features to build are not on a screen and 226 are partial. The first Home went out without that comparison; that was the builder's miss.",
       "nextStepDue": "2026-11-13"
     }
   ],
@@ -8322,6 +8322,34 @@
       "id": "D-246",
       "by": "Claude",
       "decision": "The Index pages Jithin asked for on 11 Nov are built on sample data (portal 87f6125): a leaderboard as one sortable table (score with interval, five pillars, preference rating, Real Enterprise, cost, speed, first token, size, context, release; filter by class); a page for each model (ranks, score against cost, pillars against the best and the median, Real Enterprise, the twelve benchmark categories as not scored yet); and trends (TLM models by release against one open-weights and one frontier reference; size, cost and speed against score; best class by pillar). Real Enterprise is the live 30-day score of the use cases on a model set beside its Index score; a combined score needs two use cases on one model and none has two, so N-22 stays partly built. A trend for the open and frontier classes needs earlier models run on this edition; the page says so and the ask is with TL-004. Release dates, context and speed are sample facts in the scenario, not measured. Coverage after this: 71 built, 226 partly, 377 not built."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-11",
+      "door": "two-way",
+      "id": "D-247",
+      "by": "Jithin",
+      "decision": "The boards come first. Home is redone to the board's composition, then the build goes strictly board by board, and each screen is compared against its board before it is published. Where the kit cannot draw what a board shows, the piece is hand-built to match the board and recorded as an exception. This amends D-240: choosing the form first now applies only to what no board shows; a form the board has chosen is copied, not chosen again."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-11",
+      "door": "two-way",
+      "id": "D-248",
+      "by": "Claude",
+      "decision": "Home redone to board H1's composition (portal a0cf07a) and compared side by side with the board at 1,440 before publishing: breadcrumb and greeting; 'Preview as' back on Home with the window switch and compare (this reverses item 2 of D-244; the role views stay in My work as well); four tiles; Quality against the bar as one card with the interval drawn against its bar in every row; Needs a decision as one card with two actions a row, one-way doors in red, and Why? docked beside the list; Evaluation runs today as one table in groups; What the agents did by agent with an action log; the agenda in the top bar at 1,440. Three pieces are built in the page because the kit cannot draw them, each recorded in the portal (representation.exceptions.json, docs/representation.md) and asked of TL-013: the mark in a table cell, a cause's share with a meter, the daily score with the regression date marked. What still differs from the board, on purpose: the greeting names the signed-in sample person; the numbers are the scenario's; words follow the controlled vocabulary; a demo-date control and the guide button are added; there is no Theme picker; the daily chart keeps the kit's frame with its table twin. The Index leaderboard, model page and trends (D-246) are not on a board; no further page that is not on a board is built until the boards are done."
     }
   ],
   "syncLog": [
