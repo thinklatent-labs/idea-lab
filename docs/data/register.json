@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-12T00:10:00+05:30",
+  "asOf": "2026-11-12T00:20:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 428,
+    "registerRev": 429,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -199,8 +199,8 @@
       "docUrl": "https://claude.ai/artifact/QtTppN7KFdEDvjX7RRkEFn",
       "docTitle": "ThinkLatent Portal (portal) — Idea card",
       "standardVersion": "v1",
-      "lastTouched": "2026-11-11",
-      "nextStep": "Designer (Claude), by 2026-11-13: draw the new structure on the canvas in the approved design, for Jithin's approval before anything more is built (D-249 to D-251): the Home cockpit (accepted, D-253) and a model's page (first draft with Jithin), then the project page in full, the model catalogue by generation, organization, team, project and feature pages on the chosen navigation (dock plus scope bar), the model catalogue by generation and a model's page, the request-status page that replaces approvals, and My work. Questions that the drawings raise go to Jithin one at a time. After approval, builder (Claude): write the structure into the sample data (organization, team, project, feature, increment, models of every kind with a job in each feature, change requests with status), rework the Models and Projects areas, take 'Preview as' off Home, fold the role-home boards into Models, Projects and Home, and mark the approval features in docs/features/status.json as moved outside by D-251. Platform lead (Claude): decide how Pilot and Production text is kept out of the portal's read, by 2026-11-18. Still open from D-237: a value index across use cases; a separate critic re-grades against the requirements; Jithin tries the guide inside claude.ai. From TL-013 (2026-11-11, D-254): design-kit v0.8.0 (cdebcec) adds Beautiful UI, Bencho, BoardUI and the Transitions.dev stylesheet as owned source on kit tokens; re-pin to use them, through @kit/kit wrappers as before (ask TL-013 for the wrapper).",
+      "lastTouched": "2026-11-12",
+      "nextStep": "Designer (Claude), by 2026-11-13: keep drawing the new structure on the canvas in the approved design, for Jithin's approval before anything more is built (D-249 to D-251). Accepted so far: navigation A (D-250), the Home cockpit (D-253), a model's page (D-255). With Jithin for review: a project's page and the Models catalogue by generation. Still to draw: the team page, the organization page, a feature's page, the request-status page that replaces approvals, My work without roles, and a task model's page (speech: word error rate). Questions that the drawings raise go to Jithin one at a time; open now: what TLM2 held and whether the kinds sit in the right generations; whether 'reversion model' meant a reranker. After approval, builder (Claude): write the structure into the sample data (organization, team, project, feature, increment, models of every kind with a job in each feature, change requests with status, tokens in and out), rework the Models and Projects areas, take 'Preview as' off Home, fold the role-home boards into Models, Projects and Home, and mark the approval features in docs/features/status.json as moved outside by D-251. Platform lead (Claude): decide how Pilot and Production text is kept out of the portal's read, by 2026-11-18. Still open from D-237: a value index across use cases; a separate critic re-grades against the requirements; Jithin tries the guide inside claude.ai. From TL-013 (2026-11-11, D-254): design-kit v0.8.0 (cdebcec) adds Beautiful UI, Bencho, BoardUI and the Transitions.dev stylesheet as owned source on kit tokens; re-pin to use them, through @kit/kit wrappers as before (ask TL-013 for the wrapper).",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -279,7 +279,7 @@
         }
       ],
       "nextStepDue": "2026-11-13",
-      "nextStepOrigin": "TL-003 session 2026-11-11 (vision: models and projects, many to many)",
+      "nextStepOrigin": "TL-003 session 2026-11-12 (design: the new structure drawn on the canvas)",
       "appetiteEnds": null,
       "createdOn": "2026-10-31",
       "stageHistory": [
@@ -4903,6 +4903,19 @@
       "health": "on-track",
       "healthNote": "Wrappers and a fuller visual check still to do",
       "nextStepDue": "2026-11-14"
+    },
+    {
+      "date": "2026-11-12",
+      "scope": "TL-003 portal (design: the new structure drawn on the canvas, no build)",
+      "ideaIds": [
+        "TL-003"
+      ],
+      "mode": "Spec",
+      "outcome": "After the vision was clarified (D-249), Jithin chose navigation A from three drawn options (dock plus a scope bar, D-250), set approvals outside the portal for projects and models (D-251), dropped budgets for spend and cost avoided and asked for tokens in and out on every model and at the title (D-252), accepted the Home cockpit (D-253) and a model's page (D-255). A project's page and the Models catalogue by generation are drawn and with him for review. Nothing was built; the published prototype still shows the old structure.",
+      "docsTouched": "canvas 'navigation options' (seven boards; artifacts/TL-003-portal/navigation-options); this register",
+      "health": "on-track",
+      "healthNote": "The design is being settled before more is built, one screen at a time, and each screen so far was accepted on its first or second draft. The risk is the gap between the drawings and the prototype: the sample data and two areas have to be reworked once the design is approved, and the prototype shows the old structure until then.",
+      "nextStepDue": "2026-11-13"
     }
   ],
   "decisions": [
@@ -8447,6 +8460,20 @@
       "decision": "Four more libraries go into the kit as owned source on kit tokens, so every product can use and change them freely: Beautiful UI (MIT, from a public mirror of the site's code), Bencho's free blocks (MIT), BoardUI's free set (MIT, kept on React Aria, Remix icons swapped for Lucide) and the 36 free Transitions.dev transitions. Transitions.dev has a custom licence that forbids republishing the collection as a kit: allowed as a recorded exception on the condition that the kit stays private and is never published, sold or given away, its comment stays on each transition, and no Pro transitions are taken. Paid tiers of Bencho, BoardUI and Transitions.dev are not taken. design-kit v0.8.0 (cdebcec): 2,514 of 2,539 usable, 25 excluded, none blocked",
       "by": "Jithin",
       "door": "two-way"
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-12",
+      "door": "two-way",
+      "id": "D-255",
+      "by": "Jithin",
+      "decision": "The first draft of a model's page is accepted ('continue, it looks good'). Drawn next on the same canvas, for his review: a project's page (Advisor desktop: scope bar organization, team, project, feature; its features with the models in each in the order they run, tokens and score against its bar per feature; increments with the status of each change request, approved outside the portal; members; traces, sessions and operations at project level) and the Models catalogue by generation (TLM5 to TLM1, kinds inside, one row a model with its version and state, its own measure against its bar, where it is used, calls and tokens in and out). Sample totals now add up across the boards: 2.3B tokens in, 208M out across nine live models. Open with Jithin: what TLM2 held, and whether the split of kinds across generations is right."
     }
   ],
   "syncLog": [
