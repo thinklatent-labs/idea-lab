@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home · the cockpit</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1560px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="#" aria-current="page" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Main.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="#" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="#" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="#" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn" type="button">The Enterprise <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Choose an organization <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Good morning, Priya</h1>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center"><span class="kit-small kit-muted">What ThinkLatent is running across the Enterprise today.</span><span class="kit-asof">As of 11:58 ET · totals only · sample data</span></div>
+      </div>
+    </div>
+
+    <section class="kit-surface" aria-label="Ask the ThinkLatent agent" style="display: flex; flex-direction: column; gap: 12px">
+      <span class="kit-label">1 · What can I ask or do?</span>
+      <form style="display: flex; gap: 10px; align-items: center">
+        <label style="flex: 1; display: flex; align-items: center; gap: 10px; height: 56px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--hairline); background: rgba(255,255,255,.75)"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><input type="text" aria-label="Ask the ThinkLatent agent" placeholder="Ask anything, or say what you want to do" style="flex: 1; border: 0; outline: 0; background: transparent; font: inherit; font-size: 16px"></label>
+        <button class="kit-btn" type="submit" style="height: 56px; padding: 0 26px">Ask</button>
+      </form>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center"><a class="kit-chip outline" href="#">Start a project</a><a class="kit-chip outline" href="#">Find a model for a task</a><a class="kit-chip outline" href="#">What changed today</a><a class="kit-chip outline" href="#">Where is my request</a><span class="kit-small kit-muted">Answers from the records, shows its sources, takes you to the page. It prepares a request; it never approves one.</span></div>
+    </section>
+
+    <div class="kit-section-title"><h2>Running now</h2><span class="sub">2 · What is running today?</span></div>
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Models live</span><span class="kit-display" style="font-size: 44px">9</span><span class="kit-small kit-muted">TLM1 3 · TLM3 1 · TLM4 5</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Projects by stage</span><span class="kit-display" style="font-size: 44px">8</span><span class="kit-small kit-muted">Production 2 · Pilot 2 · Build 2 · Try 1 · Set up 1</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Requests today</span><span class="kit-display" style="font-size: 44px">212k</span><span class="kit-small kit-muted">Live 58k · background 154k</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Under its bar</span><span class="kit-display" style="font-size: 44px">1</span><span class="kit-small kit-muted">Claims triage · finding F-0425</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Requests in flight, outside</span><span class="kit-display" style="font-size: 44px">4</span><span class="kit-small kit-muted">3 change requests · 1 model validation</span></a>
+    </div>
+
+    <div class="kit-section-title"><h2>Who has adopted what</h2><span class="sub">3 · Models on the left, the teams using them on the right</span></div>
+    <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px">
+      <section class="kit-surface" aria-label="Flow from models to teams">
+        <svg role="img" aria-label="Flow from each model to the teams that use it; band width is requests today" viewBox="0 0 760 300" style="width: 100%; height: auto; font-size: 12px">
+          <g style="fill: none; stroke-linecap: butt; opacity: .38">
+            <path d="M212 34 C 380 34, 380 222, 548 222" style="stroke: var(--cat2); stroke-width: 44"></path>
+            <path d="M212 92 C 380 92, 380 240, 548 240" style="stroke: var(--cat3); stroke-width: 26"></path>
+            <path d="M212 60 C 380 60, 380 40, 548 40" style="stroke: var(--cat2); stroke-width: 8"></path>
+            <path d="M212 150 C 380 150, 380 58, 548 58" style="stroke: var(--cat1); stroke-width: 24"></path>
+            <path d="M212 206 C 380 206, 380 132, 548 132" style="stroke: var(--cat4); stroke-width: 20"></path>
+            <path d="M212 258 C 380 258, 380 180, 548 180" style="stroke: var(--cat5); stroke-width: 12"></path>
+            <path d="M212 268 C 380 268, 380 76, 548 76" style="stroke: var(--cat5); stroke-width: 6"></path>
+          </g>
+          <g style="fill: var(--ink)">
+            <text x="0" y="30">Speech recognition</text><text x="0" y="46" style="fill: var(--secondary)">TLM1 · speech</text>
+            <text x="0" y="90">Redaction</text><text x="0" y="106" style="fill: var(--secondary)">TLM1 · classifier</text>
+            <text x="0" y="148">Domain-Advice v2</text><text x="0" y="164" style="fill: var(--secondary)">TLM4 · language</text>
+            <text x="0" y="204">Distil 4.2</text><text x="0" y="220" style="fill: var(--secondary)">TLM4 · language</text>
+            <text x="0" y="256">Core 4.2</text><text x="0" y="272" style="fill: var(--secondary)">TLM4 · language</text>
+            <text x="560" y="52" style="font-weight: 500">Advice Tech</text><text x="560" y="68" style="fill: var(--secondary)">Retail Business · 2 projects</text>
+            <text x="560" y="130" style="font-weight: 500">Claims Ops Tech</text><text x="560" y="146" style="fill: var(--secondary)">Institutional Ops · 2 projects</text>
+            <text x="560" y="182" style="font-weight: 500">Client Service Tech</text><text x="560" y="198" style="fill: var(--secondary)">Retail Business · 2 projects</text>
+            <text x="560" y="230" style="font-weight: 500">Platform</text><text x="560" y="246" style="fill: var(--secondary)">Enterprise services · 1 project</text>
+          </g>
+        </svg>
+        <span class="kit-small kit-muted">Band width is requests today. Click a model or a team to open it.</span>
+      </section>
+      <section class="kit-surface" aria-label="Model adoption">
+        <span class="kit-caption">Model adoption · projects and features on each model</span>
+        <div class="kit-rows" style="margin-top: 10px">
+          <a class="kit-row" href="#" style="grid-template-columns: 1fr auto; color: inherit; text-decoration: none"><div><div class="t">Speech recognition</div><div class="s">TLM1 · speech</div></div><div class="kit-num">2 projects · 2 features</div></a>
+          <a class="kit-row" href="#" style="grid-template-columns: 1fr auto; color: inherit; text-decoration: none"><div><div class="t">Domain-Advice v2</div><div class="s">TLM4 · language</div></div><div class="kit-num">1 project · 2 features</div></a>
+          <a class="kit-row" href="#" style="grid-template-columns: 1fr auto; color: inherit; text-decoration: none"><div><div class="t">Distil 4.2</div><div class="s">TLM4 · language</div></div><div class="kit-num">2 projects · 2 features</div></a>
+          <a class="kit-row" href="#" style="grid-template-columns: 1fr auto; color: inherit; text-decoration: none"><div><div class="t">Redaction</div><div class="s">TLM1 · classifier</div></div><div class="kit-num">1 project · 1 feature</div></a>
+        </div>
+        <a class="kit-small" href="#" style="display: inline-block; margin-top: 10px">All models, by generation</a>
+      </section>
+    </div>
+
+    <div class="kit-section-title"><h2>Teams</h2><div style="display: flex; gap: 10px; align-items: center"><span class="sub">Ranked by adoption · double-click a team for its projects</span><div class="kit-seg" role="group" aria-label="Compare"><button type="button" aria-pressed="true">Teams</button><button type="button" aria-pressed="false">Organizations</button></div></div></div>
+    <section class="kit-surface" aria-label="Team leaderboard">
+      <div style="display: grid; grid-template-columns: 1.6fr .8fr .8fr .9fr 1fr 1.3fr; gap: 14px; padding: 0 14px 8px" class="kit-label"><span>Team</span><span>Projects live</span><span>Models used</span><span>Requests today</span><span>Value avoided, 30 d</span><span>Spend against budget</span></div>
+      <div class="kit-rows">
+        <div class="kit-row" style="grid-template-columns: 1.6fr .8fr .8fr .9fr 1fr 1.3fr"><div><div class="t"><span aria-hidden="true">▾</span> Advice Tech</div><div class="s">Retail Business</div></div><div class="kit-num">1 of 2</div><div class="kit-num">5</div><div class="kit-num">31k</div><div class="kit-num">$[value]</div><div><div style="height: 6px; border-radius: 999px; background: rgba(26,26,26,.12)"><div style="width: 62%; height: 6px; border-radius: 999px; background: var(--brand-800)"></div></div><div class="s">62% of the month's budget</div></div></div>
+        <div class="kit-row" style="grid-template-columns: 1.6fr .8fr .8fr .9fr 1fr 1.3fr; margin-left: 28px; background: transparent"><div><div class="t">Advisor desktop</div><div class="s">3 features · 2 increments in flight</div></div><div><span class="kit-chip brand">Production</span></div><div class="kit-num">5</div><div class="kit-num">31k</div><div class="kit-num">$[value]</div><div class="s">Open the project</div></div>
+        <div class="kit-row" style="grid-template-columns: 1.6fr .8fr .8fr .9fr 1fr 1.3fr; margin-left: 28px; background: transparent"><div><div class="t">Wealth management portfolio assist</div><div class="s">1 feature</div></div><div><span class="kit-chip outline">Build</span></div><div class="kit-num">2</div><div class="s">Not live</div><div class="s">Not live</div><div class="s">Open the project</div></div>
+        <div class="kit-row" style="grid-template-columns: 1.6fr .8fr .8fr .9fr 1fr 1.3fr"><div><div class="t"><span aria-hidden="true">▸</span> Platform</div><div class="s">Enterprise services</div></div><div class="kit-num">1 of 1</div><div class="kit-num">3</div><div class="kit-num">154k</div><div class="kit-num">$[value]</div><div><div style="height: 6px; border-radius: 999px; background: rgba(26,26,26,.12)"><div style="width: 48%; height: 6px; border-radius: 999px; background: var(--brand-800)"></div></div><div class="s">48% of the month's budget</div></div></div>
+        <div class="kit-row" style="grid-template-columns: 1.6fr .8fr .8fr .9fr 1fr 1.3fr"><div><div class="t"><span aria-hidden="true">▸</span> Claims Ops Tech</div><div class="s">Institutional Ops · 1 feature under its bar</div></div><div class="kit-num">0 of 2</div><div class="kit-num">2</div><div class="kit-num">19k</div><div class="kit-num">$[value]</div><div><div style="height: 6px; border-radius: 999px; background: rgba(26,26,26,.12)"><div style="width: 71%; height: 6px; border-radius: 999px; background: var(--brand-800)"></div></div><div class="s">71% of the month's budget</div></div></div>
+        <div class="kit-row" style="grid-template-columns: 1.6fr .8fr .8fr .9fr 1fr 1.3fr"><div><div class="t"><span aria-hidden="true">▸</span> Client Service Tech</div><div class="s">Retail Business</div></div><div class="kit-num">0 of 2</div><div class="kit-num">2</div><div class="kit-num">8k</div><div class="s">Not live</div><div><div style="height: 6px; border-radius: 999px; background: rgba(26,26,26,.12)"><div style="width: 20%; height: 6px; border-radius: 999px; background: var(--brand-800)"></div></div><div class="s">20% of the month's budget</div></div></div>
+      </div>
+    </section>
+
+    <div class="kit-section-title"><h2>Is it paying off?</h2><span class="sub">4 · Spend, value and what feedback has improved</span></div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px">
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Paid this month</span><span class="kit-display" style="font-size: 36px">$[paid]</span><span class="kit-small kit-muted">Serving, training and outside models, by team</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Value avoided this month</span><span class="kit-display" style="font-size: 36px">$[avoided]</span><span class="kit-small kit-muted">Counted per feature on the Finance method</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Improved from feedback</span><span class="kit-display" style="font-size: 36px">2</span><span class="kit-small kit-muted">Model versions retrained this month from use</span></a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1560}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
