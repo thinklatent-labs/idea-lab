@@ -13,7 +13,7 @@ Totals: 556 canvas features, 85 requirements, 46 from conversation, 25 proposed 
 
 ## Build of 11 Nov: what changed
 
-The lists now live in the portal repository (`docs/features/`: canvas, requested, new, vision) with a status file (`docs/features/status.json`) that each build updates, and the prototype shows the result on its Coverage page (Help, Coverage). The state columns below stay as recorded on 10 and 11 Nov; this table is what the build of 11 Nov changed. After it: 69 built, 224 partly, 381 not built, 6 moved, 3 open decisions, 4 not a screen, 25 five-year proposals.
+The lists now live in the portal repository (`docs/features/`: canvas, requested, new, vision) with a status file (`docs/features/status.json`) that each build updates, and the prototype shows the result on its Coverage page (Help, Coverage). The state columns below stay as recorded on 10 and 11 Nov; this table is what the build of 11 Nov changed. After it: 71 built, 226 partly, 377 not built, 6 moved, 3 open decisions, 4 not a screen, 25 five-year proposals.
 
 | ID | State now | Screen | Note |
 |---|---|---|---|
@@ -40,6 +40,11 @@ The lists now live in the portal repository (`docs/features/`: canvas, requested
 | N-02 | Partly | /my-work | My work holds the journey and the five role views. Tasks assigned to the person are on Home's list, not yet here. |
 | N-34 | Partly | / | The shell is done: content beside the dock, filling the window, checked at 1,280, 1,440 and 1,920. Pages inside are re-laid to the boards one at a time; Home is the first. |
 | N-45 | Partly | /coverage | This page: every feature with its state and the screen it is on. |
+| N-24 | Built (sample data) | /tl-index/leaderboard | Sortable table: score with interval, five pillars, preference rating, Real Enterprise, cost, speed, first token, size, context, release; filter by class. |
+| N-25 | Built (sample data) | /tl-index/model/advice-v2 | Rank tiles, score against cost, pillars against the best and the median, Real Enterprise, benchmark categories. Reached from the leaderboard and the model page. |
+| N-26 | Partly | /tl-index/trends | TLM models by release against one open-weights and one frontier reference; size, cost and speed against score. A trend for the open and frontier classes needs earlier models run on this edition; the page says so. |
+| N-22 | Partly | /tl-index/leaderboard | A Real Enterprise column and section: the live score of each use case on a model beside its Index score. A combined score across use cases needs two use cases on one model; none has two yet. |
+| N-23 | Partly | /tl-index/model/advice-v2 | The twelve categories are listed on each model's Index page as not scored yet; no item is written. |
 
 ## N · Asked for in conversation
 
