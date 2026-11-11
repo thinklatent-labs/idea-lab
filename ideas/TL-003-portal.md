@@ -111,7 +111,7 @@ _None recorded._
 | ThinkLatent Portal (portal) — Enterprise benchmark team ask 2026-11-11 | brief | [artifacts/TL-003-portal/enterprise-benchmark-team-ask-2026-11-11.md](../artifacts/TL-003-portal/enterprise-benchmark-team-ask-2026-11-11.md) | [claude.ai](project knowledge: claude/ThinkLatent Portal (portal) - Enterprise benchmark team ask 2026-11-11.md) | 2026-11-11 |
 | ThinkLatent Portal (portal) — Project proposal | doc | [artifacts/TL-003-portal/project-proposal.pointer.md](../artifacts/TL-003-portal/project-proposal.pointer.md) | [claude.ai](https://claude.ai/artifact/1GTzJH58RomVQgEprQxoox) | 2026-11-11 |
 | ThinkLatent Portal (portal) — Feature register | brief | [artifacts/TL-003-portal/feature-register.md](../artifacts/TL-003-portal/feature-register.md) | [claude.ai](project knowledge: claude/ThinkLatent Portal (portal) - Feature register.md) | 2026-11-11 |
-| ThinkLatent Portal: navigation options (models and projects) | design | [artifacts/TL-003-portal/navigation-options/project/canvas.json](../artifacts/TL-003-portal/navigation-options/project/canvas.json) | [claude.ai](https://claude.ai/artifact/Wh5WQ4GDkdMkDekAtF4Cud) | 2026-11-11 |
+| ThinkLatent Portal: navigation options (models and projects) | design | [artifacts/TL-003-portal/navigation-options/project/canvas.json](../artifacts/TL-003-portal/navigation-options/project/canvas.json) | [claude.ai](https://claude.ai/artifact/PHBVR4zPa1NJptBcx59nxd) | 2026-11-11 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
