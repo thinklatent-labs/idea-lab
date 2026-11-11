@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-11T12:30:00+05:30",
+  "asOf": "2026-11-11T13:45:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 416,
+    "registerRev": 417,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -200,7 +200,7 @@
       "docTitle": "ThinkLatent Portal (portal) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-11",
-      "nextStep": "Jithin walks the build against D-236 and says what is still missing or thin. Then, with no cut for timeline: give every use case the full space Advisor summary has (needs per-use-case series in the scenario); agree a value index for the leaderboard; reword approvals and operations pages so they read as open pages, not role pages; capture and show the signals marked not captured; make the guide act on the page it is beside; match the command-centre pages to the boards; a separate critic re-grades against the requirements. Jithin tries the guide and onboarding inside claude.ai (live path untested there). Parked until the backend: as listed in D-149.",
+      "nextStep": "Build the Index pages on D-238 (5): a sortable leaderboard with score, cost, speed and preference rating; the single-model page; a trends page with frontier, open and TLM models over time; then the Real Enterprise category with a score per use case. Jithin: confirm the rename of 'use case' to 'project' on screen; decide whether to ask Vals AI for a quote on its licensed validation sets; send the benchmark ask to the team after the practitioners correct the category list. Platform lead (Claude): decide how Pilot and Production text is kept out of the portal's read of the backend (masking at ingestion or a restricted read), by 2026-11-18. Still open from D-237: a value index across use cases; reword approvals and operations pages; a separate critic re-grades against the requirements; Jithin tries the guide inside claude.ai.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -279,7 +279,7 @@
         }
       ],
       "nextStepDue": "2026-11-13",
-      "nextStepOrigin": "TL-003 session 2026-11-10 (review)",
+      "nextStepOrigin": "TL-003 session 2026-11-11 (observe and index direction)",
       "appetiteEnds": null,
       "createdOn": "2026-10-31",
       "stageHistory": [
@@ -361,7 +361,7 @@
       "docTitle": "TL Index (index) — Project Proposal",
       "standardVersion": "v1",
       "lastTouched": "2026-11-07",
-      "nextStep": "Decision spike week 1 from 2026-11-16 under S-B (Claude as index lead and harness lead): pick the three bounded workflows on public-data proxies, run three model classes by hand, with Jithin setting the bars as the practitioner; first Friday review 2026-11-20. Share the proposal with the team (a recorded red-team pass plus Jithin's comments); rename the artifact's browser title on claude.ai first, since it still carries the old name. From TL-003 (2026-11-02): the per-use-case line item should run against the endpoint (the served system) once harnesses exist; the Judge domain model and the judge-location question are one decision; scout-brief-eval-governance.md (2026-11-02) lists ten presentation features for the index (intervals and n per score, item drill-down, Official versus Practice runs, judge calibration cards, sufficiency view). From TL-012 (2026-11-02): add the variant comparison card (variants against rubric, cost per task, latency, pass^k, a frontier baseline, the team's choice logged) to the index's presentation features; TL-012's H3, H4, H7 and H8 run on the index. From TL-016 (2026-11-05, scout-brief-team-site.md): add a living evaluations hub with method and exclusions stated, an index-as-artifact page (ranked graphic, method, data, plain-language explainer), an annual report hub (takeaways, chapters, leadership digest, data download, recorded launch, archive), a corrections log, the leaderboard as its own section, and a source and as-of date on every number; the site carries a TL Index summary tile and links here From the portal session of 11 Nov (D-236): decide on the pillars proposed for a later edition (security and misuse resistance, privacy and data handling, robustness, numeracy and tables, attribution, fair treatment); the portal shows them as proposed and unscored.",
+      "nextStep": "Decision spike week 1 from 2026-11-16 under S-B (Claude as index lead and harness lead): pick the three bounded workflows on public-data proxies, run three model classes by hand, with Jithin setting the bars as the practitioner; first Friday review 2026-11-20. Share the proposal with the team (a recorded red-team pass plus Jithin's comments); rename the artifact's browser title on claude.ai first, since it still carries the old name. From TL-003 (2026-11-02): the per-use-case line item should run against the endpoint (the served system) once harnesses exist; the Judge domain model and the judge-location question are one decision; scout-brief-eval-governance.md (2026-11-02) lists ten presentation features for the index (intervals and n per score, item drill-down, Official versus Practice runs, judge calibration cards, sufficiency view). From TL-012 (2026-11-02): add the variant comparison card (variants against rubric, cost per task, latency, pass^k, a frontier baseline, the team's choice logged) to the index's presentation features; TL-012's H3, H4, H7 and H8 run on the index. From TL-016 (2026-11-05, scout-brief-team-site.md): add a living evaluations hub with method and exclusions stated, an index-as-artifact page (ranked graphic, method, data, plain-language explainer), an annual report hub (takeaways, chapters, leadership digest, data download, recorded launch, archive), a corrections log, the leaderboard as its own section, and a source and as-of date on every number; the site carries a TL Index summary tile and links here From the portal session of 11 Nov (D-236): decide on the pillars proposed for a later edition (security and misuse resistance, privacy and data handling, robustness, numeracy and tables, attribution, fair treatment); the portal shows them as proposed and unscored. From the portal session of 11 Nov (D-238): Jithin decided the index is built inside the portal from now on; record that in this row's own session, with D-155 (index-lead work kept apart from build work, for the credibility of H1 and H3) either kept or superseded on purpose. Also from D-238: a preference rating from blind votes; a Real Enterprise category with a score per use case (the team ask is artifacts/TL-003-portal/enterprise-benchmark-team-ask-2026-11-11.md); the proposal's token-shape matrix now has a first form as the portal's size map.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -4838,6 +4838,19 @@
       "health": "at-risk",
       "healthNote": "Third change of structure in two days; the direction is now written down (D-236) but this build has not been walked by Jithin",
       "nextStepDue": "2026-11-13"
+    },
+    {
+      "date": "2026-11-11",
+      "scope": "TL-003 portal (observe, flow watch, benchmark ask)",
+      "ideaIds": [
+        "TL-003"
+      ],
+      "mode": "Spec (build)",
+      "outcome": "Jithin reviewed outside products and set five directions (D-238). Built and published: traces, sessions, scores and review, flow watch, model-level roll-up, head to head with the preference rating (D-239). Written: the observability map against the backend's features, and the Enterprise benchmark ask to the team. 948 page states crawled at desktop and phone widths, five click-test suites pass; portal commit dbe7f87.",
+      "docsTouched": "thinklatent-labs/portal; prototype artifact; project knowledge: Portal observability map 2026-11-11, Enterprise benchmark team ask 2026-11-11; this register",
+      "health": "at-risk",
+      "healthNote": "Scope grew four times inside one session and the Index pages Jithin asked for are not built yet; the index's research independence (D-155) is unsettled by the merge; every number shown is a sample",
+      "nextStepDue": "2026-11-13"
     }
   ],
   "decisions": [
@@ -8144,6 +8157,34 @@
       "id": "D-237",
       "by": "Claude",
       "decision": "Built and published on D-236: role switch removed; a space for every use case with people, invite by company email and an open view for non-members; command-centre leaderboard open to everyone (tasks, share, paid, avoided by the Finance method, model, hosting, contact); model-to-use-case flows; catalogue of foundation models only, each model's page listing every use case on it and the versions trained from it; TL Index overview with every model's score, best model per pillar and a model picker; the loop page following one turn record by record; the signals page listing what one request gives and which signals are not captured yet; the data loop (new kinds of data found, feedback shared back). Sample records for these were added to the scenario package; the counts of new data examples and the feedback rate are sample anchors, not measurements. Not done: a value index across use cases (no formula agreed), the remaining role-shaped pages (approvals, operations) are open to all but still worded for their old owners"
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-11",
+      "door": "two-way",
+      "id": "D-238",
+      "by": "Jithin",
+      "decision": "Portal direction, continued. (1) The TL Index is built inside the portal from now on, not beside it; it gets a preference rating from blind votes (an Elo-style score), on a page named Head to head, shown beside the Index score and never cited by an approval. (2) The Index gets a category, Real Enterprise, built from every use case's own items, with a score per use case; the team writes the items (the ask is in enterprise-benchmark-team-ask-2026-11-11.md). Public benchmark samples are adopted on day one as the format and a smoke test. (3) What the serving backend logs (traces, sessions, scores) comes into the portal in the portal's own design, at use-case level and rolled up at model level. (4) Beyond performance, the portal watches the data flow itself: requests by size (tokens in against tokens out), what requests are about, entities, their trend, and a Watch agent that flags what moved. (5) References for the Index pages: a public model leaderboard, its single-model page and its trends page (frontier, open and TLM side by side); the model page lists every use case row by row with live numbers."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-11",
+      "door": "two-way",
+      "id": "D-239",
+      "by": "Claude",
+      "decision": "Built and published on D-238: Traces (list and one page per request with its steps on the clock), Sessions (list and replay), Scores and review (score kinds, review queue), Flow watch (size map, answer-length spread, kinds of request by week, entities, Watch agent flags), the same rolled up on each model page with every use case as a row; Head to head with the preference rating. All of it is a seeded sample of 412 requests across six use cases; the Watch agent flags only changes it can tell from chance, and two of its three flags are changes written into the sample on purpose. Pilot and Production text is shown as sealed, which the backend does not yet enforce. Not built: the Index pages modelled on the public leaderboard, single-model and trends pages; the Real Enterprise category in the Index (the ask to the team is written, no items exist); agent graph; filters by tag, user and score. The word for a use case stays 'use case' on screen until Jithin confirms the rename to 'project'."
     }
   ],
   "syncLog": [
