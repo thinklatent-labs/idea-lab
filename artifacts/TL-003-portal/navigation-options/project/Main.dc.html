@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Option A · Dock plus scope bar</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 900px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="#" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="#" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="#" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="#" aria-label="Approvals"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="#" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <span class="kit-label">Level 1 · where you are · click any step to move</span>
+      <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+        <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+        <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+        <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+        <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+      </nav>
+    </div>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Advisor desktop</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Production</span><span class="kit-chip">3 features</span><span class="kit-chip">5 models</span><span class="kit-chip">2 increments in flight</span></div>
+        <span class="kit-small kit-muted">Owned by Advice Tech · contact Priya N. · you are a member</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">New increment</a><a class="kit-btn outline" href="#">Add a member</a></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <span class="kit-label">Level 2 · what you are looking at here · changes with the level</span>
+      <div class="kit-tabs" role="tablist" aria-label="Project pages">
+        <button role="tab" aria-selected="true" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="false" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Sessions</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Training</button><button role="tab" aria-selected="false" type="button">Data</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+      </div>
+    </div>
+
+    <section class="kit-surface" aria-label="Features and the models in each">
+      <div class="kit-section-title" style="margin-top: 0"><h2>Features and the models in each</h2><span class="sub">One row a feature · the flow of models left to right</span></div>
+      <div class="kit-rows" style="margin-top: 14px">
+        <div class="kit-row" style="grid-template-columns: 220px 1fr 170px 130px">
+          <div><div class="t">Call summary</div><div class="s">Live since 5 Oct</div></div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center"><span class="kit-chip">Speech recognition · TLM1</span><span aria-hidden="true">→</span><span class="kit-chip">Redaction · TLM1</span><span aria-hidden="true">→</span><span class="kit-chip brand">TLM4 Domain-Advice v2</span><span class="kit-chip env">Guardrail · background</span></div>
+          <div class="kit-num">86% ± 5 <span class="s">· bar 80%</span></div>
+          <div><span class="kit-chip brand">Production</span></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 220px 1fr 170px 130px">
+          <div><div class="t">Next best action</div><div class="s">Increment 4</div></div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center"><span class="kit-chip">Embedding</span><span aria-hidden="true">→</span><span class="kit-chip">Reranker</span><span aria-hidden="true">→</span><span class="kit-chip brand">TLM4 Domain-Advice v2</span></div>
+          <div class="s">Not live · scored in Pilot</div>
+          <div><span class="kit-chip outline">Pilot</span></div>
+        </div>
+        <div class="kit-row" style="grid-template-columns: 220px 1fr 170px 130px">
+          <div><div class="t">Speech to text</div><div class="s">Increment 5</div></div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center"><span class="kit-chip">Speech recognition · TLM1</span><span class="kit-small kit-muted">also runs every call in Enterprise services</span></div>
+          <div class="s">Not live</div>
+          <div><span class="kit-chip outline">Build</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

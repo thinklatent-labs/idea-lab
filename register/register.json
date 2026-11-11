@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-11T20:50:00+05:30",
+  "asOf": "2026-11-11T21:25:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 423,
+    "registerRev": 424,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -200,7 +200,7 @@
       "docTitle": "ThinkLatent Portal (portal) — Idea card",
       "standardVersion": "v1",
       "lastTouched": "2026-11-11",
-      "nextStep": "Jithin and Claude: finish the vision questions, one at a time (D-249): who joins what now that there are teams; what My work is without roles; how the boards drawn before D-236 are used. Then builder (Claude), by 2026-11-13: write the structure into the sample data first (organization, team, project, feature, increment, and models of every kind with a job in each feature), rework the Models and Projects areas on it, take 'Preview as' off Home, and only then go on board by board (D-247), skipping the role homes H2 to H5 as role homes. The build is paused until the structure is settled. Platform lead (Claude): decide how Pilot and Production text is kept out of the portal's read, by 2026-11-18. Still open from D-237: a value index across use cases; a separate critic re-grades against the requirements; Jithin tries the guide inside claude.ai.",
+      "nextStep": "Jithin and Claude: finish the vision questions, one at a time (D-249, D-250). Open: which kinds of usage the cockpit shows; who approves an increment now that there are no roles; where the budget is held; how the model catalogue is grouped; 'reversion model' read as reranker, to confirm. Then designer and builder (Claude), by 2026-11-13: draw the structure on the canvas in the approved design for Jithin's approval before any build: the Home cockpit, organization, team, project and feature pages, the model catalogue and a model's page, My work; then write the structure into the sample data, rework the Models and Projects areas, take 'Preview as' off Home, and fold the role-home boards (H2 to H5) into Models, Projects, Approvals and Home. Platform lead (Claude): decide how Pilot and Production text is kept out of the portal's read, by 2026-11-18. Still open from D-237: a value index across use cases; a separate critic re-grades against the requirements; Jithin tries the guide inside claude.ai.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -4886,7 +4886,7 @@
       ],
       "mode": "Spec",
       "outcome": "On Jithin's go (D-243) the rebuild from the boards started. Done and published: the desktop shell, Home as board H1 for everyone, My work with the journey and the role views, and a Coverage page that lists all 712 features with their state and screen (D-245). The eight proposal decisions proceed on defaults (D-244). Then the Index leaderboard, a page for each model and trends, with the Real Enterprise score (D-246). Checks: 632 desktop pages and 237 phone pages crawled across the eight demo dates with no error, overflow or off-vocabulary word; six click suites pass; kit, licence, usable-component and representation checks pass (20 hand-built pieces remain, none added). Jithin then asked why the build was not following the boards: Home matched H1 in content but not in composition. He set the rule that the boards come first and approved hand-building what the kit cannot draw (D-247); Home was redone to the board and checked side by side (D-248). Later the same evening Jithin pointed out that roles had been dropped on 11 Nov and that a project uses several models; the build was paused and the vision clarified by question and answer (D-249).",
-      "docsTouched": "thinklatent-labs/portal (1641329, 87f6125, a0cf07a); prototype (republished after each part); artifacts/TL-003-portal (feature-register.md, prototype.pointer.md); this register",
+      "docsTouched": "thinklatent-labs/portal (1641329, 87f6125, a0cf07a); prototype (republished after each part); artifacts/TL-003-portal (feature-register.md, prototype.pointer.md); this register; canvas 'navigation options' (new, artifacts/TL-003-portal/navigation-options)",
       "health": "at-risk",
       "healthNote": "Home follows its board, but the boards themselves were drawn on roles and on one model per project, both now set aside (D-236, D-249). The structure under the Models and Projects areas has to be reworked before more boards are built, and 'Preview as' was restored on Home in error. 377 of the 683 features to build are not on a screen.",
       "nextStepDue": "2026-11-13"
@@ -8364,6 +8364,20 @@
       "id": "D-249",
       "by": "Jithin",
       "decision": "Vision clarified in the build chat, one question at a time. It reaffirms D-236: models and projects, no roles; 'Preview as' and the role homes are not to be built (this reverses that part of D-248). (1) 'Model' means every kind of model, not only language models: TLM1-generation classifiers built on BERT, the speech-recognition network that processes about 150,000 calls a day, redaction, guardrails, embeddings, rerankers (Claude's reading of 'reversion model', not yet confirmed), and models that work in the background; more as applications evolve. (2) Many to many: a model serves many projects and one project uses several models, as different jobs in one flow, as separate features, as old and new side by side, and as agents that bring a model. (3) The project carries the stage and is delivered in increments: new models for new tasks are added at any time, increments run in parallel, and each goes to production on its own approval. (4) Each kind of model is scored on its own measure with a bar and a leaderboard of its kind; the TL Index stays for language models. (5) A shared model is handled both ways: Enterprise-wide work is one project for the Enterprise, and the same model can also sit inside another project for its own purpose (speech in an application's interface, redaction as a support function). (6) Hierarchy, in Jithin's words: Organization, Team, Project, Feature (for example Retail Business, Advice Tech, Advisor desktop, then call summary, next best action, speech to text; the same team can hold a second project), with models under features. The names and where membership sits are still being settled. Where a board assumes roles or one model per project, this vision wins and the board guides layout only (amends D-247)."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-11",
+      "door": "two-way",
+      "id": "D-250",
+      "by": "Jithin",
+      "decision": "Vision, continued (follows D-249). (1) Levels: Organization, Team, Project, Feature, with models under features; a project carries its team as owner and can move teams without losing its history (Claude's caution, not yet confirmed). (2) Membership: people join a project; a team's owners can open and manage every project the team holds; everyone else gets the open view. (3) Rule for the whole navigation: every level shows the breakdown of the level below it, and the detail (traces, sessions, operations) lives at the project; a model's page shows improvement, API calls and tokens, adoption and value. (4) Two-level navigation, option A, chosen from three drawn options (canvas 'navigation options'): the approved dock stays and gets shorter; a clickable scope bar says where you are (Organization, Team, Project, Feature); tabs under the title change with the level. (5) Home is a cockpit, not one list: TLM model adoption and what is running in production today by stage; usage by kind; an adoption and usage leaderboard at team level with a double-click into a team's projects; and the AI agent in front, which understands the ask, brings the information and routes the person to the right place, flattening the path from onboarding to approvals. (6) Jithin's ask for what follows: Claude keeps asking questions one at a time until the vision is clear, then designs the UX and UI in the approved design and draws it by hand so it fits; nothing more is built until then."
     }
   ],
   "syncLog": [
