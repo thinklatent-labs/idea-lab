@@ -11,6 +11,36 @@ State words: Present, Partial, Missing (audit of 10 Nov); for N rows: Built (sam
 
 Totals: 556 canvas features, 85 requirements, 46 from conversation, 25 proposed for the horizon. Canvas state on 10 Nov: Missing 361, Partial 150, Present 38, Moved on purpose 7.
 
+## Build of 11 Nov: what changed
+
+The lists now live in the portal repository (`docs/features/`: canvas, requested, new, vision) with a status file (`docs/features/status.json`) that each build updates, and the prototype shows the result on its Coverage page (Help, Coverage). The state columns below stay as recorded on 10 and 11 Nov; this table is what the build of 11 Nov changed. After it: 69 built, 224 partly, 381 not built, 6 moved, 3 open decisions, 4 not a screen, 25 five-year proposals.
+
+| ID | State now | Screen | Note |
+|---|---|---|---|
+| C-p1-01 | Partly | / | Four tiles as on board H1. Only evaluation runs are compared with the day before; decisions, attestations and models show today's count. |
+| C-p1-02 | Built | / | Today, 7 days, 30 days, quarter, with compare to the window before; the quality table, the bullet and the runs tile follow it. |
+| C-p1-03 | Built | /my-work | The role views are in My work, open to everyone; Home has no preview control because Home is the same for everyone (proposal decision 2, default taken). |
+| C-p1-04 | Built | / | Every use case with score, interval, its bar, change and this week's call; a bullet for each live use case. |
+| C-p1-05 | Built | / | One sentence over the quality table with agents, confidence and time. |
+| C-p1-06 | Built | / | Why? for finding F-0425: shares of the fall, daily score with the bar, proposal and sources. |
+| C-p1-07 | Partly | / | Review and rerun open the pages behind them; notify says what would happen and sends nothing. |
+| C-p1-08 | Built | / | Numbered in the order to take them, filter by decisions, attestations, tasks and Jira. |
+| C-p1-09 | Partly | / | Listed from the date the edition is reviewed; the sign-off itself is not built. |
+| C-p1-10 | Partly | / | Listed with due dates; the attestation form is not built. |
+| C-p1-11 | Partly | / | The review queue is a task on the list; reviews are not yet assigned to a person. |
+| C-p1-12 | Partly | / | Callers and the grace policy are shown; the day count per caller and the block on day 30 are not. |
+| C-p1-13 | Partly | / | Back on Home as the boards have it, from sample data; no link to Jira. |
+| C-p1-14 | Built | / | Missed, scoring now with the time due, and every finished run by group. |
+| C-p1-15 | Built | / | Actions, proposals open, accepted in 30 days, state; pause asks for a reason. |
+| C-p12-12 | Partly | / | On Home per agent; pause all is not built. |
+| C-p1-44 | Partly | /settings | Theme, density and engineering detail are in the top bar and remembered on the device; not yet on the Settings page. |
+| Q-3-02 | Partial | / | The switch is in the top bar; so far it adds sample sizes on Home. Masked fields are not built. |
+| Q-4-10 | Partial | / | Breadcrumb on every page and search on ⌘K; the use-case rail of six is not built. |
+| N-01 | Built (sample data) | / | Board H1, the same for everyone. |
+| N-02 | Partly | /my-work | My work holds the journey and the five role views. Tasks assigned to the person are on Home's list, not yet here. |
+| N-34 | Partly | / | The shell is done: content beside the dock, filling the window, checked at 1,280, 1,440 and 1,920. Pages inside are re-laid to the boards one at a time; Home is the first. |
+| N-45 | Partly | /coverage | This page: every feature with its state and the screen it is on. |
+
 ## N · Asked for in conversation
 
 | ID | Feature | Area | Recorded in | State |
