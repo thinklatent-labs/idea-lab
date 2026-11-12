@@ -1,4 +1,4 @@
-# ThinkLatent Portal (portal): self-healing and training requirement, v1.0, 2026-11-12
+# ThinkLatent Portal (portal): self-healing and training requirement, v1.2, 2026-11-12
 
 Lab session · TL-003 portal · Spec. Jithin set what the project's "Self-healing and training" page shows (D-271, D-272). This document says what the ThinkLatent AI engineering team's backend must expose so that page, and its roll-ups on the team, organization and Home pages, can be drawn from real data. It is written the way the trace and session requirement was: everything the page shows must come from a field here.
 
@@ -15,7 +15,7 @@ Status words used in the tables:
 ## 1. Decisions this rests on (12 Nov)
 
 1. **No training data is shown, ever.** Not the training set, not ThinkLatent's foundation data, not what self-healing builds. No call from the portal returns their rows.
-2. **What self-healing builds stays in the backend.** It is not displayed, exported or copied to another project. Jithin: it is a unique feature and must not go out.
+2. **What self-healing builds stays in ThinkLatent's backend.** It is never displayed or exported. Jithin: it is a unique feature and must not go out. Inside the backend the foundation team may use it (decision 15).
 3. **The page shows the self-healing loop instead.** The lead says what the feature needs in plain words; the system says back what it thinks the model is being asked for; it shows how today's production model does against each; it finds the gaps and builds what is missing from requests and answers; at some point it says there is enough to train a model of the project's own without losing what works; a member starts the run; the candidate is checked three ways.
 4. **One list of requirements per feature**, shared with the feature's quality expectations. A requirement stated here is a measure on the feature's page and, where the team sets one up, on its evaluation set.
 5. **The scale** is the share of production requests that meet a requirement.
@@ -26,6 +26,12 @@ Status words used in the tables:
 10. **Counts and readiness may be shown** for the hidden data: how many examples are built, how many held back, the pace.
 11. **The candidate is checked three ways** before it is offered: the self-healing benchmark, the TL Index, and the feature's own evaluation set. Passing, it becomes an increment and a change request goes to AI engineering, outside the portal.
 12. **Self-healing scores every production request**, harness or not, against the lead's requirements (as Jithin described the backend). The page therefore says "every request", not "a sample".
+13. **A project's owner always sees their own examples** (v1.1). The few production turns shown to confirm a gap are readable by the project's owner even when the text on Traces is sealed; everyone else is held to the seal.
+14. **The loop is shown at every level** (v1.1): in the project, and as a roll-up on the team page, the organization page and Home.
+15. **What a project's use teaches goes back to the model** (v1.2). When the foundation team continues training a shared model, it may use what self-healing built in the projects on it, inside the backend. Jithin: this compounding is approved by leadership, and it is not to be explained on project pages, which are kept simple.
+16. **Training on new data at the model level belongs to the foundation team only** (v1.2), by IAM role, from the model's Training tab, and only where the training package already exists. A new method or research is development work and stays outside the portal. Project teams do not bring data sets to train on. Nobody else sees a run; they see the version when it is released.
+17. **A new version is offered, not imposed** (v1.2). Each project on the model is offered it with the project's own gains re-applied and its three checks already run. The project decides; the switch is an increment with a canary.
+18. **A domain model for an organization starts with a consulting session** with the foundation team (v1.2), asked for from the organization's page. The work is outside the portal.
 
 ## 2. The shape
 
@@ -129,7 +135,7 @@ Per request, the score is a row in the trace store (the trace requirement, 3.11)
 | `sh.example.asked` and `sh.example.got` (one line each: what the requirement called for in this turn, what the answer did) | text | Self-healing writes it from the trace | Yes |
 | `sh.example.shown_count`, `sh.example.more_available` | int | Portal | No |
 
-An example is always one of the project's own production turns and opens in Traces. It is never a row self-healing built.
+An example is always one of the project's own production turns and opens in Traces. It is never a row self-healing built. The project's owner can read it whatever the seal says; everyone else is held to the seal.
 
 ### 3.8 Build (the hidden data, as counts)
 
@@ -185,9 +191,9 @@ Nothing else about the build leaves the backend: no row, no row id, no sample, n
 - Rows of the training set, for any model.
 - ThinkLatent's foundation data.
 - Rows self-healing builds, the held-back benchmark's rows, and any identifier of a row.
-- Any export or copy of the above, to a file or to another project.
+- Any export of the above to a file, and any showing of one project's data to another project. Use inside the backend by the foundation team is decision 15.
 
-What the page may show: the lead's own words; self-healing's reading of them; scores and shares; kinds of miss with their shares; counts; the system's judgement with its basis and how sure it is; and a few of the project's own production turns, which are already in Traces and follow its seal.
+What the page may show: the lead's own words; self-healing's reading of them; scores and shares; kinds of miss with their shares; counts; the system's judgement with its basis and how sure it is; and a few of the project's own production turns, which are already in Traces. The project's owner can always read them; everyone else follows the seal.
 
 ## 5. Every number on the page, from these fields
 
@@ -212,8 +218,10 @@ What the page may show: the lead's own words; self-healing's reading of them; sc
 ## 6. Roll-ups
 
 - **Team and organization pages:** the features with real traffic, each with its step in the loop and what waits on whom.
+- **Home, "Is it getting better from use?":** by organization, how many features with real traffic are at each of the six steps.
 - **Home, "Improved from feedback":** increments in the period whose candidate came from a self-healing run (`sh.candidate.increment_id`).
-- **A model's page:** the projects where a version of it is being strengthened, and the gaps most often found across them, as kinds only.
+- **A model's Training tab (foundation team only):** the kinds of gap found across the projects on the model with how many features show each, and how many examples were brought back for a run. Beside it, the problems projects logged against the model, which are open to everyone.
+- **A project's Increments:** the offer of a new version: its lineage, and today's version beside the offered one on every line of the three checks (`sh.check.*` run for the offered version with the project's gains re-applied).
 
 ## 7. Thin spots and open questions
 
@@ -221,10 +229,13 @@ What the page may show: the lead's own words; self-healing's reading of them; sc
 - "Enough" is the system's own call and the lead cannot verify it. A wrong call wastes a run; the three checks are the only net. `sh.ready.outcome` is asked for so that, over time, how often the call was right is known.
 - The agreement at which a hand-score check passes is not set. 47 of 50 is drawn as passing; whether 40 of 50 would is undecided.
 - Scoring every request with a judge is costly at 26k requests a day for one feature. If the system in fact samples, decision 12 and the page's wording are wrong and an interval must come back.
-- An example is content. With the seal on, the lead cannot read it, and so cannot confirm a gap. Either the lead is always allowed their own project's examples, or gaps wait. Not decided.
+- The owner's reading of their own examples under the seal (decision 13) is an access rule of its own. When IAM roles replace the seal switch it has to be written into them, or gaps will stop being confirmed.
 - The feature's evaluation set must never be built from or trained on. Nothing here says who enforces that.
 - The measures drawn are for a language feature. Speech (word error rate) and decision features need their own readings; not drawn.
 - Whether the mix of sources behind the build may be shown.
+- Decision 15 is not explained to project teams. The page must then not claim the opposite: the line saying the data is never copied to another project has been removed from the board, leaving "it stays in ThinkLatent's backend and is never shown". What governance makes of one organization's use strengthening a model another runs is outside the portal and not recorded here.
+- Re-applying a project's gains on a new base (decision 17) is a training run per project per release. How long it takes and who pays for it is not known.
+- The foundation team's Training tab needs a requirement of its own: what the job writes and how often (progress, loss on training and held-out data, held-out checks at checkpoints, cluster use, the log), and the four steps after a run. Not written yet.
 
 ## Sources
 

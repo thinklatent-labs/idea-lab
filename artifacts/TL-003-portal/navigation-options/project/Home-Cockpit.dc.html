@@ -14,9 +14,13 @@
 <style>
 body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
 a{color:#1B5128}a:hover{color:#0C3F09}
+.hm-loop{display:grid;grid-template-columns:minmax(0,1fr) 150px 240px minmax(0,1.7fr);gap:14px;align-items:center}
+.hm-mix{display:flex;gap:4px}
+.hm-mix b{display:grid;place-items:center;width:32px;height:22px;border-radius:6px;background:rgba(26,26,26,.07);font-size:11.5px;font-weight:500;color:rgba(26,26,26,.4)}
+.hm-mix b.on{background:color-mix(in oklab,var(--companion) 22%,white);color:#1A1A1A}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1900px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2410px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -116,10 +120,21 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Cost avoided this month</span><span class="kit-display" style="font-size: 36px">$[avoided]</span><span class="kit-small kit-muted">What the company did not have to spend, counted per feature</span></a>
       <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Improved from feedback</span><span class="kit-display" style="font-size: 36px">2</span><span class="kit-small kit-muted">Model versions retrained this month from use</span></a>
     </div>
+
+    <div class="kit-section-title"><h2>Is it getting better from use?</h2><span class="sub">6 · Self-healing, feature by feature: from what a team says it needs to a checked, retrained model</span></div>
+    <section class="kit-surface" aria-label="Self-healing across the Enterprise">
+      <div class="hm-loop kit-label" style="padding: 4px 14px 8px"><span>Organization</span><span>Features with real traffic</span><span>How many are at each of the six steps</span><span>What it means today</span></div>
+      <div class="kit-rows">
+        <a class="kit-row hm-loop" href="#" style="color: inherit; text-decoration: none"><div><div class="t">Enterprise services</div><div class="s">Call processing for the whole Enterprise</div></div><span class="kit-num">3</span><span class="hm-mix" role="img" aria-label="One feature at step 4, two at step 6"><b>0</b><b>0</b><b>0</b><b class="on">1</b><b>0</b><b class="on">2</b></span><span class="kit-small">2 retrained from use this month · 1 gap being filled</span></a>
+        <a class="kit-row hm-loop" href="Organization-Page.dc.html" style="color: inherit; text-decoration: none"><div><div class="t">Retail Business</div><div class="s">Advice Tech · Client Service Tech</div></div><span class="kit-num">3 <span class="kit-muted" style="font-weight: 400">of 7</span></span><span class="hm-mix" role="img" aria-label="One feature at step 2, one at step 5"><b>0</b><b class="on">1</b><b>0</b><b>0</b><b class="on">1</b><b>0</b></span><span class="kit-small">1 has enough to train · 2 things wait for the project's owner · 1 has not said what it needs</span></a>
+        <a class="kit-row hm-loop" href="#" style="color: inherit; text-decoration: none"><div><div class="t">Institutional Ops</div><div class="s">Claims Ops Tech</div></div><span class="kit-num">2</span><span class="hm-mix" role="img" aria-label="One feature at step 3, one at step 4"><b>0</b><b>0</b><b class="on">1</b><b class="on">1</b><b>0</b><b>0</b></span><span class="kit-small">The feature under what is expected has a confirmed gap, being filled</span></a>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">The six steps: 1 the team says what it needs · 2 our reading is confirmed · 3 today's model is scored on production · 4 gaps are found, confirmed and filled · 5 there is enough to train · 6 a candidate is checked and becomes an increment. The data self-healing builds is never shown.</div>
+    </section>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2410}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

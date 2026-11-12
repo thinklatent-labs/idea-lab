@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A model's Training tab · foundation team only</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.mt-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center}
+.mt-tag{font-size:11px;border-radius:999px;padding:2px 9px;white-space:nowrap;background:rgba(26,26,26,.07)}
+.mt-tag.in{background:#1A1A1A;color:#fff}
+.mt-kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px;margin:0;font-size:13px}
+.mt-kv dt{font-size:11.5px;color:rgba(26,26,26,.62)}
+.mt-kv dd{margin:2px 0 0;line-height:1.4;font-variant-numeric:tabular-nums}
+.mt-prog{height:10px;border-radius:999px;background:rgba(26,26,26,.1);overflow:hidden}
+.mt-prog i{display:block;height:100%;width:47%;background:var(--companion);border-radius:999px}
+.mt-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.mt-box h4{margin:0;font-size:15px;font-weight:500;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.mt-src{font-size:11px;border-radius:999px;padding:2px 8px;background:rgba(26,26,26,.06);color:rgba(26,26,26,.75);font-weight:400;white-space:nowrap}
+.mt-ck{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(4,46px) minmax(0,1fr);gap:7px 8px;font-size:13px;margin-top:10px;align-items:baseline;font-variant-numeric:tabular-nums}
+.mt-ck .h{font-size:11px;color:rgba(26,26,26,.6)}
+.mt-ck .m{font-size:12px;color:rgba(26,26,26,.65)}
+.mt-ck b{font-weight:600}
+.mt-gpu{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;margin-top:10px}
+.mt-gpu span{display:flex;flex-direction:column;justify-content:flex-end;height:54px;border-radius:6px;background:rgba(26,26,26,.08);overflow:hidden}
+.mt-gpu i{display:block;background:var(--companion)}
+.mt-log{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;line-height:1.65;margin-top:10px;white-space:pre;overflow:hidden;color:rgba(26,26,26,.85)}
+.mt-st{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+.mt-st>div{border-radius:16px;background:rgba(26,26,26,.04);padding:12px 14px;font-size:13px;line-height:1.45}
+.mt-st b{display:block;font-weight:500;font-size:14px;margin-bottom:2px}
+.mt-ds{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;font-size:13px;margin-top:8px;align-items:baseline}
+.mt-ds small{display:block;font-size:12px;color:rgba(26,26,26,.62)}
+svg text{font-family:Inter,system-ui,sans-serif}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2010px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">All models <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">TLM4 <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Core <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Version 4.2 · live <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 760px">
+        <span class="kit-caption">TLM4 · Core · the Training tab</span>
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Continue training Core</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Run 7 is running · 47%</span><span class="kit-chip">From version 4.2, live since 14 Jan</span><span class="kit-chip">Would become 4.3</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">Foundation team only · by IAM role</span></div>
+        <span class="kit-small kit-muted">Train the existing model further on new data, where the training package already exists. A new method is development work and does not start here. Nobody outside the foundation team sees this tab; they see the new version when it is released · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="#">Pause the run</a><a class="kit-btn outline" href="#">Stop and keep the last checkpoint</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Model pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Improvement</button><button role="tab" aria-selected="false" type="button">Usage</button><button role="tab" aria-selected="false" type="button">Adoption</button><button role="tab" aria-selected="false" type="button">Cost avoided</button><button role="tab" aria-selected="false" type="button">TL Index</button><button role="tab" aria-selected="false" type="button">Built from</button><button role="tab" aria-selected="true" type="button">Training</button>
+    </div>
+
+    <div class="kit-section-title" style="margin-top: 4px"><h2>Why this run</h2><span class="sub">What using the model has shown, from two places · the tag says whether this run takes it on</span></div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="What projects reported on this model">
+        <div class="kit-section-title" style="margin-top: 0"><h2 style="font-size: 20px">What projects reported</h2><span class="sub">Problems logged against Core 4.2 · open to everyone on the model's Overview</span></div>
+        <div class="kit-rows" style="margin-top: 12px">
+          <a class="kit-row mt-row" href="Requests-Status.dc.html" style="color: inherit; text-decoration: none"><div><div class="t">Picks the wrong tool when two tools look alike</div><div class="s">Service chat assist · Client Service Tech · 3 Nov · 2 more projects say the same</div></div><span class="mt-tag in">In this run</span></a>
+          <a class="kit-row mt-row" href="#" style="color: inherit; text-decoration: none"><div><div class="t">Stops calling tools late in a long conversation</div><div class="s">Claims intake · Institutional Ops · 28 Oct</div></div><span class="mt-tag in">In this run</span></a>
+          <a class="kit-row mt-row" href="#" style="color: inherit; text-decoration: none"><div><div class="t">Drops rows when it summarises a long table</div><div class="s">Email triage · Client Service Tech · 21 Oct</div></div><span class="mt-tag">Not in this run</span></a>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What self-healing found across projects">
+        <div class="kit-section-title" style="margin-top: 0"><h2 style="font-size: 20px">What self-healing found</h2><span class="sub">Kinds of gap across projects on Core and the models built on it</span></div>
+        <div class="kit-rows" style="margin-top: 12px">
+          <div class="kit-row mt-row"><div><div class="t">The wrong tool is chosen</div><div class="s">3 features · confirmed by their owners in 2</div></div><span class="mt-tag in">In this run</span></div>
+          <div class="kit-row mt-row"><div><div class="t">Figures quoted wrongly from a call or a document</div><div class="s">2 features · 1 still waits for its owner</div></div><span class="mt-tag">Not in this run</span></div>
+          <div class="kit-row mt-row"><div><div class="t">Agreed follow-ups left out of a summary</div><div class="s">1 feature, on Domain-Advice v2</div></div><span class="mt-tag">Handled in its project</span></div>
+        </div>
+        <span class="kit-small kit-muted" style="display: block; margin-top: 10px">Brought back from projects for this run: 11.2k examples from 4 features.</span>
+      </section>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The run in progress">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap"><div style="font-size: 22px">Run 7 · step 4,230 of 9,000</div><span class="kit-small kit-muted">Started 02:10 by Arjun K. from this page · the job writes its progress every 30 seconds and this page reads it</span></div>
+      <div class="mt-prog" role="img" aria-label="47 percent done" style="margin-top: 10px"><div style="height: 100%; width: 47%; background: var(--companion); border-radius: 999px"></div></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 24px; margin-top: 14px; align-items: start">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; font-weight: 500">Loss, on the training data and on data held out</span><span class="kit-small kit-muted">Lower is better · the held-out line is the one to watch</span></div>
+          <svg viewBox="0 0 720 260" width="100%" role="img" aria-label="Both lines fall and flatten; the held-out line stays just above the training line" style="display: block; margin-top: 6px">
+            <g stroke="rgba(26,26,26,.1)" stroke-width="1"><line x1="44" y1="20" x2="700" y2="20"></line><line x1="44" y1="75" x2="700" y2="75"></line><line x1="44" y1="130" x2="700" y2="130"></line><line x1="44" y1="185" x2="700" y2="185"></line></g>
+            <line x1="44" y1="225" x2="700" y2="225" stroke="rgba(26,26,26,.4)"></line>
+            <g font-size="11" fill="rgba(26,26,26,.6)"><text x="36" y="24" text-anchor="end">1.6</text><text x="36" y="79" text-anchor="end">1.3</text><text x="36" y="134" text-anchor="end">1.0</text><text x="36" y="189" text-anchor="end">0.7</text>
+              <text x="44" y="244">0</text><text x="190" y="244" text-anchor="middle">2,000</text><text x="336" y="244" text-anchor="middle">4,000</text><text x="482" y="244" text-anchor="middle">6,000</text><text x="628" y="244" text-anchor="middle">8,000</text><text x="700" y="244" text-anchor="end">9,000</text><text x="372" y="258" text-anchor="middle">steps</text></g>
+            <rect x="353" y="14" width="347" height="211" fill="rgba(26,26,26,.03)"></rect>
+            <text x="362" y="32" font-size="11" fill="rgba(26,26,26,.55)">still to run</text>
+            <path d="M44 44C74 98 100 126 134 142S194 160 244 168 304 175 353 178" fill="none" stroke="var(--cat3)" stroke-width="2"></path>
+            <path d="M44 38C70 96 96 120 130 134S190 150 240 157 300 163 353 166" fill="none" stroke="var(--companion)" stroke-width="2.5"></path>
+            <g fill="#fff" stroke="#1A1A1A" stroke-width="1.5"><circle cx="117" cy="128" r="4"></circle><circle cx="190" cy="148" r="4"></circle><circle cx="263" cy="159" r="4"></circle><circle cx="336" cy="165" r="4"></circle></g>
+            <line x1="353" y1="14" x2="353" y2="225" stroke="#1A1A1A" stroke-dasharray="4 4"></line>
+            <g font-size="11.5" fill="#1A1A1A"><text x="364" y="162" font-weight="600">held out 0.79</text><text x="364" y="184">training 0.74</text><text x="117" y="114" text-anchor="middle" fill="rgba(26,26,26,.6)" font-size="10.5">checkpoint</text></g>
+          </svg>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <dl class="mt-kv"><div><dt>Time left</dt><dd>About 7 h · ends near 19:00</dd></div><div><dt>Speed</dt><dd>41k tokens a second</dd></div><div><dt>Checkpoints kept</dt><dd>4, the best so far at step 4,000</dd></div><div><dt>Cost so far</dt><dd>$[cost]</dd></div></dl>
+          <div>
+            <div style="font-size: 15px; font-weight: 500">What is in this run</div>
+            <div class="mt-ds">
+              <span>A public tool-calling set<small>licence checked 30 Oct · format check passed</small></span><span class="kit-num">48k</span>
+              <span>Brought back from self-healing<small>4 features · tool choice</small></span><span class="kit-num">11.2k</span>
+              <span>January's training mix, replayed at 20%<small>so that nothing learned is lost</small></span><span class="kit-num">310k</span>
+            </div>
+            <div class="kit-small kit-muted" style="margin-top: 8px">Examples, counted. No row of any set is shown here or anywhere in the portal.</div>
+          </div>
+          <dl class="mt-kv"><div><dt>Starts from</dt><dd>Core 4.2 weights</dd></div><div><dt>Recipe</dt><dd>The standing Core recipe · TLM package a41c9e · no new method</dd></div></dl>
+        </div>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .9fr) minmax(0, 1fr); gap: 12px; align-items: start">
+      <div class="mt-box"><h4>Held-out checks at each checkpoint <span class="mt-src">Run by the job</span></h4>
+        <div class="mt-ck">
+          <span class="h">Small check sets, never trained on</span><span class="h">1,000</span><span class="h">2,000</span><span class="h">3,000</span><span class="h">4,000</span><span class="h">Held to</span>
+          <span>Tool choice</span><span>71</span><span>76</span><span>80</span><b>83</b><span class="m">aim 85 · was 68 on 4.2</span>
+          <span>Tool use in long conversations</span><span>64</span><span>70</span><span>75</span><b>78</b><span class="m">aim 80 · was 61</span>
+          <span>General, a slice of the TL Index</span><span>81</span><span>81</span><span>81</span><b>81</b><span class="m">must not drop · 81</span>
+          <span>Safety</span><span>91</span><span>91</span><span>92</span><b>91</b><span class="m">must not drop · 91</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">These are quick checks while it trains. The full TL Index is run when it ends.</div></div>
+      <div class="mt-box"><h4>The cluster <span class="mt-src">HyperPod · now</span></h4>
+        <div class="mt-gpu" role="img" aria-label="Eight GPUs between 94 and 98 percent busy"><span><i style="height: 96%"></i></span><span><i style="height: 97%"></i></span><span><i style="height: 94%"></i></span><span><i style="height: 98%"></i></span><span><i style="height: 96%"></i></span><span><i style="height: 95%"></i></span><span><i style="height: 97%"></i></span><span><i style="height: 96%"></i></span></div>
+        <dl class="mt-kv" style="margin-top: 10px"><div><dt>This run</dt><dd>8 GPUs · 96% busy · 71 of 80 GB each</dd></div><div><dt>The training cluster</dt><dd>8 of 32 on this run · 12 on other jobs · 12 free</dd></div><div><dt>Waiting behind it</dt><dd>Nothing · a project's run could start on the free 12</dd></div><div><dt>Serving</dt><dd>Not touched: its machines are separate</dd></div></dl></div>
+      <div class="mt-box"><h4>The log <span class="mt-src">Last lines · open all</span></h4>
+        <div class="mt-log">11:57:31 step 4228 loss 0.741 lr 1.8e-5
+11:57:44 step 4229 loss 0.739 lr 1.8e-5
+11:57:58 step 4230 loss 0.742 lr 1.8e-5
+11:52:10 checkpoint 4000 saved
+11:52:12 held-out: tool_choice 83
+11:52:13 held-out: general 81
+11:31:02 warn: 3 rows skipped (too long)</div>
+        <div class="kit-small kit-muted" style="margin-top: 8px">1 warning · no errors</div></div>
+    </div>
+
+    <section class="kit-surface" aria-label="When the run ends">
+      <div class="kit-section-title" style="margin-top: 0"><h2>When it ends</h2><span class="sub">The same four steps every time · nothing reaches a project until the third</span></div>
+      <div class="mt-st">
+        <div><b>1 · The TL Index is run</b>The whole of edition 2026-11, beside 4.2 at 81 ± 1. If it is not better where it aimed and level elsewhere, it stops here.</div>
+        <div><b>2 · Every project's own checks</b>For each project on Core or a model built on it: its evaluation set, its judges, its self-healing benchmark. Where a project has gains of its own, they are re-applied first.</div>
+        <div><b>3 · It is released and offered</b>Each project is told a new version is ready, with its lineage and its own results already run.</div>
+        <div><b>4 · Each plans its switch</b>As an increment with a canary, on its own change request. A project may also stay where it is.</div>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">Waiting on this version: Service chat assist and Claims intake, directly on Core · Advisor desktop and Wealth management portfolio assist, through Domain-Advice, which gets a new version after Core does.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 12px">
+      <div class="mt-box"><h4>Runs on Core so far</h4>
+        <div class="mt-ds" style="grid-template-columns: 70px minmax(0, 1fr) auto"><span class="kit-muted">14 Jan</span><span>Run 6 · became version 4.2</span><span class="kit-small kit-muted">TL Index 78 → 81</span><span class="kit-muted">5 Nov</span><span>Run 7 · tool choice, from this page</span><span class="kit-small kit-muted">Running</span></div></div>
+      <div class="mt-box"><h4>To start a run from here</h4>
+        <div class="kit-small" style="margin-top: 6px; line-height: 1.55">Pick the data sets already placed in the training store, keep or change how much of the last mix is replayed, try 60 steps first, then start. The portal submits the job; the package does the rest. <a href="#">Set up the next run</a></div></div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2010}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

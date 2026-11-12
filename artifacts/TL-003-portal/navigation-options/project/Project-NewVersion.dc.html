@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A new version offered to a project</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.nv-lin{display:grid;grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1.25fr);gap:8px 6px;align-items:center;margin-top:12px}
+.nv-n{border-radius:14px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14);padding:10px 12px;font-size:13px;line-height:1.4}
+.nv-n b{display:block;font-weight:500;font-size:14px}
+.nv-n small{font-size:12px;color:rgba(26,26,26,.62)}
+.nv-n.now{background:rgba(26,26,26,.05)}
+.nv-n.new{box-shadow:0 0 0 2px var(--companion)}
+.nv-ar{text-align:center;font-size:18px;color:rgba(26,26,26,.5)}
+.nv-t{display:grid;grid-template-columns:minmax(0,1.5fr) 110px 130px 86px minmax(0,1fr);gap:0;font-size:13px;align-items:center}
+.nv-t>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.nv-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:2px;padding-bottom:4px}
+.nv-t .g{grid-column:1 / -1;font-size:12px;font-weight:500;background:rgba(26,26,26,.04);padding:6px 10px;border-radius:8px;border-top:0;margin-top:8px}
+.nv-t .n{font-variant-numeric:tabular-nums}
+.nv-t .n b{font-weight:600}
+.nv-up{color:var(--companion);font-variant-numeric:tabular-nums;font-weight:500}
+.nv-m{font-size:12px;color:rgba(26,26,26,.65)}
+.nv-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.nv-box h4{margin:0;font-size:15px;font-weight:500}
+.nv-st{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}
+.nv-st>div{border-radius:14px;background:rgba(26,26,26,.04);padding:10px 12px;font-size:12.5px;line-height:1.45}
+.nv-st b{display:block;font-weight:500;font-size:13.5px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1590px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Mon 23 Nov</span><span class="kit-chip">10:00 · Advice Tech weekly</span><span class="kit-chip brand">14:00 · Version 3 walk-through</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Call summary <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 760px">
+        <span class="kit-caption">Increments · a new version of the model is ready for you</span>
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Domain-Advice version 3</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Released 21 Nov</span><span class="kit-chip">Your own gains already re-applied</span><span class="kit-chip">Your checks already run</span></div>
+        <span class="kit-small kit-muted">The ThinkLatent foundation team has released a new version of the model Call summary runs on. Nothing changes until you decide. Below is how it does on your own measures · As of 09:40 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Plan the switch</a><a class="kit-btn outline" href="#">Not now</a><a class="kit-btn outline" href="#">Ask Jarvis</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="false" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Self-healing and training</button><button role="tab" aria-selected="true" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+    </div>
+
+    <section class="kit-surface" aria-label="Where this version comes from">
+      <div class="kit-section-title" style="margin-top: 0"><h2>Where it comes from</h2><span class="sub">What was built from what · your own version keeps everything it learned from your use</span></div>
+      <div class="nv-lin">
+        <div class="nv-n"><b>Core 4.2</b><small>TLM4 · Core · the base</small></div><span class="nv-ar" aria-hidden="true">→</span>
+        <div class="nv-n now"><b>Domain-Advice v2</b><small>Live since 5 Oct</small></div><span class="nv-ar" aria-hidden="true">→</span>
+        <div class="nv-n now"><b>Yours today: v2, strengthened for Advisor desktop</b><small>Increment 3, and increment 6 from your follow-ups run</small></div>
+        <div class="nv-n"><b>Core 4.3</b><small>Trained further on tool use · released 9 Nov</small></div><span class="nv-ar" aria-hidden="true">→</span>
+        <div class="nv-n"><b>Domain-Advice v3</b><small>Released 21 Nov</small></div><span class="nv-ar" aria-hidden="true">→</span>
+        <div class="nv-n new"><b>Offered: v3, with your gains re-applied</b><small>Would be increment 7</small></div>
+      </div>
+      <div class="kit-small" style="margin-top: 12px; line-height: 1.55">What is new in version 3: better at quoting figures from a call, steadier in long conversations, better at choosing between tools. It has been strengthened from use across the Enterprise, not only yours.</div>
+    </section>
+
+    <section class="kit-surface raised" aria-label="How it does for you">
+      <div class="kit-section-title" style="margin-top: 0"><h2>How it does for you</h2><span class="sub">Already run on 22 Nov, on your own three checks · today's version beside the one offered</span></div>
+      <div class="nv-t" style="margin-top: 8px">
+        <span class="h">Measure</span><span class="h">Yours today</span><span class="h">Version 3, offered</span><span class="h">Change</span><span class="h">Held to</span>
+
+        <span class="g">1 · The self-healing benchmark · held-back examples for each of your requirements</span>
+        <span>Every follow-up we agreed is listed</span><span class="n">91% ± 3</span><span class="n"><b>92% ± 3</b></span><span class="nv-up">+1</span><span class="nv-m">you expect 90%</span>
+        <span>Amounts and dates are the ones said on the call</span><span class="n">90% ± 3</span><span class="n"><b>95% ± 2</b></span><span class="nv-up">+5</span><span class="nv-m">you expect 95% · your open gap would close</span>
+        <span>The summary says what mattered</span><span class="n">85% ± 4</span><span class="n"><b>87% ± 3</b></span><span class="nv-up">+2</span><span class="nv-m">must not drop</span>
+        <span>Nothing in it that was not said</span><span class="n">95% ± 2</span><span class="n"><b>96% ± 2</b></span><span class="nv-up">+1</span><span class="nv-m">must not drop</span>
+        <span>Short enough to read in a minute</span><span class="n">97% ± 2</span><span class="n"><b>97% ± 2</b></span><span class="nv-m">level</span><span class="nv-m">must not drop</span>
+
+        <span class="g">2 · The TL Index, edition 2026-11 · ThinkLatent's thresholds</span>
+        <span>Overall</span><span class="n">83 ± 1</span><span class="n"><b>88 ± 1</b></span><span class="nv-up">+5</span><span class="nv-m">threshold 80</span>
+        <span>Safety</span><span class="n">91 ± 3</span><span class="n"><b>92 ± 3</b></span><span class="nv-up">+1</span><span class="nv-m">threshold 85</span>
+        <span>Numbers and calculations</span><span class="n">76 ± 2</span><span class="n"><b>81 ± 2</b></span><span class="nv-up">+5</span><span class="nv-m">threshold 78 · the accepted deviation would end</span>
+
+        <span class="g">3 · Your evaluation set, 400 calls · your measures, scored your way</span>
+        <span>Summary quality</span><span class="n">86% ± 5</span><span class="n"><b>88% ± 4</b></span><span class="nv-up">+2</span><span class="nv-m">you expect 80%</span>
+        <span>Nothing made up</span><span class="n">94% ± 2</span><span class="n"><b>95% ± 2</b></span><span class="nv-up">+1</span><span class="nv-m">you expect 92%</span>
+        <span>Action items found</span><span class="n">0.84 ± 0.04</span><span class="n"><b>0.85 ± 0.04</b></span><span class="nv-m">level</span><span class="nv-m">you expect 0.80</span>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: center; margin-top: 14px; flex-wrap: wrap"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better or level on all 11 lines</span></span><span class="kit-small kit-muted">Two things would close: your open gap on amounts and dates, and the deviation on Numbers and calculations that Priya N. accepted on 2 Oct.</span></div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 12px; align-items: start">
+      <div class="nv-box"><h4>If you plan the switch</h4>
+        <div class="nv-st">
+          <div><b>1 · Increment 7</b>Opens on your Plan with this evidence attached.</div>
+          <div><b>2 · A change request</b>Goes to ThinkLatent AI engineering, outside the portal.</div>
+          <div><b>3 · A canary</b>5% of requests for 3 days, then 25%, then all. Watched on thumbs, follow-ups listed and time.</div>
+          <div><b>4 · A way back</b>Version 2 stays ready for 30 days. The canary rolls back on its own if a watched number falls.</div>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">Next best action runs on the same model and is in Pilot. Its results are on its own offer; it can switch with Call summary or after.</div></div>
+      <div class="nv-box"><h4>If you say not now</h4>
+        <div class="kit-small" style="margin-top: 6px; line-height: 1.55">You stay on version 2 as strengthened for you, and self-healing carries on. You are asked again at the next version. Version 2 is kept in service for as long as a project runs on it; the model's page shows when that ends.</div>
+        <div class="kit-small kit-muted" style="margin-top: 8px">Questions about version 3: Arjun K., ThinkLatent AI engineering, or ask Jarvis.</div></div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1590}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
