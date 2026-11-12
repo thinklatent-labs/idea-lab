@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>An agent's page · Policy Q&amp;A agent</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.ap-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ap-h h3{margin:0;font-size:18px;font-weight:500}
+.ap-v{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.2fr) 250px 120px 70px 90px minmax(0,.9fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.ap-v>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ap-v .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ap-v b{font-weight:500;font-size:14px}
+.ap-v small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ap-v .on{box-shadow:inset 3px 0 0 #1A1A1A;padding-left:12px}
+.ap-sc{display:flex;align-items:center;gap:10px;font-variant-numeric:tabular-nums}
+.ap-mk{position:relative;display:block;width:120px;height:18px;flex:none}
+.ap-mk .ln{position:absolute;left:0;right:0;top:8px;height:1px;background:rgba(26,26,26,.2)}
+.ap-mk .iv{position:absolute;top:6px;height:6px;border-radius:999px;background:var(--companion);opacity:.4}
+.ap-mk .pt{position:absolute;top:5px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--companion)}
+.ap-mk .bar{position:absolute;top:0;bottom:0;border-left:1px dashed rgba(26,26,26,.7)}
+.ap-mk.out .iv{background:#1A1A1A;opacity:.25}.ap-mk.out .pt{background:#fff;border:1.5px solid #1A1A1A}
+.ap-st{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px 12px;margin-top:12px;font-size:13px;line-height:1.45;align-items:start}
+.ap-st .n{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;box-shadow:0 0 0 2px rgba(26,26,26,.25);font-size:12px;font-weight:600}
+.ap-st b{display:block;font-weight:500;font-size:14px}
+.ap-my{display:grid;grid-template-columns:20px minmax(0,1fr);gap:7px 9px;margin-top:10px;font-size:13px;line-height:1.45}
+.ap-my svg{width:16px;height:16px;margin-top:2px}
+.ap-my .y{color:var(--companion)}.ap-my .x{color:var(--decision)}
+.ap-l{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.ap-l>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.ap-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ap-l .s{padding-left:12px;text-align:right;font-size:12px;color:rgba(26,26,26,.7);white-space:nowrap}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1620px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Agents-Library.dc.html">Agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Policy Q&amp;A agent <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Version 3 · live <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 760px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Policy Q&amp;A agent</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">Agent</span><span class="kit-chip brand">Ready to adopt</span><span class="kit-chip">Built by ThinkLatent</span><span class="kit-chip">Three ways it is built</span><span class="kit-chip">One endpoint for each project</span></div>
+        <span class="kit-small kit-muted">Answers staff questions from a policy library, names its sources, and says so when the policy is silent. Contact: Meera S., product and adoption · office hours Thursdays at 14:00 · As of 11:58 ET · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Questions answered today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">4.1k</span><span class="kit-small kit-muted">In 2 projects · 3 steps each, typically</span></div>
+        <div class="kit-actions"><a class="kit-btn" href="Start-Project.dc.html">Use it in a project</a><a class="kit-btn outline" href="#">Try it</a><a class="kit-btn outline" href="#">Follow</a></div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Right answer, with the right source</span><span class="kit-display" style="font-size: 40px">91% ± 2</span><span class="kit-small kit-muted">Its own measure · 600 questions · bar 88%</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Says it does not know, when it should</span><span class="kit-display" style="font-size: 40px">96% ± 2</span><span class="kit-small kit-muted">150 questions the policy does not answer</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Right three times out of three</span><span class="kit-display" style="font-size: 40px">86% ± 3</span><span class="kit-small kit-muted">The same question asked three times</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Typical time for an answer</span><span class="kit-display" style="font-size: 40px">2.4 s</span><span class="kit-small kit-muted">95 in 100 within 4.0 s</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Cost avoided, 30 days</span><span class="kit-display" style="font-size: 40px">$[avoided]</span><span class="kit-small kit-muted">Spend $[spend] · summed over its 2 projects</span></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The same task, built three ways">
+      <div class="ap-h"><h3>The same task, built three ways</h3><span class="kit-small kit-muted">And one outside model for comparison · all on the same 600 questions and 150 unanswerable ones, TL Index edition 2026-11 · the dashed line is the bar, 88%</span></div>
+      <div class="ap-v">
+        <span class="h">Way of building it</span><span class="h">What works inside</span><span class="h">Right answer, with the right source</span><span class="h">Says it does not know</span><span class="h">Time</span><span class="h">A task costs</span><span class="h">Who gets it</span>
+
+        <span class="on"><b>A · Core, with a check</b><small>The default</small></span><span>Embedding v2 finds → Core 4.2 answers → Guardrail v2 checks each statement</span><span><span class="ap-sc">91% ± 2<span class="ap-mk" role="img" aria-label="91 percent, interval 89 to 93, over the bar of 88"><span class="ln"></span><span class="iv" style="left: 45%; width: 20%"></span><span class="pt" style="left: 55%"></span><span class="bar" style="left: 40%"></span></span></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Over its bar</span></span></span><span>96% ± 2</span><span>2.4 s</span><span>$[a]</span><span>Every project that adopts it<small>Both of today's</small></span>
+
+        <span><b>B · Distil, lighter</b><small>Cheaper and faster</small></span><span>Embedding v2 finds → Distil 4.2 answers → Guardrail v2 checks each statement</span><span><span class="ap-sc">86% ± 2<span class="ap-mk" role="img" aria-label="86 percent, interval 84 to 88, under the bar of 88"><span class="ln"></span><span class="iv" style="left: 20%; width: 20%"></span><span class="pt" style="left: 30%"></span><span class="bar" style="left: 40%"></span></span></span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Under its bar</span></span></span><span>93% ± 3</span><span>1.1 s</span><span>$[b]</span><span>Nobody yet<small>Offered once it clears 88%</small></span>
+
+        <span><b>C · Core, checked twice</b><small>The most careful</small></span><span>As A, and it asks again whenever the check is unsure</span><span><span class="ap-sc">93% ± 2<span class="ap-mk" role="img" aria-label="93 percent, interval 91 to 95, over the bar of 88"><span class="ln"></span><span class="iv" style="left: 55%; width: 20%"></span><span class="pt" style="left: 65%"></span><span class="bar" style="left: 40%"></span></span></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Over its bar</span></span></span><span>98% ± 1</span><span>3.9 s</span><span>$[c]</span><span>On request<small>For answers a regulator may read</small></span>
+
+        <span><b>Outside · Vendor A · large</b><small>For comparison only</small></span><span>The same search, then the outside model answers. No check</span><span><span class="ap-sc">92% ± 2<span class="ap-mk out" role="img" aria-label="92 percent, interval 90 to 94"><span class="ln"></span><span class="iv" style="left: 50%; width: 20%"></span><span class="pt" style="left: 60%"></span><span class="bar" style="left: 40%"></span></span></span></span><span>94% ± 2</span><span>3.1 s</span><span>$[outside]</span><span>Nobody<small>Not for the Enterprise's policy text</small></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">The intervals of A, C and the outside model overlap: on this task the three cannot be told apart, so the choice between them is cost, time and where the text may go. A table of the same numbers sits behind the marks.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="How a task runs">
+        <div class="ap-h"><h3>How a task runs</h3><span class="kit-small kit-muted">Way A · typically 3 steps, never more than 5</span></div>
+        <div class="ap-st">
+          <span class="n">1</span><span><b>It finds</b>Embedding v2 searches the policy library the project gave it and takes the ten closest passages.</span>
+          <span class="n">2</span><span><b>It answers</b>Core 4.2 writes the answer from those passages only, and names the source of each statement.</span>
+          <span class="n">3</span><span><b>It checks</b>Guardrail v2 checks every statement against its source.</span>
+          <span class="n">4</span><span><b>If a statement has no source, it tries once more</b>If there is still none, it says the policy does not answer the question, and who to ask.</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">In a project every step shows in Traces, under the one request the application made.</div>
+      </section>
+
+      <section class="kit-surface" aria-label="What it may do, and what it may not">
+        <div class="ap-h"><h3>What it may do, and what it may not</h3><span class="kit-small kit-muted">The same for every project that adopts it</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px">
+          <div class="ap-my">
+            <svg class="y" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Search the policy library a project gives it</span>
+            <svg class="y" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Read the passages it finds</span>
+            <svg class="y" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Answer, naming its sources</span>
+            <svg class="y" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Say it does not know</span>
+          </div>
+          <div class="ap-my">
+            <svg class="x" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Answer from anywhere but that library</span>
+            <svg class="x" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Open any other system</span>
+            <svg class="x" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Send, file or change anything</span>
+            <svg class="x" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Keep a question once the session ends</span>
+          </div>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">This is kept where the calls pass, not by asking the agent to behave: a step outside the list does not go through, and the attempt shows in Traces.</div>
+      </section>
+    </div>
+
+    <div class="kit-grid3" style="align-items: start">
+      <section class="kit-surface" aria-label="Who uses it">
+        <div class="ap-h"><h3>Who uses it</h3><span class="kit-small kit-muted">Each has its own endpoint and library</span></div>
+        <div class="ap-l">
+          <span>People policy desk<small>HR Tech, in Enterprise services · Production since 2 Sep · 93% thumbs up</small></span><span class="s">3.4k today</span>
+          <span>Compliance helpdesk<small>Compliance Tech, in Institutional Ops · Pilot since 20 Oct</small></span><span class="s">0.7k today</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">A project's name opens its open view. 38 people tried the agent in the last 30 days.</div>
+      </section>
+
+      <section class="kit-surface" aria-label="Versions">
+        <div class="ap-h"><h3>Versions</h3><span class="kit-small kit-muted">Adopters are told before one changes</span></div>
+        <div class="ap-l">
+          <span>Version 4 · planned 2 Dec<small>Moves to Core 4.3. Each project is told 14 days before, with its own results already run</small></span><span class="s">Planned</span>
+          <span>Version 3 · live since 12 Oct<small>Checks each statement, not the whole answer: 87 to 91%</small></span><span class="s">Live</span>
+          <span>Version 2<small>Waits until 10 Jan, 90 days, so a project can go back</small></span><span class="s">Replaced</span>
+        </div>
+      </section>
+
+      <section class="kit-surface coloured" aria-label="Adopt it">
+        <div class="ap-h"><h3>Adopt it</h3><span class="kit-small">What you bring, what you get</span></div>
+        <div class="ap-l" style="margin-top: 6px">
+          <span>You bring your policy library<small>The documents it may answer from</small></span><span class="s"></span>
+          <span>And 50 questions with the right answers<small>To prove it on your own text before Pilot</small></span><span class="s"></span>
+          <span>You get one endpoint, in a project of your own<small>Scored on your questions; self-healing on your own use</small></span><span class="s"></span>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn sm" href="Start-Project.dc.html">Use it in a project</a><a class="kit-btn outline sm" href="Requests-Status.dc.html">Ask for a change to it</a></div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1620}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

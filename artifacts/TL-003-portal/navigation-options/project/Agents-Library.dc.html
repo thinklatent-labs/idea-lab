@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Models and agents · the Agents shelf</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.ag-cols{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 236px 110px 84px 170px;gap:14px;align-items:center}
+.ag-in{font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.75)}
+.ag-mark{position:relative;display:block;width:96px;height:18px;flex:none}
+.ag-mark .ln{position:absolute;left:0;right:0;top:8px;height:1px;background:rgba(26,26,26,.2)}
+.ag-mark .iv{position:absolute;top:6px;height:6px;border-radius:999px;background:var(--companion);opacity:.4}
+.ag-mark .pt{position:absolute;top:5px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--companion)}
+.ag-mark .bar{position:absolute;top:0;bottom:0;border-left:1px dashed rgba(26,26,26,.7)}
+.ag-score{display:flex;align-items:center;gap:10px}
+.ag-pl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+.ag-p{border-radius:18px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 14px;font-size:13px;line-height:1.45;display:flex;flex-direction:column;gap:5px}
+.ag-p b{font-weight:500;font-size:14.5px}
+.ag-p .ft{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:8px}
+.ag-of{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px 12px;margin-top:12px;font-size:13px;line-height:1.45;align-items:start}
+.ag-of .n{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#1A1A1A;color:#fff;font-size:12px;font-weight:600}
+.ag-of b{display:block;font-weight:500;font-size:14.5px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1895px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Agents <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 760px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Models and agents</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">3 agents ready</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">1 from a team, being scored</span><span class="kit-chip">3 in build</span><span class="kit-chip">34 planned</span></div>
+        <span class="kit-small kit-muted">The Agents shelf. An agent takes several steps to finish a task and may use tools; a model answers one request. Either way a team calls one endpoint, and an agent is picked, tried and used in a project as a model is · As of 11:58 ET · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Tasks finished by agents today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">9.4k</span><span class="kit-small kit-muted">Across 3 agents in 6 projects</span></div>
+        <div class="kit-actions"><a class="kit-btn" href="Jarvis-Ask.dc.html">Find an agent for a task</a><a class="kit-btn outline" href="#">Offer your team's agent</a></div>
+      </div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Models pages">
+      <a role="tab" aria-selected="false" href="Model-Catalogue.dc.html">Catalogue</a><a role="tab" aria-selected="true" href="Agents-Library.dc.html">Agents</a><a role="tab" aria-selected="false" href="Index-Leaderboards.dc.html">Leaderboards by kind</a><button role="tab" aria-selected="false" type="button">New and coming</button><button role="tab" aria-selected="false" type="button">Compare</button><button role="tab" aria-selected="false" type="button">Outside models</button><button role="tab" aria-selected="false" type="button">Retired</button>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+      <div style="display: flex; gap: 10px; align-items: center"><span class="kit-label">Show</span><div class="kit-seg" role="group" aria-label="Show"><button type="button" aria-pressed="true">All 41</button><button type="button" aria-pressed="false">Ready 3</button><button type="button" aria-pressed="false">Being scored 1</button><button type="button" aria-pressed="false">In build 3</button><button type="button" aria-pressed="false">Planned 34</button></div></div>
+      <div style="display: flex; gap: 10px; align-items: center"><span class="kit-label">Group by</span><div class="kit-seg" role="group" aria-label="Group by"><button type="button" aria-pressed="true">How far along</button><button type="button" aria-pressed="false">What it is for</button></div></div>
+    </div>
+
+    <section class="kit-surface" aria-label="Ready to adopt">
+      <div class="kit-section-title" style="margin-top: 0"><h2>Ready to adopt</h2><span class="sub">Each has an official score from ThinkLatent on its own measure · the dashed line is its bar · a row opens the agent's page</span></div>
+      <div class="ag-cols kit-label" style="padding: 14px 14px 8px"><span>Agent</span><span>What works inside it</span><span>Score on its own measure</span><span>Used in</span><span>Tasks today</span><span></span></div>
+      <div class="kit-rows">
+        <div class="kit-row ag-cols">
+          <div><a class="t" href="Agent-Page.dc.html" style="color: inherit; text-decoration: none">Policy Q&amp;A agent</a><div class="s">Answers staff questions from policy, with its sources. Says so when the policy is silent</div><div class="s" style="margin-top: 4px">Built by ThinkLatent · version 3</div></div>
+          <div class="ag-in">Embedding v2 finds the passages → Core 4.2 answers → Guardrail v2 checks each statement</div>
+          <div><div class="ag-score"><span class="kit-num">91% ± 2</span><span class="ag-mark" role="img" aria-label="91 percent, interval 89 to 93, over its bar of 88 percent"><span class="ln"></span><span class="iv" style="left: 45%; width: 20%"></span><span class="pt" style="left: 55%"></span><span class="bar" style="left: 40%"></span></span></div><div class="s">Right answer with the right source · bar 88%</div></div>
+          <div class="kit-small">2 projects</div>
+          <div class="kit-num">4.1k</div>
+          <div style="display: flex; gap: 6px; justify-content: flex-end"><a class="kit-btn outline sm" href="#">Try it</a><a class="kit-btn sm" href="Agent-Page.dc.html">Open</a></div>
+        </div>
+        <div class="kit-row ag-cols">
+          <div><div class="t">Meeting notes agent</div><div class="s">Turns a meeting's recording into notes, decisions and who does what</div><div class="s" style="margin-top: 4px">Built by ThinkLatent · version 2</div></div>
+          <div class="ag-in">Speech recognition v6 writes it down → Core 4.2 drafts the notes and checks them against the words</div>
+          <div><div class="ag-score"><span class="kit-num">88% ± 3</span><span class="ag-mark" role="img" aria-label="88 percent, interval 85 to 91, over its bar of 85 percent"><span class="ln"></span><span class="iv" style="left: 25%; width: 30%"></span><span class="pt" style="left: 40%"></span><span class="bar" style="left: 25%"></span></span></div><div class="s">Actions captured, with the right owner · bar 85%</div></div>
+          <div class="kit-small">3 projects</div>
+          <div class="kit-num">3.9k</div>
+          <div style="display: flex; gap: 6px; justify-content: flex-end"><a class="kit-btn outline sm" href="#">Try it</a><a class="kit-btn sm" href="#">Open</a></div>
+        </div>
+        <div class="kit-row ag-cols">
+          <div><div class="t">Document reader agent</div><div class="s">Reads onboarding and contract documents into the fields a system needs</div><div class="s" style="margin-top: 4px">Built by ThinkLatent · version 1</div></div>
+          <div class="ag-in">Distil 4.2 reads and fills the fields → the Decision adapter says which ones a person should check</div>
+          <div><div class="ag-score"><span class="kit-num">96.1% ± 0.6</span><span class="ag-mark" role="img" aria-label="96.1 percent, interval 95.5 to 96.7, over its bar of 95 percent"><span class="ln"></span><span class="iv" style="left: 55%; width: 12%"></span><span class="pt" style="left: 61%"></span><span class="bar" style="left: 50%"></span></span></div><div class="s">Fields read right · bar 95%</div></div>
+          <div class="kit-small">1 project</div>
+          <div class="kit-num">1.4k</div>
+          <div style="display: flex; gap: 6px; justify-content: flex-end"><a class="kit-btn outline sm" href="#">Try it</a><a class="kit-btn sm" href="#">Open</a></div>
+        </div>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface" aria-label="Offered by a team, being scored">
+          <div class="kit-section-title" style="margin-top: 0"><h2 style="font-size: 19px">Offered by a team, being scored</h2><span class="sub">Not adoptable until ThinkLatent's official score is in</span></div>
+          <div class="kit-rows" style="margin-top: 12px">
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto">
+              <div><div class="t">Next best action</div><div class="s">Suggests the one next step during an advice call, from a list of approved actions</div><div class="s" style="margin-top: 4px">Offered by Advice Tech, from <a href="Project-OpenView.dc.html">Advisor desktop</a> · 3 Nov</div></div>
+              <div class="ag-in">Official evaluation: 2 of 3 suites done, the third finishes 10 Nov. In its own project the right action is chosen 94% ± 3 of the time.</div>
+              <div><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Being scored</span></span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="kit-surface" aria-label="In build">
+          <div class="kit-section-title" style="margin-top: 0"><h2 style="font-size: 19px">In build</h2><span class="sub">By ThinkLatent · dates are when each is expected to be ready to adopt</span></div>
+          <div class="kit-rows" style="margin-top: 12px">
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 130px auto"><div><div class="t">Advisor prep agent</div><div class="s">A client brief before a meeting, from past calls, holdings and house views</div></div><div class="ag-in">Embedding v2 → Domain-Advice v2</div><div class="kit-small">Expected in December<br><span class="kit-muted">Asked for by 6 teams</span></div><a class="kit-btn outline sm" href="#">Follow</a></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 130px auto"><div><div class="t">Complaint handling agent</div><div class="s">Sorts a complaint, drafts the reply and keeps track of the case</div></div><div class="ag-in">Distil 4.2 sorts → Core 4.2 drafts</div><div class="kit-small">Expected in January<br><span class="kit-muted">Asked for by 7 teams</span></div><a class="kit-btn outline sm" href="#">Follow</a></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 130px auto"><div><div class="t">Alert triage agent</div><div class="s">Sums up a security alert, scores it and proposes what to do. It never acts</div></div><div class="ag-in">Core 4.2</div><div class="kit-small">Expected in February<br><span class="kit-muted">Asked for by 3 teams</span></div><a class="kit-btn outline sm" href="#">Follow</a></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="kit-surface coloured" aria-label="Offer an agent your team built">
+        <div class="kit-section-title" style="margin-top: 0"><h2 style="font-size: 19px">Offer an agent your team built</h2></div>
+        <div class="kit-small" style="margin-top: 4px">Anything that takes steps to finish a task, runs in your project and has its own measure.</div>
+        <div class="ag-of">
+          <span class="n">1</span><span><b>Offer it from your project</b>Say what it is for, what it may and may not do, and share at least 200 scored cases.</span>
+          <span class="n">2</span><span><b>ThinkLatent scores it</b>The official evaluation, on ThinkLatent's own cases as well as yours. About two weeks.</span>
+          <span class="n">3</span><span><b>It appears here, with your team as owner</b>Each team that adopts it gets an endpoint of its own. You keep deciding its changes; adopters are told before one lands.</span>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px"><a class="kit-btn sm" href="#">Offer an agent</a><a class="kit-btn outline sm" href="Help-Page.dc.html">Ask ThinkLatent first</a></div>
+      </section>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Planned agents">
+      <div class="kit-section-title" style="margin-top: 0"><h2>Planned · ask for one and it moves up</h2><span class="sub">34 ideas, the most asked for first · 61 asks from 19 teams so far · asks are support; ThinkLatent decides the order, on the first Monday of each month</span></div>
+      <div class="ag-pl">
+        <div class="ag-p"><b>Marketing pre-review agent</b><span>Flags a problem in marketing or client copy, explains it and suggests a rewrite.</span><div class="ft"><span class="kit-small kit-muted">9 teams ask</span><a class="kit-btn outline sm" href="#">Ask for it</a></div></div>
+        <div class="ag-p"><b>Client correspondence agent</b><span>Drafts letters and emails to the house rules and flags regulated statements.</span><div class="ft"><span class="kit-small kit-muted">6 teams ask</span><a class="kit-btn outline sm" href="#">Ask for it</a></div></div>
+        <div class="ag-p"><b>Plain-language and translation agent</b><span>Rewrites client-facing text plainly, and into other languages.</span><div class="ft"><span class="kit-small kit-muted">5 teams ask</span><a class="kit-btn outline sm" href="#">Ask for it</a></div></div>
+        <div class="ag-p"><b>Regulatory change agent</b><span>Reads a new rule, lists what it obliges and maps each to a control and an owner.</span><div class="ft"><span class="kit-small kit-muted">4 teams ask</span><a class="kit-btn outline sm" href="#">Ask for it</a></div></div>
+        <div class="ag-p"><b>Knowledge assistant</b><span>Answers from a team's own documents, with sources. Policy Q&amp;A is its first form.</span><div class="ft"><span class="kit-small kit-muted">4 teams ask</span><a class="kit-btn outline sm" href="#">Ask for it</a></div></div>
+        <div class="ag-p"><b>Executive briefing agent</b><span>A weekly synthesis across business lines, with where each line comes from.</span><div class="ft"><span class="kit-small kit-muted">3 teams ask</span><a class="kit-btn outline sm" href="#">Ask for it</a></div></div>
+        <div class="ag-p"><b>Incident report agent</b><span>Builds the timeline and the write-up from tickets and logs.</span><div class="ft"><span class="kit-small kit-muted">2 teams ask</span><a class="kit-btn outline sm" href="#">Ask for it</a></div></div>
+        <div class="ag-p"><b>27 more</b><span>Across servicing and advice, compliance, security and the Enterprise as a whole.</span><div class="ft"><span class="kit-small kit-muted">28 asks between them</span><a class="kit-btn outline sm" href="#">See all 34</a></div></div>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">Need one that is not listed? <a href="Requests-Status.dc.html">Ask ThinkLatent for a new agent</a>. It is answered within 14 days, with a reason either way.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1895}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

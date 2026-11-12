@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agents at work · what the portal's own agents did</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.aw-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.aw-h h3{margin:0;font-size:18px;font-weight:500}
+.aw-a{display:grid;grid-template-columns:150px minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) 96px 130px 100px;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.aw-a>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.aw-a .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.aw-a b{font-weight:500;font-size:14px}
+.aw-a small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.aw-a .n{font-variant-numeric:tabular-nums}
+.aw-l{display:grid;grid-template-columns:104px 112px minmax(0,1.7fr) minmax(0,.8fr) minmax(0,1.1fr) 56px;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.aw-l>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.aw-l .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.aw-l .d{font-size:12px;color:rgba(26,26,26,.65);font-variant-numeric:tabular-nums}
+.aw-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.aw-l .me{box-shadow:inset 3px 0 0 var(--decision);padding-left:10px}
+.aw-r{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px 9px;margin-top:10px;font-size:13px;line-height:1.45}
+.aw-r svg{width:16px;height:16px;margin-top:2px;color:var(--companion)}
+.aw-r .x{color:var(--decision)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2230px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Home-Cockpit.dc.html">The Enterprise <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Agents at work <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Agents at work</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">5 agents working</span><span class="kit-chip">None paused</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">14 proposals wait for a person · 4 for you</span></div>
+        <span class="kit-small kit-muted">The portal's own agents. They read, notice and propose. A person decides, and the decision is recorded under that person's name. An agent works with the access of whoever asked, never more, so here you see the detail for projects you can open and totals for the rest · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Jarvis-Ask.dc.html">Ask Jarvis what they found for me</a><a class="kit-btn outline" href="Help-Page.dc.html">Ask ThinkLatent to pause an agent</a></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px">
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Proposals waiting for a person</span><span class="kit-display" style="font-size: 40px">14</span><span class="kit-small kit-muted">4 of them wait for you</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Accepted, last 30 days</span><span class="kit-display" style="font-size: 40px">72%</span><span class="kit-small kit-muted">Of 212 decided · 60 declined, each with a reason</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Typical time to a decision</span><span class="kit-display" style="font-size: 40px">1.6 days</span><span class="kit-small kit-muted">The longest now waiting: 9 days</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Paused now</span><span class="kit-display" style="font-size: 40px">0 of 5</span><span class="kit-small kit-muted">Last pause: the Index agent, 3 hours on 14 Oct</span></div>
+    </div>
+
+    <section class="kit-surface" aria-label="The five agents">
+      <div class="aw-h"><h3>The five agents</h3><span class="kit-small kit-muted">Across the Enterprise · today, and the last 30 days</span></div>
+      <div class="aw-a">
+        <span class="h">Agent</span><span class="h">What it does</span><span class="h">Where you meet it</span><span class="h">Today</span><span class="h">Proposals open</span><span class="h">Accepted, 30 days</span><span class="h">State</span>
+
+        <span><b>Jarvis</b><small>Your guide</small></span><span>Answers from the portal's records, drafts plans and ranges, and prepares requests for a person to send</span><span><a href="Jarvis-Ask.dc.html">Ask</a>, <a href="Start-Project.dc.html">Start a project</a>, <a href="Help-Page.dc.html">Help</a></span><span>286 questions answered<small>85% with nobody paged</small></span><span class="n">5</span><span class="n">78%<small>Of 64 decided</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Working</span></span></span>
+
+        <span><b>Watch agent</b><small>Traces</small></span><span>Reads every request for size, time and anything it has not seen before, and flags it. It flags; it does not propose</span><span><a href="Project-Traces.dc.html">Traces</a></span><span>212k requests read<small>41 flagged</small></span><span class="n">—<small>Flags only</small></span><span class="n">—<small>Does not apply</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Working</span></span></span>
+
+        <span><b>SRE agent</b><small>Operations</small></span><span>Watches time to answer, errors and room on the machines, finds what changed, and proposes a fix</span><span><a href="Project-Operations.dc.html">Operations</a></span><span>9 endpoints watched<small>3 findings</small></span><span class="n">4</span><span class="n">74%<small>Of 39 decided</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Working</span></span></span>
+
+        <span><b>Self-healing</b><small>Quality in use</small></span><span>Scores answers against what each team asked for, finds gaps, and says when there is enough to train</span><span><a href="Project-SelfHealing.dc.html">Self-healing and training</a></span><span>58k answers scored<small>2 gaps found</small></span><span class="n">4</span><span class="n">66%<small>Of 71 decided</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Working</span></span></span>
+
+        <span><b>Index agent</b><small>The TL Index</small></span><span>Scores models on each edition, raises a finding when one falls under its bar, and proposes a cheaper model that still clears a task</span><span><a href="Index-Language.dc.html">TL Index</a>, <a href="Model-Catalogue.dc.html">Models and agents</a></span><span>1 finding open<small>F-0425</small></span><span class="n">1</span><span class="n">68%<small>Of 38 decided</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Working</span></span></span>
+      </div>
+    </section>
+
+    <section class="kit-surface raised" aria-label="What the agents did">
+      <div class="aw-h"><h3>What they did</h3><div class="kit-seg" role="group" aria-label="Show"><button type="button" aria-pressed="true">Everything</button><button type="button" aria-pressed="false">Waiting for a person 14</button><button type="button" aria-pressed="false">For me 4</button><button type="button" aria-pressed="false">Decided</button></div></div>
+      <div class="kit-small kit-muted" style="margin-top: 4px">Newest first. Every line an agent wrote that asked something of a person, and what became of it. The red edge marks what waits for you.</div>
+      <div class="aw-l">
+        <span class="h">When</span><span class="h">Agent</span><span class="h">What it did, and what it rests on</span><span class="h">On</span><span class="h">Where it stands</span><span class="h"></span>
+
+        <span class="d">Today 11:52</span><span>SRE agent</span><span>Proposed a fourth replica on weekday mornings<small>Requests wait ten times longer between 10 and 11 · from 5,900 traces · sure: high</small></span><span>Advisor desktop</span><span>Waits for Arjun K., ThinkLatent AI engineering</span><a href="Project-Operations.dc.html">Open</a>
+
+        <span class="d me">Today 11:40</span><span>Jarvis</span><span>Proposed raising a range: Nothing made up, to 94 to 96%<small>At 94% ± 2 for two weeks · sure: 0.78</small></span><span>Advisor desktop</span><span>Waits for you · 2 in support</span><a href="Project-Quality.dc.html">Open</a>
+
+        <span class="d me">Today 10:15</span><span>Self-healing</span><span>Found a gap: amounts and dates differ from the call<small>91% ± 2 against the 95% you asked for · every request scored</small></span><span>Advisor desktop</span><span>Waits for you · 3 in support</span><a href="Project-SelfHealing.dc.html">Open</a>
+
+        <span class="d">Today 09:58</span><span>Watch agent</span><span>Flagged 3 requests for size or time<small>Over 16k tokens in, three times slower than usual</small></span><span>Advisor desktop</span><span>Seen by Lena W.</span><a href="Project-Traces.dc.html">Open</a>
+
+        <span class="d">Today 09:30</span><span>Index agent</span><span>Raised a finding, and proposed another model for the task<small>F-0425 · a feature is under its bar on Distil 4.2</small></span><span>Claims intake<small>You are not a member: totals only</small></span><span>Waits for that project's owner</span><span></span>
+
+        <span class="d">Today 09:12</span><span>Jarvis</span><span>Drafted a plan: the dates run 4 weeks late unless traffic is given this week<small>Asked by Marcus L. · from the lead times ThinkLatent gave</small></span><span>Wealth management portfolio assist</span><span>Accepted by Marcus L.</span><a href="Project-Plan.dc.html">Open</a>
+
+        <span class="d me">Yesterday 16:40</span><span>Self-healing</span><span>Said there is enough to train Call summary to list follow-ups<small>Gap confirmed 22 Oct · examples gathered since</small></span><span>Advisor desktop</span><span>Waits for you</span><a href="Project-SelfHealing.dc.html">Open</a>
+
+        <span class="d me">Yesterday 11:20</span><span>Jarvis</span><span>Proposed a range for a new measure: word error rate, 8% down to 6%<small>From the model's 6.1% on Retail advice calls</small></span><span>Advisor desktop</span><span>Waits for you</span><a href="Project-Quality.dc.html">Open</a>
+
+        <span class="d">3 Nov</span><span>SRE agent</span><span>Proposed splitting transcripts over 16k tokens<small>Summaries of very long calls take three times as long · from 312 traces</small></span><span>Advisor desktop</span><span>Became problem PR-0077, logged by Priya N.</span><a href="Help-Page.dc.html">Open</a>
+
+        <span class="d">24 Oct</span><span>SRE agent</span><span>Proposed a third replica<small>Slower between 10 and 11 on weekdays</small></span><span>Advisor desktop</span><span>Accepted by Arjun K. · closed PR-0058</span><a href="Project-Operations.dc.html">Open</a>
+
+        <span class="d">20 Oct</span><span>Self-healing</span><span>Proposed a gap: summaries run too long<small>31 thumbs down that week gave that reason</small></span><span>Advisor desktop</span><span>Declined by Priya N.: "length is set in the application, not by the model"</span><a href="Project-SelfHealing.dc.html">Open</a>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">Showing 11 lines. Proposals in the last 30 days: 14 waiting and 212 decided. A flag asks nothing of anyone; it is listed for projects you can open and counted for the rest.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="What an agent may do">
+        <div class="aw-h"><h3>What an agent may do</h3><span class="kit-small kit-muted">The same for all five</span></div>
+        <div class="aw-r">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Read what the person who asked can read, and nothing more</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Notice and propose. Every proposal names what it rests on and how sure it is</span>
+          <svg class="x" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Never decide: it does not change a model, a range, a member or a request</span>
+          <svg class="x" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Never send anything outside the portal. It prepares; a person sends</span>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 14px"><span class="kit-chip env">Planned</span><span class="kit-small kit-muted">Small steps agreed beforehand that an agent may take by itself and undo, reported afterwards. First for the SRE agent.</span></div>
+      </section>
+
+      <section class="kit-surface" aria-label="Stopping an agent">
+        <div class="aw-h"><h3>Stopping an agent</h3><span class="kit-small kit-muted">Only ThinkLatent can</span></div>
+        <div class="kit-small" style="margin-top: 8px; line-height: 1.5; font-size: 13px">ThinkLatent can pause an agent and must say why. A pause shows here and on every page where the agent appears, and nothing it had proposed is lost. A project owner who wants an agent stopped asks through Help; the answer comes from a person.</div>
+        <div class="aw-l" style="grid-template-columns: 70px minmax(0, 1fr); margin-top: 12px">
+          <span class="d">14 Oct</span><span>Index agent paused for 3 hours by Luis F.<small>"Edition 2026-10 was being scored again; its findings would have been wrong."</small></span>
+          <span class="d">2 Sep</span><span>SRE agent paused for a day by Arjun K.<small>"A machine move made every endpoint look slow."</small></span>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn outline sm" href="Help-Page.dc.html">Ask ThinkLatent to pause an agent</a><a class="kit-btn outline sm" href="My-Work.dc.html">Quiet what an agent tells me</a></div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2230}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
