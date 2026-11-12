@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TL Index · leaderboards by kind</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lb-kinds{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.lb-k{display:flex;flex-direction:column;gap:4px;border-radius:20px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 14px;color:inherit;text-decoration:none;font-size:12.5px;line-height:1.4}
+.lb-k.on{background:#fff;box-shadow:0 0 0 2px #1A1A1A}
+.lb-k b{font-size:15px;font-weight:500}
+.lb-k .v{font-size:26px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;margin-top:2px}
+.lb-k small{font-size:12px;color:rgba(26,26,26,.62)}
+.lb-t{display:grid;grid-template-columns:34px minmax(0,1.5fr) 120px 96px minmax(0,1.7fr) 110px 100px minmax(0,1fr);gap:0;align-items:center;font-size:13px}
+.lb-t{align-items:stretch}
+.lb-t>*{padding:11px 14px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;display:flex;align-items:center}
+.lb-t .nm{flex-direction:column;align-items:flex-start;justify-content:center}
+.lb-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:2px;padding-bottom:6px}
+.lb-t .nm b{display:block;font-weight:500;font-size:14px}
+.lb-t .nm small{font-size:12px;color:rgba(26,26,26,.62)}
+.lb-t .n{font-variant-numeric:tabular-nums}
+.lb-who{font-size:11px;border-radius:999px;padding:2px 9px;white-space:nowrap;justify-self:start}
+.lb-who.tl{background:#1A1A1A;color:#fff}
+.lb-who.out{box-shadow:0 0 0 1px rgba(26,26,26,.35)}
+.lb-t .lb-q{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;align-items:center;align-content:center}
+.lb-q b{font-weight:600;font-variant-numeric:tabular-nums}
+.lb-bar{position:relative;height:10px;border-radius:999px;background:rgba(26,26,26,.08)}
+.lb-bar i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--companion)}
+.lb-bar i.out{background:rgba(26,26,26,.38)}
+.lb-bar i.old{background:color-mix(in oklab,var(--companion) 40%,white)}
+.lb-bar u{position:absolute;top:-4px;bottom:-4px;left:66.67%;border-left:2px dashed #1A1A1A}
+.lb-seg{display:inline-flex;border-radius:999px;background:rgba(26,26,26,.06);padding:3px}
+.lb-seg span{font-size:13px;padding:5px 12px;border-radius:999px}
+.lb-seg span.on{background:#1A1A1A;color:#fff}
+.lb-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.lb-box h4{margin:0;font-size:15px;font-weight:500}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1270px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-current="page" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">TL Index</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Edition 2026-11</span><span class="kit-chip">6 kinds of model · 10 of ours · 7 from outside for reference</span></div>
+        <span class="kit-small kit-muted">Where models are compared. Language models are scored on the TL Index itself. Every other kind is ranked on its own measure, ours beside outside models scored the same way · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="#">How each kind is measured</a><a class="kit-btn outline" href="#">Ask Jarvis which model fits a task</a></div>
+    </div>
+
+    <div class="lb-kinds" role="tablist" aria-label="Kinds of model">
+      <a class="lb-k" href="#"><b>Language</b><small>The TL Index, out of 100</small><span class="v">84 ± 1</span><span>Domain-Advice v2 · version 3 at 88</span><small>Best outside: Frontier API, 87 ± 1</small></a>
+      <a class="lb-k" href="#"><b>Decision</b><small>How often the choice is right</small><span class="v">94%</span><span>Decision adapter v1 · bar 92%</span><small>Best outside: 95%, twelve times slower</small></a>
+      <a class="lb-k on" href="#"><b>Speech</b><small>Word error rate, lower is better</small><span class="v">6.8%</span><span>Speech recognition v6 · bar 8%</span><small>Best outside: 6.1%, on public calls only</small></a>
+      <a class="lb-k" href="#"><b>Classifier</b><small>Found, or sorted right</small><span class="v">99.2%</span><span>Redaction v4 · bar 99%</span><small>Call classification v3: 91% ± 2</small></a>
+      <a class="lb-k" href="#"><b>Guardrail</b><small>Unsafe answers caught</small><span class="v">97.4%</span><span>Guardrail v2 · bar 95%</span><small>Best outside: 96.0%</small></a>
+      <a class="lb-k" href="#"><b>Embedding</b><small>Right passage in the first ten</small><span class="v">93%</span><span>Embedding v2 · bar 90% · Pilot</span><small>Best outside: 91%</small></a>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Speech leaderboard">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+        <div><div style="font-size: 24px">Speech · turning a call into text</div><div class="kit-small kit-muted" style="margin-top: 2px">Scored on 2,000 of the Enterprise's own calls, written out by hand · word error rate: of every 100 words, how many come out wrong</div></div>
+        <div style="display: flex; gap: 8px; align-items: center"><span class="kit-label">Rank by</span><span class="lb-seg" role="group" aria-label="Rank by"><span class="on">Quality</span><span>Speed</span><span>Cost</span></span><span class="lb-seg" role="group" aria-label="Show"><span class="on">All</span><span>Ours</span><span>In service</span></span></div>
+      </div>
+      <div class="lb-t" style="margin-top: 12px">
+        <span class="h"></span><span class="h">Model</span><span class="h">Whose</span><span class="h">State</span><span class="h">Word error rate · the dashed line is the bar, 8%: left of it is better</span><span class="h">Time for a 10-minute call</span><span class="h">Cost a call</span><span class="h">Used in</span>
+
+        <span class="n">1</span><span class="nm"><b>A vendor's speech service</b><small>Scored on the 400 public calls only: the rest may not leave the Enterprise</small></span><span><span class="lb-who out">Outside · vendor</span></span><span class="kit-muted">Reference</span>
+        <span class="lb-q"><b>6.1% ± 0.6</b><span class="lb-bar"><i class="out" style="width: 50.8%"></i><u></u></span></span><span class="n">31 s</span><span class="n">$[cost]</span><span class="kit-muted">Not in use</span>
+
+        <span class="n">2</span><span class="nm"><b>Speech recognition v6</b><small>TLM1 · live since March · every call runs through it</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></span>
+        <span class="lb-q"><b>6.8% ± 0.2</b><span class="lb-bar"><i style="width: 56.7%"></i><u></u></span></span><span class="n">12 s</span><span class="n">$[cost]</span><span>2 projects · 154k calls today</span>
+
+        <span class="n">3</span><span class="nm"><b>Speech recognition v5</b><small>TLM1 · replaced by v6</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span class="kit-muted">Retired</span>
+        <span class="lb-q"><b>7.6% ± 0.2</b><span class="lb-bar"><i class="old" style="width: 63.3%"></i><u></u></span></span><span class="n">14 s</span><span class="n">$[cost]</span><span class="kit-muted">None</span>
+
+        <span class="n">4</span><span class="nm"><b>Speech recognition v4</b><small>TLM1 · replaced by v5</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span class="kit-muted">Retired</span>
+        <span class="lb-q"><b>9.1% ± 0.2</b><span class="lb-bar"><i class="old" style="width: 75.8%"></i><u></u></span></span><span class="n">15 s</span><span class="n">$[cost]</span><span class="kit-muted">None</span>
+
+        <span class="n">5</span><span class="nm"><b>An open-source speech model, large</b><small>As it comes, run on ThinkLatent's machines</small></span><span><span class="lb-who out">Outside · open</span></span><span class="kit-muted">Reference</span>
+        <span class="lb-q"><b>9.4% ± 0.2</b><span class="lb-bar"><i class="out" style="width: 78.3%"></i><u></u></span></span><span class="n">26 s</span><span class="n">$[cost]</span><span class="kit-muted">Not in use</span>
+
+        <span class="n">6</span><span class="nm"><b>Speech recognition v3</b><small>TLM1 · the first version scored on this set</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span class="kit-muted">Retired</span>
+        <span class="lb-q"><b>11.2% ± 0.3</b><span class="lb-bar"><i class="old" style="width: 93.3%"></i><u></u></span></span><span class="n">15 s</span><span class="n">$[cost]</span><span class="kit-muted">None</span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">± is the interval. The vendor's wider interval comes from its smaller set. On those same 400 public calls, Speech recognition v6 scores 6.3% ± 0.6: the two cannot be told apart.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+      <div class="lb-box"><h4>What the ranking does not say</h4><div class="kit-small" style="margin-top: 6px; line-height: 1.55">The vendor's service ranks first on quality but is scored on a fifth of the calls, takes more than twice as long, and audio would have to leave the Enterprise. Rank by speed or cost and Speech recognition v6 is first.</div></div>
+      <div class="lb-box"><h4>By business line</h4><div class="kit-small" style="margin-top: 6px; line-height: 1.55">One number hides the spread. Speech recognition v6 is at 6.1% on Retail advice calls and 7.9% on Institutional calls, which is close to its bar of 8%. <a href="Model-Speech.dc.html">Open the model's page</a></div></div>
+      <div class="lb-box"><h4>Add a model to this board</h4><div class="kit-small" style="margin-top: 6px; line-height: 1.55">Ask for an outside model to be scored on the same calls. The ThinkLatent team runs it inside the Enterprise and adds the row. <a href="Requests-Status.dc.html">Ask ThinkLatent</a></div></div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1270}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
