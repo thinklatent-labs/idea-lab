@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TL Index · Head to head</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.hh-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.hh-h h3{margin:0;font-size:18px;font-weight:500}
+.hh-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.hh-k>a{display:flex;flex-direction:column;gap:6px;color:inherit;text-decoration:none}
+.hh-n{font-variant-numeric:tabular-nums;font-weight:500}
+.hh-t{display:grid;grid-template-columns:62px minmax(0,1.1fr) minmax(0,2.1fr) 86px 56px 96px;gap:0;font-size:13px;margin-top:10px;align-items:stretch}
+.hh-t>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.4}
+.hh-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.hh-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.hh-t b{font-weight:500;font-size:14px}
+.hh-ax{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+.hh-r{display:grid;grid-template-columns:86px minmax(0,1fr);gap:10px;align-items:center}
+.hh-tr{position:relative;height:16px}
+.hh-tr:before{content:"";position:absolute;left:0;right:0;top:7px;height:2px;background:rgba(26,26,26,.1)}
+.hh-tr .w{position:absolute;top:6px;height:4px;border-radius:2px;background:rgba(26,26,26,.45)}
+.hh-tr .d{position:absolute;top:2px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:rgba(26,26,26,.55);box-shadow:0 0 0 2px #fff}
+.hh-tr.tl .w{background:var(--companion)}.hh-tr.tl .d{background:var(--companion)}
+.hh-vote{border-radius:24px;background:#fff;box-shadow:0 0 0 1.5px var(--decision);padding:16px 18px}
+.hh-vote h3{margin:0;font-size:18px;font-weight:500}
+.hh-case{margin-top:10px;padding:10px 12px;border-radius:14px;background:rgba(26,26,26,.05);font-size:13.5px;line-height:1.5}
+.hh-ans{margin-top:8px;padding:10px 12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);font-size:13.5px;line-height:1.5}
+.hh-ans b{display:block;font-size:12px;font-weight:600;color:rgba(26,26,26,.6);margin-bottom:2px}
+.hh-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.hh-m{display:grid;grid-template-columns:150px repeat(7,minmax(0,1fr));gap:3px;font-size:12.5px;margin-top:10px;font-variant-numeric:tabular-nums}
+.hh-m .c{border-radius:8px;padding:8px 0;text-align:center}
+.hh-m .hd{font-size:11px;color:rgba(26,26,26,.62);text-align:center;padding:0 2px 4px;line-height:1.25}
+.hh-m .rw{padding:8px 8px 8px 0;font-size:12.5px}
+.hh-m .me{font-weight:600}
+.hh-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.hh-box h4{margin:0;font-size:15px;font-weight:500}
+.hh-box p{margin:6px 0 0;font-size:13px;line-height:1.5}
+.hh-l{display:grid;grid-template-columns:minmax(0,1fr) 70px;gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.hh-l>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1)}
+svg text{font-family:Inter,system-ui,sans-serif}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1650px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-current="page" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Index-Language.dc.html">← TL Index · Language</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Head to head <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Client care <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 820px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Head to head</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">On Client care, people cannot tell Vendor A · large from Domain-Advice v2</span><span class="kit-chip">Edition 2026-11</span></div>
+        <span class="kit-small kit-muted">What people prefer. Two answers to the same case, names hidden; a person picks the better one. The result is the Preference rating. It is shown beside the judge's score, never blended into it, and is never used as a threshold · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Start voting</a><a class="kit-btn outline" href="#">How the rating is made</a></div>
+    </div>
+
+    <div class="hh-k">
+      <a class="kit-surface" href="#"><span class="kit-caption">Votes this edition</span><span class="kit-display" style="font-size: 40px">3,470</span><span class="kit-small kit-muted">Blind votes on pairs since 3 Oct</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">People voting</span><span class="kit-display" style="font-size: 40px">214</span><span class="kit-small kit-muted">148 advisors in Retail advice · 66 Client care reviewers</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">People and the judge</span><span class="kit-display" style="font-size: 40px">Same order</span><span class="kit-small kit-muted">The two rank the seven models alike · the judge is kinder on tone</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Pillars with votes</span><span class="kit-display" style="font-size: 40px">1 of 5</span><span class="kit-small kit-muted">Client care · Summarization is next</span></a>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface raised" aria-label="Preference rating">
+        <div class="hh-h"><h3>Preference rating · Client care</h3><span class="kit-small kit-muted">The line is the interval · where two lines overlap, people cannot tell the two apart</span></div>
+        <div class="hh-t">
+          <span class="h">Rank</span><span class="h">Model</span><span class="h"><span class="hh-r"><span>Rating</span><span style="position: relative; display: block; height: 14px; font-variant-numeric: tabular-nums"><span style="position: absolute; left: 0">800</span><span style="position: absolute; left: 31.25%; transform: translateX(-50%)">900</span><span style="position: absolute; left: 62.5%; transform: translateX(-50%)">1,000</span><span style="position: absolute; left: 93.75%; transform: translateX(-50%)">1,100</span></span></span></span><span class="h">Picked, against the field</span><span class="h">Votes</span><span class="h">The judge, on Client care</span>
+
+          <span>1 to 3<small>a tie</small></span><span><b>Vendor A · large</b><small>Outside · vendor</small></span>
+          <span class="hh-r"><span class="hh-n">1,086 ± 21</span><div class="hh-tr" role="img" aria-label="1,086, interval 1,065 to 1,107"><i class="w" style="left: 82.8%; width: 13.1%"></i><i class="d" style="left: 89.4%"></i></div></span><span class="hh-n">61%</span><span class="hh-n">1,240</span><span class="hh-n">90 ± 2</span>
+
+          <span>1 to 3<small>a tie</small></span><span><b>Domain-Advice v2</b><small>ThinkLatent · TLM4</small></span>
+          <span class="hh-r"><span class="hh-n">1,071 ± 19</span><div class="hh-tr tl" role="img" aria-label="1,071, interval 1,052 to 1,090"><i class="w" style="left: 78.8%; width: 11.9%"></i><i class="d" style="left: 84.7%"></i></div></span><span class="hh-n">58%</span><span class="hh-n">1,310</span><span class="hh-n">87 ± 2</span>
+
+          <span>1 to 3<small>a tie</small></span><span><b>Vendor B · large</b><small>Outside · vendor</small></span>
+          <span class="hh-r"><span class="hh-n">1,064 ± 22</span><div class="hh-tr" role="img" aria-label="1,064, interval 1,042 to 1,086"><i class="w" style="left: 75.6%; width: 13.8%"></i><i class="d" style="left: 82.5%"></i></div></span><span class="hh-n">55%</span><span class="hh-n">890</span><span class="hh-n">88 ± 2</span>
+
+          <span>4 to 5<small>a tie</small></span><span><b>Core 4.2</b><small>ThinkLatent · TLM4</small></span>
+          <span class="hh-r"><span class="hh-n">1,002 ± 18</span><div class="hh-tr tl" role="img" aria-label="1,002, interval 984 to 1,020"><i class="w" style="left: 57.5%; width: 11.3%"></i><i class="d" style="left: 63.1%"></i></div></span><span class="hh-n">49%</span><span class="hh-n">1,180</span><span class="hh-n">82 ± 2</span>
+
+          <span>4 to 5<small>a tie</small></span><span><b>Open model · 70B</b><small>Outside · open, as it comes</small></span>
+          <span class="hh-r"><span class="hh-n">991 ± 20</span><div class="hh-tr" role="img" aria-label="991, interval 971 to 1,011"><i class="w" style="left: 53.4%; width: 12.5%"></i><i class="d" style="left: 59.7%"></i></div></span><span class="hh-n">47%</span><span class="hh-n">1,020</span><span class="hh-n">81 ± 2</span>
+
+          <span>6</span><span><b>Distil 4.2</b><small>ThinkLatent · TLM4</small></span>
+          <span class="hh-r"><span class="hh-n">912 ± 22</span><div class="hh-tr tl" role="img" aria-label="912, interval 890 to 934"><i class="w" style="left: 28.1%; width: 13.8%"></i><i class="d" style="left: 35%"></i></div></span><span class="hh-n">37%</span><span class="hh-n">760</span><span class="hh-n">74 ± 2</span>
+
+          <span>7</span><span><b>Core 3.4</b><small>ThinkLatent · TLM3 · retiring</small></span>
+          <span class="hh-r"><span class="hh-n">855 ± 26</span><div class="hh-tr tl" role="img" aria-label="855, interval 829 to 881"><i class="w" style="left: 9.1%; width: 16.3%"></i><i class="d" style="left: 17.2%"></i></div></span><span class="hh-n">30%</span><span class="hh-n">540</span><span class="hh-n">68 ± 2</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">People and the judge put the seven in the same order. The judge is kinder on tone, by about 5 points (finding F-0421). Until that is corrected, people are the check on Client care. Two more models on the Index have no votes yet.</div>
+      </section>
+
+      <div class="hh-vote" aria-label="Vote on a pair">
+        <div class="hh-h"><h3>Vote on a pair</h3><span class="kit-small kit-muted">Pair 4 of 20 today</span></div>
+        <div class="kit-small kit-muted" style="margin-top: 2px">The names stay hidden until you vote. The cases are made up and held back; nothing from production appears here.</div>
+        <div class="hh-case"><b style="display: block; font-size: 12px; font-weight: 600; color: rgba(26,26,26,.6); margin-bottom: 2px">The client's case</b>A client asks why their quarterly statement shows a lower balance after a fund paid a distribution, and whether they lost money.</div>
+        <div class="hh-ans"><b>Answer A</b>Explains that the price fell by the amount paid out, that the payment was put back in as new shares, and that the total is unchanged. Offers to go through the statement line by line.</div>
+        <div class="hh-ans"><b>Answer B</b>Says that paying out lowers the share price and that this is normal. Does not say whether the payment was put back in or paid as cash, and ends with a general remark on the market.</div>
+        <div class="hh-btns"><a class="kit-btn" href="#">A is better</a><a class="kit-btn" href="#">B is better</a><a class="kit-btn outline" href="#">A tie</a><a class="kit-btn outline" href="#">Both fall short</a><a class="kit-btn outline" href="#">Skip</a></div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">A vote counts once for a pair and is never shown with your name. Up to 20 pairs a day. You have voted on 41 pairs this edition.</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Who beats whom">
+        <div class="hh-h"><h3>Who is picked over whom</h3><span class="kit-small kit-muted">How often the model in the row was picked over the model in the column · darker is more often</span></div>
+        <div class="hh-m">
+          <span></span><span class="hd">Vendor A large</span><span class="hd">Domain-Advice v2</span><span class="hd">Vendor B large</span><span class="hd">Core 4.2</span><span class="hd">Open 70B</span><span class="hd">Distil 4.2</span><span class="hd">Core 3.4</span>
+
+          <span class="rw">Vendor A · large</span><span class="c kit-muted">—</span><span class="c" style="background: rgba(49,122,71,.14)">52%</span><span class="c" style="background: rgba(49,122,71,.15)">53%</span><span class="c" style="background: rgba(49,122,71,.3)">62%</span><span class="c" style="background: rgba(49,122,71,.32)">63%</span><span class="c" style="background: rgba(49,122,71,.5)">73%</span><span class="c" style="background: rgba(49,122,71,.62)">79%</span>
+          <span class="rw me">Domain-Advice v2</span><span class="c" style="background: rgba(49,122,71,.08)">48%</span><span class="c kit-muted">—</span><span class="c" style="background: rgba(49,122,71,.12)">51%</span><span class="c" style="background: rgba(49,122,71,.24)">58%</span><span class="c" style="background: rgba(49,122,71,.26)">59%</span><span class="c" style="background: rgba(49,122,71,.42)">68%</span><span class="c" style="background: rgba(49,122,71,.54)">75%</span>
+          <span class="rw">Vendor B · large</span><span class="c" style="background: rgba(49,122,71,.07)">47%</span><span class="c" style="background: rgba(49,122,71,.09)">49%</span><span class="c kit-muted">—</span><span class="c" style="background: rgba(49,122,71,.26)">59%</span><span class="c" style="background: rgba(49,122,71,.28)">60%</span><span class="c" style="background: rgba(49,122,71,.46)">70%</span><span class="c" style="background: rgba(49,122,71,.58)">77%</span>
+          <span class="rw">Core 4.2</span><span class="c">38%</span><span class="c">42%</span><span class="c">41%</span><span class="c kit-muted">—</span><span class="c" style="background: rgba(49,122,71,.13)">52%</span><span class="c" style="background: rgba(49,122,71,.32)">63%</span><span class="c" style="background: rgba(49,122,71,.46)">70%</span>
+          <span class="rw">Open model · 70B</span><span class="c">37%</span><span class="c">41%</span><span class="c">40%</span><span class="c" style="background: rgba(49,122,71,.08)">48%</span><span class="c kit-muted">—</span><span class="c" style="background: rgba(49,122,71,.29)">61%</span><span class="c" style="background: rgba(49,122,71,.44)">69%</span>
+          <span class="rw">Distil 4.2</span><span class="c">27%</span><span class="c">32%</span><span class="c">30%</span><span class="c">37%</span><span class="c">39%</span><span class="c kit-muted">—</span><span class="c" style="background: rgba(49,122,71,.24)">58%</span>
+          <span class="rw">Core 3.4</span><span class="c">21%</span><span class="c">25%</span><span class="c">23%</span><span class="c">30%</span><span class="c">31%</span><span class="c">42%</span><span class="c kit-muted">—</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">A cell opens the pairs behind it. Domain-Advice v2 is picked over Core 4.2, the model it was built from, 58 times in 100: that is what training on the Enterprise's advice conversations is worth to a person reading the answer.</div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div class="hh-box"><h4>How the rating is made</h4>
+          <p>Every pair is used at once to place the models on one scale. A longer or smoother answer gets no credit for that alone. The interval says how far the rating would move with other voters.</p>
+          <p class="kit-small kit-muted">A pair needs 50 votes before it counts. Vendor B · large against Core 3.4 has 31, the thinnest.</p></div>
+        <div class="hh-box"><h4>Who votes</h4>
+          <div class="hh-l">
+            <span>Advisors, Retail advice</span><span class="hh-n">148</span>
+            <span>Client care reviewers</span><span class="hh-n">66</span>
+            <span>Voted this week</span><span class="hh-n">97</span>
+          </div>
+          <p class="kit-small kit-muted">Voters are people who handle such cases. Anyone at the Enterprise can ask to join.</p></div>
+        <div class="hh-box"><h4>What comes next</h4>
+          <p>Summarization joins in the next phase. Front-end generation is with the pillar council. The other pillars have right answers and are left to the judge.</p></div>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1650}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
