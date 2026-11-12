@@ -64,7 +64,7 @@ code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;ba
 .cn-st b{display:block;font-weight:500;font-size:14px;margin-bottom:2px}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2790px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2810px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -97,7 +97,7 @@ code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;ba
     <div class="kit-page-head">
       <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Connect</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">3 of 3 features calling</span><span class="kit-chip">Registered for Pilot and Production</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">18 calls refused today</span></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">3 of 3 features calling</span><span class="kit-chip">Registered in both environments</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">18 calls refused today</span></div>
         <span class="kit-small kit-muted">What the application needs to call the models, and whether its calls arrive as they should. For whoever connects the application; on this project that is Lena W. · As of 11:58 ET · sample data</span>
       </div>
       <div class="kit-actions"><a class="kit-btn" href="#">Send a test call</a><a class="kit-btn outline" href="Jarvis-Ask.dc.html">Ask Jarvis how to connect</a></div>
@@ -116,7 +116,7 @@ code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;ba
     </div>
 
     <section class="kit-surface raised" aria-label="How to call each feature">
-      <div class="cn-h"><h3>Call it</h3><span class="kit-small kit-muted">Pick a feature and the sample fills in its names · an endpoint is one model; the application puts the steps together</span></div>
+      <div class="cn-h"><h3>Call it</h3><span class="kit-small kit-muted">Pick a feature and the sample fills in its names · one feature, one endpoint, however many models work together behind it</span></div>
       <div class="cn-call">
         <div style="display: flex; flex-direction: column; gap: 10px">
           <div class="cn-f on">
@@ -132,9 +132,9 @@ code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;ba
           <div class="cn-f">
             <div class="top"><b>Next best action</b><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">Pilot</span></div>
             <dl>
-              <dt>Endpoints</dt><dd><code>embedding-v2</code> then <code>decision-adapter-v1</code> then <code>advisor-desktop-prod</code></dd>
+              <dt>Endpoint</dt><dd><code>advisor-desktop-nba</code> · your own</dd>
               <dt>Feature id</dt><dd><code>next-best-action</code></dd>
-              <dt>Each request</dt><dd>Three calls, in that order; the application hands each answer to the next</dd>
+              <dt>Each request</dt><dd>One call. Behind it three models work as one: Embedding finds, the Decision adapter picks, Domain-Advice words it · <a href="Project-Features.dc.html">what is inside</a></dd>
               <dt>Today</dt><dd>5k requests · the latest at 11:57:52</dd>
             </dl>
           </div>
@@ -170,7 +170,7 @@ answer = relay.chat.completions.create(
 <span class="c"># afterwards, so the feature is judged on what happened</span>
 relay.feedback.create(request=answer.id, thumb=<span class="s">"down"</span>, reason=<span class="s">"missed an action"</span>)
 relay.outcomes.create(session=call_id, outcome=<span class="s">"follow-up booked"</span>)</pre>
-          <div class="kit-small kit-muted" style="margin-top: 8px">The shape of a call, in the OpenAI style the Relay package follows. The exact field names are still to be confirmed with ThinkLatent AI engineering. In the lower environment two things change: the model's name stands in for the endpoint, and the package is given a key.</div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">The shape of a call, in the OpenAI style the Relay package follows. The exact field names are still to be confirmed with ThinkLatent AI engineering. In the lower environment one thing changes: the model's name stands in for the endpoint.</div>
           <div class="cn-in" style="margin-top: 12px">
             <div class="cn-h"><h4>What comes back</h4><span class="kit-small kit-muted">The same request, as it arrived at 11:58:07 · <a href="Project-Traces.dc.html">open it in Traces</a></span></div>
             <dl style="grid-template-columns: 96px minmax(0, 1fr) 96px minmax(0, 1fr)">
@@ -207,27 +207,25 @@ relay.outcomes.create(session=call_id, outcome=<span class="s">"follow-up booked
       <div style="display: flex; flex-direction: column; gap: 12px">
         <section class="kit-surface" aria-label="Getting in">
           <div class="cn-h"><h3>Getting in</h3><span class="kit-small kit-muted">How the application proves who it is</span></div>
+          <div class="kit-small kit-muted" style="margin-top: 6px">The application is registered and signs in through Okta, in both environments. There are no keys. Registration is done outside the portal, in a process of its own; this page shows where it stands.</div>
           <div class="cn-in" style="margin-top: 12px">
             <div class="cn-h"><h4>Pilot and Production</h4><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Registered</span></span></div>
-            <div class="kit-small kit-muted" style="margin-top: 4px">The application is registered and signs in through Okta. There is no key. This is done outside the portal, in a process of its own; the portal shows where it stands.</div>
             <div class="cn-ck">
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Application registered<small><code>advisor-desktop</code> · 11 Aug, before the first Pilot</small></span>
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Signs in through Okta<small>The latest sign-in was today at 11:41</small></span>
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Allowed to call three endpoints<small><code>advisor-desktop-prod</code> <code>embedding-v2</code> <code>decision-adapter-v1</code></small></span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Allowed to call two endpoints<small><code>advisor-desktop-prod</code> <code>advisor-desktop-nba</code></small></span>
             </div>
-            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 12px"><span class="kit-chip env">Planned</span><span class="kit-small kit-muted">Registration started from here, as a step of onboarding a project.</span></div>
           </div>
           <div class="cn-in" style="margin-top: 10px">
-            <div class="cn-h"><h4>Lower environment</h4><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Key in use</span></span></div>
-            <div class="kit-small kit-muted" style="margin-top: 4px">For Build and test. A Relay key from ThinkLatent AI engineering reaches the shared test endpoints, and never production data.</div>
-            <dl>
-              <dt>Key</dt><dd><code>rk-low-••••-4f2a</code> · shown once; the portal keeps the last four characters</dd>
-              <dt>Issued</dt><dd>6 Aug, to Lena W., by Arjun K.</dd>
-              <dt>Last used</dt><dd>Today at 11:52 · 140 requests</dd>
-            </dl>
-            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn outline sm" href="#">Ask for a new key</a><a class="kit-btn outline sm" href="Help-Page.dc.html">Ask AI engineering</a></div>
+            <div class="cn-h"><h4>Lower environment</h4><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Registered</span></span></div>
+            <div class="cn-ck">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Application registered<small><code>advisor-desktop-test</code> · 6 Aug, for Build and test</small></span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Signs in through Okta<small>The latest sign-in was today at 11:52</small></span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Allowed to call the shared test endpoints<small>By the model's name · used today: <code>speech-recognition-v6</code></small></span>
+            </div>
           </div>
-          <div class="kit-small kit-muted" style="margin-top: 12px">People are a different matter: who may read production traces is granted in IAM. <a href="Project-Members.dc.html">Open Members</a></div>
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 12px"><span class="kit-chip env">Planned</span><span class="kit-small kit-muted">Registration started from here, as a step of onboarding a project.</span></div>
+          <div class="kit-small kit-muted" style="margin-top: 10px">People are a different matter: who may read production traces is granted in IAM. <a href="Project-Members.dc.html">Open Members</a> · Stuck? <a href="Help-Page.dc.html">Ask AI engineering</a></div>
         </section>
       </div>
     </div>
@@ -237,7 +235,7 @@ relay.outcomes.create(session=call_id, outcome=<span class="s">"follow-up booked
         <div class="cn-h"><h3>Did it land</h3><span class="kit-small kit-muted">The latest from each place</span></div>
         <div class="cn-l">
           <span class="d">11:58:07</span><span>Call summary · Production<small>Answered in 1.74 s · 4,210 tokens in, 312 out</small></span><a href="Project-Traces.dc.html">Open</a>
-          <span class="d">11:57:52</span><span>Next best action · Pilot<small>Three calls, 0.92 s in all</small></span><a href="Project-Traces.dc.html">Open</a>
+          <span class="d">11:57:52</span><span>Next best action · Pilot<small>Answered in 0.92 s · three models behind one endpoint</small></span><a href="Project-Traces.dc.html">Open</a>
           <span class="d">11:52:40</span><span>Speech to text · lower environment<small>Answered · a test request</small></span><a href="Project-Traces.dc.html">Open</a>
           <span class="d">11:31:09</span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Refused</span></span> · lower environment<small>Feature "nba" is not in this project. Did you mean <code>next-best-action</code>?</small></span><a href="#">See all 18</a>
         </div>
@@ -249,11 +247,8 @@ relay.outcomes.create(session=call_id, outcome=<span class="s">"follow-up booked
         <div class="cn-lim"><b>Shared test endpoints</b> · a fair share for each project
           <div class="bar" role="img" aria-label="22 of 60 requests a minute at the busiest"><i style="width: 37%"></i></div>
           <small>60 requests and 200k tokens a minute. Your busiest minute today: 22 requests, 61k tokens. None turned away.</small></div>
-        <div class="cn-lim"><b>Shared endpoints in Pilot and Production</b> · Embedding, Decision adapter
-          <div class="bar" role="img" aria-label="41 of 300 requests a minute at the busiest"><i style="width: 14%"></i></div>
-          <small>300 requests a minute for this project. Busiest minute today: 41.</small></div>
-        <div class="cn-lim"><b>Your own endpoint</b> · <code>advisor-desktop-prod</code>
-          <small style="margin-top: 6px">No limit of this kind: the machines are reserved for you. What counts is room. 3 replicas, 91% busy at the peak, 9% to spare. <a href="Project-Operations.dc.html">Open Operations</a></small></div>
+        <div class="cn-lim"><b>Your own endpoints</b> · <code>advisor-desktop-prod</code> <code>advisor-desktop-nba</code>
+          <small style="margin-top: 6px">No limit of this kind: the machines are reserved for you. What counts is room. Call summary runs on 3 replicas, 91% busy at the peak, with 9% to spare. <a href="Project-Operations.dc.html">Open Operations</a></small></div>
       </section>
 
       <section class="kit-surface" aria-label="When a call does not come back as hoped">
@@ -275,12 +270,12 @@ relay.outcomes.create(session=call_id, outcome=<span class="s">"follow-up booked
         <div><b>The endpoint's name stays</b>You call <code>advisor-desktop-prod</code> whichever version of the model is behind it.</div>
         <a href="Project-NewVersion.dc.html"><b>A version changes only by an increment</b>Version 3 is due 21 Nov. It reaches your endpoint when you agree to the switch, with your own results already run.</a>
         <div><b>The old version waits 90 days</b>Going back needs no change in your application.</div>
-        <a href="Project-Features.dc.html"><b>A new feature gets a new feature id</b>It is made when the feature is added to the project. Until then a call using it is refused.</a>
+        <a href="Project-Features.dc.html"><b>A new feature gets its own id and endpoint</b>Both are made when the feature is added to the project. However many models work together behind it, you call one.</a>
       </div></div>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2790}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2810}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
