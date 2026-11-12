@@ -26,7 +26,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .cat-score .kit-num{min-width:58px}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2420px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2560px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -57,11 +57,11 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     <div class="kit-page-head">
       <div style="display: flex; flex-direction: column; gap: 8px">
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Models</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">9 live</span><span class="kit-chip">11 models</span><span class="kit-chip">6 kinds</span><span class="kit-chip">5 generations</span></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">8 live</span><span class="kit-chip">11 models</span><span class="kit-chip">7 kinds</span><span class="kit-chip">5 generations</span></div>
         <span class="kit-small kit-muted">Every model ThinkLatent runs for the Enterprise. Generation first, kinds inside, one row a model · As of 11:58 ET · sample data</span>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end">
-        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Tokens processed today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">2.3B <span style="font-size: 18px">in</span> <span aria-hidden="true" style="font-size: 24px">→</span> 208M <span style="font-size: 18px">out</span></span><span class="kit-small kit-muted">Across 9 live models · TLM1 carries 91% of it</span></div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Tokens processed today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">2.3B <span style="font-size: 18px">in</span> <span aria-hidden="true" style="font-size: 24px">→</span> 208M <span style="font-size: 18px">out</span></span><span class="kit-small kit-muted">Across 8 live models · TLM1 carries 91% of it</span></div>
         <div class="kit-actions"><a class="kit-btn" href="#">Find a model for a task</a><a class="kit-btn outline" href="#">Compare models</a></div>
       </div>
     </div>
@@ -71,28 +71,52 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px" role="group" aria-label="Generations">
-      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">TLM5 · next</span><span class="kit-display" style="font-size: 28px; line-height: 44px">In development</span><span class="kit-small kit-muted">Planned for March 2027</span><span class="kit-small kit-muted">Nothing to use yet</span></a>
-      <a class="kit-surface raised" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">TLM4 · current</span><span class="kit-display" style="font-size: 40px">5 <span style="font-size: 18px">live</span></span><span class="kit-small kit-num">211M in → 15.6M out</span><span class="kit-small kit-muted">1 candidate · 1 in training</span></a>
-      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">TLM3 · previous</span><span class="kit-display" style="font-size: 40px">1 <span style="font-size: 18px">live</span></span><span class="kit-small kit-num">6M in → 0.5M out</span><span class="kit-small kit-muted">Retiring</span></a>
-      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">TLM2</span><span class="kit-display" style="font-size: 40px">0 <span style="font-size: 18px">live</span></span><span class="kit-small kit-muted">No model in service today</span><span class="kit-small kit-muted">Past models are under Retired</span></a>
-      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">TLM1 · task models</span><span class="kit-display" style="font-size: 40px">3 <span style="font-size: 18px">live</span></span><span class="kit-small kit-num">2.1B in → 192M out</span><span class="kit-small kit-muted">2 in Pilot · every call runs through it</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">TLM5 · next</span><span class="kit-display" style="font-size: 28px; line-height: 44px">In development</span><span class="kit-small kit-muted">A large world model</span><span class="kit-small kit-muted">Planned for March 2027</span></a>
+      <a class="kit-surface raised" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">TLM4 · current language models</span><span class="kit-display" style="font-size: 40px">3 <span style="font-size: 18px">live</span></span><span class="kit-small kit-num">194M in → 15.1M out</span><span class="kit-small kit-muted">Core, Distil, Domain, Decision</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">TLM3 · language, previous</span><span class="kit-display" style="font-size: 40px">1 <span style="font-size: 18px">live</span></span><span class="kit-small kit-num">6M in → 0.5M out</span><span class="kit-small kit-muted">Retiring</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">TLM2 · language, first</span><span class="kit-display" style="font-size: 40px">0 <span style="font-size: 18px">live</span></span><span class="kit-small kit-muted">Replaced by TLM3</span><span class="kit-small kit-muted">Its models are under Retired</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">TLM1 · task models</span><span class="kit-display" style="font-size: 40px">4 <span style="font-size: 18px">live</span></span><span class="kit-small kit-num">2.1B in → 192M out</span><span class="kit-small kit-muted">2 in Pilot · every call runs through it</span></a>
     </div>
 
     <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
       <div style="display: flex; gap: 10px; align-items: center"><span class="kit-label">Group by</span><div class="kit-seg" role="group" aria-label="Group by"><button type="button" aria-pressed="true">Generation</button><button type="button" aria-pressed="false">Kind</button></div></div>
-      <div style="display: flex; gap: 10px; align-items: center"><span class="kit-label">Show</span><div class="kit-seg" role="group" aria-label="Show"><button type="button" aria-pressed="true">All 11</button><button type="button" aria-pressed="false">Live 9</button><button type="button" aria-pressed="false">In Pilot 2</button><button type="button" aria-pressed="false">Under its bar 1</button></div></div>
+      <div style="display: flex; gap: 10px; align-items: center"><span class="kit-label">Show</span><div class="kit-seg" role="group" aria-label="Show"><button type="button" aria-pressed="true">All 11</button><button type="button" aria-pressed="false">Live 8</button><button type="button" aria-pressed="false">In Pilot 3</button><button type="button" aria-pressed="false">Under its bar 1</button></div></div>
     </div>
 
     <section class="kit-surface" aria-label="TLM5" style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
-      <div class="kit-section-title" style="margin: 0; flex: 1"><h2>TLM5 · next generation</h2><span class="sub">In development · planned for March 2027 · nothing to use yet</span></div>
+      <div class="kit-section-title" style="margin: 0; flex: 1"><h2>TLM5 · large world model</h2><span class="sub">Anticipates where an interaction is heading · a new base, in development · planned for March 2027</span></div>
       <a class="kit-btn outline" href="#">See what is planned</a>
     </section>
 
     <section class="kit-surface" aria-label="TLM4">
-      <div class="kit-section-title" style="margin-top: 0"><h2>TLM4 · current generation</h2><span class="sub">5 live models · tokens today 211M in → 15.6M out · every row opens the model's page</span></div>
+      <div class="kit-section-title" style="margin-top: 0"><h2>TLM4 · current language models</h2><span class="sub">On a new open-source base · 3 live, 1 in Pilot · tokens today 194M in → 15.1M out · every row opens the model's page</span></div>
       <div class="cat-cols kit-label" style="padding: 14px 14px 0"><span>Model</span><span>Version and state</span><span>Score on its own measure</span><span>Used in</span><span>Calls today</span><span>Tokens today</span></div>
 
-      <div class="cat-kind"><span class="kit-label">Language</span><span class="kit-small kit-muted">Scored on the TL Index, edition 2026-11 · the dashed line is the Frontier API at 87</span></div>
+      <div class="cat-kind"><span class="kit-label">Core</span><span class="kit-small kit-muted">The base, tuned on the Enterprise's data · scored on the TL Index, edition 2026-11 · the dashed line is the Frontier API at 87</span></div>
+      <div class="kit-rows">
+        <a class="kit-row cat-cols" href="#" style="color: inherit; text-decoration: none">
+          <div><div class="t">Core</div><div class="s">Two sizes, 27B and 7B · the domain and decision models are built on it</div></div>
+          <div><span class="kit-chip brand">Live</span><div class="s" style="margin-top: 4px">Version 4.2</div></div>
+          <div><div class="cat-score"><span class="kit-num">81 ± 1</span><span class="cat-mark" role="img" aria-label="81, interval 80 to 82. The Frontier API scores 87."><span class="ln"></span><span class="iv" style="left: 66.7%; width: 6.7%"></span><span class="pt" style="left: 70%"></span><span class="bar" style="left: 90%"></span></span></div></div>
+          <div class="kit-small">2 projects · 2 features</div>
+          <div class="kit-num">8k</div>
+          <div class="kit-num">24M in · 3.2M out</div>
+        </a>
+      </div>
+
+      <div class="cat-kind"><span class="kit-label">Distil</span><span class="kit-small kit-muted">The open-source model as it comes, taught by Core · the lower-cost path · scored on the TL Index</span></div>
+      <div class="kit-rows">
+        <a class="kit-row cat-cols" href="#" style="color: inherit; text-decoration: none">
+          <div><div class="t">Distil</div><div class="s">Small and fast, for high volume</div></div>
+          <div><span class="kit-chip brand">Live</span><div class="s" style="margin-top: 4px">Version 4.2</div></div>
+          <div><div class="cat-score"><span class="kit-num">72 ± 1</span><span class="cat-mark" role="img" aria-label="72, interval 71 to 73. The Frontier API scores 87."><span class="ln"></span><span class="iv" style="left: 36.7%; width: 6.7%"></span><span class="pt" style="left: 40%"></span><span class="bar" style="left: 90%"></span></span></div><span class="kit-status critical" style="margin-top: 4px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Claims triage is under its bar · F-0425</span></span></div>
+          <div class="kit-small">2 projects · 2 features</div>
+          <div class="kit-num">19k</div>
+          <div class="kit-num">40M in · 2.3M out</div>
+        </a>
+      </div>
+
+      <div class="cat-kind"><span class="kit-label">Domain</span><span class="kit-small kit-muted">Built on Core for one business domain with several uses · scored on the TL Index · coming: Compliance, Judge, Cybersecurity</span></div>
       <div class="kit-rows">
         <a class="kit-row cat-cols" href="Model-Page.dc.html" style="color: inherit; text-decoration: none">
           <div><div class="t">Domain-Advice</div><div class="s">Advice conversations · built on Core 4.2</div></div>
@@ -102,47 +126,23 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div class="kit-num">31k</div>
           <div class="kit-num">130M in · 9.6M out</div>
         </a>
-        <a class="kit-row cat-cols" href="#" style="color: inherit; text-decoration: none">
-          <div><div class="t">Core</div><div class="s">The general model · the base the domain models are built on</div></div>
-          <div><span class="kit-chip brand">Live</span><div class="s" style="margin-top: 4px">Version 4.2</div></div>
-          <div><div class="cat-score"><span class="kit-num">81 ± 1</span><span class="cat-mark" role="img" aria-label="81, interval 80 to 82. The Frontier API scores 87."><span class="ln"></span><span class="iv" style="left: 66.7%; width: 6.7%"></span><span class="pt" style="left: 70%"></span><span class="bar" style="left: 90%"></span></span></div></div>
-          <div class="kit-small">2 projects · 2 features</div>
-          <div class="kit-num">8k</div>
-          <div class="kit-num">24M in · 3.2M out</div>
-        </a>
-        <a class="kit-row cat-cols" href="#" style="color: inherit; text-decoration: none">
-          <div><div class="t">Distil</div><div class="s">Small and fast, for high volume</div></div>
-          <div><span class="kit-chip brand">Live</span><div class="s" style="margin-top: 4px">Version 4.2</div></div>
-          <div><div class="cat-score"><span class="kit-num">72 ± 1</span><span class="cat-mark" role="img" aria-label="72, interval 71 to 73. The Frontier API scores 87."><span class="ln"></span><span class="iv" style="left: 36.7%; width: 6.7%"></span><span class="pt" style="left: 40%"></span><span class="bar" style="left: 90%"></span></span></div></div>
-          <div class="kit-small">2 projects · 2 features</div>
-          <div class="kit-num">19k</div>
-          <div class="kit-num">40M in · 2.3M out</div>
-        </a>
-        <a class="kit-row cat-cols" href="#" style="color: inherit; text-decoration: none">
-          <div><div class="t">Claims adapter</div><div class="s">Claims triage · an adapter on Distil</div></div>
-          <div><span class="kit-chip brand">Live</span><div class="s" style="margin-top: 4px">Version 2 · v3 in training from feedback</div></div>
-          <div><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Under its bar on Claims triage</span></span><div class="s" style="margin-top: 4px">Finding F-0425 · scored on its feature, not on the Index</div></div>
-          <div class="kit-small">1 project · 1 feature</div>
-          <div class="kit-num">3k</div>
-          <div class="kit-num">9M in · 0.4M out</div>
-        </a>
       </div>
 
-      <div class="cat-kind"><span class="kit-label">Guardrail</span><span class="kit-small kit-muted">Measured by unsafe answers caught · the dashed line is its bar</span></div>
+      <div class="cat-kind"><span class="kit-label">Decision</span><span class="kit-small kit-muted">Returns a choice, a score or a route, not text · measured by how often the choice is right · the dashed line is its bar</span></div>
       <div class="kit-rows">
         <a class="kit-row cat-cols" href="#" style="color: inherit; text-decoration: none">
-          <div><div class="t">Guardrail</div><div class="s">Checks every answer in the background</div></div>
-          <div><span class="kit-chip brand">Live</span><div class="s" style="margin-top: 4px">Version 1</div></div>
-          <div><div class="cat-score"><span class="kit-num">97.4%</span><span class="cat-mark" role="img" aria-label="97.4 percent caught, over its bar of 95 percent"><span class="ln"></span><span class="pt" style="left: 66%"></span><span class="bar" style="left: 50%"></span></span></div><div class="s">Bar: 95% caught</div></div>
+          <div><div class="t">Decision adapter</div><div class="s">Yes or no, one of a few options, or a route · on the small Core</div></div>
+          <div><span class="kit-chip outline">Pilot</span><div class="s" style="margin-top: 4px">Version 1</div></div>
+          <div><div class="cat-score"><span class="kit-num">94%</span><span class="cat-mark" role="img" aria-label="94 percent right, over its bar of 92 percent"><span class="ln"></span><span class="pt" style="left: 62%"></span><span class="bar" style="left: 50%"></span></span></div><div class="s">Bar: 92% right, answered in under 50 ms</div></div>
           <div class="kit-small">1 project · 1 feature</div>
-          <div class="kit-num">26k</div>
-          <div class="kit-num">8M in · 0.1M out</div>
+          <div class="kit-num">5k</div>
+          <div class="kit-num">2M in · labels out</div>
         </a>
       </div>
     </section>
 
     <section class="kit-surface" aria-label="TLM3">
-      <div class="kit-section-title" style="margin-top: 0"><h2>TLM3 · previous generation</h2><span class="sub">1 live model, retiring · tokens today 6M in → 0.5M out</span></div>
+      <div class="kit-section-title" style="margin-top: 0"><h2>TLM3 · language, previous generation</h2><span class="sub">TLM2 made smaller and faster · 1 live model, retiring · tokens today 6M in → 0.5M out</span></div>
       <div class="cat-kind"><span class="kit-label">Language</span><span class="kit-small kit-muted">Scored on the TL Index, edition 2026-11</span></div>
       <div class="kit-rows">
         <a class="kit-row cat-cols" href="#" style="color: inherit; text-decoration: none">
@@ -157,12 +157,12 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     </section>
 
     <section class="kit-surface" aria-label="TLM2" style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
-      <div class="kit-section-title" style="margin: 0; flex: 1"><h2>TLM2</h2><span class="sub">No model in service today · what it held is still to be written in</span></div>
+      <div class="kit-section-title" style="margin: 0; flex: 1"><h2>TLM2 · language, first generation</h2><span class="sub">The first language model built in-house · replaced by TLM3 · no model in service today</span></div>
       <a class="kit-btn outline" href="#">Open Retired</a>
     </section>
 
     <section class="kit-surface" aria-label="TLM1">
-      <div class="kit-section-title" style="margin-top: 0"><h2>TLM1 · task models</h2><span class="sub">Not language models: each does one job · 3 live, 2 in Pilot · tokens today 2.1B in → 192M out</span></div>
+      <div class="kit-section-title" style="margin-top: 0"><h2>TLM1 · task models</h2><span class="sub">From before language models: each does one job · 4 live, 2 in Pilot · tokens today 2.1B in → 192M out</span></div>
       <div class="cat-cols kit-label" style="padding: 14px 14px 0"><span>Model</span><span>Version and state</span><span>Score on its own measure</span><span>Used in</span><span>Calls today</span><span>Tokens today</span></div>
 
       <div class="cat-kind"><span class="kit-label">Speech</span><span class="kit-small kit-muted">Measured by word error rate, lower is better · the dashed line is its bar, right of it is better</span></div>
@@ -194,6 +194,18 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div class="kit-small">1 project · 1 feature</div>
           <div class="kit-num">154k</div>
           <div class="kit-num">96M in · 0.3M out</div>
+        </a>
+      </div>
+
+      <div class="cat-kind"><span class="kit-label">Guardrail</span><span class="kit-small kit-muted">Measured by unsafe answers caught · the dashed line is its bar</span></div>
+      <div class="kit-rows">
+        <a class="kit-row cat-cols" href="#" style="color: inherit; text-decoration: none">
+          <div><div class="t">Guardrail</div><div class="s">Checks every answer in the background</div></div>
+          <div><span class="kit-chip brand">Live</span><div class="s" style="margin-top: 4px">Version 2</div></div>
+          <div><div class="cat-score"><span class="kit-num">97.4%</span><span class="cat-mark" role="img" aria-label="97.4 percent caught, over its bar of 95 percent"><span class="ln"></span><span class="pt" style="left: 66%"></span><span class="bar" style="left: 50%"></span></span></div><div class="s">Bar: 95% caught</div></div>
+          <div class="kit-small">1 project · 1 feature</div>
+          <div class="kit-num">26k</div>
+          <div class="kit-num">8M in · 0.1M out</div>
         </a>
       </div>
 
@@ -229,7 +241,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2420}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2560}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
