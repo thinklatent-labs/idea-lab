@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>An incident in a project · what happened, who acted, and the review</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.ic-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ic-h h3{margin:0;font-size:18px;font-weight:500}
+.ic-tl{display:grid;grid-template-columns:62px 104px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45;margin-top:12px}
+.ic-tl>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ic-tl .d{font-size:12px;color:rgba(26,26,26,.65);font-variant-numeric:tabular-nums}
+.ic-tl .w{font-size:12.5px;color:rgba(26,26,26,.75)}
+.ic-tl small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ic-tl .k{box-shadow:inset 3px 0 0 var(--decision);padding-left:10px}
+.ic-rv h4{margin:14px 0 3px;font-size:14px;font-weight:500}
+.ic-rv p{margin:0;font-size:13px;line-height:1.5}
+.ic-kv{display:grid;grid-template-columns:118px minmax(0,1fr);gap:7px 12px;font-size:13px;line-height:1.45;margin:10px 0 0}
+.ic-kv dt{color:rgba(26,26,26,.6)}.ic-kv dd{margin:0}
+.ic-ch text{font:11px Inter,system-ui,sans-serif;fill:rgba(26,26,26,.65)}
+.ic-ch .ok{fill:var(--companion)}
+.ic-ch .no{fill:url(#ic-hatch)}
+.ic-lg{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:12px;color:rgba(26,26,26,.7);margin-top:6px}
+.ic-lg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1460px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Organization-Page.dc.html">Retail Business <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Team-Page.dc.html">Advice Tech <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn" href="Project-Page.dc.html">Advisor desktop <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Feature-Page.dc.html">Call summary <span aria-hidden="true">▾</span></a>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <span class="kit-caption">Incident · Tuesday 20 October, 10:42 to 10:53 ET</span>
+        <h1 style="margin: 0; font-size: 36px; font-weight: 400; letter-spacing: -0.02em">Call summary did not answer for 11 minutes</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">Closed</span><span class="kit-chip brand">Review signed 23 Oct</span><span class="kit-chip">INC-20417, in the Enterprise's incident tool</span><span class="kit-chip">Fired by a service level: up and answering</span></div>
+        <span class="kit-small kit-muted">ThinkLatent's on-call acted, and the project was told at each step. The record is kept in the Enterprise's incident tool; this page adds what the portal itself saw · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Open INC-20417</a><a class="kit-btn outline" href="Jarvis-Ask.dc.html">Ask Jarvis about it</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <a role="tab" aria-selected="false" href="Project-Page.dc.html">Overview</a><a role="tab" aria-selected="false" href="Project-Plan.dc.html">Plan</a><a role="tab" aria-selected="false" href="Project-Features.dc.html">Features</a><a role="tab" aria-selected="false" href="Project-Connect.dc.html">Connect</a><a role="tab" aria-selected="false" href="Project-Traces.dc.html">Traces</a><a role="tab" aria-selected="true" href="Project-Operations.dc.html">Operations</a><a role="tab" aria-selected="false" href="Project-Quality.dc.html">Quality</a><a role="tab" aria-selected="false" href="Project-SelfHealing.dc.html">Self-healing and training</a><a role="tab" aria-selected="false" href="Project-Increments.dc.html">Increments</a><a role="tab" aria-selected="false" href="Project-Members.dc.html">Members</a>
+    </div>
+
+    <div style="display: flex; gap: 8px; align-items: center"><a class="kit-btn outline sm" href="Project-Operations.dc.html">← Alerts and incidents</a><span class="kit-small kit-muted">1 incident in the last 30 days · none open</span></div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Not answering</span><span class="kit-display" style="font-size: 40px">11 min</span><span class="kit-small kit-muted">10:42 to 10:53, at the morning peak</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Requests that failed or timed out</span><span class="kit-display" style="font-size: 40px">1,040</span><span class="kit-small kit-muted">Of 1,090 in those minutes · each was made again after</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Acknowledged in</span><span class="kit-display" style="font-size: 40px">3 min</span><span class="kit-small kit-muted">By Arjun K., on call · ThinkLatent aims for 15</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Advisors who saw it</span><span class="kit-display" style="font-size: 40px">310</span><span class="kit-small kit-muted">"The summary is not ready yet", in the desktop</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Up and answering, 30 days</span><span class="kit-display" style="font-size: 40px">99.93%</span><span class="kit-small kit-muted">Agreed 99.5% · still met for the month</span></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface raised" aria-label="Minute by minute">
+        <div class="ic-h"><h3>Minute by minute</h3><span class="kit-small kit-muted">Requests each minute, 10:30 to 11:05 · a table of the same numbers sits behind the chart</span></div>
+        <svg class="ic-ch" viewBox="0 0 720 170" width="100%" role="img" aria-label="Requests each minute from 10:30 to 11:05. About 98 a minute are answered until 10:38. From 10:42 to 10:53 almost all fail or time out, about 95 a minute. After 10:53 answers recover and briefly run above normal while waiting requests are made again." style="display: block; margin-top: 12px; max-width: 760px">
+<defs><pattern id="ic-hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#fff"></rect><rect width="3" height="5" fill="#C4262E"></rect></pattern></defs>
+<line x1="28" y1="132" x2="718" y2="132" stroke="rgba(26,26,26,.25)"></line>
+<text x="24" y="36" text-anchor="end">100</text><text x="24" y="136" text-anchor="end">0</text>
+<rect class="ok" x="34" y="35" width="14" height="97" rx="2"></rect><rect class="ok" x="53" y="31" width="14" height="101" rx="2"></rect><rect class="ok" x="72" y="37" width="14" height="95" rx="2"></rect><rect class="ok" x="91" y="33" width="14" height="99" rx="2"></rect><rect class="ok" x="110" y="30" width="14" height="102" rx="2"></rect><rect class="ok" x="129" y="36" width="14" height="96" rx="2"></rect><rect class="ok" x="148" y="32" width="14" height="100" rx="2"></rect><rect class="ok" x="167" y="34" width="14" height="98" rx="2"></rect><rect class="ok" x="186" y="42" width="14" height="90" rx="2"></rect><rect class="no" x="186" y="34" width="14" height="8" rx="2"></rect><rect class="ok" x="205" y="52" width="14" height="80" rx="2"></rect><rect class="no" x="205" y="32" width="14" height="20" rx="2"></rect><rect class="ok" x="224" y="70" width="14" height="62" rx="2"></rect><rect class="no" x="224" y="30" width="14" height="40" rx="2"></rect><rect class="ok" x="243" y="92" width="14" height="40" rx="2"></rect><rect class="no" x="243" y="32" width="14" height="60" rx="2"></rect><rect class="ok" x="262" y="127" width="14" height="5" rx="2"></rect><rect class="no" x="262" y="34" width="14" height="93" rx="2"></rect><rect class="ok" x="281" y="128" width="14" height="4" rx="2"></rect><rect class="no" x="281" y="33" width="14" height="95" rx="2"></rect><rect class="ok" x="300" y="129" width="14" height="3" rx="2"></rect><rect class="no" x="300" y="33" width="14" height="96" rx="2"></rect><rect class="ok" x="319" y="126" width="14" height="6" rx="2"></rect><rect class="no" x="319" y="34" width="14" height="92" rx="2"></rect><rect class="ok" x="338" y="128" width="14" height="4" rx="2"></rect><rect class="no" x="338" y="33" width="14" height="95" rx="2"></rect><rect class="ok" x="357" y="129" width="14" height="3" rx="2"></rect><rect class="no" x="357" y="32" width="14" height="97" rx="2"></rect><rect class="ok" x="376" y="127" width="14" height="5" rx="2"></rect><rect class="no" x="376" y="33" width="14" height="94" rx="2"></rect><rect class="ok" x="395" y="128" width="14" height="4" rx="2"></rect><rect class="no" x="395" y="33" width="14" height="95" rx="2"></rect><rect class="ok" x="414" y="126" width="14" height="6" rx="2"></rect><rect class="no" x="414" y="33" width="14" height="93" rx="2"></rect><rect class="ok" x="433" y="127" width="14" height="5" rx="2"></rect><rect class="no" x="433" y="32" width="14" height="95" rx="2"></rect><rect class="ok" x="452" y="127" width="14" height="5" rx="2"></rect><rect class="no" x="452" y="32" width="14" height="95" rx="2"></rect><rect class="ok" x="471" y="72" width="14" height="60" rx="2"></rect><rect class="no" x="471" y="42" width="14" height="30" rx="2"></rect><rect class="ok" x="490" y="44" width="14" height="88" rx="2"></rect><rect class="no" x="490" y="36" width="14" height="8" rx="2"></rect><rect class="ok" x="509" y="28" width="14" height="104" rx="2"></rect><rect class="ok" x="528" y="22" width="14" height="110" rx="2"></rect><rect class="ok" x="547" y="26" width="14" height="106" rx="2"></rect><rect class="ok" x="566" y="33" width="14" height="99" rx="2"></rect><rect class="ok" x="585" y="35" width="14" height="97" rx="2"></rect><rect class="ok" x="604" y="31" width="14" height="101" rx="2"></rect><rect class="ok" x="623" y="34" width="14" height="98" rx="2"></rect><rect class="ok" x="642" y="36" width="14" height="96" rx="2"></rect><rect class="ok" x="661" y="32" width="14" height="100" rx="2"></rect><rect class="ok" x="680" y="33" width="14" height="99" rx="2"></rect><rect class="ok" x="699" y="34" width="14" height="98" rx="2"></rect>
+<path d="M260 14v-6H468v6" fill="none" stroke="#1A1A1A" stroke-width="1.2"></path><text x="364" y="24" text-anchor="middle" style="fill:#1A1A1A;font-weight:500">Not answering, 11 minutes</text>
+<text x="41" y="148" text-anchor="middle">10:30</text><text x="269" y="148" text-anchor="middle">10:42</text><text x="478" y="148" text-anchor="middle">10:53</text><text x="706" y="148" text-anchor="middle">11:05</text>
+</svg>
+        <div class="ic-lg"><span><i style="background: var(--companion)"></i>Answered</span><span><i style="background: repeating-linear-gradient(135deg, var(--decision) 0 3px, #fff 3px 5px)"></i>Failed or timed out</span><span>The bracket marks the 11 minutes the alert was firing.</span></div>
+        <div class="ic-tl">
+          <span class="d">10:38</span><span class="w">SRE agent</span><span>Noticed the queue growing: time in the queue went from 0.4 s to 6 s<small>A warning. Nobody is called for a warning</small></span>
+          <span class="d k">10:42</span><span class="w">The portal</span><span><b style="font-weight: 600">Alert: up and answering.</b> More than half of requests timed out for 2 minutes<small>Raised into the Enterprise's incident tool as INC-20417, with nobody having to do it</small></span>
+          <span class="d">10:42</span><span class="w">The portal</span><span>Told the project: Priya N. and Lena W., and Meera S. at ThinkLatent</span>
+          <span class="d">10:45</span><span class="w">Arjun K.</span><span>Acknowledged, as ThinkLatent's on-call</span>
+          <span class="d">10:47</span><span class="w">SRE agent</span><span>Found it: replica 2 stopped taking new work at 10:41, and replica 1 could not carry the peak alone<small>From the engine's own counters · sure: high · it proposed restarting replica 2</small></span>
+          <span class="d">10:48</span><span class="w">Arjun K.</span><span>Accepted the proposal and restarted replica 2</span>
+          <span class="d">10:53</span><span class="w">The portal</span><span>Answering again. The alert cleared at 10:58, after five clean minutes<small>The project was told</small></span>
+          <span class="d">11:20</span><span class="w">Arjun K.</span><span>Marked the incident resolved in the incident tool<small>The project was told</small></span>
+          <span class="d">21 Oct</span><span class="w">SRE agent</span><span>Drafted the review</span>
+          <span class="d">23 Oct</span><span class="w">Arjun K.</span><span>Signed the review. Priya N. read it the same day</span>
+          <span class="d">24 Oct</span><span class="w">ThinkLatent</span><span>Added a third replica<small>This closed problem PR-0058, which the project had logged on 21 Oct</small></span>
+        </div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface ic-rv" aria-label="The review">
+          <div class="ic-h"><h3>The review</h3><span class="kit-small kit-muted">Drafted by an agent, signed by a person</span></div>
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 8px"><a class="kit-chip brand" href="Agents-AtWork.dc.html" style="text-decoration: none">SRE agent</a><span class="kit-small kit-muted">Drafted 21 Oct · signed by Arjun K. on 23 Oct, with two changes</span></div>
+          <h4>What happened</h4><p>For 11 minutes at the morning peak, Call summary answered almost nothing. Advisors saw "The summary is not ready yet". Each summary was made again once the service was back, so none was lost.</p>
+          <h4>Why</h4><p>Replica 2 stopped taking new work when its cache filled. That left one replica for the busiest minutes of the week, 18% above the highest seen before.</p>
+          <h4>What was ruled out</h4><p>The model and the application: neither changed that week. The gateway: healthy throughout.</p>
+          <h4>What changed since</h4><p>A third replica, from 24 Oct. The SRE agent now reads time in the queue every 15 seconds.</p>
+          <h4>Still open</h4><p>Next best action in Production will add about 5k requests a day. A fourth replica for weekday mornings is proposed and <a href="Agents-AtWork.dc.html">waits for Arjun K.</a></p>
+          <div class="kit-small kit-muted" style="margin-top: 12px">Rests on the engine's counters, the 1,090 traces of those minutes and the incident tool's log · sure: high · <a href="#">See what it rests on</a></div>
+        </section>
+
+        <section class="kit-surface" aria-label="In the Enterprise's incident tool">
+          <div class="ic-h"><h3>In the Enterprise's incident tool</h3><a class="kit-small" href="#">Open INC-20417</a></div>
+          <dl class="ic-kv">
+            <dt>Opened</dt><dd>10:42, by the portal</dd>
+            <dt>Severity</dt><dd>2 of 4 · a live feature not answering</dd>
+            <dt>On call</dt><dd>ThinkLatent AI engineering · Arjun K. that day</dd>
+            <dt>Resolved</dt><dd>11:20 the same day</dd>
+            <dt>Closed</dt><dd>23 Oct, with the review attached</dd>
+          </dl>
+          <div class="kit-small kit-muted" style="margin-top: 12px">That tool calls people and keeps the record. The portal calls nobody: it raises the alert, shows where the incident stands, and tells the project.</div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1460}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

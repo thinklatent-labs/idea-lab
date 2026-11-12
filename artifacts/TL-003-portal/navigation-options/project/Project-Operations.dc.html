@@ -34,9 +34,15 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .op-kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;font-size:13.5px;margin-top:12px}
 .op-kv dt{color:rgba(26,26,26,.65)}
 .op-kv dd{margin:0;font-variant-numeric:tabular-nums;text-align:right}
+.op-al{display:grid;grid-template-columns:96px minmax(0,1.25fr) minmax(0,1fr) minmax(0,.9fr) auto;font-size:13px;line-height:1.45;margin-top:8px;align-items:stretch}
+.op-al>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.op-al .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.op-al small,.op-alw small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.op-alw{display:grid;gap:0;font-size:13px;line-height:1.45;margin-top:6px}
+.op-alw>span{padding:8px 0;border-top:1px solid rgba(26,26,26,.1)}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2100px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2505px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -69,7 +75,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     <div class="kit-page-head">
       <div style="display: flex; flex-direction: column; gap: 8px">
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Operations</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Every service level met today</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">3 flags from the SRE agent</span><span class="kit-chip">3 of 3 replicas up</span><span class="kit-chip">No open incident</span></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Every service level met today</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">3 flags from the SRE agent</span><span class="kit-chip">3 of 3 replicas up</span><span class="kit-chip">No alert open · 1 incident in 30 days</span></div>
         <span class="kit-small kit-muted">How the service is behaving, and what has changed. Every figure here is worked out from requests and from the engine's own counters · As of 11:58 ET · sample data</span>
       </div>
       <div class="kit-actions"><a class="kit-btn" href="#">Ask the SRE agent</a><a class="kit-btn outline" href="Help-Page.dc.html">Log a problem</a></div>
@@ -85,6 +91,32 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div class="op-flag"><span style="display: flex; gap: 8px; align-items: center"><a class="kit-chip brand" href="Agents-AtWork.dc.html" style="text-decoration: none">SRE agent</a><span class="kit-caption">What requests are about · today</span></span><span style="font-size: 19px; font-weight: 500">A new kind of call: estate planning, 4% of today</span><span class="kit-small">Not seen in the training data. Completeness on these is 0.71, against 0.86 for the rest; thumbs down are twice as common.</span><span class="kit-small kit-muted">From 1,040 traces in a new cluster · confidence medium, the check is new · <a href="#">View sources</a></span><span class="kit-small"><b style="font-weight: 500">It suggests:</b> add 50 of them to the evaluation set, and to the next training set after review.</span><div class="kit-actions"><a class="kit-btn" href="Project-Traces.dc.html">See the cluster</a><a class="kit-btn outline" href="Feature-Evaluation.dc.html">Add to the evaluation set</a></div></div>
       <div class="op-flag"><span style="display: flex; gap: 8px; align-items: center"><a class="kit-chip brand" href="Agents-AtWork.dc.html" style="text-decoration: none">SRE agent</a><span class="kit-caption">Queue · weekday mornings</span></span><span style="font-size: 19px; font-weight: 500">Requests wait ten times longer between 10 and 11</span><span class="kit-small">Time in the queue is 0.40 s at the peak, against 0.04 s the rest of the day. The three replicas run at 91% then. The service level is still met.</span><span class="kit-small kit-muted">From the engine's queue and running counts, and 5,900 traces · confidence high · <a href="#">View sources</a></span><span class="kit-small"><b style="font-weight: 500">It suggests:</b> a fourth replica on weekday mornings, before Next best action goes to Production.</span><div class="kit-actions"><a class="kit-btn" href="Help-Page.dc.html">Ask AI engineering</a><a class="kit-btn outline" href="#">See the hours</a></div></div>
     </div>
+
+    <section class="kit-surface" aria-label="Alerts and incidents">
+      <div class="kit-section-title" style="margin-top: 0"><h2>Alerts and incidents</h2><span class="sub">ThinkLatent's on-call acts on every alert, and you are told at each step · the record is kept in the Enterprise's incident tool</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); gap: 24px; margin-top: 12px; align-items: start">
+        <div>
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No alert open</span></span><span class="kit-small kit-muted">On call today: Arjun K., ThinkLatent AI engineering</span></div>
+          <div class="kit-label" style="margin-top: 14px">What can fire</div>
+          <div class="op-alw">
+            <span>A service level is broken<small>The four agreed below: time to answer, first token, up and answering, requests that fail</small></span>
+            <span>A score falls under the floor of its range<small>The five measures on <a href="Project-Quality.dc.html">Quality</a>, from Summary quality under 80% to word error rate over 8%</small></span>
+            <span>The SRE agent sees a change that chance is unlikely to explain<small>A warning only: nobody is called unless a service level also breaks</small></span>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 10px">Nobody writes a rule. Change what is agreed, and the alert changes with it.</div>
+        </div>
+        <div>
+          <div class="kit-label">The last 30 days</div>
+          <div class="op-al">
+            <span class="h">When</span><span class="h">What fired</span><span class="h">What it became</span><span class="h">Where it stands</span><span class="h"></span>
+            <span>Today 11:52</span><span>Noticed by the SRE agent<small>Requests wait ten times longer between 10 and 11</small></span><span>A proposal: a fourth replica<small>No service level broken</small></span><span>Waits for Arjun K.</span><a href="Agents-AtWork.dc.html">Open</a>
+            <span>3 Nov</span><span>Noticed by the SRE agent<small>Summaries of very long calls take three times as long</small></span><span>Problem PR-0077<small>No service level broken</small></span><span>Waits for 3 example calls</span><a href="Help-Page.dc.html">Open</a>
+            <span>20 Oct 10:42</span><span>Service level: up and answering<small>Call summary did not answer for 11 minutes</small></span><span>Incident INC-20417<small>Acknowledged in 3 minutes</small></span><span>Closed · review signed 23 Oct</span><a href="Project-Incident.dc.html">Open</a>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 10px">No score fell under the floor of its range in these 30 days.</div>
+        </div>
+      </div>
+    </section>
 
     <div style="display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; align-items: start">
       <section class="kit-surface" aria-label="Service levels">
@@ -145,7 +177,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2100}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2505}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
