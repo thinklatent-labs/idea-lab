@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Value for the Enterprise</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.ve-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ve-h h3{margin:0;font-size:18px;font-weight:500}
+.ve-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ve-k>a{display:flex;flex-direction:column;gap:6px;color:inherit;text-decoration:none}
+.ve-n{font-variant-numeric:tabular-nums;font-weight:500}
+.ve-ly{display:grid;grid-template-columns:54px minmax(0,1fr) minmax(0,1.55fr) 190px minmax(0,1.05fr);gap:0;margin-top:12px;align-items:stretch}
+.ve-ly>*{padding:14px 16px 14px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;font-size:13px;line-height:1.5}
+.ve-ly .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0;padding-bottom:6px}
+.ve-ly small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ve-ly b.t{display:block;font-size:16px;font-weight:500}
+.ve-stk{display:flex;flex-direction:column-reverse;gap:3px;width:34px;padding-top:2px}
+.ve-stk i{display:block;height:7px;border-radius:2px;background:rgba(26,26,26,.12)}
+.ve-stk i.on{background:var(--companion)}
+.ve-stk i.np{background:none;box-shadow:inset 0 0 0 1.5px rgba(26,26,26,.3)}
+.ve-stk i.np.on{box-shadow:inset 0 0 0 1.5px var(--companion);background:rgba(49,122,71,.2)}
+.ve-f{display:block;margin-top:5px;padding:6px 10px;border-radius:10px;background:rgba(26,26,26,.05);font-size:12.5px;font-variant-numeric:tabular-nums}
+.ve-amt{font-size:22px;font-weight:400;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.ve-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.ve-box h4{margin:0;font-size:15px;font-weight:500}
+.ve-box p{margin:6px 0 0;font-size:13px;line-height:1.5}
+.ve-t{display:grid;grid-template-columns:minmax(0,1.4fr) 110px 150px 130px minmax(0,1.3fr);gap:0;font-size:13px;line-height:1.45;margin-top:10px}
+.ve-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ve-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ve-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ve-t b{font-weight:500}
+.ve-c{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.ve-c>*{padding:9px 10px 9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.ve-c svg{width:17px;height:17px;display:block;margin-top:1px}
+.ve-c .ic{padding-right:0}
+.ve-c small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ve-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:10px}
+.ve-key{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;align-items:center;color:rgba(26,26,26,.7)}
+.ve-key i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+svg text{font-family:Inter,system-ui,sans-serif}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2240px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-current="page" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Home-Cockpit.dc.html">← Home</a><span class="kit-muted" aria-hidden="true">·</span>
+      <button class="kit-btn" type="button">The Enterprise <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Choose an organization <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 720px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Value</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">8 models live · 15 uses of them</span><span class="kit-chip">4 features in Production · 3 in Pilot</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">2 of 5 layers have no total yet</span></div>
+        <span class="kit-small kit-muted">What the Enterprise did not have to spend, and what it got back, because these models are its own. Five layers, counted the same way on every model, project, team and organization. Money is a placeholder in this sample · As of 11:58 ET</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Tokens processed today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">2.3B <span style="font-size: 18px">in</span> <span aria-hidden="true" style="font-size: 24px">→</span> 208M <span style="font-size: 18px">out</span></span></div>
+        <div class="kit-actions"><a class="kit-btn" href="#">Ask Jarvis what another route would cost</a><a class="kit-btn outline" href="#">Download the working</a></div>
+      </div>
+    </div>
+
+    <div class="ve-k">
+      <a class="kit-surface" href="#"><span class="kit-caption">Money not spent, 30 days</span><span class="kit-display" style="font-size: 40px">$[avoided]</span><span class="kit-small kit-muted">Layer 1 only. Layers 2 and 3 join when a real proposal backs them.</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Time given back, 30 days</span><span class="kit-display" style="font-size: 40px">134k hours</span><span class="kit-small kit-muted">Declared for 2 of the 4 features in Production · hours only</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Uses that needed no new model</span><span class="kit-display" style="font-size: 40px">5 of 15</span><span class="kit-small kit-muted">Started on a model already trained, approved and served</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Served inside the Enterprise</span><span class="kit-display" style="font-size: 40px">99.5%</span><span class="kit-small kit-muted">Of 212k requests today · 1.1k went to an outside model through an agent</span></a>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The value, layer by layer">
+      <div class="ve-h"><h3>The value, layer by layer</h3><span class="kit-small kit-muted">From what is easiest to count to what cannot be priced · the last 30 days · a layer opens its working, model by model</span></div>
+      <div class="ve-ly">
+        <span class="h"></span><span class="h">Layer, and what it is compared with</span><span class="h">How it is counted</span><span class="h">Worth</span><span class="h">How far to trust it</span>
+
+        <span><span class="ve-stk" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i class="np"></i></span></span>
+        <span><b class="t">1 · Running them</b>Against the same work bought outside, priced the way it is sold</span>
+        <span>Language models by the token; speech by the hour of audio; redaction and sorting by the document. Minus what the endpoints cost here.<span class="ve-f">7.3B tokens × $[outside] + 3.9M calls of audio × $[outside, an hour] + 3.9M documents × $[outside] − $[endpoints]</span><small style="margin-top: 5px">2 of the 9 endpoints cost more than the outside route today: Embedding and the Decision adapter, both in Pilot with little traffic. They are counted, as a minus.</small></span>
+        <span><span class="ve-amt">$[running]</span><small>the total today</small></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Computed</span></span><small>The portal's own counts · public price lists of 1 Nov · endpoint costs known for 6 of 9</small></span>
+
+        <span><span class="ve-stk" aria-hidden="true"><i></i><i class="on"></i><i></i><i></i><i class="np"></i></span></span>
+        <span><b class="t">2 · Building them</b>Against having each model built by a consulting firm</span>
+        <span>What an engagement would cost for each version, minus the foundation team's time and training machines.<span class="ve-f">7 versions of 5 models this year × $[engagement] − $[our build]</span></span>
+        <span><span class="kit-muted">— No total yet</span><small>waits for one real proposal</small></span>
+        <span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Not backed yet</span></span><small>ThinkLatent is getting one proposal for a model like Domain-Advice. Until then this layer shows its working and no money.</small></span>
+
+        <span><span class="ve-stk" aria-hidden="true"><i></i><i></i><i class="on"></i><i></i><i class="np"></i></span></span>
+        <span><b class="t">3 · Reusing them</b>Against a separate model for every use</span>
+        <span>5 of the 15 uses started on a model that was already trained, approved and served: 5 builds and 5 approvals not repeated.<span class="ve-f">5 uses × ($[engagement] + $[approval])</span></span>
+        <span><span class="ve-amt">5 uses</span><small>counted · no money until layer 2 is backed</small></span>
+        <span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Counted</span></span><small>The count is the portal's. Its price is the same one layer 2 is waiting for.</small></span>
+
+        <span><span class="ve-stk" aria-hidden="true"><i></i><i></i><i></i><i class="on"></i><i class="np"></i></span></span>
+        <span><b class="t">4 · Time given back</b>Against doing the task by hand</span>
+        <span>Call summary: 4.5 minutes a summary. Sorting calls by reason: 40 seconds a call. Two more features in Production have not said.<span class="ve-f">4.5 min × 1.2M summaries + 40 s × 3.9M calls</span></span>
+        <span><span class="ve-amt">134k hours</span><small>beside the money, never added to it</small></span>
+        <span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Declared</span></span><small>By each project's owner. None is measured. The portal does not turn hours into money.</small></span>
+
+        <span><span class="ve-stk" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="np on"></i></span></span>
+        <span><b class="t">5 · What has no price</b>Counted, never priced</span>
+        <span>99.5% of requests served inside the Enterprise · 6 approvals covering 15 uses · 4 gaps found from the models' own use, 2 models retrained from use this month · no feature stopped by a vendor's change.</span>
+        <span><span class="kit-muted">— Not priced</span><small>left out of the total</small></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Counted</span></span><small>Each count opens the page it comes from</small></span>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Where it comes from">
+        <div class="ve-h"><h3>Where it comes from</h3><span class="kit-small kit-muted">One row an organization · a row opens the same five layers for it</span></div>
+        <div class="ve-t">
+          <span class="h">Organization</span><span class="h">1 · Running</span><span class="h">3 · Reuse</span><span class="h">4 · Time given back</span><span class="h">What carries it</span>
+          <span><b>Enterprise services</b><small>Platform · Call processing for the whole Enterprise</small></span><span class="ve-n">$[running]</span><span>None<small>Its 3 models were built for it</small></span><span><span class="ve-n">44k hours</span><small>declared for 1 of 3</small></span><span>Speech recognition: 1.9B of today's 2.3B tokens</span>
+          <span><b>Retail Business</b><small>Advice Tech · Client Service Tech</small></span><span class="ve-n">$[running]</span><span>4 uses<small>Most of the Enterprise's reuse</small></span><span><span class="ve-n">90k hours</span><small>declared for 1 of 1</small></span><span>Domain-Advice, on its third use, and speech reused inside Advisor desktop</span>
+          <span><b>Institutional Ops</b><small>Claims Ops Tech</small></span><span class="ve-n">$[running]</span><span>1 use</span><span class="kit-muted">— Not declared<small>Nothing in Production yet</small></span><span>Distil 4.2, the lower-cost path</span>
+        </div>
+      </section>
+
+      <section class="kit-surface" aria-label="How it has grown">
+        <div class="ve-h"><h3>How it has grown</h3><div class="ve-key"><span><i style="background: var(--companion)"></i>tokens a day, at the month's end</span><span><i style="background: #1A1A1A; height: 3px; width: 16px; border-radius: 2px; vertical-align: 3px"></i>uses of a model</span></div></div>
+        <svg viewBox="0 0 520 230" width="100%" role="img" aria-label="Tokens a day grew from 1.7 billion in July to 2.3 billion in November, while the uses of a model grew from 6 to 15" style="display: block; margin-top: 8px">
+          <g stroke="rgba(26,26,26,.1)"><line x1="40" y1="30" x2="510" y2="30"></line><line x1="40" y1="80" x2="510" y2="80"></line><line x1="40" y1="130" x2="510" y2="130"></line></g>
+          <line x1="40" y1="180" x2="510" y2="180" stroke="rgba(26,26,26,.4)"></line>
+          <g fill="var(--companion)"><rect x="62" y="69" width="54" height="111"></rect><rect x="152" y="63" width="54" height="117"></rect><rect x="242" y="56" width="54" height="124"></rect><rect x="332" y="37" width="54" height="143"></rect><rect x="422" y="30" width="54" height="150"></rect></g>
+          <g font-size="11.5" fill="#fff" text-anchor="middle"><text x="89" y="86">1.7B</text><text x="179" y="80">1.8B</text><text x="269" y="73">1.9B</text><text x="359" y="54">2.2B</text><text x="449" y="47">2.3B</text></g>
+          <polyline points="89,140 179,130 269,130 359,90 449,80" fill="none" stroke="#1A1A1A" stroke-width="2"></polyline>
+          <g fill="#fff" stroke="#1A1A1A" stroke-width="2"><circle cx="89" cy="140" r="4"></circle><circle cx="179" cy="130" r="4"></circle><circle cx="269" cy="130" r="4"></circle><circle cx="359" cy="90" r="4"></circle><circle cx="449" cy="80" r="4"></circle></g>
+          <g font-size="12" font-weight="600" fill="#fff" text-anchor="middle"><text x="89" y="160">6</text><text x="179" y="150">8</text><text x="269" y="150">8</text><text x="359" y="110">13</text><text x="449" y="100">15</text></g>
+          <g font-size="11" fill="rgba(26,26,26,.6)" text-anchor="middle"><text x="89" y="198">Jul</text><text x="179" y="198">Aug</text><text x="269" y="198">Sep</text><text x="359" y="198">Oct</text><text x="449" y="198">Nov, so far</text></g>
+        </svg>
+        <div class="kit-small kit-muted" style="margin-top: 2px">Uses grew faster than tokens. Since August 7 new uses arrived and only 2 needed a new model; the other 5 are layer 3.</div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="What would move the number">
+      <div class="ve-h"><h3>What would move the number</h3><span class="kit-small kit-muted">Three things, in the order they pay</span></div>
+      <div class="ve-3">
+        <div class="ve-box"><h4>A second use of a model that is live</h4><p>Raises layers 1 and 3 and costs no build. Three features are in Pilot on live models now.</p><p class="kit-small kit-muted"><a href="Model-Adoption.dc.html">Who might be next, model by model</a></p></div>
+        <div class="ve-box"><h4>Traffic on the two quiet endpoints</h4><p>Embedding and the Decision adapter cost more than the outside route until Next best action goes to everyone.</p><p class="kit-small kit-muted">Approval expected 6 Nov, then 5% of advisors.</p></div>
+        <div class="ve-box"><h4>Measuring, in place of declaring</h4><p>Two features have declared the time they give back. None has measured it. Timing 50 uses of each would do.</p><p class="kit-small kit-muted">Two more features in Production have not declared anything.</p></div>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Before this page is shown outside ThinkLatent">
+        <div class="ve-h"><h3>What each layer still needs</h3><span class="kit-small kit-muted">Before this page is used to make a case to anyone</span></div>
+        <div class="ve-c">
+          <span class="ic" style="color: var(--warning)"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span><span>One real consulting proposal, for a model like Domain-Advice<small>Layers 2 and 3 · being sought by ThinkLatent · none yet</small></span><span class="kit-muted">Open</span>
+          <span class="ic" style="color: var(--companion)"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span><span>The outside price lists, dated<small>Layer 1 · two vendors' public lists of 1 Nov · checked again on the first of each month</small></span><span class="kit-muted">Done</span>
+          <span class="ic" style="color: var(--warning)"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span><span>What each endpoint costs<small>Layer 1 · known for 6 of 9 · the other 3 use an average</small></span><span class="kit-muted">6 of 9</span>
+          <span class="ic" style="color: var(--warning)"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg></span><span>Time given back, declared for every feature in Production<small>Layer 4 · 2 of 4 · asked of the other two owners</small></span><span class="kit-muted">2 of 4</span>
+          <span class="ic" style="color: rgba(26,26,26,.55)"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg></span><span>Time given back, measured<small>Layer 4 · none yet</small></span><span class="kit-muted">0 of 4</span>
+        </div>
+      </section>
+      <div class="ve-box"><h4>How the layers add up</h4>
+        <p>Layers 1 to 3 are money. Today only layer 1 has a total, so it is the whole of "cost avoided" wherever that number appears.</p>
+        <p>Layer 4 is time. It is shown in hours beside the money and is not turned into money here.</p>
+        <p>Layer 5 is counted and never priced.</p>
+        <p class="kit-small kit-muted">Nothing is counted twice: a use that started on an existing model is in layer 3, not layer 2.</p></div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2240}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
