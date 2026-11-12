@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TL Index · language models</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lb-kinds{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.lb-k{display:flex;flex-direction:column;gap:4px;border-radius:20px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 14px;color:inherit;text-decoration:none;font-size:12.5px;line-height:1.4}
+.lb-k.on{background:#fff;box-shadow:0 0 0 2px #1A1A1A}
+.lb-k b{font-size:15px;font-weight:500}
+.lb-k .v{font-size:26px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;margin-top:2px}
+.lb-k small{font-size:12px;color:rgba(26,26,26,.62)}
+.lb-who{font-size:11px;border-radius:999px;padding:2px 9px;white-space:nowrap}
+.lb-who.tl{background:#1A1A1A;color:#fff}
+.lb-who.out{box-shadow:0 0 0 1px rgba(26,26,26,.35)}
+.ix-ch{display:grid;grid-template-columns:190px minmax(0,1fr) 84px;gap:9px 12px;align-items:center;font-size:13px;margin-top:12px}
+.ix-ch .nm{line-height:1.3}
+.ix-ch .nm small{display:block;font-size:11.5px;color:rgba(26,26,26,.6)}
+.ix-ch .sel{font-weight:600}
+.ix-bar{position:relative;height:16px;border-radius:5px;background:rgba(26,26,26,.06)}
+.ix-bar i{position:absolute;left:0;top:0;bottom:0;border-radius:5px;background:var(--companion)}
+.ix-bar i.out{background:rgba(26,26,26,.38)}
+.ix-bar i.old{background:color-mix(in oklab,var(--companion) 40%,white)}
+.ix-bar u{position:absolute;top:-5px;bottom:-5px;left:60%;border-left:2px dashed #1A1A1A}
+.ix-bar s{position:absolute;top:3px;height:10px;border-left:2px solid #1A1A1A;border-right:2px solid #1A1A1A;background:linear-gradient(#1A1A1A,#1A1A1A) center/100% 2px no-repeat}
+.ix-bar em{position:absolute;top:2px;width:10px;height:10px;border-radius:50%;border:2px solid #1A1A1A;background:#fff;transform:translateX(-50%)}
+.ix-v{font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
+.ix-ax{position:relative;height:16px;font-size:11px;color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums}
+.ix-ax span{position:absolute;transform:translateX(-50%)}
+.ix-p{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:0;font-size:13px;margin-top:10px;align-items:center}
+.ix-p>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ix-p .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ix-p b{font-weight:600;font-variant-numeric:tabular-nums}
+.ix-p small{display:block;font-size:11.5px;color:rgba(26,26,26,.62)}
+.ix-t{display:grid;grid-template-columns:30px minmax(0,1.5fr) 118px 76px repeat(6,72px) 104px 60px 70px 76px;gap:0;font-size:13px;align-items:stretch}
+.ix-t>*{padding:10px 8px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;display:flex;align-items:center;font-variant-numeric:tabular-nums}
+.ix-t .h{font-size:11px;color:rgba(26,26,26,.6);border-top:0;padding-top:0;align-items:flex-end;line-height:1.25}
+.ix-t .nm{flex-direction:column;align-items:flex-start;justify-content:center}
+.ix-t .nm b{font-weight:500;font-size:14px}
+.ix-t .nm small{font-size:11.5px;color:rgba(26,26,26,.62)}
+.ix-t .top{font-weight:700}
+.ix-t .un{color:rgba(26,26,26,.5)}
+.ix-t .rowsel{background:color-mix(in oklab,var(--companion) 9%,white)}
+.ix-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.ix-box h4{margin:0;font-size:16px;font-weight:500}
+.ix-re{display:grid;grid-template-columns:minmax(0,1.3fr) 56px minmax(0,1.1fr) minmax(0,1fr) 96px;gap:0;font-size:13px;margin-top:10px;align-items:center}
+.ix-re>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;font-variant-numeric:tabular-nums}
+.ix-re .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ix-re small{display:block;font-size:11.5px;color:rgba(26,26,26,.62)}
+.ix-h2{display:grid;grid-template-columns:minmax(0,1fr) 110px 70px;gap:6px 10px;font-size:13px;margin-top:10px;align-items:baseline;font-variant-numeric:tabular-nums}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1870px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-current="page" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">TL Index</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Edition 2026-11</span><span class="kit-chip">6 kinds of model · 10 of ours · 7 from outside for reference</span></div>
+        <span class="kit-small kit-muted">Where models are compared. Language models are scored on the TL Index itself. Every other kind is ranked on its own measure, ours beside outside models scored the same way · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="#">How to read the Index</a><a class="kit-btn outline" href="#">Ask Jarvis which model fits a task</a></div>
+    </div>
+
+    <div class="lb-kinds" role="tablist" aria-label="Kinds of model">
+      <a class="lb-k on" href="#"><b>Language</b><small>The TL Index, out of 100</small><span class="v">84 ± 1</span><span>Domain-Advice v2 · version 3 at 88</span><small>Best outside: Frontier API, 87 ± 1</small></a>
+      <a class="lb-k" href="#"><b>Decision</b><small>How often the choice is right</small><span class="v">94%</span><span>Decision adapter v1 · bar 92%</span><small>Best outside: 95%, twelve times slower</small></a>
+      <a class="lb-k" href="Index-Leaderboards.dc.html"><b>Speech</b><small>Word error rate, lower is better</small><span class="v">6.8%</span><span>Speech recognition v6 · bar 8%</span><small>Best outside: 6.1%, on public calls only</small></a>
+      <a class="lb-k" href="#"><b>Classifier</b><small>Found, or sorted right</small><span class="v">99.2%</span><span>Redaction v4 · bar 99%</span><small>Call classification v3: 91% ± 2</small></a>
+      <a class="lb-k" href="#"><b>Guardrail</b><small>Unsafe answers caught</small><span class="v">97.4%</span><span>Guardrail v2 · bar 95%</span><small>Best outside: 96.0%</small></a>
+      <a class="lb-k" href="#"><b>Embedding</b><small>Right passage in the first ten</small><span class="v">93%</span><span>Embedding v2 · bar 90% · Pilot</span><small>Best outside: 91%</small></a>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Every language model, overall">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+        <div><div style="font-size: 24px">Language · every model, overall</div><div class="kit-small kit-muted" style="margin-top: 2px">1,200 questions, 240 on each of five pillars · scored by a judge that is checked against people · the dashed line is the threshold for domain models, 80</div></div>
+        <div style="display: flex; gap: 8px; align-items: center"><span class="kit-label">The page follows</span><button class="kit-btn" type="button">Domain-Advice v2 <span aria-hidden="true">▾</span></button></div>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; align-items: start">
+        <div>
+          <div class="ix-ch">
+            <span></span><div class="ix-ax"><span style="left: 0; transform: none">50</span><span style="left: 20%">60</span><span style="left: 40%">70</span><span style="left: 60%">80</span><span style="left: 80%">90</span><span style="left: 100%; transform: translateX(-100%)">100</span></div><span></span>
+
+            <span class="nm">Frontier API<small>Outside · vendor</small></span><div class="ix-bar"><i class="out" style="width: 74%"></i><s style="left: 72%; width: 4%"></s><u></u></div><span class="ix-v">87 ± 1</span>
+            <span class="nm sel">Domain-Advice v2<small>ThinkLatent · TLM4 · version 3 is the open circle</small></span><div class="ix-bar"><i style="width: 68%"></i><s style="left: 66%; width: 4%"></s><em style="left: 76%"></em><u></u></div><span class="ix-v">84 ± 1</span>
+            <span class="nm">Core 4.2<small>ThinkLatent · TLM4</small></span><div class="ix-bar"><i style="width: 62%"></i><s style="left: 60%; width: 4%"></s><u></u></div><span class="ix-v">81 ± 1</span>
+            <span class="nm">Open-source 70B<small>Outside · open, as it comes</small></span><div class="ix-bar"><i class="out" style="width: 58%"></i><s style="left: 56%; width: 4%"></s><u></u></div><span class="ix-v">79 ± 1</span>
+            <span class="nm">Distil 4.2<small>ThinkLatent · TLM4 · small and fast</small></span><div class="ix-bar"><i style="width: 44%"></i><s style="left: 42%; width: 4%"></s><u></u></div><span class="ix-v">72 ± 1</span>
+            <span class="nm">Core 3.4<small>ThinkLatent · TLM3 · retiring</small></span><div class="ix-bar"><i class="old" style="width: 32%"></i><s style="left: 30%; width: 4%"></s><u></u></div><span class="ix-v">66 ± 1</span>
+            <span class="nm">TLM5<small>ThinkLatent · in development</small></span><div class="kit-small kit-muted">— Not scored: no version to run yet</div><span class="ix-v kit-muted">—</span>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 10px">The small bracket on each bar is the interval. Where two brackets overlap, the two models cannot be told apart.</div>
+        </div>
+        <div>
+          <div style="font-size: 16px; font-weight: 500">Best on each pillar, and where Domain-Advice v2 stands</div>
+          <div class="ix-p">
+            <span class="h">Pillar · its bar</span><span class="h">Best of all</span><span class="h">Domain-Advice v2</span>
+            <span>Financial data processing<small>bar 80</small></span><span><b>88</b> Frontier API</span><span><b>86</b><small>tied for best</small></span>
+            <span>Client care<small>bar 80</small></span><span><b>90</b> Frontier API</span><span><b>87</b><small>tied for best</small></span>
+            <span>Compliance and regulatory<small>bar 78</small></span><span><b>83</b> Domain-Advice v2</span><span><b>83</b><small>best</small></span>
+            <span>Safety and grounding<small>bar 72</small></span><span><b>84</b> Frontier API</span><span><b>78</b><small>behind, over its bar</small></span>
+            <span>Entity recognition<small>bar 80</small></span><span><b>88</b> Domain-Advice v2</span><span><b>88</b><small>best</small></span>
+            <span>Real Enterprise<small>the Enterprise's own work</small></span><span><b>83</b> Domain-Advice v2</span><span><b>83</b><small>best</small></span>
+          </div>
+          <div class="kit-small" style="margin-top: 10px; line-height: 1.5">Domain-Advice v2 is best or tied for best on 5 of 6. It is behind on Safety and grounding. <a href="Model-Page.dc.html">Open its page</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="The leaderboard">
+      <div class="kit-section-title" style="margin-top: 0"><h2>The leaderboard</h2><span class="sub">Sort by any column · bold is the best in its column · grey is under that pillar's bar</span></div>
+      <div class="ix-t" style="margin-top: 10px">
+        <span class="h"></span><span class="h">Model</span><span class="h">Whose</span><span class="h">Overall ▾</span><span class="h">Financial data</span><span class="h">Client care</span><span class="h">Compliance</span><span class="h">Safety, grounding</span><span class="h">Entities</span><span class="h">Real Enterprise</span><span class="h">Preference rating</span><span class="h">Time a task</span><span class="h">Cost a task</span><span class="h">Size</span>
+
+        <span>1</span><span class="nm"><b>Frontier API</b><small>Several vendors' models, as one line</small></span><span><span class="lb-who out">Outside · vendor</span></span><span class="top">87 ± 1</span><span class="top">88</span><span class="top">90</span><span class="un">— too few</span><span class="top">84</span><span>87</span><span>81</span><span class="top">1,086 ± 21</span><span>2.9 s</span><span>$[cost]</span><span class="un">Not stated</span>
+
+        <span class="rowsel">2</span><span class="nm rowsel"><b>Domain-Advice v2</b><small>TLM4 · Domain · built on Core 4.2</small></span><span class="rowsel"><span class="lb-who tl">ThinkLatent</span></span><span class="rowsel">84 ± 1</span><span class="rowsel">86</span><span class="rowsel">87</span><span class="rowsel top">83</span><span class="rowsel">78</span><span class="rowsel top">88</span><span class="rowsel top">83</span><span class="rowsel">1,071 ± 19</span><span class="rowsel">2.1 s</span><span class="rowsel">$[cost]</span><span class="rowsel">27B</span>
+
+        <span>3</span><span class="nm"><b>Core 4.2</b><small>TLM4 · Core</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span>81 ± 1</span><span>85</span><span>82</span><span>80</span><span>76</span><span>84</span><span>75</span><span>1,002 ± 18</span><span>2.0 s</span><span>$[cost]</span><span>27B</span>
+
+        <span>4</span><span class="nm"><b>Open-source 70B</b><small>As it comes, run on ThinkLatent's machines</small></span><span><span class="lb-who out">Outside · open</span></span><span>79 ± 1</span><span>82</span><span>81</span><span class="un">77</span><span>75</span><span class="un">— too few</span><span>72</span><span>991 ± 20</span><span>4.4 s</span><span>$[cost]</span><span>70B</span>
+
+        <span>5</span><span class="nm"><b>Distil 4.2</b><small>TLM4 · Distil · the lower-cost path</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span>72 ± 1</span><span class="un">78</span><span class="un">74</span><span class="un">69</span><span class="un">63</span><span class="un">78</span><span>66</span><span>912 ± 22</span><span class="top">0.6 s</span><span>$[cost]</span><span>Small</span>
+
+        <span>6</span><span class="nm"><b>Core 3.4</b><small>TLM3 · retiring</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span>66 ± 1</span><span class="un">70</span><span class="un">68</span><span class="un">64</span><span class="un">58</span><span class="un">70</span><span>57</span><span>855 ± 26</span><span>3.1 s</span><span>$[cost]</span><span>About 25B</span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">"— too few" means under 100 scored questions on that pillar: Frontier API on Compliance, Open-source 70B on Entity recognition. Five of sixteen pillars are live in this edition. Preference rating is from people's blind votes and is never used as a threshold.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 12px; align-items: start">
+      <div class="ix-box"><h4>Real Enterprise · does training on the Enterprise's own work help?</h4>
+        <div class="kit-small kit-muted" style="margin-top: 4px">A score for each use, from that use's own questions, then combined by each use's share of requests.</div>
+        <div class="ix-re">
+          <span class="h">Use · its model</span><span class="h">Questions</span><span class="h">The model as it comes</span><span class="h">After training for this use</span><span class="h">Frontier API</span>
+          <span>Call summary<small>Advisor desktop · Domain-Advice v2</small></span><span>400</span><span>80 ± 5</span><span><b>86 ± 5</b></span><span>81 ± 5</span>
+          <span>Claims triage<small>Claims intake · Distil 4.2 · under its bar</small></span><span>300</span><span>71 ± 5</span><span class="kit-muted">— Not trained for it yet</span><span>82 ± 5</span>
+          <span>Chat answers<small>Service chat assist · Core 4.2 · Pilot</small></span><span>250</span><span>76 ± 5</span><span class="kit-muted">— Not trained for it yet</span><span>80 ± 5</span>
+        </div>
+        <div class="kit-small" style="margin-top: 10px; line-height: 1.55">The claim under test: a model trained for a use beats the best outside model on that use. So far it holds in 1 of 1, and the intervals overlap. Three uses is too few to call it shown; each new use adds a row.</div></div>
+      <div class="ix-box"><h4>Head to head · what people prefer</h4>
+        <div class="kit-small kit-muted" style="margin-top: 4px">Two answers to the same case, names hidden; a person picks the better one. 3,470 votes from 214 people since 3 Oct, on Client care cases.</div>
+        <div class="ix-h2">
+          <span>Frontier API</span><b style="font-weight: 600">1,086 ± 21</b><span class="kit-muted">a tie</span>
+          <span>Domain-Advice v2</span><b style="font-weight: 600">1,071 ± 19</b><span class="kit-muted">a tie</span>
+          <span>Core 4.2</span><span>1,002 ± 18</span><span></span>
+          <span>Open-source 70B</span><span>991 ± 20</span><span></span>
+        </div>
+        <div class="kit-small" style="margin-top: 10px; line-height: 1.5">People and the judge put the models in the same order. People cannot tell the Frontier API from Domain-Advice v2.</div>
+        <div class="kit-actions" style="margin-top: 10px"><a class="kit-btn" href="#">Vote on a pair</a><a class="kit-btn outline" href="#">Open Head to head</a></div></div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1870}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
