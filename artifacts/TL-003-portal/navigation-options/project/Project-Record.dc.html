@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A project's record · who decided what, who opened sealed text, and how auditors read it</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.rc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.rc-h h3{margin:0;font-size:18px;font-weight:500}
+.rc-t{display:grid;grid-template-columns:96px 128px minmax(0,1.5fr) minmax(0,1.15fr) 150px 52px;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.rc-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.rc-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.rc-t .d{font-size:12px;color:rgba(26,26,26,.65);font-variant-numeric:tabular-nums}
+.rc-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.rc-t .lk{background:repeating-linear-gradient(135deg,rgba(26,26,26,.045) 0 6px,transparent 6px 12px)}
+.rc-k{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;white-space:nowrap}
+.rc-k svg{width:14px;height:14px;flex:none}
+.rc-kv{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px 9px;margin-top:10px;font-size:13px;line-height:1.45}
+.rc-kv svg{width:16px;height:16px;margin-top:2px;color:rgba(26,26,26,.6)}
+.rc-g{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.rc-g>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.rc-g small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.rc-g .s{padding-left:12px;text-align:right;font-size:12px;color:rgba(26,26,26,.7);white-space:nowrap}
+.rc-f{display:grid;grid-template-columns:92px minmax(0,1fr);gap:8px 12px;margin-top:10px;font-size:13px;line-height:1.45;align-items:center}
+.rc-f dt{color:rgba(26,26,26,.6)}.rc-f dd{margin:0}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1915px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Organization-Page.dc.html">Retail Business <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Team-Page.dc.html">Advice Tech <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn" href="Project-Page.dc.html">Advisor desktop <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <span class="kit-caption">Members · the whole record</span>
+        <h1 style="margin: 0; font-size: 36px; font-weight: 400; letter-spacing: -0.02em">The record of Advisor desktop</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">412 lines since 4 Aug</span><span class="kit-chip">No line can be changed or removed</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">1 ask for production access waits in IAM</span></div>
+        <span class="kit-small kit-muted">Who decided what, who opened sealed text, what the agents proposed, and what arrived from outside. Decisions are open to everyone at the Enterprise. Lines about sealed text, shaded here, show only to this project's members, ThinkLatent and auditors · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Export this record</a><a class="kit-btn outline" href="Jarvis-Ask.dc.html">Ask Jarvis about a decision</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <a role="tab" aria-selected="false" href="Project-Page.dc.html">Overview</a><a role="tab" aria-selected="false" href="Project-Plan.dc.html">Plan</a><a role="tab" aria-selected="false" href="Project-Features.dc.html">Features</a><a role="tab" aria-selected="false" href="Project-Connect.dc.html">Connect</a><a role="tab" aria-selected="false" href="Project-Traces.dc.html">Traces</a><a role="tab" aria-selected="false" href="Project-Operations.dc.html">Operations</a><a role="tab" aria-selected="false" href="Project-Quality.dc.html">Quality</a><a role="tab" aria-selected="false" href="Project-SelfHealing.dc.html">Self-healing and training</a><a role="tab" aria-selected="false" href="Project-Increments.dc.html">Increments</a><a role="tab" aria-selected="true" href="Project-Members.dc.html">Members</a>
+    </div>
+
+    <div style="display: flex; gap: 8px; align-items: center"><a class="kit-btn outline sm" href="Project-Members.dc.html">← Members</a><span class="kit-small kit-muted">The record lives inside its project. There is no record across projects</span></div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Decisions by people, 30 days</span><span class="kit-display" style="font-size: 40px">23</span><span class="kit-small kit-muted">By 4 members and 2 people at ThinkLatent</span></div>
+      <a class="kit-surface" href="Agents-AtWork.dc.html" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Proposals from agents, 30 days</span><span class="kit-display" style="font-size: 40px">13</span><span class="kit-small kit-muted">6 accepted · 2 declined · 5 waiting</span></a>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Sealed text opened, 30 days</span><span class="kit-display" style="font-size: 40px">2 times</span><span class="kit-small kit-muted">8 items in all · each with a reason</span></div>
+      <a class="kit-surface" href="Requests-Status.dc.html" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Production access for a period</span><span class="kit-display" style="font-size: 40px">0 open</span><span class="kit-small kit-muted">1 used in 30 days · 1 ask waits in IAM</span></a>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Exports, 30 days</span><span class="kit-display" style="font-size: 40px">1</span><span class="kit-small kit-muted">By Priya N. on 30 Oct · the file has expired</span></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The record">
+      <div class="rc-h"><h3>Everything, newest first</h3><div class="kit-seg" role="group" aria-label="Kind"><button type="button" aria-pressed="true">All</button><button type="button" aria-pressed="false">Decisions</button><button type="button" aria-pressed="false">Sealed text</button><button type="button" aria-pressed="false">Agents</button><button type="button" aria-pressed="false">From outside</button><button type="button" aria-pressed="false">Members</button><button type="button" aria-pressed="false">Access</button></div></div>
+      <div class="rc-t">
+        <span class="h">When</span><span class="h">Who</span><span class="h">What</span><span class="h">Why, or what it rests on</span><span class="h">Kind</span><span class="h"></span>
+
+        <span class="d">Today 11:52</span><span>SRE agent</span><span>Proposed a fourth replica on weekday mornings</span><span>Requests wait ten times longer between 10 and 11<small>Waits for Arjun K.</small></span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l2.5 6.5L21 12l-6.500 2.500L12 21l-2.500-6.500L3 12l6.500-2.500z"></path></svg>Agent proposed</span></span><a href="Project-Operations.dc.html">Open</a>
+
+        <span class="d">Today 09:40</span><span>Priya N.</span><span>Asked for production access for 4 hours<small>AC-0421 · granted or refused in IAM, not here</small></span><span>"To read three summaries where amounts differ from the call"</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Access</span></span><a href="Requests-Status.dc.html">Open</a>
+
+        <span class="d">4 Nov</span><span>Lena W.</span><span>Answered ThinkLatent's question on CR-2291</span><span>Going back to the old screen was tried on 30 Oct and took 4 minutes</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Decision</span></span><a href="Project-Increments.dc.html">Open</a>
+
+        <span class="d lk">4 Nov</span><span class="lk">Priya N.</span><span class="lk">Read the 3 examples behind a gap<small>An owner may always read these, to confirm the gap</small></span><span class="lk">Amounts and dates differ from the call</span><span class="lk"><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>Sealed text opened</span></span><a class="lk" href="Project-SelfHealing.dc.html">Open</a>
+
+        <span class="d">3 Nov</span><span>Priya N.</span><span>Raised CR-2291: Next best action to Production<small>And stated its requirement for self-healing</small></span><span>Evidence 5 of 5, no deviation</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Decision</span></span><a href="Project-Increments.dc.html">Open</a>
+
+        <span class="d lk">28 Oct</span><span class="lk">Lena W.</span><span class="lk">Opened the text of 5 traces, for 22 minutes<small>Under production access AC-0388, 4 hours</small></span><span class="lk">"Three slow summaries the watch agent flagged"</span><span class="lk"><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>Sealed text opened</span></span><a class="lk" href="Project-Traces.dc.html">Open</a>
+
+        <span class="d">28 Oct</span><span>IAM</span><span>Production access granted to Lena W., for 4 hours<small>AC-0388 · asked from the portal the same morning</small></span><span>Arrived from IAM</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M10 6H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"></path></svg>From outside</span></span><a href="Requests-Status.dc.html">Open</a>
+
+        <span class="d">24 Oct</span><span>Arjun K.<small>ThinkLatent</small></span><span>Added a third replica<small>Accepted the SRE agent's proposal · closed PR-0058</small></span><span>Slower between 10 and 11 on weekdays</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Decision</span></span><a href="Project-Operations.dc.html">Open</a>
+
+        <span class="d">23 Oct</span><span>Priya N.</span><span>Scored 50 answers by hand</span><span>47 agree with self-healing's scorer</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Decision</span></span><a href="Project-SelfHealing.dc.html">Open</a>
+
+        <span class="d">22 Oct</span><span>Priya N.</span><span>Confirmed a gap: follow-ups are not listed</span><span>Proposed by self-healing; 3 members in support</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Decision</span></span><a href="Project-SelfHealing.dc.html">Open</a>
+
+        <span class="d">20 Oct</span><span>Priya N.</span><span>Declined a gap: summaries run too long</span><span>"Length is set in the application, not by the model"</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Decision</span></span><a href="Project-SelfHealing.dc.html">Open</a>
+
+        <span class="d">20 Oct</span><span>Priya N.</span><span>Added Grace T. as a member</span><span>Reads the summaries the guardrail holds back</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>Members</span></span><a href="Project-Members.dc.html">Open</a>
+
+        <span class="d">20 Oct 10:42</span><span>The portal</span><span>Raised incident INC-20417 into the Enterprise's incident tool</span><span>Up and answering was broken for 2 minutes</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M10 6H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"></path></svg>From outside</span></span><a href="Project-Incident.dc.html">Open</a>
+
+        <span class="d">5 Oct 13:00</span><span>The portal</span><span>Call summary on version 2, with everyone<small>The rollout moved by itself; nobody held it</small></span><span>Every watched number no worse at each step</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Decision</span></span><a href="Increment-Rollout.dc.html">Open</a>
+
+        <span class="d">2 Oct</span><span>Priya N.</span><span>Accepted a deviation: Numbers and calculations, 76 ± 2 against 78<small>And raised CR-2204</small></span><span>"Summaries rarely carry a calculation. Looked at again each month"</span><span><span class="rc-k"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Decision</span></span><a href="Project-Quality.dc.html">Open</a>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">Showing 15 of 412. A line is written when the thing happens. Taking something back is a new line that points at the old one. Looking at a page is not recorded; opening sealed text and exporting are.</div>
+    </section>
+
+    <div class="kit-grid3" style="align-items: start">
+      <section class="kit-surface" aria-label="Who can read what">
+        <div class="rc-h"><h3>Who can read what</h3><span class="kit-small kit-muted">The same on every project</span></div>
+        <div class="rc-kv">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg><span><b style="font-weight: 500">Everyone at the Enterprise</b><br>Decisions, what agents proposed, changes to members, and what arrived from outside</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg><span><b style="font-weight: 500">Members, ThinkLatent and auditors</b><br>Also who opened sealed text, which items, for how long and why</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span><b style="font-weight: 500">Nobody, through the record</b><br>The text itself. The record names a trace; it never shows what was said</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">An auditor's role is granted in IAM. It reads every project's record, one project at a time, and changes nothing.</div>
+      </section>
+
+      <section class="kit-surface" aria-label="Production access for a period">
+        <div class="rc-h"><h3>Production access for a period</h3><a class="kit-small" href="Requests-Status.dc.html">Ask for it</a></div>
+        <div class="rc-g">
+          <span>Priya N. · 4 hours<small>AC-0421 · asked today 09:40 · "three summaries where amounts differ"</small></span><span class="s">Waits in IAM</span>
+          <span>Lena W. · 4 hours on 28 Oct<small>AC-0388 · used for 22 minutes, 5 traces · ended by itself</small></span><span class="s">Ended</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">Granted in IAM; the portal prepares the ask and records every opening. While access is open, a chip says so on each page it opens. The Enterprise's own access review covers the grants.</div>
+      </section>
+
+      <section class="kit-surface coloured" aria-label="Export">
+        <div class="rc-h"><h3>Export</h3><span class="kit-small">For Risk, Audit or your own files</span></div>
+        <dl class="rc-f">
+          <dt>What</dt><dd>This project's record</dd>
+          <dt>Period</dt><dd><span class="kit-seg" role="group" aria-label="Period"><button type="button" aria-pressed="false">30 days</button><button type="button" aria-pressed="true">This quarter</button><button type="button" aria-pressed="false">All</button></span></dd>
+          <dt>Kinds</dt><dd>All six · sealed-text lines included</dd>
+          <dt>File</dt><dd>CSV or JSON, each line with a link back to it. Expires after 7 days</dd>
+        </dl>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px"><a class="kit-btn sm" href="#">Export 96 lines</a></div>
+        <div class="kit-small" style="margin-top: 10px; opacity: .8">An owner exports their own project. ThinkLatent and auditors can export any. Every export is itself a line in the record.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1915}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
