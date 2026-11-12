@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Help</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.hp-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.hp-h h3{margin:0;font-size:18px;font-weight:500}
+.hp-ask{display:flex;gap:10px;align-items:center;border-radius:22px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.12),0 8px 24px rgba(26,26,26,.06);padding:14px 16px;margin-top:12px}
+.hp-ask .av{width:34px;height:34px;border-radius:50%;background:#1A1A1A;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600;flex:none}
+.hp-ask .in{flex:1;font-size:16px;color:rgba(26,26,26,.5)}
+.hp-ex{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.hp-ex span{border-radius:999px;background:rgba(26,26,26,.05);padding:6px 12px;font-size:13px}
+.hp-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.hp-3>div{border-radius:16px;background:rgba(26,26,26,.04);padding:12px 14px;font-size:13px;line-height:1.45}
+.hp-3 b{display:block;font-weight:500;font-size:14px;margin-bottom:2px}
+.hp-n{font-variant-numeric:tabular-nums;font-weight:500}
+.hp-e{display:grid;grid-template-columns:44px minmax(0,1fr) minmax(0,1.3fr) 140px auto;gap:0;font-size:13px;margin-top:10px;align-items:stretch}
+.hp-e>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.4}
+.hp-e .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.hp-e small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.hp-av{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;font-size:11.5px;font-weight:600;background:rgba(26,26,26,.08)}
+.hp-on{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--companion);margin-right:6px;vertical-align:1px}
+.hp-off{display:inline-block;width:8px;height:8px;border-radius:50%;box-shadow:inset 0 0 0 1.5px rgba(26,26,26,.4);margin-right:6px;vertical-align:1px}
+.hp-p{display:grid;grid-template-columns:minmax(0,1.6fr) 96px 150px minmax(0,1fr) auto;gap:0;font-size:13px;margin-top:10px;align-items:stretch}
+.hp-p>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.4}
+.hp-p .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.hp-p small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.hp-kd{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:500;background:rgba(26,26,26,.07)}
+.hp-q{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:0;font-size:13px;margin-top:8px;align-items:center}
+.hp-q>*{padding:9px 10px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.4}
+.hp-q small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.hp-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.hp-box h4{margin:0;font-size:15px;font-weight:500}
+.hp-l{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.hp-l>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1)}
+.hp-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1950px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-current="page" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Help</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">4 experts on today</span><span class="kit-chip">4 problems open, in the open</span><span class="kit-chip">63 questions answered before</span></div>
+        <span class="kit-small kit-muted">Ask in your own words. Jarvis answers first, from the records, and shows what he rests on. If that is not enough, a named person at ThinkLatent is paged. Problems are logged where everyone can see them · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Ask an expert</a><a class="kit-btn outline" href="#">Log a problem</a></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Ask">
+      <div class="hp-h"><h3>Ask</h3><span class="kit-small kit-muted">The same Jarvis as on Home and behind ⌘K · he sees only what you can see</span></div>
+      <a class="hp-ask" href="Jarvis-Ask.dc.html" style="color: inherit; text-decoration: none"><span class="av">J</span><span class="in">Ask about a model, a project, a number, or how to do something</span><span class="kit-btn">Ask</span></a>
+      <div class="hp-ex"><span>Which model should I use to summarise claims?</span><span>Where is my change request?</span><span>Why did my score move this week?</span><span>How do I add someone to my project?</span><span>What is a dedicated endpoint?</span></div>
+      <div class="hp-3">
+        <div><b>1 · Jarvis answers</b>From the portal's own records and the answered questions below, with his sources and how sure he is.</div>
+        <div><b>2 · A person is paged</b>When you ask for one, or when Jarvis says he does not know. The expert sees your question and what Jarvis already said.</div>
+        <div><b>3 · The answer is kept</b>When an expert marks an answer right, it joins "Answered before", so the next person gets it at once.</div>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Ask an expert">
+        <div class="hp-h"><h3>Ask an expert</h3><span class="kit-small kit-muted">Named people at ThinkLatent · Jarvis answers first, then pages them</span></div>
+        <div class="hp-e">
+          <span class="h"></span><span class="h">Expert</span><span class="h">Ask them about</span><span class="h">A person answers in</span><span class="h"></span>
+          <span><span class="hp-av">MS</span></span><span><span class="hp-on" aria-hidden="true"></span>Meera S.<small>Product and adoption · on today</small></span><span>Starting a project, the plan and its dates, who can see what</span><span class="hp-n">25 min<small>typical this week</small></span><a class="kit-btn outline" href="#">Ask</a>
+          <span><span class="hp-av">AK</span></span><span><span class="hp-on" aria-hidden="true"></span>Arjun K.<small>AI engineering · on today</small></span><span>Endpoints, machines, time to answer, change requests</span><span class="hp-n">40 min</span><a class="kit-btn outline" href="#">Ask</a>
+          <span><span class="hp-av">HO</span></span><span><span class="hp-on" aria-hidden="true"></span>Hana O.<small>Foundation team · on today</small></span><span>What a model is good at, versions, a domain model of your own</span><span class="hp-n">2 hours</span><a class="kit-btn outline" href="#">Ask</a>
+          <span><span class="hp-av">LF</span></span><span><span class="hp-on" aria-hidden="true"></span>Luis F.<small>TL Index · on today</small></span><span>Scores, thresholds, judges, your evaluation set's format</span><span class="hp-n">1 hour</span><a class="kit-btn outline" href="#">Ask</a>
+          <span><span class="hp-av">RD</span></span><span><span class="hp-off" aria-hidden="true"></span>Ravi D.<small>Self-healing · back Monday</small></span><span>Requirements, gaps, when there is enough to train</span><span class="kit-muted">— Away<small>Hana O. covers</small></span><a class="kit-btn outline" href="#">Ask</a>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">In a project, your own ThinkLatent contact is asked first. Outside the hours agreed, 7:00 to 19:00 ET, the question waits and Jarvis says so.</div>
+      </section>
+
+      <div class="hp-box"><h4>This week, in Help</h4>
+        <div class="hp-l" style="grid-template-columns: minmax(0, 1fr) 90px">
+          <span>Questions asked</span><span class="hp-n">1,480</span>
+          <span>Answered by Jarvis, with nobody paged<small>Marked helpful on 81% of those rated</small></span><span class="hp-n">1,265 · 85%</span>
+          <span>Handed to a person</span><span class="hp-n">171</span>
+          <span>Jarvis said he did not know<small>Each became a page or a new entry</small></span><span class="hp-n">44</span>
+          <span>Still waiting for a person, now</span><span class="hp-n">3</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">What people ask about most: evaluation sets 22%, access 17%, change requests 14%, which model to use 12%.</div></div>
+    </div>
+
+    <section class="kit-surface" aria-label="Problems logged">
+      <div class="hp-h"><h3>Problems, logged in the open</h3><span class="kit-small kit-muted">About the portal or a model · each is a ticket, shown until it is closed · 4 open, 3 closed this month, 4 days typical</span></div>
+      <div class="hp-p">
+        <span class="h">Problem</span><span class="h">Kind</span><span class="h">About</span><span class="h">Where it stands</span><span class="h"></span>
+        <span>Call summary cuts the summary of a very long call short<small>PR-0077 · raised 2 Nov by Advisor desktop · ticket ADV-1432</small></span><span><span class="hp-kd">Issue</span></span><span>A model<small>Domain-Advice v2</small></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Waits for 3 example calls</span></span></span><a href="Requests-Status.dc.html">Open</a>
+        <span>Capacity for month-end call volume<small>PR-0081 · raised 1 Nov by Call processing · ticket TLP-880</small></span><span><span class="hp-kd">Risk</span></span><span>A model<small>Speech recognition v6</small></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>In progress with ThinkLatent</span></span></span><a href="Requests-Status.dc.html">Open</a>
+        <span>Mixes up two funds with similar names<small>PR-0064 · raised 30 Oct by Advisor desktop · ticket ADV-1419</small></span><span><span class="hp-kd">Issue</span></span><span>A model<small>Domain-Advice v2</small></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Being looked at</span></span></span><a href="Requests-Status.dc.html">Open</a>
+        <span>Traces is slow to open a session of more than 40 turns<small>PR-0079 · raised 3 Nov by Claims intake · ticket PTL-212</small></span><span><span class="hp-kd">Issue</span></span><span>The portal<small>Traces</small></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Fix planned for 12 Nov</span></span></span><a href="Requests-Status.dc.html">Open</a>
+        <span class="kit-muted">Slower between 10 and 11 on weekdays<small>PR-0058 · raised 21 Oct by Advisor desktop · closed 24 Oct: a third replica added</small></span><span><span class="hp-kd">Issue</span></span><span class="kit-muted">A model</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Closed in 3 days</span></span></span><a href="Requests-Status.dc.html">Open</a>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">Logging a problem makes its ticket at once and adds it to Requests and to the model's or the project's own page. Three kinds: an issue, a risk, or something you depend on.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Answered before">
+        <div class="hp-h"><h3>Answered before</h3><span class="kit-small kit-muted">63 entries · each began as someone's question and was marked right by an expert</span></div>
+        <div class="hp-q">
+          <span>What is a dedicated endpoint, and when do I need one?<small>Answered by Arjun K. · checked 28 Oct</small></span><span class="hp-n">asked 14×</span>
+          <span>How do I get my evaluation set into the right format?<small>Answered by Luis F. · checked 2 Nov</small></span><span class="hp-n">11×</span>
+          <span>Why is my score different in production and on my evaluation set?<small>Answered by Luis F. · checked 30 Oct</small></span><span class="hp-n">9×</span>
+          <span>How long does a change request take, and who decides it?<small>Answered by Arjun K. · checked 21 Oct</small></span><span class="hp-n">8×</span>
+          <span>Who can see the text of my project's requests?<small>Answered by Meera S. · checked 3 Nov</small></span><span class="hp-n">7×</span>
+          <span>What happens to my feature when its model gets a new version?<small>Answered by Hana O. · checked 4 Nov</small></span><span class="hp-n">6×</span>
+        </div>
+        <div style="margin-top: 10px"><a class="kit-small" href="#">All 63, by topic</a></div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div class="hp-box"><h4>Guides</h4>
+          <div class="hp-l">
+            <span>Your first project, start to Production</span><a href="Start-Project.dc.html">Open</a>
+            <span>The evaluation set: format and the measures to choose from</span><a href="Feature-Evaluation.dc.html">Open</a>
+            <span>The TL Index, explained</span><a href="Index-Language.dc.html">Open</a>
+            <span>What cost avoided means, layer by layer</span><a href="Value-Enterprise.dc.html">Open</a>
+          </div></div>
+        <div class="hp-box"><h4>Not ThinkLatent's to answer</h4>
+          <div class="hp-l">
+            <span>The Enterprise's list of approved AI tools<small>Owned by AI governance · the portal links to it and keeps no copy</small></span><a href="#">Go there</a>
+            <span>AI training for everyone at the Enterprise<small>Owned by AI governance</small></span><a href="#">Go there</a>
+          </div></div>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1950}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
