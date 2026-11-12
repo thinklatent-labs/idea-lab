@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Quality in a project</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.ql-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ql-h h3{margin:0;font-size:18px;font-weight:500}
+.ql-m{display:grid;grid-template-columns:200px repeat(5,minmax(0,1fr));gap:0;font-size:13px;margin-top:10px;align-items:stretch}
+.ql-m>*{padding:12px 14px 12px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.45}
+.ql-m .hd{font-size:11.5px;color:rgba(26,26,26,.65);border-top:0;padding-top:0;line-height:1.35}
+.ql-m .hd b{display:block;font-size:12.5px;color:#1A1A1A;font-weight:500}
+.ql-m .ft b{display:block;font-size:15px;font-weight:500}
+.ql-m small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ql-n{font-variant-numeric:tabular-nums;font-weight:500}
+.ql-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.ql-box h4{margin:0;font-size:15px;font-weight:500}
+.ql-t{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.1fr) 260px minmax(0,1fr);gap:0;font-size:13px;margin-top:8px;align-items:stretch}
+.ql-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ql-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ql-r{display:grid;grid-template-columns:minmax(0,1fr) 46px minmax(0,1.3fr);gap:7px 10px;font-size:13px;margin-top:10px;align-items:center}
+.ql-r .b{height:8px;border-radius:999px;background:rgba(26,26,26,.1);position:relative}
+.ql-r .b i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--warning)}
+.ql-it{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:9px 10px;font-size:13px;line-height:1.45;margin-top:10px;align-items:start}
+.ql-it svg{width:17px;height:17px;margin-top:1px}
+.ql-it small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ql-key{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;align-items:center}
+.ql-key i{display:inline-block;width:18px;height:3px;border-radius:2px;margin-right:5px;vertical-align:3px}
+svg text{font-family:Inter,system-ui,sans-serif}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1760px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Quality</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Call summary meets both measures you score</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">2 gaps open in production · 1 deviation accepted</span><span class="kit-chip">Next best action meets its two, narrowly</span></div>
+        <span class="kit-small kit-muted">Is each feature good enough, and how do we know. Five sources side by side: your own measures, production as self-healing scores it, ThinkLatent's thresholds on the TL Index, the safety gate, and what your users say · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="#">Download the evidence</a><a class="kit-btn outline" href="#">Ask Jarvis why a number moved</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="false" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="true" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Self-healing and training</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Every feature, five ways">
+      <div class="ql-h"><h3>Every feature, five ways</h3><span class="kit-small kit-muted">A cell opens the page behind it · who sets each: you, self-healing from your requirements, ThinkLatent, ThinkLatent, your users</span></div>
+      <div class="ql-m">
+        <span class="hd"></span>
+        <span class="hd"><b>Your own measures</b>on your evaluation set</span>
+        <span class="hd"><b>In production</b>every request, against what you asked for</span>
+        <span class="hd"><b>ThinkLatent's thresholds</b>the TL Index, on the version you run</span>
+        <span class="hd"><b>The safety gate</b>safe on this feature's own cases, 85</span>
+        <span class="hd"><b>What users say</b>thumbs from the application</span>
+
+        <span class="ft"><b>Call summary</b><small>Production since 5 Oct · Domain-Advice v2</small></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>2 of 2 scored meet it</span></span><small>Summary quality <span class="ql-n">86% ± 5</span>, expects 80% · Nothing made up <span class="ql-n">94% ± 2</span>, expects 92% · a third measure is not set up</small></span>
+        <span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>3 of 5 met · 2 gaps</span></span><small>Follow-ups listed <span class="ql-n">74% ± 3</span>, expects 90%: confirmed, enough to train · Figures quoted right <span class="ql-n">91% ± 2</span>, expects 95%: waits for you</small></span>
+        <span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>1 of 2 met · 1 accepted</span></span><small>Overall <span class="ql-n">83 ± 1</span> against 80 · Numbers and calculations <span class="ql-n">76 ± 2</span> against 78: risk accepted by Priya N., 2 Oct</small></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Clear</span></span><small><span class="ql-n">91 ± 3</span> against 85</small></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>92% thumbs up</span></span><small>Of 1,840 summaries rated this week · 147 down, 58 of them "missed an action"</small></span>
+
+        <span class="ft"><b>Next best action</b><small>Pilot since 28 Oct · three models</small></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>2 of 2 meet it, narrowly</span></span><small>The right action chosen <span class="ql-n">94% ± 3</span>, expects 92% · Worded clearly <span class="ql-n">91% ± 3</span>, expects 90% · on 300 Pilot cases both intervals reach below; more cases would settle it</small></span>
+        <span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waits for you</span></span><small>Our reading of your requirement is not confirmed, so nothing is scored yet</small></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>All met</span></span><small>For each of its three models, on its own measure</small></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Clear</span></span><small><span class="ql-n">93 ± 3</span> against 85</small></span>
+        <span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>81% thumbs up</span></span><small>Of 420 rated in Pilot · too few weeks to call a level</small></span>
+
+        <span class="ft"><b>Speech to text</b><small>Build · Speech recognition v6</small></span>
+        <span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>First scoring is running</span></span><small>Word error rate on your own 200 calls</small></span>
+        <span class="kit-muted">— Not live<small>Scored from Pilot on</small></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Over its bar</span></span><small>A task model, on its own measure: <span class="ql-n">6.1%</span> word error rate on Retail advice calls, bar 8%</small></span>
+        <span class="kit-muted">— Does not apply<small>It writes down what was said; the gate is for answers a model composes</small></span>
+        <span class="kit-muted">— Not live</span>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Call summary over time">
+        <div class="ql-h"><h3>Call summary, week by week since it went live</h3><div class="ql-key"><span><i style="background: var(--companion)"></i>your evaluation set</span><span><i style="background: var(--cat3)"></i>thumbs up</span><span><i style="background: var(--warning)"></i>follow-ups listed, in production</span><span><i style="background: #1A1A1A; height: 0; border-top: 2px dashed #1A1A1A; background: none"></i>what you expect of summary quality, 80%</span></div></div>
+        <svg viewBox="0 0 760 270" width="100%" role="img" aria-label="Three lines over five weeks. Summary quality and thumbs up rise slowly and stay above what is expected; follow-ups listed stays flat near 74 percent" style="display: block; margin-top: 8px">
+          <g stroke="rgba(26,26,26,.1)"><line x1="48" y1="30" x2="740" y2="30"></line><line x1="48" y1="80" x2="740" y2="80"></line><line x1="48" y1="130" x2="740" y2="130"></line><line x1="48" y1="180" x2="740" y2="180"></line></g>
+          <line x1="48" y1="230" x2="740" y2="230" stroke="rgba(26,26,26,.4)"></line>
+          <g font-size="11" fill="rgba(26,26,26,.6)"><text x="40" y="34" text-anchor="end">100%</text><text x="40" y="84" text-anchor="end">90%</text><text x="40" y="134" text-anchor="end">80%</text><text x="40" y="184" text-anchor="end">70%</text><text x="40" y="234" text-anchor="end">60%</text>
+            <text x="100" y="250" text-anchor="middle">5 Oct</text><text x="250" y="250" text-anchor="middle">12 Oct</text><text x="400" y="250" text-anchor="middle">19 Oct</text><text x="550" y="250" text-anchor="middle">26 Oct</text><text x="700" y="250" text-anchor="middle">2 Nov</text></g>
+          <line x1="48" y1="130" x2="740" y2="130" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="5 4"></line>
+          <polyline points="100,115 250,105 400,110 550,100 700,100" fill="none" stroke="var(--companion)" stroke-width="2.5"></polyline>
+          <polyline points="100,85 250,80 400,75 550,70 700,70" fill="none" stroke="var(--cat3)" stroke-width="2"></polyline>
+          <polyline points="100,165 250,160 400,160 550,155 700,160" fill="none" stroke="var(--warning)" stroke-width="2"></polyline>
+          <g fill="#fff" stroke-width="2"><circle cx="700" cy="100" r="4" stroke="var(--companion)"></circle><circle cx="700" cy="70" r="4" stroke="var(--cat3)"></circle><circle cx="700" cy="160" r="4" stroke="var(--warning)"></circle></g>
+          <g font-size="11.5" fill="#1A1A1A" text-anchor="end"><text x="690" y="62">92%</text><text x="690" y="94">86% ± 5</text><text x="690" y="178">74% ± 3 · you expect 90%</text></g>
+        </svg>
+        <div class="kit-small kit-muted" style="margin-top: 6px">The first two have held above what you expect since go-live. Follow-ups listed has not moved: it is the gap self-healing has built for. A table of the same numbers sits behind the chart.</div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div class="ql-box"><h4>Open on Call summary</h4>
+          <div class="ql-it">
+            <svg style="color: var(--warning)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>A deviation you accepted<small>Numbers and calculations, 76 ± 2 against 78 · accepted by Priya N. on 2 Oct · shown to governance · version 3 would end it</small></span><a href="Feature-Page.dc.html">Open</a>
+            <svg style="color: var(--warning)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>A gap with enough to train<small>Follow-ups listed · a run could start today</small></span><a href="Project-SelfHealing.dc.html">Open</a>
+            <svg style="color: var(--warning)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>A gap that waits for you<small>Figures quoted right · found 2 Nov</small></span><a href="Project-SelfHealing.dc.html">Open</a>
+            <svg style="color: rgba(26,26,26,.55)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>A measure not set up<small>Action items found · 62 rows of your evaluation set lack a field</small></span><a href="Feature-Evaluation.dc.html">Open</a>
+          </div></div>
+        <div class="ql-box"><h4>Why advisors gave a thumb down this week</h4>
+          <div class="ql-r">
+            <span>Missed an action</span><span class="ql-n">58</span><span class="b"><i style="width: 100%"></i></span>
+            <span>Too long</span><span class="ql-n">31</span><span class="b"><i style="width: 53%"></i></span>
+            <span>Wrong figure</span><span class="ql-n">23</span><span class="b"><i style="width: 40%"></i></span>
+            <span>Something else</span><span class="ql-n">35</span><span class="b"><i style="width: 60%"></i></span>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">147 of 1,840 rated. The top reason and the third are the two gaps self-healing found.</div></div>
+      </div>
+    </div>
+
+    <section class="kit-surface" aria-label="How far to trust each number">
+      <div class="ql-h"><h3>How far to trust each number</h3><span class="kit-small kit-muted">A judge's score counts only once it agrees with answers scored by hand</span></div>
+      <div class="ql-t">
+        <span class="h">Measure · feature</span><span class="h">Scored by</span><span class="h">Agrees with hand scores</span><span class="h">Where it stands</span>
+        <span>Summary quality · Call summary</span><span>The standard judge, version 2</span><span class="ql-n">46 of 50</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Counts</span></span></span>
+        <span>Nothing made up · Call summary</span><span>The standard judge, version 2</span><span class="ql-n">48 of 50</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Counts</span></span></span>
+        <span>Follow-ups listed · Call summary</span><span>Self-healing's scorer</span><span class="ql-n">47 of 50</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Counts</span></span></span>
+        <span>Figures quoted right · Call summary</span><span>Self-healing's scorer</span><span class="kit-muted">— Not hand-scored yet</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Shown, cannot lead to training yet</span></span></span>
+        <span>The right action chosen · Next best action</span><span>Counted against the action the advisor took</span><span class="kit-muted">— Counted, not judged</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Counts</span></span></span>
+        <span>Safe on this feature's own cases · both</span><span>ThinkLatent's safety judge</span><span class="ql-n">Checked by ThinkLatent, 96 of 100</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Counts</span></span></span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1760}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

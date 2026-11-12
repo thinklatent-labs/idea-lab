@@ -61,7 +61,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .ix-h2{display:grid;grid-template-columns:minmax(0,1fr) 110px 70px;gap:6px 10px;font-size:13px;margin-top:10px;align-items:baseline;font-variant-numeric:tabular-nums}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1870px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2120px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -87,14 +87,14 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     <div class="kit-page-head">
       <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">TL Index</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Edition 2026-11</span><span class="kit-chip">6 kinds of model · 10 of ours · 7 from outside for reference</span></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Edition 2026-11</span><span class="kit-chip">6 kinds of model · 10 of ours · outside models by name, for reference</span></div>
         <span class="kit-small kit-muted">Where models are compared. Language models are scored on the TL Index itself. Every other kind is ranked on its own measure, ours beside outside models scored the same way · sample data</span>
       </div>
       <div class="kit-actions"><a class="kit-btn outline" href="#">How to read the Index</a><a class="kit-btn outline" href="#">Ask Jarvis which model fits a task</a></div>
     </div>
 
     <div class="lb-kinds" role="tablist" aria-label="Kinds of model">
-      <a class="lb-k on" href="#"><b>Language</b><small>The TL Index, out of 100</small><span class="v">84 ± 1</span><span>Domain-Advice v2 · version 3 at 88</span><small>Best outside: Frontier API, 87 ± 1</small></a>
+      <a class="lb-k on" href="#"><b>Language</b><small>The TL Index, out of 100</small><span class="v">84 ± 1</span><span>Domain-Advice v2 · version 3 at 88</span><small>Best outside: Vendor A · large, 87 ± 1</small></a>
       <a class="lb-k" href="#"><b>Decision</b><small>How often the choice is right</small><span class="v">94%</span><span>Decision adapter v1 · bar 92%</span><small>Best outside: 95%, twelve times slower</small></a>
       <a class="lb-k" href="Index-Leaderboards.dc.html"><b>Speech</b><small>Word error rate, lower is better</small><span class="v">6.8%</span><span>Speech recognition v6 · bar 8%</span><small>Best outside: 6.1%, on public calls only</small></a>
       <a class="lb-k" href="#"><b>Classifier</b><small>Found, or sorted right</small><span class="v">99.2%</span><span>Redaction v4 · bar 99%</span><small>Call classification v3: 91% ± 2</small></a>
@@ -112,10 +112,13 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div class="ix-ch">
             <span></span><div class="ix-ax"><span style="left: 0; transform: none">50</span><span style="left: 20%">60</span><span style="left: 40%">70</span><span style="left: 60%">80</span><span style="left: 80%">90</span><span style="left: 100%; transform: translateX(-100%)">100</span></div><span></span>
 
-            <span class="nm">Frontier API<small>Outside · vendor</small></span><div class="ix-bar"><i class="out" style="width: 74%"></i><s style="left: 72%; width: 4%"></s><u></u></div><span class="ix-v">87 ± 1</span>
+            <span class="nm">Vendor A · large<small>Outside · vendor</small></span><div class="ix-bar"><i class="out" style="width: 74%"></i><s style="left: 72%; width: 4%"></s><u></u></div><span class="ix-v">87 ± 1</span>
+            <span class="nm">Vendor B · large<small>Outside · vendor</small></span><div class="ix-bar"><i class="out" style="width: 72%"></i><s style="left: 70%; width: 4%"></s><u></u></div><span class="ix-v">86 ± 1</span>
             <span class="nm sel">Domain-Advice v2<small>ThinkLatent · TLM4 · version 3 is the open circle</small></span><div class="ix-bar"><i style="width: 68%"></i><s style="left: 66%; width: 4%"></s><em style="left: 76%"></em><u></u></div><span class="ix-v">84 ± 1</span>
             <span class="nm">Core 4.2<small>ThinkLatent · TLM4</small></span><div class="ix-bar"><i style="width: 62%"></i><s style="left: 60%; width: 4%"></s><u></u></div><span class="ix-v">81 ± 1</span>
-            <span class="nm">Open-source 70B<small>Outside · open, as it comes</small></span><div class="ix-bar"><i class="out" style="width: 58%"></i><s style="left: 56%; width: 4%"></s><u></u></div><span class="ix-v">79 ± 1</span>
+            <span class="nm">Vendor A · small<small>Outside · vendor</small></span><div class="ix-bar"><i class="out" style="width: 60%"></i><s style="left: 58%; width: 4%"></s><u></u></div><span class="ix-v">80 ± 1</span>
+            <span class="nm">Open model · 70B<small>Outside · open, as it comes</small></span><div class="ix-bar"><i class="out" style="width: 58%"></i><s style="left: 56%; width: 4%"></s><u></u></div><span class="ix-v">79 ± 1</span>
+            <span class="nm">Open model · 30B<small>Outside · open, as it comes</small></span><div class="ix-bar"><i class="out" style="width: 46%"></i><s style="left: 44%; width: 4%"></s><u></u></div><span class="ix-v">73 ± 1</span>
             <span class="nm">Distil 4.2<small>ThinkLatent · TLM4 · small and fast</small></span><div class="ix-bar"><i style="width: 44%"></i><s style="left: 42%; width: 4%"></s><u></u></div><span class="ix-v">72 ± 1</span>
             <span class="nm">Core 3.4<small>ThinkLatent · TLM3 · retiring</small></span><div class="ix-bar"><i class="old" style="width: 32%"></i><s style="left: 30%; width: 4%"></s><u></u></div><span class="ix-v">66 ± 1</span>
             <span class="nm">TLM5<small>ThinkLatent · in development</small></span><div class="kit-small kit-muted">— Not scored: no version to run yet</div><span class="ix-v kit-muted">—</span>
@@ -126,10 +129,10 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div style="font-size: 16px; font-weight: 500">Best on each pillar, and where Domain-Advice v2 stands</div>
           <div class="ix-p">
             <span class="h">Pillar · its bar</span><span class="h">Best of all</span><span class="h">Domain-Advice v2</span>
-            <span>Financial data processing<small>bar 80</small></span><span><b>88</b> Frontier API</span><span><b>86</b><small>tied for best</small></span>
-            <span>Client care<small>bar 80</small></span><span><b>90</b> Frontier API</span><span><b>87</b><small>tied for best</small></span>
+            <span>Financial data processing<small>bar 80</small></span><span><b>88</b> Vendor A · large</span><span><b>86</b><small>tied for best</small></span>
+            <span>Client care<small>bar 80</small></span><span><b>90</b> Vendor A · large</span><span><b>87</b><small>tied for best</small></span>
             <span>Compliance and regulatory<small>bar 78</small></span><span><b>83</b> Domain-Advice v2</span><span><b>83</b><small>best</small></span>
-            <span>Safety and grounding<small>bar 72</small></span><span><b>84</b> Frontier API</span><span><b>78</b><small>behind, over its bar</small></span>
+            <span>Safety and grounding<small>bar 72</small></span><span><b>84</b> Vendor B · large</span><span><b>78</b><small>behind, over its bar</small></span>
             <span>Entity recognition<small>bar 80</small></span><span><b>88</b> Domain-Advice v2</span><span><b>88</b><small>best</small></span>
             <span>Real Enterprise<small>the Enterprise's own work</small></span><span><b>83</b> Domain-Advice v2</span><span><b>83</b><small>best</small></span>
           </div>
@@ -143,26 +146,32 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div class="ix-t" style="margin-top: 10px">
         <span class="h"></span><span class="h">Model</span><span class="h">Whose</span><span class="h">Overall ▾</span><span class="h">Financial data</span><span class="h">Client care</span><span class="h">Compliance</span><span class="h">Safety, grounding</span><span class="h">Entities</span><span class="h">Real Enterprise</span><span class="h">Preference rating</span><span class="h">Time a task</span><span class="h">Cost a task</span><span class="h">Size</span>
 
-        <span>1</span><span class="nm"><b>Frontier API</b><small>Several vendors' models, as one line</small></span><span><span class="lb-who out">Outside · vendor</span></span><span class="top">87 ± 1</span><span class="top">88</span><span class="top">90</span><span class="un">— too few</span><span class="top">84</span><span>87</span><span>81</span><span class="top">1,086 ± 21</span><span>2.9 s</span><span>$[cost]</span><span class="un">Not stated</span>
+        <span>1</span><span class="nm"><b>Vendor A · large</b><small>A vendor's largest model, through its API</small></span><span><span class="lb-who out">Outside · vendor</span></span><span class="top">87 ± 1</span><span class="top">88</span><span class="top">90</span><span class="un">— too few</span><span>82</span><span>87</span><span>81</span><span class="top">1,086 ± 21</span><span>2.9 s</span><span>$[cost]</span><span class="un">Not stated</span>
 
-        <span class="rowsel">2</span><span class="nm rowsel"><b>Domain-Advice v2</b><small>TLM4 · Domain · built on Core 4.2</small></span><span class="rowsel"><span class="lb-who tl">ThinkLatent</span></span><span class="rowsel">84 ± 1</span><span class="rowsel">86</span><span class="rowsel">87</span><span class="rowsel top">83</span><span class="rowsel">78</span><span class="rowsel top">88</span><span class="rowsel top">83</span><span class="rowsel">1,071 ± 19</span><span class="rowsel">2.1 s</span><span class="rowsel">$[cost]</span><span class="rowsel">27B</span>
+        <span>2</span><span class="nm"><b>Vendor B · large</b><small>A second vendor's largest model</small></span><span><span class="lb-who out">Outside · vendor</span></span><span>86 ± 1</span><span>87</span><span>88</span><span class="un">— too few</span><span class="top">84</span><span>86</span><span>80</span><span>1,064 ± 22</span><span>3.4 s</span><span>$[cost]</span><span class="un">Not stated</span>
 
-        <span>3</span><span class="nm"><b>Core 4.2</b><small>TLM4 · Core</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span>81 ± 1</span><span>85</span><span>82</span><span>80</span><span>76</span><span>84</span><span>75</span><span>1,002 ± 18</span><span>2.0 s</span><span>$[cost]</span><span>27B</span>
+        <span class="rowsel">3</span><span class="nm rowsel"><b>Domain-Advice v2</b><small>TLM4 · Domain · built on Core 4.2</small></span><span class="rowsel"><span class="lb-who tl">ThinkLatent</span></span><span class="rowsel">84 ± 1</span><span class="rowsel">86</span><span class="rowsel">87</span><span class="rowsel top">83</span><span class="rowsel">78</span><span class="rowsel top">88</span><span class="rowsel top">83</span><span class="rowsel">1,071 ± 19</span><span class="rowsel">2.1 s</span><span class="rowsel">$[cost]</span><span class="rowsel">27B</span>
 
-        <span>4</span><span class="nm"><b>Open-source 70B</b><small>As it comes, run on ThinkLatent's machines</small></span><span><span class="lb-who out">Outside · open</span></span><span>79 ± 1</span><span>82</span><span>81</span><span class="un">77</span><span>75</span><span class="un">— too few</span><span>72</span><span>991 ± 20</span><span>4.4 s</span><span>$[cost]</span><span>70B</span>
+        <span>4</span><span class="nm"><b>Core 4.2</b><small>TLM4 · Core</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span>81 ± 1</span><span>85</span><span>82</span><span>80</span><span>76</span><span>84</span><span>75</span><span>1,002 ± 18</span><span>2.0 s</span><span>$[cost]</span><span>27B</span>
 
-        <span>5</span><span class="nm"><b>Distil 4.2</b><small>TLM4 · Distil · the lower-cost path</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span>72 ± 1</span><span class="un">78</span><span class="un">74</span><span class="un">69</span><span class="un">63</span><span class="un">78</span><span>66</span><span>912 ± 22</span><span class="top">0.6 s</span><span>$[cost]</span><span>Small</span>
+        <span>5</span><span class="nm"><b>Vendor A · small</b><small>The same vendor's small, fast model</small></span><span><span class="lb-who out">Outside · vendor</span></span><span>80 ± 1</span><span>82</span><span>83</span><span class="un">76</span><span>77</span><span>81</span><span>73</span><span class="un">— no votes yet</span><span>1.1 s</span><span>$[cost]</span><span class="un">Not stated</span>
 
-        <span>6</span><span class="nm"><b>Core 3.4</b><small>TLM3 · retiring</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span>66 ± 1</span><span class="un">70</span><span class="un">68</span><span class="un">64</span><span class="un">58</span><span class="un">70</span><span>57</span><span>855 ± 26</span><span>3.1 s</span><span>$[cost]</span><span>About 25B</span>
+        <span>6</span><span class="nm"><b>Open model · 70B</b><small>As it comes, run on ThinkLatent's machines</small></span><span><span class="lb-who out">Outside · open</span></span><span>79 ± 1</span><span>82</span><span>81</span><span class="un">77</span><span>75</span><span class="un">— too few</span><span>72</span><span>991 ± 20</span><span>4.4 s</span><span>$[cost]</span><span>70B</span>
+
+        <span>7</span><span class="nm"><b>Open model · 30B</b><small>As it comes, run on ThinkLatent's machines</small></span><span><span class="lb-who out">Outside · open</span></span><span>73 ± 1</span><span class="un">76</span><span class="un">75</span><span class="un">70</span><span class="un">68</span><span class="un">77</span><span>65</span><span class="un">— no votes yet</span><span>1.9 s</span><span>$[cost]</span><span>30B</span>
+
+        <span>8</span><span class="nm"><b>Distil 4.2</b><small>TLM4 · Distil · the lower-cost path</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span>72 ± 1</span><span class="un">78</span><span class="un">74</span><span class="un">69</span><span class="un">63</span><span class="un">78</span><span>66</span><span>912 ± 22</span><span class="top">0.6 s</span><span>$[cost]</span><span>Small</span>
+
+        <span>9</span><span class="nm"><b>Core 3.4</b><small>TLM3 · retiring</small></span><span><span class="lb-who tl">ThinkLatent</span></span><span>66 ± 1</span><span class="un">70</span><span class="un">68</span><span class="un">64</span><span class="un">58</span><span class="un">70</span><span>57</span><span>855 ± 26</span><span>3.1 s</span><span>$[cost]</span><span>About 25B</span>
       </div>
-      <div class="kit-small kit-muted" style="margin-top: 10px">"— too few" means under 100 scored questions on that pillar: Frontier API on Compliance, Open-source 70B on Entity recognition. Five of sixteen pillars are live in this edition. Preference rating is from people's blind votes and is never used as a threshold.</div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">"— too few" means under 100 scored questions on that pillar: the two large vendor models on Compliance, Open model · 70B on Entity recognition. Vendor and open-model names here are stand-ins; the real board names each model. Five of sixteen pillars are live in this edition. Preference rating is from people's blind votes and is never used as a threshold.</div>
     </section>
 
     <div style="display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 12px; align-items: start">
       <div class="ix-box"><h4>Real Enterprise · does training on the Enterprise's own work help?</h4>
         <div class="kit-small kit-muted" style="margin-top: 4px">A score for each use, from that use's own questions, then combined by each use's share of requests.</div>
         <div class="ix-re">
-          <span class="h">Use · its model</span><span class="h">Questions</span><span class="h">The model as it comes</span><span class="h">After training for this use</span><span class="h">Frontier API</span>
+          <span class="h">Use · its model</span><span class="h">Questions</span><span class="h">The model as it comes</span><span class="h">After training for this use</span><span class="h">Best outside model</span>
           <span>Call summary<small>Advisor desktop · Domain-Advice v2</small></span><span>400</span><span>80 ± 5</span><span><b>86 ± 5</b></span><span>81 ± 5</span>
           <span>Claims triage<small>Claims intake · Distil 4.2 · under its bar</small></span><span>300</span><span>71 ± 5</span><span class="kit-muted">— Not trained for it yet</span><span>82 ± 5</span>
           <span>Chat answers<small>Service chat assist · Core 4.2 · Pilot</small></span><span>250</span><span>76 ± 5</span><span class="kit-muted">— Not trained for it yet</span><span>80 ± 5</span>
@@ -171,18 +180,18 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div class="ix-box"><h4>Head to head · what people prefer</h4>
         <div class="kit-small kit-muted" style="margin-top: 4px">Two answers to the same case, names hidden; a person picks the better one. 3,470 votes from 214 people since 3 Oct, on Client care cases.</div>
         <div class="ix-h2">
-          <span>Frontier API</span><b style="font-weight: 600">1,086 ± 21</b><span class="kit-muted">a tie</span>
+          <span>Vendor A · large</span><b style="font-weight: 600">1,086 ± 21</b><span class="kit-muted">a tie</span>
           <span>Domain-Advice v2</span><b style="font-weight: 600">1,071 ± 19</b><span class="kit-muted">a tie</span>
           <span>Core 4.2</span><span>1,002 ± 18</span><span></span>
           <span>Open-source 70B</span><span>991 ± 20</span><span></span>
         </div>
-        <div class="kit-small" style="margin-top: 10px; line-height: 1.5">People and the judge put the models in the same order. People cannot tell the Frontier API from Domain-Advice v2.</div>
+        <div class="kit-small" style="margin-top: 10px; line-height: 1.5">People and the judge put the models in the same order. People cannot tell Vendor A's large model from Domain-Advice v2.</div>
         <div class="kit-actions" style="margin-top: 10px"><a class="kit-btn" href="#">Vote on a pair</a><a class="kit-btn outline" href="#">Open Head to head</a></div></div>
     </div>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1870}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2120}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

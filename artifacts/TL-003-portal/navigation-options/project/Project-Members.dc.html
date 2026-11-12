@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Members of a project</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.mb-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.mb-h h3{margin:0;font-size:18px;font-weight:500}
+.mb-t{display:grid;grid-template-columns:44px minmax(0,.9fr) minmax(0,1.5fr) 70px minmax(0,1.2fr);gap:0;font-size:13px;margin-top:10px;align-items:stretch}
+.mb-t>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.45}
+.mb-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.mb-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mb-t b{font-weight:500;font-size:14px}
+.mb-av{display:inline-flex;width:32px;height:32px;border-radius:50%;align-items:center;justify-content:center;font-size:12px;font-weight:600;background:rgba(49,122,71,.16);color:#1B5128}
+.mb-av.tl{background:rgba(26,26,26,.08);color:#1A1A1A}
+.mb-own{display:inline-block;margin-left:6px;border-radius:999px;padding:1px 8px;font-size:11px;font-weight:500;background:#1B5128;color:#fff;vertical-align:1px}
+.mb-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.mb-box h4{margin:0;font-size:15px;font-weight:500}
+.mb-box p{margin:6px 0 0;font-size:13px;line-height:1.5}
+.mb-box.wait{box-shadow:0 0 0 1.5px var(--decision)}
+.mb-q{margin:8px 0 0;padding:8px 12px;border-radius:12px;background:rgba(26,26,26,.05);font-size:13px;line-height:1.45}
+.mb-in{display:flex;gap:8px;margin-top:10px}
+.mb-in span{flex:1;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.25);padding:8px 14px;font-size:13px;color:rgba(26,26,26,.5);background:#fff}
+.mb-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:10px}
+.mb-p{display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px 10px;margin-top:10px;font-size:13px;line-height:1.45;align-items:start}
+.mb-p small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mb-x{display:grid;grid-template-columns:minmax(0,1.7fr) repeat(3,minmax(0,1fr));gap:0;font-size:13px;margin-top:10px;align-items:stretch}
+.mb-x>*{padding:10px 14px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.45}
+.mb-x .hd{font-size:12.5px;font-weight:500;border-top:0;padding-top:0}
+.mb-x .hd small{font-weight:400}
+.mb-x small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mb-log{display:grid;grid-template-columns:58px 84px minmax(0,1fr);gap:0;font-size:13px;margin-top:8px}
+.mb-log>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.45}
+.mb-log .d{color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2060px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Members</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">5 members · 1 owner</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 colleague asks to join</span><span class="kit-chip">2 from ThinkLatent work beside you</span></div>
+        <span class="kit-small kit-muted">Who is on this project, and what that opens. The portal has no roles: a person is a member, an owner, or neither, and is added by company email · You are an owner · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Add a member</a><a class="kit-btn outline" href="#">Name a second owner</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="false" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Self-healing and training</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="true" type="button">Members</button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface raised" aria-label="The five members">
+        <div class="mb-h"><h3>The five members</h3><span class="kit-small kit-muted">All from Advice Tech · what each does is in their own words, not a role</span></div>
+        <div class="mb-t">
+          <span class="h"></span><span class="h">Person</span><span class="h">What they do here</span><span class="h">Since</span><span class="h">Lately</span>
+
+          <span><span class="mb-av">PN</span></span><span><b>Priya N.</b><span class="mb-own">Owner</span><small>The project's contact</small></span><span>"I own the product and decide what goes to production."</span><span>4 Aug</span><span>Raised CR-2291, 3 Nov<small>3 things wait for her today</small></span>
+          <span><span class="mb-av">LW</span></span><span><b>Lena W.</b></span><span>"I connect the desktop to the models, and I own going back."</span><span>6 Aug</span><span>Answered a question on CR-2291, 4 Nov</span>
+          <span><span class="mb-av">OH</span></span><span><b>Omar H.</b></span><span>"I keep the evaluation sets."</span><span>6 Aug</span><span>Fixing 62 rows that lack a field</span>
+          <span><span class="mb-av">NB</span></span><span><b>Nikhil B.</b></span><span>"I am building Speech to text."</span><span>19 Oct</span><span>Started its first scoring, today</span>
+          <span><span class="mb-av">GT</span></span><span><b>Grace T.</b></span><span>"I read the summaries the guardrail holds back."</span><span>20 Oct</span><span>Read 19 of today's 31, so far</span>
+        </div>
+        <div style="margin-top: 12px; display: flex; gap: 10px; align-items: flex-start"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>One owner decides everything</span></span><span class="kit-small kit-muted">Every decision since 2 Oct was Priya N.'s, and 3 wait for her now. Marcus L. can act through the team; a second owner on the project would keep it moving when she is away.</span></div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div class="mb-box wait"><h4>Waiting for an owner · Dev R. asks to join</h4>
+          <p class="kit-muted" style="font-size: 12px; margin-top: 2px">AC-0418 · owner of Client Service Tech, in Retail Business · raised yesterday</p>
+          <div class="mb-q">"We are starting a service desktop on the same models and want to see how you set up evaluation."</div>
+          <p class="kit-small kit-muted">Today he sees what everyone sees: totals and status. As a member he would open traces, operations and self-healing.</p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px"><a class="kit-btn" href="#">Add as a member</a><a class="kit-btn outline" href="#">Keep the open view</a><a class="kit-btn outline" href="#">Ask him a question</a></div></div>
+        <div class="mb-box"><h4>Add a member</h4>
+          <div class="mb-in"><span>Company email</span><a class="kit-btn outline" href="#">Add</a></div>
+          <p class="kit-small kit-muted">Anyone at the Enterprise can be added. They get a note saying what the project is and what now opens for them. An owner adds and removes; a project always keeps one owner.</p></div>
+      </div>
+    </div>
+
+    <section class="kit-surface" aria-label="Beside the members">
+      <div class="mb-h"><h3>Beside the members</h3><span class="kit-small kit-muted">People and agents who can open this project without being members</span></div>
+      <div class="mb-3">
+        <div class="mb-box"><h4>Through the team</h4>
+          <div class="mb-p"><span class="mb-av">ML</span><span><b style="font-weight: 500">Marcus L.</b>, owner of Advice Tech<small>A team's owners open and manage every project the team holds. He can do what an owner can.</small></span></div></div>
+        <div class="mb-box"><h4>From ThinkLatent</h4>
+          <div class="mb-p"><span class="mb-av tl">MS</span><span><b style="font-weight: 500">Meera S.</b>, product and adoption<small>Your contact, assigned when the project was created</small></span>
+            <span class="mb-av tl">AK</span><span><b style="font-weight: 500">Arjun K.</b>, AI engineering lead<small>Models, machines and endpoints for this project</small></span></div>
+          <p class="kit-small kit-muted">They see what members see and are told when a run starts or a request is raised. Change requests are decided in the Enterprise's change system, not here.</p></div>
+        <div class="mb-box"><h4>The agents</h4>
+          <p>Jarvis and the agents on these pages (watch, SRE, self-healing) act with the access of the person who asked, never more.</p>
+          <p class="kit-small kit-muted">They propose. A member or an owner decides, and the decision is recorded under that person's name.</p></div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="What opens for whom">
+      <div class="mb-h"><h3>What opens for whom</h3><span class="kit-small kit-muted">Three columns, no roles · the same on every project</span></div>
+      <div class="mb-x">
+        <span class="hd"></span><span class="hd">Everyone at the Enterprise<small>the open view</small></span><span class="hd">A member</span><span class="hd">An owner<small>of the project or its team</small></span>
+
+        <span>Totals, stage, verdicts, increments, and where each request stands</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+
+        <span>Traces step by step, operations in detail, the gaps self-healing finds</span>
+        <span class="kit-muted">— No, totals only</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+
+        <span>The text of requests and answers<small>Until the IAM roles are agreed; then IAM decides</small></span>
+        <span class="kit-muted">— No</span>
+        <span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Behind the seal switch</span></span></span>
+        <span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Behind the seal switch</span></span></span>
+
+        <span>The few examples behind a gap</span>
+        <span class="kit-muted">— No</span>
+        <span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Behind the seal switch</span></span></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Always, to confirm the gap</span></span></span>
+
+        <span>State a requirement, score answers by hand, add evaluation rows, start a training run</span>
+        <span class="kit-muted">— No</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+
+        <span>Confirm a gap, accept a deviation, raise a change request, switch to a new version</span>
+        <span class="kit-muted">— No</span>
+        <span class="kit-muted">— No</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+
+        <span>Add or remove a member, name an owner, pause or retire a feature</span>
+        <span class="kit-muted">— No</span>
+        <span class="kit-muted">— No</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+
+        <span>Log a problem, ask to join, follow the project</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">Not decided on this page: calling the models in Production is granted in IAM, and continuing the training of a shared model belongs to ThinkLatent's foundation team. Shown to no one: the data self-healing builds.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Who decided what">
+        <div class="mb-h"><h3>Who decided what, newest first</h3><a class="kit-small" href="#">The whole record</a></div>
+        <div class="mb-log">
+          <span class="d">4 Nov</span><span>Lena W.</span><span>Answered ThinkLatent's question on CR-2291</span>
+          <span class="d">3 Nov</span><span>Priya N.</span><span>Raised CR-2291 for Next best action · stated its requirement for self-healing</span>
+          <span class="d">23 Oct</span><span>Priya N.</span><span>Scored 50 answers by hand; 47 agree with self-healing's scorer</span>
+          <span class="d">22 Oct</span><span>Priya N.</span><span>Confirmed the gap on follow-ups</span>
+          <span class="d">20 Oct</span><span>Priya N.</span><span>Added Grace T.</span>
+          <span class="d">19 Oct</span><span>Priya N.</span><span>Added Nikhil B. · opened increment 5, Speech to text</span>
+          <span class="d">2 Oct</span><span>Priya N.</span><span>Accepted a deviation: Numbers and calculations · raised CR-2204</span>
+        </div>
+      </section>
+      <div class="mb-box"><h4>Who is told what</h4>
+        <p><b style="font-weight: 500">Members:</b> a gap found, a run started or finished, each step of a change request, a new version offered.</p>
+        <p><b style="font-weight: 500">Owners, also:</b> someone asks to join, something waits for a decision.</p>
+        <p><b style="font-weight: 500">ThinkLatent's two:</b> runs and requests.</p>
+        <p class="kit-small kit-muted">Each person can quiet any of these in My work.</p></div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2060}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

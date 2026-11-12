@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Features in a project</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.ft-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ft-h h3{margin:0;font-size:18px;font-weight:500}
+.ft-card{border-radius:22px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:16px 18px;margin-top:12px}
+.ft-top{display:grid;grid-template-columns:minmax(0,1fr) 250px auto;gap:20px;align-items:center}
+.ft-top h4{margin:0;font-size:19px;font-weight:500}
+.ft-top p{margin:3px 0 0;font-size:13px;line-height:1.45;color:rgba(26,26,26,.7)}
+.ft-track{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 5px;font-size:11.5px;color:rgba(26,26,26,.55)}
+.ft-track i{height:6px;border-radius:999px;background:rgba(26,26,26,.12)}
+.ft-track i.on{background:var(--companion)}
+.ft-track b{font-weight:600;color:#1A1A1A}
+.ft-body{display:grid;grid-template-columns:minmax(0,2.7fr) minmax(0,.75fr) minmax(0,1fr) minmax(0,1fr);gap:0;margin-top:14px;border-top:1px solid rgba(26,26,26,.1)}
+.ft-body>div{padding:12px 16px 0 0;font-size:13px;line-height:1.5;min-width:0}
+.ft-body .l{font-size:11.5px;color:rgba(26,26,26,.6);margin-bottom:5px}
+.ft-body small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ft-chain{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.ft-m{display:inline-block;border-radius:12px;background:rgba(26,26,26,.05);padding:6px 9px;font-size:12px;line-height:1.35;color:rgba(26,26,26,.7)}
+.ft-m b{display:block;font-size:13px;font-weight:500;color:#1A1A1A}
+.ft-m.sh{background:none;box-shadow:inset 0 0 0 1px rgba(26,26,26,.18)}
+.ft-ar{color:rgba(26,26,26,.45);font-size:13px}
+.ft-n{font-variant-numeric:tabular-nums;font-weight:500}
+.ft-mx{display:grid;grid-template-columns:220px repeat(3,minmax(0,1fr)) 170px minmax(0,1.35fr);gap:0;font-size:13px;margin-top:10px;align-items:stretch}
+.ft-mx>*{padding:11px 14px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.45}
+.ft-mx .hd{font-size:11.5px;color:rgba(26,26,26,.65);border-top:0;padding-top:0}
+.ft-mx .hd b{display:block;font-size:12.5px;color:#1A1A1A;font-weight:500}
+.ft-mx small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ft-mx .md b{display:block;font-size:14px;font-weight:500}
+.ft-job{display:inline-block;border-radius:10px;background:rgba(49,122,71,.13);padding:4px 9px;font-size:12.5px}
+.ft-st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.ft-st>div{border-radius:16px;background:rgba(26,26,26,.04);padding:12px 14px;font-size:13px;line-height:1.45}
+.ft-st b{display:block;font-weight:500;font-size:14px;margin-bottom:2px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2030px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Features</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">3 features · 1 in Production, 1 in Pilot, 1 in Build</span><span class="kit-chip">5 models · 1 runs in two features</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">A new version of that one is due 21 Nov</span></div>
+        <span class="kit-small kit-muted">What this project does for its users, one feature at a time: what each is for, the models it runs and in what order, where it stands, and which features move together when a model changes · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Start-Project.dc.html">Add a feature</a><a class="kit-btn outline" href="#">Ask Jarvis which models fit</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="true" type="button">Features</button><button role="tab" aria-selected="false" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Self-healing and training</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The three features">
+      <div class="ft-h"><h3>The three features</h3><span class="kit-small kit-muted">A card opens the feature's own page · the purpose is in the project's own words</span></div>
+
+      <div class="ft-card">
+        <div class="ft-top">
+          <div><h4>Call summary</h4><p>"Write the summary of an advice call, with what was agreed, for the advisor to check and file."</p></div>
+          <div class="ft-track"><i class="on"></i><i class="on"></i><i class="on"></i><span>Build</span><span>Pilot</span><b>Production · since 5 Oct</b></div>
+          <a class="kit-btn outline" href="Feature-Page.dc.html">Open</a>
+        </div>
+        <div class="ft-body">
+          <div><div class="l">How a request runs</div><div class="ft-chain"><span class="ft-m sh"><b>The transcript</b>arrives from Call processing</span><span class="ft-ar" aria-hidden="true">→</span><span class="ft-m"><b>Domain-Advice v2</b>writes the summary</span><span class="ft-ar" aria-hidden="true">→</span><span class="ft-m"><b>Guardrail v2</b>checks it, in the background</span></div></div>
+          <div><div class="l">Today</div><span class="ft-n">26k</span> requests<small>120M tokens in → 8.2M out · typical time 1.8 s</small></div>
+          <div><div class="l">Is it good enough</div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>2 gaps in production</span></span><small>Meets both measures you score: summary quality 86% ± 5, expects 80% · 1 deviation accepted · 92% thumbs up</small></div>
+          <div><div class="l">What is next</div>Increment 6 could start today<small>Self-healing has enough to train it to list follow-ups · <a href="Project-SelfHealing.dc.html">open</a></small></div>
+        </div>
+      </div>
+
+      <div class="ft-card">
+        <div class="ft-top">
+          <div><h4>Next best action</h4><p>"Suggest the one next step the advisor should take while the client is still on the call. Only from our approved actions, and say nothing when it is not sure."</p></div>
+          <div class="ft-track"><i class="on"></i><i class="on"></i><i></i><span>Build</span><b>Pilot · since 28 Oct</b><span>Production</span></div>
+          <a class="kit-btn outline" href="#">Open</a>
+        </div>
+        <div class="ft-body">
+          <div><div class="l">How a request runs</div><div class="ft-chain"><span class="ft-m"><b>Embedding v2</b>finds similar cases</span><span class="ft-ar" aria-hidden="true">→</span><span class="ft-m"><b>Decision adapter</b>picks the action</span><span class="ft-ar" aria-hidden="true">→</span><span class="ft-m"><b>Domain-Advice v2</b>words the suggestion</span></div></div>
+          <div><div class="l">Today</div><span class="ft-n">5k</span> requests<small>24M tokens in → 1.5M out · answered within 1.5 s on 99.1%</small></div>
+          <div><div class="l">Is it good enough</div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets its measures, narrowly</span></span><small>The right action chosen 94% ± 3, expects 92% · 300 Pilot cases · 81% thumbs up</small></div>
+          <div><div class="l">What is next</div>Increment 4: approval expected by 6 Nov<small>CR-2291 is with ThinkLatent AI engineering · then 5% of advisors · <a href="Project-Increments.dc.html">open</a></small></div>
+        </div>
+      </div>
+
+      <div class="ft-card">
+        <div class="ft-top">
+          <div><h4>Speech to text</h4><p>"Show the words of a call on screen while the advisor is still on it."</p></div>
+          <div class="ft-track"><i class="on"></i><i></i><i></i><b>Build · since 19 Oct</b><span>Pilot</span><span>Production</span></div>
+          <a class="kit-btn outline" href="#">Open</a>
+        </div>
+        <div class="ft-body">
+          <div><div class="l">How a request runs</div><div class="ft-chain"><span class="ft-m"><b>Speech recognition v6</b>writes down what is said</span></div><small style="margin-top: 6px">The same model writes every call's transcript in Call processing, after the call. Here it runs during the call.</small></div>
+          <div><div class="l">Today</div><span class="kit-muted">— Not live</span><small>Counted from Pilot on</small></div>
+          <div><div class="l">Is it good enough</div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg><span>First scoring is running</span></span><small>Word error rate on your own 200 calls · the model is at 6.1% on Retail advice calls, bar 8%</small></div>
+          <div><div class="l">What is next</div>Increment 5: evidence 2 of 5<small>Three pieces to come before it can go to Pilot · <a href="Project-Increments.dc.html">open</a></small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="Which models each feature runs">
+      <div class="ft-h"><h3>Which models each feature runs, and what moves together</h3><span class="kit-small kit-muted">A model in two features changes in both at once · tokens are today's</span></div>
+      <div class="ft-mx">
+        <span class="hd"></span>
+        <span class="hd"><b>Call summary</b>Production</span>
+        <span class="hd"><b>Next best action</b>Pilot</span>
+        <span class="hd"><b>Speech to text</b>Build</span>
+        <span class="hd"><b>Version here</b>and the newest</span>
+        <span class="hd"><b>If it changes</b></span>
+
+        <span class="md"><b>Domain-Advice</b><small>TLM4 · domain model · 130M in → 9.6M out</small></span>
+        <span><span class="ft-job">Writes the summary</span></span>
+        <span><span class="ft-job">Words the suggestion</span></span>
+        <span class="kit-muted">—</span>
+        <span>v2, trained on this project's calls<small>Version 3 is due 21 Nov</small></span>
+        <span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Two features move together</span></span><small>One increment, each feature checked on its own measures. Version 3 will arrive with your results already run · <a href="Project-NewVersion.dc.html">what the offer looks like</a></small></span>
+
+        <span class="md"><b>Guardrail</b><small>TLM1 · task model · 8M in → 0.1M out</small></span>
+        <span><span class="ft-job">Checks each summary, in the background</span><small>31 held for review today</small></span>
+        <span class="kit-muted">— Not in this feature<small>It picks from 14 approved actions</small></span>
+        <span class="kit-muted">—</span>
+        <span>v2<small>The newest</small></span>
+        <span>Only Call summary<small>Added in increment 2, 18 Sep</small></span>
+
+        <span class="md"><b>Embedding</b><small>TLM1 · task model · 4M in</small></span>
+        <span class="kit-muted">—</span>
+        <span><span class="ft-job">Finds similar cases</span></span>
+        <span class="kit-muted">—</span>
+        <span>v2<small>The newest · itself still in Pilot</small></span>
+        <span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Goes to Production with increment 4</span></span><small>This project is its first use in Production</small></span>
+
+        <span class="md"><b>Decision adapter</b><small>TLM1 · task model · 2M in</small></span>
+        <span class="kit-muted">—</span>
+        <span><span class="ft-job">Picks the action</span><small>94% right, bar 92% · under 50 ms</small></span>
+        <span class="kit-muted">—</span>
+        <span>v1<small>The newest</small></span>
+        <span>Only Next best action</span>
+
+        <span class="md"><b>Speech recognition</b><small>TLM1 · task model · not running here yet</small></span>
+        <span class="kit-muted">— Reads its transcript<small>Made once per call in Call processing, not by this project</small></span>
+        <span class="kit-muted">—</span>
+        <span><span class="ft-job">Writes down what is said</span></span>
+        <span>v6<small>The newest</small></span>
+        <span>Only Speech to text here<small>Shared with the whole Enterprise through Call processing</small></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">The rows add up to the project's total today: 144M tokens in, 9.7M out, across the four models that are running.</div>
+    </section>
+
+    <section class="kit-surface" aria-label="Add a feature">
+      <div class="ft-h"><h3>Adding a feature</h3><span class="kit-small kit-muted">It starts as a sentence and becomes an increment</span></div>
+      <div class="ft-st">
+        <div><b>1 · Say what it should do</b>In plain words, as for the three above. Jarvis asks what it needs to know: who uses it, how often, how fast it must answer.</div>
+        <div><b>2 · Jarvis proposes the models</b>From the catalogue, with what each has scored and where else it runs. If nothing fits, it becomes an ask to ThinkLatent and you can follow it in Requests.</div>
+        <div><b>3 · It goes on the Plan</b>As an increment in Build, with the five pieces of evidence it will need before Pilot.</div>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">A feature can be paused or retired by an owner. Its record, evidence and traces stay.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2030}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

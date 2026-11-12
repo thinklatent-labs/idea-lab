@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Increments in a project</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.in-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.in-h h3{margin:0;font-size:18px;font-weight:500}
+.in-g{display:grid;grid-template-columns:250px repeat(5,minmax(0,1fr));gap:6px;margin-top:12px;font-size:12.5px}
+.in-g .hd{font-size:11.5px;color:rgba(26,26,26,.65);padding:0 8px 4px;line-height:1.35}
+.in-g .hd b{display:block;font-size:12.5px;color:#1A1A1A;font-weight:500}
+.in-g .ft{padding:6px 8px 6px 0;line-height:1.35;display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;align-items:center}
+.in-g .ft b{display:block;font-size:14px;font-weight:500}
+.in-g .ft small{color:rgba(26,26,26,.6);font-size:12px}
+.in-no{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;box-shadow:0 0 0 2px rgba(26,26,26,.2);font-size:12px;font-weight:600}
+.in-no.live{box-shadow:0 0 0 2px var(--companion);background:color-mix(in oklab,var(--companion) 14%,white)}
+.in-c{border-radius:12px;padding:8px 10px;line-height:1.4;background:rgba(26,26,26,.04);color:rgba(26,26,26,.55);min-height:46px}
+.in-c.done{background:color-mix(in oklab,var(--companion) 12%,white);color:#1A1A1A}
+.in-c.now{background:#fff;color:#1A1A1A;box-shadow:0 0 0 2px #1A1A1A}
+.in-c b{display:block;font-weight:500}
+.in-ev{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:9px 10px;font-size:13px;line-height:1.45;margin-top:10px;align-items:start}
+.in-ev svg{width:17px;height:17px;margin-top:1px;color:var(--companion)}
+.in-ev small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.in-tl{display:grid;grid-template-columns:62px minmax(0,1fr);gap:7px 10px;font-size:13px;line-height:1.45;margin-top:10px}
+.in-tl .d{font-size:12px;color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums;padding-top:1px}
+.in-tl small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.in-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.in-box h4{margin:0;font-size:15px;font-weight:500}
+.in-hist{display:grid;grid-template-columns:44px minmax(0,1.5fr) minmax(0,1.1fr) 150px 110px auto;gap:0;font-size:13px;align-items:center;margin-top:8px}
+.in-hist>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.in-hist .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.in-st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.in-st>a{display:block;border-radius:16px;background:rgba(26,26,26,.04);padding:12px 14px;font-size:13px;line-height:1.45;color:inherit;text-decoration:none}
+.in-st b{display:block;font-weight:500;font-size:14px;margin-bottom:2px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1730px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 780px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Increments</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">1 in production</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">1 waiting for approval, outside</span><span class="kit-chip">1 in Build</span><span class="kit-chip">1 could start today</span></div>
+        <span class="kit-small kit-muted">An increment is one change to what runs: a new feature, a retrained model, or a new version from ThinkLatent. Each goes to production on its own change request, approved outside the portal; this page prepares the evidence and shows where it stands · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Plan an increment</a><a class="kit-btn outline" href="#">Ask Jarvis what is next</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="false" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Self-healing and training</button><button role="tab" aria-selected="true" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Increments on the way to production">
+      <div class="in-h"><h3>On the way to production</h3><span class="kit-small kit-muted">Five steps, the same for every increment · a row opens the increment</span></div>
+      <div class="in-g">
+        <span></span>
+        <span class="hd"><b>1 · Built and scored</b>on your measures</span>
+        <span class="hd"><b>2 · Evidence ready</b>five pieces</span>
+        <span class="hd"><b>3 · Change request raised</b>by a project owner</span>
+        <span class="hd"><b>4 · Approved</b>by ThinkLatent AI engineering, outside</span>
+        <span class="hd"><b>5 · Canary, then everyone</b>with a way back</span>
+
+        <span class="ft"><span class="in-no">4</span><span><b>Next best action</b><small>A new feature · to Production</small></span></span>
+        <span class="in-c done"><b>Done · 28 Oct</b>In Pilot since then</span>
+        <span class="in-c done"><b>Done · 2 Nov</b>5 of 5</span>
+        <span class="in-c done"><b>Done · 3 Nov</b>CR-2291, by Priya N.</span>
+        <span class="in-c now"><b>Here now</b>2 days with them · usually 3</span>
+        <span class="in-c"><b>Not yet</b>5%, then 25%, then all</span>
+
+        <span class="ft"><span class="in-no">5</span><span><b>Speech to text</b><small>A new feature · to Pilot</small></span></span>
+        <span class="in-c now"><b>Here now</b>First scoring is running</span>
+        <span class="in-c"><b>2 of 5</b>3 pieces still to come</span>
+        <span class="in-c"><b>Not yet</b></span>
+        <span class="in-c"><b>Not yet</b></span>
+        <span class="in-c"><b>Not yet</b></span>
+
+        <span class="ft"><span class="in-no">6</span><span><b>Call summary, follow-ups</b><small>A retrained model, from self-healing</small></span></span>
+        <span class="in-c" style="grid-column: span 5; min-height: 0"><b>Not started</b>There is enough to train since 4 Nov. Starting the run opens this increment. <a href="Project-SelfHealing.dc.html">Open Self-healing and training</a></span>
+
+        <span class="ft"><span class="in-no live">3</span><span><b>Call summary on version 2</b><small>A new version of the model</small></span></span>
+        <span class="in-c done"><b>Done · 28 Sep</b></span>
+        <span class="in-c done"><b>Done · 1 Oct</b>5 of 5 · 1 deviation</span>
+        <span class="in-c done"><b>Done · 2 Oct</b>CR-2204</span>
+        <span class="in-c done"><b>Done · 4 Oct</b></span>
+        <span class="in-c done"><b>In production · 5 Oct</b>The canary took 3 days</span>
+      </div>
+    </section>
+
+    <div class="in-h" style="margin-top: 4px"><h3>Increment 4 · Next best action to Production</h3><span class="kit-small kit-muted">Raised by Priya N. · three models: Embedding, Decision adapter, Domain-Advice v2</span></div>
+    <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="The evidence">
+        <div class="in-h"><h3 style="font-size: 17px">The evidence, 5 of 5</h3><span class="kit-small kit-muted">What travels with the change request</span></div>
+        <div class="in-ev">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Quality against what you expect<small>The right action chosen on 94% ± 3 of 300 Pilot cases, you expect 92% · worded clearly on 91% ± 3, you expect 90% · both meet it, narrowly</small></span><a href="Project-Quality.dc.html">Open</a>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>ThinkLatent's thresholds, for each model in it<small>All three models meet theirs · no deviation to accept</small></span><a href="#">Open</a>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>The safety gate<small>Safe on this feature's own cases: 93 ± 3 against 85</small></span><a href="#">Open</a>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Service levels held in Pilot<small>Answered within 1.5 s on 99.1% of 38k requests, agreed at 99%</small></span><a href="Project-Operations.dc.html">Open</a>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>The application is ready<small>From Lena W., who connects the application: calls go through Relay with project and feature ids; going back to the old screen was tried on 30 Oct and took 4 minutes</small></span><a href="#">Open</a>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">Any deviation a team accepts travels here too, so governance sees it. There is none on this increment. Governance approves outside the portal.</div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <section class="kit-surface" aria-label="The change request">
+          <div class="in-h"><h3 style="font-size: 17px">The change request · CR-2291</h3><a class="kit-small" href="Requests-Status.dc.html">Open in Requests</a></div>
+          <div class="kit-small kit-muted" style="margin-top: 2px">Approved in the Enterprise's change system. The portal shows where it stands.</div>
+          <div class="in-tl">
+            <span class="d">3 Nov</span><span>Raised by Priya N., with the evidence attached</span>
+            <span class="d">4 Nov</span><span>Picked up by Arjun K., ThinkLatent AI engineering</span>
+            <span class="d">4 Nov</span><span>One question: "How long does going back take?"<small>Answered by Lena W. the same day: 4 minutes</small></span>
+            <span class="d">Now</span><span><b style="font-weight: 600">With ThinkLatent AI engineering</b><small>2 days so far · usually decided in 3 · expected by 6 Nov</small></span>
+          </div>
+        </section>
+        <section class="kit-surface" aria-label="After approval">
+          <div class="in-h"><h3 style="font-size: 17px">After approval</h3><span class="kit-small kit-muted">Already planned</span></div>
+          <div class="in-tl">
+            <span class="d">Day 1</span><span>5% of advisors, for 3 days<small>Watched: the right action chosen, thumbs, time to answer</small></span>
+            <span class="d">Day 4</span><span>25%, for 3 days</span>
+            <span class="d">Day 7</span><span>Everyone<small>The Pilot version stays ready for 30 days. The canary goes back on its own if a watched number falls.</small></span>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <section class="kit-surface" aria-label="Increments so far">
+      <div class="in-h"><h3>Increments so far</h3><span class="kit-small kit-muted">What each changed · the record keeps the evidence as it was on the day</span></div>
+      <div class="in-hist">
+        <span class="h"></span><span class="h">What changed</span><span class="h">Feature · model</span><span class="h">Raised</span><span class="h">In production</span><span class="h"></span>
+        <span><span class="in-no live">3</span></span><span>Call summary moved to version 2, trained on this project's calls</span><span>Call summary · Domain-Advice v2</span><span>2 Oct · CR-2204</span><span>5 Oct</span><a href="#">See the record</a>
+        <span><span class="in-no live">2</span></span><span>The guardrail check added in the background</span><span>Call summary · Guardrail</span><span>14 Sep · CR-2150</span><span>18 Sep</span><a href="#">See the record</a>
+        <span><span class="in-no live">1</span></span><span>Call summary's first version, to Pilot and then Production</span><span>Call summary · Domain-Advice v1</span><span>12 Aug · CR-2088</span><span>17 Aug</span><a href="#">See the record</a>
+      </div>
+    </section>
+
+    <div class="in-box"><h4>Three things can start an increment</h4>
+      <div class="in-st">
+        <a href="Start-Project.dc.html"><b>A new feature</b>Say what it should do; Jarvis proposes the models and adds it to the Plan.</a>
+        <a href="Project-SelfHealing.dc.html"><b>A retrained model, from your own use</b>When self-healing says there is enough to train and you start the run.</a>
+        <a href="Project-NewVersion.dc.html"><b>A new version from ThinkLatent</b>Offered with your own results already run; you decide whether to switch.</a>
+      </div></div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1730}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
