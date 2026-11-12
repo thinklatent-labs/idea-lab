@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My work</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.mw-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}
+.mw-steps span{display:flex;flex-direction:column;gap:6px;font-size:12px;color:rgba(26,26,26,.55)}
+.mw-steps span i{display:block;height:5px;border-radius:999px;background:rgba(26,26,26,.14)}
+.mw-steps span.on i{background:var(--companion)}
+.mw-steps span.now{color:#1A1A1A;font-weight:600}
+.mw-next{border-radius:18px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;margin-top:14px}
+.mw-row{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1460px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Team-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="#" aria-current="page" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">My work</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">2 need you</span><span class="kit-chip">2 projects</span><span class="kit-chip">1 team you own</span><span class="kit-chip">3 you follow</span></div>
+        <span class="kit-small kit-muted">Only you see this page. It gathers what is yours from the rest of the portal; nothing lives only here · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Start a new project</a><a class="kit-btn outline" href="#">Ask the agent</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="My work pages">
+      <button role="tab" aria-selected="true" type="button">Overview</button><button role="tab" aria-selected="false" type="button">My projects</button><button role="tab" aria-selected="false" type="button">Needs me</button><button role="tab" aria-selected="false" type="button">Following</button><button role="tab" aria-selected="false" type="button">Notifications</button>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Since you were last here" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="display: flex; gap: 8px; align-items: center"><span class="kit-chip brand">Agent</span><span class="kit-caption">Since you were last here, yesterday 17:40</span></span>
+        <span style="font-size: 18px">Call summary held at 86% overnight. Increment 4 is still with the ThinkLatent team. A colleague asked to join Advisor desktop, and ThinkLatent needs three example calls for the problem you logged.</span>
+        <span class="kit-small kit-muted">From your 2 projects and your open requests · confidence high · <a href="#">View sources</a></span>
+      </div>
+      <a class="kit-btn outline" href="#">Ask a follow-up</a>
+    </section>
+
+    <div class="kit-section-title"><h2>Your next step in each project</h2><span class="sub">The stage belongs to the project · the next step is yours · the agent can walk you through any of them</span></div>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px">
+      <section class="kit-surface" aria-label="Advisor desktop">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><a href="Project-Page.dc.html" style="font-size: 22px; color: inherit; text-decoration: none">Advisor desktop</a><span class="kit-small kit-muted">Advice Tech · you are an owner</span></div>
+        <div class="mw-steps" role="img" aria-label="Stage: Production, the fifth of five"><span class="on"><i></i>Set up</span><span class="on"><i></i>Try</span><span class="on"><i></i>Build</span><span class="on"><i></i>Pilot</span><span class="on now"><i></i>Production</span></div>
+        <div class="mw-next"><div><div class="kit-caption">Next step · Increment 5 · Speech to text</div><div style="font-weight: 500">Finish the evidence for its change request</div><div class="kit-small kit-muted">2 of 5 ready · still to do: Pilot traffic, the model card, the rollback plan</div></div><a class="kit-btn" href="#">Prepare the evidence</a></div>
+        <span class="kit-small kit-muted" style="display: block; margin-top: 10px">Also in flight: Increment 4 is with the ThinkLatent team since 3 Nov. Nothing for you to do.</span>
+      </section>
+      <section class="kit-surface" aria-label="Wealth management portfolio assist">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><a href="#" style="font-size: 22px; color: inherit; text-decoration: none">Wealth management portfolio assist</a><span class="kit-small kit-muted">Advice Tech · you are an owner</span></div>
+        <div class="mw-steps" role="img" aria-label="Stage: Build, the third of five"><span class="on"><i></i>Set up</span><span class="on"><i></i>Try</span><span class="on now"><i></i>Build</span><span><i></i>Pilot</span><span><i></i>Production</span></div>
+        <div class="mw-next"><div><div class="kit-caption">Next step · Increment 1 · Portfolio questions</div><div style="font-weight: 500">Say how the feature is scored, and bring its evaluation set</div><div class="kit-small kit-muted">Pick a way of scoring for each measure · the file must match the data format</div></div><a class="kit-btn" href="Feature-Evaluation.dc.html">Open the evaluation set</a></div>
+        <span class="kit-small kit-muted" style="display: block; margin-top: 10px">After that: the first evaluation run, then the evidence for Pilot.</span>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Requests that need you or that you wait on">
+        <div class="kit-section-title" style="margin-top: 0"><h2>Requests</h2><span class="sub">2 need you · 3 you are waiting on · <a href="Requests-Status.dc.html">all requests</a></span></div>
+        <div class="kit-label" style="padding: 14px 14px 6px">Need you</div>
+        <div class="kit-rows">
+          <div class="kit-row mw-row"><div><div class="t">A colleague asks to join Advisor desktop</div><div class="s">Access · Dev R., Advice Tech · raised yesterday</div></div><a class="kit-btn" href="#">Add as a member</a></div>
+          <div class="kit-row mw-row"><div><div class="t">Call summary cuts long calls short</div><div class="s">Problem · ThinkLatent asked for three example calls</div></div><a class="kit-btn" href="#">Add examples</a></div>
+        </div>
+        <div class="kit-label" style="padding: 14px 14px 6px">Waiting on others</div>
+        <div class="kit-rows">
+          <div class="kit-row mw-row"><div><div class="t">Advisor desktop · Next best action to Production</div><div class="s">Deployment · with the ThinkLatent team for 2 days</div></div><a class="kit-btn outline" href="#">Open</a></div>
+          <div class="kit-row mw-row"><div><div class="t">Production access for 4 hours · Advisor desktop</div><div class="s">Access · in IAM · raised 2 hours ago</div></div><a class="kit-btn outline" href="#">Open</a></div>
+          <div class="kit-row mw-row"><div><div class="t">You asked to join Claims intake</div><div class="s">Access · with that project's owners for 3 days</div></div><a class="kit-btn outline" href="#">Remind them</a></div>
+        </div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface" aria-label="What you follow">
+          <div class="kit-section-title" style="margin-top: 0"><h2>Following</h2><span class="sub">Models and projects you asked to hear about</span></div>
+          <div class="kit-rows" style="margin-top: 12px">
+            <a class="kit-row mw-row" href="Model-Page.dc.html" style="color: inherit; text-decoration: none"><div><div class="t">Domain-Advice</div><div class="s">Version 3 became a candidate · planned 21 Nov</div></div><span class="kit-chip brand">New</span></a>
+            <a class="kit-row mw-row" href="#" style="color: inherit; text-decoration: none"><div><div class="t">Speech recognition</div><div class="s">No change this week · word error rate 6.8%</div></div><span class="kit-chip">Model</span></a>
+            <a class="kit-row mw-row" href="#" style="color: inherit; text-decoration: none"><div><div class="t">Claims intake</div><div class="s">Claims triage went to the ThinkLatent team for Production</div></div><span class="kit-chip">Project</span></a>
+          </div>
+        </section>
+        <section class="kit-surface" aria-label="Recently opened">
+          <div class="kit-section-title" style="margin-top: 0"><h2>Recently opened</h2><span class="sub">Pick up where you left off</span></div>
+          <div class="kit-rows" style="margin-top: 12px">
+            <a class="kit-row mw-row" href="Feature-Page.dc.html" style="color: inherit; text-decoration: none"><div><div class="t">Call summary</div><div class="s">Feature · Advisor desktop</div></div><span class="kit-small kit-muted">Yesterday</span></a>
+            <a class="kit-row mw-row" href="#" style="color: inherit; text-decoration: none"><div><div class="t">Traces · Advisor desktop</div><div class="s">3 flagged for size or time</div></div><span class="kit-small kit-muted">Yesterday</span></a>
+            <a class="kit-row mw-row" href="Model-Catalogue.dc.html" style="color: inherit; text-decoration: none"><div><div class="t">Models · the catalogue</div><div class="s">Filtered to TLM4</div></div><span class="kit-small kit-muted">Tuesday</span></a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1460}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
