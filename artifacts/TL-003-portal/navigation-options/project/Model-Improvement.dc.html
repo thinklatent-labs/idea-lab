@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A model's Improvement tab · TLM4 Domain-Advice v2</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.mi-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.mi-h h3{margin:0;font-size:18px;font-weight:500}
+.mi-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.mi-k>a{display:flex;flex-direction:column;gap:6px;color:inherit;text-decoration:none}
+.mi-p{display:grid;grid-template-columns:200px 64px 76px 76px 56px minmax(0,1fr) 150px;gap:0;font-size:13px;margin-top:10px;align-items:stretch}
+.mi-p>*{padding:12px 12px 12px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.4}
+.mi-p .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.mi-p small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mi-p .tot{font-weight:600;border-top:1px solid rgba(26,26,26,.35)}
+.mi-n{font-variant-numeric:tabular-nums;font-weight:500}
+.mi-up{font-variant-numeric:tabular-nums;font-weight:600;color:#1B5128}
+.mi-ax{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+.mi-tr{position:relative;height:18px;margin-top:1px}
+.mi-tr:before{content:"";position:absolute;left:0;right:0;top:8px;height:2px;background:rgba(26,26,26,.1)}
+.mi-tr .go{position:absolute;top:7px;height:4px;border-radius:2px;background:var(--companion)}
+.mi-tr .a{position:absolute;top:4px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px var(--companion)}
+.mi-tr .b{position:absolute;top:3px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--companion)}
+.mi-tr .t{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:#1A1A1A}
+.mi-tr .o{position:absolute;top:2px;width:0;height:0;margin-left:-5px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid var(--decision)}
+.mi-key{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;align-items:center;color:rgba(26,26,26,.7)}
+.mi-key i{display:inline-block;vertical-align:-1px;margin-right:5px}
+.mi-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.mi-box h4{margin:0;font-size:15px;font-weight:500}
+.mi-v{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.mi-v>*{padding:9px 10px 9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.mi-v b{font-weight:500}
+.mi-v small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mi-l{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.mi-l>*{padding:9px 10px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.mi-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+svg text{font-family:Inter,system-ui,sans-serif}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1750px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">All models <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">TLM4 <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Domain-Advice <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Version 2 · live <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">TLM4 Domain-Advice v2</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">TLM4</span><span class="kit-chip outline">Language</span><span class="kit-chip brand">Live</span><span class="kit-chip">Built on Core 4.2</span><span class="kit-chip">Dedicated endpoint</span></div>
+        <span class="kit-small kit-muted">Is it getting better, and from what. Every version scored on the same edition of the TL Index, so the numbers compare · As of 11:58 ET · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Tokens processed today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">130M <span style="font-size: 18px">in</span> <span aria-hidden="true" style="font-size: 24px">→</span> 9.6M <span style="font-size: 18px">out</span></span></div>
+        <div class="kit-actions"><a class="kit-btn" href="#">Try it</a><a class="kit-btn outline" href="#">Log a problem with this model</a></div>
+      </div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Model pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="true" type="button">Improvement</button><button role="tab" aria-selected="false" type="button">Usage</button><button role="tab" aria-selected="false" type="button">Adoption</button><button role="tab" aria-selected="false" type="button">Cost avoided</button><button role="tab" aria-selected="false" type="button">TL Index</button><button role="tab" aria-selected="false" type="button">Built from</button><button role="tab" aria-selected="false" type="button">Training</button>
+    </div>
+
+    <div class="mi-k">
+      <a class="kit-surface" href="#"><span class="kit-caption">Version 1 to version 2</span><span class="kit-display" style="font-size: 40px">+5</span><span class="kit-small kit-muted">79 ± 1 to 84 ± 1 on the TL Index, edition 2026-11</span></a>
+      <a class="kit-surface" href="Index-Language.dc.html"><span class="kit-caption">Against the best outside model</span><span class="kit-display" style="font-size: 40px">3 behind</span><span class="kit-small kit-muted">Vendor A · large is at 87 ± 1 · ahead of it on 2 of 5 pillars</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">In real use, 30 days</span><span class="kit-display" style="font-size: 40px">84% <span style="font-size: 18px">± 1</span></span><span class="kit-small kit-muted">The live score of the features on it · one live feature so far</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Open against this model</span><span class="kit-display" style="font-size: 40px">4</span><span class="kit-small kit-muted">2 problems reported · 2 kinds of gap found in use</span></a>
+    </div>
+
+    <section class="kit-surface raised" aria-label="By pillar, version by version">
+      <div class="mi-h"><h3>By pillar, version by version</h3>
+        <div class="mi-key"><span><i style="width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 2px var(--companion)"></i>version 1</span><span><i style="width: 12px; height: 12px; border-radius: 50%; background: var(--companion)"></i>version 2, live</span><span><i style="width: 2px; height: 14px; background: #1A1A1A"></i>ThinkLatent's threshold</span><span><i style="width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 8px solid var(--decision)"></i>best outside model</span></div></div>
+      <div class="mi-p">
+        <span class="h">Pillar</span><span class="h">Threshold</span><span class="h">Version 1</span><span class="h">Version 2</span><span class="h">Change</span><span class="h"><span class="mi-ax"><span>60</span><span>70</span><span>80</span><span>90</span><span>100</span></span></span><span class="h">Best outside</span>
+
+        <span>Financial data processing</span><span class="mi-n">80</span><span class="mi-n">81 ± 2</span><span class="mi-n">86 ± 2</span><span class="mi-up">+5</span>
+        <span><div class="mi-tr" role="img" aria-label="From 81 to 86; threshold 80; best outside 88"><i class="go" style="left: 52.5%; width: 12.5%"></i><i class="t" style="left: 50%"></i><i class="a" style="left: 52.5%"></i><i class="b" style="left: 65%"></i><i class="o" style="left: 70%"></i></div></span>
+        <span>88<small>Vendor A · large</small></span>
+
+        <span>Client care</span><span class="mi-n">80</span><span class="mi-n">80 ± 2</span><span class="mi-n">87 ± 2</span><span class="mi-up">+7</span>
+        <span><div class="mi-tr" role="img" aria-label="From 80 to 87; threshold 80; best outside 90"><i class="go" style="left: 50%; width: 17.5%"></i><i class="t" style="left: 50%"></i><i class="a" style="left: 50%"></i><i class="b" style="left: 67.5%"></i><i class="o" style="left: 75%"></i></div></span>
+        <span>90<small>Vendor A · large</small></span>
+
+        <span>Compliance and regulatory</span><span class="mi-n">78</span><span class="mi-n">79 ± 2</span><span class="mi-n">83 ± 2</span><span class="mi-up">+4</span>
+        <span><div class="mi-tr" role="img" aria-label="From 79 to 83; threshold 78; best outside 77"><i class="go" style="left: 47.5%; width: 10%"></i><i class="t" style="left: 45%"></i><i class="a" style="left: 47.5%"></i><i class="b" style="left: 57.5%"></i><i class="o" style="left: 42.5%"></i></div></span>
+        <span>77 · <b style="font-weight: 600">this model leads</b><small>Open model · 70B · Vendor A · large has too few cases</small></span>
+
+        <span>Safety and grounding</span><span class="mi-n">72</span><span class="mi-n">75 ± 2</span><span class="mi-n">78 ± 2</span><span class="mi-up">+3</span>
+        <span><div class="mi-tr" role="img" aria-label="From 75 to 78; threshold 72; best outside 84"><i class="go" style="left: 37.5%; width: 7.5%"></i><i class="t" style="left: 30%"></i><i class="a" style="left: 37.5%"></i><i class="b" style="left: 45%"></i><i class="o" style="left: 60%"></i></div></span>
+        <span>84<small>Vendor B · large · the widest distance</small></span>
+
+        <span>Entity recognition</span><span class="mi-n">80</span><span class="mi-n">82 ± 2</span><span class="mi-n">88 ± 2</span><span class="mi-up">+6</span>
+        <span><div class="mi-tr" role="img" aria-label="From 82 to 88; threshold 80; best outside 87"><i class="go" style="left: 55%; width: 15%"></i><i class="t" style="left: 50%"></i><i class="a" style="left: 55%"></i><i class="b" style="left: 70%"></i><i class="o" style="left: 67.5%"></i></div></span>
+        <span>87 · <b style="font-weight: 600">this model leads</b><small>Vendor A · large</small></span>
+
+        <span class="tot">The TL Index, overall</span><span class="tot mi-n">80</span><span class="tot mi-n">79 ± 1</span><span class="tot mi-n">84 ± 1</span><span class="tot mi-up">+5</span>
+        <span class="tot"><div class="mi-tr" role="img" aria-label="From 79 to 84; threshold 80; best outside 87"><i class="go" style="left: 47.5%; width: 12.5%"></i><i class="t" style="left: 50%"></i><i class="a" style="left: 47.5%"></i><i class="b" style="left: 60%"></i><i class="o" style="left: 67.5%"></i></div></span>
+        <span class="tot">87<small style="font-weight: 400">Vendor A · large</small></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">Five of the Index's sixteen pillars are live. Version 1 met the overall threshold of its day, 78; the threshold rose to 80 with edition 2026-11. Version 1 was scored again on this edition, so the two columns compare.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="In real use, week by week">
+        <div class="mi-h"><h3>In real use, week by week</h3><span class="kit-small kit-muted">The live score of the features on it, beside its TL Index score</span></div>
+        <svg viewBox="0 0 720 240" width="100%" role="img" aria-label="Since version 2 went live on 5 October the live score has stayed between 83 and 85 percent, level with its TL Index score of 84" style="display: block; margin-top: 8px">
+          <g stroke="rgba(26,26,26,.1)"><line x1="48" y1="30" x2="700" y2="30"></line><line x1="48" y1="80" x2="700" y2="80"></line><line x1="48" y1="130" x2="700" y2="130"></line><line x1="48" y1="180" x2="700" y2="180"></line></g>
+          <g font-size="11" fill="rgba(26,26,26,.6)"><text x="40" y="34" text-anchor="end">95%</text><text x="40" y="84" text-anchor="end">90%</text><text x="40" y="134" text-anchor="end">85%</text><text x="40" y="184" text-anchor="end">80%</text>
+            <text x="90" y="212" text-anchor="middle">14 Sep</text><text x="240" y="212" text-anchor="middle">28 Sep</text><text x="330" y="212" text-anchor="middle">5 Oct</text><text x="480" y="212" text-anchor="middle">19 Oct</text><text x="660" y="212" text-anchor="middle">2 Nov</text></g>
+          <line x1="330" y1="24" x2="330" y2="196" stroke="#1A1A1A" stroke-dasharray="3 4"></line><text x="338" y="38" font-size="11.5" fill="#1A1A1A">Version 2 live</text>
+          <polygon points="330,140 405,130 480,130 570,120 660,130 660,150 570,140 480,150 405,150 330,160" fill="rgba(49,122,71,.16)"></polygon>
+          <polyline points="90,190 165,186 240,190" fill="none" stroke="var(--companion)" stroke-width="2" stroke-dasharray="5 4"></polyline>
+          <polyline points="330,150 405,140 480,140 570,130 660,140" fill="none" stroke="var(--companion)" stroke-width="2.5"></polyline>
+          <line x1="330" y1="140" x2="700" y2="140" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="6 4"></line>
+          <circle cx="660" cy="140" r="4" fill="#fff" stroke="var(--companion)" stroke-width="2"></circle>
+          <g font-size="11.5" fill="#1A1A1A"><text x="96" y="176">Version 1 · 79%</text><text x="650" y="120" text-anchor="end">84% ± 1 in use</text><text x="696" y="158" text-anchor="end">TL Index 84</text></g>
+        </svg>
+        <div class="kit-small kit-muted" style="margin-top: 4px">Real use rests on one live feature, Call summary, so today this is that feature's score. It becomes a number about the model when more features are live. A table of the same numbers sits behind the chart.</div>
+      </section>
+
+      <div class="mi-box"><h4>What each version changed</h4>
+        <div class="mi-v">
+          <span><b>Version 3</b><small>planned 21 Nov</small></span><span>On Core 4.3. Scored here on release.<small>Until then only the foundation team sees its training and results.</small></span>
+          <span><b>Version 2</b><small>live · 5 Oct</small></span><span>Trained on the Enterprise's advice conversations, on Core 4.2.<small>+5 overall. The most on Client care, +7; the least on Safety and grounding, +3.</small></span>
+          <span><b>Version 1</b><small>14 Jul · retired 5 Oct</small></span><span>The first Domain-Advice, on Core 4.1.<small>Met the threshold of its day, 78. One feature ran on it from 17 Aug.</small></span>
+        </div></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Problems projects reported">
+        <div class="mi-h"><h3>Problems projects reported</h3><span class="kit-small kit-muted">Open to everyone · each is a ticket</span></div>
+        <div class="mi-l">
+          <span>Cuts the summary of a very long call short<small>PR-0077 · Advisor desktop · raised 2 Nov · ticket ADV-1432 · ThinkLatent asked for three example calls</small></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Open</span></span></span>
+          <span>Mixes up two funds with similar names<small>PR-0064 · Advisor desktop · raised 30 Oct · ticket ADV-1419 · being looked at</small></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Open</span></span></span>
+          <span>Slower between 10 and 11 on weekdays<small>PR-0058 · Advisor desktop · raised 21 Oct · closed 24 Oct: a third replica added</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Closed in 3 days</span></span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What use has shown">
+        <div class="mi-h"><h3>What self-healing found in use</h3><span class="kit-small kit-muted">By kind, across the projects on this model</span></div>
+        <div class="mi-l">
+          <span>Follow-ups agreed on a call are left out<small>1 feature · found 15 Oct · confirmed by its project · that project has enough to train its own version</small></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Being closed</span></span></span>
+          <span>Amounts and dates are not the ones said<small>1 feature · found 2 Nov · waits for its project to confirm</small></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Open</span></span></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">Counted by kind. The examples stay inside each project, and what a project gains from its own use is kept when a new version arrives.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1750}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

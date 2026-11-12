@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A model's Adoption tab · TLM4 Domain-Advice v2</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.ma-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ma-h h3{margin:0;font-size:18px;font-weight:500}
+.ma-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ma-k>a{display:flex;flex-direction:column;gap:6px;color:inherit;text-decoration:none}
+.ma-n{font-variant-numeric:tabular-nums;font-weight:500}
+.ma-path{display:grid;grid-template-columns:minmax(0,1fr) 26px minmax(0,1fr) 26px minmax(0,1fr) 26px minmax(0,1fr) 26px minmax(0,1fr);gap:0;margin-top:14px;align-items:stretch}
+.ma-st{border-radius:18px;background:rgba(26,26,26,.045);padding:14px 14px 12px;font-size:13px;line-height:1.45;display:flex;flex-direction:column;gap:4px}
+.ma-st.in{background:rgba(49,122,71,.14)}
+.ma-st.live{background:#1B5128;color:#fff}
+.ma-st .l{font-size:11.5px;opacity:.75}
+.ma-st .v{font-size:30px;font-weight:400;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.ma-st small{font-size:12px;opacity:.8}
+.ma-ar{display:flex;align-items:center;justify-content:center;color:rgba(26,26,26,.4);font-size:16px}
+.ma-t{display:grid;grid-template-columns:minmax(0,1.25fr) 86px minmax(0,1fr) minmax(0,1fr) 120px 70px minmax(0,1.1fr) 84px;gap:0;font-size:13px;margin-top:10px;align-items:stretch}
+.ma-t>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.4}
+.ma-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ma-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ma-t b{font-weight:500;font-size:14px}
+.ma-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.ma-box h4{margin:0;font-size:15px;font-weight:500}
+.ma-r{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1.3fr);gap:7px 10px;font-size:13px;margin-top:10px;align-items:center}
+.ma-r .b{height:8px;border-radius:999px;background:rgba(26,26,26,.1);position:relative}
+.ma-r .b i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--companion)}
+.ma-tl{display:grid;grid-template-columns:62px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.ma-tl>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1)}
+.ma-tl .d{color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums}
+.ma-ag{display:inline-flex;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:500;background:rgba(49,122,71,.14);color:#1B5128}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1480px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">All models <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">TLM4 <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Domain-Advice <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Version 2 · live <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">TLM4 Domain-Advice v2</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">TLM4</span><span class="kit-chip outline">Language</span><span class="kit-chip brand">Live</span><span class="kit-chip">Built on Core 4.2</span><span class="kit-chip">Dedicated endpoint</span></div>
+        <span class="kit-small kit-muted">Who uses it, how far each has got, and who might be next. The mapping of this model to teams, projects and features lives here · As of 11:58 ET · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Tokens processed today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">130M <span style="font-size: 18px">in</span> <span aria-hidden="true" style="font-size: 24px">→</span> 9.6M <span style="font-size: 18px">out</span></span></div>
+        <div class="kit-actions"><a class="kit-btn" href="#">Try it</a><a class="kit-btn outline" href="Start-Project.dc.html">Use it in a project</a></div>
+      </div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Model pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Improvement</button><button role="tab" aria-selected="false" type="button">Usage</button><button role="tab" aria-selected="true" type="button">Adoption</button><button role="tab" aria-selected="false" type="button">Cost avoided</button><button role="tab" aria-selected="false" type="button">TL Index</button><button role="tab" aria-selected="false" type="button">Built from</button><button role="tab" aria-selected="false" type="button">Training</button>
+    </div>
+
+    <div class="ma-k">
+      <a class="kit-surface" href="#"><span class="kit-caption">Projects on it</span><span class="kit-display" style="font-size: 40px">2</span><span class="kit-small kit-muted">1 live, Advisor desktop · 1 in Build, Wealth management portfolio assist</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Features on it</span><span class="kit-display" style="font-size: 40px">3</span><span class="kit-small kit-muted">1 in Production · 1 in Pilot · 1 in Build</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Teams</span><span class="kit-display" style="font-size: 40px">1</span><span class="kit-small kit-muted">Advice Tech, in Retail Business · one more has scored it on its own cases</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">People who tried it, 30 days</span><span class="kit-display" style="font-size: 40px">46</span><span class="kit-small kit-muted">In Try it · from 9 teams in 3 organizations</span></a>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The path to production">
+      <div class="ma-h"><h3>From a first try to Production</h3><span class="kit-small kit-muted">Where everyone who has touched this model stands today · a box opens its list</span></div>
+      <div class="ma-path">
+        <a class="ma-st" href="#" style="color: inherit; text-decoration: none"><span class="l">Tried it</span><span class="v">46</span><span>people, in Try it</span><small>9 teams · the last 30 days</small></a>
+        <span class="ma-ar" aria-hidden="true">→</span>
+        <a class="ma-st" href="#" style="color: inherit; text-decoration: none"><span class="l">Scored it on their own cases</span><span class="v">2</span><span>teams</span><small>Advice Tech · Client Service Tech, 200 cases on 3 Nov</small></a>
+        <span class="ma-ar" aria-hidden="true">→</span>
+        <a class="ma-st in" href="#" style="color: inherit; text-decoration: none"><span class="l">Build</span><span class="v">1</span><span>feature</span><small>Portfolio questions · since 30 Oct</small></a>
+        <span class="ma-ar" aria-hidden="true">→</span>
+        <a class="ma-st in" href="Project-Increments.dc.html" style="color: inherit; text-decoration: none"><span class="l">Pilot</span><span class="v">1</span><span>feature</span><small>Next best action · since 28 Oct · approval expected 6 Nov</small></a>
+        <span class="ma-ar" aria-hidden="true">→</span>
+        <a class="ma-st live" href="Feature-Page.dc.html" style="text-decoration: none"><span class="l">Production</span><span class="v">1</span><span>feature</span><small>Call summary · since 17 Aug, on this version since 5 Oct</small></a>
+      </div>
+      <div style="margin-top: 12px; display: flex; gap: 10px; align-items: flex-start"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>One team so far</span></span><span class="kit-small kit-muted">All three features belong to Advice Tech. A model built for a domain earns its place when a second team runs on it. Of the 46 people who tried it, 31 are in Retail Business already.</span></div>
+    </section>
+
+    <section class="kit-surface" aria-label="Every feature on this model">
+      <div class="ma-h"><h3>Every feature on this model</h3><span class="kit-small kit-muted">One row a feature, with today's numbers · a row opens the feature in its project</span></div>
+      <div class="ma-t">
+        <span class="h">Feature</span><span class="h">Contact</span><span class="h">Its job</span><span class="h">Trained for it?</span><span class="h">Stage</span><span class="h">Calls today</span><span class="h">Against what it expects</span><span class="h">Users say</span>
+
+        <span><b>Call summary</b><small>Advice Tech › Advisor desktop</small></span><span>Priya N.</span><span>Writes the summary of a call</span><span>Yes<small>Strengthened on its own calls, 28 Sep</small></span><span>Production<small>since 17 Aug</small></span><span class="ma-n">26k</span><span><span class="ma-n">86% ± 5</span><small>Range 80 to 90% · 2 gaps open in production</small></span><span class="ma-n">92% up</span>
+
+        <span><b>Next best action</b><small>Advice Tech › Advisor desktop</small></span><span>Priya N.</span><span>Words the suggestion</span><span>No<small>As released</small></span><span>Pilot<small>since 28 Oct</small></span><span class="ma-n">5k</span><span><span class="ma-n">94% ± 3</span><small>Range 92 to 96% · 300 cases</small></span><span class="ma-n">81% up</span>
+
+        <span><b>Portfolio questions</b><small>Advice Tech › Wealth management portfolio assist</small></span><span>Marcus L.</span><span>Answers a question about a portfolio</span><span>No<small>As released</small></span><span>Build<small>since 30 Oct</small></span><span class="kit-muted">— Not live</span><span class="kit-muted">— First scoring is running</span><span class="kit-muted">— Not live</span>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <div class="ma-box"><h4>Who tried it, 30 days</h4>
+        <div class="ma-r">
+          <span>Retail Business</span><span class="ma-n">31</span><span class="b"><i style="width: 100%"></i></span>
+          <span>Institutional Ops</span><span class="ma-n">9</span><span class="b"><i style="width: 29%"></i></span>
+          <span>Enterprise services</span><span class="ma-n">6</span><span class="b"><i style="width: 19%"></i></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">What they asked it to do</div>
+        <div class="ma-r" style="margin-top: 6px">
+          <span>Summarise a call</span><span class="ma-n">41%</span><span class="b"><i style="width: 100%"></i></span>
+          <span>Draft a reply to a client</span><span class="ma-n">27%</span><span class="b"><i style="width: 66%"></i></span>
+          <span>Explain a product</span><span class="ma-n">18%</span><span class="b"><i style="width: 44%"></i></span>
+          <span>Something else</span><span class="ma-n">14%</span><span class="b"><i style="width: 34%"></i></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">Sorted by kind in the background. What people typed is not shown here.</div></div>
+
+      <div class="ma-box"><h4>Who might be next</h4>
+        <div style="margin-top: 10px; font-size: 13px; line-height: 1.5"><span class="ma-ag">Jarvis proposes</span> <b style="font-weight: 600">Service chat reply</b>, Client Service Tech. It is in Pilot on Core 4.2.</div>
+        <div class="kit-small" style="margin-top: 8px; line-height: 1.5">On their own 200 cases this model scores <span class="ma-n">88% ± 4</span> and Core 4.2 scores <span class="ma-n">84% ± 5</span>.</div>
+        <div class="kit-small kit-muted" style="margin-top: 6px; line-height: 1.5">The intervals overlap, so this is a lead, not a finding. Rests on one scoring run of 3 Nov · Sure: 0.55 · <a href="#">See what it rests on</a></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px"><a class="kit-btn outline" href="#">Tell Dev R.</a><a class="kit-btn outline" href="#">Not a fit</a></div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">The team decides. Nothing changes in their project from here.</div></div>
+
+      <div class="ma-box"><h4>How it grew</h4>
+        <div class="ma-tl">
+          <span class="d">14 Jul</span><span>Version 1 released</span>
+          <span class="d">17 Aug</span><span>The first feature in Production: Call summary</span>
+          <span class="d">5 Oct</span><span>Version 2 live; Call summary moves to it</span>
+          <span class="d">28 Oct</span><span>A second feature enters Pilot: Next best action</span>
+          <span class="d">30 Oct</span><span>A second project starts on it: Wealth management portfolio assist</span>
+          <span class="d">3 Nov</span><span>A second team scores it on its own cases</span>
+        </div></div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1480}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

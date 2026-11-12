@@ -45,7 +45,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .in-st b{display:block;font-weight:500;font-size:14px;margin-bottom:2px}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1730px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1750px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -129,7 +129,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <section class="kit-surface" aria-label="The evidence">
         <div class="in-h"><h3 style="font-size: 17px">The evidence, 5 of 5</h3><span class="kit-small kit-muted">What travels with the change request</span></div>
         <div class="in-ev">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Quality against what you expect<small>The right action chosen on 94% ± 3 of 300 Pilot cases, you expect 92% · worded clearly on 91% ± 3, you expect 90% · both meet it, narrowly</small></span><a href="Project-Quality.dc.html">Open</a>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Quality against what you expect<small>The right action chosen on 94% ± 3 of 300 Pilot cases, you expect 92% · worded clearly on 91% ± 3, you expect 90% · both meet it; on 300 cases the intervals reach below</small></span><a href="Project-Quality.dc.html">Open</a>
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>ThinkLatent's thresholds, for each model in it<small>All three models meet theirs · no deviation to accept</small></span><a href="#">Open</a>
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>The safety gate<small>Safe on this feature's own cases: 93 ± 3 against 85</small></span><a href="#">Open</a>
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Service levels held in Pilot<small>Answered within 1.5 s on 99.1% of 38k requests, agreed at 99%</small></span><a href="Project-Operations.dc.html">Open</a>
@@ -170,16 +170,17 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       </div>
     </section>
 
-    <div class="in-box"><h4>Three things can start an increment</h4>
-      <div class="in-st">
+    <div class="in-box"><h4>Four things can start an increment</h4>
+      <div class="in-st" style="grid-template-columns: repeat(4, minmax(0, 1fr))">
         <a href="Start-Project.dc.html"><b>A new feature</b>Say what it should do; Jarvis proposes the models and adds it to the Plan.</a>
         <a href="Project-SelfHealing.dc.html"><b>A retrained model, from your own use</b>When self-healing says there is enough to train and you start the run.</a>
         <a href="Project-NewVersion.dc.html"><b>A new version from ThinkLatent</b>Offered with your own results already run; you decide whether to switch.</a>
+        <a href="Project-Quality.dc.html"><b>A raised range</b>When a measure reaches what you aimed for and you raise it, the new range is the next increment's goal.</a>
       </div></div>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1730}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1750}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

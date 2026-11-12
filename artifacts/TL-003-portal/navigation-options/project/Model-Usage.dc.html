@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A model's Usage tab · TLM4 Domain-Advice v2</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.mu-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.mu-h h3{margin:0;font-size:18px;font-weight:500}
+.mu-k{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.mu-k>a{display:flex;flex-direction:column;gap:6px;color:inherit;text-decoration:none}
+.mu-n{font-variant-numeric:tabular-nums;font-weight:500}
+.mu-key{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;align-items:center;color:rgba(26,26,26,.7)}
+.mu-key i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.mu-t{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.1fr) 80px 150px 90px 90px 110px;gap:0;font-size:13px;margin-top:10px;align-items:stretch}
+.mu-t>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.4}
+.mu-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.mu-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mu-t b{font-weight:500;font-size:14px}
+.mu-sh{position:relative;height:8px;border-radius:999px;background:rgba(26,26,26,.1);margin-top:6px}
+.mu-sh i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--companion)}
+.mu-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.mu-box h4{margin:0;font-size:15px;font-weight:500}
+.mu-kv{display:grid;grid-template-columns:150px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.mu-kv>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1)}
+.mu-kv .k{color:rgba(26,26,26,.65)}
+.mu-kv small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mu-e{display:grid;grid-template-columns:minmax(0,1fr) 70px 64px;gap:6px 10px;font-size:13px;margin-top:10px;align-items:center}
+.mu-e .v{text-align:right;font-variant-numeric:tabular-nums}
+svg text{font-family:Inter,system-ui,sans-serif}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1760px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">All models <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">TLM4 <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Domain-Advice <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Version 2 · live <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">TLM4 Domain-Advice v2</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">TLM4</span><span class="kit-chip outline">Language</span><span class="kit-chip brand">Live</span><span class="kit-chip">Built on Core 4.2</span><span class="kit-chip">Dedicated endpoint</span></div>
+        <span class="kit-small kit-muted">How much it is called, by whom, and whether it keeps up. Rolled up from every project that calls it; a single call opens in its project's Traces · As of 11:58 ET · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Tokens processed today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">130M <span style="font-size: 18px">in</span> <span aria-hidden="true" style="font-size: 24px">→</span> 9.6M <span style="font-size: 18px">out</span></span></div>
+        <div class="kit-actions"><a class="kit-btn" href="#">Try it</a><a class="kit-btn outline" href="#">Use it in a project</a></div>
+      </div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Model pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Improvement</button><button role="tab" aria-selected="true" type="button">Usage</button><button role="tab" aria-selected="false" type="button">Adoption</button><button role="tab" aria-selected="false" type="button">Cost avoided</button><button role="tab" aria-selected="false" type="button">TL Index</button><button role="tab" aria-selected="false" type="button">Built from</button><button role="tab" aria-selected="false" type="button">Training</button>
+    </div>
+
+    <div class="mu-k">
+      <a class="kit-surface" href="#"><span class="kit-caption">Calls today</span><span class="kit-display" style="font-size: 40px">31k</span><span class="kit-small kit-muted">8.2k in the busiest hour, 10 to 11</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Tokens in for each token out</span><span class="kit-display" style="font-size: 40px">13.5</span><span class="kit-small kit-muted">It reads far more than it writes: long calls in, short summaries out</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Typical time to answer</span><span class="kit-display" style="font-size: 40px">1.8 s</span><span class="kit-small kit-muted">95 in 100 within 1.9 s · agreed 2.5 s</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Calls that fail</span><span class="kit-display" style="font-size: 40px">0.12%</span><span class="kit-small kit-muted">Agreed 0.5% · 0.15% over 30 days</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Capacity at the peak</span><span class="kit-display" style="font-size: 40px">91%</span><span class="kit-small kit-muted">3 replicas · tight before a second feature goes live</span></a>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface raised" aria-label="Calls by hour, today">
+        <div class="mu-h"><h3>Calls by hour, today</h3><div class="mu-key"><span><i style="background: var(--companion)"></i>Call summary</span><span><i style="background: var(--cat3)"></i>Next best action</span><span><i style="background: none; box-shadow: inset 0 0 0 1.5px rgba(26,26,26,.4)"></i>last Thursday, for the hours to come</span><span><i style="background: none; width: 16px; height: 0; border-top: 2px dashed #1A1A1A; border-radius: 0; vertical-align: 3px"></i>what 3 replicas can serve</span></div></div>
+        <svg viewBox="0 0 760 280" width="100%" role="img" aria-label="Calls an hour from 7 to 19. Today so far: 2.1 thousand at 7, 5.6 at 8, 7.4 at 9, 8.2 at 10, 7.7 at 11. The three replicas can serve 9 thousand an hour" style="display: block; margin-top: 8px">
+          <g stroke="rgba(26,26,26,.1)"><line x1="44" y1="40" x2="748" y2="40"></line><line x1="44" y1="90" x2="748" y2="90"></line><line x1="44" y1="140" x2="748" y2="140"></line><line x1="44" y1="190" x2="748" y2="190"></line></g>
+          <line x1="44" y1="240" x2="748" y2="240" stroke="rgba(26,26,26,.4)"></line>
+          <g font-size="11" fill="rgba(26,26,26,.6)"><text x="38" y="44" text-anchor="end">10k</text><text x="38" y="94" text-anchor="end">7.5k</text><text x="38" y="144" text-anchor="end">5k</text><text x="38" y="194" text-anchor="end">2.5k</text><text x="38" y="244" text-anchor="end">0</text></g>
+          <line x1="44" y1="60" x2="748" y2="60" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="6 4"></line><text x="744" y="54" text-anchor="end" font-size="11.5" fill="#1A1A1A">9k an hour</text>
+          <g>
+            <rect x="60" y="204" width="38" height="36" fill="var(--companion)"></rect><rect x="60" y="198" width="38" height="6" fill="var(--cat3)"></rect>
+            <rect x="114" y="146" width="38" height="94" fill="var(--companion)"></rect><rect x="114" y="128" width="38" height="18" fill="var(--cat3)"></rect>
+            <rect x="168" y="116" width="38" height="124" fill="var(--companion)"></rect><rect x="168" y="92" width="38" height="24" fill="var(--cat3)"></rect>
+            <rect x="222" y="102" width="38" height="138" fill="var(--companion)"></rect><rect x="222" y="76" width="38" height="26" fill="var(--cat3)"></rect>
+            <rect x="276" y="112" width="38" height="128" fill="var(--companion)"></rect><rect x="276" y="86" width="38" height="26" fill="var(--cat3)"></rect>
+          </g>
+          <g fill="none" stroke="rgba(26,26,26,.4)" stroke-width="1.5">
+            <rect x="330" y="126" width="38" height="114"></rect><rect x="384" y="118" width="38" height="122"></rect><rect x="438" y="100" width="38" height="140"></rect><rect x="492" y="110" width="38" height="130"></rect><rect x="546" y="134" width="38" height="106"></rect><rect x="600" y="176" width="38" height="64"></rect><rect x="654" y="214" width="38" height="26"></rect>
+          </g>
+          <g font-size="11.5" fill="#fff" text-anchor="middle"><text x="79" y="222">2.1k</text><text x="133" y="162">5.6k</text><text x="187" y="132">7.4k</text><text x="241" y="118" font-weight="600">8.2k</text><text x="295" y="128">7.7k</text></g>
+          <g font-size="11" fill="rgba(26,26,26,.6)" text-anchor="middle"><text x="79" y="258">7</text><text x="133" y="258">8</text><text x="187" y="258">9</text><text x="241" y="258">10</text><text x="295" y="258">11</text><text x="349" y="258">12</text><text x="403" y="258">13</text><text x="457" y="258">14</text><text x="511" y="258">15</text><text x="565" y="258">16</text><text x="619" y="258">17</text><text x="673" y="258">18</text></g>
+        </svg>
+        <div class="kit-small kit-muted" style="margin-top: 4px">Against last week: calls +6%, tokens in +9%, tokens out +4%. Calls are getting longer, not only more. A second peak comes at 14. A table of the same numbers sits behind the chart.</div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div class="mu-box"><h4>The endpoint</h4>
+          <div class="mu-kv">
+            <span class="k">Kind</span><span>Dedicated to this model<small>Reached through Relay; every call carries a project and a feature</small></span>
+            <span class="k">Replicas</span><span>3 of 3 up<small>91% busy between 10 and 11; calls then wait 0.40 s, against 0.04 s the rest of the day</small></span>
+            <span class="k">Versions in service</span><span>Version 2, and version 2 as strengthened for Advisor desktop</span>
+          </div>
+          <div style="margin-top: 10px; padding: 10px 12px; border-radius: 14px; background: rgba(26,26,26,.04); font-size: 13px; line-height: 1.5"><span style="display: inline-flex; border-radius: 999px; padding: 2px 9px; font-size: 11.5px; font-weight: 500; background: rgba(49,122,71,.14); color: #1B5128">SRE agent proposes</span> A fourth replica on weekday mornings, before Next best action goes to everyone.
+            <div class="kit-small kit-muted" style="margin-top: 4px">Rests on the engine's queue counts and 5,900 traces · Sure: high · <a href="Project-Operations.dc.html">See what it rests on</a></div></div></div>
+        <div class="mu-box"><h4>How today's calls ended</h4>
+          <div class="mu-e">
+            <span>Answered</span><span class="v">30,921</span><span class="v">99.41%</span>
+            <span>Cut short at the length limit</span><span class="v">112</span><span class="v">0.36%</span>
+            <span>Held by the guardrail</span><span class="v">31</span><span class="v">0.10%</span>
+            <span>Timed out or failed</span><span class="v">40</span><span class="v">0.12%</span>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">31,104 calls. The 112 cut short are the long calls reported as PR-0077.</div></div>
+      </div>
+    </div>
+
+    <section class="kit-surface" aria-label="By feature">
+      <div class="mu-h"><h3>Who calls it</h3><span class="kit-small kit-muted">One row a feature · a row opens the feature in its project</span></div>
+      <div class="mu-t">
+        <span class="h">Feature</span><span class="h">Its job here</span><span class="h">Calls today</span><span class="h">Tokens today</span><span class="h">Typical time</span><span class="h">Calls that fail</span><span class="h">Share of calls</span>
+
+        <span><b>Call summary</b><small>Advice Tech › Advisor desktop · Production</small></span><span>Writes the summary of a call</span><span class="mu-n">26k</span><span class="mu-n">112M in · 8.1M out<small>4.3k in, 312 out a call</small></span><span class="mu-n">1.8 s</span><span class="mu-n">0.13%</span><span><span class="mu-n">84%</span><div class="mu-sh"><i style="width: 84%"></i></div></span>
+
+        <span><b>Next best action</b><small>Advice Tech › Advisor desktop · Pilot</small></span><span>Words the suggestion, after the decision adapter picks</span><span class="mu-n">5k</span><span class="mu-n">18M in · 1.5M out<small>3.6k in, 300 out a call</small></span><span class="mu-n">0.9 s</span><span class="mu-n">0.08%</span><span><span class="mu-n">16%</span><div class="mu-sh"><i style="width: 16%"></i></div></span>
+
+        <span><b>Portfolio questions</b><small>Advice Tech › Wealth management portfolio assist · Build</small></span><span>Answers a question about a portfolio</span><span class="kit-muted">— Not live</span><span class="kit-muted">—<small>Its evaluation runs on the shared test endpoint</small></span><span class="kit-muted">—</span><span class="kit-muted">—</span><span class="kit-muted">—</span>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="Tokens by day">
+      <div class="mu-h"><h3>Tokens by day, 30 days</h3><div class="mu-key"><span><i style="background: var(--companion)"></i>tokens in, millions</span><span><i style="background: #1A1A1A; height: 3px; width: 16px; border-radius: 2px; vertical-align: 3px"></i>tokens out, millions, on its own scale</span></div></div>
+      <svg viewBox="0 0 1200 210" width="100%" role="img" aria-label="Tokens in by day for 30 days. Weekdays run between 220 and 270 million, weekends near 40 million. Today so far is 130 million. A step up on 28 October, when Next best action entered Pilot" style="display: block; margin-top: 8px">
+        <g stroke="rgba(26,26,26,.1)"><line x1="44" y1="30" x2="1190" y2="30"></line><line x1="44" y1="80" x2="1190" y2="80"></line><line x1="44" y1="130" x2="1190" y2="130"></line></g>
+        <line x1="44" y1="180" x2="1190" y2="180" stroke="rgba(26,26,26,.4)"></line>
+        <g font-size="11" fill="rgba(26,26,26,.6)"><text x="38" y="34" text-anchor="end">300M</text><text x="38" y="84" text-anchor="end">200M</text><text x="38" y="134" text-anchor="end">100M</text><text x="38" y="184" text-anchor="end">0</text></g>
+        <g fill="var(--companion)">
+          <rect x="54" y="70" width="26" height="110"></rect><rect x="92" y="68" width="26" height="112"></rect><rect x="130" y="66" width="26" height="114"></rect><rect x="168" y="160" width="26" height="20" opacity=".45"></rect><rect x="206" y="162" width="26" height="18" opacity=".45"></rect>
+          <rect x="244" y="68" width="26" height="112"></rect><rect x="282" y="64" width="26" height="116"></rect><rect x="320" y="66" width="26" height="114"></rect><rect x="358" y="62" width="26" height="118"></rect><rect x="396" y="66" width="26" height="114"></rect><rect x="434" y="160" width="26" height="20" opacity=".45"></rect><rect x="472" y="161" width="26" height="19" opacity=".45"></rect>
+          <rect x="510" y="64" width="26" height="116"></rect><rect x="548" y="62" width="26" height="118"></rect><rect x="586" y="64" width="26" height="116"></rect><rect x="624" y="60" width="26" height="120"></rect><rect x="662" y="64" width="26" height="116"></rect><rect x="700" y="159" width="26" height="21" opacity=".45"></rect><rect x="738" y="160" width="26" height="20" opacity=".45"></rect>
+          <rect x="776" y="62" width="26" height="118"></rect><rect x="814" y="60" width="26" height="120"></rect><rect x="852" y="48" width="26" height="132"></rect><rect x="890" y="46" width="26" height="134"></rect><rect x="928" y="50" width="26" height="130"></rect><rect x="966" y="157" width="26" height="23" opacity=".45"></rect><rect x="1004" y="158" width="26" height="22" opacity=".45"></rect>
+          <rect x="1042" y="48" width="26" height="132"></rect><rect x="1080" y="46" width="26" height="134"></rect><rect x="1118" y="44" width="26" height="136"></rect><rect x="1156" y="115" width="26" height="65" opacity=".7"></rect>
+        </g>
+        <polyline points="67,96 105,95 143,94 181,170 219,171 257,95 295,93 333,94 371,92 409,94 447,170 485,170 523,93 561,92 599,93 637,91 675,93 713,169 751,170 789,92 827,91 865,84 903,83 941,85 979,168 1017,169 1055,84 1093,83 1131,82 1169,132" fill="none" stroke="#1A1A1A" stroke-width="2"></polyline>
+        <line x1="846" y1="24" x2="846" y2="186" stroke="#1A1A1A" stroke-dasharray="3 4"></line><text x="840" y="22" text-anchor="end" font-size="11.5" fill="#1A1A1A">28 Oct · Next best action enters Pilot</text>
+        <g font-size="11" fill="rgba(26,26,26,.6)" text-anchor="middle"><text x="67" y="198">7 Oct</text><text x="257" y="198">12 Oct</text><text x="523" y="198">19 Oct</text><text x="789" y="198">26 Oct</text><text x="1055" y="198">2 Nov</text><text x="1169" y="198">today, so far</text></g>
+      </svg>
+      <div class="kit-small kit-muted" style="margin-top: 4px">Weekends are lower because advisors take few calls then. The step on 28 Oct is the second feature, not more calls to the first.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1760}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

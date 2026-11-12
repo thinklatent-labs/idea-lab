@@ -40,12 +40,15 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .mb-x .hd{font-size:12.5px;font-weight:500;border-top:0;padding-top:0}
 .mb-x .hd small{font-weight:400}
 .mb-x small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mb-v{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.mb-v>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1)}
+.mb-v small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
 .mb-log{display:grid;grid-template-columns:58px 84px minmax(0,1fr);gap:0;font-size:13px;margin-top:8px}
 .mb-log>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.45}
 .mb-log .d{color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2060px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2140px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -94,13 +97,13 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <div class="mb-t">
           <span class="h"></span><span class="h">Person</span><span class="h">What they do here</span><span class="h">Since</span><span class="h">Lately</span>
 
-          <span><span class="mb-av">PN</span></span><span><b>Priya N.</b><span class="mb-own">Owner</span><small>The project's contact</small></span><span>"I own the product and decide what goes to production."</span><span>4 Aug</span><span>Raised CR-2291, 3 Nov<small>3 things wait for her today</small></span>
+          <span><span class="mb-av">PN</span></span><span><b>Priya N.</b><span class="mb-own">Owner</span><small>The project's contact</small></span><span>"I own the product and decide what goes to production."</span><span>4 Aug</span><span>Raised CR-2291, 3 Nov<small>4 things wait for her today</small></span>
           <span><span class="mb-av">LW</span></span><span><b>Lena W.</b></span><span>"I connect the desktop to the models, and I own going back."</span><span>6 Aug</span><span>Answered a question on CR-2291, 4 Nov</span>
           <span><span class="mb-av">OH</span></span><span><b>Omar H.</b></span><span>"I keep the evaluation sets."</span><span>6 Aug</span><span>Fixing 62 rows that lack a field</span>
           <span><span class="mb-av">NB</span></span><span><b>Nikhil B.</b></span><span>"I am building Speech to text."</span><span>19 Oct</span><span>Started its first scoring, today</span>
           <span><span class="mb-av">GT</span></span><span><b>Grace T.</b></span><span>"I read the summaries the guardrail holds back."</span><span>20 Oct</span><span>Read 19 of today's 31, so far</span>
         </div>
-        <div style="margin-top: 12px; display: flex; gap: 10px; align-items: flex-start"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>One owner decides everything</span></span><span class="kit-small kit-muted">Every decision since 2 Oct was Priya N.'s, and 3 wait for her now. Marcus L. can act through the team; a second owner on the project would keep it moving when she is away.</span></div>
+        <div style="margin-top: 12px; display: flex; gap: 10px; align-items: flex-start"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>One owner decides everything</span></span><span class="kit-small kit-muted">Every decision since 2 Oct was Priya N.'s, and 4 wait for her now. Votes show what the others think, but only she, or Marcus L. through the team, can decide. A second owner on the project would keep it moving when she is away.</span></div>
       </section>
 
       <div style="display: flex; flex-direction: column; gap: 12px">
@@ -123,7 +126,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <div class="mb-box"><h4>From ThinkLatent</h4>
           <div class="mb-p"><span class="mb-av tl">MS</span><span><b style="font-weight: 500">Meera S.</b>, product and adoption<small>Your contact, assigned when the project was created</small></span>
             <span class="mb-av tl">AK</span><span><b style="font-weight: 500">Arjun K.</b>, AI engineering lead<small>Models, machines and endpoints for this project</small></span></div>
-          <p class="kit-small kit-muted">They see what members see and are told when a run starts or a request is raised. Change requests are decided in the Enterprise's change system, not here.</p></div>
+          <p class="kit-small kit-muted">They open what a member opens and vote on the project's decisions as a member does. Change requests are decided in the Enterprise's change system, not here.</p></div>
         <div class="mb-box"><h4>The agents</h4>
           <p>Jarvis and the agents on these pages (watch, SRE, self-healing) act with the access of the person who asked, never more.</p>
           <p class="kit-small kit-muted">They propose. A member or an owner decides, and the decision is recorded under that person's name.</p></div>
@@ -133,7 +136,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     <section class="kit-surface" aria-label="What opens for whom">
       <div class="mb-h"><h3>What opens for whom</h3><span class="kit-small kit-muted">Three columns, no roles · the same on every project</span></div>
       <div class="mb-x">
-        <span class="hd"></span><span class="hd">Everyone at the Enterprise<small>the open view</small></span><span class="hd">A member</span><span class="hd">An owner<small>of the project or its team</small></span>
+        <span class="hd"></span><span class="hd">Everyone at the Enterprise<small>the open view</small></span><span class="hd">A member<small>and the two people ThinkLatent assigns</small></span><span class="hd">An owner<small>of the project or its team</small></span>
 
         <span>Totals, stage, verdicts, increments, and where each request stands</span>
         <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
@@ -160,10 +163,10 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
         <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
 
-        <span>Confirm a gap, accept a deviation, raise a change request, switch to a new version</span>
+        <span>Confirm a gap, accept a deviation, raise a change request, switch to a new version, raise a range</span>
         <span class="kit-muted">— No</span>
-        <span class="kit-muted">— No</span>
-        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Yes</span></span></span>
+        <span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h4l3 8 4-16 3 8h2"></path></svg><span>Votes, with a reason</span></span></span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Decides, with the votes shown</span></span></span>
 
         <span>Add or remove a member, name an owner, pause or retire a feature</span>
         <span class="kit-muted">— No</span>
@@ -191,16 +194,22 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <span class="d">2 Oct</span><span>Priya N.</span><span>Accepted a deviation: Numbers and calculations · raised CR-2204</span>
         </div>
       </section>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+      <div class="mb-box"><h4>Open for votes · 2 decisions</h4>
+        <div class="mb-v"><span>Is "amounts and dates differ from the call" a real gap?<small>3 agree · none against · 3 not yet · Omar H., Grace T., Arjun K.</small></span><a href="Project-SelfHealing.dc.html">Open</a>
+          <span>Raise the range for Nothing made up to 94 to 96%?<small>2 for · none against · 4 not yet · Omar H., Arjun K.</small></span><a href="Project-Quality.dc.html">Open</a></div>
+        <p class="kit-small kit-muted">Members and ThinkLatent's two vote and say why. The owner decides, and the votes stay on the record beside the decision.</p></div>
       <div class="mb-box"><h4>Who is told what</h4>
-        <p><b style="font-weight: 500">Members:</b> a gap found, a run started or finished, each step of a change request, a new version offered.</p>
+        <p><b style="font-weight: 500">Members:</b> a gap found, a decision opened for votes, a run started or finished, each step of a change request, a new version offered.</p>
         <p><b style="font-weight: 500">Owners, also:</b> someone asks to join, something waits for a decision.</p>
         <p><b style="font-weight: 500">ThinkLatent's two:</b> runs and requests.</p>
         <p class="kit-small kit-muted">Each person can quiet any of these in My work.</p></div>
+      </div>
     </div>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2060}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2140}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

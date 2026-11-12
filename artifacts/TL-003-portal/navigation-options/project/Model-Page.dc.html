@@ -73,17 +73,18 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: start">
       <section class="kit-surface" aria-label="Improvement by version">
         <div class="kit-section-title" style="margin-top: 0"><h2>Improvement by version</h2><span class="sub">TL Index score of each version, with what changed</span></div>
-        <svg role="img" aria-label="TL Index score by version: version 1, 79 percent; version 2, live, 84 percent; version 3, candidate, 88 percent" viewBox="0 0 640 220" style="width: 100%; height: auto; font-size: 12px; margin-top: 8px">
+        <svg role="img" aria-label="TL Index score by version: version 1, 79 percent; version 2, live, 84 percent; version 3 is planned for 21 November and is scored on release" viewBox="0 0 640 220" style="width: 100%; height: auto; font-size: 12px; margin-top: 8px">
           <line x1="40" y1="180" x2="620" y2="180" style="stroke: var(--hairline)"></line>
           <line x1="40" y1="64" x2="620" y2="64" style="stroke: var(--decision); stroke-dasharray: 4 4; opacity: .6"></line>
-          <text x="44" y="56" style="fill: var(--secondary)">Frontier API 87%</text>
-          <polyline points="110,150 330,104 550,58" style="fill: none; stroke: var(--brand-800); stroke-width: 3"></polyline>
-          <circle cx="110" cy="150" r="6" style="fill: var(--brand-800)"></circle><circle cx="330" cy="104" r="8" style="fill: var(--lit); stroke: var(--brand-800); stroke-width: 2"></circle><circle cx="550" cy="58" r="6" style="fill: #fff; stroke: var(--brand-800); stroke-width: 2"></circle>
-          <g style="fill: var(--ink)"><text x="110" y="134" text-anchor="middle">79%</text><text x="330" y="86" text-anchor="middle" style="font-weight: 600">84%</text><text x="550" y="40" text-anchor="middle">88%</text>
-          <text x="110" y="200" text-anchor="middle">Version 1 · 14 Jul</text><text x="330" y="200" text-anchor="middle" style="font-weight: 600">Version 2 · live</text><text x="550" y="200" text-anchor="middle">Version 3 · candidate</text></g>
+          <text x="44" y="56" style="fill: var(--secondary)">Vendor A · large 87%</text>
+          <polyline points="110,150 330,104" style="fill: none; stroke: var(--brand-800); stroke-width: 3"></polyline>
+          <line x1="550" y1="30" x2="550" y2="180" style="stroke: var(--hairline); stroke-dasharray: 3 4"></line>
+          <circle cx="110" cy="150" r="6" style="fill: var(--brand-800)"></circle><circle cx="330" cy="104" r="8" style="fill: var(--lit); stroke: var(--brand-800); stroke-width: 2"></circle>
+          <g style="fill: var(--ink)"><text x="110" y="134" text-anchor="middle">79%</text><text x="330" y="86" text-anchor="middle" style="font-weight: 600">84%</text><text x="550" y="110" text-anchor="middle" style="fill: var(--secondary)">scored on release</text>
+          <text x="110" y="200" text-anchor="middle">Version 1 · 14 Jul</text><text x="330" y="200" text-anchor="middle" style="font-weight: 600">Version 2 · live</text><text x="550" y="200" text-anchor="middle">Version 3 · planned 21 Nov</text></g>
         </svg>
         <div class="kit-rows" style="margin-top: 6px">
-          <div class="kit-row" style="grid-template-columns: 120px 1fr"><div class="t">Version 3</div><div class="s">Retrained from feedback: more long conversations. Release planned 21 Nov.</div></div>
+          <div class="kit-row" style="grid-template-columns: 120px 1fr"><div class="t">Version 3</div><div class="s">Planned for 21 Nov, on Core 4.3. Its scores appear here on release.</div></div>
           <div class="kit-row" style="grid-template-columns: 120px 1fr"><div class="t">Version 2</div><div class="s">Trained on the Enterprise's advice data on Core 4.2. Live since 5 Oct.</div></div>
         </div>
       </section>
