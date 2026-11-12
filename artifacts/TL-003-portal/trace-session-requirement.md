@@ -1,4 +1,4 @@
-# ThinkLatent Portal (portal): trace and session requirement, v1, 2026-11-12
+# ThinkLatent Portal (portal): trace and session requirement, v1.1, 2026-11-12
 
 Lab session · TL-003 portal · Spec. Jithin asked for the trace and the session to be specified in full detail, as the requirement the ThinkLatent AI engineering team builds the backend to, with nothing held back: it supports the five-year vision, and fields can be removed later. Serving is vLLM behind the gateway, called through Relay with the OpenAI-compatible API; request logging is the team's modified Langfuse store.
 
@@ -20,7 +20,10 @@ Status words used in the tables:
 2. **The request is the unit.** Every metric on Home, a model, an organization, a team, a project and a feature is a sum, a share or a percentile over requests. No page keeps its own counters.
 3. **A request always belongs to a session.** A single call gets a session of one turn.
 4. **Background results join the request later.** Guardrail, sensitive-data, entity, classification, novelty and judge results arrive after the answer; each carries the request id, its own time, and the version of the model or rule that produced it.
-5. **Feedback comes from the application.** Thumbs for a turn and for a whole session are sent back by the application's own back end; the portal never invents them.
+5. **Feedback comes from the application.** Thumbs for a turn and for a whole session are sent back by the application's own back end; the portal never invents them. It is accepted for 30 days after the turn.
+6. **Project and feature ids are required on every call**, from the next Relay release. A call without them is refused.
+7. **User and session ids are Relay's.** Relay already carries a user id and a session id into the Langfuse-compatible store; the portal reads them as they are and adds no scheme of its own.
+8. **What runs in the background today:** sensitive-data redaction only. The guardrail check as a service, classification and entities, and the check for kinds of request not seen in training are to build; the fields in 3.8 and 3.9 say what each must write.
 
 ## 2. The shape
 
@@ -45,7 +48,7 @@ Level: S session, T turn, P step, C model call. Content = hidden when the seal i
 
 | Field | Level | Type | Where it comes from | Content |
 |---|---|---|---|---|
-| `tl.organization.id`, `tl.team.id`, `tl.project.id`, `tl.feature.id` | S T | string | Relay must send project and feature; the portal resolves team and organization | No |
+| `tl.organization.id`, `tl.team.id`, `tl.project.id`, `tl.feature.id` | S T | string | Relay must send project and feature on every call (required from the next release); the portal resolves team and organization | No |
 | `tl.project.stage` (set up, try, build, pilot, production) | T | enum | Gateway adds it from the project's record; never trusted from the caller | No |
 | `tl.increment.id` | T | string | Gateway adds it from the deployment that served the call | No |
 | `tl.environment` (lower, pilot, production) | T | enum | Gateway adds it | No |
@@ -54,7 +57,7 @@ Level: S session, T turn, P step, C model call. Content = hidden when the seal i
 | `gen_ai.request.id` | C | string | vLLM gives it | No |
 | `gen_ai.response.id` | C | string | vLLM gives it (the completion id) | No |
 | `tl.turn.index` | T | int | Portal works it out from the order in the session | No |
-| `tl.user.ref` | S T | string | Relay must send a stable, hashed reference; never a name or an employee id | No |
+| `user.id` | S T | string | Relay sends it today, into the Langfuse-compatible store; the portal reads it as it is | No |
 | `tl.user.group` (for example advisor, operations) | S | string | Relay may send it | No |
 | `tl.application.name`, `tl.application.release` | T | string | Relay must send it; needed to compare releases | No |
 | `tl.relay.sdk`, `tl.relay.version`, `tl.relay.language` | T | string | Relay adds it | No |
@@ -238,7 +241,7 @@ Stored as scores, in Langfuse's shape: a name, a value (number, category, yes or
 | `tl.feedback.outcome` (the business result the application records: resolved, converted, no action) | S | enum | No |
 | `tl.feedback.at`, `tl.feedback.channel` | T S | timestamp, string | No |
 
-Feedback arrives late. It is sent with the turn's `trace.id` or the `session.id`; the portal accepts it for 30 days after the turn.
+Feedback arrives late. It is sent with the turn's `trace.id` or the `session.id`; the portal accepts it for 30 days after the turn (decided 12 Nov).
 
 ### 3.13 Cost
 
@@ -276,7 +279,7 @@ Content fields are the ones marked Yes in the last column: the instructions, the
 | Sensitive data exposure | Turns with `tl.sensitive.exposed` |
 | Spend | Sum of `tl.cost.total` and `tl.cost.background` |
 | Cost avoided | Accepted answers (`tl.feedback.used`) times `tl.cost.avoided.unit` |
-| Adoption (a model) | Distinct projects, features and `tl.user.ref` over a period |
+| Adoption (a model) | Distinct projects, features and `user.id` over a period |
 | Improvement by version | Scores and feedback grouped by `tl.model.version` or `tl.weights.ref` |
 | Capacity and queue | vLLM's gauges by endpoint, beside `gen_ai.latency.time_in_queue` per request |
 | By business line (speech) | Model calls grouped by `tl.class.business_line` |
@@ -295,8 +298,7 @@ To add to the team's schema: the organization, team, feature and increment ids; 
 
 - Fields marked "to check" were named from the OpenAI-compatible API and vLLM as generally documented, not read off the deployed 0.26.0. AI engineering should confirm each.
 - Background jobs for classification, entities and novelty do not exist yet as services; this document only says what they must write.
-- A stable user reference needs a decision on how it is hashed, so that users can be counted across applications without being named.
-- Thirty days to accept late feedback is a proposal.
+- The user id is whatever each application passes to Relay. If two applications name the same person differently, the portal counts two users; whether that matters is for AI engineering to say.
 - Size bucket edges are a proposal; they should be set from real traffic.
 - Storing log probabilities for every request is expensive. Proposal: keep the summary always, the full detail for a sample.
 
