@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A feature's evaluation set · Call summary</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.ev-ms{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1.1fr) 90px 100px 150px;gap:14px;align-items:center}
+.ev-fm{display:grid;grid-template-columns:130px 90px minmax(0,1fr);gap:14px;align-items:start}
+.ev-type{border-radius:22px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.ev-type.on{box-shadow:0 0 0 1.5px var(--companion)}
+.ev-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.55;background:#1A1A1A;color:#EDEDEA;border-radius:16px;padding:14px 16px;white-space:pre;overflow:hidden}
+.ev-code b{font-weight:500;color:#9BD9A8}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1820px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="#" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Call summary <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Call summary</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Production</span><span class="kit-chip">3 measures · 1 being set up</span><span class="kit-chip">Evaluation set v3 · 400 calls</span><span class="kit-chip">Members only</span></div>
+        <span class="kit-small kit-muted">How the project team measures its own feature: pick a way of scoring for each measure, and bring the data in the format it needs · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Add a measure</a><a class="kit-btn outline" href="#">Run the evaluation now</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Feature pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Models and flow</button><button role="tab" aria-selected="false" type="button">Quality and thresholds</button><button role="tab" aria-selected="true" type="button">Evaluation set</button><button role="tab" aria-selected="false" type="button">Feedback</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Settings</button>
+    </div>
+
+    <section class="kit-surface" aria-label="How this feature is scored">
+      <div class="kit-section-title" style="margin-top: 0"><h2>How this feature is scored</h2><span class="sub">One row a measure · each has a way of scoring, the fields it needs, and what the team expects</span></div>
+      <div class="ev-ms kit-label" style="padding: 14px 14px 8px"><span>Measure</span><span>Way of scoring</span><span>Needs in the data</span><span>Expected</span><span>Last score</span><span>State</span></div>
+      <div class="kit-rows">
+        <div class="kit-row ev-ms"><div><div class="t">Summary quality</div><div class="s">Does the summary say what mattered</div></div><div><div class="kit-small">Model as judge · standard judge</div><div class="s">Completeness, against the key points</div></div><div class="kit-small"><code>input</code>, <code>reference</code></div><div class="kit-num">80%</div><div class="kit-num">86% ± 5</div><div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Running nightly</span></span></div></div>
+        <div class="kit-row ev-ms"><div><div class="t">Nothing made up</div><div class="s">Every statement is in the call</div></div><div><div class="kit-small">Model as judge · standard judge</div><div class="s">Faithfulness, against the transcript</div></div><div class="kit-small"><code>input</code> only</div><div class="kit-num">92%</div><div class="kit-num">94% ± 2</div><div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Running nightly</span></span></div></div>
+        <div class="kit-row ev-ms" style="box-shadow: 0 0 0 1.5px var(--companion)"><div><div class="t">Action items found</div><div class="s">New · being set up</div></div><div><div class="kit-small">F1 score</div><div class="s">Items found against the items listed</div></div><div class="kit-small"><code>input</code>, <code>reference_items</code></div><div class="s">Not set</div><div class="s">Not run yet</div><div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>62 rows lack a field</span></span></div></div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="Ways of scoring to choose from">
+      <div class="kit-section-title" style="margin-top: 0"><h2>Ways of scoring to choose from</h2><span class="sub">The defaults ThinkLatent provides · chosen for "Action items found": F1 score</span></div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px">
+        <a class="ev-type" href="#" style="color: inherit; text-decoration: none"><span style="font-size: 18px; font-weight: 500">Exact match</span><span class="kit-small">The answer must equal the reference.</span><span class="kit-small kit-muted">Good for labels, routes, yes or no</span><span class="kit-small kit-muted" style="margin-top: auto">Needs <code>reference</code></span></a>
+        <a class="ev-type on" href="#" style="color: inherit; text-decoration: none"><span style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 18px; font-weight: 500">F1 score</span><span class="kit-chip brand">Chosen</span></span><span class="kit-small">How many of the right items were found, and how many found were right.</span><span class="kit-small kit-muted">Good for lists and extracted fields</span><span class="kit-small kit-muted" style="margin-top: auto">Needs <code>reference_items</code></span></a>
+        <a class="ev-type" href="#" style="color: inherit; text-decoration: none"><span style="font-size: 18px; font-weight: 500">Closeness to a reference</span><span class="kit-small">How close the wording and meaning are to a reference text.</span><span class="kit-small kit-muted">Good for rewrites and translations</span><span class="kit-small kit-muted" style="margin-top: auto">Needs <code>reference</code></span></a>
+        <a class="ev-type" href="#" style="color: inherit; text-decoration: none"><span style="font-size: 18px; font-weight: 500">Model as judge · standard judges</span><span class="kit-small">A ThinkLatent judge scores each answer on a fixed rubric.</span><span class="kit-small kit-muted">Faithfulness · Completeness · Tone and care · Format followed · Safety</span><span class="kit-small kit-muted" style="margin-top: auto">Needs <code>input</code>; some judges also <code>reference</code></span></a>
+        <a class="ev-type" href="#" style="color: inherit; text-decoration: none"><span style="font-size: 18px; font-weight: 500">Model as judge · your own rubric</span><span class="kit-small">Write what a good answer is; a ThinkLatent judge applies it.</span><span class="kit-small kit-muted">Good for what only your team can define</span><span class="kit-small kit-muted" style="margin-top: auto">Needs <code>input</code> and 50 answers your team has scored</span></a>
+        <a class="ev-type" href="#" style="color: inherit; text-decoration: none"><span style="font-size: 18px; font-weight: 500">People score a sample</span><span class="kit-small">Members score a sample by hand, in the portal.</span><span class="kit-small kit-muted">Good for checking a judge, and for the first weeks</span><span class="kit-small kit-muted" style="margin-top: auto">Needs <code>input</code> only</span></a>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="The data format">
+        <div class="kit-section-title" style="margin-top: 0"><h2>The data format</h2><span class="sub">One row a case · JSON Lines or CSV · the same format for every feature</span></div>
+        <div class="ev-fm kit-label" style="padding: 14px 14px 8px"><span>Field</span><span>Needed</span><span>What goes in it</span></div>
+        <div class="kit-rows">
+          <div class="kit-row ev-fm"><code>id</code><span class="kit-small">Always</span><span class="kit-small">Your own id for the case; it must not repeat.</span></div>
+          <div class="kit-row ev-fm"><code>input</code><span class="kit-small">Always</span><span class="kit-small">What the feature receives: here, the call transcript.</span></div>
+          <div class="kit-row ev-fm"><code>reference</code><span class="kit-small">By type</span><span class="kit-small">The right answer, or its key points. For exact match, closeness, and some judges.</span></div>
+          <div class="kit-row ev-fm"><code>reference_items</code><span class="kit-small">By type</span><span class="kit-small">The right items as a list. For F1 score.</span></div>
+          <div class="kit-row ev-fm"><code>context</code><span class="kit-small">Optional</span><span class="kit-small">Documents the feature was given, when it looks things up.</span></div>
+          <div class="kit-row ev-fm"><code>tags</code><span class="kit-small">Optional</span><span class="kit-small">Your own groups, to see scores by slice: long calls, a product.</span></div>
+        </div>
+        <div class="kit-actions" style="margin-top: 14px"><a class="kit-btn" href="#">Download the template</a><a class="kit-btn outline" href="#">Upload a file</a><a class="kit-btn outline" href="#">Take it from a bucket</a></div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface" aria-label="One row of the format">
+          <div class="kit-section-title" style="margin-top: 0"><h2>One row, as an example</h2><span class="sub">JSON Lines</span></div>
+          <div class="ev-code" style="margin-top: 12px">{
+  <b>"id"</b>: "call-00412",
+  <b>"input"</b>: "Advisor: Good morning ... [transcript]",
+  <b>"reference"</b>: "Client wants to move 20% to bonds; ...",
+  <b>"reference_items"</b>: ["Send the bond fund sheet",
+                      "Book a review in March"],
+  <b>"tags"</b>: ["long call", "retirement"]
+}</div>
+        </section>
+        <section class="kit-surface" aria-label="The check on your file">
+          <div class="kit-section-title" style="margin-top: 0"><h2>The check on your file</h2><span class="sub">Run on every upload, before anything is scored</span></div>
+          <div class="kit-rows" style="margin-top: 12px">
+            <div class="kit-row" style="grid-template-columns: 1fr auto"><div><div class="t">advisor-calls-eval-v3.jsonl</div><div class="s">400 rows · uploaded 4 Nov by Priya N. · kept inside the project</div></div><span class="kit-chip">Version 3</span></div>
+            <div class="kit-row" style="grid-template-columns: 1fr auto"><div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>400 of 400 rows fit Summary quality and Nothing made up</span></span></div><span class="kit-small kit-muted">Ready</span></div>
+            <div class="kit-row" style="grid-template-columns: 1fr auto"><div><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>62 rows have no <code>reference_items</code>, needed for Action items found</span></span><div class="s">Score on the 338 that have it, or add the field and upload again</div></div><a class="kit-btn outline" href="#">See the 62 rows</a></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1820}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
