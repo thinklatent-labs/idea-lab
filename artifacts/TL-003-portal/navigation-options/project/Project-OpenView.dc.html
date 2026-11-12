@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A project's open view: what everyone at the Enterprise sees</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.ov-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ov-h h3{margin:0;font-size:18px;font-weight:500}
+.ov-banner{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:center;border-radius:20px;padding:12px 16px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1.5px #1A1A1A;font-size:13.5px;line-height:1.45}
+.ov-banner svg{width:19px;height:19px}
+.ov-fs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px;align-items:stretch}
+.ov-f{border-radius:22px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:16px 18px;display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.45}
+.ov-f .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ov-f .top b{font-size:17px;font-weight:500}
+.ov-f q{display:block;quotes:"\201C" "\201D";color:#1A1A1A;font-size:13.5px}
+.ov-f .run{font-size:12.5px;color:rgba(26,26,26,.7);border-top:1px solid rgba(26,26,26,.1);padding-top:9px}
+.ov-f .run b{display:block;font-size:11.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.6);margin-bottom:2px}
+.ov-m{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;border-top:1px solid rgba(26,26,26,.1)}
+.ov-m>*{padding:8px 0;border-bottom:1px solid rgba(26,26,26,.08)}
+.ov-m>*:nth-last-child(-n+2){border-bottom:0}
+.ov-m small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ov-m .v{text-align:right;padding-left:12px;white-space:nowrap}
+.ov-m .v b{display:block;font-weight:500;font-size:14px;font-variant-numeric:tabular-nums}
+.ov-m .v .kit-status{justify-content:flex-end}
+.ov-t{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1.3fr) 168px 150px auto;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.ov-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ov-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ov-t b{font-weight:500;font-size:14px}
+.ov-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ov-go{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:12px 12px;align-items:center;margin-top:12px;font-size:13px;line-height:1.45}
+.ov-go .n{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#1A1A1A;color:#fff;font-size:12px;font-weight:600}
+.ov-go b{display:block;font-weight:500;font-size:14.5px}
+.ov-kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.ov-kv>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.ov-kv small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ov-kv .v{text-align:right;padding-left:14px;font-size:20px;font-weight:300;letter-spacing:-.02em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ov-tl{display:grid;grid-template-columns:58px minmax(0,1fr);gap:8px 10px;font-size:13px;line-height:1.45;margin-top:10px}
+.ov-tl .d{font-size:12px;color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums;padding-top:1px}
+.ov-tl small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ov-p{display:grid;grid-template-columns:34px minmax(0,1fr);gap:9px 10px;font-size:13px;line-height:1.4;margin-top:10px;align-items:center}
+.ov-p .a{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(26,26,26,.08);font-size:11.5px;font-weight:600}
+.ov-p small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ov-lk{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px 9px;font-size:13px;line-height:1.45;margin-top:10px}
+.ov-lk svg{width:16px;height:16px;margin-top:2px;color:rgba(26,26,26,.55)}
+.ov-pr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.4;margin-top:8px}
+.ov-pr>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.ov-pr small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ov-pr .s{padding-left:12px;font-size:12px;color:rgba(26,26,26,.7);text-align:right;white-space:nowrap}
+.ov-r{border-radius:18px;border:1.5px dashed rgba(26,26,26,.3);padding:14px 16px;margin-top:12px;font-size:13px;line-height:1.45}
+.ov-r b{font-size:15px;font-weight:500}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2560px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">10:00 · Service desk stand-up</span><span class="kit-chip brand">13:30 · Jarvis: start your project</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Organization-Page.dc.html">Retail Business <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Team-Page.dc.html">Advice Tech <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 720px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Advisor desktop</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Production</span><span class="kit-chip">3 features · 1 live</span><span class="kit-chip">5 models</span><span class="kit-chip">2 increments in flight</span><span class="kit-chip env">Open view</span></div>
+        <span class="kit-small kit-muted">Helps an advisor during and after an advice call: it writes the summary, suggests the next step, and soon shows the words as they are spoken. Owned by Advice Tech · contact Priya N. · you are not a member · As of 11:58 ET · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px">
+        <div style="text-align: right"><span class="kit-caption">Tokens processed today</span><div class="kit-display" style="font-size: 34px; margin-top: 4px">144M <span style="font-size: 15px; font-weight: 400; letter-spacing: 0">in</span> → 9.7M <span style="font-size: 15px; font-weight: 400; letter-spacing: 0">out</span></div></div>
+        <div class="kit-actions"><a class="kit-btn" href="Start-Project.dc.html">Start a project like this</a><a class="kit-btn outline" href="#">Follow</a><a class="kit-btn outline" href="Help-Page.dc.html">Log a problem</a></div>
+      </div>
+    </div>
+
+    <div class="ov-banner">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7h.01"></path></svg>
+      <span>This is the open view: what everyone at the Enterprise sees of a project. What it does, how well, and what it is worth are all here. Its traces, the text of requests and answers, and what self-healing finds stay with its members. <b style="font-weight: 600">You asked to join yesterday</b> (AC-0418); Priya N. decides.</span>
+      <a class="kit-btn outline sm" href="Requests-Status.dc.html">Where my request stands</a>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px">
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px; padding: 18px"><span class="kit-caption">Requests today</span><span class="kit-display" style="font-size: 34px">31k</span><span class="kit-small kit-muted">Call summary 26k · Next best action 5k</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px; padding: 18px"><span class="kit-caption">Advisors using it today</span><span class="kit-display" style="font-size: 34px">1,120</span><span class="kit-small kit-muted">Across 9,480 advice calls</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px; padding: 18px"><span class="kit-caption">Thumbs up, this week</span><span class="kit-display" style="font-size: 34px">92%</span><span class="kit-small kit-muted">Of 1,840 summaries rated by advisors</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px; padding: 18px"><span class="kit-caption">Time given back, 30 days</span><span class="kit-display" style="font-size: 34px">90k <span style="font-size: 15px; font-weight: 400; letter-spacing: 0">hours</span></span><span class="kit-small kit-muted">Declared by the team: 4.5 minutes a summary</span></div>
+      <a class="kit-surface" href="Model-CostAvoided.dc.html" style="display: flex; flex-direction: column; gap: 6px; padding: 18px; color: inherit; text-decoration: none"><span class="kit-caption">Cost avoided, 30 days</span><span class="kit-display" style="font-size: 34px">$[avoided]</span><span class="kit-small kit-muted">Against the same tokens bought outside</span></a>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px; padding: 18px"><span class="kit-caption">Spend, 30 days</span><span class="kit-display" style="font-size: 34px">$[spend]</span><span class="kit-small kit-muted">Serving and training, by model</span></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="What the project does, feature by feature">
+      <div class="ov-h"><h3>What it does, and how well</h3><span class="kit-small kit-muted">The three features, each in the team's own words · scores are the team's own measures against the range they set, and ThinkLatent's thresholds</span></div>
+      <div class="ov-fs">
+        <div class="ov-f">
+          <div class="top"><b>Call summary</b><span class="kit-chip brand">Production</span></div>
+          <q>Write the summary of an advice call, with what was agreed, for the advisor to check and file.</q>
+          <div class="run"><b>How a request runs</b>The transcript arrives from Call processing → Domain-Advice v2 writes the summary → Guardrail v2 checks it, in the background</div>
+          <div class="ov-m">
+            <span>Today<small>120M tokens in → 8.2M out · typical time 1.8 s</small></span><span class="v"><b>26k requests</b></span>
+            <span>Summary quality<small>Their own measure · range 80 to 90%</small></span><span class="v"><b>86% ± 5</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>In its range</span></span></span>
+            <span>Nothing made up<small>Their own measure · range 92 to 94%</small></span><span class="v"><b>94% ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Reached its aim</span></span></span>
+            <span>ThinkLatent's thresholds<small>Overall 83 ± 1 against 80 · Numbers and calculations 76 ± 2 against 78, accepted by the owner on 2 Oct</small></span><span class="v"><b>1 of 2 met</b><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>1 accepted</span></span></span>
+            <span>What advisors say<small>1,840 summaries rated this week</small></span><span class="v"><b>92% up</b></span>
+          </div>
+          <span class="kit-small kit-muted">In production since 17 Aug · on version 2 since 5 Oct</span>
+        </div>
+        <div class="ov-f">
+          <div class="top"><b>Next best action</b><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">Pilot</span></div>
+          <q>Suggest the one next step the advisor should take while the client is still on the call. Only from our approved actions, and say nothing when it is not sure.</q>
+          <div class="run"><b>How a request runs</b>Three models working as one: Embedding v2 finds similar cases → the Decision adapter picks the action → Domain-Advice v2 words it</div>
+          <div class="ov-m">
+            <span>Today<small>24M tokens in → 1.5M out · within 1.5 s on 99.1%</small></span><span class="v"><b>5k requests</b></span>
+            <span>The right action chosen<small>Their own measure · range 92 to 96% · 300 Pilot cases</small></span><span class="v"><b>94% ± 3</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>In its range</span></span></span>
+            <span>Worded clearly<small>Their own measure · range 90 to 95%</small></span><span class="v"><b>91% ± 3</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>In its range</span></span></span>
+            <span>ThinkLatent's thresholds<small>Each of its three models, on its own measure</small></span><span class="v"><b>All met</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No deviation</span></span></span>
+            <span>What advisors say<small>420 rated in Pilot · too few weeks to call a level</small></span><span class="v"><b>81% up</b></span>
+          </div>
+          <span class="kit-small kit-muted">In Pilot since 28 Oct · its change request for Production is with ThinkLatent, expected by 6 Nov</span>
+        </div>
+        <div class="ov-f">
+          <div class="top"><b>Speech to text</b><span class="kit-chip">Build</span></div>
+          <q>Show the words of a call on screen while the advisor is still on it.</q>
+          <div class="run"><b>How a request runs</b>Speech recognition v6 writes down what is said. The same model writes every call's transcript after the call; here it runs during the call</div>
+          <div class="ov-m">
+            <span>Today<small>Counted from Pilot on</small></span><span class="v"><b>—</b><span class="kit-status neutral"><span>Not live</span></span></span>
+            <span>Word error rate<small>Their own measure, on 200 of their calls · lower is better · range 8% down to 6%</small></span><span class="v"><b>—</b><span class="kit-status neutral"><span>First scoring is running</span></span></span>
+            <span>ThinkLatent's threshold<small>The model's own word error rate on Retail advice calls, bar 8%</small></span><span class="v"><b>6.1%</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Under its bar</span></span></span>
+          </div>
+          <span class="kit-small kit-muted" style="margin-top: auto">In Build since 19 Oct · evidence for Pilot 2 of 5</span>
+        </div>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="The models it is built on">
+        <div class="ov-h"><h3>What it is built on</h3><span class="kit-small kit-muted">Five models, all yours to use · scores from the TL Index, edition 2026-11</span></div>
+        <div class="ov-t">
+          <span class="h">Model</span><span class="h">Its job here</span><span class="h">Its score, on its own measure</span><span class="h">Also used</span><span class="h"></span>
+          <span><b>Domain-Advice v2</b><small>TLM4 · domain model</small></span><span>Writes the summary and words the suggestion</span><span>84 ± 1 on the TL Index<small>Best outside model 87</small></span><span>Portfolio questions, in Build</span><a href="Model-Page.dc.html">Open</a>
+          <span><b>Guardrail v2</b><small>TLM1 · task model</small></span><span>Checks each summary, in the background</span><span>97.4% of unsafe answers caught<small>Bar 95%</small></span><span>1 project</span><a href="Index-Leaderboards.dc.html">Open</a>
+          <span><b>Embedding v2</b><small>TLM1 · task model</small></span><span>Finds similar past cases</span><span>93% right passage in the first ten<small>Bar 90%</small></span><span>1 project, first in Production here</span><a href="Index-Leaderboards.dc.html">Open</a>
+          <span><b>Decision adapter v1</b><small>TLM4 · on the small Core</small></span><span>Picks one of 14 approved actions</span><span>94% ± 1 right, in 46 ms<small>Bar 92%</small></span><span>Only here so far</span><a href="Index-Decision.dc.html">Open</a>
+          <span><b>Speech recognition v6</b><small>TLM1 · task model</small></span><span>Writes down what is said</span><span>6.8% word error rate<small>Bar 8% · lower is better</small></span><span>2 projects, every call at the Enterprise</span><a href="Model-Speech.dc.html">Open</a>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">Call summary runs a version of Domain-Advice v2 trained further on this project's own calls. That version is the project's own; what you can use is version 2 as released, and your own project can be strengthened the same way.</div>
+      </section>
+
+      <section class="kit-surface coloured" aria-label="Bring it to your team">
+        <div class="ov-h"><h3>Bring it to your team</h3><span class="kit-small">Three ways in</span></div>
+        <div class="ov-go">
+          <span class="n">1</span><span><b>Try the model on your own text</b>Domain-Advice v2 in the playground, no project needed.</span><a class="kit-btn outline sm" href="#">Try it</a>
+          <span class="n">2</span><span><b>Start a project like this</b>Jarvis begins with these five models and this project's measures as a first draft of yours.</span><a class="kit-btn sm" href="Start-Project.dc.html">Start</a>
+          <span class="n">3</span><span><b>Ask the people who built it</b>Join to see how they set up evaluation, or just ask a question.</span><a class="kit-btn outline sm" href="#">Ask Priya N.</a>
+        </div>
+        <div class="kit-small" style="margin-top: 14px; opacity: .8">Not sure it fits your case? <a href="Jarvis-Ask.dc.html">Ask Jarvis which projects are like yours</a></div>
+      </section>
+    </div>
+
+    <div class="kit-grid3" style="align-items: start">
+      <section class="kit-surface" aria-label="What it is worth">
+        <div class="ov-h"><h3>What it is worth</h3><a class="kit-small" href="Value-Enterprise.dc.html">How this is counted</a></div>
+        <div class="ov-kv">
+          <span>Money not spent, 30 days<small>What these tokens would cost outside, less what the endpoint cost here</small></span><span class="v">$[avoided]</span>
+          <span>Spend, 30 days<small>Serving and training</small></span><span class="v">$[spend]</span>
+          <span>Time given back, 30 days<small>Declared by the team: 4.5 minutes a summary, 1.2M summaries. Hours are not turned into money</small></span><span class="v">90k hours</span>
+          <span>Against having it built outside<small>Not shown until one real consulting proposal is in</small></span><span class="v">—</span>
+        </div>
+      </section>
+
+      <section class="kit-surface" aria-label="How it got here">
+        <div class="ov-h"><h3>How it got here</h3><span class="kit-small kit-muted">Each step went to production on its own change request</span></div>
+        <div class="ov-tl">
+          <span class="d">17 Aug</span><span>Call summary in production<small>Increment 1 · Domain-Advice v1</small></span>
+          <span class="d">18 Sep</span><span>A guardrail check added, in the background<small>Increment 2</small></span>
+          <span class="d">5 Oct</span><span>Call summary on version 2, trained on its own calls<small>Increment 3 · offered by ThinkLatent with the results already run</small></span>
+          <span class="d">28 Oct</span><span>Next best action in Pilot<small>Increment 4 · to Production once approved, expected by 6 Nov</small></span>
+          <span class="d">Now</span><span>Speech to text in Build<small>Increment 5 · and a sixth could start: training Call summary to list follow-ups</small></span>
+        </div>
+      </section>
+
+      <section class="kit-surface" aria-label="Who is on it">
+        <div class="ov-h"><h3>Who is on it</h3><span class="kit-small kit-muted">5 members, from Advice Tech</span></div>
+        <div class="ov-p">
+          <span class="a">PN</span><span>Priya N. · owner and contact<small>Owns the product and decides what goes to production</small></span>
+          <span class="a">LW</span><span>Lena W.<small>Connects the desktop to the models</small></span>
+          <span class="a">OH</span><span>Omar H.<small>Keeps the evaluation sets</small></span>
+          <span class="a">NB</span><span>Nikhil B.<small>Builds Speech to text</small></span>
+          <span class="a">GT</span><span>Grace T.<small>Reads the summaries the guardrail holds back</small></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">From ThinkLatent: Meera S., product and adoption · Arjun K., AI engineering lead.</div>
+      </section>
+    </div>
+
+    <div class="kit-grid3" style="align-items: start">
+      <section class="kit-surface" aria-label="What stays with its members">
+        <div class="ov-h"><h3>What stays with its members</h3><span class="kit-small kit-muted">The same on every project</span></div>
+        <div class="ov-lk">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Traces, step by step, and operations in detail</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>The text of requests and answers</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>The gaps self-healing finds, and the examples behind them</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>The rows of the evaluation set, and how the application connects</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">A member also states requirements, scores answers and gives support on decisions. Only an owner decides.</div>
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 12px"><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">Asked to join · AC-0418</span><span class="kit-small kit-muted">Raised yesterday · with Priya N.</span></div>
+      </section>
+
+      <section class="kit-surface" aria-label="Problems, logged in the open">
+        <div class="ov-h"><h3>Problems, logged in the open</h3><a class="kit-small" href="Help-Page.dc.html">All problems</a></div>
+        <div class="ov-pr">
+          <span>Call summary cuts the summary of a very long call short<small>PR-0077 · raised 2 Nov</small></span><span class="s">Waits for 3 example calls</span>
+          <span>Mixes up two funds with similar names<small>PR-0064 · raised 30 Oct</small></span><span class="s">Being looked at</span>
+          <span>Slower between 10 and 11 on weekdays<small>PR-0058 · raised 21 Oct</small></span><span class="s">Closed in 3 days</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">2 open, 1 closed this month. Seeing what went wrong, and how fast it was fixed, is part of judging a project.</div>
+      </section>
+
+      <section class="kit-surface" aria-label="When a project is restricted">
+        <div class="ov-h"><h3>When a project is restricted</h3><span class="kit-small kit-muted">The one exception</span></div>
+        <div class="kit-small kit-muted" style="margin-top: 6px">For work that should not be read across the Enterprise. An owner asks with a reason; ThinkLatent sets it. Everyone else then sees only this:</div>
+        <div class="ov-r">
+          <div style="display: flex; justify-content: space-between; gap: 8px; align-items: center"><b>Account takeover watch</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Restricted</span></span></div>
+          <div class="kit-small kit-muted" style="margin-top: 4px">Enterprise services · Security Tech · contact its owner<br>Restricted by ThinkLatent on 3 Sep: "shows how takeovers are caught".</div>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">Its requests, tokens and spend still count in Home's and its team's totals. Nothing else shows, and it cannot be followed.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2560}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
