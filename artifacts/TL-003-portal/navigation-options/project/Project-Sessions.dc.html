@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Sessions in a project · one session in full</title>
+<title>Traces · the Conversation view, with the session selected</title>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="./kit.css">
 </head>
@@ -14,6 +14,10 @@
 <style>
 body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
 a{color:#1B5128}a:hover{color:#0C3F09}
+.tx-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tx-tog{display:inline-flex;border-radius:999px;background:rgba(26,26,26,.06);padding:3px}
+.tx-tog span{font-size:13px;padding:5px 12px;border-radius:999px}
+.tx-tog span.on{background:#1A1A1A;color:#fff}
 .se-li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;padding:10px 12px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.08);font-size:13px;color:inherit;text-decoration:none}
 .se-li.on{box-shadow:0 0 0 1.5px var(--companion)}
 .se-li b{font-weight:500}
@@ -41,7 +45,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .se-sw i::after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1760px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1840px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -73,9 +77,9 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 
     <div class="kit-page-head">
       <div style="display: flex; flex-direction: column; gap: 8px">
-        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Sessions</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">9,480 today</span><span class="kit-chip">3.3 turns each, typical</span><span class="kit-chip">1,120 users</span><span class="kit-chip">88% thumbs up, of those rated</span></div>
-        <span class="kit-small kit-muted">A session is one piece of work: here, one advice call. Relay starts it and carries its id and the user's id on every turn · As of 11:58 ET · sample data</span>
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Traces</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">9,480 sessions today</span><span class="kit-chip">3.3 turns each, typical</span><span class="kit-chip">1,120 users</span><span class="kit-chip">88% thumbs up, of those rated</span></div>
+        <span class="kit-small kit-muted">Where Traces opens: the sessions, newest first, and the one you pick read as a conversation. A session is one piece of work: here, one advice call. There is no separate Sessions tab · As of 11:58 ET · sample data</span>
       </div>
       <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end">
         <span class="se-sw" role="switch" aria-checked="false" aria-label="Seal the text"><span class="kit-small">Text is visible</span><i aria-hidden="true"></i><span class="kit-small kit-muted">Seal the text</span></span>
@@ -84,7 +88,14 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     </div>
 
     <div class="kit-tabs" role="tablist" aria-label="Project pages">
-      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="false" type="button">Traces</button><button role="tab" aria-selected="true" type="button">Sessions</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Training and data</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="true" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Training and data</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+    </div>
+
+    <div class="tx-bar">
+      <span class="tx-tog" role="group" aria-label="View"><span>Tree</span><span>Timeline</span><span>Graph</span><span>Log</span><span class="on">Conversation</span></span>
+      <button class="kit-btn outline" type="button">Feature: all ▾</button><button class="kit-btn outline" type="button">Feedback: any ▾</button><button class="kit-btn outline" type="button">Flagged only</button><button class="kit-btn outline" type="button">Find a session, a user or a word</button>
+      <span style="flex: 1"></span>
+      <span class="kit-small kit-muted">The list folds away in the other four views, to give them room.</span>
     </div>
 
     <div style="display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 16px; align-items: start">
@@ -105,7 +116,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px"><span class="kit-chip brand">Production</span><span class="kit-chip">Session thumb up</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 of 4 turns thumb down</span><span class="kit-chip">Outcome from the application: follow-up booked</span><span class="kit-chip">Harness on from turn 2</span></div>
           <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin-top: 14px">
             <div><div class="kit-caption">Turns</div><div class="kit-display" style="font-size: 30px">4</div></div>
-            <div><div class="kit-caption">Tokens in → out</div><div class="kit-display" style="font-size: 26px; line-height: 34px; white-space: nowrap">11.9k → 742</div></div>
+            <div><div class="kit-caption">Tokens in → out</div><div class="kit-display" style="font-size: 21px; line-height: 34px; white-space: nowrap">11.9k → 742</div></div>
             <div><div class="kit-caption">Model time, all turns</div><div class="kit-display" style="font-size: 30px">4.9 s</div></div>
             <div><div class="kit-caption">Slowest turn</div><div class="kit-display" style="font-size: 30px">1.86 s</div></div>
             <div><div class="kit-caption">Sensitive data removed</div><div class="kit-display" style="font-size: 30px">5</div></div>
@@ -114,7 +125,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         </section>
 
         <section class="kit-surface" aria-label="Turn by turn">
-          <div class="se-h"><h3>Turn by turn</h3><span style="display: flex; gap: 6px"><span class="se-src">Content: hidden when sealed</span><span class="se-src">Each turn opens its trace</span></span></div>
+          <div class="se-h"><h3>Turn by turn</h3><span style="display: flex; gap: 6px"><span class="se-src">Content: hidden when sealed</span><span class="se-src">Each turn opens in the tree</span></span></div>
           <div style="margin-top: 6px">
             <div class="se-turn"><div class="when"><b>Turn 1</b>11:19:40<br>Next best action</div><div><div class="se-q">Client asks about income in retirement; holds the Balanced Growth fund… <span class="kit-muted">1,420 tokens</span></div><div class="se-a">Suggest: walk through the two withdrawal options. <span class="kit-muted">Picked by the decision adapter, 0.81 · drafted by Domain-Advice v2</span></div></div><div class="se-m">0.92 s · 1,420 in → 96 out<br>Thumb up · used as written<br>Harness stepped aside (first turn)</div></div>
             <div class="se-turn"><div class="when"><b>Turn 2</b>11:27:05<br>Next best action</div><div><div class="se-q">Client mentions a bond fund they read about… <span class="kit-muted">2,960 tokens, with the session so far</span></div><div class="se-a">Suggest: offer the bond fund sheet; check the client's risk profile first. <span class="kit-muted">0.77</span></div></div><div class="se-m">1.04 s · 2,960 in → 118 out<br>Thumb up · used as written<br>Session entities used: 6</div></div>
@@ -137,7 +148,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1760}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1840}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

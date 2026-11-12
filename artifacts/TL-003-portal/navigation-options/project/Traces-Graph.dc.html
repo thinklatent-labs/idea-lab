@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Traces · the Graph view</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.tx-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tx-tog{display:inline-flex;border-radius:999px;background:rgba(26,26,26,.06);padding:3px}
+.tx-tog span{font-size:13px;padding:5px 12px;border-radius:999px}
+.tx-tog span.on{background:#1A1A1A;color:#fff}
+.tx-chk{font-size:12.5px;display:inline-flex;gap:5px;align-items:center}
+.tx-chk i{width:13px;height:13px;border-radius:4px;background:var(--companion);display:inline-block}
+.tx-sw{display:inline-flex;align-items:center;gap:10px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:8px 14px}
+.tx-sw i{display:block;width:38px;height:22px;border-radius:999px;background:rgba(26,26,26,.2);position:relative}
+.tx-sw i::after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff}
+.tx-box{border-radius:18px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.tx-box h4{margin:0;font-size:14px;font-weight:500}
+.tx-w{box-shadow:0 0 0 1px var(--decision);border-radius:999px;padding:0 6px}
+.gr-t{display:grid;grid-template-columns:60px minmax(0,1.2fr) minmax(0,1fr) 70px minmax(0,1.5fr) 110px;gap:8px 12px;font-size:13px;align-items:center;margin-top:10px}
+.gr-t .h{font-size:11.5px;color:rgba(26,26,26,.6)}
+.gr-t span{font-variant-numeric:tabular-nums}
+.gr-p{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12.5px;margin-top:8px}
+.gr-p b{font-weight:500;min-width:150px}
+.gr-p span{border-radius:8px;background:rgba(26,26,26,.06);padding:2px 8px}
+svg text{font-family:Inter,system-ui,sans-serif}
+.nd{fill:#fff;stroke:rgba(26,26,26,.2)}
+.nd.on{stroke:var(--companion);stroke-width:2.5}
+.kd{font-size:10px;fill:rgba(26,26,26,.6)}
+.nm{font-size:12.5px;font-weight:500;fill:#1A1A1A}
+.mt{font-size:11px;fill:rgba(26,26,26,.72)}
+.ed{stroke:#1A1A1A;stroke-width:1.5;fill:none}
+.ed.bg{stroke:rgba(26,26,26,.5);stroke-dasharray:4 4}
+.ec{font-size:11px;font-weight:600;fill:#1A1A1A}
+.ln{font-size:11.5px;fill:rgba(26,26,26,.6)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1240px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Traces</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">Traces › session se-6bf2</span><span class="kit-chip brand">Production</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 warning in this session</span></div>
+        <span class="kit-small kit-muted">The Graph view: which step led to which, and how many times, across the whole session or one turn · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end">
+        <span class="tx-sw" role="switch" aria-checked="false" aria-label="Seal the text"><span class="kit-small">Text is visible</span><i aria-hidden="true"></i><span class="kit-small kit-muted">Seal the text</span></span>
+        <span class="kit-small kit-muted">A switch for now. Later your IAM role decides.</span>
+      </div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="true" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Training and data</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+    </div>
+
+    <div class="tx-bar">
+      <a class="kit-btn outline" href="#">← All sessions</a>
+      <span class="tx-tog" role="group" aria-label="View"><span>Tree</span><span>Timeline</span><span class="on">Graph</span><span>Log</span><span>Conversation</span></span>
+      <span class="tx-tog" role="group" aria-label="How much"><span class="on">Whole session</span><span>One turn</span></span>
+      <span class="kit-label">Show</span>
+      <span class="tx-chk"><i></i>Counts</span><span class="tx-chk"><i></i>Colour by kind</span><span class="tx-chk"><i></i>After the answer</span>
+    </div>
+
+    <section class="kit-surface" aria-label="The session as a graph">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 10px"><div style="font-size: 18px; font-weight: 500">Session se-6bf2 · 4 turns, 2 features, 3 models</div><span class="kit-small kit-muted">A step that ran in several turns is drawn once, with its count. Click a step to list its runs.</span></div>
+      <svg viewBox="0 0 1240 446" width="100%" role="img" aria-label="Steps of the session and what led to what" style="display: block; margin-top: 10px">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#1A1A1A"></path></marker><marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="rgba(26,26,26,.55)"></path></marker></defs>
+
+        <text class="ln" x="16" y="30">While the answer is made</text>
+        <rect class="nd" x="16" y="56" width="84" height="62" rx="31"></rect><text class="nm" x="58" y="84" text-anchor="middle">4 turns</text><text class="mt" x="58" y="100" text-anchor="middle">come in</text>
+        <path class="ed" d="M100 87H121" marker-end="url(#ar)"></path>
+        <rect class="nd" x="124" y="56" width="140" height="62" rx="12"></rect><circle cx="137" cy="70" r="4" fill="rgba(26,26,26,.45)"></circle><text class="kd" x="146" y="73">span</text><text class="nm" x="134" y="92">Gateway and harness</text><text class="mt" x="134" y="108">×4 · 12 ms</text>
+        <path class="ed" d="M264 87H285" marker-end="url(#ar)"></path><text class="ec" x="274" y="80" text-anchor="middle">×4</text>
+        <rect class="nd" x="288" y="56" width="140" height="62" rx="12"></rect><circle cx="301" cy="70" r="4" fill="var(--cat2)"></circle><text class="kd" x="310" y="73">guardrail</text><text class="nm" x="298" y="92">Redaction</text><text class="mt" x="298" y="108">×4 · 5 removed</text>
+        <path class="ed" d="M428 87H449" marker-end="url(#ar)"></path><text class="ec" x="438" y="80" text-anchor="middle">×3</text>
+        <rect class="nd" x="452" y="56" width="140" height="62" rx="12"></rect><circle cx="465" cy="70" r="4" fill="var(--cat1)"></circle><text class="kd" x="474" y="73">embedding · TLM1</text><text class="nm" x="462" y="92">Embedding</text><text class="mt" x="462" y="108">×3 · 30 ms</text>
+        <path class="ed" d="M592 87H613" marker-end="url(#ar)"></path><text class="ec" x="602" y="80" text-anchor="middle">×3</text>
+        <rect class="nd" x="616" y="56" width="140" height="62" rx="12"></rect><circle cx="629" cy="70" r="4" fill="var(--cat1)"></circle><text class="kd" x="638" y="73">generation · TLM4</text><text class="nm" x="626" y="92">Decision adapter</text><text class="mt" x="626" y="108">×3 · picks the action</text>
+        <path class="ed" d="M756 87H777" marker-end="url(#ar)"></path><text class="ec" x="766" y="80" text-anchor="middle">×3</text>
+        <rect class="nd on" x="780" y="56" width="140" height="62" rx="12"></rect><circle cx="793" cy="70" r="4" fill="var(--cat1)"></circle><text class="kd" x="802" y="73">generation · TLM4</text><text class="nm" x="790" y="92">Domain-Advice v2</text><text class="mt" x="790" y="108">×4 · 0.7 to 1.7 s</text>
+        <path class="ed" d="M920 87H941" marker-end="url(#ar)"></path><text class="ec" x="930" y="80" text-anchor="middle">×4</text>
+        <rect class="nd" x="944" y="56" width="130" height="62" rx="12"></rect><circle cx="957" cy="70" r="4" fill="rgba(26,26,26,.45)"></circle><text class="kd" x="966" y="73">span</text><text class="nm" x="954" y="92">Format the answer</text><text class="mt" x="954" y="108">×4 · 8 ms</text>
+        <path class="ed" d="M1074 87H1097" marker-end="url(#ar)"></path><text class="ec" x="1085" y="80" text-anchor="middle">×4</text>
+        <rect class="nd" x="1100" y="56" width="124" height="62" rx="31"></rect><text class="nm" x="1162" y="84" text-anchor="middle">4 answers</text><text class="mt" x="1162" y="100" text-anchor="middle">go back · 1 edited</text>
+
+        <path class="ed" d="M358 118C358 172 850 172 850 122" marker-end="url(#ar)"></path>
+        <rect x="484" y="146" width="240" height="22" rx="11" fill="#fff" stroke="rgba(26,26,26,.2)"></rect><text class="ec" x="604" y="161" text-anchor="middle">×1 · Call summary goes straight to the model</text>
+        <text class="mt" x="522" y="46" text-anchor="middle">×3 · Next best action takes this path</text>
+
+        <text class="ln" x="16" y="216">After the answer went back · in the background</text>
+        <path class="ed bg" d="M1162 118V228H194"></path>
+        <path class="ed bg" d="M194 228V241" marker-end="url(#arg)"></path><path class="ed bg" d="M358 228V241" marker-end="url(#arg)"></path><path class="ed bg" d="M522 228V241" marker-end="url(#arg)"></path><path class="ed bg" d="M686 228V241" marker-end="url(#arg)"></path><path class="ed bg" d="M855 228V241" marker-end="url(#arg)"></path>
+        <rect class="nd" x="124" y="244" width="140" height="62" rx="12"></rect><circle cx="137" cy="258" r="4" fill="var(--cat2)"></circle><text class="kd" x="146" y="261">guardrail · TLM1</text><text class="nm" x="134" y="280">Check on the answer</text><text class="mt" x="134" y="296">×4 · all pass</text>
+        <rect class="nd" x="288" y="244" width="140" height="62" rx="12"></rect><circle cx="301" cy="258" r="4" fill="var(--cat3)"></circle><text class="kd" x="310" y="261">tool</text><text class="nm" x="298" y="280">Entities</text><text class="mt" x="298" y="296">×4</text>
+        <rect class="nd" x="452" y="244" width="140" height="62" rx="12"></rect><circle cx="465" cy="258" r="4" fill="var(--cat3)"></circle><text class="kd" x="474" y="261">tool</text><text class="nm" x="462" y="280">What it is about</text><text class="mt" x="462" y="296">×4 · 3 topics</text>
+        <rect class="nd" x="616" y="244" width="140" height="62" rx="12"></rect><circle cx="629" cy="258" r="4" fill="var(--cat3)"></circle><text class="kd" x="638" y="261">tool</text><text class="nm" x="626" y="280">Seen in training?</text><text class="mt" x="626" y="296">×4 · 3 near, 1 seen</text>
+        <rect class="nd" x="780" y="244" width="150" height="62" rx="12" style="stroke: var(--decision); stroke-width: 1.5"></rect><circle cx="793" cy="258" r="4" fill="var(--cat4)"></circle><text class="kd" x="802" y="261">evaluator · warning</text><text class="nm" x="790" y="280">Judges</text><text class="mt" x="790" y="296">1 turn sampled · 2 scores</text>
+        <path class="ed bg" d="M930 275H957" marker-end="url(#arg)"></path><text class="ec" x="943" y="268" text-anchor="middle">×2</text>
+        <rect class="nd" x="960" y="244" width="140" height="62" rx="12"></rect><circle cx="973" cy="258" r="4" fill="var(--cat1)"></circle><text class="kd" x="982" y="261">generation</text><text class="nm" x="970" y="280">Judge model call</text><text class="mt" x="970" y="296">×2 · 1.0 s each</text>
+
+        <text class="ln" x="16" y="348">Sent back by the application · attached to a turn or the session, not to a step</text>
+        <rect class="nd" x="124" y="366" width="214" height="62" rx="12"></rect><text class="kd" x="134" y="383">event</text><text class="nm" x="134" y="402">The advisor edited the answer</text><text class="mt" x="134" y="418">×1 · turn 4</text>
+        <rect class="nd" x="358" y="366" width="150" height="62" rx="12"></rect><text class="kd" x="368" y="383">event</text><text class="nm" x="368" y="402">Thumb for a turn</text><text class="mt" x="368" y="418">×3 · 2 up, 1 down</text>
+        <rect class="nd" x="528" y="366" width="170" height="62" rx="12"></rect><text class="kd" x="538" y="383">event</text><text class="nm" x="538" y="402">Thumb for the session</text><text class="mt" x="538" y="418">×1 · up</text>
+      </svg>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 12px">
+      <section class="tx-box" aria-label="The step that is open">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px"><h4>Domain-Advice v2 · generation · 4 runs in this session</h4><a class="kit-small" href="#">Open the model's page</a></div>
+        <div class="gr-t">
+          <span class="h">Turn</span><span class="h">Feature</span><span class="h">Came from</span><span class="h">Time</span><span class="h">How it went</span><span class="h"></span>
+          <span>1</span><span>Next best action</span><span>Decision adapter</span><span>0.71 s</span><span>Thumb up · used as written</span><a href="#">Open in the tree</a>
+          <span>2</span><span>Next best action</span><span>Decision adapter</span><span>0.82 s</span><span>Thumb up · used as written</span><a href="#">Open in the tree</a>
+          <span>3</span><span>Next best action</span><span>Decision adapter</span><span>0.86 s</span><span>No feedback · used as written</span><a href="#">Open in the tree</a>
+          <span>4</span><span>Call summary</span><span>Redaction</span><span>1.74 s</span><span><span class="tx-w">Thumb down · completeness 0.74</span></span><a href="#">Open in the tree</a>
+        </div>
+      </section>
+      <section class="tx-box" aria-label="Paths through the session">
+        <h4>The two paths in this session</h4>
+        <div class="gr-p"><b>Next best action · ×3</b><span>Redaction</span>→<span>Embedding</span>→<span>Decision adapter</span>→<span>Domain-Advice v2</span></div>
+        <div class="gr-p"><b>Call summary · ×1</b><span>Redaction</span>→<span>Domain-Advice v2</span></div>
+        <div class="kit-small kit-muted" style="margin-top: 10px; line-height: 1.5">Both features here are fixed chains, so the graph is short. It earns its place when a feature runs an agent that loops and calls tools: then the counts show where it went round, and One turn shows the order it actually took.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1240}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

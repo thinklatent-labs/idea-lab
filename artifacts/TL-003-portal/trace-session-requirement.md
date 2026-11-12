@@ -1,4 +1,4 @@
-# ThinkLatent Portal (portal): trace and session requirement, v1.2, 2026-11-12
+# ThinkLatent Portal (portal): trace and session requirement, v1.3, 2026-11-12
 
 Lab session · TL-003 portal · Spec. Jithin asked for the trace and the session to be specified in full detail, as the requirement the ThinkLatent AI engineering team builds the backend to, with nothing held back: it supports the five-year vision, and fields can be removed later. Serving is vLLM behind the gateway, called through Relay with the OpenAI-compatible API; request logging is the team's modified Langfuse store.
 
@@ -26,6 +26,7 @@ Status words used in the tables:
 8. **What runs in the background today:** sensitive-data redaction only. The guardrail check as a service, classification and entities, and the check for kinds of request not seen in training are to build; the fields in 3.8 and 3.9 say what each must write.
 9. **Nothing Langfuse keeps on a trace is left out** (v1.2). Jithin asked that every field Langfuse records on a trace is in this requirement. v1.1 was then checked against Langfuse's full export field list and was short: it named 22 of the 45 fields Langfuse keeps on a step and 11 of the 23 it keeps on a score. Section 3.14 and the additions to 3.2, 3.3, 3.11 and 3.13 close the gap, and section 7 sets every Langfuse field beside ours. One is left unused on purpose: `public`.
 10. **A session opens as a tree** (v1.2). The Traces page shows a session, its turns and every step under each turn, each level opening and closing. Section 9 says what the page must do.
+11. **Sessions is not a page of its own** (v1.3). Jithin folded it into Traces: one tab in a project. Traces opens on the list of sessions; the session picked is read in one of five views (Tree, Timeline, Graph, Log, Conversation), and selecting the session itself shows the session's figures.
 
 ## 2. The shape
 
@@ -288,7 +289,7 @@ What Langfuse keeps on every step and v1.1 did not name. The tree on the Traces 
 
 Content fields are the ones marked Yes in the last column: the instructions, the messages in and out, the input and output of any step and of the turn, prompt variables, tool arguments and results, retrieved text, reasoning text, entity and sensitive-data text, session summaries, comments, feedback comments and the text a user kept. Everything else is metadata and stays visible when the seal is on.
 
-- **Now:** one switch on the Traces and Sessions pages, off by default, so the team can see what a full trace holds. With it on, content fields show as "sealed" with their size.
+- **Now:** one switch on the Traces page, in every view, off by default, so the team can see what a full trace holds. With it on, content fields show as "sealed" with their size.
 - **Later:** no switch. An IAM role decides who reads content, per environment, with break-glass for production.
 - **To build either way:** content is stored apart from metadata, so the read path can leave it out without touching the rest.
 
@@ -410,20 +411,24 @@ To add to the team's schema: the organization, team, feature and increment ids; 
 - Storing log probabilities for every request is expensive. Proposal: keep the summary always, the full detail for a sample.
 - The team's store is Langfuse-compatible, so the columns in section 7 should exist. Whether each is filled today is not known here. The ones to look at first are those that only the caller or a background job can set: step type, name, level, status message, version, prompt id and the judge's own trace. AI engineering should say which are filled.
 - Section 7 follows Langfuse's export reference as read on 12 Nov. The team runs a modified Langfuse; if its version is older, some columns (the pricing tier, the tool call columns) may not exist yet.
-- Of the four views in section 9, only the tree is drawn. Timeline, Graph and Log are named, not designed.
+- All five views in section 9 are drawn as first or second drafts. The Graph's sample session has no agent in it (both features are fixed chains), so the view is not yet tested on the case it exists for: loops and tool calls.
+- The Timeline needs a start and an end on every step, including background ones; the Log needs every step's input and output. A step that writes neither shows as a gap in both.
 
-## 9. The Traces page (v1.2)
+## 9. The Traces page (v1.3)
 
-Langfuse shows a trace as a tree of its steps and lets the reader switch to a timeline, a graph of the agent's steps and one continuous log. The portal's page does the same one level higher: it opens on the session.
+Langfuse shows a trace as a tree of its steps and lets the reader switch to a timeline, a graph of the agent's steps and one continuous log. The portal's page does the same one level higher: it opens on the session. There is no separate Sessions page (decision 11).
 
-1. **The tree.** Session, then turns, then every step under a turn, to any depth. Each level opens and closes; Open all and Close all. A closed parent shows the totals of what is under it (time, tokens in and out, cost, the worst level).
-2. **Each row shows:** the step's type and name, a bar for when it ran against the turn, its time, tokens, result, and any score or warning.
-3. **During and after.** Steps that ran after the answer went back (guardrail check, entities, classification, novelty, judges) sit in their own group under the turn, marked on the bar. What the application sent back later (edit, thumbs) is a third group, as events.
-4. **Four views of the same steps:** Tree, Timeline (bars on one clock, zoomable), Graph (for agents: which step led to which), Log (every step's input and output in one scroll, for reading and for find).
-5. **Show or hide:** numbers, scores, comments, colour by type, and the engine's detail (queue, prefill, decode). Filter by level. Find within the session.
-6. **The open step:** Preview (messages as text, long ones folded), JSON, All fields (everything in section 3 that is filled), Scores, Comments.
-7. **From any step:** score it by hand, comment and mention a person, bookmark, add it to an evaluation set, open it in the playground, copy its ids.
-8. **The seal** applies to the Preview, the JSON, the Log view and comments alike.
+1. **Where it opens.** The list of sessions, newest first, each with its turns, tokens, user and flags; filters by feature, feedback and flag; find by session, user or word. The session picked opens in the Conversation view; the list folds away in the other four views.
+2. **Five views of the same session:** Conversation (turn by turn as a transcript, with the session's figures), Tree, Timeline, Graph, Log.
+3. **The tree.** Session, then turns, then every step under a turn, to any depth. Each level opens and closes; Open all and Close all. A closed parent shows the totals of what is under it (time, tokens in and out, cost, the worst level). Each row shows the step's type and name, a bar for when it ran against the turn, its time, tokens, result, and any score or warning.
+4. **During and after.** Steps that ran after the answer went back (guardrail check, entities, classification, novelty, judges) sit in their own group under the turn, marked on the bar. What the application sent back later (edit, thumbs) is a third group, as events.
+5. **The timeline.** A strip for the whole session (turns as marks, feedback as marks, drag to zoom), and under it the open turn's steps as bars on one clock, coloured by type; a model call's bar split into queue, prefill and decode with the first token marked; one line for when the answer went back and one for the agreed service level; where the turn's time went as shares.
+6. **The graph.** Each distinct step drawn once with how many times it ran and what led to it, for the whole session or for one turn; background steps and events in their own bands; picking a step lists its runs.
+7. **The log.** Every step's input and output in the order it happened, in one scroll, with earlier turns folded; find a word across all of it, with the matches counted per step; copy as text or JSON.
+8. **Show or hide:** scores, comments, colour by type, and the engine's detail (queue, prefill, decode). Filter by level. Find within the session.
+9. **The open node.** For a step: Preview (messages as text, long ones folded), JSON, All fields (everything in section 3 that is filled), Scores, Comments. For a turn: what it was about, feedback, service level. For the session: its figures, what it was about, feedback, who and where.
+10. **From any node:** score it by hand, comment and mention a person, bookmark, add it to an evaluation set, open it in the playground, copy its ids.
+11. **The seal** applies in every view: to the Conversation, the Preview, the JSON, the Log and comments alike.
 
 ## Sources
 

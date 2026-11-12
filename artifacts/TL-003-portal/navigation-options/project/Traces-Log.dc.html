@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Traces · the Log view</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.tx-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tx-tog{display:inline-flex;border-radius:999px;background:rgba(26,26,26,.06);padding:3px}
+.tx-tog span{font-size:13px;padding:5px 12px;border-radius:999px}
+.tx-tog span.on{background:#1A1A1A;color:#fff}
+.tx-chk{font-size:12.5px;display:inline-flex;gap:5px;align-items:center}
+.tx-chk i{width:13px;height:13px;border-radius:4px;background:var(--companion);display:inline-block}
+.tx-chk i.off{background:transparent;box-shadow:0 0 0 1.5px rgba(26,26,26,.4)}
+.tx-sw{display:inline-flex;align-items:center;gap:10px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:8px 14px}
+.tx-sw i{display:block;width:38px;height:22px;border-radius:999px;background:rgba(26,26,26,.2);position:relative}
+.tx-sw i::after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff}
+.tx-k{flex:none;font-size:10.5px;border-radius:6px;padding:1px 6px;background:rgba(26,26,26,.08)}
+.tx-k.gen{background:color-mix(in oklab,var(--cat1) 26%,transparent)}
+.tx-k.grd{background:color-mix(in oklab,var(--cat2) 26%,transparent)}
+.tx-k.tool{background:color-mix(in oklab,var(--cat3) 26%,transparent)}
+.tx-k.evl{background:color-mix(in oklab,var(--cat4) 26%,transparent)}
+.tx-k.evt{background:transparent;box-shadow:0 0 0 1px rgba(26,26,26,.3)}
+.tx-w{box-shadow:0 0 0 1px var(--decision);border-radius:999px;padding:0 6px}
+.lg-find{display:inline-flex;align-items:center;gap:8px;border-radius:999px;background:#fff;box-shadow:0 0 0 1.5px var(--companion);padding:6px 12px;font-size:13px}
+.lg-e{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid rgba(26,26,26,.1)}
+.lg-e:first-of-type{border-top:0}
+.lg-t{font-size:12px;color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums;padding-top:2px}
+.lg-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13.5px}
+.lg-h b{font-weight:500}
+.lg-h .m{font-size:12px;color:rgba(26,26,26,.65);font-variant-numeric:tabular-nums}
+.lg-io{display:grid;grid-template-columns:58px minmax(0,1fr);gap:4px 10px;margin-top:6px;font-size:13px;line-height:1.5}
+.lg-io dt{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:rgba(26,26,26,.55);padding-top:2px}
+.lg-io dd{margin:0}
+.lg-io code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+mark{background:#F2D675;border-radius:3px;padding:0 2px;color:inherit}
+mark.cur{box-shadow:0 0 0 2px #1A1A1A}
+.rm{box-shadow:0 0 0 1px var(--decision);border-radius:4px;padding:0 3px}
+.lg-cut{display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(26,26,26,.7);padding:8px 0}
+.lg-cut::before,.lg-cut::after{content:"";flex:1;border-top:1.5px dashed #1A1A1A}
+.lg-fold{font-size:12.5px;color:rgba(26,26,26,.65);padding:8px 10px;border-radius:10px;background:rgba(26,26,26,.05)}
+.lg-o{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 8px;font-size:12.5px;padding:5px 8px;border-radius:8px;align-items:center}
+.lg-o.on{background:#fff;box-shadow:0 0 0 1.5px var(--companion)}
+.lg-o small{font-size:11.5px;color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1840px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Traces</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">Traces › session se-6bf2 › turn 4</span><span class="kit-chip brand">Production</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 warning in this session</span></div>
+        <span class="kit-small kit-muted">The Log view: every step's input and output in the order it happened, in one scroll, to read straight through and to find a word · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end">
+        <span class="tx-sw" role="switch" aria-checked="false" aria-label="Seal the text"><span class="kit-small">Text is visible</span><i aria-hidden="true"></i><span class="kit-small kit-muted">Seal the text</span></span>
+        <span class="kit-small kit-muted">A switch for now. Later your IAM role decides.</span>
+      </div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="true" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Training and data</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+    </div>
+
+    <div class="tx-bar">
+      <a class="kit-btn outline" href="#">← All sessions</a>
+      <span class="tx-tog" role="group" aria-label="View"><span>Tree</span><span>Timeline</span><span>Graph</span><span class="on">Log</span><span>Conversation</span></span>
+      <span class="lg-find"><span class="kit-muted">Find</span><b style="font-weight: 500">March</b><span class="kit-muted">3 of 6</span><span aria-hidden="true">▴ ▾</span></span>
+      <button class="kit-btn outline" type="button">Level: all ▾</button>
+      <span class="tx-chk"><i></i>Input</span><span class="tx-chk"><i></i>Output</span><span class="tx-chk"><i class="off"></i>All fields</span>
+      <span style="flex: 1"></span>
+      <button class="kit-btn outline" type="button">Copy as text</button><button class="kit-btn outline" type="button">JSON</button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="The log">
+        <div class="lg-fold">▸ Turns 1 to 3 · Next best action · 11:19 to 11:34 · 33 steps folded · no match for "March" in turns 1 and 2, 1 in turn 3</div>
+        <div style="font-size: 18px; font-weight: 500; margin: 14px 0 2px">Turn 4 · Call summary · 11:42:07</div>
+
+        <div class="lg-e"><div class="lg-t">+0 ms</div><div>
+          <div class="lg-h"><span class="tx-k">span</span><b>Gateway and harness</b><span class="m">12 ms</span></div>
+          <dl class="lg-io"><dt>In</dt><dd><code>POST /v1/chat/completions</code> · project advisor-desktop · feature call-summary · session se-6bf2 · user u-71c9 · release 4.12.0</dd><dt>Out</dt><dd>Routed to advisor-desktop-prod, replica 2 of 3 (the session stays on one replica) · harness on</dd></dl></div></div>
+
+        <div class="lg-e"><div class="lg-t">+12 ms</div><div>
+          <div class="lg-h"><span class="tx-k grd">guardrail</span><b>Redaction on the way in</b><span class="m">60 ms · TLM1 Redaction</span></div>
+          <dl class="lg-io"><dt>In</dt><dd>The transcript as the application sent it · 3,912 tokens <a href="#">open</a></dd><dt>Out</dt><dd>2 removed: an account number, a date of birth · 3,900 tokens go on</dd></dl></div></div>
+
+        <div class="lg-e"><div class="lg-t">+74 ms</div><div>
+          <div class="lg-h"><span class="tx-k gen">generation</span><b>Domain-Advice v2 answers</b><span class="m">1.74 s · 4,210 → 312 tokens · finished: stop · prompt "call-summary" v7</span></div>
+          <dl class="lg-io"><dt>System</dt><dd>You write a short summary of an advice call for the advisor's record. List follow-up actions at the end… <a href="#">310 tokens, open</a></dd>
+          <dt>User</dt><dd>Advisor: Good morning, Mr Alvarez. You wanted to look at income for when you retire in <mark>March</mark> 2029. Client: Yes. I have about $410,000 in the Balanced Growth fund, account <span class="rm">[account number removed]</span>, born <span class="rm">[date of birth removed]</span>… <a href="#">3,900 tokens, open</a></dd>
+          <dt>Answer</dt><dd>Mr Alvarez plans to retire in <mark class="cur">March</mark> 2029 and asked how to draw income from about $410,000 in the Balanced Growth fund. The advisor explained two withdrawal options and their tax treatment. <b>Follow-up:</b> send the bond fund sheet.</dd></dl></div></div>
+
+        <div class="lg-e"><div class="lg-t">+1.81 s</div><div>
+          <div class="lg-h"><span class="tx-k">span</span><b>Format the answer</b><span class="m">8 ms</span></div>
+          <dl class="lg-io"><dt>Out</dt><dd>Valid against the "call summary" shape: a summary and a list of follow-ups (1)</dd></dl></div></div>
+
+        <div class="lg-cut">+1.86 s · the answer went back to the application · everything below ran in the background</div>
+
+        <div class="lg-e" style="border-top: 0"><div class="lg-t">+1.87 s</div><div>
+          <div class="lg-h"><span class="tx-k grd">guardrail</span><b>Check on the answer</b><span class="m">90 ms · TLM1 Guardrail</span></div>
+          <dl class="lg-io"><dt>Out</dt><dd>Pass · 5 categories checked, highest 0.04</dd></dl></div></div>
+
+        <div class="lg-e"><div class="lg-t">+1.87 s</div><div>
+          <div class="lg-h"><span class="tx-k tool">tool</span><b>Entities</b><span class="m">110 ms</span></div>
+          <dl class="lg-io"><dt>Out</dt><dd>11 found · person 2 (Mr Alvarez, the advisor) · fund 3 · amount 4 · date 2 (<mark>March</mark> 2029, today)</dd></dl></div></div>
+
+        <div class="lg-e"><div class="lg-t">+1.87 s</div><div>
+          <div class="lg-h"><span class="tx-k tool">tool</span><b>What it is about</b><span class="m">45 ms</span></div>
+          <dl class="lg-io"><dt>Out</dt><dd>Task: summarise · topic: retirement income · sure: 0.93</dd></dl></div></div>
+
+        <div class="lg-e"><div class="lg-t">+1.87 s</div><div>
+          <div class="lg-h"><span class="tx-k tool">tool</span><b>Seen in training, or new</b><span class="m">30 ms</span></div>
+          <dl class="lg-io"><dt>Out</dt><dd>Near (0.31) · close to requests the model was trained on, not the same</dd></dl></div></div>
+
+        <div class="lg-e"><div class="lg-t">+1.88 s</div><div>
+          <div class="lg-h"><span class="tx-k evl">evaluator</span><b>Completeness judge</b><span class="m">1.1 s · standard judge v2</span><span class="tx-w" style="font-size: 12px">warning · 0.74, under 0.80</span></div>
+          <dl class="lg-io"><dt>In</dt><dd>The transcript and the answer · 4,640 tokens</dd><dt>Out</dt><dd>0.74. Covers the two withdrawal options and the tax treatment. Leaves out one follow-up the transcript agrees: a review in <mark>March</mark>.</dd></dl></div></div>
+
+        <div class="lg-e"><div class="lg-t">+1.88 s</div><div>
+          <div class="lg-h"><span class="tx-k evl">evaluator</span><b>Faithfulness judge</b><span class="m">1.0 s · standard judge v2 · 0.96, meets 0.92</span></div>
+          <dl class="lg-io"><dt>Out</dt><dd>0.96. Every statement in the answer is supported by the transcript.</dd></dl></div></div>
+
+        <div class="lg-cut">sent back by the application</div>
+
+        <div class="lg-e" style="border-top: 0"><div class="lg-t">11:42:50</div><div>
+          <div class="lg-h"><span class="tx-k evt">event</span><b>The advisor edited the answer</b><span class="m">41 s after the answer · 18% changed · then sent</span></div>
+          <dl class="lg-io"><dt>Kept</dt><dd>…Follow-up: send the bond fund sheet. <b>Book a review for <mark>March</mark>.</b></dd></dl></div></div>
+
+        <div class="lg-e"><div class="lg-t">11:42:58</div><div>
+          <div class="lg-h"><span class="tx-k evt">event</span><b>Thumb for the turn</b><span class="tx-w" style="font-size: 12px">down · missed an action</span></div></div></div>
+
+        <div class="lg-e"><div class="lg-t">11:44:31</div><div>
+          <div class="lg-h"><span class="tx-k evt">event</span><b>Thumb for the session</b><span class="m">up</span></div></div></div>
+      </section>
+
+      <aside style="display: flex; flex-direction: column; gap: 12px; position: sticky; top: 16px">
+        <section class="kit-surface" aria-label="In this log" style="display: flex; flex-direction: column; gap: 2px">
+          <div style="font-size: 14px; font-weight: 500; margin-bottom: 6px">In this log</div>
+          <div class="lg-o"><span>Turns 1 to 3</span><small>folded</small></div>
+          <div class="lg-o"><span>Gateway and harness</span><small>12 ms</small></div>
+          <div class="lg-o"><span>Redaction on the way in</span><small>60 ms</small></div>
+          <div class="lg-o on"><span>Domain-Advice v2 answers</span><small>2 matches</small></div>
+          <div class="lg-o"><span>Format the answer</span><small>8 ms</small></div>
+          <div class="lg-o"><span>Check on the answer</span><small>pass</small></div>
+          <div class="lg-o"><span>Entities</span><small>1 match</small></div>
+          <div class="lg-o"><span>What it is about</span><small>45 ms</small></div>
+          <div class="lg-o"><span>Seen in training, or new</span><small>near</small></div>
+          <div class="lg-o"><span>Completeness judge</span><small><span class="tx-w">1 match</span></small></div>
+          <div class="lg-o"><span>Faithfulness judge</span><small>0.96</small></div>
+          <div class="lg-o"><span>The advisor edited the answer</span><small>1 match</small></div>
+          <div class="lg-o"><span>Thumbs</span><small>down · up</small></div>
+        </section>
+        <section class="kit-surface" aria-label="What the find shows">
+          <div style="font-size: 14px; font-weight: 500">What the find shows</div>
+          <div class="kit-small" style="margin-top: 6px; line-height: 1.5">"March" is in turn 3's suggestion, then in turn 4's transcript, answer, entities, judge's note and the advisor's edit. Read in order, the log tells the story: the model suggested a review in March, the summary left it out, the judge caught it, and the advisor put it back.</div>
+        </section>
+        <div class="kit-small kit-muted">With the seal on, every In and Out shows "sealed" with its size, and find works on names and ids only.</div>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1840}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

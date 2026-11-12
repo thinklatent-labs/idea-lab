@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Traces · the Timeline view</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.tx-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tx-tog{display:inline-flex;border-radius:999px;background:rgba(26,26,26,.06);padding:3px}
+.tx-tog span{font-size:13px;padding:5px 12px;border-radius:999px}
+.tx-tog span.on{background:#1A1A1A;color:#fff}
+.tx-chk{font-size:12.5px;display:inline-flex;gap:5px;align-items:center}
+.tx-chk i{width:13px;height:13px;border-radius:4px;background:var(--companion);display:inline-block}
+.tx-chk i.off{background:transparent;box-shadow:0 0 0 1.5px rgba(26,26,26,.4)}
+.tx-sw{display:inline-flex;align-items:center;gap:10px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:8px 14px}
+.tx-sw i{display:block;width:38px;height:22px;border-radius:999px;background:rgba(26,26,26,.2);position:relative}
+.tx-sw i::after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff}
+.tx-k{flex:none;font-size:10.5px;border-radius:6px;padding:1px 6px;background:rgba(26,26,26,.08)}
+.tx-k.gen{background:color-mix(in oklab,var(--cat1) 26%,transparent)}
+.tx-k.grd{background:color-mix(in oklab,var(--cat2) 26%,transparent)}
+.tx-k.tool{background:color-mix(in oklab,var(--cat3) 26%,transparent)}
+.tx-k.evl{background:color-mix(in oklab,var(--cat4) 26%,transparent)}
+.tx-box{border-radius:18px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.tx-box h4{margin:0;font-size:14px;font-weight:500}
+.tx-w{box-shadow:0 0 0 1px var(--decision);border-radius:999px;padding:0 6px}
+.tl-row{display:grid;grid-template-columns:290px minmax(0,1fr) 150px;gap:12px;align-items:center;min-height:30px;font-size:13px}
+.tl-row.turn{font-weight:500;background:rgba(26,26,26,.05);border-radius:10px}
+.tl-row.grp{color:rgba(26,26,26,.6);font-size:12px;min-height:26px}
+.tl-n{display:flex;align-items:center;gap:7px;min-width:0;padding-left:8px}
+.tl-n .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-c{position:relative;height:30px;background-image:linear-gradient(to right,rgba(26,26,26,.1) 1px,transparent 1px);background-size:16.6667% 100%;border-right:1px solid rgba(26,26,26,.1)}
+.tl-c i{position:absolute;top:8px;height:14px;min-width:3px;border-radius:4px}
+.b-all{background:#1A1A1A}.b-span{background:rgba(26,26,26,.45)}.b-gen{background:var(--cat1)}.b-grd{background:var(--cat2)}.b-tool{background:var(--cat3)}.b-evl{background:var(--cat4)}
+.b-q{background:repeating-linear-gradient(135deg,var(--cat1) 0 2px,transparent 2px 4px);box-shadow:inset 0 0 0 1px var(--cat1)}
+.b-p{background:color-mix(in oklab,var(--cat1) 45%,white)}
+.tl-c u{position:absolute;top:0;bottom:0}
+.tl-c u.ans{left:62%;border-left:1.5px dashed #1A1A1A}
+.tl-c u.sl{left:83.333%;border-left:1.5px dotted var(--decision)}
+.tl-c u.ft{left:11.13%;top:4px;bottom:4px;border-left:2px solid #1A1A1A}
+.tl-m{font-size:12px;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;padding-right:8px}
+.tl-ax{position:relative;height:20px;font-size:11px;color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums}
+.tl-ax span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.tl-ax span:first-child{transform:none}.tl-ax span:last-child{transform:translateX(-100%)}
+.tl-stack{display:flex;height:18px;border-radius:6px;overflow:hidden;margin-top:10px}
+.tl-stack i{display:block;min-width:2px}
+.tl-lg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 14px;font-size:12.5px;margin-top:10px}
+.tl-lg b{font-weight:500;font-variant-numeric:tabular-nums}
+.tl-key{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;align-items:center}
+.tl-key i{display:inline-block;width:18px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1400px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Traces</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">Traces › session se-6bf2 › turn 4</span><span class="kit-chip brand">Production</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 warning in this session</span></div>
+        <span class="kit-small kit-muted">The Timeline view: the same steps as the tree, laid on one clock, to see what waited on what and where the time went · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end">
+        <span class="tx-sw" role="switch" aria-checked="false" aria-label="Seal the text"><span class="kit-small">Text is visible</span><i aria-hidden="true"></i><span class="kit-small kit-muted">Seal the text</span></span>
+        <span class="kit-small kit-muted">A switch for now. Later your IAM role decides.</span>
+      </div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="true" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Training and data</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+    </div>
+
+    <div class="tx-bar">
+      <a class="kit-btn outline" href="#">← All sessions</a>
+      <span class="tx-tog" role="group" aria-label="View"><span>Tree</span><span class="on">Timeline</span><span>Graph</span><span>Log</span><span>Conversation</span></span>
+      <span class="kit-label">Show</span>
+      <span class="tx-chk"><i></i>Colour by kind</span><span class="tx-chk"><i></i>Engine detail</span><span class="tx-chk"><i></i>After the answer</span>
+      <span style="flex: 1"></span>
+      <button class="kit-btn outline" type="button">− Zoom +</button><button class="kit-btn outline" type="button">Fit the turn</button>
+    </div>
+
+    <section class="kit-surface" aria-label="The whole session on one clock">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 10px"><div style="font-size: 18px; font-weight: 500">Session se-6bf2 · 11:14 to 11:42</div><span class="kit-small kit-muted">Each turn takes a second or two; the minutes between are the advisor talking. Drag across the strip to zoom; turn 4 is open below.</span></div>
+      <svg viewBox="0 0 1200 92" width="100%" role="img" aria-label="Four turns between 11:14 and 11:42, feedback at 11:42 and 11:44" style="margin-top: 8px; display: block" font-family="Inter, system-ui, sans-serif">
+        <rect x="1023" y="32" width="32" height="28" rx="9" fill="none" stroke="var(--companion)" stroke-width="2"></rect>
+        <line x1="20" y1="46" x2="1180" y2="46" stroke="rgba(26,26,26,.25)" stroke-width="1"></line>
+        <line x1="20" y1="46" x2="1039" y2="46" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"></line>
+        <g fill="rgba(26,26,26,.6)" font-size="11" text-anchor="middle">
+          <line x1="56" y1="42" x2="56" y2="50" stroke="rgba(26,26,26,.4)"></line><text x="56" y="86">11:15</text>
+          <line x1="237" y1="42" x2="237" y2="50" stroke="rgba(26,26,26,.4)"></line><text x="237" y="86">11:20</text>
+          <line x1="419" y1="42" x2="419" y2="50" stroke="rgba(26,26,26,.4)"></line><text x="419" y="86">11:25</text>
+          <line x1="600" y1="42" x2="600" y2="50" stroke="rgba(26,26,26,.4)"></line><text x="600" y="86">11:30</text>
+          <line x1="781" y1="42" x2="781" y2="50" stroke="rgba(26,26,26,.4)"></line><text x="781" y="86">11:35</text>
+          <line x1="962" y1="42" x2="962" y2="50" stroke="rgba(26,26,26,.4)"></line><text x="962" y="86">11:40</text>
+          <line x1="1144" y1="42" x2="1144" y2="50" stroke="rgba(26,26,26,.4)"></line><text x="1144" y="86">11:45</text>
+        </g>
+        <g font-size="11.5" text-anchor="middle" fill="#1A1A1A">
+          <circle cx="225" cy="46" r="7" fill="#fff" stroke="#1A1A1A" stroke-width="2"></circle><text x="225" y="26">Turn 1 · 0.92 s</text>
+          <circle cx="494" cy="46" r="7" fill="#fff" stroke="#1A1A1A" stroke-width="2"></circle><text x="494" y="26">Turn 2 · 1.04 s</text>
+          <circle cx="774" cy="46" r="7" fill="#fff" stroke="#1A1A1A" stroke-width="2"></circle><text x="774" y="26">Turn 3 · 1.08 s</text>
+          <circle cx="1039" cy="46" r="7" fill="var(--companion)" stroke="#1A1A1A" stroke-width="2"></circle><text x="1039" y="26" font-weight="600">Turn 4 · 1.86 s</text>
+        </g>
+        <g font-size="11" fill="rgba(26,26,26,.7)">
+          <rect x="1061" y="41" width="9" height="9" fill="none" stroke="#1A1A1A" stroke-width="1.5" transform="rotate(45 1065.5 45.5)"></rect>
+          <rect x="1122" y="41" width="9" height="9" fill="none" stroke="#1A1A1A" stroke-width="1.5" transform="rotate(45 1126.5 45.5)"></rect>
+          <text x="1062" y="68">feedback came back</text>
+        </g>
+      </svg>
+    </section>
+
+    <section class="kit-surface" aria-label="Turn 4 on the clock">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap">
+        <div style="font-size: 18px; font-weight: 500">Turn 4 · Call summary · 11:42:07</div>
+        <div class="tl-key"><span><i class="b-span"></i>span, chain</span><span><i class="b-grd"></i>guardrail</span><span><i class="b-gen"></i>generation</span><span><i class="b-tool"></i>tool</span><span><i class="b-evl"></i>evaluator</span><span><i style="width: 0; height: 12px; border-left: 1.5px dashed #1A1A1A; border-radius: 0"></i>the answer went back</span><span><i style="width: 0; height: 12px; border-left: 1.5px dotted var(--decision); border-radius: 0"></i>service level, 2.5 s</span></div>
+      </div>
+
+      <div class="tl-row" style="margin-top: 10px; min-height: 20px"><span></span><div class="tl-ax"><span style="left: 0">0</span><span style="left: 16.667%">0.5 s</span><span style="left: 33.333%">1.0 s</span><span style="left: 50%">1.5 s</span><span style="left: 66.667%">2.0 s</span><span style="left: 83.333%">2.5 s</span><span style="left: 100%">3.0 s</span></div><span class="tl-m" style="color: rgba(26,26,26,.6)">Starts · lasts</span></div>
+
+      <div class="tl-row turn"><span class="tl-n"><span class="nm">▾ Turn 4, as the application saw it</span></span><div class="tl-c"><i class="b-all" style="left: 0; width: 62%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">0 · 1.86 s</span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 24px"><span class="tx-k">span</span><span class="nm">Gateway and harness</span></span><div class="tl-c"><i class="b-span" style="left: 0; width: .4%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">0 · 12 ms</span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 24px"><span class="tx-k grd">guardrail</span><span class="nm">Redaction on the way in</span></span><div class="tl-c"><i class="b-grd" style="left: .4%; width: 2%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">12 ms · 60 ms</span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 24px"><span class="tx-k">chain</span><span class="nm">▾ Summarise the call</span></span><div class="tl-c"><i class="b-span" style="left: 2.4%; width: 58.33%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">72 ms · 1.75 s</span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 40px"><span class="tx-k gen">generation</span><span class="nm">Domain-Advice v2 answers</span></span><div class="tl-c"><i class="b-q" style="left: 2.47%; width: 1.33%; border-radius: 4px 0 0 4px"></i><i class="b-p" style="left: 3.8%; width: 6%; border-radius: 0"></i><i class="b-gen" style="left: 9.8%; width: 50.67%; border-radius: 0 4px 4px 0"></i><u class="ft"></u><u class="ans"></u><u class="sl"></u></div><span class="tl-m">74 ms · 1.74 s</span></div>
+      <div class="tl-row" style="min-height: 22px"><span></span><div style="font-size: 12px; color: rgba(26,26,26,.65)">hatched: queue 40 ms · pale: prefill 180 ms · solid: decode 1.52 s · the mark: first token at 0.26 s · 205 tokens a second</div><span></span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 40px"><span class="tx-k">span</span><span class="nm">Format the answer</span></span><div class="tl-c"><i class="b-span" style="left: 60.47%; width: .3%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">1.81 s · 8 ms</span></div>
+
+      <div class="tl-row grp"><span class="tl-n">After the answer went back · in the background</span><div class="tl-c" style="height: 26px"><u class="ans"></u><u class="sl"></u></div><span></span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 24px"><span class="tx-k grd">guardrail</span><span class="nm">Check on the answer</span></span><div class="tl-c"><i class="b-grd" style="left: 62.33%; width: 3%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">1.87 s · 90 ms</span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 24px"><span class="tx-k tool">tool</span><span class="nm">Entities</span></span><div class="tl-c"><i class="b-tool" style="left: 62.33%; width: 3.67%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">1.87 s · 110 ms</span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 24px"><span class="tx-k tool">tool</span><span class="nm">What it is about</span></span><div class="tl-c"><i class="b-tool" style="left: 62.33%; width: 1.5%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">1.87 s · 45 ms</span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 24px"><span class="tx-k tool">tool</span><span class="nm">Seen in training, or new</span></span><div class="tl-c"><i class="b-tool" style="left: 62.33%; width: 1%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">1.87 s · 30 ms</span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 24px"><span class="tx-k evl">evaluator</span><span class="nm">▾ Completeness judge</span></span><div class="tl-c"><i class="b-evl" style="left: 62.67%; width: 36.67%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">1.88 s · 1.1 s · <span class="tx-w">0.74</span></span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 40px"><span class="tx-k gen">generation</span><span class="nm">Judge model call</span></span><div class="tl-c"><i class="b-gen" style="left: 63.33%; width: 33.33%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">1.90 s · 1.0 s</span></div>
+      <div class="tl-row"><span class="tl-n" style="padding-left: 24px"><span class="tx-k evl">evaluator</span><span class="nm">▸ Faithfulness judge</span></span><div class="tl-c"><i class="b-evl" style="left: 62.67%; width: 33.33%"></i><u class="ans"></u><u class="sl"></u></div><span class="tl-m">1.88 s · 1.0 s · 0.96</span></div>
+      <div class="kit-small kit-muted" style="margin-top: 8px">The edit and the thumb came back 41 and 49 seconds later; they are on the session strip, off this scale.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 12px">
+      <section class="tx-box" aria-label="Where turn 4's time went">
+        <h4>Where turn 4's 1.86 seconds went</h4>
+        <div class="tl-stack" role="img" aria-label="Decode took 82 percent of the turn"><i class="b-span" style="width: .6%"></i><i class="b-grd" style="width: 3.2%"></i><i class="b-q" style="width: 2.2%"></i><i class="b-p" style="width: 9.7%"></i><i class="b-gen" style="width: 81.7%"></i><i class="b-span" style="width: .4%"></i><i style="width: 2.2%; background: rgba(26,26,26,.15)"></i></div>
+        <div class="tl-lg"><span>Decode<br><b>1.52 s · 82%</b></span><span>Prefill<br><b>180 ms · 10%</b></span><span>Redaction<br><b>60 ms · 3%</b></span><span>Queue<br><b>40 ms · 2%</b></span><span>Network and the rest<br><b>40 ms · 2%</b></span><span>Gateway and harness<br><b>12 ms · 1%</b></span><span>Format<br><b>8 ms · under 1%</b></span><span>Service level<br><b>2.5 s · met, 0.64 s to spare</b></span></div>
+      </section>
+      <section class="tx-box" aria-label="What the clock shows here">
+        <h4>What the clock shows here</h4>
+        <div class="kit-small" style="margin-top: 8px; line-height: 1.55">The answer is almost all decode: 312 tokens at 205 a second. Nothing waited: 40 ms in the queue. Six background steps started within 20 ms of the answer and none held it up; the last, the completeness judge, landed 1.12 s after.</div>
+        <div class="kit-small kit-muted" style="margin-top: 8px">How this turn compares with the feature's usual is on Operations.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
