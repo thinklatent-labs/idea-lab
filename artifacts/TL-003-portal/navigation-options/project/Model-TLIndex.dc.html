@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A model's TL Index tab · TLM4 Domain-Advice v2</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.tx-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tx-h h3{margin:0;font-size:18px;font-weight:500}
+.tx-k{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.tx-k>a{display:flex;flex-direction:column;gap:6px;color:inherit;text-decoration:none}
+.tx-n{font-variant-numeric:tabular-nums;font-weight:500}
+.tx-up{font-variant-numeric:tabular-nums;font-weight:600;color:#1B5128}
+.tx-p{display:grid;grid-template-columns:200px 72px 78px minmax(0,1fr) minmax(0,1.6fr) 150px 110px;gap:0;font-size:13px;margin-top:10px;align-items:stretch}
+.tx-p>*{padding:12px 12px 12px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;line-height:1.4}
+.tx-p .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.tx-p small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.tx-p .sep{border-top:1px solid rgba(26,26,26,.35)}
+.tx-ax{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+.tx-st{position:relative;height:20px}
+.tx-st:before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:rgba(26,26,26,.1)}
+.tx-st i{position:absolute;top:5px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:rgba(26,26,26,.3)}
+.tx-st i.o{background:#fff;box-shadow:inset 0 0 0 2px rgba(26,26,26,.45)}
+.tx-st i.me{top:3px;width:14px;height:14px;margin-left:-7px;background:var(--companion);box-shadow:0 0 0 2px #fff;z-index:1}
+.tx-st u{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:#1A1A1A}
+.tx-key{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;align-items:center;color:rgba(26,26,26,.7)}
+.tx-key i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.tx-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.tx-box h4{margin:0;font-size:15px;font-weight:500}
+.tx-s{display:grid;grid-template-columns:minmax(0,1fr) 70px 86px minmax(0,1.2fr);gap:0;font-size:13px;line-height:1.4;margin-top:8px;align-items:center}
+.tx-s>*{padding:9px 10px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.tx-s .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.tx-b{position:relative;height:8px;border-radius:999px;background:rgba(26,26,26,.1)}
+.tx-b i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--companion)}
+.tx-b u{position:absolute;top:-4px;bottom:-4px;width:2px;background:#1A1A1A}
+.tx-v{display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr) 110px;gap:0;font-size:13px;line-height:1.4;margin-top:8px;align-items:center}
+.tx-v>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.tx-v .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.tx-w{position:relative;height:8px;border-radius:999px;background:rgba(26,26,26,.1)}
+.tx-w i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--companion)}
+.tx-w u{position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;margin-left:-1px;background:#1A1A1A}
+.tx-kv{display:grid;grid-template-columns:130px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.tx-kv>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1)}
+.tx-kv .k{color:rgba(26,26,26,.65)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1750px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">All models <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">TLM4 <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Domain-Advice <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Version 2 · live <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 780px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">TLM4 Domain-Advice v2</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">TLM4</span><span class="kit-chip outline">Language</span><span class="kit-chip brand">Live</span><span class="kit-chip">Built on Core 4.2</span><span class="kit-chip">Dedicated endpoint</span></div>
+        <span class="kit-small kit-muted">How it scores on ThinkLatent's own index, pillar by pillar, against every other model scored. Edition 2026-11: 1,200 questions, 240 on each of five pillars · As of 11:58 ET · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Tokens processed today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">130M <span style="font-size: 18px">in</span> <span aria-hidden="true" style="font-size: 24px">→</span> 9.6M <span style="font-size: 18px">out</span></span></div>
+        <div class="kit-actions"><a class="kit-btn" href="Index-Language.dc.html">Compare with another model</a><a class="kit-btn outline" href="#">Run the Index yourself</a></div>
+      </div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Model pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Improvement</button><button role="tab" aria-selected="false" type="button">Usage</button><button role="tab" aria-selected="false" type="button">Adoption</button><button role="tab" aria-selected="false" type="button">Cost avoided</button><button role="tab" aria-selected="true" type="button">TL Index</button><button role="tab" aria-selected="false" type="button">Built from</button><button role="tab" aria-selected="false" type="button">Training</button>
+    </div>
+
+    <div class="tx-k">
+      <a class="kit-surface" href="Index-Language.dc.html"><span class="kit-caption">The TL Index, overall</span><span class="kit-display" style="font-size: 40px">84 <span style="font-size: 18px">± 1</span></span><span class="kit-small kit-muted">3rd of 9 scored · first of ThinkLatent's · threshold 80</span></a>
+      <a class="kit-surface" href="Index-Language.dc.html"><span class="kit-caption">Real Enterprise</span><span class="kit-display" style="font-size: 40px">83</span><span class="kit-small kit-muted">Best of 9 · the Enterprise's own work · rests on three uses</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Preference rating</span><span class="kit-display" style="font-size: 40px">1,071 <span style="font-size: 18px">± 19</span></span><span class="kit-small kit-muted">2nd of 7 with votes · people cannot tell it from the first</span></a>
+      <a class="kit-surface" href="#"><span class="kit-caption">Time a task</span><span class="kit-display" style="font-size: 40px">2.1 s</span><span class="kit-small kit-muted">Vendor A · large takes 2.9 s</span></a>
+      <a class="kit-surface" href="Model-CostAvoided.dc.html"><span class="kit-caption">Cost a task</span><span class="kit-display" style="font-size: 40px">$[cost]</span><span class="kit-small kit-muted">Vendor A · large: $[cost]</span></a>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Pillar by pillar, against the field">
+      <div class="tx-h"><h3>Pillar by pillar, against the field</h3>
+        <div class="tx-key"><span><i style="background: var(--companion); width: 13px; height: 13px"></i>this model</span><span><i style="background: rgba(26,26,26,.3)"></i>another ThinkLatent model</span><span><i style="background: #fff; box-shadow: inset 0 0 0 2px rgba(26,26,26,.45)"></i>an outside model</span><span><i style="width: 2px; height: 14px; border-radius: 0; background: #1A1A1A"></i>ThinkLatent's threshold</span></div></div>
+      <div class="tx-p">
+        <span class="h">Pillar</span><span class="h">Threshold</span><span class="h">This model</span><span class="h">Where it stands</span><span class="h"><span class="tx-ax"><span>50</span><span>60</span><span>70</span><span>80</span><span>90</span><span>100</span></span></span><span class="h">Best of all</span><span class="h">Over Core 4.2, which it is built on</span>
+
+        <span>Financial data processing</span><span class="tx-n">80</span><span class="tx-n">86 ± 2</span><span>3rd of 9<small>cannot be told from the best</small></span>
+        <span><div class="tx-st" role="img" aria-label="This model 86; the others from 70 to 88; threshold 80"><u style="left: 60%"></u><i style="left: 40%"></i><i class="o" style="left: 52%"></i><i style="left: 56%"></i><i class="o" style="left: 64%"></i><i style="left: 70%"></i><i class="o" style="left: 74%"></i><i class="o" style="left: 76%"></i><i class="me" style="left: 72%"></i></div></span>
+        <span>88<small>Vendor A · large</small></span><span class="tx-up">+1</span>
+
+        <span>Client care</span><span class="tx-n">80</span><span class="tx-n">87 ± 2</span><span>3rd of 9<small>cannot be told from the best</small></span>
+        <span><div class="tx-st" role="img" aria-label="This model 87; the others from 68 to 90; threshold 80"><u style="left: 60%"></u><i style="left: 36%"></i><i style="left: 48%"></i><i class="o" style="left: 50%"></i><i class="o" style="left: 62%"></i><i style="left: 64%"></i><i class="o" style="left: 66%"></i><i class="o" style="left: 76%"></i><i class="o" style="left: 80%"></i><i class="me" style="left: 74%"></i></div></span>
+        <span>90<small>Vendor A · large</small></span><span class="tx-up">+5</span>
+
+        <span>Compliance and regulatory</span><span class="tx-n">78</span><span class="tx-n">83 ± 2</span><span><b style="font-weight: 600">1st of 7</b><small>two outside models have too few cases</small></span>
+        <span><div class="tx-st" role="img" aria-label="This model 83, the best; the others from 64 to 80; threshold 78"><u style="left: 56%"></u><i style="left: 28%"></i><i style="left: 38%"></i><i class="o" style="left: 40%"></i><i class="o" style="left: 52%"></i><i class="o" style="left: 54%"></i><i style="left: 60%"></i><i class="me" style="left: 66%"></i></div></span>
+        <span>83<small>this model</small></span><span class="tx-up">+3</span>
+
+        <span>Safety and grounding</span><span class="tx-n">72</span><span class="tx-n">78 ± 2</span><span>3rd of 9<small>behind the best by 6, over its threshold</small></span>
+        <span><div class="tx-st" role="img" aria-label="This model 78; the others from 58 to 84; threshold 72"><u style="left: 44%"></u><i style="left: 16%"></i><i style="left: 26%"></i><i class="o" style="left: 36%"></i><i class="o" style="left: 50%"></i><i style="left: 52%"></i><i class="o" style="left: 54%"></i><i class="o" style="left: 64%"></i><i class="o" style="left: 68%"></i><i class="me" style="left: 56%"></i></div></span>
+        <span>84<small>Vendor B · large</small></span><span class="tx-up">+2</span>
+
+        <span>Entity recognition</span><span class="tx-n">80</span><span class="tx-n">88 ± 2</span><span><b style="font-weight: 600">1st of 8</b><small>one outside model has too few cases</small></span>
+        <span><div class="tx-st" role="img" aria-label="This model 88, the best; the others from 70 to 87; threshold 80"><u style="left: 60%"></u><i style="left: 40%"></i><i class="o" style="left: 54%"></i><i style="left: 56%"></i><i class="o" style="left: 62%"></i><i style="left: 68%"></i><i class="o" style="left: 72%"></i><i class="o" style="left: 74%"></i><i class="me" style="left: 76%"></i></div></span>
+        <span>88<small>this model</small></span><span class="tx-up">+4</span>
+
+        <span class="sep">Real Enterprise<small>the Enterprise's own work · no threshold</small></span><span class="sep kit-muted">—</span><span class="sep tx-n">83</span><span class="sep"><b style="font-weight: 600">1st of 9</b><small>rests on three uses</small></span>
+        <span class="sep"><div class="tx-st" role="img" aria-label="This model 83, the best; the others from 57 to 81"><i style="left: 14%"></i><i class="o" style="left: 30%"></i><i style="left: 32%"></i><i class="o" style="left: 44%"></i><i class="o" style="left: 46%"></i><i style="left: 50%"></i><i class="o" style="left: 60%"></i><i class="o" style="left: 62%"></i><i class="me" style="left: 66%"></i></div></span>
+        <span class="sep">83<small>this model</small></span><span class="sep tx-up">+8</span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">Each dot is a model. Five of the Index's sixteen pillars are live in this edition. The last column is what training on the Enterprise's advice conversations added to Core 4.2: least on Financial data, most on the Enterprise's own work.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="One pillar opened">
+        <div class="tx-h"><h3>One pillar opened · Financial data processing</h3><span class="kit-small kit-muted">240 questions in four parts · a part opens its results</span></div>
+        <div class="tx-s">
+          <span class="h">Part</span><span class="h">Questions</span><span class="h">Score</span><span class="h">Against the pillar's threshold, 80</span>
+          <span>Reading tables</span><span class="tx-n">60</span><span class="tx-n">89 ± 4</span><span><div class="tx-b"><i style="width: 89%"></i><u style="left: 80%"></u></div></span>
+          <span>Statements and forms</span><span class="tx-n">60</span><span class="tx-n">88 ± 4</span><span><div class="tx-b"><i style="width: 88%"></i><u style="left: 80%"></u></div></span>
+          <span>Dates and periods</span><span class="tx-n">60</span><span class="tx-n">87 ± 4</span><span><div class="tx-b"><i style="width: 87%"></i><u style="left: 80%"></u></div></span>
+          <span>Numbers and calculations<small style="display: block; font-size: 12px; color: rgba(26,26,26,.65)">its own threshold, 78</small></span><span class="tx-n">60</span><span class="tx-n">80 ± 5</span><span><div class="tx-b"><i style="width: 80%; background: var(--warning)"></i><u style="left: 78%"></u></div></span>
+        </div>
+        <div style="margin-top: 12px; display: flex; gap: 10px; align-items: flex-start"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Its weakest part</span></span><span class="kit-small kit-muted">Numbers and calculations clears its threshold by 2, and the interval reaches below it. One project's own version has fallen under it and that project accepted the risk. A project that trains this model further should watch this part.</span></div>
+      </section>
+
+      <section class="kit-surface" aria-label="Head to head">
+        <div class="tx-h"><h3>Head to head · what people prefer</h3><a class="kit-small" href="#">Vote on a pair</a></div>
+        <div class="kit-small kit-muted" style="margin-top: 4px">Two answers to the same case, names hidden. 990 of the 3,470 votes had this model on one side.</div>
+        <div class="tx-v">
+          <span class="h">Against</span><span class="h">Votes</span><span class="h">How often this model was picked</span><span class="h"></span>
+          <span>Vendor A · large</span><span class="tx-n">172</span><span><div class="tx-w"><i style="width: 48%"></i><u></u></div></span><span><span class="tx-n">48%</span> · a tie</span>
+          <span>Vendor B · large</span><span class="tx-n">158</span><span><div class="tx-w"><i style="width: 51%"></i><u></u></div></span><span><span class="tx-n">51%</span> · a tie</span>
+          <span>Core 4.2</span><span class="tx-n">181</span><span><div class="tx-w"><i style="width: 62%"></i><u></u></div></span><span><span class="tx-n">62%</span></span>
+          <span>Open model · 70B</span><span class="tx-n">166</span><span><div class="tx-w"><i style="width: 64%"></i><u></u></div></span><span><span class="tx-n">64%</span></span>
+          <span>Distil 4.2</span><span class="tx-n">160</span><span><div class="tx-w"><i style="width: 79%"></i><u></u></div></span><span><span class="tx-n">79%</span></span>
+          <span>Core 3.4</span><span class="tx-n">153</span><span><div class="tx-w"><i style="width: 85%"></i><u></u></div></span><span><span class="tx-n">85%</span></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">The line is an even split. Votes are on Client care cases only, and the rating is never used as a threshold.</div>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <div class="tx-box"><h4>How these scores were made</h4>
+        <div class="tx-kv">
+          <span class="k">Edition</span><span>2026-11 · 1,200 questions, held back from every model's training</span>
+          <span class="k">Scored</span><span>2 Nov, run IX-0412, on the same machines as every ThinkLatent model</span>
+          <span class="k">Judged by</span><span>The standard judge, version 2 · agrees with people on 93 of 100 answers</span>
+          <span class="k">The interval</span><span>How far the score would move on another draw of the questions</span>
+          <span class="k">Not shown</span><span>The questions themselves, so that no model can be trained on them</span>
+        </div></div>
+      <div class="tx-box"><h4>What this page cannot tell you yet</h4>
+        <div class="tx-kv" style="grid-template-columns: minmax(0, 1fr)">
+          <span>Eleven pillars are not live, so "overall" is five pillars.</span>
+          <span>Real Enterprise rests on three uses, and only one of them was trained for.</span>
+          <span>The two large outside models have too few Compliance cases to compare, which is where this model leads.</span>
+          <span>Head to head covers Client care only.</span>
+        </div></div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1750}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

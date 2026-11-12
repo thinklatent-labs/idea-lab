@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A model's Built from tab · TLM4 Domain-Advice v2</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.bf-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.bf-h h3{margin:0;font-size:18px;font-weight:500}
+.bf-key{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;align-items:center;color:rgba(26,26,26,.7)}
+.bf-key i{display:inline-block;width:22px;height:13px;border-radius:5px;margin-right:5px;vertical-align:-2px}
+.bf-n{font-variant-numeric:tabular-nums;font-weight:500}
+.bf-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.bf-box h4{margin:0;font-size:15px;font-weight:500}
+.bf-r{display:grid;grid-template-columns:26px minmax(0,1fr);gap:0;font-size:13px;line-height:1.5;margin-top:8px}
+.bf-r>*{padding:9px 10px 9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.bf-r small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.bf-r .n{font-weight:600;color:rgba(26,26,26,.55)}
+.bf-t{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.3fr) 110px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45;margin-top:10px}
+.bf-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.bf-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.bf-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.bf-t b{font-weight:500}
+.bf-v{display:grid;grid-template-columns:110px minmax(0,1fr) minmax(0,1fr) minmax(0,1.2fr);gap:0;font-size:13px;line-height:1.45;margin-top:10px}
+.bf-v>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.bf-v .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.bf-v small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+svg text{font-family:Inter,system-ui,sans-serif}
+.g-t{font-size:14px;font-weight:500;fill:#1A1A1A}
+.g-s{font-size:12px;fill:rgba(26,26,26,.65)}
+.g-l{font-size:12px;fill:rgba(26,26,26,.6)}
+.g-n{fill:#fff;stroke:rgba(26,26,26,.22)}
+.g-o{fill:rgba(26,26,26,.05);stroke:none}
+.g-p{fill:none;stroke:rgba(26,26,26,.45);stroke-dasharray:5 4}
+.g-e{fill:none;stroke:rgba(26,26,26,.5);stroke-width:1.5}
+.g-ep{fill:none;stroke:rgba(26,26,26,.45);stroke-width:1.5;stroke-dasharray:5 4}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1700px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">All models <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">TLM4 <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Domain-Advice <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Version 2 · live <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 780px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">TLM4 Domain-Advice v2</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">TLM4</span><span class="kit-chip outline">Language</span><span class="kit-chip brand">Live</span><span class="kit-chip">Built on Core 4.2</span><span class="kit-chip">Dedicated endpoint</span></div>
+        <span class="kit-small kit-muted">What it stands on, what stands on it, and what has to move when something above it moves. A box opens its page · As of 11:58 ET · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Tokens processed today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">130M <span style="font-size: 18px">in</span> <span aria-hidden="true" style="font-size: 24px">→</span> 9.6M <span style="font-size: 18px">out</span></span></div>
+        <div class="kit-actions"><a class="kit-btn" href="#">Try it</a><a class="kit-btn outline" href="#">Follow this model's versions</a></div>
+      </div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Model pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Improvement</button><button role="tab" aria-selected="false" type="button">Usage</button><button role="tab" aria-selected="false" type="button">Adoption</button><button role="tab" aria-selected="false" type="button">Cost avoided</button><button role="tab" aria-selected="false" type="button">TL Index</button><button role="tab" aria-selected="true" type="button">Built from</button><button role="tab" aria-selected="false" type="button">Training</button>
+    </div>
+
+    <section class="kit-surface raised" aria-label="What was built from what">
+      <div class="bf-h"><h3>What was built from what</h3>
+        <div class="bf-key"><span><i style="background: #1B5128"></i>this model</span><span><i style="background: #fff; box-shadow: inset 0 0 0 1px rgba(26,26,26,.3)"></i>in service</span><span><i style="background: rgba(26,26,26,.08)"></i>retired</span><span><i style="box-sizing: border-box; border: 1.5px dashed rgba(26,26,26,.5); background: none"></i>planned</span></div></div>
+      <svg viewBox="0 0 1240 520" width="100%" role="img" aria-label="Lineage. The open-source base led to Core 4.1, then Core 4.2, with Core 4.3 planned for 9 November. Domain-Advice version 1 was built on Core 4.1, version 2 on Core 4.2, and version 3 is planned on Core 4.3. From version 2: a version strengthened for Advisor desktop, which Call summary runs; Next best action and Portfolio questions run version 2 as released." style="display: block; margin-top: 10px">
+        <g stroke="rgba(26,26,26,.08)"><line x1="0" y1="146" x2="1240" y2="146"></line><line x1="0" y1="286" x2="1240" y2="286"></line><line x1="0" y1="416" x2="1240" y2="416"></line></g>
+        <g class="g-l"><text x="0" y="56">Foundation</text><text x="0" y="72">Core</text><text x="0" y="196">Domain model</text><text x="0" y="212">Domain-Advice</text><text x="0" y="336">In projects</text><text x="0" y="466">Features</text></g>
+
+        <path class="g-e" d="M340 61H396"></path><path class="g-e" d="M610 61H686"></path><path class="g-ep" d="M900 61H976"></path>
+        <path class="g-e" d="M505 92V166"></path><path class="g-e" d="M795 92V166"></path><path class="g-ep" d="M1085 92V166"></path>
+        <path class="g-e" d="M610 201H686"></path><path class="g-ep" d="M900 201H976"></path>
+        <path class="g-e" d="M760 232C760 270 580 270 580 306"></path><path class="g-e" d="M800 232C800 270 820 270 820 306"></path><path class="g-e" d="M840 232C840 270 1060 270 1060 306"></path>
+        <path class="g-e" d="M580 372V436"></path>
+        <g fill="rgba(26,26,26,.5)"><path d="M396 61l-7 -4v8z"></path><path d="M686 61l-7 -4v8z"></path><path d="M976 61l-7 -4v8z"></path><path d="M505 166l-4 -7h8z"></path><path d="M795 166l-4 -7h8z"></path><path d="M1085 166l-4 -7h8z"></path><path d="M686 201l-7 -4v8z"></path><path d="M976 201l-7 -4v8z"></path><path d="M580 306l-4 -7h8z"></path><path d="M820 306l-4 -7h8z"></path><path d="M1060 306l-4 -7h8z"></path><path d="M580 436l-4 -7h8z"></path></g>
+
+        <rect class="g-p" x="130" y="30" width="210" height="62" rx="16"></rect><text class="g-t" x="148" y="56">Open-source base</text><text class="g-s" x="148" y="75">As it comes</text>
+        <rect class="g-o" x="400" y="30" width="210" height="62" rx="16"></rect><text class="g-t" x="418" y="56">Core 4.1</text><text class="g-s" x="418" y="75">Retired 5 Oct</text>
+        <rect class="g-n" x="690" y="30" width="210" height="62" rx="16"></rect><text class="g-t" x="708" y="56">Core 4.2</text><text class="g-s" x="708" y="75">Live · TL Index 81 ± 1</text>
+        <rect class="g-p" x="980" y="30" width="210" height="62" rx="16"></rect><text class="g-t" x="998" y="56">Core 4.3</text><text class="g-s" x="998" y="75">Planned 9 Nov</text>
+
+        <rect class="g-o" x="400" y="170" width="210" height="62" rx="16"></rect><text class="g-t" x="418" y="196">Domain-Advice v1</text><text class="g-s" x="418" y="215">14 Jul · retired 5 Oct</text>
+        <rect x="690" y="170" width="210" height="62" rx="16" fill="#1B5128"></rect><text x="708" y="196" style="font-size: 14px; font-weight: 600; fill: #fff">Domain-Advice v2</text><text x="708" y="215" style="font-size: 12px; fill: rgba(255,255,255,.85)">Live since 5 Oct · 84 ± 1</text>
+        <rect class="g-p" x="980" y="170" width="210" height="62" rx="16"></rect><text class="g-t" x="998" y="196">Domain-Advice v3</text><text class="g-s" x="998" y="215">Planned 21 Nov</text>
+
+        <rect class="g-n" x="460" y="310" width="240" height="62" rx="16"></rect><text class="g-t" x="478" y="336">Strengthened for Advisor desktop</text><text class="g-s" x="478" y="355">The project's own version · 28 Sep</text>
+        <rect class="g-n" x="725" y="310" width="200" height="62" rx="16"></rect><text class="g-t" x="743" y="336">Next best action</text><text class="g-s" x="743" y="355">Pilot · runs it as released</text>
+        <rect class="g-n" x="950" y="310" width="220" height="62" rx="16"></rect><text class="g-t" x="968" y="336">Portfolio questions</text><text class="g-s" x="968" y="355">Build · runs it as released</text>
+
+        <rect class="g-n" x="460" y="440" width="240" height="62" rx="16"></rect><text class="g-t" x="478" y="466">Call summary</text><text class="g-s" x="478" y="485">Production · runs the project's version</text>
+        <text class="g-s" x="725" y="466">A version made for one project is that project's own.</text><text class="g-s" x="725" y="484">It shows here as a box; what is inside it shows only in the project.</text>
+      </svg>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 16px; align-items: start">
+      <div class="bf-box"><h4>What moves when something above it moves</h4>
+        <div class="bf-r">
+          <span class="n">1</span><span>A new Core means a new Domain-Advice is due.<small>Core 4.3 is planned for 9 Nov, so version 3 follows on 21 Nov: 12 days.</small></span>
+          <span class="n">2</span><span>A new Domain-Advice is offered to each project, with that project's own gains carried over and its checks already run.<small>Nothing changes for a project until it decides. 2 projects will get the offer.</small></span>
+          <span class="n">3</span><span>A version stays in service for as long as a project runs on it.<small>Version 2 has no end date yet. It gets one when the last project has moved.</small></span>
+        </div></div>
+
+      <section class="kit-surface" aria-label="What each step added">
+        <div class="bf-h"><h3>What each step added</h3><span class="kit-small kit-muted">By kind · what it was trained on is never shown</span></div>
+        <div class="bf-t">
+          <span class="h">Step</span><span class="h">What it learned from</span><span class="h">TL Index after</span><span class="h">Cleared for use</span>
+          <span><b>Open-source base to Core 4.2</b><small>The foundation team</small></span><span>The Enterprise's own curated documents</span><span class="bf-n">81 ± 1</span><span>Recorded outside, 2 Sep</span>
+          <span><b>Core 4.2 to Domain-Advice v2</b><small>The foundation team</small></span><span>The Enterprise's advice conversations</span><span class="bf-n">84 ± 1<small>+3 · +8 on the Enterprise's own work</small></span><span>Recorded outside, 4 Oct</span>
+          <span><b>v2 to Advisor desktop's version</b><small>Started by the project</small></span><span>That project's own calls</span><span class="kit-muted">— Scored in the project</span><span>With increment 3, 4 Oct</span>
+        </div>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Versions in service">
+        <div class="bf-h"><h3>Versions of Domain-Advice</h3><span class="kit-small kit-muted">Which are in service, and who is on each</span></div>
+        <div class="bf-v">
+          <span class="h">Version</span><span class="h">Built on</span><span class="h">In service</span><span class="h">Who runs on it</span>
+          <span><b style="font-weight: 500">Version 3</b></span><span>Core 4.3</span><span>Planned 21 Nov<small>Scored on release</small></span><span class="kit-muted">— No one yet</span>
+          <span><b style="font-weight: 500">Version 2</b></span><span>Core 4.2</span><span>Since 5 Oct<small>No end date yet</small></span><span>2 projects, 3 features<small>1 of them on its own strengthened version</small></span>
+          <span><b style="font-weight: 500">Version 1</b></span><span>Core 4.1</span><span>14 Jul to 5 Oct<small>Retired</small></span><span>No one<small>Call summary moved off it on 5 Oct</small></span>
+        </div>
+      </section>
+      <div class="bf-box"><h4>What else stands on Core 4.2</h4>
+        <div class="bf-r" style="grid-template-columns: minmax(0, 1fr) auto">
+          <span>Distil 4.2<small>The lower-cost path, taught by Core</small></span><a href="Model-Catalogue.dc.html">Open</a>
+          <span>Chat answers, in Service chat assist<small>Client Service Tech · runs Core 4.2 directly, in Pilot</small></span><a href="#">Open</a>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">When Core 4.3 arrives these are due a look as well. Each shows it on its own page.</div></div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
