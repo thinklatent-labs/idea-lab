@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Traces in a project · one trace in full</title>
+<title>Traces in a project · a session as a collapsible tree</title>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="./kit.css">
 </head>
@@ -14,29 +14,52 @@
 <style>
 body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
 a{color:#1B5128}a:hover{color:#0C3F09}
-.tr-li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;padding:10px 12px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.08);font-size:13px;color:inherit;text-decoration:none}
-.tr-li.on{box-shadow:0 0 0 1.5px var(--companion)}
-.tr-li b{font-weight:500}
-.tr-li small{font-size:12px;color:rgba(26,26,26,.6)}
-.tr-fl{display:flex;gap:4px;flex-wrap:wrap;grid-column:1 / -1}
-.tr-fl span{font-size:11px;border-radius:999px;padding:2px 8px;background:rgba(26,26,26,.06)}
-.tr-fl span.w{box-shadow:0 0 0 1px var(--decision);background:transparent}
-.tr-kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 14px;font-size:13.5px;margin-top:12px}
-.tr-kv dt{color:rgba(26,26,26,.65)}
-.tr-kv dd{margin:0;font-variant-numeric:tabular-nums;text-align:right}
-.tr-src{font-size:11px;border-radius:999px;padding:2px 8px;background:rgba(26,26,26,.06);color:rgba(26,26,26,.75);white-space:nowrap}
-.tr-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.tr-h h3{margin:0;font-size:18px;font-weight:500}
-.tr-txt{border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 14px;font-size:13.5px;line-height:1.55;margin-top:10px}
-.tr-txt mark{background:rgba(63,138,114,.18);border-radius:4px;padding:0 3px;color:inherit}
-.tr-txt mark.s{background:transparent;box-shadow:0 0 0 1px var(--decision)}
-.tr-box{border-radius:22px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:16px 18px}
-.tr-sw{display:inline-flex;align-items:center;gap:10px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:8px 14px}
-.tr-sw i{display:block;width:38px;height:22px;border-radius:999px;background:rgba(26,26,26,.2);position:relative}
-.tr-sw i::after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff}
+.tx-row{display:grid;grid-template-columns:minmax(0,1fr) 104px 176px;gap:10px;align-items:center;padding:6px 8px;border-radius:10px;font-size:13px;min-height:22px}
+.tx-row.on{background:#fff;box-shadow:0 0 0 1.5px var(--companion)}
+.tx-row.turn{background:rgba(26,26,26,.05);font-weight:500;margin-top:4px}
+.tx-row.sess{background:#1A1A1A;color:#fff;font-weight:500}
+.tx-row.grp{color:rgba(26,26,26,.6);font-size:12px;padding-top:8px}
+.tx-n{display:flex;align-items:center;gap:7px;min-width:0}
+.tx-n .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tx-c{width:12px;flex:none;font-size:10px;opacity:.7;text-align:center}
+.tx-k{flex:none;font-size:10.5px;border-radius:6px;padding:1px 6px;background:rgba(26,26,26,.08)}
+.tx-k.gen{background:color-mix(in oklab,var(--cat1) 26%,transparent)}
+.tx-k.grd{background:color-mix(in oklab,var(--cat2) 26%,transparent)}
+.tx-k.tool{background:color-mix(in oklab,var(--cat3) 26%,transparent)}
+.tx-k.evl{background:color-mix(in oklab,var(--cat4) 26%,transparent)}
+.tx-k.evt{background:transparent;box-shadow:0 0 0 1px rgba(26,26,26,.3)}
+.tx-t{position:relative;height:10px;border-radius:999px;background:rgba(26,26,26,.06)}
+.tx-t i{position:absolute;top:0;bottom:0;min-width:3px;border-radius:999px;background:var(--companion)}
+.tx-t i.bg{background:rgba(26,26,26,.38)}
+.tx-t u{position:absolute;left:77.5%;top:-3px;bottom:-3px;border-left:1px dashed rgba(26,26,26,.6)}
+.tx-m{font-size:12px;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tx-w{box-shadow:0 0 0 1px var(--decision);border-radius:999px;padding:0 6px}
+.tx-sub{font-size:12px;color:rgba(26,26,26,.65);padding:0 8px 4px 0;font-variant-numeric:tabular-nums}
+.tx-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tx-tog{display:inline-flex;border-radius:999px;background:rgba(26,26,26,.06);padding:3px}
+.tx-tog span{font-size:13px;padding:5px 12px;border-radius:999px}
+.tx-tog span.on{background:#1A1A1A;color:#fff}
+.tx-chk{font-size:12.5px;display:inline-flex;gap:5px;align-items:center}
+.tx-chk i{width:13px;height:13px;border-radius:4px;background:var(--companion);display:inline-block}
+.tx-chk i.off{background:transparent;box-shadow:0 0 0 1.5px rgba(26,26,26,.4)}
+.tx-msg{border-radius:14px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:10px 12px;font-size:13.5px;line-height:1.55;margin-top:8px}
+.tx-msg .r{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:rgba(26,26,26,.6);display:flex;justify-content:space-between}
+.tx-msg mark{background:rgba(63,138,114,.18);border-radius:4px;padding:0 3px;color:inherit}
+.tx-msg mark.s{background:transparent;box-shadow:0 0 0 1px var(--decision)}
+.tx-kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 16px;font-size:13px;margin:10px 0 0}
+.tx-kv>div{min-width:0}
+.tx-kv dt{color:rgba(26,26,26,.62);font-size:11.5px}
+.tx-kv dd{margin:2px 0 0;font-variant-numeric:tabular-nums;line-height:1.4}
+.tx-kv.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tx-box{border-radius:18px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 14px}
+.tx-box h4{margin:0;font-size:14px;font-weight:500;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.tx-src{font-size:11px;border-radius:999px;padding:2px 8px;background:rgba(26,26,26,.06);color:rgba(26,26,26,.75);font-weight:400;white-space:nowrap}
+.tx-sw{display:inline-flex;align-items:center;gap:10px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:8px 14px}
+.tx-sw i{display:block;width:38px;height:22px;border-radius:999px;background:rgba(26,26,26,.2);position:relative}
+.tx-sw i::after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2120px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1780px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -63,17 +86,17 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
       <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
       <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
-      <button class="kit-btn outline" type="button">Call summary <span aria-hidden="true">▾</span></button>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
     </nav>
 
     <div class="kit-page-head">
       <div style="display: flex; flex-direction: column; gap: 8px">
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Traces</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">26k today</span><span class="kit-chip">3 flagged by the SRE agent</span><span class="kit-chip">147 thumbs down this week</span><span class="kit-chip">31 held by the guardrail</span></div>
-        <span class="kit-small kit-muted">One row a request. Open one to see everything recorded about it, and where each part comes from · As of 11:58 ET · sample data</span>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">Traces › session se-6bf2 › turn 4</span><span class="kit-chip brand">Production</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 warning in this session</span></div>
+        <span class="kit-small kit-muted">A session opens as a tree: its turns, and under each turn every step taken for it, during the answer and after. Open or close any level · sample data</span>
       </div>
       <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end">
-        <span class="tr-sw" role="switch" aria-checked="false" aria-label="Seal the text"><span class="kit-small">Text is visible</span><i aria-hidden="true"></i><span class="kit-small kit-muted">Seal the text</span></span>
+        <span class="tx-sw" role="switch" aria-checked="false" aria-label="Seal the text"><span class="kit-small">Text is visible</span><i aria-hidden="true"></i><span class="kit-small kit-muted">Seal the text</span></span>
         <span class="kit-small kit-muted">A switch for now. Later your IAM role decides.</span>
       </div>
     </div>
@@ -82,75 +105,77 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="true" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Sessions</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Training and data</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
     </div>
 
-    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center"><span class="kit-label">Filter</span><button class="kit-btn outline" type="button">Feature: Call summary ▾</button><button class="kit-btn outline" type="button">Outcome ▾</button><button class="kit-btn outline" type="button">Size in and out ▾</button><button class="kit-btn outline" type="button">About ▾</button><button class="kit-btn outline" type="button">Flags ▾</button><button class="kit-btn outline" type="button">Feedback ▾</button><button class="kit-btn outline" type="button">Score ▾</button><button class="kit-btn outline" type="button">Version ▾</button><button class="kit-btn outline" type="button">Today ▾</button></div>
+    <div class="tx-bar">
+      <a class="kit-btn outline" href="#">← All traces</a>
+      <span class="tx-tog" role="group" aria-label="View"><span class="on">Tree</span><span>Timeline</span><span>Graph</span><span>Log</span></span>
+      <span class="kit-label">Show</span>
+      <span class="tx-chk"><i></i>Numbers</span><span class="tx-chk"><i></i>Scores</span><span class="tx-chk"><i></i>Comments</span><span class="tx-chk"><i></i>Colour by kind</span><span class="tx-chk"><i class="off"></i>Engine detail</span>
+      <button class="kit-btn outline" type="button">Level: all ▾</button>
+      <button class="kit-btn outline" type="button">Find in this session</button>
+    </div>
 
-    <div style="display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 16px; align-items: start">
-      <section class="kit-surface" aria-label="Requests" style="display: flex; flex-direction: column; gap: 8px">
-        <div class="tr-h"><h3>Requests</h3><span class="kit-small kit-muted">Newest first</span></div>
-        <a class="tr-li on" href="#"><b>11:42:07 · Call summary</b><span class="kit-num">1.86 s</span><small>4,210 in → 312 out</small><small>Turn 3</small><span class="tr-fl"><span class="w">Thumb down</span><span>Edited before use</span><span>Under on completeness</span></span></a>
-        <a class="tr-li" href="#"><b>11:41:52 · Call summary</b><span class="kit-num">1.42 s</span><small>2,870 in → 268 out</small><small>Turn 1</small><span class="tr-fl"><span>Thumb up</span></span></a>
-        <a class="tr-li" href="#"><b>11:41:30 · Call summary</b><span class="kit-num">6.90 s</span><small>15,880 in → 1,940 out</small><small>Turn 1</small><span class="tr-fl"><span class="w">Flagged: size and time</span><span>Cut short at the limit</span></span></a>
-        <a class="tr-li" href="#"><b>11:41:11 · Call summary</b><span class="kit-num">1.51 s</span><small>3,340 in → 290 out</small><small>Turn 2</small><span class="tr-fl"><span class="w">Held by the guardrail</span></span></a>
-        <a class="tr-li" href="#"><b>11:40:58 · Call summary</b><span class="kit-num">1.38 s</span><small>3,010 in → 255 out</small><small>Turn 1</small><span class="tr-fl"><span class="w">New kind of request</span></span></a>
-        <a class="tr-li" href="#"><b>11:40:41 · Call summary</b><span class="kit-num">1.47 s</span><small>3,620 in → 301 out</small><small>Turn 4</small><span class="tr-fl"><span>No feedback yet</span></span></a>
-        <a class="tr-li" href="#"><b>11:40:20 · Call summary</b><span class="kit-num">1.33 s</span><small>2,540 in → 241 out</small><small>Turn 1</small><span class="tr-fl"><span>Thumb up</span><span>Used as written</span></span></a>
-        <a class="tr-li" href="#"><b>11:40:02 · Call summary</b><span class="kit-num">0.31 s</span><small>3,100 in → 0 out</small><small>Turn 1</small><span class="tr-fl"><span class="w">Timed out at the gateway</span></span></a>
-        <span class="kit-small kit-muted">8 of 26,104 · scroll for more</span>
+    <div style="display: grid; grid-template-columns: minmax(0, 1.16fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="The session as a tree" style="display: flex; flex-direction: column; gap: 2px">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px"><span class="kit-small kit-muted">The line on each bar marks when the answer went back; grey bars ran after it.</span><span style="display: flex; gap: 6px; flex: none"><button class="kit-btn outline" type="button">☆ Bookmark</button><button class="kit-btn outline" type="button">Open all</button><button class="kit-btn outline" type="button">Close all</button></span></div>
+        <div class="tx-row" style="font-size: 11.5px; color: rgba(26,26,26,.6); padding-bottom: 2px"><span>Step</span><span>On the clock</span><span style="text-align: right">Time · tokens · result</span></div>
+        <div class="tx-row sess"><span class="tx-n"><span class="tx-c">▾</span><span class="nm">Session se-6bf2 · an advice call</span></span><span style="font-size: 12px">11:14 to 11:42</span><span class="tx-m">4 turns · 11.9k → 742</span></div>
+
+        <div class="tx-row turn"><span class="tx-n" style="padding-left: 14px"><span class="tx-c">▸</span><span class="nm">Turn 1 · Next best action</span></span><span class="tx-t"><i style="left: 0; width: 38%"></i></span><span class="tx-m">0.92 s · 1,420 → 96 · up</span></div>
+        <div class="tx-row turn"><span class="tx-n" style="padding-left: 14px"><span class="tx-c">▸</span><span class="nm">Turn 2 · Next best action</span></span><span class="tx-t"><i style="left: 0; width: 43%"></i></span><span class="tx-m">1.04 s · 2,960 → 118 · up</span></div>
+        <div class="tx-row turn"><span class="tx-n" style="padding-left: 14px"><span class="tx-c">▸</span><span class="nm">Turn 3 · Next best action</span></span><span class="tx-t"><i style="left: 0; width: 45%"></i></span><span class="tx-m">1.08 s · 3,340 → 216</span></div>
+
+        <div class="tx-row turn"><span class="tx-n" style="padding-left: 14px"><span class="tx-c">▾</span><span class="nm">Turn 4 · Call summary</span></span><span class="tx-t"><i style="left: 0; width: 77.5%"></i><u></u></span><span class="tx-m">1.86 s · 4,210 → 312 · <span class="tx-w">down</span></span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 30px"><span class="tx-c"></span><span class="tx-k">span</span><span class="nm">Gateway and harness</span></span><span class="tx-t"><i style="left: 0; width: .5%"></i><u></u></span><span class="tx-m">12 ms · routed to replica 2</span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 30px"><span class="tx-c">▸</span><span class="tx-k grd">guardrail</span><span class="nm">Redaction on the way in</span></span><span class="tx-t"><i style="left: .5%; width: 2.5%"></i><u></u></span><span class="tx-m">60 ms · 2 removed</span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 30px"><span class="tx-c">▾</span><span class="tx-k">chain</span><span class="nm">Summarise the call</span></span><span class="tx-t"><i style="left: 3%; width: 72.9%"></i><u></u></span><span class="tx-m">1.75 s</span></div>
+        <div class="tx-row on"><span class="tx-n" style="padding-left: 46px"><span class="tx-c">▾</span><span class="tx-k gen">generation</span><span class="nm">Domain-Advice v2 answers</span></span><span class="tx-t"><i style="left: 3%; width: 72.5%"></i><u></u></span><span class="tx-m">1.74 s · 4,210 → 312</span></div>
+        <div class="tx-sub" style="padding-left: 74px">queue 40 ms · prefill 180 ms · first token at 0.26 s · decode 1.52 s · 205 tokens a second · finished: stop</div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 46px"><span class="tx-c"></span><span class="tx-k">span</span><span class="nm">Format the answer</span></span><span class="tx-t"><i style="left: 75.5%; width: .4%"></i><u></u></span><span class="tx-m">8 ms</span></div>
+
+        <div class="tx-row grp"><span class="tx-n" style="padding-left: 30px"><span class="tx-c">▾</span><span>After the answer went back · in the background</span></span><span></span><span></span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 46px"><span class="tx-c">▸</span><span class="tx-k grd">guardrail</span><span class="nm">Check on the answer</span></span><span class="tx-t"><i class="bg" style="left: 77.5%; width: 3.8%"></i><u></u></span><span class="tx-m">90 ms · pass</span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 46px"><span class="tx-c">▸</span><span class="tx-k tool">tool</span><span class="nm">Entities</span></span><span class="tx-t"><i class="bg" style="left: 77.5%; width: 4.6%"></i><u></u></span><span class="tx-m">110 ms · 11 found</span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 46px"><span class="tx-c">▸</span><span class="tx-k tool">tool</span><span class="nm">What it is about</span></span><span class="tx-t"><i class="bg" style="left: 77.5%; width: 1.9%"></i><u></u></span><span class="tx-m">45 ms · retirement income</span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 46px"><span class="tx-c">▸</span><span class="tx-k tool">tool</span><span class="nm">Seen in training, or new</span></span><span class="tx-t"><i class="bg" style="left: 77.5%; width: 1.3%"></i><u></u></span><span class="tx-m">30 ms · near</span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 46px"><span class="tx-c">▾</span><span class="tx-k evl">evaluator</span><span class="nm">Completeness judge</span></span><span class="tx-t"><i class="bg" style="left: 77.5%; width: 22.5%"></i><u></u></span><span class="tx-m">1.1 s · <span class="tx-w">0.74, under 0.80</span></span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 62px"><span class="tx-c"></span><span class="tx-k gen">generation</span><span class="nm">Judge model call</span></span><span class="tx-t"><i class="bg" style="left: 78%; width: 22%"></i><u></u></span><span class="tx-m">1.0 s · 4,640 → 88</span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 46px"><span class="tx-c">▸</span><span class="tx-k evl">evaluator</span><span class="nm">Faithfulness judge</span></span><span class="tx-t"><i class="bg" style="left: 77.5%; width: 22.5%"></i><u></u></span><span class="tx-m">1.0 s · 0.96, meets 0.92</span></div>
+
+        <div class="tx-row grp"><span class="tx-n" style="padding-left: 30px"><span class="tx-c">▾</span><span>Sent back by the application</span></span><span></span><span></span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 46px"><span class="tx-c"></span><span class="tx-k evt">event</span><span class="nm">The advisor edited the answer</span></span><span style="font-size: 12px; color: rgba(26,26,26,.6)">11:43:02</span><span class="tx-m">18% changed · then sent</span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 46px"><span class="tx-c"></span><span class="tx-k evt">event</span><span class="nm">Thumb for the turn</span></span><span style="font-size: 12px; color: rgba(26,26,26,.6)">11:43:10</span><span class="tx-m"><span class="tx-w">down · missed an action</span></span></div>
+        <div class="tx-row"><span class="tx-n" style="padding-left: 30px"><span class="tx-c"></span><span class="tx-k evt">event</span><span class="nm">Thumb for the session</span></span><span style="font-size: 12px; color: rgba(26,26,26,.6)">11:44:31</span><span class="tx-m">up</span></div>
+
+        <div class="kit-small kit-muted" style="margin-top: 10px">14 steps showing in turn 4, 4 more folded · 3 levels deep · 2 comments · kinds: span, chain, generation, guardrail, tool, evaluator, event. Agents, retrievers and embeddings get their own kind when a feature uses them.</div>
       </section>
 
-      <div style="display: flex; flex-direction: column; gap: 16px">
-        <section class="kit-surface" aria-label="This request">
-          <div class="tr-h"><div><div class="kit-caption">Turn 3 of session se-6bf2 · 11:42:07 ET</div><div style="font-size: 26px; margin-top: 2px">Call summary, answered in 1.86 s</div></div><div class="kit-actions"><a class="kit-btn outline" href="#">Open the session</a><a class="kit-btn outline" href="#">Open in the playground</a><a class="kit-btn outline" href="#">Add to the evaluation set</a><a class="kit-btn" href="#">Send to review</a></div></div>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px"><span class="kit-chip brand">Production</span><span class="kit-chip">Increment 3</span><span class="kit-chip">Outcome: ok</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">Thumb down</span><span class="kit-chip">Domain-Advice v2, trained for this project</span><span class="kit-chip">Harness on</span></div>
-          <div class="kit-small kit-muted" style="margin-top: 10px; font-family: ui-monospace, Menlo, monospace; font-size: 12px">trace 4f2a…91c0 · request cmpl-8be1…7d · session se-6bf2 · user u-71c9, as Relay sends it · application advisor-desktop 4.12.0 · Relay python 2.3.1 · key svc-advisor-prod</div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <section class="kit-surface" aria-label="The step that is open">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px"><div><div class="kit-caption">generation · turn 4 › Summarise the call</div><div style="font-size: 22px; margin-top: 2px">Domain-Advice v2 answers</div></div><div class="kit-actions"><a class="kit-btn outline" href="#">Score it by hand</a><a class="kit-btn outline" href="#">Open in the playground</a><a class="kit-btn" href="#">Add to the evaluation set</a></div></div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px"><span class="kit-chip">1.74 s</span><span class="kit-chip">4,210 → 312 tokens</span><span class="kit-chip">$[cost]</span><span class="kit-chip">Level: default</span><span class="kit-chip">Prompt "call-summary" v7</span><span class="kit-chip">Release 4.12</span></div>
+          <div class="tx-tog" role="tablist" aria-label="Detail" style="margin-top: 12px"><span class="on">Preview</span><span>JSON</span><span>All fields</span><span>Scores 2</span><span>Comments 2</span></div>
+
+          <div class="tx-msg"><div class="r"><span>System · 310 tokens · read from cache</span><span>▸ open</span></div>You write a short summary of an advice call for the advisor's record. List follow-up actions at the end…</div>
+          <div class="tx-msg"><div class="r"><span>User · the transcript · 3,900 tokens</span><span>▾ showing the first 60</span></div>Advisor: Good morning, <mark>Mr Alvarez</mark>. You wanted to look at income for when you retire in <mark>March 2029</mark>. Client: Yes. I have about <mark>$410,000</mark> in the <mark>Balanced Growth fund</mark>, account <mark class="s">[account number removed]</mark>, born <mark class="s">[date of birth removed]</mark>…</div>
+          <div class="tx-msg" style="box-shadow: 0 0 0 1.5px var(--companion)"><div class="r"><span>Assistant · the answer · 312 tokens · finished: stop</span><span>▾</span></div>Mr Alvarez plans to retire in March 2029 and asked how to draw income from about $410,000 in the Balanced Growth fund. The advisor explained two withdrawal options and their tax treatment. <b>Follow-up:</b> send the bond fund sheet.</div>
         </section>
 
-        <section class="kit-surface" aria-label="On the clock">
-          <div class="tr-h"><h3>On the clock</h3><span style="display: flex; gap: 6px"><span class="tr-src">Gateway</span><span class="tr-src">vLLM</span><span class="tr-src">Background</span></span></div>
-          <svg role="img" aria-label="The gateway took 12 milliseconds, the queue 40, prefill 180, and decoding 1.52 seconds; the first token came at 0.26 seconds and the answer was complete at 1.81 seconds. After the answer went back, the guardrail took 90 milliseconds, sensitive data 60, entities 110, classification 45, novelty 30, and the sampled judge 2.1 seconds." viewBox="0 0 900 250" style="width: 100%; height: auto; margin-top: 10px; font-family: Inter, system-ui, sans-serif">
-            <g font-size="12" fill="rgba(26,26,26,.7)"><text x="0" y="24">Gateway and harness</text><text x="0" y="50">Waiting in the queue</text><text x="0" y="76">Prefill (reading the request)</text><text x="0" y="102">Decode (writing the answer)</text><text x="0" y="140">Guardrail</text><text x="0" y="164">Sensitive data</text><text x="0" y="188">Entities</text><text x="0" y="212">Classification, novelty</text><text x="0" y="236">Judge (sampled)</text></g>
-            <line x1="200" y1="8" x2="200" y2="240" stroke="rgba(26,26,26,.15)"></line>
-            <line x1="561" y1="8" x2="561" y2="240" stroke="rgba(26,26,26,.6)" stroke-dasharray="4 3"></line>
-            <text x="566" y="18" font-size="12" fill="#1A1A1A">Answer went back, 1.81 s</text>
-            <g fill="var(--companion)"><rect x="200" y="14" width="3" height="14" rx="2"></rect><rect x="203" y="40" width="8" height="14" rx="2"></rect><rect x="211" y="66" width="36" height="14" rx="3"></rect><rect x="247" y="92" width="304" height="14" rx="4"></rect></g>
-            <circle cx="252" cy="99" r="5" fill="#fff" stroke="var(--companion)" stroke-width="2"></circle>
-            <g font-size="12" fill="#1A1A1A"><text x="208" y="25">12 ms</text><text x="216" y="51">40 ms</text><text x="252" y="77">180 ms</text><text x="262" y="121" fill="rgba(26,26,26,.65)">first token at 0.26 s</text><text x="446" y="87" fill="rgba(26,26,26,.65)">1.52 s · 205 tokens a second</text></g>
-            <g fill="rgba(26,26,26,.35)"><rect x="561" y="130" width="18" height="14" rx="3"></rect><rect x="561" y="154" width="12" height="14" rx="3"></rect><rect x="561" y="178" width="22" height="14" rx="3"></rect><rect x="561" y="202" width="15" height="14" rx="3"></rect><rect x="561" y="226" width="330" height="14" rx="4"></rect></g>
-            <g font-size="12" fill="#1A1A1A"><text x="585" y="141">90 ms · pass</text><text x="579" y="165">60 ms · 2 found, both redacted before the model</text><text x="589" y="189">110 ms · 11 entities</text><text x="582" y="213">75 ms · summarise, retirement income · near what it was trained on</text><text x="570" y="237" fill="#fff">2.1 s · completeness 0.74 · faithfulness 0.96</text></g>
-          </svg>
-        </section>
+        <section class="tx-box" aria-label="Recorded on this step"><h4>Recorded on this step <span class="tx-src">vLLM · gateway</span></h4>
+          <dl class="tx-kv"><div><dt>Model, as served</dt><dd>Domain-Advice v2, trained for this project</dd></div><div><dt>Settings</dt><dd>temp 0.2 · top p 0.9 · max 600</dd></div><div><dt>Tokens in · cached · out</dt><dd>4,210 · 310 · 312</dd></div><div><dt>Window used</dt><dd>4,522 of 32,768</dd></div><div><dt>Queue · prefill · decode</dt><dd>0.04 · 0.18 · 1.52 s</dd></div><div><dt>First token · between tokens</dt><dd>0.26 s · 4.9 ms</dd></div><div><dt>Endpoint · replica</dt><dd>advisor-desktop-prod · 2 of 3</dd></div><div><dt>Engine · weights</dt><dd>vLLM 0.26.0 · w-3c9e…a41</dd></div><div><dt>Request id</dt><dd>cmpl-8be1…7d</dd></div></dl></section>
 
-        <section class="kit-surface" aria-label="What was asked and what came back">
-          <div class="tr-h"><h3>What was asked, and what came back</h3><span style="display: flex; gap: 6px"><span class="tr-src">Content: hidden when sealed</span><span class="tr-src">Relay</span><span class="tr-src">vLLM</span></span></div>
-          <div style="display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 12px">
-            <div><div class="tr-txt"><span class="kit-caption">System instructions · prompt "call-summary" version 7 · 310 tokens · from cache</span><br>You write a short summary of an advice call for the advisor's record. List follow-up actions at the end…</div>
-              <div class="tr-txt"><span class="kit-caption">Request · the transcript · 3,900 tokens</span><br>Advisor: Good morning, <mark>Mr Alvarez</mark>. You wanted to look at income for when you retire in <mark>March 2029</mark>. Client: Yes. I have about <mark>$410,000</mark> in the <mark>Balanced Growth fund</mark>, account <mark class="s">[account number removed]</mark>, and I was born <mark class="s">[date of birth removed]</mark>… <span class="kit-muted">show all 3,900 tokens</span></div></div>
-            <div><div class="tr-txt"><span class="kit-caption">Answer · 312 tokens · finished: stop</span><br>Mr Alvarez plans to retire in March 2029 and asked how to draw income from about $410,000 in the Balanced Growth fund. The advisor explained two withdrawal options and their tax treatment. <b>Follow-up:</b> send the bond fund sheet.<br><span class="kit-muted">The advisor added before sending: "Book a review for March."</span></div>
-              <div class="tr-txt"><span class="kit-caption">Settings on the call</span><br><span class="kit-num">temperature 0.2 · top p 0.9 · max 600 tokens · stream on · seed none · output text · no tools</span></div></div>
-          </div>
-        </section>
+        <section class="tx-box" aria-label="Scores and comments"><h4>Scores and comments <span class="tx-src">Judge · people</span></h4>
+          <dl class="tx-kv"><div><dt>Completeness · standard judge v2</dt><dd><span class="tx-w">0.74 · under 0.80</span></dd></div><div><dt>Faithfulness · standard judge v2</dt><dd>0.96 · meets 0.92</dd></div><div><dt>By hand</dt><dd>None yet</dd></div></dl>
+          <div class="tx-msg" style="margin-top: 10px"><div class="r"><span>Priya N. · 11:52</span><span>on this step</span></div>The model suggested the March review itself in turn 3. Should the summary read the session, not only the transcript? @Arjun K.</div>
+          <div class="tx-msg"><div class="r"><span>Arjun K. · 11:56</span><span>reply</span></div>Yes. Adding the session's suggestions to the prompt; will test on the evaluation set.</div></section>
 
-        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
-          <section class="tr-box" aria-label="Tokens"><div class="tr-h"><h3>Tokens</h3><span class="tr-src">vLLM · harness</span></div>
-            <dl class="tr-kv"><dt>In</dt><dd>4,210</dd><dt>· system instructions</dt><dd>310</dd><dt>· the transcript</dt><dd>3,900</dd><dt>· history, retrieved, tools</dt><dd>0</dd><dt>Read from cache</dt><dd>310</dd><dt>Out</dt><dd>312</dd><dt>Window used</dt><dd>4,522 of 32,768</dd><dt>Size bucket, in → out</dt><dd>4k to 16k → 256 to 1k</dd><dt>Answer length for this size</dt><dd>Usual</dd></dl></section>
-          <section class="tr-box" aria-label="Time"><div class="tr-h"><h3>Time</h3><span class="tr-src">Relay · gateway · vLLM</span></div>
-            <dl class="tr-kv"><dt>As the application saw it</dt><dd>1.86 s</dd><dt>Gateway and harness</dt><dd>0.012 s</dd><dt>In the queue</dt><dd>0.040 s</dd><dt>First token</dt><dd>0.26 s</dd><dt>Prefill</dt><dd>0.18 s</dd><dt>Decode</dt><dd>1.52 s</dd><dt>Between tokens, typical</dt><dd>4.9 ms</dd><dt>Tokens a second</dt><dd>205</dd><dt>Service level</dt><dd>2.5 s · met</dd></dl></section>
-          <section class="tr-box" aria-label="Where it ran"><div class="tr-h"><h3>Where it ran</h3><span class="tr-src">Gateway</span></div>
-            <dl class="tr-kv"><dt>Endpoint</dt><dd>advisor-desktop-prod</dd><dt>Kind</dt><dd>Dedicated</dd><dt>Replica</dt><dd>2 of 3</dd><dt>Why this one</dt><dd>Least loaded</dd><dt>Machine</dt><dd>1 GPU</dd><dt>Engine</dt><dd>vLLM 0.26.0</dd><dt>Weights</dt><dd>w-3c9e…a41</dd><dt>Running, waiting then</dt><dd>7 · 1</dd><dt>Retries</dt><dd>0</dd></dl></section>
-        </div>
-
-        <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 12px">
-          <section class="tr-box" aria-label="What it was about"><div class="tr-h"><h3>What it was about</h3><span class="tr-src">Background · redaction runs today, the rest is to build</span></div>
-            <dl class="tr-kv"><dt>Task · topic</dt><dd>Summarise · retirement income (0.93)</dd><dt>Business line · product</dt><dd>Retail advice · Balanced Growth fund</dd><dt>Entities</dt><dd>Person 2 · fund 3 · amount 4 · date 2</dd><dt>Sensitive data found</dt><dd>2: account number, date of birth</dd><dt>Removed before the model</dt><dd>2 of 2</dd><dt>Reached the model or the answer</dt><dd>No</dd><dt>Seen in training</dt><dd>Near (distance 0.31)</dd><dt>Guardrail, in the background</dt><dd>Pass · 5 categories checked</dd><dt>Misuse or an attempt to override</dt><dd>None</dd><dt>Language</dt><dd>English</dd></dl></section>
-          <section class="tr-box" aria-label="Quality and feedback"><div class="tr-h"><h3>Quality and feedback</h3><span class="tr-src">Judge · application</span></div>
-            <dl class="tr-kv"><dt>Completeness, standard judge v2</dt><dd>0.74 · expected 0.80 · under</dd><dt>Faithfulness, standard judge v2</dt><dd>0.96 · expected 0.92 · meets</dd><dt>Thumb, this turn</dt><dd>Down · "missed an action"</dd><dt>Edited before use</dt><dd>Yes · 18% changed</dd><dt>What happened to it</dt><dd>Sent after the edit</dd><dt>Time to act</dt><dd>41 s</dd><dt>Thumb, the session</dt><dd>Up</dd><dt>Cost of this turn</dt><dd>$[cost] · share of machine-hours</dd></dl></section>
-        </div>
+        <section class="tx-box" aria-label="The turn this step belongs to"><h4>The turn it belongs to <span class="tx-src">Background · application</span></h4>
+          <dl class="tx-kv"><div><dt>About</dt><dd>Summarise · retirement income</dd></div><div><dt>Entities</dt><dd>Person 2 · fund 3 · amount 4 · date 2</dd></div><div><dt>Sensitive data</dt><dd>2 found · 2 removed · none exposed</dd></div><div><dt>Seen in training</dt><dd>Near (0.31)</dd></div><div><dt>Guardrail</dt><dd>Pass · 5 categories</dd></div><div><dt>Service level</dt><dd>2.5 s · met</dd></div><div><dt>Thumb, this turn</dt><dd>Down · missed an action</dd></div><div><dt>Edited before use</dt><dd>Yes · 18% changed</dd></div><div><dt>What happened to it</dt><dd>Sent after the edit · 41 s</dd></div></dl></section>
       </div>
     </div>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2120}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1780}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
