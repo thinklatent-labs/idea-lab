@@ -60,7 +60,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .sh-w{box-shadow:0 0 0 1px var(--decision);border-radius:999px;padding:0 7px}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3040px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3050px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -149,7 +149,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
             <span class="sh-tag">Stay on the call</span><span>Use only what was said in this session. <span class="kit-muted">Measured as: nothing made up.</span></span>
           </div></div>
         <div class="kit-small">Still missing: the level you expect on each. From the Pilot so far we would propose 85%, 95%, 90% and 92%.</div>
-        <div class="sh-ag"><span class="chip">Self-healing agent</span><span>Rests on your text and a sample of 4,900 Pilot requests</span><span>Sure: 0.82</span><a href="#">See what it rests on</a></div>
+        <div class="sh-ag"><span class="chip">Self-healing agent</span><span>Rests on your text and 38k Pilot requests since 28 Oct</span><span>Sure: 0.82</span><a href="#">See what it rests on</a></div>
         <div class="kit-actions"><a class="kit-btn" href="#">Yes, that is what we need</a><a class="kit-btn outline" href="#">Change it</a><a class="kit-btn outline" href="#">Talk it through with Jarvis</a></div>
       </section>
 
@@ -164,14 +164,14 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div class="sh-ex"><small>se-6b02 · turn 4 · 2 Nov</small><span>On the call: $20,000 to bonds and $5,000 to cash. In the summary: the two amounts swapped.</span><a href="#">Open in Traces</a></div>
         </div>
         <div class="kit-small kit-muted">Related: the deviation on Numbers and calculations (76 ± 2 against 78) was accepted on 2 Oct because summaries only quote figures. This gap is about quoted figures.</div>
-        <div class="sh-ag"><span class="chip">Self-healing agent</span><span>Rests on 2,600 scored requests in 7 days and 23 thumbs down that gave "wrong figure"</span><span>Sure: 0.79</span><a href="#">See what it rests on</a></div>
+        <div class="sh-ag"><span class="chip">Self-healing agent</span><span>Rests on 182k scored requests in 7 days and 23 thumbs down that gave "wrong figure"</span><span>Sure: 0.79</span><a href="#">See what it rests on</a></div>
         <div class="kit-actions"><a class="kit-btn" href="#">Yes, a real gap</a><a class="kit-btn outline" href="#">Not a gap, and why</a><a class="kit-btn outline" href="#">Show me more</a></div>
         <div class="kit-small kit-muted" style="line-height: 1.5">If you say it is not a gap, nothing is built for it and your reason goes back to tune how self-healing reads this requirement. If you confirm it, one thing is asked of you before it can lead to training: score 50 summaries by hand, once, so we both know how far to trust the scoring. <a href="#">Start the hand scoring</a></div>
       </section>
     </div>
 
     <section class="kit-surface" aria-label="Call summary: requirements and today's model">
-      <div class="sh-h"><h3>Call summary · what you asked for, and today's model against it</h3><span class="kit-small kit-muted">Scored by self-healing on a sample of production: 2,600 requests in the last 7 days. ± is the interval. The mark on each bar is what you expect. Its scoring counts only once it agrees with 50 answers you scored by hand.</span></div>
+      <div class="sh-h"><h3>Call summary · what you asked for, and today's model against it</h3><span class="kit-small kit-muted">Scored by self-healing on every production request: 182k in the last 7 days. ± is how far it moved from day to day. The mark on each bar is what you expect. Its scoring counts only once it agrees with 50 answers you scored by hand.</span></div>
       <div class="sh-req" style="margin-top: 8px">
         <span class="hd">Your requirement, in your words</span><span class="hd">We read it as</span><span class="hd">Expected</span><span class="hd">Today, in production</span><span class="hd">On your evaluation set</span><span class="hd">Where it stands</span><span class="hd">Self-healing</span>
 
@@ -250,7 +250,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3040}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3050}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
