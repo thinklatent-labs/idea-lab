@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A task model's page · Speech recognition</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.sp-bl{display:grid;grid-template-columns:minmax(0,1fr) 190px 80px 150px;gap:14px;align-items:center}
+.sp-use{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) 80px 110px;gap:14px;align-items:center}
+.sp-mark{position:relative;display:block;width:96px;height:18px;flex:none}
+.sp-mark .ln{position:absolute;left:0;right:0;top:8px;height:1px;background:rgba(26,26,26,.2)}
+.sp-mark .pt{position:absolute;top:5px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--companion)}
+.sp-mark .bar{position:absolute;top:0;bottom:0;border-left:1px dashed rgba(26,26,26,.7)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1420px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Team-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">All models <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">TLM1 <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Speech recognition <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Version 6 · live <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Speech recognition</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Live</span><span class="kit-chip">TLM1 · Speech</span><span class="kit-chip">Runs by business line</span><span class="kit-chip">Over its bar</span></div>
+        <span class="kit-small kit-muted">Turns every call into text. A task model: it is measured by word error rate, not on the TL Index · As of 11:58 ET · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Tokens processed today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">1.9B <span style="font-size: 18px">in</span> <span aria-hidden="true" style="font-size: 24px">→</span> 96M <span style="font-size: 18px">out</span></span><span class="kit-small kit-muted">Audio counted as tokens in · text as tokens out</span></div>
+        <div class="kit-actions"><a class="kit-btn" href="#">Use it in a project</a><a class="kit-btn outline" href="#">Follow</a></div>
+      </div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Model pages">
+      <button role="tab" aria-selected="true" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Improvement</button><button role="tab" aria-selected="false" type="button">By business line</button><button role="tab" aria-selected="false" type="button">Usage</button><button role="tab" aria-selected="false" type="button">Adoption</button><button role="tab" aria-selected="false" type="button">Cost avoided</button><button role="tab" aria-selected="false" type="button">Speech leaderboard</button><button role="tab" aria-selected="false" type="button">Built from</button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Word error rate</span><span class="kit-display" style="font-size: 40px">6.8%</span><span class="kit-small kit-muted">Its bar: 8% or lower · lower is better</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Calls today</span><span class="kit-display" style="font-size: 40px">154k</span><span class="kit-small kit-muted">Across 4 business lines</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Used in</span><span class="kit-display" style="font-size: 40px">2 <span style="font-size: 18px">projects</span></span><span class="kit-small kit-muted">2 features · 3 more read its text</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Improved since version 3</span><span class="kit-display" style="font-size: 40px">4.4 <span style="font-size: 18px">points</span></span><span class="kit-small kit-muted">From 11.2% to 6.8% over three versions</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Cost avoided, 30 days</span><span class="kit-display" style="font-size: 40px">$[avoided]</span><span class="kit-small kit-muted">Spend $[spend]</span></a>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Word error rate by version">
+        <div class="kit-section-title" style="margin-top: 0"><h2>Improvement by version</h2><span class="sub">Word error rate · lower is better</span></div>
+        <svg role="img" aria-label="Word error rate fell from 11.2 percent on version 3 to 9.1 on version 4, 7.6 on version 5 and 6.8 on version 6. It has been under its bar of 8 percent since version 5." viewBox="0 0 700 300" style="width: 100%; height: auto; margin-top: 8px; font-family: Inter, system-ui, sans-serif">
+          <g stroke="rgba(26,26,26,.1)" stroke-width="1"><line x1="50" y1="30" x2="600" y2="30"></line><line x1="50" y1="250" x2="600" y2="250"></line></g>
+          <g font-size="13" fill="rgba(26,26,26,.6)"><text x="8" y="34">12%</text><text x="14" y="144">8%</text><text x="14" y="254">4%</text><text x="64" y="278">Version 3</text><text x="224" y="278">Version 4</text><text x="384" y="278">Version 5</text><text x="544" y="278">Version 6</text></g>
+          <rect x="50" y="140" width="550" height="110" fill="var(--companion)" opacity=".07"></rect>
+          <line x1="50" y1="140" x2="600" y2="140" stroke="rgba(26,26,26,.75)" stroke-width="1" stroke-dasharray="5 4"></line>
+          <text x="606" y="144" font-size="13" fill="#1A1A1A">Bar 8%</text>
+          <polyline points="90,52 250,110 410,151 570,173" fill="none" stroke="var(--companion)" stroke-width="3" stroke-linejoin="round"></polyline>
+          <g fill="var(--companion)"><circle cx="90" cy="52" r="5"></circle><circle cx="250" cy="110" r="5"></circle><circle cx="410" cy="151" r="5"></circle><circle cx="570" cy="173" r="6"></circle></g>
+          <g font-size="14" fill="#1A1A1A"><text x="100" y="48">11.2%</text><text x="260" y="104">9.1%</text><text x="420" y="145">7.6%</text><text x="548" y="198" font-weight="600">6.8%</text></g>
+        </svg>
+        <span class="kit-small kit-muted">Measured on the same held-out calls for every version. The shaded band is at or under the bar.</span>
+      </section>
+
+      <section class="kit-surface" aria-label="Word error rate by business line">
+        <div class="kit-section-title" style="margin-top: 0"><h2>By business line</h2><span class="sub">The model runs by business line · the dashed line is its bar, right of it is better</span></div>
+        <div class="sp-bl kit-label" style="padding: 14px 14px 8px"><span>Business line</span><span>Word error rate</span><span>Calls today</span><span>Tokens today</span></div>
+        <div class="kit-rows">
+          <div class="kit-row sp-bl"><div><div class="t">Retail advice</div><div class="s">Read by Call summary in Advisor desktop</div></div><div style="display: flex; align-items: center; gap: 10px"><span class="kit-num" style="min-width: 44px">6.1%</span><span class="sp-mark" role="img" aria-label="6.1 percent, better than the bar of 8 percent"><span class="ln"></span><span class="pt" style="left: 74%"></span><span class="bar" style="left: 50%"></span></span></div><div class="kit-num">58k</div><div class="kit-num">0.72B in · 36M out</div></div>
+          <div class="kit-row sp-bl"><div><div class="t">Retail service</div><div class="s">Service and account calls</div></div><div style="display: flex; align-items: center; gap: 10px"><span class="kit-num" style="min-width: 44px">6.9%</span><span class="sp-mark" role="img" aria-label="6.9 percent, better than the bar of 8 percent"><span class="ln"></span><span class="pt" style="left: 64%"></span><span class="bar" style="left: 50%"></span></span></div><div class="kit-num">49k</div><div class="kit-num">0.60B in · 31M out</div></div>
+          <div class="kit-row sp-bl"><div><div class="t">Claims</div><div class="s">Read by Claims triage in Claims intake</div></div><div style="display: flex; align-items: center; gap: 10px"><span class="kit-num" style="min-width: 44px">7.4%</span><span class="sp-mark" role="img" aria-label="7.4 percent, better than the bar of 8 percent"><span class="ln"></span><span class="pt" style="left: 57%"></span><span class="bar" style="left: 50%"></span></span></div><div class="kit-num">31k</div><div class="kit-num">0.38B in · 19M out</div></div>
+          <div class="kit-row sp-bl"><div><div class="t">Institutional</div><div class="s">Longer calls, more product terms</div></div><div><div style="display: flex; align-items: center; gap: 10px"><span class="kit-num" style="min-width: 44px">7.9%</span><span class="sp-mark" role="img" aria-label="7.9 percent, just better than the bar of 8 percent"><span class="ln"></span><span class="pt" style="left: 51%"></span><span class="bar" style="left: 50%"></span></span></div><span class="kit-status warning" style="margin-top: 4px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Close to its bar</span></span></div><div class="kit-num">16k</div><div class="kit-num">0.20B in · 10M out</div></div>
+        </div>
+        <span class="kit-small kit-muted" style="display: block; margin-top: 10px">All four lines: 154k calls, 1.9B tokens in, 96M out, word error rate 6.8%.</span>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Where it is used">
+        <div class="kit-section-title" style="margin-top: 0"><h2>Where it is used</h2><span class="sub">Its job in each feature · a row opens the project</span></div>
+        <div class="sp-use kit-label" style="padding: 14px 14px 8px"><span>Project and feature</span><span>Its job there</span><span>Calls today</span><span>Stage</span></div>
+        <div class="kit-rows">
+          <a class="kit-row sp-use" href="#" style="color: inherit; text-decoration: none"><div><div class="t">Call processing · Every call to text</div><div class="s">Enterprise services · Platform · one project for the whole Enterprise</div></div><div class="kit-small">Transcribes every call, once</div><div class="kit-num">154k</div><div><span class="kit-chip brand">Production</span></div></a>
+          <a class="kit-row sp-use" href="Project-Page.dc.html" style="color: inherit; text-decoration: none"><div><div class="t">Advisor desktop · Speech to text</div><div class="s">Retail Business · Advice Tech · Increment 5</div></div><div class="kit-small">Dictation inside the advisor's screen</div><div class="s">Not live</div><div><span class="kit-chip outline">Build</span></div></a>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What reads its text">
+        <div class="kit-section-title" style="margin-top: 0"><h2>What reads its text</h2><span class="sub">Models and features that start from a transcript</span></div>
+        <div class="kit-rows" style="margin-top: 12px">
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto"><div><div class="t">Redaction</div><div class="s">TLM1 · removes sensitive data from every transcript</div></div><span class="kit-num">154k</span></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto"><div><div class="t">Call classification</div><div class="s">TLM1 · sorts every call by reason</div></div><span class="kit-num">154k</span></div>
+          <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto"><div><div class="t">Call summary, in Advisor desktop</div><div class="s">TLM4 Domain-Advice writes from the transcript</div></div><span class="kit-num">26k</span></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1440}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
