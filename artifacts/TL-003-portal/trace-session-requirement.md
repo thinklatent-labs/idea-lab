@@ -408,7 +408,7 @@ To add to the team's schema: the organization, team, feature and increment ids; 
 - The user id is whatever each application passes to Relay. If two applications name the same person differently, the portal counts two users; whether that matters is for AI engineering to say.
 - Size bucket edges are a proposal; they should be set from real traffic.
 - Storing log probabilities for every request is expensive. Proposal: keep the summary always, the full detail for a sample.
-- The team's store is Langfuse-compatible, so the columns in section 7 should exist. Whether each is filled today is not known here: step type, level, status message, version, prompt id and the judge's own trace are the ones most often left empty. AI engineering should say which are.
+- The team's store is Langfuse-compatible, so the columns in section 7 should exist. Whether each is filled today is not known here. The ones to look at first are those that only the caller or a background job can set: step type, name, level, status message, version, prompt id and the judge's own trace. AI engineering should say which are filled.
 - Section 7 follows Langfuse's export reference as read on 12 Nov. The team runs a modified Langfuse; if its version is older, some columns (the pricing tier, the tool call columns) may not exist yet.
 - Of the four views in section 9, only the tree is drawn. Timeline, Graph and Log are named, not designed.
 
