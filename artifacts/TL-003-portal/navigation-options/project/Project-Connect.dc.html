@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Connect: how a project's application calls its models</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;background:rgba(26,26,26,.06);border-radius:6px;padding:1px 6px;white-space:nowrap}
+.cn-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.cn-h h3{margin:0;font-size:18px;font-weight:500}
+.cn-call{display:grid;grid-template-columns:400px minmax(0,1fr);gap:18px;margin-top:14px;align-items:start}
+.cn-f{border-radius:18px;padding:12px 14px;background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(26,26,26,.08);font-size:13px;line-height:1.45}
+.cn-f.on{box-shadow:0 0 0 2px #1A1A1A;background:#fff}
+.cn-f .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.cn-f b{font-size:15px;font-weight:500}
+.cn-f dl{display:grid;grid-template-columns:92px minmax(0,1fr);gap:4px 10px;margin:8px 0 0;font-size:12.5px}
+.cn-f dt{color:rgba(26,26,26,.6)}.cn-f dd{margin:0}
+.cn-code{margin-top:10px;font-size:12.5px;line-height:1.7;border-radius:18px;padding:16px 18px}
+.cn-code .c{color:#8FA39A}.cn-code .s{color:#B9E3B0}.cn-code .r{color:#F0C9A0}
+.cn-t{display:grid;grid-template-columns:104px 96px minmax(0,1fr) 168px;font-size:13px;line-height:1.45;margin-top:10px}
+.cn-t>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.cn-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.cn-t .sep{grid-column:1/-1;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.6);padding-top:14px;border-top:1px solid rgba(26,26,26,.1)}
+.cn-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.cn-need{font-size:12px;font-weight:500}
+.cn-need.req{color:#1A1A1A}.cn-need.ask{color:rgba(26,26,26,.65)}
+.cn-arr{display:flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums;font-size:12.5px}
+.cn-arr i{display:block;flex:none;width:64px;height:6px;border-radius:3px;background:rgba(26,26,26,.1);position:relative;overflow:hidden}
+.cn-arr i b{position:absolute;left:0;top:0;bottom:0;background:var(--companion);border-radius:3px}
+.cn-in{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.cn-in h4{margin:0;font-size:15px;font-weight:500}
+.cn-in dl{display:grid;grid-template-columns:118px minmax(0,1fr);gap:6px 12px;margin:10px 0 0;font-size:13px;line-height:1.45}
+.cn-in dt{color:rgba(26,26,26,.6)}.cn-in dd{margin:0}
+.cn-ck{display:grid;grid-template-columns:20px minmax(0,1fr);gap:7px 9px;margin-top:10px;font-size:13px;line-height:1.45}
+.cn-ck svg{width:16px;height:16px;margin-top:2px;color:var(--companion)}
+.cn-ck small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.cn-l{display:grid;grid-template-columns:70px minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.4;margin-top:8px}
+.cn-l>*{padding:9px 10px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.cn-l .d{font-size:12px;color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums}
+.cn-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.cn-e{display:grid;grid-template-columns:minmax(0,1.05fr) 44px minmax(0,1.2fr);font-size:12.5px;line-height:1.4;margin-top:8px}
+.cn-e>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.cn-e .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.cn-e .n{font-variant-numeric:tabular-nums;text-align:right}
+.cn-lim{margin-top:12px;font-size:13px;line-height:1.45}
+.cn-lim b{font-weight:500}
+.cn-lim .bar{height:8px;border-radius:4px;background:rgba(26,26,26,.1);position:relative;margin:8px 0 4px}
+.cn-lim .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:var(--companion)}
+.cn-lim small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.cn-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.cn-box h4{margin:0;font-size:15px;font-weight:500}
+.cn-st{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+.cn-st>*{display:block;border-radius:16px;background:rgba(26,26,26,.04);padding:12px 14px;font-size:13px;line-height:1.45;color:inherit;text-decoration:none}
+.cn-st b{display:block;font-weight:500;font-size:14px;margin-bottom:2px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2790px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Organization-Page.dc.html">Retail Business <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Team-Page.dc.html">Advice Tech <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn" href="Project-Page.dc.html">Advisor desktop <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Connect</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">3 of 3 features calling</span><span class="kit-chip">Registered for Pilot and Production</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">18 calls refused today</span></div>
+        <span class="kit-small kit-muted">What the application needs to call the models, and whether its calls arrive as they should. For whoever connects the application; on this project that is Lena W. · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Send a test call</a><a class="kit-btn outline" href="Jarvis-Ask.dc.html">Ask Jarvis how to connect</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <a role="tab" aria-selected="false" href="Project-Page.dc.html">Overview</a><a role="tab" aria-selected="false" href="Project-Plan.dc.html">Plan</a><a role="tab" aria-selected="false" href="Project-Features.dc.html">Features</a><a role="tab" aria-selected="true" href="Project-Connect.dc.html">Connect</a><a role="tab" aria-selected="false" href="Project-Traces.dc.html">Traces</a><a role="tab" aria-selected="false" href="Project-Operations.dc.html">Operations</a><a role="tab" aria-selected="false" href="Project-Quality.dc.html">Quality</a><a role="tab" aria-selected="false" href="Project-SelfHealing.dc.html">Self-healing and training</a><a role="tab" aria-selected="false" href="Project-Increments.dc.html">Increments</a><a role="tab" aria-selected="false" href="Project-Members.dc.html">Members</a>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <a class="kit-surface" href="Project-Traces.dc.html" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Requests today</span><span class="kit-display" style="font-size: 40px">31.2k</span><span class="kit-small kit-muted">Pilot and Production 31,104 · lower environment 140</span></a>
+      <a class="kit-surface" href="#" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Refused today</span><span class="kit-display" style="font-size: 40px">18</span><span class="kit-small kit-muted">All in the lower environment: "nba" is not a feature of this project</span></a>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Sent with a session, 7 days</span><span class="kit-display" style="font-size: 40px">97%</span><span class="kit-small kit-muted">Relay opened a session of its own for the other 3%</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Sessions with an outcome, 7 days</span><span class="kit-display" style="font-size: 40px">71%</span><span class="kit-small kit-muted">What the application recorded at the end of the call</span></div>
+      <a class="kit-surface" href="Feature-Page.dc.html" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Thumbs sent, this week</span><span class="kit-display" style="font-size: 40px">1,840</span><span class="kit-small kit-muted">From advisors, on Call summary · 92% up</span></a>
+    </div>
+
+    <section class="kit-surface raised" aria-label="How to call each feature">
+      <div class="cn-h"><h3>Call it</h3><span class="kit-small kit-muted">Pick a feature and the sample fills in its names · an endpoint is one model; the application puts the steps together</span></div>
+      <div class="cn-call">
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <div class="cn-f on">
+            <div class="top"><b>Call summary</b><span class="kit-chip brand">Production</span></div>
+            <dl>
+              <dt>Endpoint</dt><dd><code>advisor-desktop-prod</code> · your own</dd>
+              <dt>Feature id</dt><dd><code>call-summary</code></dd>
+              <dt>Each request</dt><dd>One call: Domain-Advice writes the summary</dd>
+              <dt>Today</dt><dd>26k requests · the latest at 11:58:07</dd>
+              <dt>First call</dt><dd>7 Aug, in the lower environment</dd>
+            </dl>
+          </div>
+          <div class="cn-f">
+            <div class="top"><b>Next best action</b><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">Pilot</span></div>
+            <dl>
+              <dt>Endpoints</dt><dd><code>embedding-v2</code> then <code>decision-adapter-v1</code> then <code>advisor-desktop-prod</code></dd>
+              <dt>Feature id</dt><dd><code>next-best-action</code></dd>
+              <dt>Each request</dt><dd>Three calls, in that order; the application hands each answer to the next</dd>
+              <dt>Today</dt><dd>5k requests · the latest at 11:57:52</dd>
+            </dl>
+          </div>
+          <div class="cn-f">
+            <div class="top"><b>Speech to text</b><span class="kit-chip">Build · lower environment</span></div>
+            <dl>
+              <dt>Endpoint</dt><dd><code>speech-recognition-v6</code> · shared test, called by the model's name</dd>
+              <dt>Feature id</dt><dd><code>speech-to-text</code></dd>
+              <dt>Each request</dt><dd>One call for each stretch of audio</dd>
+              <dt>Today</dt><dd>140 test requests · the latest at 11:52:40</dd>
+            </dl>
+          </div>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: center">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-seg" role="group" aria-label="Language"><button type="button" aria-pressed="true">Python</button><button type="button" aria-pressed="false">Node</button><button type="button" aria-pressed="false">curl</button></span><span class="kit-seg" role="group" aria-label="Environment"><button type="button" aria-pressed="true">Production</button><button type="button" aria-pressed="false">Lower environment</button></span></div>
+            <div style="display: flex; gap: 8px"><a class="kit-btn outline sm" href="#">Copy</a><a class="kit-btn outline sm" href="Project-Traces.dc.html">See a call like this in Traces</a></div>
+          </div>
+<pre class="kit-code cn-code" aria-label="Sample call for Call summary, in Python"><span class="c"># Call summary · Production</span>
+from relay import Relay
+
+relay = Relay()   <span class="c"># signs in as the registered application · nothing secret in the code</span>
+
+answer = relay.chat.completions.create(
+    model=<span class="s">"advisor-desktop-prod"</span>,    <span class="c"># your endpoint · you never name a version</span>
+    project=<span class="s">"advisor-desktop"</span>,       <span class="r"># required</span>
+    feature=<span class="s">"call-summary"</span>,          <span class="r"># required</span>
+    session=call_id,                 <span class="c"># one advice call is one session</span>
+    user=advisor_ref,                <span class="c"># an id you choose · never a name</span>
+    messages=[{<span class="s">"role"</span>: <span class="s">"user"</span>, <span class="s">"content"</span>: transcript}],
+)
+
+<span class="c"># afterwards, so the feature is judged on what happened</span>
+relay.feedback.create(request=answer.id, thumb=<span class="s">"down"</span>, reason=<span class="s">"missed an action"</span>)
+relay.outcomes.create(session=call_id, outcome=<span class="s">"follow-up booked"</span>)</pre>
+          <div class="kit-small kit-muted" style="margin-top: 8px">The shape of a call, in the OpenAI style the Relay package follows. The exact field names are still to be confirmed with ThinkLatent AI engineering. In the lower environment two things change: the model's name stands in for the endpoint, and the package is given a key.</div>
+          <div class="cn-in" style="margin-top: 12px">
+            <div class="cn-h"><h4>What comes back</h4><span class="kit-small kit-muted">The same request, as it arrived at 11:58:07 · <a href="Project-Traces.dc.html">open it in Traces</a></span></div>
+            <dl style="grid-template-columns: 96px minmax(0, 1fr) 96px minmax(0, 1fr)">
+              <dt>Request</dt><dd><code>rq-91c4…e07</code> · keep it for the thumb</dd>
+              <dt>Session</dt><dd><code>se-6bf2</code> · turn 4</dd>
+              <dt>How it ended</dt><dd><code>stop</code> · it reads <code>length</code> when cut short</dd>
+              <dt>Tokens</dt><dd>4,210 in · 312 out</dd>
+              <dt>Time</dt><dd>1.74 s · the first words after 0.26 s</dd>
+              <dt>Served by</dt><dd>Domain-Advice v2 · replica 2 of 3</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="What every call carries">
+        <div class="cn-h"><h3>What every call carries</h3><span class="kit-small kit-muted">And what each one gives you back · arriving over the last 7 days</span></div>
+        <div class="cn-t">
+          <span class="h">Sent as</span><span class="h">Needed</span><span class="h">What it gives you</span><span class="h">Arriving</span>
+          <span><code>model</code></span><span class="cn-need req">Required</span><span>Where the call goes<small>Your endpoint in Pilot and Production; the model's name on a shared test endpoint</small></span><span class="cn-arr"><i><b style="width: 100%"></b></i>100%</span>
+          <span><code>project</code></span><span class="cn-need req">Required</span><span>Puts the call in this project<small>Its traces, its cost, and only its members' eyes</small></span><span class="cn-arr"><i><b style="width: 100%"></b></i>100%</span>
+          <span><code>feature</code></span><span class="cn-need req">Required</span><span>Puts it on the feature's own page<small>Its measures, its thumbs, its cost avoided</small></span><span class="cn-arr"><i><b style="width: 100%"></b></i>100%</span>
+          <span><code>session</code></span><span class="cn-need ask">Asked for</span><span>Groups the turns of one piece of work<small>Traces reads them as one conversation. Relay opens a session of its own when none is sent</small></span><span class="cn-arr"><i><b style="width: 97%"></b></i>97%</span>
+          <span><code>user</code></span><span class="cn-need ask">Asked for</span><span>An id you choose, never a name<small>Gives "this user's sessions" and the count of people using a feature</small></span><span class="cn-arr"><i><b style="width: 99%"></b></i>99%</span>
+          <span><code>release</code></span><span class="cn-need ask">Optional</span><span>Your application's version<small>To compare before and after one of your own releases</small></span><span class="cn-arr"><i><b style="width: 100%"></b></i>100%</span>
+          <span class="sep">After the answer</span>
+          <span><code>feedback</code></span><span class="cn-need ask">Asked for</span><span>The user's thumb and, when it is down, the reason<small>Shown on the feature's page and read by self-healing</small></span><span class="cn-arr">1,840 this week</span>
+          <span><code>outcome</code></span><span class="cn-need ask">Asked for</span><span>What happened in the end, in your own words<small>For example "follow-up booked". Recorded once for a session</small></span><span class="cn-arr"><i><b style="width: 71%"></b></i>71% of sessions</span>
+        </div>
+        <div class="kit-note" style="margin-top: 14px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7h.01"></path></svg><span>A call with no project or feature, or with one this project does not have, is refused at once, with an error that names what is missing. So nothing arrives unplaced, and there is no list of stray calls to clean up. <a href="#">See the 18 refused today</a></span></div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <section class="kit-surface" aria-label="Getting in">
+          <div class="cn-h"><h3>Getting in</h3><span class="kit-small kit-muted">How the application proves who it is</span></div>
+          <div class="cn-in" style="margin-top: 12px">
+            <div class="cn-h"><h4>Pilot and Production</h4><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Registered</span></span></div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">The application is registered and signs in through Okta. There is no key. This is done outside the portal, in a process of its own; the portal shows where it stands.</div>
+            <div class="cn-ck">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Application registered<small><code>advisor-desktop</code> · 11 Aug, before the first Pilot</small></span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Signs in through Okta<small>The latest sign-in was today at 11:41</small></span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Allowed to call three endpoints<small><code>advisor-desktop-prod</code> <code>embedding-v2</code> <code>decision-adapter-v1</code></small></span>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 12px"><span class="kit-chip env">Planned</span><span class="kit-small kit-muted">Registration started from here, as a step of onboarding a project.</span></div>
+          </div>
+          <div class="cn-in" style="margin-top: 10px">
+            <div class="cn-h"><h4>Lower environment</h4><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Key in use</span></span></div>
+            <div class="kit-small kit-muted" style="margin-top: 4px">For Build and test. A Relay key from ThinkLatent AI engineering reaches the shared test endpoints, and never production data.</div>
+            <dl>
+              <dt>Key</dt><dd><code>rk-low-••••-4f2a</code> · shown once; the portal keeps the last four characters</dd>
+              <dt>Issued</dt><dd>6 Aug, to Lena W., by Arjun K.</dd>
+              <dt>Last used</dt><dd>Today at 11:52 · 140 requests</dd>
+            </dl>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn outline sm" href="#">Ask for a new key</a><a class="kit-btn outline sm" href="Help-Page.dc.html">Ask AI engineering</a></div>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 12px">People are a different matter: who may read production traces is granted in IAM. <a href="Project-Members.dc.html">Open Members</a></div>
+        </section>
+      </div>
+    </div>
+
+    <div class="kit-grid3" style="align-items: start">
+      <section class="kit-surface" aria-label="Did it land">
+        <div class="cn-h"><h3>Did it land</h3><span class="kit-small kit-muted">The latest from each place</span></div>
+        <div class="cn-l">
+          <span class="d">11:58:07</span><span>Call summary · Production<small>Answered in 1.74 s · 4,210 tokens in, 312 out</small></span><a href="Project-Traces.dc.html">Open</a>
+          <span class="d">11:57:52</span><span>Next best action · Pilot<small>Three calls, 0.92 s in all</small></span><a href="Project-Traces.dc.html">Open</a>
+          <span class="d">11:52:40</span><span>Speech to text · lower environment<small>Answered · a test request</small></span><a href="Project-Traces.dc.html">Open</a>
+          <span class="d">11:31:09</span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Refused</span></span> · lower environment<small>Feature "nba" is not in this project. Did you mean <code>next-best-action</code>?</small></span><a href="#">See all 18</a>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">"Send a test call" sends one request with your ids and shows it arriving here within a few seconds.</div>
+      </section>
+
+      <section class="kit-surface" aria-label="How much you may call">
+        <div class="cn-h"><h3>How much you may call</h3><span class="kit-small kit-muted">Limits are sample values</span></div>
+        <div class="cn-lim"><b>Shared test endpoints</b> · a fair share for each project
+          <div class="bar" role="img" aria-label="22 of 60 requests a minute at the busiest"><i style="width: 37%"></i></div>
+          <small>60 requests and 200k tokens a minute. Your busiest minute today: 22 requests, 61k tokens. None turned away.</small></div>
+        <div class="cn-lim"><b>Shared endpoints in Pilot and Production</b> · Embedding, Decision adapter
+          <div class="bar" role="img" aria-label="41 of 300 requests a minute at the busiest"><i style="width: 14%"></i></div>
+          <small>300 requests a minute for this project. Busiest minute today: 41.</small></div>
+        <div class="cn-lim"><b>Your own endpoint</b> · <code>advisor-desktop-prod</code>
+          <small style="margin-top: 6px">No limit of this kind: the machines are reserved for you. What counts is room. 3 replicas, 91% busy at the peak, 9% to spare. <a href="Project-Operations.dc.html">Open Operations</a></small></div>
+      </section>
+
+      <section class="kit-surface" aria-label="When a call does not come back as hoped">
+        <div class="cn-h"><h3>When a call fails</h3><a class="kit-small" href="Project-Operations.dc.html">How requests ended</a></div>
+        <div class="cn-e">
+          <span class="h">What Relay says</span><span class="h n">Today</span><span class="h">What to do</span>
+          <span>Refused: project or feature missing or unknown</span><span class="n">18</span><span>Send the ids shown under "Call it"</span>
+          <span>Not signed in</span><span class="n">0</span><span>Relay signs in again by itself. If it repeats, the registration needs a look</span>
+          <span>Over your fair share</span><span class="n">0</span><span>Wait the seconds the answer names, then try again</span>
+          <span>Timed out at the gateway</span><span class="n">22</span><span>Try once more · 0.07% of requests</span>
+          <span>Over the context window</span><span class="n">2</span><span>Shorten or split what you send</span>
+          <span>Cut short at the length limit</span><span class="n">112</span><span>Not an error: the answer arrives marked as cut short. Check for the mark</span>
+        </div>
+      </section>
+    </div>
+
+    <div class="cn-box"><h4>What changes under you, and what does not</h4>
+      <div class="cn-st">
+        <div><b>The endpoint's name stays</b>You call <code>advisor-desktop-prod</code> whichever version of the model is behind it.</div>
+        <a href="Project-NewVersion.dc.html"><b>A version changes only by an increment</b>Version 3 is due 21 Nov. It reaches your endpoint when you agree to the switch, with your own results already run.</a>
+        <div><b>The old version waits 90 days</b>Going back needs no change in your application.</div>
+        <a href="Project-Features.dc.html"><b>A new feature gets a new feature id</b>It is made when the feature is added to the project. Until then a call using it is refused.</a>
+      </div></div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2790}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
