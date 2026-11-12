@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A rollout · how an increment reached everyone, and the way back</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.ro-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ro-h h3{margin:0;font-size:18px;font-weight:500}
+.ro-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+.ro-s{border-radius:20px;background:color-mix(in oklab,var(--companion) 11%,white);padding:14px 16px;font-size:13px;line-height:1.45;display:flex;flex-direction:column;gap:6px;position:relative}
+.ro-s .n{font-size:11.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.6)}
+.ro-s b{font-size:17px;font-weight:500}
+.ro-s .big{font-size:30px;font-weight:300;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.ro-s small{font-size:12px;color:rgba(26,26,26,.7)}
+.ro-s .mv{margin-top:auto;padding-top:8px;border-top:1px solid rgba(26,26,26,.12);font-size:12.5px}
+.ro-j{display:grid;grid-template-columns:minmax(0,1.5fr) 96px 96px 104px repeat(3,minmax(0,1fr));font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.ro-j>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ro-j .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ro-j small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ro-j .n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.ro-tl{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45;margin-top:10px}
+.ro-tl>*{padding:8px 12px 8px 0;border-top:1px solid rgba(26,26,26,.1)}
+.ro-tl .d{font-size:12px;color:rgba(26,26,26,.65);font-variant-numeric:tabular-nums}
+.ro-tl small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ro-r{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px 9px;margin-top:10px;font-size:13px;line-height:1.45}
+.ro-r svg{width:16px;height:16px;margin-top:2px}
+.ro-hold{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px;border-radius:999px;border:1.5px solid var(--decision);color:var(--decision);font-size:14px;font-weight:500;background:rgba(255,255,255,.6);text-decoration:none}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1700px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Organization-Page.dc.html">Retail Business <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Team-Page.dc.html">Advice Tech <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn" href="Project-Page.dc.html">Advisor desktop <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Feature-Page.dc.html">Call summary <span aria-hidden="true">▾</span></a>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <span class="kit-caption">Increment 3 · its rollout, 2 to 5 October</span>
+        <h1 style="margin: 0; font-size: 36px; font-weight: 400; letter-spacing: -0.02em">Call summary moved to version 2</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">With everyone since 5 Oct</span><span class="kit-chip">3 days, four steps</span><span class="kit-chip">Waited once, never went back</span><span class="kit-chip">Version 1 stays ready until 3 Jan</span></div>
+        <span class="kit-small kit-muted">The steps were fixed when the change was approved. The rollout moved on by itself while the watched numbers held, and would have gone back by itself had one been clearly worse. An owner or ThinkLatent's on-call could hold it or take it back at any moment · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="ro-hold" href="#">Hold to go back to version 1</a><a class="kit-btn outline" href="Requests-Status.dc.html">Open CR-2204</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <a role="tab" aria-selected="false" href="Project-Page.dc.html">Overview</a><a role="tab" aria-selected="false" href="Project-Plan.dc.html">Plan</a><a role="tab" aria-selected="false" href="Project-Features.dc.html">Features</a><a role="tab" aria-selected="false" href="Project-Connect.dc.html">Connect</a><a role="tab" aria-selected="false" href="Project-Traces.dc.html">Traces</a><a role="tab" aria-selected="false" href="Project-Operations.dc.html">Operations</a><a role="tab" aria-selected="false" href="Project-Quality.dc.html">Quality</a><a role="tab" aria-selected="false" href="Project-SelfHealing.dc.html">Self-healing and training</a><a role="tab" aria-selected="true" href="Project-Increments.dc.html">Increments</a><a role="tab" aria-selected="false" href="Project-Members.dc.html">Members</a>
+    </div>
+
+    <div style="display: flex; gap: 8px; align-items: center"><a class="kit-btn outline sm" href="Project-Increments.dc.html">← Increments</a><span class="kit-small kit-muted">Step 5 of 5 for this increment · every increment rolls out the same way</span></div>
+
+    <section class="kit-surface raised" aria-label="The four steps">
+      <div class="ro-h"><h3>The four steps</h3><span class="kit-small kit-muted">Who met version 2 at each step, and how the rollout moved on</span></div>
+      <div class="ro-steps">
+        <div class="ro-s"><span class="n">1 · Silent</span><b>Nobody saw its answers</b><span class="big">9,800</span><small>copies of live requests answered by version 2, beside version 1</small><span class="mv">2 Oct 14:30 to 3 Oct 09:00<br><b style="font-size: 12.5px; font-weight: 600">Went on by itself</b> · every watched number no worse</span></div>
+        <div class="ro-s"><span class="n">2 · A few</span><b>5% of advisors</b><span class="big">56</span><small>advisors got version 2 · 1,300 summaries</small><span class="mv">3 Oct 09:00 to 4 Oct 13:00<br><b style="font-size: 12.5px; font-weight: 600">Waited 4 hours</b> · thumbs could not be told apart with 61 rated; went on at 240</span></div>
+        <div class="ro-s"><span class="n">3 · More</span><b>25% of advisors</b><span class="big">280</span><small>advisors · 6,400 summaries</small><span class="mv">4 Oct 13:00 to 5 Oct 13:00<br><b style="font-size: 12.5px; font-weight: 600">Went on by itself</b> · every watched number no worse</span></div>
+        <div class="ro-s" style="background: #1A1A1A; color: #fff"><span class="n" style="color: rgba(255,255,255,.7)">4 · Everyone</span><b>All 1,120 advisors</b><span class="big">5 Oct</span><small style="color: rgba(255,255,255,.75)">13:00 · the project was told</small><span class="mv" style="border-top-color: rgba(255,255,255,.25)">Version 1 kept ready for 90 days<br><b style="font-size: 12.5px; font-weight: 600">Nobody held it or took it back</b></span></div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="Old against new">
+      <div class="ro-h"><h3>Version 1 against version 2, on the same requests</h3><span class="kit-small kit-muted">Numbers as they stood at the end of the 25% step · the last three columns are the call at the end of each step</span></div>
+      <div class="ro-j">
+        <span class="h">Watched number</span><span class="h">Version 1</span><span class="h">Version 2</span><span class="h">Difference</span><span class="h">Silent</span><span class="h">5%</span><span class="h">25%</span>
+
+        <span>Summary quality<small>The feature's own judge, on live requests</small></span><span class="n">79% ± 2</span><span class="n">86% ± 2</span><span class="n">+7 ± 3</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better</span></span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better</span></span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better</span></span></span>
+
+        <span>Nothing made up<small>Every statement is in the call</small></span><span class="n">93% ± 1</span><span class="n">94% ± 1</span><span class="n">+1 ± 2</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No worse</span></span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No worse</span></span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No worse</span></span></span>
+
+        <span>Thumbs up from advisors<small>Only those who met each version</small></span><span class="n">88%</span><span class="n">92%</span><span class="n">+4 ± 5</span>
+        <span><span class="kit-status neutral"><span>— nobody saw it</span></span></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Could not tell at first</span></span><small>61 rated, then 240</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No worse</span></span></span>
+
+        <span>Typical time to answer<small>Agreed: 95 in 100 within 2.5 s</small></span><span class="n">1.7 s</span><span class="n">1.8 s</span><span class="n">+0.1 s</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No worse</span></span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No worse</span></span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No worse</span></span></span>
+
+        <span>Requests that fail<small>Agreed: 0.5% or fewer</small></span><span class="n">0.14%</span><span class="n">0.12%</span><span class="n">−0.02</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No worse</span></span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No worse</span></span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>No worse</span></span></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">How each call is made: both versions are compared on the same kind of request, and the difference is given with its interval. "Better" or "no worse" lets the rollout go on. "Cannot tell yet" makes it wait for more requests. "Worse" on any watched number takes it back by itself, and tells everyone.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="What happened, and who was told">
+        <div class="ro-h"><h3>What happened</h3><span class="kit-small kit-muted">Members were told at every step</span></div>
+        <div class="ro-tl">
+          <span class="d">2 Oct 14:10</span><span>Approved in the change system by Arjun K.<small>CR-2204 · the steps and the watched numbers were fixed here</small></span>
+          <span class="d">2 Oct 14:30</span><span>The silent step began<small>Version 2 answered a copy of each request. Advisors kept getting version 1</small></span>
+          <span class="d">3 Oct 09:00</span><span>Went on to 5% by itself</span>
+          <span class="d">4 Oct 09:00</span><span>Waited: thumbs could not be told apart yet<small>61 rated. Priya N. and ThinkLatent's on-call were told it was waiting</small></span>
+          <span class="d">4 Oct 13:00</span><span>Went on to 25% by itself, at 240 rated</span>
+          <span class="d">5 Oct 13:00</span><span>Everyone. Version 1 kept ready until 3 Jan</span>
+        </div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface" aria-label="The way back">
+          <div class="ro-h"><h3>The way back</h3><span class="kit-small kit-muted">Open for 90 days</span></div>
+          <div class="ro-r">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"></path><path d="M4 9h11a5 5 0 0 1 0 10h-3"></path></svg><span>Going back to version 1 takes about 40 seconds and needs no approval. The application changes nothing.</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg><span>An owner of the project or ThinkLatent's on-call can do it, by holding the button. The change system is told afterwards, with who and why.</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>During a rollout the same people can also hold it where it is.</span>
+          </div>
+        </section>
+        <section class="kit-surface" aria-label="Fixed at approval">
+          <div class="ro-h"><h3>Fixed at approval</h3><a class="kit-small" href="Requests-Status.dc.html">CR-2204</a></div>
+          <div class="ro-tl" style="grid-template-columns: 130px minmax(0, 1fr)">
+            <span class="d">The steps</span><span>A silent day, then 5%, 25% and everyone, a day each</span>
+            <span class="d">Watched numbers</span><span>The feature's two measures, thumbs, time to answer, requests that fail</span>
+            <span class="d">Who may stop it</span><span>Priya N., Marcus L. and ThinkLatent's on-call</span>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 10px">A new feature takes longer: Next best action is planned at 3 days a step.</div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

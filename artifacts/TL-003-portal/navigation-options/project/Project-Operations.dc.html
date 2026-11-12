@@ -42,7 +42,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .op-alw>span{padding:8px 0;border-top:1px solid rgba(26,26,26,.1)}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2505px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2830px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -164,6 +164,27 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       </section>
     </div>
 
+    <section class="kit-surface" aria-label="How it is served">
+      <div class="kit-section-title" style="margin-top: 0"><h2>How it is served</h2><span class="sub">What you chose, and what ThinkLatent set to deliver it · the engine's own settings show with Engineering on</span></div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 12px; align-items: start">
+        <div><div class="kit-label">What you chose</div><div class="op-alw">
+          <span>An endpoint of your own<small>Your traffic and your speed are kept apart from everyone else's</small></span>
+          <span>An answer within 2.5 s, for 95 in 100<small>And the first words within 0.5 s</small></span>
+          <span>Up from 7:00 to 19:00 ET on weekdays<small>Agreed with ThinkLatent before Pilot</small></span>
+        </div></div>
+        <div><div class="kit-label">What ThinkLatent set</div><div class="op-alw">
+          <span>3 replicas, one GPU each, always on<small>Two until 24 Oct</small></span>
+          <span>9% of room at today's peak<small>ThinkLatent aims to keep 15% · sample value</small></span>
+          <span>$[a day] a day<small>The same on a busy day or a quiet one: the machines are reserved for you</small></span>
+        </div></div>
+        <div><div class="kit-label">What is ahead</div><div class="op-alw">
+          <span>A fourth replica on weekday mornings<small>Proposed by the SRE agent · <a href="Agents-AtWork.dc.html">waits for Arjun K.</a></small></span>
+          <span>Or a smaller model for one step<small>Offered by the Index agent: it would keep the room at 9% · <a href="Project-SmallerModel.dc.html">open the offer</a></small></span>
+          <span>More room for a period<small>For a month-end or a campaign: <a href="Requests-Status.dc.html">ask ThinkLatent</a>, 5 weeks ahead if it needs GPU</small></span>
+        </div></div>
+      </div>
+    </section>
+
     <section class="kit-surface" aria-label="Machines and queue">
       <div class="kit-section-title" style="margin-top: 0"><h2>Machines and queue</h2><span class="sub">advisor-desktop-prod · dedicated · from the engine's own counters, every 15 seconds</span></div>
       <div class="op-rp kit-label" style="padding: 14px 14px 8px"><span>Replica</span><span>Running</span><span>Waiting</span><span>Cache in use</span><span>Tokens a second</span><span>Up since</span></div>
@@ -177,7 +198,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2505}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2830}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
