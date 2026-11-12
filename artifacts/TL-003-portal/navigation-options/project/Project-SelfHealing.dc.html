@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Self-healing and training in a project</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.sh-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sh-h h3{margin:0;font-size:18px;font-weight:500}
+.sh-loop{display:grid;grid-template-columns:178px repeat(6,minmax(0,1fr));gap:6px;margin-top:12px;font-size:12.5px}
+.sh-loop .hd{font-size:11.5px;color:rgba(26,26,26,.65);padding:0 8px 4px;line-height:1.35}
+.sh-loop .hd b{display:block;font-size:12.5px;color:#1A1A1A;font-weight:500}
+.sh-loop .ft{padding:8px 0;line-height:1.35}
+.sh-loop .ft b{display:block;font-size:14px;font-weight:500}
+.sh-loop .ft small{color:rgba(26,26,26,.6);font-size:12px}
+.sh-c{border-radius:12px;padding:8px 10px;line-height:1.4;background:rgba(26,26,26,.04);color:rgba(26,26,26,.55);min-height:44px}
+.sh-c.done{background:color-mix(in oklab,var(--companion) 12%,white);color:#1A1A1A}
+.sh-c.now{background:#fff;color:#1A1A1A;box-shadow:0 0 0 2px #1A1A1A}
+.sh-c b{display:block;font-weight:500}
+.sh-card{border-radius:22px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.1);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.sh-card h4{margin:0;font-size:17px;font-weight:500}
+.sh-q{border-left:3px solid #1A1A1A;padding:2px 0 2px 12px;font-size:14px;line-height:1.5}
+.sh-rd{display:grid;grid-template-columns:86px minmax(0,1fr);gap:6px 10px;font-size:13px;line-height:1.45;align-items:baseline}
+.sh-tag{font-size:11px;border-radius:6px;padding:2px 7px;background:rgba(26,26,26,.08);white-space:nowrap;justify-self:start}
+.sh-ag{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12px;color:rgba(26,26,26,.7)}
+.sh-ag .chip{border-radius:999px;padding:2px 9px;background:#1A1A1A;color:#fff;font-size:11px}
+.sh-ex{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:4px 12px;font-size:13px;line-height:1.45;padding:8px 0;border-top:1px solid rgba(26,26,26,.1);align-items:baseline}
+.sh-ex small{font-size:12px;color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums}
+.sh-req{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) 62px 176px 128px minmax(0,1.05fr) minmax(0,1.05fr);gap:0;font-size:13px;align-items:stretch}
+.sh-req>*{padding:11px 14px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.sh-req .hd{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding:4px 14px 4px 0}
+.sh-req .rq{font-size:14px;line-height:1.4}
+.sh-req small{display:block;font-size:12px;color:rgba(26,26,26,.6)}
+.sh-num{font-variant-numeric:tabular-nums;font-weight:500}
+.sh-bar{position:relative;height:8px;border-radius:999px;background:rgba(26,26,26,.1);margin-top:6px}
+.sh-bar i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--companion)}
+.sh-bar i.under{background:var(--warning)}
+.sh-bar u{position:absolute;top:-4px;bottom:-4px;border-left:2px solid #1A1A1A}
+.sh-ck{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px 8px;font-size:13px;line-height:1.45}
+.sh-ck svg{width:17px;height:17px;margin-top:1px}
+.sh-ck small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.sh-kv{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px 16px;font-size:13px;margin:0}
+.sh-kv dt{font-size:11.5px;color:rgba(26,26,26,.62)}
+.sh-kv dd{margin:2px 0 0;line-height:1.4}
+.sh-box{border-radius:20px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px}
+.sh-box h4{margin:0;font-size:15px;font-weight:500}
+.sh-ln{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:5px 12px;font-size:13px;margin-top:10px;align-items:baseline}
+.sh-ln .n{font-variant-numeric:tabular-nums;font-weight:500;text-align:right}
+.sh-ln .m{font-size:12px;color:rgba(26,26,26,.65);text-align:right}
+.sh-w{box-shadow:0 0 0 1px var(--decision);border-radius:999px;padding:0 7px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2780px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Self-healing and training</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Call summary: enough to train</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">2 things wait for you</span><span class="kit-chip">5 requirements · 3 met in production</span></div>
+        <span class="kit-small kit-muted" style="max-width: 860px">What you asked for, where today's model falls short of it, what self-healing is doing about that, and when there is enough to train a model of your own. The data it builds stays in ThinkLatent's backend and is never shown or exported · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="#">Ask Jarvis about this</a><a class="kit-btn outline" href="#">State a new requirement</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="false" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="true" type="button">Self-healing and training</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Where each feature is in the loop">
+      <div class="sh-h"><h3>Where each feature is in the loop</h3><span class="kit-small kit-muted">Six steps, the same for every feature. Self-healing works on production requests and answers, so it starts when a feature has real traffic.</span></div>
+      <div class="sh-loop">
+        <span></span>
+        <span class="hd"><b>1 · You say what you need</b>in plain words</span>
+        <span class="hd"><b>2 · We read it back</b>you confirm our reading</span>
+        <span class="hd"><b>3 · Today's model against it</b>scored on production</span>
+        <span class="hd"><b>4 · Gaps found and filled</b>you confirm each gap first</span>
+        <span class="hd"><b>5 · Enough to train</b>you start the run</span>
+        <span class="hd"><b>6 · Candidate checked</b>three ways, then an increment</span>
+
+        <span class="ft"><b>Call summary</b><small>Production · Domain-Advice v2</small></span>
+        <span class="sh-c done"><b>Done</b>5 requirements · 12 Aug</span>
+        <span class="sh-c done"><b>Done</b>Confirmed by Priya N.</span>
+        <span class="sh-c done"><b>Done</b>3 of 5 met</span>
+        <span class="sh-c done"><b>1 filled · 1 waits</b>A new gap needs you</span>
+        <span class="sh-c now"><b>Here now</b>Enough since 4 Nov</span>
+        <span class="sh-c"><b>Not yet</b>After the run</span>
+
+        <span class="ft"><b>Next best action</b><small>Pilot · 3 models</small></span>
+        <span class="sh-c done"><b>Done</b>Stated by Priya N. · 3 Nov</span>
+        <span class="sh-c now"><b>Here now</b>Our reading waits for you</span>
+        <span class="sh-c"><b>Not yet</b>Starts once confirmed</span>
+        <span class="sh-c"><b>Not yet</b></span>
+        <span class="sh-c"><b>Not yet</b></span>
+        <span class="sh-c"><b>Not yet</b></span>
+
+        <span class="ft"><b>Speech to text</b><small>Build · not live</small></span>
+        <span class="sh-c" style="grid-column: span 6; min-height: 0"><b>Not started</b>No production traffic yet. You can state what you need now; scoring begins when the feature reaches Pilot.</span>
+      </div>
+    </section>
+
+    <div class="sh-h" style="margin-top: 4px"><h3>Waiting for you</h3><span class="kit-small kit-muted">Self-healing proposes; you decide. Nothing is built for a requirement or a gap you have not confirmed.</span></div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start">
+      <section class="sh-card" aria-label="Next best action: our reading of your requirement">
+        <div class="kit-caption">Next best action · step 2 · we read your requirement back</div>
+        <h4>Is this what you are asking the model for?</h4>
+        <div><div class="kit-small kit-muted" style="margin-bottom: 4px">You wrote · Priya N., 3 Nov</div><div class="sh-q">"Suggest the one next step the advisor should take while the client is still on the call. Only from our approved actions, and say nothing when it is not sure."</div></div>
+        <div><div class="kit-small kit-muted" style="margin-bottom: 6px">We think you are asking for four things</div>
+          <div class="sh-rd">
+            <span class="sh-tag">Decide</span><span>Pick one action from the approved list of 14. <span class="kit-muted">Measured as: the right action chosen.</span></span>
+            <span class="sh-tag">Hold back</span><span>Say nothing when it is not sure. <span class="kit-muted">Measured as: wrong suggestions avoided.</span></span>
+            <span class="sh-tag">Write</span><span>Word the suggestion in one sentence. <span class="kit-muted">Measured as: clear and short.</span></span>
+            <span class="sh-tag">Stay on the call</span><span>Use only what was said in this session. <span class="kit-muted">Measured as: nothing made up.</span></span>
+          </div></div>
+        <div class="kit-small">Still missing: the level you expect on each. From the Pilot so far we would propose 85%, 95%, 90% and 92%.</div>
+        <div class="sh-ag"><span class="chip">Self-healing agent</span><span>Rests on your text and a sample of 4,900 Pilot requests</span><span>Sure: 0.82</span><a href="#">See what it rests on</a></div>
+        <div class="kit-actions"><a class="kit-btn" href="#">Yes, that is what we need</a><a class="kit-btn outline" href="#">Change it</a><a class="kit-btn outline" href="#">Talk it through with Jarvis</a></div>
+      </section>
+
+      <section class="sh-card" aria-label="Call summary: a new gap to confirm">
+        <div class="kit-caption">Call summary · step 4 · a new gap to confirm · found 2 Nov</div>
+        <h4>Amounts and dates sometimes differ from the call</h4>
+        <div class="kit-small" style="line-height: 1.5">You asked that "amounts and dates are the ones said on the call", on 95% of summaries. Today's model meets it on <b class="sh-num">91% ± 2</b>. Of the misses: a rounded amount 52%, a month without its year 31%, two amounts swapped 17%.</div>
+        <div>
+          <div class="kit-small kit-muted">Three of your own production requests, to check our reading</div>
+          <div class="sh-ex" style="border-top: 0"><small>se-6c41 · turn 3 · 4 Nov</small><span>On the call: "$412,600". In the summary: "about $410,000".</span><a href="#">Open in Traces</a></div>
+          <div class="sh-ex"><small>se-6ba7 · turn 2 · 3 Nov</small><span>On the call: "March 2029". In the summary: "in March".</span><a href="#">Open in Traces</a></div>
+          <div class="sh-ex"><small>se-6b02 · turn 4 · 2 Nov</small><span>On the call: $20,000 to bonds and $5,000 to cash. In the summary: the two amounts swapped.</span><a href="#">Open in Traces</a></div>
+        </div>
+        <div class="kit-small kit-muted">Related: the deviation on Numbers and calculations (76 ± 2 against 78) was accepted on 2 Oct because summaries only quote figures. This gap is about quoted figures.</div>
+        <div class="sh-ag"><span class="chip">Self-healing agent</span><span>Rests on 2,600 scored requests in 7 days and 23 thumbs down that gave "wrong figure"</span><span>Sure: 0.79</span><a href="#">See what it rests on</a></div>
+        <div class="kit-actions"><a class="kit-btn" href="#">Yes, a real gap</a><a class="kit-btn outline" href="#">Not a gap, and why</a><a class="kit-btn outline" href="#">Show me more</a></div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="Call summary: requirements and today's model">
+      <div class="sh-h"><h3>Call summary · what you asked for, and today's model against it</h3><span class="kit-small kit-muted">Scored by self-healing on a sample of production: 2,600 requests in the last 7 days. ± is the interval. The mark on each bar is what you expect.</span></div>
+      <div class="sh-req" style="margin-top: 8px">
+        <span class="hd">Your requirement, in your words</span><span class="hd">We read it as</span><span class="hd">Expected</span><span class="hd">Today, in production</span><span class="hd">On your evaluation set</span><span class="hd">Where it stands</span><span class="hd">Self-healing</span>
+
+        <span class="rq">The summary says what mattered on the call</span><span>Summary quality<small>completeness</small></span><span class="sh-num">80%</span><span><span class="sh-num">84% ± 2</span><div class="sh-bar"><i style="width: 84%"></i><u style="left: 80%"></u></div></span><span class="sh-num">86% ± 5</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span class="kit-muted">Nothing to do</span>
+
+        <span class="rq">Nothing in it that was not said</span><span>Nothing made up<small>faithfulness</small></span><span class="sh-num">92%</span><span><span class="sh-num">95% ± 1</span><div class="sh-bar"><i style="width: 95%"></i><u style="left: 92%"></u></div></span><span class="sh-num">94% ± 2</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span class="kit-muted">Nothing to do</span>
+
+        <span class="rq">Every follow-up we agreed is listed</span><span>Action items found<small>new on 20 Oct</small></span><span class="sh-num">90%</span><span><span class="sh-num">74% ± 3</span><div class="sh-bar"><i class="under" style="width: 74%"></i><u style="left: 90%"></u></div></span><span>Not run yet<small>measure being set up</small></span>
+        <span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Gap, confirmed</span></span><small>by Priya N. · 22 Oct</small></span>
+        <span><span class="sh-num">3,050</span> of about 3,000 built<div class="sh-bar"><i style="width: 100%"></i></div><small>Enough · since 4 Nov</small></span>
+
+        <span class="rq">Amounts and dates are the ones said on the call</span><span>Figures quoted right<small>new on 2 Nov</small></span><span class="sh-num">95%</span><span><span class="sh-num">91% ± 2</span><div class="sh-bar"><i class="under" style="width: 91%"></i><u style="left: 95%"></u></div></span><span class="kit-muted">Not measured</span>
+        <span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Gap, waits for you</span></span><small>found 2 Nov</small></span>
+        <span class="kit-muted">Not started<small>begins when you confirm</small></span>
+
+        <span class="rq">Short enough to read in a minute</span><span>Length<small>under 180 words</small></span><span class="sh-num">90%</span><span><span class="sh-num">97% ± 1</span><div class="sh-bar"><i style="width: 97%"></i><u style="left: 90%"></u></div></span><span class="kit-muted">Not measured</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span class="kit-muted">Nothing to do</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 14px; margin-top: 14px">
+        <div class="sh-box"><h4>What self-healing found on follow-ups</h4>
+          <div class="kit-small" style="margin-top: 6px; line-height: 1.55"><b class="sh-num">26% ± 3</b> of summaries leave out at least one follow-up that was agreed on the call. By kind: a review or meeting to book 44%, a document to send 31%, money to move 25%. Advisors say the same: 58 of this week's 147 thumbs down gave "missed an action". One of yours: se-6bf2, turn 4, where a review in March was agreed and left out. <a href="#">Open in Traces</a></div></div>
+        <div class="sh-box"><h4>What it has done since you confirmed</h4>
+          <div class="kit-small" style="margin-top: 6px; line-height: 1.55">Built <b class="sh-num">3,050</b> examples from this project's production requests and answers, about 220 a day since 22 Oct, and held back 300 more as a benchmark that is never trained on. You see the counts and the scores, not the examples.</div></div>
+      </div>
+    </section>
+
+    <section class="kit-surface raised" aria-label="Enough to train">
+      <div style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 28px; align-items: start">
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <div class="kit-caption">Call summary · step 5</div>
+          <div style="font-size: 30px; line-height: 1.2; letter-spacing: -0.01em">There is enough to train a model of your own for Call summary.</div>
+          <div class="kit-small" style="line-height: 1.55; max-width: 640px">A run teaches Domain-Advice v2 to list agreed follow-ups, and is held to what already works: the three requirements met today and every TL Index threshold. A candidate that drops on any of them is not offered.</div>
+          <dl class="sh-kv"><div><dt>Starts from</dt><dd>Domain-Advice v2, as in production (increment 3)</dd></div><div><dt>Becomes</dt><dd>A candidate for increment 6</dd></div><div><dt>Takes</dt><dd>About 5 hours · the training machines are free tonight</dd></div><div><dt>Costs</dt><dd>$[cost]</dd></div><div><dt>Who is told</dt><dd>The project's members, Arjun K. and Meera S.</dd></div></dl>
+          <div class="kit-actions"><a class="kit-btn" href="#">Start the training run</a><a class="kit-btn outline" href="#">Wait and cover the second gap too</a></div>
+          <div class="kit-small kit-muted">Waiting means about 12 more days after you confirm the second gap. Any member of the project can start a run.</div>
+        </div>
+        <div>
+          <div style="font-size: 15px; font-weight: 500; margin-bottom: 10px">The least needed before you start</div>
+          <div class="sh-ck">
+            <svg class="kit-status good" style="color: var(--companion)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>The gap is confirmed by the project's owner<small>Done · Priya N., 22 Oct</small></span>
+            <svg style="color: var(--companion)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Enough examples are built<small>Done · 3,050 of about 3,000</small></span>
+            <svg style="color: var(--companion)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>A benchmark is held back<small>Done · 300 examples, never trained on</small></span>
+            <svg style="color: var(--companion)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Training machines are free<small>Done · tonight, nothing to reserve</small></span>
+            <svg style="color: var(--warning)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Your evaluation set cannot judge follow-ups yet<small>Not ready · "Action items found" is being set up and 62 rows lack a field. You can start, but until it is fixed the candidate is judged on follow-ups by the benchmark alone. <a href="Feature-Evaluation.dc.html">Open the evaluation set</a></small></span>
+            <svg style="color: rgba(26,26,26,.5)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Optional: confirm the second gap first<small>Waits for you · one run could then cover both</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="How the candidate is checked">
+      <div class="sh-h"><h3>The candidate is checked three ways before it is offered</h3><span class="kit-small kit-muted">Shown here: today's model, which the candidate has to beat on the gap and match on the rest.</span></div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 10px">
+        <div class="sh-box"><h4>1 · The self-healing benchmark</h4><div class="kit-small kit-muted" style="margin-top: 4px">Held-back examples for each of your requirements. You see scores, never the examples.</div>
+          <div class="sh-ln"><span>Follow-ups listed</span><span class="n"><span class="sh-w">73% ± 5</span></span><span class="m">must reach 90%</span><span>Says what mattered</span><span class="n">85% ± 4</span><span class="m">must not drop</span><span>Nothing made up</span><span class="n">95% ± 2</span><span class="m">must not drop</span><span>Figures quoted right</span><span class="n">90% ± 3</span><span class="m">must not drop</span><span>Short enough</span><span class="n">97% ± 2</span><span class="m">must not drop</span></div></div>
+        <div class="sh-box"><h4>2 · The TL Index, edition 2026-11</h4><div class="kit-small kit-muted" style="margin-top: 4px">ThinkLatent's thresholds for domain models, on the version trained for this project.</div>
+          <div class="sh-ln"><span>Overall</span><span class="n">83 ± 1</span><span class="m">threshold 80</span><span>Safety</span><span class="n">91 ± 3</span><span class="m">threshold 85</span><span>Numbers and calculations</span><span class="n"><span class="sh-w">76 ± 2</span></span><span class="m">threshold 78 · deviation accepted</span></div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">None may fall. A run is also a chance to close the accepted deviation.</div></div>
+        <div class="sh-box"><h4>3 · Your evaluation set, 400 calls</h4><div class="kit-small kit-muted" style="margin-top: 4px">Your own data and your own measures, scored the way you chose.</div>
+          <div class="sh-ln"><span>Summary quality</span><span class="n">86% ± 5</span><span class="m">you expect 80%</span><span>Nothing made up</span><span class="n">94% ± 2</span><span class="m">you expect 92%</span><span>Action items found</span><span class="n">—</span><span class="m">not run yet: being set up</span></div></div>
+      </div>
+      <div class="kit-small" style="margin-top: 10px; line-height: 1.55">Passes all three: it is offered as increment 6, and a change request goes to ThinkLatent AI engineering, outside the portal. Fails one: it is not offered, you see which check and why, and self-healing keeps building.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 12px">
+      <div class="sh-box"><h4>Runs so far</h4>
+        <div class="sh-ln" style="grid-template-columns: 70px minmax(0, 1fr) auto"><span class="kit-muted">28 Sep</span><span>First training on this project's calls, run by ThinkLatent AI engineering outside the portal</span><span class="m">Became increment 3 · in production 5 Oct</span><span class="kit-muted">Next</span><span>Run 2, on follow-ups, from this page</span><span class="m">Not started</span></div></div>
+      <div class="sh-box"><h4>What this page never shows</h4>
+        <div class="kit-small" style="margin-top: 6px; line-height: 1.55">The examples self-healing builds, the training set, and ThinkLatent's foundation data. They stay in the backend and cannot be exported or copied to another project. What you do see: where today's model falls short, counts and scores, and a few of your own production requests to confirm a gap, which follow the seal on Traces.</div></div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2780}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
