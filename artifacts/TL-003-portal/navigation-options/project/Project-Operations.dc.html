@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Operations in a project</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.op-flag{border-radius:22px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.op-flag.hi{box-shadow:0 0 0 1.5px var(--decision)}
+.op-sl{display:grid;grid-template-columns:minmax(0,1fr) 62px 62px 112px 118px;gap:12px;align-items:center}
+.op-rp{display:grid;grid-template-columns:minmax(0,1fr) 80px 80px 110px 110px 120px;gap:14px;align-items:center}
+.op-mark{position:relative;display:block;width:110px;height:18px}
+.op-mark .ln{position:absolute;left:0;right:0;top:8px;height:1px;background:rgba(26,26,26,.2)}
+.op-mark .pt{position:absolute;top:5px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--companion)}
+.op-mark .bar{position:absolute;top:0;bottom:0;border-left:1px dashed rgba(26,26,26,.7)}
+.op-heat{display:grid;grid-template-columns:110px repeat(4,minmax(0,1fr));gap:5px;margin-top:12px;font-size:12.5px}
+.op-heat .h{color:rgba(26,26,26,.6);padding:4px 6px}
+.op-heat .c{border-radius:12px;padding:8px 10px;background:rgba(63,138,114,.10);font-variant-numeric:tabular-nums}
+.op-heat .c b{display:block;font-weight:500;font-size:15px}
+.op-heat .c small{color:rgba(26,26,26,.6);font-size:11.5px}
+.op-heat .c.m{background:rgba(63,138,114,.22)}
+.op-heat .c.s{background:rgba(63,138,114,.38)}
+.op-heat .c.x{background:#fff;box-shadow:0 0 0 1.5px var(--decision)}
+.op-heat .c.e{background:rgba(26,26,26,.04);color:rgba(26,26,26,.5)}
+.op-kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;font-size:13.5px;margin-top:12px}
+.op-kv dt{color:rgba(26,26,26,.65)}
+.op-kv dd{margin:0;font-variant-numeric:tabular-nums;text-align:right}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2100px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advisor desktop <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Operations</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Every service level met today</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">3 flags from the SRE agent</span><span class="kit-chip">3 of 3 replicas up</span><span class="kit-chip">No open incident</span></div>
+        <span class="kit-small kit-muted">How the service is behaving, and what has changed. Every figure here is worked out from requests and from the engine's own counters · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Ask the SRE agent</a><a class="kit-btn outline" href="#">Log a problem</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="false" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="false" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Sessions</button><button role="tab" aria-selected="true" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Training and data</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
+    </div>
+
+    <div class="kit-section-title"><h2>What the SRE agent sees</h2><span class="sub">The last 7 days against the 28 before · it flags only what chance is unlikely to explain · it proposes, people decide</span></div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+      <div class="op-flag hi"><span style="display: flex; gap: 8px; align-items: center"><span class="kit-chip brand">SRE agent</span><span class="kit-caption">Size and time · since Tuesday</span></span><span style="font-size: 19px; font-weight: 500">Summaries of very long calls take three times as long</span><span class="kit-small">Requests over 16k tokens in: typical time 6.9 s, against 2.3 s before. They are 1.2% of requests, and 4 in 10 are cut short at the length limit.</span><span class="kit-small kit-muted">From 312 traces in that size bucket · confidence high · <a href="#">View sources</a></span><span class="kit-small"><b style="font-weight: 500">It suggests:</b> split transcripts over 16k, or raise the answer limit for this bucket.</span><div class="kit-actions"><a class="kit-btn" href="Project-Traces.dc.html">Open the 312 traces</a><a class="kit-btn outline" href="#">Log a problem</a></div></div>
+      <div class="op-flag"><span style="display: flex; gap: 8px; align-items: center"><span class="kit-chip brand">SRE agent</span><span class="kit-caption">What requests are about · today</span></span><span style="font-size: 19px; font-weight: 500">A new kind of call: estate planning, 4% of today</span><span class="kit-small">Not seen in the training data. Completeness on these is 0.71, against 0.86 for the rest; thumbs down are twice as common.</span><span class="kit-small kit-muted">From 1,040 traces in a new cluster · confidence medium, the check is new · <a href="#">View sources</a></span><span class="kit-small"><b style="font-weight: 500">It suggests:</b> add 50 of them to the evaluation set, and to the next training set after review.</span><div class="kit-actions"><a class="kit-btn" href="#">See the cluster</a><a class="kit-btn outline" href="#">Add to the evaluation set</a></div></div>
+      <div class="op-flag"><span style="display: flex; gap: 8px; align-items: center"><span class="kit-chip brand">SRE agent</span><span class="kit-caption">Queue · weekday mornings</span></span><span style="font-size: 19px; font-weight: 500">Requests wait ten times longer between 10 and 11</span><span class="kit-small">Time in the queue is 0.40 s at the peak, against 0.04 s the rest of the day. The three replicas run at 91% then. The service level is still met.</span><span class="kit-small kit-muted">From the engine's queue and running counts, and 5,900 traces · confidence high · <a href="#">View sources</a></span><span class="kit-small"><b style="font-weight: 500">It suggests:</b> a fourth replica on weekday mornings, before Next best action goes to Production.</span><div class="kit-actions"><a class="kit-btn" href="#">Ask AI engineering</a><a class="kit-btn outline" href="#">See the hours</a></div></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Service levels">
+        <div class="kit-section-title" style="margin-top: 0"><h2>Service levels</h2><span class="sub">What was agreed, and what is measured · the dashed line is the agreed level, right of it is better</span></div>
+        <div class="op-sl kit-label" style="padding: 14px 14px 8px"><span>Measure</span><span>Agreed</span><span>Today</span><span>Against it</span><span>Last 30 days</span></div>
+        <div class="kit-rows">
+          <div class="kit-row op-sl"><div><div class="t">Time to answer</div><div class="s">95 in 100 requests, as the application sees it</div></div><div class="kit-num">2.5 s</div><div class="kit-num">1.9 s</div><span class="op-mark" role="img" aria-label="1.9 seconds, better than the agreed 2.5"><span class="ln"></span><span class="pt" style="left: 68%"></span><span class="bar" style="left: 50%"></span></span><div class="kit-small">Met 30 of 30 days</div></div>
+          <div class="kit-row op-sl"><div><div class="t">First token</div><div class="s">When the answer starts to appear</div></div><div class="kit-num">0.5 s</div><div class="kit-num">0.26 s</div><span class="op-mark" role="img" aria-label="0.26 seconds, better than the agreed 0.5"><span class="ln"></span><span class="pt" style="left: 76%"></span><span class="bar" style="left: 50%"></span></span><div class="kit-small">Met 30 of 30 days</div></div>
+          <div class="kit-row op-sl"><div><div class="t">Up and answering</div><div class="s">In the hours agreed, 7:00 to 19:00 ET</div></div><div class="kit-num">99.5%</div><div class="kit-num">100%</div><span class="op-mark" role="img" aria-label="100 percent today, 99.93 over 30 days, better than the agreed 99.5"><span class="ln"></span><span class="pt" style="left: 72%"></span><span class="bar" style="left: 50%"></span></span><div class="kit-small">99.93%</div></div>
+          <div class="kit-row op-sl"><div><div class="t">Requests that fail</div><div class="s">Errors and time-outs</div></div><div class="kit-num">0.5%</div><div class="kit-num">0.12%</div><span class="op-mark" role="img" aria-label="0.12 percent, better than the agreed 0.5"><span class="ln"></span><span class="pt" style="left: 80%"></span><span class="bar" style="left: 50%"></span></span><div class="kit-small">0.15%</div></div>
+        </div>
+      </section>
+
+      <section class="kit-surface" aria-label="Requests and time through the day">
+        <div class="kit-section-title" style="margin-top: 0"><h2>Through the day</h2><span class="sub">Requests an hour, and the slowest 5%</span></div>
+        <svg role="img" aria-label="Requests an hour rise from 1,200 at 7 to 5,900 between 10 and 11, then fall to 3,000 by noon. The slowest 5 percent stay near 1.7 seconds except between 10 and 11, when they reach 2.3 seconds, still under the agreed 2.5." viewBox="0 0 640 250" style="width: 100%; height: auto; margin-top: 10px; font-family: Inter, system-ui, sans-serif">
+          <g font-size="12" fill="rgba(26,26,26,.6)"><text x="46" y="238">7</text><text x="140" y="238">8</text><text x="234" y="238">9</text><text x="324" y="238">10</text><text x="418" y="238">11</text><text x="510" y="238">12</text></g>
+          <g fill="var(--companion)" opacity=".28"><rect x="20" y="180" width="62" height="40" rx="6"></rect><rect x="114" y="140" width="62" height="80" rx="6"></rect><rect x="208" y="96" width="62" height="124" rx="6"></rect><rect x="396" y="110" width="62" height="110" rx="6"></rect><rect x="490" y="160" width="62" height="60" rx="6"></rect></g>
+          <rect x="302" y="44" width="62" height="176" rx="6" fill="var(--companion)" opacity=".55"></rect>
+          <line x1="20" y1="52" x2="560" y2="52" stroke="rgba(26,26,26,.75)" stroke-dasharray="5 4"></line>
+          <text x="566" y="56" font-size="12" fill="#1A1A1A">Agreed 2.5 s</text>
+          <polyline points="51,118 145,116 239,112 333,66 427,108 521,116" fill="none" stroke="#1A1A1A" stroke-width="2"></polyline>
+          <g fill="#1A1A1A"><circle cx="51" cy="118" r="3.5"></circle><circle cx="145" cy="116" r="3.5"></circle><circle cx="239" cy="112" r="3.5"></circle><circle cx="333" cy="66" r="4.5"></circle><circle cx="427" cy="108" r="3.5"></circle><circle cx="521" cy="116" r="3.5"></circle></g>
+          <g font-size="12" fill="#1A1A1A"><text x="306" y="36">5,900 requests</text><text x="370" y="70">2.3 s</text><text x="24" y="172" fill="rgba(26,26,26,.65)">1,200</text><text x="566" y="120" fill="rgba(26,26,26,.75)">Slowest 5%</text></g>
+        </svg>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Size against time">
+        <div class="kit-section-title" style="margin-top: 0"><h2>Size against time</h2><span class="sub">The same service answers in one word or two thousand · typical time and share of requests, by tokens in and out</span></div>
+        <div class="op-heat" role="table" aria-label="Typical time by size of request and size of answer">
+          <span class="h">Tokens in ↓ · out →</span><span class="h">Under 256</span><span class="h">256 to 1k</span><span class="h">1k to 4k</span><span class="h">Over 4k</span>
+          <span class="h">Under 1k</span><span class="c"><b>0.6 s</b><small>9% of requests</small></span><span class="c"><b>1.0 s</b><small>3%</small></span><span class="c e"><b>—</b><small>none today</small></span><span class="c e"><b>—</b><small>none today</small></span>
+          <span class="h">1k to 4k</span><span class="c"><b>0.9 s</b><small>22%</small></span><span class="c m"><b>1.4 s</b><small>31%</small></span><span class="c m"><b>2.9 s</b><small>0.4%</small></span><span class="c e"><b>—</b><small>none today</small></span>
+          <span class="h">4k to 16k</span><span class="c"><b>1.1 s</b><small>8%</small></span><span class="c m"><b>1.8 s</b><small>24%</small></span><span class="c s"><b>3.4 s</b><small>1.1%</small></span><span class="c e"><b>—</b><small>none today</small></span>
+          <span class="h">Over 16k</span><span class="c e"><b>—</b><small>none today</small></span><span class="c s"><b>4.1 s</b><small>0.3%</small></span><span class="c x"><b>6.9 s</b><small>1.2% · flagged</small></span><span class="c s"><b>9.8 s</b><small>0.02%</small></span>
+        </div>
+        <span class="kit-small kit-muted" style="display: block; margin-top: 10px">A cell opens its traces. For the same size in, answer length spreads most in the 4k to 16k row: from 180 to 2,900 tokens.</span>
+      </section>
+
+      <section class="kit-surface" aria-label="How requests ended today">
+        <div class="kit-section-title" style="margin-top: 0"><h2>How requests ended</h2><span class="sub">Today, 31,104 requests</span></div>
+        <dl class="op-kv"><dt>Answered</dt><dd>30,921 · 99.41%</dd><dt>Cut short at the length limit</dt><dd>112 · 0.36%</dd><dt>Held by the guardrail</dt><dd>31 · 0.10%</dd><dt>Timed out at the gateway</dt><dd>22 · 0.07%</dd><dt>Cancelled by the application</dt><dd>11 · 0.04%</dd><dt>Engine error</dt><dd>5 · 0.02%</dd><dt>Over the context window</dt><dd>2 · 0.01%</dd><dt>Refused by the model</dt><dd>0</dd></dl>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="Machines and queue">
+      <div class="kit-section-title" style="margin-top: 0"><h2>Machines and queue</h2><span class="sub">advisor-desktop-prod · dedicated · from the engine's own counters, every 15 seconds</span></div>
+      <div class="op-rp kit-label" style="padding: 14px 14px 8px"><span>Replica</span><span>Running</span><span>Waiting</span><span>Cache in use</span><span>Tokens a second</span><span>Up since</span></div>
+      <div class="kit-rows">
+        <div class="kit-row op-rp"><div><div class="t">Replica 1</div><div class="s">1 GPU · vLLM 0.26.0 · weights w-3c9e…a41</div></div><div class="kit-num">8</div><div class="kit-num">1</div><div class="kit-num">62%</div><div class="kit-num">1,640</div><div class="kit-small">3 Nov, 06:02</div></div>
+        <div class="kit-row op-rp"><div><div class="t">Replica 2</div><div class="s">1 GPU · vLLM 0.26.0 · weights w-3c9e…a41</div></div><div class="kit-num">7</div><div class="kit-num">1</div><div class="kit-num">58%</div><div class="kit-num">1,510</div><div class="kit-small">3 Nov, 06:02</div></div>
+        <div class="kit-row op-rp"><div><div class="t">Replica 3</div><div class="s">1 GPU · vLLM 0.26.0 · weights w-3c9e…a41</div></div><div class="kit-num">9</div><div class="kit-num">2</div><div class="kit-num">66%</div><div class="kit-num">1,720</div><div class="kit-small">4 Nov, 21:40 · restarted once</div></div>
+      </div>
+      <span class="kit-small kit-muted" style="display: block; margin-top: 10px">Headroom at today's peak: 9%. Next best action going to Production adds about 5k requests a day to these machines.</span>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2100}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
