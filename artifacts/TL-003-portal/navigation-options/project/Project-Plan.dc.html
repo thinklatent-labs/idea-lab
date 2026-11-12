@@ -40,7 +40,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .pl-key .pl-i{grid-template-columns:14px auto;gap:5px}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2080px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2420px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -86,7 +86,13 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <button role="tab" aria-selected="false" type="button">Overview</button><button role="tab" aria-selected="true" type="button">Plan</button><button role="tab" aria-selected="false" type="button">Features</button><button role="tab" aria-selected="false" type="button">Traces</button><button role="tab" aria-selected="false" type="button">Sessions</button><button role="tab" aria-selected="false" type="button">Operations</button><button role="tab" aria-selected="false" type="button">Quality</button><button role="tab" aria-selected="false" type="button">Training and data</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Members</button>
     </div>
 
-    <div class="kit-section-title"><h2>Tell us now, or the dates move</h2><span class="sub">The things with a long lead time · each shows what we need, why, how long it takes, and the last day that still holds your date</span></div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px" role="group" aria-label="The leads on this plan">
+      <div class="pl-ask late" style="flex-direction: row; align-items: center; justify-content: space-between; gap: 12px"><div><div class="kit-caption">The project's integration lead</div><div style="font-size: 18px; font-weight: 500">Not named yet</div><div class="kit-small kit-muted">One person on your side who owns connecting the application</div></div><a class="kit-btn" href="#">Name a lead</a></div>
+      <div class="pl-ask" style="flex-direction: row; align-items: center; justify-content: space-between; gap: 12px"><div><div class="kit-caption">ThinkLatent · AI engineering lead</div><div style="font-size: 18px; font-weight: 500">Arjun K.</div><div class="kit-small kit-muted">Models, machines and endpoints for this project</div></div><a class="kit-btn outline" href="#">Message</a></div>
+      <div class="pl-ask" style="flex-direction: row; align-items: center; justify-content: space-between; gap: 12px"><div><div class="kit-caption">ThinkLatent · product and adoption</div><div style="font-size: 18px; font-weight: 500">Meera S.</div><div class="kit-small kit-muted">Your guide through this plan, and to governance</div></div><a class="kit-btn outline" href="#">Message</a></div>
+    </div>
+
+    <div class="kit-section-title"><h2>Tell us now, or the dates move</h2><span class="sub">The things with a long lead time: what we need, why, how long it takes, the last day that holds your date · lead times are sample values</span></div>
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px">
       <div class="pl-ask late"><span class="kit-caption">Machines · lead time 5 weeks for GPU, 1 week for CPU</span><span style="font-size: 18px; font-weight: 500">How much traffic, and when is the peak?</span><span class="kit-small">Requests a day, the busiest hour, and how fast an answer must come. This sizes the machines ThinkLatent reserves.</span><span class="kit-status critical" style="margin-top: auto"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Not given · was needed by 2 Nov</span></span><span class="kit-small kit-muted">Each week from here moves Pilot a week</span><a class="kit-btn" href="#" style="align-self: flex-start">Answer with the agent</a></div>
       <div class="pl-ask"><span class="kit-caption">Endpoint · shared 2 days, dedicated 3 weeks</span><span style="font-size: 18px; font-weight: 500">A shared endpoint, or one of your own?</span><span class="kit-small">Shared is quicker and cheaper. Dedicated keeps your traffic and your speed apart from everyone else's.</span><span class="kit-status good" style="margin-top: auto"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Shared chosen for Pilot</span></span><span class="kit-small kit-muted">Decide for Production by 4 Jan</span><a class="kit-btn outline" href="#" style="align-self: flex-start">Decide for Production</a></div>
@@ -108,23 +114,30 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <div class="pl-lane"><b>Project team</b><span>Advice Tech</span></div>
         <div class="pl-c"><div class="pl-i d"><i></i><span>Describe the use and who it is for</span></div><div class="pl-i d"><i></i><span>Add the members</span></div><div class="pl-i d"><i></i><span>Pick models with the agent</span></div></div>
         <div class="pl-c"><div class="pl-i d"><i></i><span>Try the models in the playground</span></div><div class="pl-i d"><i></i><span>Proof it works: 50 cases scored by hand</span></div></div>
-        <div class="pl-c now"><div class="pl-i n"><i></i><span>Full evaluation set, in the format<small>Measures and ways of scoring chosen</small></span></div><div class="pl-i n"><i></i><span>Connect the application through Relay</span></div><div class="pl-i b"><i></i><span>Give traffic, peak and speed needed</span></div><div class="pl-i t"><i></i><span>Agree the service levels</span></div></div>
+        <div class="pl-c now"><div class="pl-i n"><i></i><span>Full evaluation set, in the format<small>Measures and ways of scoring chosen</small></span></div><div class="pl-i b"><i></i><span>Give traffic, peak and speed needed</span></div><div class="pl-i b"><i></i><span>Name your integration lead</span></div><div class="pl-i t"><i></i><span>Agree the service levels</span></div></div>
         <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Run with a small group of real users</span></div><div class="pl-i t"><i></i><span>Collect thumbs and review them</span></div><div class="pl-i t"><i></i><span>Accept any threshold deviation, with a reason</span></div></div>
         <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Open to everyone it is for</span></div><div class="pl-i t"><i></i><span>Say how cost avoided is counted</span></div><div class="pl-i t"><i></i><span>Plan the next increment</span></div></div>
 
-        <div class="pl-lane"><b>ThinkLatent team</b><span>Models and quality</span></div>
+        <div class="pl-lane"><b>Integration lead</b><span>Named by the project team</span></div>
+        <div class="pl-c"><div class="pl-i t"><i></i><span>Nothing owed in this phase</span></div></div>
+        <div class="pl-c"><div class="pl-i d"><i></i><span>First calls from a test page</span></div></div>
+        <div class="pl-c now"><div class="pl-i n"><i></i><span>Connect the application through Relay<small>First successful call 3 Nov</small></span></div><div class="pl-i t"><i></i><span>Handle errors, time-outs and retries</span></div><div class="pl-i t"><i></i><span>Test end to end in the lower environment</span></div></div>
+        <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Switch the pilot group on in the application</span></div><div class="pl-i t"><i></i><span>Send thumbs and traces back</span></div></div>
+        <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Roll out to everyone, with a way back</span></div></div>
+
+        <div class="pl-lane"><b>ThinkLatent · product</b><span>Adoption, your guide</span></div>
         <div class="pl-c"><div class="pl-i d"><i></i><span>Review the use</span></div><div class="pl-i d"><i></i><span>Suggest models and an agent</span></div></div>
         <div class="pl-c"><div class="pl-i d"><i></i><span>Share TL Index scores of the models tried</span></div><div class="pl-i d"><i></i><span>Set the thresholds that apply</span></div></div>
-        <div class="pl-c now"><div class="pl-i t"><i></i><span>Train on the project's data, if needed<small>About 2 weeks once data is staged</small></span></div><div class="pl-i t"><i></i><span>Run the TL Index on the trained version</span></div><div class="pl-i d"><i></i><span>Send the draft service levels</span></div></div>
-        <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Approve the change request for Pilot<small>About 2 days</small></span></div><div class="pl-i t"><i></i><span>Watch quality with the SRE agent</span></div></div>
-        <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Approve the change request for Production</span></div><div class="pl-i t"><i></i><span>Hand over to operations</span></div></div>
+        <div class="pl-c now"><div class="pl-i d"><i></i><span>Send the draft service levels</span></div><div class="pl-i n"><i></i><span>Walk the team through this plan, every week</span></div><div class="pl-i t"><i></i><span>Help prepare the evidence</span></div></div>
+        <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Review adoption with the team</span></div><div class="pl-i t"><i></i><span>Carry the evidence to governance</span></div></div>
+        <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Publish the result: use and cost avoided</span></div><div class="pl-i t"><i></i><span>Plan what the team could do next</span></div></div>
 
-        <div class="pl-lane"><b>Infrastructure</b><span>Machines and endpoints</span></div>
+        <div class="pl-lane"><b>ThinkLatent · AI engineering</b><span>Models, machines, endpoints</span></div>
         <div class="pl-c"><div class="pl-i d"><i></i><span>Access to the lower environment</span></div><div class="pl-i d"><i></i><span>Relay keys</span></div></div>
         <div class="pl-c"><div class="pl-i d"><i></i><span>Playground capacity, shared</span></div></div>
-        <div class="pl-c now"><div class="pl-i b"><i></i><span>Reserve machines for Pilot<small>Waiting for traffic and peak · GPU 5 weeks</small></span></div><div class="pl-i t"><i></i><span>Set up the shared endpoint<small>2 days</small></span></div></div>
-        <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Pilot machines live</span></div><div class="pl-i t"><i></i><span>Measure against the service levels</span></div><div class="pl-i t"><i></i><span>Reserve machines for Production</span></div></div>
-        <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Production machines live</span></div><div class="pl-i t"><i></i><span>Dedicated endpoint, if chosen<small>3 weeks</small></span></div><div class="pl-i t"><i></i><span>Alerts and on-call in place</span></div></div>
+        <div class="pl-c now"><div class="pl-i b"><i></i><span>Reserve machines for Pilot<small>Waiting for traffic and peak · GPU 5 weeks</small></span></div><div class="pl-i t"><i></i><span>Set up the shared endpoint<small>2 days</small></span></div><div class="pl-i t"><i></i><span>Train on the project's data, if needed<small>About 2 weeks once data is staged</small></span></div><div class="pl-i t"><i></i><span>Run the TL Index on the trained version</span></div></div>
+        <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Approve the change request for Pilot<small>About 2 days</small></span></div><div class="pl-i t"><i></i><span>Pilot machines live</span></div><div class="pl-i t"><i></i><span>Measure against the service levels</span></div><div class="pl-i t"><i></i><span>Reserve machines for Production</span></div></div>
+        <div class="pl-c ahead"><div class="pl-i t"><i></i><span>Approve the change request for Production</span></div><div class="pl-i t"><i></i><span>Production machines live</span></div><div class="pl-i t"><i></i><span>Dedicated endpoint, if chosen<small>3 weeks</small></span></div><div class="pl-i t"><i></i><span>Alerts and on-call, then hand over to operations</span></div></div>
 
         <div class="pl-lane"><b>Governance</b><span>Outside the portal</span></div>
         <div class="pl-c"><div class="pl-i d"><i></i><span>Told the project exists</span></div></div>
@@ -160,7 +173,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2080}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2420}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
