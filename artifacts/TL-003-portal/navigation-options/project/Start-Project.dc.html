@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Start a project with Jarvis</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.sj-talk{display:flex;flex-direction:column;gap:14px}
+.sj-you{align-self:flex-end;max-width:78%;background:var(--companion);color:#fff;border-radius:20px 20px 6px 20px;padding:12px 16px;font-size:15px;line-height:1.45}
+.sj-j{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start}
+.sj-j .av{width:30px;height:30px;border-radius:50%;background:#1A1A1A;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:600}
+.sj-j .b{font-size:15px;line-height:1.5;display:flex;flex-direction:column;gap:10px}
+.sj-card{border-radius:20px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.sj-opt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.sj-opt button{font:inherit;font-size:14px;text-align:left;border:0;border-radius:14px;padding:10px 12px;background:rgba(26,26,26,.05);cursor:pointer;color:inherit}
+.sj-opt button[aria-pressed="true"]{background:#fff;box-shadow:0 0 0 1.5px var(--companion)}
+.sj-pills{display:flex;gap:5px;align-items:center}
+.sj-pills i{display:block;height:5px;width:26px;border-radius:999px;background:rgba(26,26,26,.15)}
+.sj-pills i.on{background:var(--companion)}
+.sj-pills i.now{background:var(--companion);width:44px}
+.sj-side{display:grid;grid-template-columns:130px minmax(0,1fr);gap:6px 12px;font-size:14px;line-height:1.4}
+.sj-side dt{color:rgba(26,26,26,.6);font-size:12.5px;padding-top:1px}
+.sj-side dd{margin:0}
+.sj-box{border-radius:18px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.1);padding:12px 14px;display:flex;gap:10px;align-items:center}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1320px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Team-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="#" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="#" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn outline" type="button">Retail Business <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Advice Tech <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">A new project</button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Start a project</h1>
+        <span class="kit-small kit-muted">A conversation with Jarvis, not a form. He asks only what the plan needs, suggests models, and opens the project with its plan · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="#">Talk to a person at ThinkLatent</a><a class="kit-btn outline" href="#">Save and leave</a></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="The conversation with Jarvis">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><div class="kit-section-title" style="margin: 0"><h2>With Jarvis</h2><span class="sub">The ThinkLatent guide</span></div><div style="display: flex; align-items: center; gap: 10px"><span class="kit-small kit-muted">3 of 6 answered</span><span class="sj-pills" role="img" aria-label="Question 4 of 6"><i class="on"></i><i class="on"></i><i class="on"></i><i class="now"></i><i></i><i></i></span></div></div>
+        <div class="sj-talk" style="margin-top: 16px">
+          <div class="sj-j"><span class="av" aria-hidden="true">J</span><div class="b"><span>Tell me what you want a model to do, in your own words.</span></div></div>
+          <div class="sj-you">Advisors lose time on calls looking up answers to portfolio questions. We want a drafted answer on screen while the client is still on the line.</div>
+          <div class="sj-j"><span class="av" aria-hidden="true">J</span><div class="b"><span>That is two jobs: find the right passages, then draft an answer from them. Your own team already runs something close, Call summary in Advisor desktop. This is what I would start from.</span>
+            <div class="sj-card">
+              <span class="kit-caption">Suggested models · from the catalogue</span>
+              <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center"><div><div style="font-weight: 500">Domain-Advice v2 · drafts the answer</div><div class="kit-small kit-muted">Built for advice conversations · TL Index 84 ± 1 · already used by Advice Tech</div></div><span class="kit-chip brand">Best fit</span></div>
+              <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center"><div><div style="font-weight: 500">Embedding · finds the passages</div><div class="kit-small kit-muted">In Pilot · scored on how often the right passage is in the first ten</div></div><span class="kit-chip outline">Pilot</span></div>
+              <div class="kit-actions"><a class="kit-btn outline" href="#">2 alternatives</a><a class="kit-btn outline" href="#">Try them in the playground</a></div>
+              <span class="kit-small kit-muted">From the catalogue and 3 projects like yours · confidence medium · <a href="#">View sources</a></span>
+            </div>
+          </div></div>
+          <div class="sj-you">Good. Use those two.</div>
+          <div class="sj-j"><span class="av" aria-hidden="true">J</span><div class="b"><span>Done. The next answer matters for your dates more than any other.</span>
+            <div class="sj-card" style="box-shadow: 0 0 0 1.5px var(--companion)">
+              <span class="kit-caption">Question 4 of 6 · sets when machines can be ready</span>
+              <span style="font-size: 18px; font-weight: 500">How many requests a day do you expect, and when is the peak?</span>
+              <div class="sj-opt" role="group" aria-label="Requests a day"><button type="button" aria-pressed="false">Under 1,000 a day</button><button type="button" aria-pressed="true">1,000 to 10,000 a day</button><button type="button" aria-pressed="false">More than 10,000 a day</button><button type="button" aria-pressed="false">I do not know yet</button></div>
+              <div class="sj-box"><span class="kit-small kit-muted" style="flex: 1">The busiest hour, and how fast an answer must come</span><span class="kit-small">Mornings, 9 to 11 · under 2 seconds</span></div>
+              <span class="kit-small kit-muted">Why I ask: machines take about 5 weeks to reserve for GPU, 1 week for CPU. If you do not know yet, I open the project anyway and mark the Pilot date as at risk until you do.</span>
+              <div class="kit-actions"><a class="kit-btn" href="#">Next</a><a class="kit-btn outline" href="#">Skip for now</a></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="sj-box" style="margin-top: 18px"><span class="kit-muted" style="flex: 1">Answer, or ask Jarvis anything</span><span class="kit-chip">What is a dedicated endpoint?</span><span class="kit-chip">Show me projects like mine</span><a class="kit-btn" href="#" aria-label="Send">↑</a></div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface" aria-label="Your project so far">
+          <div class="kit-section-title" style="margin-top: 0"><h2>Your project so far</h2><span class="sub">Filled in as you talk · change anything</span></div>
+          <dl class="sj-side" style="margin: 14px 0 0">
+            <dt>Name</dt><dd>Wealth management portfolio assist</dd>
+            <dt>Where it sits</dt><dd>Retail Business › Advice Tech</dd>
+            <dt>The use</dt><dd>A drafted answer to portfolio questions while the client is on the call</dd>
+            <dt>First feature</dt><dd>Portfolio questions<br><span class="kit-small kit-muted">Embedding finds → Domain-Advice v2 answers</span></dd>
+            <dt>Held to</dt><dd>TL Index overall 80 and Safety 85, from ThinkLatent<br><span class="kit-small kit-muted">Your own quality expectation comes with the evaluation set</span></dd>
+            <dt>People</dt><dd>You, as owner<br><span class="kit-small kit-muted">Integration lead: not named yet</span></dd>
+            <dt>From ThinkLatent</dt><dd>Meera S., your point of contact<br><span class="kit-small kit-muted">Assigned automatically · an AI engineering lead joins when the project opens</span></dd>
+          </dl>
+        </section>
+
+        <section class="kit-surface" aria-label="The plan this gives you">
+          <div class="kit-section-title" style="margin-top: 0"><h2>The plan this gives you</h2><span class="sub">Earliest dates from what you have said</span></div>
+          <div class="kit-rows" style="margin-top: 12px">
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto"><div><div class="t">Try</div><div class="s">Evaluation, and proof it works</div></div><span class="kit-num">From today</span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto"><div><div class="t">Build</div><div class="s">Integration, training if needed</div></div><span class="kit-num">About 2 weeks in</span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto; box-shadow: 0 0 0 1.5px var(--decision)"><div><div class="t">Pilot</div><div class="s">Waits on machines: answer question 4 to fix this date</div></div><span class="kit-num">Not before 14 Dec</span></div>
+            <div class="kit-row" style="grid-template-columns: minmax(0, 1fr) auto"><div><div class="t">Production</div><div class="s">Governance needs about 3 weeks, outside the portal</div></div><span class="kit-num">Not before 1 Feb</span></div>
+          </div>
+          <span class="kit-small kit-muted" style="display: block; margin-top: 10px">Lead times are sample values. The full plan, with who owes what, opens with the project.</span>
+        </section>
+
+        <section class="kit-surface raised" aria-label="Open the project">
+          <span class="kit-caption">The least needed to open the project: the use, where it sits, an owner</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 8px"><span style="font-size: 18px">You can open it now. Three answers are still missing; each one left open shows on the plan as a date at risk.</span><a class="kit-btn" href="Project-Plan.dc.html" style="white-space: nowrap">Open the project</a></div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1320}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
