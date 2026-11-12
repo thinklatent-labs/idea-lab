@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Operations across the Enterprise · every endpoint, the machines, and what is coming</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.eo-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.eo-h h3{margin:0;font-size:18px;font-weight:500}
+.eo-t{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1.15fr) 84px 70px 190px 96px minmax(0,1.25fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.eo-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.eo-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.eo-t b{font-weight:500;font-size:14px}
+.eo-t code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:500}
+.eo-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.eo-t .n{font-variant-numeric:tabular-nums}
+.eo-bar{display:flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums}
+.eo-bar i{position:relative;display:block;flex:none;width:96px;height:8px;border-radius:4px;background:rgba(26,26,26,.1)}
+.eo-bar i b{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:var(--companion)}
+.eo-bar i.t b{background:var(--warning)}
+.eo-bar i u{position:absolute;left:85%;top:-4px;bottom:-4px;border-left:1px dashed rgba(26,26,26,.7)}
+.eo-m{display:flex;height:40px;border-radius:12px;overflow:hidden;margin-top:14px;font-size:12px;font-weight:500}
+.eo-m span{display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.eo-kv{display:grid;grid-template-columns:104px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45;margin-top:10px}
+.eo-kv>*{padding:8px 12px 8px 0;border-top:1px solid rgba(26,26,26,.1)}
+.eo-kv dt{font-weight:500}.eo-kv dd{margin:0}
+.eo-c{display:grid;grid-template-columns:78px minmax(0,1.1fr) minmax(0,1.2fr) 150px;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.eo-c>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.eo-c .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.eo-c .d{font-size:12px;color:rgba(26,26,26,.65);font-variant-numeric:tabular-nums}
+.eo-c small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.eo-u{display:grid;grid-template-columns:minmax(0,1.2fr) 84px minmax(0,1.5fr) 110px;font-size:13px;line-height:1.45;margin-top:10px}
+.eo-u>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.eo-u .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.eo-u small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.eo-r{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px 9px;margin-top:10px;font-size:13px;line-height:1.45}
+.eo-r svg{width:16px;height:16px;margin-top:2px;color:rgba(26,26,26,.6)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2260px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-current="page" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Home-Cockpit.dc.html">The Enterprise <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Operations <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Operations across the Enterprise</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">10 of 10 endpoints answering</span><span class="kit-chip">Every service level met today</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 endpoint tight on room</span><span class="kit-chip">No alert open</span></div>
+        <span class="kit-small kit-muted">Every endpoint ThinkLatent runs, the machines behind them, and what the coming weeks will need. Everyone at the Enterprise sees this page; ThinkLatent AI engineering acts on it. A project's own detail stays on its Operations tab · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Jarvis-Ask.dc.html">Ask Jarvis</a><a class="kit-btn outline" href="Requests-Status.dc.html">Ask for more room</a></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Endpoints answering</span><span class="kit-display" style="font-size: 40px">10 of 10</span><span class="kit-small kit-muted">Every agreed service level met today</span></div>
+      <a class="kit-surface" href="Project-Operations.dc.html" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Under the room ThinkLatent keeps</span><span class="kit-display" style="font-size: 40px">1</span><span class="kit-small kit-muted">advisor-desktop-prod: 9% at the peak, against 15%</span></a>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Machines</span><span class="kit-display" style="font-size: 40px">46</span><span class="kit-small kit-muted">23 serving · 3 testing · 16 training · 4 free</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Requests today</span><span class="kit-display" style="font-size: 40px">212k</span><span class="kit-small kit-muted">Live 58k · background 154k</span></div>
+      <a class="kit-surface" href="Project-Incident.dc.html" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Incidents, last 30 days</span><span class="kit-display" style="font-size: 40px">1</span><span class="kit-small kit-muted">11 minutes on 20 Oct · none open</span></a>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Every endpoint">
+      <div class="eo-h"><h3>Every endpoint</h3><span class="kit-small kit-muted">The tightest first · the dashed line is 85% busy, which leaves the 15% of room ThinkLatent aims to keep · with Engineering on, a row opens the engine's own counters · a system of models, such as Next best action, is one endpoint to its project and several rows here</span></div>
+      <div class="eo-t">
+        <span class="h">Endpoint</span><span class="h">Who it serves</span><span class="h">Requests today</span><span class="h">Machines</span><span class="h">Busy at the peak</span><span class="h">Service levels</span><span class="h">What to know</span>
+
+        <span><code>advisor-desktop-prod</code><small>Domain-Advice v2 · the project's own</small></span><span>Advisor desktop<small>Advice Tech</small></span><span class="n">31k</span><span class="n">3</span><span><span class="eo-bar"><i class="t"><b style="width: 91%"></b><u></u></i>91%</span><small>9% of room</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Tight</span></span><small>A fourth machine or a smaller model is proposed · <a href="Project-Operations.dc.html">open</a></small></span>
+
+        <span><code>speech-recognition</code><small>Speech recognition v6 · for Call processing</small></span><span>Every call at the Enterprise<small>Platform, and 2 projects</small></span><span class="n">154k</span><span class="n">6</span><span><span class="eo-bar"><i><b style="width: 74%"></b><u></u></i>74%</span><small>26% of room</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span>Month-end adds about 30%<small>2 more machines asked for · problem PR-0081</small></span>
+
+        <span><code>distil-4.2</code><small>Distil 4.2 · shared</small></span><span>2 projects<small>Claims Ops Tech and one more</small></span><span class="n">19k</span><span class="n">2</span><span><span class="eo-bar"><i><b style="width: 71%"></b><u></u></i>71%</span><small>29% of room</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span class="kit-muted">—</span>
+
+        <span><code>redaction</code><small>Redaction v4 · shared</small></span><span>Every transcript<small>Platform</small></span><span class="n">154k</span><span class="n">2</span><span><span class="eo-bar"><i><b style="width: 58%"></b><u></u></i>58%</span><small>42% of room</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span class="kit-muted">—</span>
+
+        <span><code>call-classification</code><small>Call classification v3 · shared</small></span><span>Every call<small>Platform</small></span><span class="n">154k</span><span class="n">1</span><span><span class="eo-bar"><i><b style="width: 49%"></b><u></u></i>49%</span><small>51% of room</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span class="kit-muted">—</span>
+
+        <span><code>core-4.2</code><small>Core 4.2 · shared</small></span><span>2 projects<small>Client Service Tech and one more</small></span><span class="n">8k</span><span class="n">4</span><span><span class="eo-bar"><i><b style="width: 46%"></b><u></u></i>46%</span><small>54% of room</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span class="kit-muted">—</span>
+
+        <span><code>guardrail</code><small>Guardrail v2 · shared</small></span><span>Advisor desktop<small>Checks each summary, in the background</small></span><span class="n">26k</span><span class="n">1</span><span><span class="eo-bar"><i><b style="width: 22%"></b><u></u></i>22%</span><small>78% of room</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span class="kit-muted">—</span>
+
+        <span><code>embedding</code><small>Embedding v2 · shared · in Pilot</small></span><span>Advisor desktop<small>Next best action</small></span><span class="n">5k</span><span class="n">1</span><span><span class="eo-bar"><i><b style="width: 12%"></b><u></u></i>12%</span><small>88% of room</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span>Quiet<small>Until Next best action is with everyone</small></span>
+
+        <span><code>core-3.4</code><small>Core 3.4, of TLM3 · shared · retiring</small></span><span>1 feature<small>Moving to Core 4.2</small></span><span class="n">2k</span><span class="n">2</span><span><span class="eo-bar"><i><b style="width: 11%"></b><u></u></i>11%</span><small>89% of room</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span>Quiet<small>Its 2 machines come back when the last feature moves</small></span>
+
+        <span><code>core-4.2-small</code><small>The small Core, carrying the Decision adapter · in Pilot</small></span><span>Advisor desktop<small>Next best action</small></span><span class="n">5k</span><span class="n">1</span><span><span class="eo-bar"><i><b style="width: 9%"></b><u></u></i>9%</span><small>91% of room</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span>Quiet<small>The SRE agent proposes sharing a machine with embedding</small></span>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="The machines">
+        <div class="eo-h"><h3>The machines</h3><span class="kit-small kit-muted">46 GPU machines, and 4 on order</span></div>
+        <div class="eo-m" role="img" aria-label="46 machines: 23 serving, 3 testing, 16 training, 4 free">
+          <span style="width: 50%; background: var(--companion); color: #fff">Serving 23</span><span style="width: 6.5%; background: color-mix(in oklab, var(--companion) 45%, white)">3</span><span style="width: 34.8%; background: #1A1A1A; color: #fff">Training 16</span><span style="width: 8.7%; background: rgba(26,26,26,.1)">Free 4</span>
+        </div>
+        <dl class="eo-kv">
+          <dt>Serving · 23</dt><dd>On the ten endpoints above, always on</dd>
+          <dt>Testing · 3</dt><dd>The shared test endpoints of the lower environment</dd>
+          <dt>Training · 16</dt><dd>Held by the foundation team until about 9 Nov. What runs on them is shown only to that team</dd>
+          <dt>Free · 4</dt><dd>Can be given to an endpoint within a day</dd>
+          <dt>On order · 4</dt><dd>Arriving 8 Dec. A GPU machine takes 5 weeks</dd>
+        </dl>
+      </section>
+
+      <section class="kit-surface" aria-label="What is coming">
+        <div class="eo-h"><h3>What is coming</h3><span class="kit-small kit-muted">The next six weeks against the machines there are</span></div>
+        <div class="eo-c">
+          <span class="h">When</span><span class="h">What</span><span class="h">What it needs</span><span class="h">Is there room</span>
+          <span class="d">About 9 Nov</span><span>Training gives back its machines</span><span>Frees 16</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Adds room</span></span></span>
+          <span class="d">About 10 Nov</span><span>Next best action with everyone<small>Advisor desktop</small></span><span>1 more machine on weekday mornings, or the smaller model</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Tight until decided</span></span></span>
+          <span class="d">21 Nov</span><span>Domain-Advice version 3 is offered<small>Each project that switches has a silent day</small></span><span>Twice a project's machines for that day: 3 for Advisor desktop</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+          <span class="d">30 Nov</span><span>Month-end call volume<small>Problem PR-0081</small></span><span>2 more machines for speech recognition, for 5 days</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+          <span class="d">8 Dec</span><span>4 machines arrive</span><span>—</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Adds room</span></span></span>
+          <span class="d">14 Dec</span><span>Wealth management portfolio assist to Pilot<small>Advice Tech</small></span><span>Not known: the team has not given its traffic and peak · <a href="Project-Plan.dc.html">its Plan</a></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Not sized yet</span></span></span>
+        </div>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="By team">
+        <div class="eo-h"><h3>By team</h3><a class="kit-small" href="Home-Cockpit.dc.html">Spend and cost avoided by team are on Home</a></div>
+        <div class="eo-u">
+          <span class="h">Team</span><span class="h">Requests today</span><span class="h">Leans on</span><span class="h">Serving machines</span>
+          <span>Platform<small>Enterprise services</small></span><span>154k</span><span>speech-recognition, redaction, call-classification</span><span>9 of 23</span>
+          <span>Advice Tech<small>Retail Business</small></span><span>31k</span><span>advisor-desktop-prod, guardrail, embedding, core-4.2-small</span><span>6 of 23</span>
+          <span>Claims Ops Tech<small>Institutional Ops</small></span><span>19k</span><span>distil-4.2, shared with one more team</span><span>2 of 23</span>
+          <span>Client Service Tech<small>Retail Business</small></span><span>8k</span><span>core-4.2, shared with one more team</span><span>4 of 23</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">The last 2 serving machines carry Core 3.4 until its feature moves. No team is billed for machines; the cost is shown, not charged.</div>
+      </section>
+
+      <section class="kit-surface" aria-label="What ThinkLatent can do here">
+        <div class="eo-h"><h3>What ThinkLatent can do here</h3><span class="kit-small kit-muted">You see the page; they act on it</span></div>
+        <div class="eo-r">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3M20 16H7l3 3"></path></svg><span>Move a machine from one endpoint to another, in about 20 minutes</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"></path><path d="M4 9h11a5 5 0 0 1 0 10h-3"></path></svg><span>Take back machines an endpoint does not use</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Order machines, five weeks ahead</span>
+        </div>
+        <div style="border-radius: 18px; background: #fff; box-shadow: 0 0 0 1px rgba(26,26,26,.08); padding: 14px 16px; margin-top: 14px; display: flex; flex-direction: column; gap: 6px">
+          <span style="display: flex; gap: 8px; align-items: center"><a class="kit-chip brand" href="Agents-AtWork.dc.html" style="text-decoration: none">SRE agent</a><span class="kit-caption">Two quiet endpoints · today</span></span>
+          <span style="font-size: 15px; font-weight: 500">Put embedding and the small Core on one machine</span>
+          <span class="kit-small">Each holds a machine and is under 15% busy. Sharing one until Next best action is with everyone frees a machine.</span>
+          <span class="kit-small kit-muted">From 7 days of the engine's counters · sure: high · <a href="#">See what it rests on</a> · waits for Arjun K.</span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2260}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
