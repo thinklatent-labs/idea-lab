@@ -60,7 +60,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .sh-w{box-shadow:0 0 0 1px var(--decision);border-radius:999px;padding:0 7px}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2780px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3040px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -166,29 +166,30 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <div class="kit-small kit-muted">Related: the deviation on Numbers and calculations (76 ± 2 against 78) was accepted on 2 Oct because summaries only quote figures. This gap is about quoted figures.</div>
         <div class="sh-ag"><span class="chip">Self-healing agent</span><span>Rests on 2,600 scored requests in 7 days and 23 thumbs down that gave "wrong figure"</span><span>Sure: 0.79</span><a href="#">See what it rests on</a></div>
         <div class="kit-actions"><a class="kit-btn" href="#">Yes, a real gap</a><a class="kit-btn outline" href="#">Not a gap, and why</a><a class="kit-btn outline" href="#">Show me more</a></div>
+        <div class="kit-small kit-muted" style="line-height: 1.5">If you say it is not a gap, nothing is built for it and your reason goes back to tune how self-healing reads this requirement. If you confirm it, one thing is asked of you before it can lead to training: score 50 summaries by hand, once, so we both know how far to trust the scoring. <a href="#">Start the hand scoring</a></div>
       </section>
     </div>
 
     <section class="kit-surface" aria-label="Call summary: requirements and today's model">
-      <div class="sh-h"><h3>Call summary · what you asked for, and today's model against it</h3><span class="kit-small kit-muted">Scored by self-healing on a sample of production: 2,600 requests in the last 7 days. ± is the interval. The mark on each bar is what you expect.</span></div>
+      <div class="sh-h"><h3>Call summary · what you asked for, and today's model against it</h3><span class="kit-small kit-muted">Scored by self-healing on a sample of production: 2,600 requests in the last 7 days. ± is the interval. The mark on each bar is what you expect. Its scoring counts only once it agrees with 50 answers you scored by hand.</span></div>
       <div class="sh-req" style="margin-top: 8px">
         <span class="hd">Your requirement, in your words</span><span class="hd">We read it as</span><span class="hd">Expected</span><span class="hd">Today, in production</span><span class="hd">On your evaluation set</span><span class="hd">Where it stands</span><span class="hd">Self-healing</span>
 
-        <span class="rq">The summary says what mattered on the call</span><span>Summary quality<small>completeness</small></span><span class="sh-num">80%</span><span><span class="sh-num">84% ± 2</span><div class="sh-bar"><i style="width: 84%"></i><u style="left: 80%"></u></div></span><span class="sh-num">86% ± 5</span>
+        <span class="rq">The summary says what mattered on the call</span><span>Summary quality<small>completeness</small></span><span class="sh-num">80%</span><span><span class="sh-num">84% ± 2</span><div class="sh-bar"><i style="width: 84%"></i><u style="left: 80%"></u></div><small>agrees with your hand scores, 46 of 50</small></span><span class="sh-num">86% ± 5</span>
         <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span class="kit-muted">Nothing to do</span>
 
-        <span class="rq">Nothing in it that was not said</span><span>Nothing made up<small>faithfulness</small></span><span class="sh-num">92%</span><span><span class="sh-num">95% ± 1</span><div class="sh-bar"><i style="width: 95%"></i><u style="left: 92%"></u></div></span><span class="sh-num">94% ± 2</span>
+        <span class="rq">Nothing in it that was not said</span><span>Nothing made up<small>faithfulness</small></span><span class="sh-num">92%</span><span><span class="sh-num">95% ± 1</span><div class="sh-bar"><i style="width: 95%"></i><u style="left: 92%"></u></div><small>agrees with your hand scores, 48 of 50</small></span><span class="sh-num">94% ± 2</span>
         <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span class="kit-muted">Nothing to do</span>
 
-        <span class="rq">Every follow-up we agreed is listed</span><span>Action items found<small>new on 20 Oct</small></span><span class="sh-num">90%</span><span><span class="sh-num">74% ± 3</span><div class="sh-bar"><i class="under" style="width: 74%"></i><u style="left: 90%"></u></div></span><span>Not run yet<small>measure being set up</small></span>
+        <span class="rq">Every follow-up we agreed is listed</span><span>Action items found<small>new on 20 Oct</small></span><span class="sh-num">90%</span><span><span class="sh-num">74% ± 3</span><div class="sh-bar"><i class="under" style="width: 74%"></i><u style="left: 90%"></u></div><small>agrees with your hand scores, 47 of 50</small></span><span>Not run yet<small>measure being set up</small></span>
         <span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Gap, confirmed</span></span><small>by Priya N. · 22 Oct</small></span>
-        <span><span class="sh-num">3,050</span> of about 3,000 built<div class="sh-bar"><i style="width: 100%"></i></div><small>Enough · since 4 Nov</small></span>
+        <span><span class="sh-num">3,050</span> examples built<div class="sh-bar"><i style="width: 100%"></i></div><small>Enough, by its own judgement · since 4 Nov</small></span>
 
-        <span class="rq">Amounts and dates are the ones said on the call</span><span>Figures quoted right<small>new on 2 Nov</small></span><span class="sh-num">95%</span><span><span class="sh-num">91% ± 2</span><div class="sh-bar"><i class="under" style="width: 91%"></i><u style="left: 95%"></u></div></span><span class="kit-muted">Not measured</span>
+        <span class="rq">Amounts and dates are the ones said on the call</span><span>Figures quoted right<small>new on 2 Nov</small></span><span class="sh-num">95%</span><span><span class="sh-num">91% ± 2</span><div class="sh-bar"><i class="under" style="width: 91%"></i><u style="left: 95%"></u></div><small>not hand-scored yet</small></span><span class="kit-muted">Not measured</span>
         <span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Gap, waits for you</span></span><small>found 2 Nov</small></span>
         <span class="kit-muted">Not started<small>begins when you confirm</small></span>
 
-        <span class="rq">Short enough to read in a minute</span><span>Length<small>under 180 words</small></span><span class="sh-num">90%</span><span><span class="sh-num">97% ± 1</span><div class="sh-bar"><i style="width: 97%"></i><u style="left: 90%"></u></div></span><span class="kit-muted">Not measured</span>
+        <span class="rq">Short enough to read in a minute</span><span>Length<small>under 180 words</small></span><span class="sh-num">90%</span><span><span class="sh-num">97% ± 1</span><div class="sh-bar"><i style="width: 97%"></i><u style="left: 90%"></u></div><small>counted, not judged</small></span><span class="kit-muted">Not measured</span>
         <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Met</span></span></span><span class="kit-muted">Nothing to do</span>
       </div>
 
@@ -196,7 +197,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <div class="sh-box"><h4>What self-healing found on follow-ups</h4>
           <div class="kit-small" style="margin-top: 6px; line-height: 1.55"><b class="sh-num">26% ± 3</b> of summaries leave out at least one follow-up that was agreed on the call. By kind: a review or meeting to book 44%, a document to send 31%, money to move 25%. Advisors say the same: 58 of this week's 147 thumbs down gave "missed an action". One of yours: se-6bf2, turn 4, where a review in March was agreed and left out. <a href="#">Open in Traces</a></div></div>
         <div class="sh-box"><h4>What it has done since you confirmed</h4>
-          <div class="kit-small" style="margin-top: 6px; line-height: 1.55">Built <b class="sh-num">3,050</b> examples from this project's production requests and answers, about 220 a day since 22 Oct, and held back 300 more as a benchmark that is never trained on. You see the counts and the scores, not the examples.</div></div>
+          <div class="kit-small" style="margin-top: 6px; line-height: 1.55">Built <b class="sh-num">3,050</b> examples from this project's production requests and answers, about 220 a day since 22 Oct, and held back 300 more as a benchmark that is never trained on. On 4 Nov it judged that enough. You see the counts and the scores, not the examples.</div></div>
       </div>
     </section>
 
@@ -206,6 +207,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div class="kit-caption">Call summary · step 5</div>
           <div style="font-size: 30px; line-height: 1.2; letter-spacing: -0.01em">There is enough to train a model of your own for Call summary.</div>
           <div class="kit-small" style="line-height: 1.55; max-width: 640px">A run teaches Domain-Advice v2 to list agreed follow-ups, and is held to what already works: the three requirements met today and every TL Index threshold. A candidate that drops on any of them is not offered.</div>
+          <div class="sh-ag"><span class="chip">Self-healing agent</span><span>Its own judgement, made case by case, not a fixed count: it expects a run to lift follow-ups from 74% to about 90% and hold the rest</span><span>Sure: 0.84</span><a href="#">See what it rests on</a></div>
           <dl class="sh-kv"><div><dt>Starts from</dt><dd>Domain-Advice v2, as in production (increment 3)</dd></div><div><dt>Becomes</dt><dd>A candidate for increment 6</dd></div><div><dt>Takes</dt><dd>About 5 hours · the training machines are free tonight</dd></div><div><dt>Costs</dt><dd>$[cost]</dd></div><div><dt>Who is told</dt><dd>The project's members, Arjun K. and Meera S.</dd></div></dl>
           <div class="kit-actions"><a class="kit-btn" href="#">Start the training run</a><a class="kit-btn outline" href="#">Wait and cover the second gap too</a></div>
           <div class="kit-small kit-muted">Waiting means about 12 more days after you confirm the second gap. Any member of the project can start a run.</div>
@@ -214,7 +216,8 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div style="font-size: 15px; font-weight: 500; margin-bottom: 10px">The least needed before you start</div>
           <div class="sh-ck">
             <svg class="kit-status good" style="color: var(--companion)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>The gap is confirmed by the project's owner<small>Done · Priya N., 22 Oct</small></span>
-            <svg style="color: var(--companion)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Enough examples are built<small>Done · 3,050 of about 3,000</small></span>
+            <svg style="color: var(--companion)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Self-healing judges there is enough<small>Done · 4 Nov, at 3,050 examples · sure: 0.84</small></span>
+            <svg style="color: var(--companion)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Its scoring of follow-ups agrees with your hand scores<small>Done · 47 of 50, scored by Priya N. on 23 Oct</small></span>
             <svg style="color: var(--companion)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>A benchmark is held back<small>Done · 300 examples, never trained on</small></span>
             <svg style="color: var(--companion)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Training machines are free<small>Done · tonight, nothing to reserve</small></span>
             <svg style="color: var(--warning)" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Your evaluation set cannot judge follow-ups yet<small>Not ready · "Action items found" is being set up and 62 rows lack a field. You can start, but until it is fixed the candidate is judged on follow-ups by the benchmark alone. <a href="Feature-Evaluation.dc.html">Open the evaluation set</a></small></span>
@@ -247,7 +250,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2780}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3040}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
