@@ -53,11 +53,12 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div style="display: flex; flex-direction: column; gap: 8px">
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Good morning, Priya</h1>
         <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center"><span class="kit-small kit-muted">What ThinkLatent is running across the Enterprise today.</span><span class="kit-asof">As of 11:58 ET · totals only · sample data</span></div>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><span role="group" aria-label="Time window" style="display: inline-flex; border-radius: 10px; box-shadow: 0 0 0 1px rgba(26,26,26,.14); overflow: hidden; font-size: 12.5px"><span style="padding: 5px 11px; background: #1A1A1A; color: #fff">Today</span><span style="padding: 5px 11px">7 days</span><span style="padding: 5px 11px">30 days</span><span style="padding: 5px 11px">Quarter</span></span><span class="kit-small kit-muted">Every number on this page follows the window and shows its change against the window before</span></div>
       </div>
       <a href="#" aria-label="Tokens processed today, by model" style="display: flex; flex-direction: column; gap: 2px; align-items: flex-end; color: inherit; text-decoration: none">
         <span class="kit-caption">Tokens processed today</span>
         <span class="kit-display" style="font-size: 46px; white-space: nowrap">2.3B <span style="font-size: 20px">in</span> <span aria-hidden="true" style="font-size: 26px">→</span> 208M <span style="font-size: 20px">out</span></span>
-        <span class="kit-small kit-muted">Across 8 live models and 212k requests</span>
+        <span class="kit-small kit-muted">Across 8 live models and 212k requests · 6% more than yesterday</span>
       </a>
     </div>
 
@@ -68,6 +69,25 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <button class="kit-btn" type="submit" style="height: 56px; padding: 0 26px">Ask</button>
       </form>
       <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center"><a class="kit-chip outline" href="Start-Project.dc.html">Start a project</a><a class="kit-chip outline" href="Jarvis-Ask.dc.html">Find a model for a task</a><a class="kit-chip outline" href="Jarvis-Ask.dc.html">What changed today</a><a class="kit-chip outline" href="Requests-Status.dc.html">Where is my request</a><a class="kit-chip outline" href="Agents-AtWork.dc.html">What the agents did</a><span class="kit-small kit-muted">Answers from the records, shows its sources, takes you to the page. It prepares a request; it never approves one.</span></div>
+    </section>
+
+    <section class="kit-surface raised" aria-label="What changed today" style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; align-items: start">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><a class="kit-chip brand" href="Agents-AtWork.dc.html" style="text-decoration: none">Agents · the day's brief</a><span class="kit-caption">What changed today across the Enterprise</span></span>
+        <span style="font-size: 18px; line-height: 1.45">A steady day. Every live model answered within its usual time and requests are 6% up on yesterday. One feature is under its own threshold, Claims triage, and has been for 16 days. Run IX-0431 finished on Core 4.2.</span>
+        <span class="kit-small kit-muted">Basis: today's totals, the open findings and the TL Index queue, as of 11:58 ET · fairly sure · <a href="Agents-AtWork.dc.html">View sources</a></span>
+        <span style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px"><a class="kit-btn outline" href="Enterprise-Operations.dc.html">Operations across the Enterprise</a><a class="kit-btn outline" href="Projects-All.dc.html">All projects</a></span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.45">
+        <span style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px; flex: none"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Finding F-0425</span></span><span>Claims triage is under its threshold: 74% ± 4, expects 80%</span></span>
+        <span class="kit-caption">Why, as the Index agent reads it</span>
+        <span style="display: grid; grid-template-columns: minmax(0, 1fr) 84px 120px; gap: 6px 10px; align-items: center">
+          <span>Claims with more than one injury, which Distil 4.2 routes poorly</span><span style="text-align: right">About half</span><span style="display: block; height: 8px; border-radius: 4px; background: rgba(26,26,26,.08)"><i style="display: block; width: 52%; height: 8px; border-radius: 4px; background: rgba(26,26,26,.55)"></i></span>
+          <span>A new claim form since 20 Oct</span><span style="text-align: right">A third</span><span style="display: block; height: 8px; border-radius: 4px; background: rgba(26,26,26,.08)"><i style="display: block; width: 33%; height: 8px; border-radius: 4px; background: rgba(26,26,26,.55)"></i></span>
+          <span>Not explained</span><span style="text-align: right">The rest</span><span style="display: block; height: 8px; border-radius: 4px; background: rgba(26,26,26,.08)"><i style="display: block; width: 15%; height: 8px; border-radius: 4px; background: rgba(26,26,26,.55)"></i></span>
+        </span>
+        <span class="kit-small kit-muted">The agent proposed another model for the task. The proposal waits for the project's owners on their page; nothing is decided on Home. <a href="Project-OpenView.dc.html">Open Claims intake</a></span>
+      </div>
     </section>
 
     <div class="kit-section-title"><h2>Running now</h2><span class="sub">2 · What is running today?</span></div>

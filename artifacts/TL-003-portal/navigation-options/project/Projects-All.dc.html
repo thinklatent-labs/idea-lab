@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>All projects · every project and feature across the Enterprise, what is held before Production, and a download (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.pa-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.pa-h h3{margin:0;font-size:18px;font-weight:500}
+.pa-k{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.pa-k>*{display:flex;flex-direction:column;gap:6px}
+.pa-f{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.pa-t{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.1fr) minmax(0,1fr) 104px minmax(0,1.2fr) 96px 120px;font-size:13px;line-height:1.45;margin-top:12px}
+.pa-t>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.pa-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.pa-t .n{font-variant-numeric:tabular-nums}
+.pa-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.pa-t a{color:inherit;text-decoration:none;font-weight:500}
+.pa-st{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:12px}
+.pa-st>div{border-radius:14px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 14px;display:flex;flex-direction:column;gap:2px;font-size:12.5px}
+.pa-st b{font-size:26px;font-weight:400}
+.pa-hd{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.5fr) minmax(0,1.2fr) 90px;font-size:13px;line-height:1.45;margin-top:10px}
+.pa-hd>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.pa-hd .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.pa-hd small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.pa-l{display:flex;flex-direction:column;margin-top:8px;font-size:13px;line-height:1.45}
+.pa-l>*{padding:10px 0;border-top:1px solid rgba(26,26,26,.1)}
+.pa-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1521px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <button class="kit-btn" type="button">The Enterprise <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All organizations <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All projects <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">All projects</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Open to everyone at the Enterprise</span><span class="kit-chip">7 projects · 12 features</span><span class="kit-chip">First draft · D-321</span></div>
+        <span class="kit-small kit-muted">Every project and its features in one table: the model each runs on, where it stands, how it scores against its own threshold, and what it saves. Totals and scores only; nothing sealed shows here. As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><button class="kit-btn" type="button">Download as CSV</button><button class="kit-btn outline" type="button">Save view</button><a class="kit-btn outline" href="Start-Project.dc.html">Start a project</a></div>
+    </div>
+
+    <div class="pa-k">
+      <div class="kit-surface"><span class="kit-caption">Projects</span><span class="kit-display" style="font-size: 36px">7</span><span class="kit-small kit-muted">In 3 organizations and 4 teams</span></div>
+      <div class="kit-surface"><span class="kit-caption">Features with real traffic</span><span class="kit-display" style="font-size: 36px">8 of 12</span><span class="kit-small kit-muted">In Pilot or Production</span></div>
+      <div class="kit-surface"><span class="kit-caption">In Production</span><span class="kit-display" style="font-size: 36px">4</span><span class="kit-small kit-muted">1 more asked for, with ThinkLatent</span></div>
+      <div class="kit-surface"><span class="kit-caption">Under their own threshold</span><span class="kit-display" style="font-size: 36px">1</span><span class="kit-small kit-muted">Claims triage · finding F-0425</span></div>
+      <div class="kit-surface"><span class="kit-caption">Cost avoided, 30 days</span><span class="kit-display" style="font-size: 36px">$[avoided]</span><span class="kit-small kit-muted">From the features that are live</span></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Every feature">
+      <div class="pa-h"><h3>Every feature</h3><span class="kit-small kit-muted">One row a feature · a row opens the feature's page · members see more there</span></div>
+      <div class="pa-f"><span class="kit-chip brand">All organizations</span><span class="kit-chip">Retail Business</span><span class="kit-chip">Institutional Ops</span><span class="kit-chip">Enterprise services</span><span class="kit-muted" aria-hidden="true">·</span><span class="kit-chip brand">Every stage</span><span class="kit-chip">Build</span><span class="kit-chip">Pilot</span><span class="kit-chip">Production</span><span class="kit-muted" aria-hidden="true">·</span><span class="kit-chip">Held before Production · 3</span><span class="kit-chip">Under its threshold · 1</span></div>
+      <div class="pa-t">
+        <span class="h">Feature</span><span class="h">Project · team</span><span class="h">Runs on</span><span class="h">Stage</span><span class="h">Against its own threshold</span><span class="h">Requests today</span><span class="h">Cost avoided, 30 d</span>
+        <span><a href="Feature-Page.dc.html">Call summary</a><small>Writes the summary of an advice call</small></span><span>Advisor desktop<small>Advice Tech · Retail Business</small></span><span>Domain-Advice v2</span><span>Production</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span> 86% ± 5, expects 80%</span><span class="n">26k</span><span class="n">$[avoided]</span>
+        <span><a href="System-NextBestAction.dc.html">Next best action</a><small>Suggests the adviser's next step</small></span><span>Advisor desktop<small>Advice Tech · Retail Business</small></span><span>A system of 3 models</span><span>Pilot</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span> 71% ± 3, expects 65%</span><span class="n">4k</span><span class="n">Not live</span>
+        <span>Speech to text<small>Turns a call into text</small></span><span>Advisor desktop<small>Advice Tech · Retail Business</small></span><span>Speech recognition</span><span>Build</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Not scored yet</span></span></span><span class="n">—</span><span class="n">Not live</span>
+        <span>Portfolio questions<small>Answers questions about a portfolio</small></span><span>Wealth management portfolio assist<small>Advice Tech · Retail Business</small></span><span>Core 4.2</span><span>Build</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>No evaluation set yet</span></span></span><span class="n">—</span><span class="n">Not live</span>
+        <span>Claims triage<small>Routes a claim to the right desk</small></span><span>Claims intake<small>Claims Ops Tech · Institutional Ops</small></span><span>Distil 4.2</span><span>Pilot</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Under</span></span> 74% ± 4, expects 80%</span><span class="n">11k</span><span class="n">Not live</span>
+        <span>Call processing<small>Speech, speakers and redaction for every call</small></span><span>Enterprise call platform<small>Platform · Enterprise services</small></span><span>A system of 4 models</span><span>Production</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span> on all 3 measures</span><span class="n">154k</span><span class="n">$[avoided]</span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">6 of 12 shown. Each feature is judged against the threshold its own project set, so the scores are not one league table. The CSV carries the same columns for the rows the filters leave.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Held before Production">
+        <div class="pa-h"><h3>Held before Production</h3><span class="kit-small kit-muted">3 features in Pilot · what each still needs, oldest first</span></div>
+        <div class="pa-hd">
+          <span class="h">Feature</span><span class="h">What holds it</span><span class="h">Who has the next step</span><span class="h">In Pilot</span>
+          <span>Claims triage<small>Claims intake</small></span><span>Under its threshold on Distil 4.2 · the Index agent proposed another model<small>Finding F-0425</small></span><span>The project's owners<small>Left 16 days · also with its ThinkLatent person</small></span><span>41 days</span>
+          <span>Next best action<small>Advisor desktop</small></span><span>Speed, and unsuitable suggestions close to their limit</span><span>ThinkLatent AI engineering</span><span>32 days</span>
+          <span>Letter drafting<small>Client letters · Client Service Tech</small></span><span>The safety gate is not run yet</span><span>The project's engineers</span><span>12 days</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">Whether a feature goes to Production is decided outside the portal; this shows the evidence still missing, not a verdict.</div>
+      </section>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface" aria-label="Where they stand">
+          <div class="pa-h"><h3>Where the 12 stand</h3></div>
+          <div class="pa-st"><div><b>1</b>Set up</div><div><b>1</b>Try</div><div><b>2</b>Build</div><div><b>4</b>Pilot</div><div><b>4</b>Production</div></div>
+        </section>
+        <section class="kit-surface" aria-label="What this page leaves out">
+          <div class="pa-h"><h3>What this page leaves out</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Each project's own rules</span></div>
+          <div class="pa-l">
+            <span>Traces, prompts and production text<small>Members only, on the project's pages</small></span>
+            <span>Spend by project<small>On each team's and organization's page</small></span>
+            <span>Adoption by person, and statements for Finance<small>Later, on 'What is coming' (D-312)</small></span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1521}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
