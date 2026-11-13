@@ -43,7 +43,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .rn small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2978px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3071px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -74,10 +74,10 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     <div class="kit-page-head">
       <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Training</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">1 run going · Core, run 7 at 47%</span><span class="kit-chip">4 recipes saved</span><span class="kit-chip">22 methods · 7 ready, 6 in build, 9 planned</span></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">1 run going · Core, run 7 at 47%</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 stopped at a check</span><span class="kit-chip">4 recipes saved</span><span class="kit-chip">22 methods · 7 ready, 6 in build, 9 planned</span></div>
         <span class="kit-small kit-muted">Where the foundation team builds recipes and starts runs. A recipe is a chain of stages. Each stage is one method, the mix it learns from, and the check it must pass before the next stage begins. Every method is listed, whether or not it can run today. Nobody outside this team sees a run until its model is released · As of 11:58 ET · sample data</span>
       </div>
-      <div class="kit-actions"><a class="kit-btn" href="Training-Recipe.dc.html">Build a recipe</a><a class="kit-btn outline" href="#">Every run</a></div>
+      <div class="kit-actions"><a class="kit-btn" href="Training-Recipe.dc.html">Build a recipe</a><a class="kit-btn outline" href="Training-Runs.dc.html">Every run</a></div>
     </div>
 
     <div class="kit-tabs" role="tablist" aria-label="Models pages">
@@ -131,7 +131,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 
         <span class="sep">Shape the base <small>Once for each base, before anything else</small></span>
         <span><b>Adjust the full base</b><small>A light fine-tune before the cut</small></span><span>The open base meets the Enterprise's language, so that it is the right teacher later</span><span>Plain text</span><span class="n">5.38M</span><span>AutoModel</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span>
-        <span><b>Prune</b><small>Width first, then depth</small></span><span>Nothing new: it removes what the Enterprise's data does not use</span><span>A calibration mix of about a thousand items</span><span class="n">1,024</span><span>The TLM package</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span>
+        <span><b>Prune</b><small>Width · FastNAS</small></span><span>Nothing new: it removes what the Enterprise's data does not use</span><span>A calibration mix of about a thousand items</span><span class="n">1,024</span><span>Model Optimizer, in the TLM package</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span>
         <span><b>Distil back</b><small>From the adjusted full base</small></span><span>The pruned model recovers what the cut cost</span><span>Plain text, and the adjusted base as teacher</span><span class="n">5.38M</span><span>AutoModel</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span>
 
         <span class="sep">Learn from what is held</span>
@@ -167,18 +167,19 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     </section>
 
     <section class="kit-surface" aria-label="Runs">
-      <div class="da-h"><h3>Runs</h3><a href="#">Every run, and comparing two</a></div>
+      <div class="da-h"><h3>Runs</h3><a href="Training-Runs.dc.html">Every run, and comparing two</a></div>
       <div class="rn">
         <span class="h">Model</span><span class="h">Recipe</span><span class="h">Mix</span><span class="h">Where it stands</span><span class="h"></span>
         <span><b>Core</b><small>Run 7 · would become 4.3</small></span><span>Continue a model on new data<small>Version 5</small></span><span>Core run 7 · choosing the right tool<small>Version 1 · 369k</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Running · 47%</span></span><small>Started 02:10 by Arjun K.</small></span><a href="Model-Training.dc.html">Open</a>
         <span><b>Domain-Advice</b><small>Would become version 3</small></span><span>A domain model, on Core<small>Version 1</small></span><span><a href="Data-Mix.dc.html" style="color: inherit">Advice v3 · examples</a><small>Version 2 · not saved yet</small></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Set up</span></span><small>Waits for its mix to be saved</small></span><a href="Data-Mix.dc.html">Open the mix</a>
+        <span><b>Shaping trial · 20% taken out</b><small>On the current base</small></span><span>A base, from a new open model<small>Version 3 · stages 1 to 3</small></span><span>Shaping · calibration, and the Enterprise's text<small>Both at version 1</small></span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stopped at a check</span></span><small>12 Nov · waits for Hana O.</small></span><a href="Training-Run.dc.html">Open</a>
         <span><b>The next Core</b><small>From a new base</small></span><span>A base, from a new open model<small>Version 3</small></span><span>Shaping · calibration, and the Enterprise's text<small>Both at version 1</small></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Set up</span></span><small>Waits for the base to be chosen</small></span><a href="Training-Recipe.dc.html">Open</a>
       </div>
     </section>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2978}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3071}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Models and agents · Training · one run with its stages inside: a shaping trial stopped at a check</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.da-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.da-h h3{margin:0;font-size:18px;font-weight:500}
+.row4{display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr 26px .7fr;align-items:stretch;margin-top:12px}
+.aw{display:flex;align-items:center;justify-content:center;color:rgba(26,26,26,.5);font-size:18px}
+.sg{border-radius:18px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.1);padding:14px 16px;font-size:13px;line-height:1.45;display:flex;flex-direction:column;gap:8px;min-width:0}
+.sg.bad{box-shadow:0 0 0 2px var(--decision)}
+.sg.wt{background:transparent;box-shadow:none;border:1.5px dashed rgba(26,26,26,.4)}
+.sg .top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.sg .k{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#1A1A1A;color:#fff;font-size:12px;font-weight:500;flex:none}
+.sg b{font-weight:500;font-size:15px}
+.sg small{font-size:12px;color:rgba(26,26,26,.65)}
+.pl{display:grid;grid-template-columns:minmax(0,1.3fr) 104px 104px 124px 150px minmax(0,1.2fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.pl>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;display:flex;align-items:center}
+.pl .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0;align-items:flex-end}
+.pl .n{font-variant-numeric:tabular-nums}
+.pp{border-radius:18px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:14px 16px;font-size:13.5px;line-height:1.5;margin-top:12px}
+.ch3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.ch3>div{border-radius:16px;box-shadow:0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.45;display:flex;flex-direction:column;gap:6px;background:rgba(255,255,255,.5)}
+.ch3 b{font-weight:500;font-size:14px}
+.cp{display:grid;grid-template-columns:90px 120px 130px minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.cp>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.cp .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.cp .n{font-variant-numeric:tabular-nums}
+.hw{display:grid;grid-template-columns:140px minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px}
+.hw>*{padding:9px 14px 9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.hw dt{color:rgba(26,26,26,.6)}.hw dd{margin:0}
+.fl{display:flex;align-items:stretch;margin-top:14px}
+.fl .bx{flex:1 1 0;border-radius:16px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.4;min-width:0}
+.fl .bx b{display:block;font-weight:500;font-size:14px}
+.fl .bx small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.fl .bx.nx{background:transparent;box-shadow:none;border:1.5px dashed rgba(26,26,26,.35)}
+.fl .ar{flex:0 0 34px;display:flex;align-items:center;justify-content:center;color:rgba(26,26,26,.5);font-size:18px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2066px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Models-Training.dc.html">Training <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Training-Runs.dc.html">Every run <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Shaping trial · 20% <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <span class="kit-label">Training · a run</span>
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Shaping trial · 20% taken out</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">Stopped at stage 3's check · 12 Nov</span><span class="kit-chip">Recipe: a base, from a new open model · version 3 · stages 1 to 3</span><span class="kit-chip">On the current Gemma base</span><span class="kit-chip brand">Foundation team only</span></div>
+        <span class="kit-small kit-muted">One run of a recipe, with its stages inside. A stage starts only when the check before it has passed. When a check fails the run stops, and the foundation lead decides what happens next. Nobody outside this team sees a run · Started by Arjun K. · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#next">Decide what happens next</a><a class="kit-btn outline" href="Training-Runs.dc.html">Compare with the 10% trial</a><a class="kit-btn outline" href="#">Open the log</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Models pages">
+      <a role="tab" aria-selected="false" href="Model-Catalogue.dc.html">Catalogue</a><a role="tab" aria-selected="false" href="Agents-Library.dc.html">Agents</a><a role="tab" aria-selected="false" href="Index-Leaderboards.dc.html">Leaderboards by kind</a><a role="tab" aria-selected="false" href="Models-Data.dc.html">Data</a><a role="tab" aria-selected="true" href="Models-Training.dc.html">Training</a><button role="tab" aria-selected="false" type="button">New and coming</button><button role="tab" aria-selected="false" type="button">Compare</button><button role="tab" aria-selected="false" type="button">Outside models</button><button role="tab" aria-selected="false" type="button">Retired</button>
+    </div>
+
+    <section class="kit-surface" aria-label="The stages of this run">
+      <div class="da-h"><h3>The stages of this run</h3><span class="kit-small kit-muted">Shape the base, tried at 20% · 32 hours on the training machines</span></div>
+      <div class="row4">
+        <div class="sg">
+          <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">1</span><b>Adjust the full base</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Reused</span></span></div>
+          <span>The adjusted base from the 5% trial of 30 Oct was used again. Its check passed then, so the stage was not repeated.</span>
+          <small>0 hours here</small>
+        </div>
+        <span class="aw" aria-hidden="true">→</span>
+        <div class="sg">
+          <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">2</span><b>Prune</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></div>
+          <span>20% taken out, width only. 10 shapes tried, the best kept. On the slice it scored 71 against 84 before the cut, which is expected at this point.</span>
+          <small>11 Nov, 02:10 to 04:05 · 8 GPUs</small>
+        </div>
+        <span class="aw" aria-hidden="true">→</span>
+        <div class="sg bad">
+          <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">3</span><b>Distil back</b></span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stopped at its check</span></span></div>
+          <span>Trained for the full 30 hours. Two pillars are still further below the adjusted full base than the 2 points allowed.</span>
+          <small>11 Nov, 04:10 to 12 Nov, 10:20 · 16 GPUs</small>
+        </div>
+        <span class="aw" aria-hidden="true">→</span>
+        <div class="sg wt">
+          <div class="top"><b>Stages 4 to 7</b></div>
+          <span class="kit-muted">Not part of a shaping trial. They run only on a base whose shaping has passed.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="kit-surface raised" aria-label="The check that stopped it">
+      <div class="da-h"><h3>The check that stopped it</h3><span class="kit-small kit-muted">Stage 3 must end within 2 points of the adjusted full base on every live pillar</span></div>
+      <div class="pl">
+        <span class="h">TL Index pillar</span><span class="h">Adjusted full base</span><span class="h">After the cut</span><span class="h">After distilling back</span><span class="h">Difference, on the same questions</span><span class="h">Against the 2 points allowed</span>
+        <span>Financial data processing</span><span class="n">84 ± 5</span><span class="n">68 ± 6</span><span class="n">79 ± 5</span><span class="n">−5.2 ± 1.6</span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Fell further than allowed</span></span>
+        <span>Client care</span><span class="n">87 ± 4</span><span class="n">74 ± 6</span><span class="n">86 ± 4</span><span class="n">−1.1 ± 1.5</span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Cannot tell</span></span>
+        <span>Compliance and regulatory</span><span class="n">83 ± 5</span><span class="n">70 ± 6</span><span class="n">81 ± 5</span><span class="n">−2.4 ± 1.6</span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Cannot tell</span></span>
+        <span>Safety and grounding</span><span class="n">80 ± 5</span><span class="n">66 ± 6</span><span class="n">75 ± 5</span><span class="n">−4.9 ± 1.8</span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Fell further than allowed</span></span>
+        <span>Entity recognition</span><span class="n">89 ± 4</span><span class="n">79 ± 5</span><span class="n">88 ± 4</span><span class="n">−1.3 ± 1.4</span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Cannot tell</span></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">Each pillar is scored on its 240 questions of the TL Index. The difference is taken question by question on the same questions, which is why its range is tighter than either score's. "Cannot tell" means the range crosses the 2 points allowed. The 200-question slice used inside the stage could not have shown any of this.</div>
+    </section>
+
+    <section class="kit-surface" aria-label="What happens next" id="next">
+      <div class="da-h"><h3>What happens next</h3><span class="kit-small kit-muted">Hana O. decides · the choice and its reason are kept on the run</span></div>
+      <div class="pp"><span style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 6px"><span class="kit-chip env">Index agent</span><span class="kit-small kit-muted">Proposes · rests on the loss curve, the 10% trial and what the store holds by pillar · confidence: medium, this is the only trial at 20%</span></span>Distil back for longer, with more numbers and safety text in what it learns from. The loss was still falling at the last checkpoint. Safety and grounding has the least text behind it of any live pillar, and most of what Financial data processing lost is in its Numbers and calculations part. <a href="Agents-AtWork.dc.html">See what it rests on</a></div>
+      <div class="ch3">
+        <div><b>Distil back for longer</b><span>Stage 3 goes on from its last checkpoint, for about 12 more hours, on a mix with more numbers and safety text.</span><a class="kit-btn sm" href="#" style="align-self: flex-start">Choose this</a></div>
+        <div><b>Cut less</b><span>Stage 2 runs again at 15%, then stage 3 in full. About 32 hours. Says where the cost starts.</span><a class="kit-btn outline sm" href="#" style="align-self: flex-start">Choose this</a></div>
+        <div><b>Stop here</b><span>The run is kept as a result: 20% does not hold with this method and this much distilling. Nothing goes forward.</span><a class="kit-btn outline sm" href="#" style="align-self: flex-start">Choose this</a></div>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Stage 3's checkpoints">
+        <div class="da-h"><h3>Stage 3's checkpoints</h3><a href="#">Score another on the whole Index</a></div>
+        <div class="cp">
+          <span class="h">Step</span><span class="h">Loss on held-out text</span><span class="h">Quick check, 200 questions</span><span class="h"></span>
+          <span class="n">2,000</span><span class="n">2.31</span><span class="n">71</span><span class="kit-muted">Removed after 30 days</span>
+          <span class="n">4,000</span><span class="n">2.12</span><span class="n">76</span><span class="kit-muted">Removed after 30 days</span>
+          <span class="n">6,000</span><span class="n">2.03</span><span class="n">79</span><span class="kit-muted">Removed after 30 days</span>
+          <span class="n">8,000</span><span class="n">1.98</span><span class="n">80</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Proposed</span></span> The best so far, and still getting better. Scored on the whole Index: the table of this page.</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">The portal proposes the checkpoint that does best on the stage's check; the foundation lead confirms it before anything is built on it. The proposed checkpoint and each stage's last are kept; the others go after 30 days.</div>
+      </section>
+      <section class="kit-surface" aria-label="What it used">
+        <div class="da-h"><h3>What it used</h3></div>
+        <dl class="hw">
+          <dt>Recipe</dt><dd><a href="Training-Recipe.dc.html">A base, from a new open model</a>, version 3, with 20% in place of 10%</dd>
+          <dt>Mixes</dt><dd><a href="Data-Mix.dc.html">Shaping · calibration</a>, version 1 · 1,024 items<br>Shaping · the Enterprise's text, version 1 · 3.0M documents</dd>
+          <dt>Method</dt><dd>FastNAS, width only · 10 shapes tried</dd>
+          <dt>Machines</dt><dd>32 hours · 8 GPUs, then 16 · <span class="kit-num">$[cost]</span></dd>
+          <dt>LM safety and cyber attack data</dt><dd>None in these mixes</dd>
+        </dl>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="From a run to a release">
+      <div class="da-h"><h3>From a run to a release</h3><span class="kit-small kit-muted">The same path for every run · a dashed box has not happened</span></div>
+      <div class="fl">
+        <div class="bx"><b>Every stage's check passed</b><small>Here: stage 3's did not</small></div><span class="ar" aria-hidden="true">→</span>
+        <div class="bx nx"><b>The lead confirms the checkpoint</b><small>The one the portal proposes, or another</small></div><span class="ar" aria-hidden="true">→</span>
+        <a class="bx nx" href="Model-Training.dc.html" style="color: inherit; text-decoration: none"><b>Release checks</b><small>The whole TL Index, then every project's own checks</small></a><span class="ar" aria-hidden="true">→</span>
+        <div class="bx nx"><b>Released and offered</b><small>Each project plans its switch</small></div>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">A shaping trial never reaches a release on its own: a shaped base goes on to stages 4 to 7 first. This run cannot go forward until its check passes.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2066}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

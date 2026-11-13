@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Models and agents · Training · every run, and two compared: the 10% and 20% shaping trials</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.da-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.da-h h3{margin:0;font-size:18px;font-weight:500}
+.rl{display:grid;grid-template-columns:34px minmax(0,1.25fr) minmax(0,1.3fr) 92px 120px minmax(0,1.5fr) minmax(0,1.1fr) 50px;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.rl>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.rl .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.rl b{font-weight:500;font-size:14px}
+.rl small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.rl .sel{background:rgba(47,122,109,.09)}
+.bx{display:inline-flex;width:18px;height:18px;border-radius:5px;box-shadow:inset 0 0 0 1.5px rgba(26,26,26,.5);align-items:center;justify-content:center;font-size:12px;line-height:1}
+.bx.on{background:#1A1A1A;color:#fff;box-shadow:none}
+.dots{display:inline-flex;gap:4px;align-items:center}
+.dots i{width:12px;height:12px;border-radius:50%;background:#1A1A1A;display:inline-block}
+.dots i.f{background:transparent;box-shadow:inset 0 0 0 2px var(--decision);border-radius:3px}
+.dots i.g{background:transparent;box-shadow:inset 0 0 0 2px #1A1A1A}
+.df{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.df>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.df .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.df .n{font-variant-numeric:tabular-nums}
+.fp{display:grid;grid-template-columns:190px minmax(0,1fr) 250px;gap:0;margin-top:12px;font-size:13px;line-height:1.4;align-items:center}
+.fp .h{font-size:11.5px;color:rgba(26,26,26,.6);padding-bottom:6px}
+.fp .lab{padding:0 12px 0 0;border-top:1px solid rgba(26,26,26,.1);height:64px;display:flex;align-items:center}
+.fp .plot{border-top:1px solid rgba(26,26,26,.1);height:64px}
+.fp .vd{border-top:1px solid rgba(26,26,26,.1);height:64px;display:flex;flex-direction:column;justify-content:center;gap:3px;padding-left:14px;font-variant-numeric:tabular-nums}
+.fp .plot svg{display:block;width:100%;height:64px}
+.fp .vd .kit-status{font-size:12.5px}
+.lg{display:inline-flex;align-items:center;gap:6px;margin-right:14px}
+.lg i{width:12px;height:12px;border-radius:50%;display:inline-block;background:#1A1A1A}
+.lg i.o{background:#fff;box-shadow:inset 0 0 0 2.5px #1A1A1A}
+.pp{border-radius:18px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:14px 16px;font-size:13.5px;line-height:1.5;margin-top:14px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1632px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Models-Training.dc.html">Training <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Every run <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Every run</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">13 runs this year</span><span class="kit-chip">1 running</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 stopped at a check</span><span class="kit-chip">8 released</span></div>
+        <span class="kit-small kit-muted">Every training run on every model, newest first. A run is one go of a recipe, with its stages inside. Tick two to set them side by side: what differed between them, and what that did on the TL Index · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#compare">Compare the 2 ticked</a><a class="kit-btn outline" href="Training-Recipe.dc.html">Build a recipe</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Models pages">
+      <a role="tab" aria-selected="false" href="Model-Catalogue.dc.html">Catalogue</a><a role="tab" aria-selected="false" href="Agents-Library.dc.html">Agents</a><a role="tab" aria-selected="false" href="Index-Leaderboards.dc.html">Leaderboards by kind</a><a role="tab" aria-selected="false" href="Models-Data.dc.html">Data</a><a role="tab" aria-selected="true" href="Models-Training.dc.html">Training</a><button role="tab" aria-selected="false" type="button">New and coming</button><button role="tab" aria-selected="false" type="button">Compare</button><button role="tab" aria-selected="false" type="button">Outside models</button><button role="tab" aria-selected="false" type="button">Retired</button>
+    </div>
+
+    <section class="kit-surface" aria-label="The runs">
+      <div class="da-h"><h3>The runs</h3><span class="kit-seg" role="group" aria-label="Which runs"><button type="button" aria-pressed="true">All 13</button><button type="button" aria-pressed="false">Running 1</button><button type="button" aria-pressed="false">Stopped 1</button><button type="button" aria-pressed="false">Finished 11</button></span></div>
+      <div class="rl">
+        <span class="h"></span><span class="h">Run</span><span class="h">Recipe</span><span class="h">Stages</span><span class="h">Started</span><span class="h">What the TL Index said</span><span class="h">Where it stands</span><span class="h"></span>
+
+        <span><span class="bx" aria-label="Not ticked"></span></span><span><b>Core · run 7</b><small>Would become 4.3</small></span><span>Continue a model on new data<small>Version 5</small></span><span><span class="dots" aria-label="1 stage, going"><i class="g"></i></span></span><span>Today, 02:10<small>Arjun K.</small></span><span class="kit-muted">Not measured yet: scored when it ends</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Running · 47%</span></span></span><a href="Model-Training.dc.html">Open</a>
+
+        <span class="sel"><span class="bx on" aria-label="Ticked">✓</span></span><span class="sel"><b>Shaping trial · 20% taken out</b><small>On the current base</small></span><span class="sel">A base, from a new open model<small>Version 3 · stages 1 to 3</small></span><span class="sel"><span class="dots" aria-label="3 stages, the third failed its check"><i></i><i></i><i class="f"></i></span></span><span class="sel">11 Nov<small>Arjun K.</small></span><span class="sel">2 pillars fell further than the 2 points allowed</span><span class="sel"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stopped at a check</span></span><small>Waits for Hana O.</small></span><a class="sel" href="Training-Run.dc.html">Open</a>
+
+        <span class="sel"><span class="bx on" aria-label="Ticked">✓</span></span><span class="sel"><b>Shaping trial · 10% taken out</b><small>On the current base</small></span><span class="sel">A base, from a new open model<small>Version 3 · stages 1 to 3</small></span><span class="sel"><span class="dots" aria-label="3 stages, all passed"><i></i><i></i><i></i></span></span><span class="sel">4 Nov<small>Arjun K.</small></span><span class="sel">4 pillars hold · Safety and grounding cannot be told apart</span><span class="sel"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Finished</span></span><small>Kept as a result · passed by Hana O.</small></span><a class="sel" href="#">Open</a>
+
+        <span><span class="bx" aria-label="Not ticked"></span></span><span><b>Shaping trial · 5% taken out</b><small>On the current base</small></span><span>A base, from a new open model<small>Version 2 · stages 1 to 3</small></span><span><span class="dots" aria-label="3 stages, all passed"><i></i><i></i><i></i></span></span><span>30 Oct<small>Arjun K.</small></span><span>All 5 pillars hold</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Finished</span></span><small>Kept as a result</small></span><a href="#">Open</a>
+
+        <span><span class="bx" aria-label="Not ticked"></span></span><span><b>Core · run 6</b></span><span>Continue a model on new data<small>Version 4</small></span><span><span class="dots" aria-label="1 stage, passed"><i></i></span></span><span>19 Oct<small>Arjun K.</small></span><span>Numbers and calculations fell 2 points</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Finished · not released</span></span></span><a href="#">Open</a>
+
+        <span><span class="bx" aria-label="Not ticked"></span></span><span><b>Domain-Advice · version 2</b></span><span class="kit-muted">Run before recipes were saved</span><span><span class="dots" aria-label="1 stage, passed"><i></i></span></span><span>12 Sep<small>Hana O.</small></span><span>Every threshold met</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Released</span></span></span><a href="#">Open</a>
+
+        <span><span class="bx" aria-label="Not ticked"></span></span><span><b>Distil · 4.2</b></span><span>A smaller model, from a larger one's answers<small>Version 4</small></span><span><span class="dots" aria-label="2 stages, passed"><i></i><i></i></span></span><span>20 Jan<small>Luis F.</small></span><span>Every threshold met</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Released</span></span></span><a href="#">Open</a>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">A filled dot is a stage whose check passed, a ring one that is going, a red square one whose check failed. <a href="#">6 earlier runs</a>: Core, runs 1 to 5, and Domain-Advice version 1, all released.</div>
+    </section>
+
+    <section class="kit-surface raised" aria-label="Two runs compared" id="compare">
+      <div class="da-h"><h3>Shaping trial at 10%, against 20%</h3><span class="kit-small kit-muted">The two ticked · both scored on the whole TL Index, on the same questions</span></div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1.9fr; gap: 24px; align-items: start; margin-top: 6px">
+        <div>
+          <div class="df">
+            <span class="h">What differed</span><span class="h">10% trial</span><span class="h">20% trial</span>
+            <span>Taken out of the model</span><span class="n">10%</span><span class="n">20%</span>
+            <span class="h" style="padding-top: 14px; border-top: 1px solid rgba(26,26,26,.1)">What that bought</span><span class="h" style="border-top: 1px solid rgba(26,26,26,.1)"></span><span class="h" style="border-top: 1px solid rgba(26,26,26,.1)"></span>
+            <span>Size after the cut</span><span class="n">90% of the base</span><span class="n">80% of the base</span>
+            <span>Faster to serve</span><span class="n">9%</span><span class="n">21%</span>
+            <span>To serve a million tokens</span><span class="n">$[cost]</span><span class="n">$[cost]</span>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 12px">Everything else was the same: the adjusted base of 30 Oct, both mixes at version 1, FastNAS on width only, 10 shapes tried, 30 hours of distilling back. Speed was measured on the testing machines.</div>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px"><span class="kit-caption">Points lost against the adjusted full base, by pillar, after distilling back</span><span class="kit-small"><span class="lg"><i class="o"></i>10% taken out</span><span class="lg"><i></i>20% taken out</span></span></div>
+          <div class="fp">
+          <span class="h">Pillar</span><span class="h">Points against the adjusted full base</span><span class="h" style="padding-left: 14px">10% trial, then 20% trial</span>
+          <span class="lab">Financial data processing</span><span class="plot"><svg viewBox="0 0 360 64" role="img" aria-label="Financial data processing: 10% trial −0.4 plus or minus 1.5, 20% trial −5.2 plus or minus 1.6"><line x1="257.3" y1="4" x2="257.3" y2="60" stroke="rgba(26,26,26,.35)" stroke-width="1"/><line x1="195.5" y1="4" x2="195.5" y2="60" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="4 4"/><line x1="198.5" y1="22" x2="291.3" y2="22" stroke="#1A1A1A" stroke-width="2"/><circle cx="244.9" cy="22" r="6" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/><line x1="47.1" y1="42" x2="146.0" y2="42" stroke="#1A1A1A" stroke-width="2"/><circle cx="96.5" cy="42" r="6.5" fill="#1A1A1A"/></svg></span><span class="vd"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>−0.4 ± 1.5 · holds</span></span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>−5.2 ± 1.6 · fell further than allowed</span></span></span>
+          <span class="lab">Client care</span><span class="plot"><svg viewBox="0 0 360 64" role="img" aria-label="Client care: 10% trial +0.2 plus or minus 1.4, 20% trial −1.1 plus or minus 1.5"><line x1="257.3" y1="4" x2="257.3" y2="60" stroke="rgba(26,26,26,.35)" stroke-width="1"/><line x1="195.5" y1="4" x2="195.5" y2="60" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="4 4"/><line x1="220.2" y1="22" x2="306.7" y2="22" stroke="#1A1A1A" stroke-width="2"/><circle cx="263.5" cy="22" r="6" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/><line x1="176.9" y1="42" x2="269.6" y2="42" stroke="#1A1A1A" stroke-width="2"/><circle cx="223.3" cy="42" r="6.5" fill="#1A1A1A"/></svg></span><span class="vd"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>+0.2 ± 1.4 · holds</span></span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>−1.1 ± 1.5 · cannot tell</span></span></span>
+          <span class="lab">Compliance and regulatory</span><span class="plot"><svg viewBox="0 0 360 64" role="img" aria-label="Compliance and regulatory: 10% trial −0.5 plus or minus 1.4, 20% trial −2.4 plus or minus 1.6"><line x1="257.3" y1="4" x2="257.3" y2="60" stroke="rgba(26,26,26,.35)" stroke-width="1"/><line x1="195.5" y1="4" x2="195.5" y2="60" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="4 4"/><line x1="198.5" y1="22" x2="285.1" y2="22" stroke="#1A1A1A" stroke-width="2"/><circle cx="241.8" cy="22" r="6" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/><line x1="133.6" y1="42" x2="232.5" y2="42" stroke="#1A1A1A" stroke-width="2"/><circle cx="183.1" cy="42" r="6.5" fill="#1A1A1A"/></svg></span><span class="vd"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>−0.5 ± 1.4 · holds</span></span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>−2.4 ± 1.6 · cannot tell</span></span></span>
+          <span class="lab">Safety and grounding</span><span class="plot"><svg viewBox="0 0 360 64" role="img" aria-label="Safety and grounding: 10% trial −0.9 plus or minus 1.6, 20% trial −4.9 plus or minus 1.8"><line x1="257.3" y1="4" x2="257.3" y2="60" stroke="rgba(26,26,26,.35)" stroke-width="1"/><line x1="195.5" y1="4" x2="195.5" y2="60" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="4 4"/><line x1="180.0" y1="22" x2="278.9" y2="22" stroke="#1A1A1A" stroke-width="2"/><circle cx="229.5" cy="22" r="6" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/><line x1="50.2" y1="42" x2="161.5" y2="42" stroke="#1A1A1A" stroke-width="2"/><circle cx="105.8" cy="42" r="6.5" fill="#1A1A1A"/></svg></span><span class="vd"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>−0.9 ± 1.6 · cannot tell</span></span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>−4.9 ± 1.8 · fell further than allowed</span></span></span>
+          <span class="lab">Entity recognition</span><span class="plot"><svg viewBox="0 0 360 64" role="img" aria-label="Entity recognition: 10% trial −0.3 plus or minus 1.3, 20% trial −1.3 plus or minus 1.4"><line x1="257.3" y1="4" x2="257.3" y2="60" stroke="rgba(26,26,26,.35)" stroke-width="1"/><line x1="195.5" y1="4" x2="195.5" y2="60" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="4 4"/><line x1="207.8" y1="22" x2="288.2" y2="22" stroke="#1A1A1A" stroke-width="2"/><circle cx="248.0" cy="22" r="6" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/><line x1="173.8" y1="42" x2="260.4" y2="42" stroke="#1A1A1A" stroke-width="2"/><circle cx="217.1" cy="42" r="6.5" fill="#1A1A1A"/></svg></span><span class="vd"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>−0.3 ± 1.3 · holds</span></span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>−1.3 ± 1.4 · cannot tell</span></span></span>
+          <span class="lab" style="height: 26px; border-top: 1px solid rgba(26,26,26,.1)"></span><span class="plot" style="height: 26px"><svg viewBox="0 0 360 26" style="height: 26px" aria-hidden="true"><text x="10.0" y="16" font-size="11" text-anchor="middle" fill="rgba(26,26,26,.6)">−8</text><text x="71.8" y="16" font-size="11" text-anchor="middle" fill="rgba(26,26,26,.6)">−6</text><text x="133.6" y="16" font-size="11" text-anchor="middle" fill="rgba(26,26,26,.6)">−4</text><text x="195.5" y="16" font-size="11" text-anchor="middle" fill="rgba(26,26,26,.6)">−2</text><text x="257.3" y="16" font-size="11" text-anchor="middle" fill="rgba(26,26,26,.6)">0</text><text x="319.1" y="16" font-size="11" text-anchor="middle" fill="rgba(26,26,26,.6)">+2</text></svg></span><span class="vd" style="height: 26px"></span>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">The bar through each dot is the range the difference could lie in. The dashed line is the 2 points allowed. A dot whose range lies wholly left of that line fell further than allowed; one whose range crosses it cannot be told.</div>
+        </div>
+      </div>
+
+      <div class="pp"><span style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 6px"><span class="kit-chip env">Index agent</span><span class="kit-small kit-muted">Reads it as · rests on the two runs above and the 5% trial · confidence: high for 10%, medium for 20%</span></span>10% holds. 20% buys more than twice the speed-up and costs two pillars more than is allowed, after the same 30 hours of distilling back. Nothing is measured between them, so a 15% trial would say where the cost starts; and three pillars at 20% cannot be told either way until they are scored on more questions. <a href="Training-Run.dc.html">What the 20% run proposes next</a></div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1632}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

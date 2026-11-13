@@ -45,7 +45,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .hw dt{color:rgba(26,26,26,.6)}.hw dd{margin:0}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2221px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2330px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -103,7 +103,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <span class="aw" aria-hidden="true">→</span>
           <div class="sg sel">
             <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">2</span><b>Prune</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span></div>
-            <small>Takes out what the Enterprise's data does not use · the TLM package</small>
+            <small>Narrower layers, keeping the shape that scores best on the Enterprise's questions · FastNAS, in the TLM package</small>
             <dl><div><dt>Learns from</dt><dd>Shaping · calibration, version 1 · 1,024 items</dd></div><div><dt>The check before the next stage</dt><dd>The best of 10 candidates on a slice of the TL Index. A drop here is expected</dd></div><div><dt>About</dt><dd>2 hours on 8 GPUs</dd></div></dl>
           </div>
           <span class="aw" aria-hidden="true">→</span>
@@ -152,14 +152,15 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 
     <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; align-items: start">
       <section class="kit-surface" aria-label="Stage 2, Prune">
-        <div class="da-h"><h3>Stage 2 · Prune</h3><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">Settings to confirm with the foundation lead</span></div>
+        <div class="da-h"><h3>Stage 2 · Prune</h3><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">Method as Jithin recalls it · to confirm with the foundation lead</span></div>
         <div class="kit-small kit-muted" style="margin-top: 4px">The settings this method exposes. A value outside its usual range can be saved, and is marked on the run.</div>
         <div class="se">
           <span class="h">Setting</span><span class="h">Value</span><span class="h">Usual range</span><span class="h">Why it matters</span>
-          <span>How much to take out</span><span>20% of the model</span><span>10 to 30%</span><span>More is cheaper to serve and harder to win back</span>
-          <span>What to cut</span><span>Width first, then depth</span><span class="kit-muted">—</span><span>Width keeps more of what the model knows; depth is faster to serve</span>
+          <span>Method</span><span>FastNAS, from Model Optimizer<small>What the team runs today. Another method can be tried as a stage of its own.</small></span><span class="kit-muted">—</span><span>Searches for the shape that scores best at the size asked for</span>
+          <span>How much to take out</span><span>20% of the model, the aim<small>5% and 10% have been run and hold · <a href="Training-Run.dc.html">the 20% trial stopped at its check on 12 Nov</a></small></span><span>5 to 20%</span><span>More is cheaper to serve and harder to win back</span>
+          <span>What to cut</span><span>Width only<small>Narrower layers; no layer is removed</small></span><span class="kit-muted">—</span><span>Width keeps more of what the model knows</span>
           <span>Calibration mix</span><span><a href="Data-Mix.dc.html">Shaping · calibration</a>, version 1<small>40% numbers and reasoning · 30% instructions · 30% the Enterprise's own domains</small></span><span>512 to 4,096 items</span><span>What the Enterprise's data uses is what stays</span>
-          <span>How candidates are ranked</span><span>A slice of the TL Index<small>200 questions over the five live pillars, held apart from every mix</small></span><span class="kit-muted">—</span><span>Never a public test alone: the Index is what the model is held to</span>
+          <span>How candidates are ranked</span><span>A slice of the TL Index<small>200 questions over the five live pillars, held apart from every mix</small></span><span class="kit-muted">—</span><span>This is the score the method searches on, so a better evaluation makes a better cut</span>
           <span>Candidates tried</span><span>10</span><span>5 to 20</span><span>More finds a better shape and takes longer</span>
         </div>
       </section>
@@ -201,7 +202,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2221}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2330}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
