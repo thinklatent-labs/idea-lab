@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TL Index · an edition: what changed from the last, how it was signed off, corrections since (open to everyone)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.ix-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ix-k>*{display:flex;flex-direction:column;gap:6px;color:inherit;text-decoration:none}
+.ed-fp{display:grid;grid-template-columns:220px minmax(0,1fr) 300px;gap:0;margin-top:12px;font-size:13px;line-height:1.4;align-items:center}
+.ed-fp .h{font-size:11.5px;color:rgba(26,26,26,.6);padding-bottom:6px}
+.ed-fp .lab{padding:0 12px 0 0;border-top:1px solid rgba(26,26,26,.1);height:48px;display:flex;flex-direction:column;justify-content:center}
+.ed-fp .lab small{font-size:12px;color:rgba(26,26,26,.65)}
+.ed-fp .plot{border-top:1px solid rgba(26,26,26,.1);height:48px}
+.ed-fp .plot{position:relative;display:block}
+.ed-fp .plot i{position:absolute;display:block}
+.ed-fp .plot .z{left:41.1%;top:4px;bottom:4px;border-left:1.5px dashed #1A1A1A}
+.ed-fp .plot .w{top:23px;height:2px;background:#1A1A1A}
+.ed-fp .plot .d{top:16px;width:11px;height:11px;margin-left:-8px;border-radius:50%;border:2.5px solid #1A1A1A;background:#fff}
+.ed-fp .plot .d.f{background:#1A1A1A}
+.ed-fp .vd{border-top:1px solid rgba(26,26,26,.1);height:48px;display:flex;align-items:center;gap:10px;padding-left:14px;font-variant-numeric:tabular-nums}
+.ed-fp .ax{font-size:11.5px;color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums;position:relative;height:16px}
+.ed-fp .ax span{position:absolute;transform:translateX(-50%)}
+.ed-g{display:grid;grid-template-columns:190px minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px}
+.ed-g>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ed-g dt{color:rgba(26,26,26,.6)}.ed-g dd{margin:0}
+.ed-g small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ed-s{display:grid;grid-template-columns:64px minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px}
+.ed-s>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ed-s .n{font-variant-numeric:tabular-nums;font-weight:500}
+.ed-s small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ed-c{display:grid;grid-template-columns:118px 170px minmax(0,1.5fr) 150px minmax(0,1.1fr) 110px;font-size:13px;line-height:1.45;margin-top:10px}
+.ed-c>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ed-c .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ed-c small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ed-c .n{font-variant-numeric:tabular-nums;font-weight:500}
+.ed-e{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:12px}
+.ed-e>*{border-radius:18px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px;display:flex;flex-direction:column;gap:3px;font-size:13px;line-height:1.4;color:inherit;text-decoration:none}
+.ed-e>.on{box-shadow:0 0 0 1.5px #1A1A1A}
+.ed-e b{font-weight:500;font-size:15px}
+.ed-e small{font-size:12px;color:rgba(26,26,26,.65)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2080px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-current="page" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Index-Language.dc.html">← TL Index · Language</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Edition 2026-11 <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Edition 2026-11</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Live since 27 Oct</span><span class="kit-chip">Signed by the Head of ThinkLatent, 26 Oct</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">Version 2 on 10 Nov · 3 corrections</span></div>
+        <span class="kit-small kit-muted">What this edition of the TL Index is made of, what changed from the one before, and what has been corrected since. Open to everyone at the Enterprise. The questions themselves are never shown, here or anywhere · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Download the edition report</a><a class="kit-btn outline" href="My-Work.dc.html">Tell me when scores change</a></div>
+    </div>
+
+    <div class="ix-k">
+      <div class="kit-surface"><span class="kit-caption">Questions</span><span class="kit-display" style="font-size: 36px">1,200</span><span class="kit-small kit-muted">240 on each of the five live pillars</span></div>
+      <div class="kit-surface"><span class="kit-caption">New in this edition</span><span class="kit-display" style="font-size: 36px">200</span><span class="kit-small kit-muted">40 a pillar · 1,000 carried over from 2026-10</span></div>
+      <a class="kit-surface" href="Index-Language.dc.html"><span class="kit-caption">Models scored</span><span class="kit-display" style="font-size: 36px">9</span><span class="kit-small kit-muted">Every language model on the board, ours and outside, on the same questions</span></a>
+      <div class="kit-surface"><span class="kit-caption">Corrections since it was published</span><span class="kit-display" style="font-size: 36px">3</span><span class="kit-small kit-muted">Made at once · scores follow on 10 Nov</span></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Did the models change, or did the questions">
+      <div class="ix-h"><h3>Did the models change, or did the questions?</h3><span class="kit-small kit-muted">Each model on the 1,000 questions carried over from 2026-10, answer by answer · the line is the range another draw would give</span></div>
+      <div class="ed-fp">
+        <span class="h">Model</span><span class="h ax"><span style="left: 5.6%">−2</span><span style="left: 23.3%">−1</span><span style="left: 41.1%">0</span><span style="left: 58.9%">+1</span><span style="left: 76.7%">+2</span><span style="left: 94.4%">+3</span></span><span class="h" style="padding-left: 14px">Points against 2026-10</span>
+        <span class="lab">Core 4.2<small>ThinkLatent · TLM4</small></span><span class="plot" role="img" aria-label="Core 4.2: +0.2 plus or minus 0.6 points against 2026-10"><i class="z"></i><i class="w" style="left: 34.0%; width: 21.3%"></i><i class="d" style="left: 44.7%"></i></span><span class="vd"><b style="font-weight: 500">+0.2 ± 0.6</b><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>No change</span></span></span>
+        <span class="lab">Domain-Advice v2<small>ThinkLatent · TLM4</small></span><span class="plot" role="img" aria-label="Domain-Advice v2: +0.1 plus or minus 0.6 points against 2026-10"><i class="z"></i><i class="w" style="left: 32.2%; width: 21.4%"></i><i class="d" style="left: 42.9%"></i></span><span class="vd"><b style="font-weight: 500">+0.1 ± 0.6</b><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>No change</span></span></span>
+        <span class="lab">Distil 4.2<small>ThinkLatent · TLM4</small></span><span class="plot" role="img" aria-label="Distil 4.2: −0.3 plus or minus 0.7 points against 2026-10"><i class="z"></i><i class="w" style="left: 23.3%; width: 24.9%"></i><i class="d" style="left: 35.8%"></i></span><span class="vd"><b style="font-weight: 500">−0.3 ± 0.7</b><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>No change</span></span></span>
+        <span class="lab">Vendor A · large<small>Outside · vendor</small></span><span class="plot" role="img" aria-label="Vendor A · large: +0.4 plus or minus 0.6 points against 2026-10"><i class="z"></i><i class="w" style="left: 37.6%; width: 21.3%"></i><i class="d" style="left: 48.2%"></i></span><span class="vd"><b style="font-weight: 500">+0.4 ± 0.6</b><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>No change</span></span></span>
+        <span class="lab">Vendor B · large<small>Outside · a new version on 12 Oct</small></span><span class="plot" role="img" aria-label="Vendor B · large: +1.1 plus or minus 0.6 points against 2026-10"><i class="z"></i><i class="w" style="left: 50.0%; width: 21.3%"></i><i class="d f" style="left: 60.7%"></i></span><span class="vd"><b style="font-weight: 500">+1.1 ± 0.6</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Moved up</span></span></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">Five of the nine are shown; the other four did not move either. The 200 new questions are 1.8 ± 1.2 points harder than the 200 that left, taken over all nine models. That alone lowers an overall score by about 0.3, which is why Core 4.2 reads 81 ± 1 in both editions while being no worse. <a href="Index-Language.dc.html">Open the leaderboard</a></div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="What changed from 2026-10">
+        <div class="ix-h"><h3>What changed from 2026-10</h3><span class="kit-small kit-muted">Everything that could move a score</span></div>
+        <dl class="ed-g">
+          <dt>Questions</dt><dd>200 new, 200 left, 1,000 carried<small>The 200 that left are now used only for checks inside training</small></dd>
+          <dt>Pillars</dt><dd>Five live, as before<small>Summarization joins in the next phase · eleven more are not live</small></dd>
+          <dt>The judge</dt><dd>The standard judge, version 2, unchanged<small>Agrees with people on 93 of 100 answers</small></dd>
+          <dt>Thresholds</dt><dd>None moved</dd>
+          <dt>Cells that changed side</dt><dd>None<small>No model crossed a threshold on any pillar, in either direction</small></dd>
+          <dt>Outside models</dt><dd>All scored again on these questions<small>Vendor B · large is the vendor's new version of 12 Oct. Too few Compliance questions may leave the Enterprise to score the two large vendor models there</small></dd>
+        </dl>
+      </section>
+
+      <section class="kit-surface" aria-label="How it was signed off">
+        <div class="ix-h"><h3>How it was signed off</h3><span class="kit-chip env">Index agent</span></div>
+        <div class="ed-s">
+          <span class="n">20 Oct</span><span>The Index agent drafted the edition report<small>Rests on the 2026-10 scores and the first scoring of the 200 new questions · sure: high · <a href="Agents-AtWork.dc.html">See what it rests on</a></small></span>
+          <span class="n">22 Oct</span><span>The Head of ThinkLatent asked for a revision<small>"Say how much harder the new questions are."</small></span>
+          <span class="n">23 Oct</span><span>The Index agent revised the report</span>
+          <span class="n">26 Oct</span><span>Signed by the Head of ThinkLatent<small>From then the edition is fixed: a question in it can be corrected, never swapped</small></span>
+          <span class="n">27 Oct</span><span>Published<small>Every model was scored again by 2 Nov</small></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">Signing is the Head's alone. The agent drafts and proposes; it cannot publish an edition.</div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="Corrections">
+      <div class="ix-h"><h3>Corrections</h3><span class="kit-small kit-muted">Only ThinkLatent corrects a question · a correction is made at once and recorded · scores follow on the next run, every second Tuesday</span></div>
+      <div class="ed-c">
+        <span class="h">Id</span><span class="h">Pillar</span><span class="h">What was wrong</span><span class="h">Corrected</span><span class="h">Scores it moves</span><span class="h">State</span>
+        <span class="n">K-041</span><span>Financial data processing</span><span>The key accepted only one of two valid ways of rounding<small>The key now accepts both</small></span><span>30 Oct<small>By ThinkLatent</small></span><span>Up to +0.4 on this pillar, for all 9 models</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>10 Nov</span></span></span>
+        <span class="n">K-042</span><span>Compliance and regulatory</span><span>The rule the key cites was replaced in September<small>Question withdrawn</small></span><span>2 Nov<small>With a Compliance reviewer</small></span><span>239 questions scored on this pillar, not 240</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>10 Nov</span></span></span>
+        <span class="n">K-043</span><span>Entity recognition</span><span>Two questions were near-copies of each other<small>One removed</small></span><span>4 Nov<small>By ThinkLatent</small></span><span>239 questions scored on this pillar, not 240</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>10 Nov</span></span></span>
+        <span class="n">K-038 to K-040</span><span>Three pillars</span><span>Three corrections made during 2026-10</span><span>Before 27 Oct</span><span>Already in every score on this page</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Applied</span></span></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">Until 10 Nov every score on the board is as published on 27 Oct. On 10 Nov all nine models are scored again on version 2 of this edition, and each model's page says what moved and why. A score you have cited keeps its edition and version beside it.</div>
+    </section>
+
+    <section class="kit-surface" aria-label="Editions">
+      <div class="ix-h"><h3>Editions</h3><span class="kit-small kit-muted">A new one every four weeks, signed by the Head of ThinkLatent · a sixth of the questions are new each time</span></div>
+      <div class="ed-e">
+        <a href="Index-Queue.dc.html"><b>2026-12</b><span>24 Nov</span><small>Being prepared · 200 new questions drawn on 3 Nov</small></a>
+        <a class="on" href="#"><b>2026-11</b><span>27 Oct · live</span><small>This page · version 2 on 10 Nov</small></a>
+        <a href="#"><b>2026-10</b><span>29 Sep</span><small>2 versions · 3 corrections</small></a>
+        <a href="#"><b>2026-09</b><span>1 Sep</span><small>1 version</small></a>
+        <a href="#"><b>Earlier</b><span>4 editions</span><small>Every score keeps the edition it was made on</small></a>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2080}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

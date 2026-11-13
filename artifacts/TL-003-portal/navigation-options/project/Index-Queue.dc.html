@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TL Index · the evaluation queue: what is running, what waits and in what order, one run live (open to everyone)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.ix-k{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.ix-k>*{display:flex;flex-direction:column;gap:6px;color:inherit;text-decoration:none;padding:18px}
+.q-o{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr);align-items:stretch;margin-top:12px}
+.q-o .bx{border-radius:18px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 16px;display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4}
+.q-o .k{display:inline-flex;flex:none;width:22px;height:22px;border-radius:50%;align-items:center;justify-content:center;font-size:12px;font-weight:500;background:#1A1A1A;color:#fff}
+.q-o b{font-weight:500;display:block}
+.q-o small{font-size:12px;color:rgba(26,26,26,.65)}
+.q-o .ar{display:flex;align-items:center;justify-content:center;color:rgba(26,26,26,.5)}
+.q-t{display:grid;grid-template-columns:70px minmax(0,1.7fr) minmax(0,1.2fr) 86px 60px 96px minmax(0,1.35fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.q-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.q-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.q-t .sep{grid-column:1/-1;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.6);padding-top:16px;border-top:1.5px solid rgba(26,26,26,.55)}
+.q-t b{font-weight:500;font-size:14px}
+.q-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.q-t .n{font-variant-numeric:tabular-nums}
+.q-t .pr{color:rgba(26,26,26,.6)}
+.q-l{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.2fr) 110px minmax(0,1.3fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:center}
+.q-l>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;align-self:stretch;display:flex;flex-direction:column;justify-content:center}
+.q-l .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.q-l small{font-size:12px;color:rgba(26,26,26,.65)}
+.q-l .n{font-variant-numeric:tabular-nums;font-weight:500}
+.q-b{display:grid;grid-template-columns:84px minmax(0,1fr);gap:10px;align-items:center}
+.q-b .tr{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.08)}
+.q-b .tr i{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.55)}
+.q-g{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px 9px;margin-top:10px;font-size:13px;line-height:1.45}
+.q-g svg{width:16px;height:16px;margin-top:2px;color:rgba(26,26,26,.6)}
+.q-g b{font-weight:500}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1990px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-current="page" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Index-Language.dc.html">← TL Index · Language</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Evaluation queue <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">The evaluation queue</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">2 running · 5 waiting</span><span class="kit-chip">Next fixed day: 10 Nov, corrections run</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">1 ask waits for ThinkLatent</span></div>
+        <span class="kit-small kit-muted">Every run of the TL Index, in the order it will go. Anyone at the Enterprise can ask for a model to be scored; ThinkLatent accepts each ask. The checks of a training run are in the queue too, and only the foundation team sees what they are for · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Model-TLIndex.dc.html">Ask for a model to be scored</a><a class="kit-btn outline" href="Index-Edition.dc.html">Edition 2026-11</a></div>
+    </div>
+
+    <div class="ix-k">
+      <div class="kit-surface"><span class="kit-caption">Running now</span><span class="kit-display" style="font-size: 34px">2</span><span class="kit-small kit-muted">On 4 of the 6 evaluation machines</span></div>
+      <div class="kit-surface"><span class="kit-caption">Waiting</span><span class="kit-display" style="font-size: 34px">5</span><span class="kit-small kit-muted">1 of ours first · 1 accepted · 1 to accept · 2 practice</span></div>
+      <div class="kit-surface"><span class="kit-caption">Median wait, 30 days</span><span class="kit-display" style="font-size: 34px">9 hours</span><span class="kit-small kit-muted">From accepted to started · practice runs, 2 days</span></div>
+      <div class="kit-surface"><span class="kit-caption">Next to start</span><span class="kit-display" style="font-size: 34px">Near 19:00</span><span class="kit-small kit-muted">An internal run of ThinkLatent's, first by the order</span></div>
+      <div class="kit-surface"><span class="kit-caption">Runs, 30 days</span><span class="kit-display" style="font-size: 34px">64</span><span class="kit-small kit-muted">62 finished · 2 stopped by whoever asked</span></div>
+      <div class="kit-surface"><span class="kit-caption">Judge and vendor spend, November</span><span class="kit-display" style="font-size: 34px">$[spend]</span><span class="kit-small kit-muted">Of a cap of $[cap] · the machines are ThinkLatent's own</span></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The order">
+      <div class="ix-h"><h3>The order</h3><span class="kit-small kit-muted">Four kinds, always in this order · a run that has started is never stopped to let another in</span></div>
+      <div class="q-o">
+        <div class="bx"><span class="k">1</span><span><b>A release waiting</b><small>A trained model cannot be released until the whole Index has run on it</small></span></div>
+        <span class="ar" aria-hidden="true">→</span>
+        <div class="bx"><span class="k">2</span><span><b>Scoring again after a correction</b><small>Every second Tuesday, and at once when a vendor changes a model</small></span></div>
+        <span class="ar" aria-hidden="true">→</span>
+        <div class="bx"><span class="k">3</span><span><b>Accepted asks</b><small>Oldest first, whoever asked</small></span></div>
+        <span class="ar" aria-hidden="true">→</span>
+        <div class="bx"><span class="k">4</span><span><b>Practice runs</b><small>When machines are free. Never on a leaderboard</small></span></div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="The queue">
+      <div class="ix-h"><h3>The queue</h3><span class="kit-small kit-muted">Official runs count on the leaderboards and can be cited · Practice runs do not · a row opens the run</span></div>
+      <div class="q-t">
+        <span class="h">Place</span><span class="h">Model and setting</span><span class="h">Asked by</span><span class="h">Kind</span><span class="h">Pillars</span><span class="h">About</span><span class="h">Where it stands</span>
+
+        <span class="sep">Running</span>
+        <span class="n">—</span><span><b>Vendor A · large</b><small>The vendor's new version of 2 Nov</small></span><span>The portal<small>An outside model changed</small></span><span>Official</span><span class="n">5</span><span class="n">1 h 10 left</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>3 of 5 pillars</span></span><small>Run IX-0431 · shown live below</small></span>
+        <span class="n">—</span><span><b>Open model · 34B</b><small>As it comes, served on ThinkLatent's machines</small></span><span>Claims intake<small>Claims · could it serve Claims triage?</small></span><span>Official</span><span class="n">5</span><span class="n">3 h 40 left</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>1 of 5 pillars</span></span><small>Run IX-0432 · started 11:20</small></span>
+
+        <span class="sep">Waiting</span>
+        <span class="n">1</span><span><b>ThinkLatent · an internal run</b><small class="lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg> What it is for shows to the foundation team only</small></span><span>ThinkLatent</span><span>Internal</span><span class="n">5</span><span class="n">2 h</span><span>Starts near 19:00<small>Goes first, by the order</small></span>
+        <span class="n">2</span><span><b>Domain-Advice v2</b><small>As strengthened for Advisor desktop</small></span><span>Advisor desktop<small>Advice Tech</small></span><span>Official</span><span class="n">5</span><span class="n">2 h 10</span><span>Accepted 4 Nov<small>After the internal run</small></span>
+        <span class="n">3</span><span><b>Vendor C · small</b><small>The vendor's standard setting</small></span><span>Wealth management portfolio assist<small>Advice Tech</small></span><span>Official</span><span class="n">5</span><span class="n">2 h</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Waits for ThinkLatent to accept</span></span><small>Asked 4 Nov · an answer is due within a working day</small></span>
+        <span class="n pr">4</span><span><b>Distil 4.2</b><small>With a longer context setting</small></span><span>Service chat assist</span><span class="pr">Practice</span><span class="n">2</span><span class="n">50 min</span><span class="pr">When machines are free</span>
+        <span class="n pr">5</span><span><b>The small Core</b><small>At lower precision</small></span><span>ThinkLatent</span><span class="pr">Practice</span><span class="n">5</span><span class="n">1 h 30</span><span class="pr">When machines are free</span>
+
+        <span class="sep">Fixed days</span>
+        <span class="n">10 Nov</span><span><b>Corrections run</b><small>All 9 models on edition 2026-11, version 2</small></span><span>ThinkLatent<small>Every second Tuesday</small></span><span>Official</span><span class="n">5</span><span class="n">About a day</span><span><a href="Index-Edition.dc.html">3 corrections</a><small>Other runs wait while it goes</small></span>
+        <span class="n">24 Nov</span><span><b>Edition 2026-12</b><small>All models on the new edition</small></span><span>ThinkLatent<small>Every four weeks</small></span><span>Official</span><span class="n">5</span><span class="n">About a day</span><span>Once the Head of ThinkLatent has signed<small>Sign-off is due by 23 Nov</small></span>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="A run, live">
+        <div class="ix-h"><h3>A run, live · Vendor A · large, new version</h3><span class="kit-small kit-muted">Run IX-0431 · started 10:42 · ends near 13:10</span></div>
+        <div class="q-l">
+          <span class="h">Pillar</span><span class="h">Questions answered</span><span class="h">Score so far</span><span class="h">Where it stands</span>
+          <span>Financial data processing</span><span class="q-b"><span class="n">240 of 240</span><span class="tr"><i style="width: 100%"></i></span></span><span class="n">86 ± 2</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></span>
+          <span>Client care</span><span class="q-b"><span class="n">240 of 240</span><span class="tr"><i style="width: 100%"></i></span></span><span class="n">88 ± 2</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></span>
+          <span>Compliance and regulatory</span><span class="q-b"><span class="n">62 of 62</span><span class="tr"><i style="width: 26%"></i></span></span><span class="n">—</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Too few to score</span></span><small>178 questions may not leave the Enterprise</small></span>
+          <span>Safety and grounding</span><span class="q-b"><span class="n">140 of 240</span><span class="tr"><i style="width: 58%"></i></span></span><span class="n">83 ± 3</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Running · provisional</span></span></span>
+          <span>Entity recognition</span><span class="q-b"><span class="n">0 of 240</span><span class="tr"><i style="width: 0%"></i></span></span><span class="n">—</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Not started</span></span></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 14px">
+          <span class="kit-small kit-muted" style="max-width: 560px">Spend so far $[cost], of a cap of $[cap] for this run: the judge $[cost], the vendor's own charges $[cost]. A provisional score is from the questions answered so far; it is on no leaderboard until the run ends and its range is final.</span>
+          <span style="display: flex; gap: 8px"><a class="kit-btn outline sm" href="My-Work.dc.html">Tell me when a pillar finishes</a><a class="kit-btn outline sm" href="#">Stop this run</a></span>
+        </div>
+      </section>
+
+      <section class="kit-surface" aria-label="Asking, and who sees what">
+        <div class="ix-h"><h3>Asking, and who sees what</h3></div>
+        <div class="q-g">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg><span><b>To ask</b><br>Name the model and its setting, say why and for which feature, and choose Official or Practice. ThinkLatent accepts, or says why not, within a working day.</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg><span><b>Everyone at the Enterprise</b><br>Every row, its place and where it stands. The result, once the run ends, on the model's TL Index page.</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg><span><b>Whoever asked, and ThinkLatent</b><br>The run live, pillar by pillar, with provisional scores and spend. Either can stop it.</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span><b>The foundation team only</b><br>What an internal run is: which training run it belongs to, and whether it is a stage's check or the check before a release. Everyone else sees only that it holds a place.</span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1990}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

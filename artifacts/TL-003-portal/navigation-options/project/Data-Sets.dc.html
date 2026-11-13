@@ -65,7 +65,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .lk svg{width:15px;height:15px;flex:none}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1869px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1943px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -97,7 +97,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     <div class="kit-page-head">
       <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Data sets</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">16 data sets · 12 for training, 4 for evaluation</span><span class="kit-chip">7.4M items held for training</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 withdrawal to decide</span></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">17 data sets · 12 for training, 5 for evaluation</span><span class="kit-chip">7.4M items held for training</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 withdrawal to decide</span></div>
         <span class="kit-small kit-muted">Every data set the foundation team keeps, with the tags its items carry, where it came from and what it may be used for. A version never changes once it is cut; new data arrives as a new version · As of 11:58 ET · sample data</span>
       </div>
       <div class="kit-actions"><a class="kit-btn" href="#">Add a source</a><a class="kit-btn outline" href="Data-Mix.dc.html">Build a mix</a></div>
@@ -109,7 +109,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 
     <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
       <span class="sub" role="group" aria-label="Data pages"><a href="Models-Data.dc.html">What we hold</a><a aria-current="page" href="Data-Sets.dc.html">Data sets</a><a href="Data-Tagging.dc.html">Tags and reviews</a><a href="Data-Mix.dc.html">Mixes</a></span>
-      <span class="kit-seg" role="group" aria-label="Which sets"><button type="button" aria-pressed="true">All 16</button><button type="button" aria-pressed="false">For training 12</button><button type="button" aria-pressed="false">For evaluation 4</button></span>
+      <span class="kit-seg" role="group" aria-label="Which sets"><button type="button" aria-pressed="true">All 17</button><button type="button" aria-pressed="false">For training 12</button><button type="button" aria-pressed="false">For evaluation 5</button></span>
     </div>
 
     <section class="kit-surface raised" aria-label="The data sets">
@@ -134,15 +134,16 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <span class="sep">For evaluation · the TL Index</span>
         <span><b>TL Index · Financial data and products</b><small>Questions with checked answers · edition 2026-11</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span></span><span>Financial data processing</span><span>Written by the team, with 3 business reviewers</span><span class="n">1,240</span><span class="n">0</span>
         <span><b>TL Index · Numbers and calculations</b><small>Worked problems with one right answer · edition 2026-11</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span></span><span>Financial data processing, one part</span><span>Written by the team</span><span class="n">860</span><span class="n">15</span>
+        <span><b>TL Index · Entity recognition</b><small>Names, products, amounts and dates to find in a text · edition 2026-11</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span></span><span>Entity recognition</span><span>Written by the team</span><span class="n">690</span><span class="n">0</span>
         <span><b>TL Index · Client care, compliance, safety</b><small>Three pillars, one set · edition 2026-11</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span><span class="tg c">Regulatory</span><span class="tg c">LM safety</span></span><span>Client care · Compliance and regulatory · Safety and grounding</span><span>Written by the team, checked by Compliance</span><span class="n">1,710</span><span class="n">0</span>
         <span><b>Head to head · the pairs</b><small>Prompts shown to advisors and reviewers in blind pairs · version 6</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span></span><span>Client care</span><span>Drawn from advisors' own questions, redacted</span><span class="n">500</span><span class="n">0</span>
       </div>
-      <div class="kit-small kit-muted" style="margin-top: 12px">An evaluation question is never used for training: the graph refuses a mix that holds one, and the "too close to the TL Index" pipeline checks every training set against all four. Sets a project keeps for its own feature stay in that project.</div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">An evaluation question is never used for training: the graph refuses a mix that holds one, and the "too close to the TL Index" pipeline checks every training set against all five. Four of them hold the TL Index's 4,500 questions: 1,200 are in the edition, 1,200 are kept for checks in training, and the rest wait: see <a href="Index-Upkeep.dc.html">Upkeep</a>. Sets a project keeps for its own feature stay in that project.</div>
     </section>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1869}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1943}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
