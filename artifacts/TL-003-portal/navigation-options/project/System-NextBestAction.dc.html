@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A system of models built for one project · Next best action: its own score and thresholds, and what is inside (ThinkLatent and the project)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.ix-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ix-k>*{display:flex;flex-direction:column;gap:6px}
+.sy-f{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1.4fr) 22px minmax(0,1fr);align-items:stretch;margin-top:12px}
+.sy-f .bx{border-radius:18px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px;display:flex;flex-direction:column;gap:4px;font-size:13px;line-height:1.45}
+.sy-f .bx.on{box-shadow:0 0 0 1.5px #1A1A1A}
+.sy-f b{font-weight:500;font-size:14px}
+.sy-f small{font-size:12px;color:rgba(26,26,26,.65)}
+.sy-f .ar{display:flex;align-items:center;justify-content:center;color:rgba(26,26,26,.5)}
+.sy-t{display:grid;grid-template-columns:minmax(0,1.6fr) 110px 110px minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px}
+.sy-t>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.sy-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.sy-t .n{font-variant-numeric:tabular-nums}
+.sy-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.sy-i{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.2fr) minmax(0,1.6fr);font-size:13px;line-height:1.45;margin-top:10px}
+.sy-i>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.sy-i .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.sy-i small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.sy-b{display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:center}
+.sy-b .tr{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.08)}
+.sy-b .tr i{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.55)}
+.sy-u{display:flex;flex-direction:column;margin-top:8px;font-size:13px;line-height:1.45}
+.sy-u>*{padding:10px 0;border-top:1px solid rgba(26,26,26,.1);color:inherit;text-decoration:none}
+.sy-u small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1380px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">← Catalogue</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Systems · Next best action <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Next best action</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">A system · 3 models behind one endpoint</span><span class="kit-chip">Pilot · built for Advisor desktop</span><span class="kit-chip">Advisor desktop · Advice Tech</span></div>
+        <span class="kit-small kit-muted">Suggests to an adviser what to do next for a client, with the reason. Three models work in a row behind one endpoint. It was built for one project, so that project's members see inside it too · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Feature-Page.dc.html">Its feature in the project</a><a class="kit-btn outline" href="System-CallProcessing.dc.html">A system run for everyone</a></div>
+    </div>
+
+    <div class="ix-k"><div class="kit-surface"><span class="kit-caption">Suggestions advisers accept</span><span class="kit-display" style="font-size: 36px">71% ± 3</span><span class="kit-small kit-muted">Threshold 65% in Pilot</span></div><div class="kit-surface"><span class="kit-caption">Used by</span><span class="kit-display" style="font-size: 36px">1 project</span><span class="kit-small kit-muted">Advisor desktop, 140 advisers in Pilot</span></div><div class="kit-surface"><span class="kit-caption">Requests a day</span><span class="kit-display" style="font-size: 36px">2,100</span><span class="kit-small kit-muted">Sample value</span></div><div class="kit-surface"><span class="kit-caption">Answers in</span><span class="kit-display" style="font-size: 36px">1.4 seconds</span><span class="kit-small kit-muted">At the middle · threshold 2 seconds</span></div></div>
+
+    <section class="kit-surface raised" aria-label="What it does, as one thing">
+      <div class="ix-h"><h3>What it does, as one thing</h3><span class="kit-small kit-muted">One endpoint, one score, one set of thresholds · a project calls the system, never a model inside it</span></div>
+      <div class="sy-f">
+        <div class="bx"><b>Goes in</b><span>The client's situation, as the adviser's screen holds it</span></div>
+        <span class="ar" aria-hidden="true">→</span>
+        <div class="bx on"><b>Next best action</b><span>Finds what applies, chooses one action, and words it with its reason</span><small>Endpoint <span style="font-family: ui-monospace, Menlo, monospace">advisor-desktop-nba</span></small></div>
+        <span class="ar" aria-hidden="true">→</span>
+        <div class="bx"><b>Comes out</b><span>One suggested action, the reason, and the passages it rests on</span></div>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Its own score and thresholds">
+        <div class="ix-h"><h3>Its own score and thresholds</h3><span class="kit-small kit-muted">Measured on whole requests, end to end · advisers' own accept or reject, and 200 suggestions reviewed a month</span></div>
+        <div class="sy-t">
+          <span class="h">Measure</span><span class="h">Score</span><span class="h">Threshold</span><span class="h">Where it stands</span>
+          <span>Suggestions advisers accept<small>Accepted as shown, or with a small edit</small></span><span class="n">71% ± 3</span><span class="n">65%</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span></span><span>Suggestions a reviewer calls unsuitable<small>Of 200 reviewed a month</small></span><span class="n">2.5%</span><span class="n">3% at most</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Close to its limit</span></span></span><span>Answers within 2 seconds<small>At the 95th request of 100</small></span><span class="n">93%</span><span class="n">95%</span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Under its threshold</span></span></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">Two lines need attention before Production: speed, and how close unsuitable suggestions are to their limit. The system is judged on these lines, not on the models inside.</div>
+      </section>
+      <section class="kit-surface" aria-label="Who uses it">
+        <div class="ix-h"><h3>Who uses it</h3><span class="kit-small kit-muted">Built for one project</span></div>
+        <div class="sy-u"><a href="Feature-Page.dc.html">Advisor desktop · Next best action<small>Advice Tech · Pilot since 12 Oct</small></a></div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="Inside the system">
+      <div class="ix-h"><h3>Inside the system</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>ThinkLatent and Advisor desktop's members</span></div>
+      <div class="sy-i">
+        <span class="h">Model, in the order it runs</span><span class="h">Its own measure</span><span class="h">Of 100 requests the system gets wrong, how many go wrong here</span>
+        <span>Embedding v2<small>Finds what applies</small></span><span>Right passage in the first ten, 93%</span><span class="sy-b"><span class="n">22</span><span class="tr"><i style="width: 22%"></i></span></span><span>Decision adapter v1<small>Chooses one action</small></span><span>Choice right, 94%</span><span class="sy-b"><span class="n">31</span><span class="tr"><i style="width: 31%"></i></span></span><span>Domain-Advice v2<small>Words it, with the reason</small></span><span>TL Index 84 ± 1</span><span class="sy-b"><span class="n">47</span><span class="tr"><i style="width: 47%"></i></span></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">Because the project built this flow, its members see the models inside; nobody else outside ThinkLatent does. If it is later offered to other projects, it becomes a shared system and this panel closes to them.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1380}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A system of models in the catalogue · Call processing: one endpoint, its own score and thresholds, who uses it, what is inside (ThinkLatent only)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.ix-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ix-k>*{display:flex;flex-direction:column;gap:6px}
+.sy-f{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1.4fr) 22px minmax(0,1fr);align-items:stretch;margin-top:12px}
+.sy-f .bx{border-radius:18px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px;display:flex;flex-direction:column;gap:4px;font-size:13px;line-height:1.45}
+.sy-f .bx.on{box-shadow:0 0 0 1.5px #1A1A1A}
+.sy-f b{font-weight:500;font-size:14px}
+.sy-f small{font-size:12px;color:rgba(26,26,26,.65)}
+.sy-f .ar{display:flex;align-items:center;justify-content:center;color:rgba(26,26,26,.5)}
+.sy-t{display:grid;grid-template-columns:minmax(0,1.6fr) 110px 110px minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px}
+.sy-t>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.sy-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.sy-t .n{font-variant-numeric:tabular-nums}
+.sy-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.sy-i{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.2fr) minmax(0,1.6fr);font-size:13px;line-height:1.45;margin-top:10px}
+.sy-i>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.sy-i .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.sy-i small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.sy-b{display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:center}
+.sy-b .tr{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.08)}
+.sy-b .tr i{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.55)}
+.sy-u{display:flex;flex-direction:column;margin-top:8px;font-size:13px;line-height:1.45}
+.sy-u>*{padding:10px 0;border-top:1px solid rgba(26,26,26,.1);color:inherit;text-decoration:none}
+.sy-u small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1433px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">← Catalogue</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Systems · Call processing <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Call processing</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">A system · 3 models behind one endpoint</span><span class="kit-chip">Production · every call runs through it</span><span class="kit-chip">Run by ThinkLatent for the whole Enterprise</span></div>
+        <span class="kit-small kit-muted">Turns a recorded call into a transcript with personal details removed and the kind of call named. Projects use it as one thing; which models do the work inside is ThinkLatent's to change · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Project-Connect.dc.html">Use it in a project</a><a class="kit-btn outline" href="System-NextBestAction.dc.html">A system built for one project</a></div>
+    </div>
+
+    <div class="ix-k"><div class="kit-surface"><span class="kit-caption">Calls handled right, end to end</span><span class="kit-display" style="font-size: 36px">88% ± 2</span><span class="kit-small kit-muted">Threshold 85% · every part right on the same call</span></div><div class="kit-surface"><span class="kit-caption">Used by</span><span class="kit-display" style="font-size: 36px">3 projects</span><span class="kit-small kit-muted">All that read calls</span></div><div class="kit-surface"><span class="kit-caption">Calls a day</span><span class="kit-display" style="font-size: 36px">38,400</span><span class="kit-small kit-muted">Sample value · peak near 15:00 ET</span></div><div class="kit-surface"><span class="kit-caption">Ready in</span><span class="kit-display" style="font-size: 36px">40 seconds</span><span class="kit-small kit-muted">For a 6-minute call</span></div></div>
+
+    <section class="kit-surface raised" aria-label="What it does, as one thing">
+      <div class="ix-h"><h3>What it does, as one thing</h3><span class="kit-small kit-muted">One endpoint, one score, one set of thresholds · a project calls the system, never a model inside it</span></div>
+      <div class="sy-f">
+        <div class="bx"><b>Goes in</b><span>A recorded call, up to 60 minutes</span></div>
+        <span class="ar" aria-hidden="true">→</span>
+        <div class="bx on"><b>Call processing</b><span>Writes down what was said, removes personal details, and names the kind of call</span><small>Endpoint <span style="font-family: ui-monospace, Menlo, monospace">call-processing</span></small></div>
+        <span class="ar" aria-hidden="true">→</span>
+        <div class="bx"><b>Comes out</b><span>A redacted transcript, the call's class and how sure it is</span></div>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Its own score and thresholds">
+        <div class="ix-h"><h3>Its own score and thresholds</h3><span class="kit-small kit-muted">Measured on whole requests, end to end · 400 calls scored by people each month</span></div>
+        <div class="sy-t">
+          <span class="h">Measure</span><span class="h">Score</span><span class="h">Threshold</span><span class="h">Where it stands</span>
+          <span>A call handled right, end to end<small>Transcript, redaction and class all right</small></span><span class="n">88% ± 2</span><span class="n">85%</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span></span><span>Personal details left in<small>Calls with at least one detail missed</small></span><span class="n">0.8%</span><span class="n">1% at most</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span></span><span>Ready within a minute<small>For calls of 10 minutes or less</small></span><span class="n">96%</span><span class="n">95%</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">The system is held to these three lines, not to the scores of the models inside it. A project sets its own thresholds on its own feature, on top.</div>
+      </section>
+      <section class="kit-surface" aria-label="Who uses it">
+        <div class="ix-h"><h3>Who uses it</h3><span class="kit-small kit-muted">One endpoint for all of them</span></div>
+        <div class="sy-u"><a href="Feature-Page.dc.html">Advisor desktop · Call summary<small>Advice Tech · Production</small></a><a href="Project-Features.dc.html">Claims intake · Claims triage<small>Claims · Production</small></a><a href="Project-Features.dc.html">Service chat assist<small>Pilot</small></a></div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="Inside the system">
+      <div class="ix-h"><h3>Inside the system</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>ThinkLatent only</span></div>
+      <div class="sy-i">
+        <span class="h">Model, in the order it runs</span><span class="h">Its own measure</span><span class="h">Of 100 requests the system gets wrong, how many go wrong here</span>
+        <span>Speech recognition v6<small>Writes down what was said</small></span><span>Word error rate 6.8%</span><span class="sy-b"><span class="n">61</span><span class="tr"><i style="width: 61%"></i></span></span><span>Redaction v4<small>Removes personal details</small></span><span>99.2% of details found</span><span class="sy-b"><span class="n">9</span><span class="tr"><i style="width: 9%"></i></span></span><span>Call classification v3<small>Names the kind of call</small></span><span>91% ± 2 sorted right</span><span class="sy-b"><span class="n">30</span><span class="tr"><i style="width: 30%"></i></span></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">Projects do not see this panel. ThinkLatent can swap a model inside without projects changing anything, as long as the three lines above hold; a swap is still an increment with a canary. Each model keeps its own page for ThinkLatent: <a href="Model-Speech.dc.html">Speech recognition</a>.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1433}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

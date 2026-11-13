@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TL Index · the Enterprise benchmark: twelve categories, each tagged to a pillar, what is written and checked, the public samples as a smoke test (ThinkLatent only)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.ix-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ix-k>*{display:flex;flex-direction:column;gap:6px}
+.pr-t{display:grid;grid-template-columns:36px minmax(0,1.7fr) minmax(0,1.3fr) 90px minmax(0,.9fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.pr-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.pr-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.pr-t .n{font-variant-numeric:tabular-nums}
+.pr-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.pr-b{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;align-items:center}
+.pr-b .tr{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.08)}
+.pr-b .tr i{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.55)}
+.pr-g{display:grid;grid-template-columns:150px minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:8px}
+.pr-g>*{padding:9px 10px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.pr-g dt{color:rgba(26,26,26,.6)}.pr-g dd{margin:0}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1725px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-current="page" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Index-Language.dc.html">← TL Index · Language</a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Index-Upkeep.dc.html">Upkeep</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">The Enterprise benchmark <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">The Enterprise benchmark</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">12 categories · 612 of 1,800 written</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>ThinkLatent only</span><span class="kit-chip">Counts in the pillars and under Real Enterprise</span></div>
+        <span class="kit-small kit-muted">The questions the Index team writes with business reviewers, from the Enterprise's own kinds of work. Each is tagged with its category and its pillar: it joins that pillar's pool, and each category gets its own score under Real Enterprise once 100 of its questions are checked · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Index-Upkeep.dc.html">The pool by pillar</a><a class="kit-btn outline" href="Index-Offer.dc.html">Sets offered by projects</a></div>
+    </div>
+
+    <div class="ix-k">
+      <div class="kit-surface"><span class="kit-caption">Written</span><span class="kit-display" style="font-size: 36px">612</span><span class="kit-small kit-muted">Of 1,800 · 150 aimed for in each category</span></div>
+      <div class="kit-surface"><span class="kit-caption">Checked by two readers</span><span class="kit-display" style="font-size: 36px">540</span><span class="kit-small kit-muted">Only these count anywhere</span></div>
+      <div class="kit-surface"><span class="kit-caption">Categories with a score</span><span class="kit-display" style="font-size: 36px">3 of 12</span><span class="kit-small kit-muted">A category is scored from 100 checked questions</span></div>
+      <div class="kit-surface"><span class="kit-caption">Least written</span><span class="kit-display" style="font-size: 36px">Compliance, Safety</span><span class="kit-small kit-muted">The same pillars whose pools are thin</span></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The twelve categories">
+      <div class="ix-h"><h3>The twelve categories</h3><span class="kit-small kit-muted">The bar is what is written, against 150 · a category's questions also count in the pillar named under it</span></div>
+      <div class="pr-t">
+        <span class="h">#</span><span class="h">Category, and its pillar</span><span class="h">Written</span><span class="h">Checked</span><span class="h">Where it stands</span>
+        <span class="n">1</span><span>Client conversation summaries<small>Client care</small></span><span class="pr-b"><span class="n">96 of 150</span><span class="tr"><i style="width: 64%"></i></span></span><span class="n">90</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Being written</span></span></span>
+        <span class="n">2</span><span>Client questions answered from approved sources<small>Client care · Safety and grounding</small></span><span class="pr-b"><span class="n">110 of 150</span><span class="tr"><i style="width: 73%"></i></span></span><span class="n">102</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Has a score</span></span></span>
+        <span class="n">3</span><span>Fund and product document questions<small>Financial data processing</small></span><span class="pr-b"><span class="n">124 of 150</span><span class="tr"><i style="width: 83%"></i></span></span><span class="n">118</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Has a score</span></span></span>
+        <span class="n">4</span><span>Numbers and tables<small>Financial data processing</small></span><span class="pr-b"><span class="n">131 of 150</span><span class="tr"><i style="width: 87%"></i></span></span><span class="n">127</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Has a score</span></span></span>
+        <span class="n">5</span><span>Financial analysis<small>Financial data processing</small></span><span class="pr-b"><span class="n">42 of 150</span><span class="tr"><i style="width: 28%"></i></span></span><span class="n">36</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Being written</span></span></span>
+        <span class="n">6</span><span>Operations cases<small>Entity recognition · Client care</small></span><span class="pr-b"><span class="n">38 of 150</span><span class="tr"><i style="width: 25%"></i></span></span><span class="n">30</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Being written</span></span></span>
+        <span class="n">7</span><span>Entity and field extraction<small>Entity recognition</small></span><span class="pr-b"><span class="n">26 of 150</span><span class="tr"><i style="width: 17%"></i></span></span><span class="n">18</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Far behind</span></span></span>
+        <span class="n">8</span><span>Policy and regulation lookup<small>Compliance and regulatory</small></span><span class="pr-b"><span class="n">21 of 150</span><span class="tr"><i style="width: 14%"></i></span></span><span class="n">12</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Far behind</span></span></span>
+        <span class="n">9</span><span>Suitability and disclosures<small>Compliance and regulatory · Safety and grounding</small></span><span class="pr-b"><span class="n">12 of 150</span><span class="tr"><i style="width: 8%"></i></span></span><span class="n">5</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Far behind</span></span></span>
+        <span class="n">10</span><span>Refusals and safe handling<small>Safety and grounding</small></span><span class="pr-b"><span class="n">8 of 150</span><span class="tr"><i style="width: 5%"></i></span></span><span class="n">2</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Far behind</span></span></span>
+        <span class="n">11</span><span>Long threads and long documents<small>Every pillar · a band of difficulty</small></span><span class="pr-b"><span class="n">4 of 150</span><span class="tr"><i style="width: 3%"></i></span></span><span class="n">0</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Far behind</span></span></span>
+        <span class="n">12</span><span>Multi-step tasks with tools<small>Every pillar</small></span><span class="pr-b"><span class="n">0 of 150</span><span class="tr"><i style="width: 0%"></i></span></span><span class="n">0</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Not started</span></span></span>
+        </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="One shape for every question">
+        <div class="ix-h"><h3>One shape for every question</h3></div>
+        <dl class="pr-g">
+          <dt>Question</dt><dd>As a person at the Enterprise would ask it</dd>
+          <dt>Right answer</dt><dd>Written by a practitioner</dd>
+          <dt>Sources</dt><dd>What the answer rests on</dd>
+          <dt>Checks</dt><dd>Weighted, with the ones that must not be missed marked</dd>
+          <dt>Tags</dt><dd>Its category and its pillar</dd>
+          <dt>Two scores</dt><dd>Every check met, and the weighted share met</dd>
+        </dl>
+      </section>
+      <section class="kit-surface" aria-label="Three parts">
+        <div class="ix-h"><h3>Three parts</h3></div>
+        <dl class="pr-g">
+          <dt>Open</dt><dd>A few examples anyone at the Enterprise may read, to see what is asked</dd>
+          <dt>For projects</dt><dd>Questions a project's model may be scored on. Scores are shown; questions are not</dd>
+          <dt>Held back</dt><dd>The questions that go into editions and stage checks. Only the Index team opens them</dd>
+        </dl>
+      </section>
+      <section class="kit-surface" aria-label="Public samples">
+        <div class="ix-h"><h3>Public samples</h3><span class="kit-small kit-muted">A smoke test</span></div>
+        <dl class="pr-g">
+          <dt>What</dt><dd>87 free questions from an outside benchmark: finance tasks 50 and 27, legal research 5, tax 5</dd>
+          <dt>Used for</dt><dd>Run on every TLM version to see that nothing broke</dd>
+          <dt>Shown as</dt><dd>"Public samples: too few to rank on". Never on a leaderboard</dd>
+          <dt>Licensed sets</dt><dd>None. No quote is asked for now, decided 13 Nov</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1725}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
