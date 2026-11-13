@@ -39,7 +39,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .tr-q dt{color:rgba(26,26,26,.6)}.tr-q dd{margin:0}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1684px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2064px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -107,7 +107,17 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     </section>
 
     <div style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 16px; align-items: start">
-      <section class="kit-surface" aria-label="The forecast">
+      <section class="kit-surface" aria-label="Generation against generation">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap"><h3 style="margin: 0; font-size: 18px; font-weight: 500">Generation against generation</h3><span class="kit-small kit-muted">The best model of each generation, on this edition · pillar by pillar on the <a href="Index-Language.dc.html">leaderboard</a></span></div>
+      <div style="display: grid; grid-template-columns: 150px minmax(0, 1.4fr) 120px 140px 130px minmax(0, 1fr); font-size: 13px; line-height: 1.45; margin-top: 10px">
+        <span class="kit-small kit-muted" style="padding: 0 12px 10px 0">Generation</span><span class="kit-small kit-muted" style="padding: 0 12px 10px 0">Its best model</span><span class="kit-small kit-muted" style="padding: 0 12px 10px 0">TL Index</span><span class="kit-small kit-muted" style="padding: 0 12px 10px 0">Cost per request</span><span class="kit-small kit-muted" style="padding: 0 12px 10px 0">Time to answer</span><span class="kit-small kit-muted" style="padding: 0 12px 10px 0">Against the one before</span>
+        <span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">TLM5</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">In development</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">— no version to run yet</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">—</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">—</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">—</span>
+        <span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">TLM4</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">Domain-Advice v2</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1); font-variant-numeric: tabular-nums">84 ± 1</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">$[cost]</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1); font-variant-numeric: tabular-nums">2.1 s</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">18 points better, and 1.0 s faster</span>
+        <span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">TLM3</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">Core 3.4 · retiring</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1); font-variant-numeric: tabular-nums">66 ± 1</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">$[cost]</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1); font-variant-numeric: tabular-nums">3.1 s</span><span style="padding: 10px 12px 10px 0; border-top: 1px solid rgba(26,26,26,.1)">— the first on the TL Index</span>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="The forecast">
         <div class="ix-h"><h3>The forecast</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>ThinkLatent only</span></div>
         <div class="tr-f">
           <span class="h">Pillar</span><span class="h">Behind the best outside model, now</span><span class="h">Passing it, at the pace so far</span>
@@ -131,7 +141,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1684}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2064}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
