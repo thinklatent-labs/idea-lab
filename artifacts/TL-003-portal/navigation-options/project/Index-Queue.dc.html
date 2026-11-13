@@ -47,7 +47,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .q-g b{font-weight:500}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1990px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2008px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -78,7 +78,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     <div class="kit-page-head">
       <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">The evaluation queue</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">2 running · 5 waiting</span><span class="kit-chip">Next fixed day: 10 Nov, corrections run</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">1 ask waits for ThinkLatent</span></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">2 running · 5 waiting</span><span class="kit-chip">Next edition: 10 Nov, every model scored again</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">1 ask waits for ThinkLatent</span></div>
         <span class="kit-small kit-muted">Every run of the TL Index, in the order it will go. Anyone at the Enterprise can ask for a model to be scored; ThinkLatent accepts each ask. The checks of a training run are in the queue too, and only the foundation team sees what they are for · As of 11:58 ET · sample data</span>
       </div>
       <div class="kit-actions"><a class="kit-btn" href="Model-TLIndex.dc.html">Ask for a model to be scored</a><a class="kit-btn outline" href="Index-Edition.dc.html">Edition 2026-11</a></div>
@@ -98,7 +98,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div class="q-o">
         <div class="bx"><span class="k">1</span><span><b>A release waiting</b><small>A trained model cannot be released until the whole Index has run on it</small></span></div>
         <span class="ar" aria-hidden="true">→</span>
-        <div class="bx"><span class="k">2</span><span><b>Scoring again after a correction</b><small>Every second Tuesday, and at once when a vendor changes a model</small></span></div>
+        <div class="bx"><span class="k">2</span><span><b>Scoring every model again</b><small>A new edition, every second Tuesday. A vendor's changed model, at once</small></span></div>
         <span class="ar" aria-hidden="true">→</span>
         <div class="bx"><span class="k">3</span><span><b>Accepted asks</b><small>Oldest first, whoever asked</small></span></div>
         <span class="ar" aria-hidden="true">→</span>
@@ -122,9 +122,9 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <span class="n pr">4</span><span><b>Distil 4.2</b><small>With a longer context setting</small></span><span>Service chat assist</span><span class="pr">Practice</span><span class="n">2</span><span class="n">50 min</span><span class="pr">When machines are free</span>
         <span class="n pr">5</span><span><b>The small Core</b><small>At lower precision</small></span><span>ThinkLatent</span><span class="pr">Practice</span><span class="n">5</span><span class="n">1 h 30</span><span class="pr">When machines are free</span>
 
-        <span class="sep">Fixed days</span>
-        <span class="n">10 Nov</span><span><b>Corrections run</b><small>All 9 models on edition 2026-11, version 2</small></span><span>ThinkLatent<small>Every second Tuesday</small></span><span>Official</span><span class="n">5</span><span class="n">About a day</span><span><a href="Index-Edition.dc.html">3 corrections</a><small>Other runs wait while it goes</small></span>
-        <span class="n">24 Nov</span><span><b>Edition 2026-12</b><small>All models on the new edition</small></span><span>ThinkLatent<small>Every four weeks</small></span><span>Official</span><span class="n">5</span><span class="n">About a day</span><span>Once the Head of ThinkLatent has signed<small>Sign-off is due by 23 Nov</small></span>
+        <span class="sep">Edition days</span>
+        <span class="n">10 Nov</span><span><b>Edition 2026-11b</b><small>All 9 models on the new edition · 100 new questions, 3 corrections</small></span><span>ThinkLatent<small>Every second Tuesday</small></span><span>Official</span><span class="n">5</span><span class="n">About a day</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Waits for sign-off</span></span><small>Due 9 Nov · other runs wait while it goes</small></span>
+        <span class="n">24 Nov</span><span><b>Edition 2026-12</b><small>All models on the new edition</small></span><span>ThinkLatent<small>Every second Tuesday</small></span><span>Official</span><span class="n">5</span><span class="n">About a day</span><span class="pr">Planned<small>Sign-off is due by 23 Nov</small></span>
       </div>
     </section>
 
@@ -158,7 +158,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1990}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2008}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

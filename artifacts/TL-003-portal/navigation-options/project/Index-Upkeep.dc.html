@@ -53,9 +53,13 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .ix-w>div{border-top:1px solid rgba(26,26,26,.1);padding-top:10px;display:flex;flex-direction:column;gap:3px}
 .ix-w b{font-weight:500}
 .ix-w span{color:rgba(26,26,26,.7)}
+.ix-sign{box-shadow:0 0 0 1.5px var(--decision)}
+.ix-sg{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;margin-top:10px;font-size:13px;line-height:1.5}
+.ix-sg ul{margin:6px 0 8px;padding-left:18px}
+.ix-sg .act{display:flex;flex-direction:column;gap:10px;justify-content:center}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2250px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2557px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -86,7 +90,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     <div class="kit-page-head">
       <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Upkeep of the TL Index</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Edition 2026-11 · live since 27 Oct</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>ThinkLatent only</span><span class="kit-chip">Corrections run on 10 Nov</span><span class="kit-chip">Edition 2026-12 on 24 Nov</span></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Edition 2026-11 · live since 27 Oct</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>ThinkLatent only</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">Edition 2026-11b waits for sign-off</span><span class="kit-chip">A new edition every two weeks</span></div>
         <span class="kit-small kit-muted">Where ThinkLatent keeps the Index honest: the questions it holds, which are in the edition, which are kept for checks in training, and what is being corrected. ThinkLatent sees the counts; only the foundation team can open a question, and every opening is recorded. What an edition changed is open to everyone on the edition's own page · As of 11:58 ET · sample data</span>
       </div>
       <div class="kit-actions"><a class="kit-btn" href="Index-Edition.dc.html">Open edition 2026-11</a><a class="kit-btn outline" href="Index-Queue.dc.html">The evaluation queue</a></div>
@@ -97,8 +101,29 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div class="kit-surface"><span class="kit-caption">In edition 2026-11</span><span class="kit-display" style="font-size: 36px">1,200</span><span class="kit-small kit-muted">240 a pillar · they score every model on the board</span></div>
       <div class="kit-surface"><span class="kit-caption">Stage-check set</span><span class="kit-display" style="font-size: 36px">1,200</span><span class="kit-small kit-muted">240 a pillar · for checks in training · never in an edition</span></div>
       <div class="kit-surface"><span class="kit-caption">Waiting to be used</span><span class="kit-display" style="font-size: 36px">2,100</span><span class="kit-small kit-muted">1,620 of them on one pillar · three pillars hold 90 each</span></div>
-      <a class="kit-surface" href="Index-Edition.dc.html"><span class="kit-caption">Corrections made, not yet scored</span><span class="kit-display" style="font-size: 36px">3</span><span class="kit-small kit-muted">Scores follow on 10 Nov</span></a>
+      <a class="kit-surface" href="Index-Edition.dc.html"><span class="kit-caption">Corrections made, not yet scored</span><span class="kit-display" style="font-size: 36px">3</span><span class="kit-small kit-muted">They go into edition 2026-11b, on 10 Nov</span></a>
     </div>
+
+    <section class="kit-surface ix-sign" aria-label="Waiting for sign-off">
+      <div class="ix-h"><h3>Edition 2026-11b waits for the Head of ThinkLatent</h3><span class="kit-chip env">Index agent</span></div>
+      <div class="ix-sg">
+        <div>
+          <span class="kit-caption">The agent's report, in short</span>
+          <ul>
+            <li>100 new questions, 20 a pillar; 100 leave; 1,100 are carried over.</li>
+            <li>The new 100 are 0.9 ± 1.7 points easier than the 100 that leave: no real difference.</li>
+            <li>3 corrections go in. One moves Financial data processing by up to +0.4 for every model.</li>
+            <li>On a first scoring of the new 100, no model crosses a threshold.</li>
+          </ul>
+          <span class="kit-small kit-muted">Rests on a first scoring of the new questions by the 9 models and on the record of each correction · sure: high · <a href="Agents-AtWork.dc.html">See what it rests on</a></span>
+        </div>
+        <div class="act">
+          <span class="kit-small">Due by Monday 9 Nov, for publishing on Tuesday 10 Nov. Signing fixes the edition: from then a question in it can be corrected, never swapped.</span>
+          <span style="display: flex; gap: 8px; flex-wrap: wrap"><button class="kit-btn decision" type="button">Hold to sign edition 2026-11b</button><a class="kit-btn outline" href="#">Ask for a revision</a><a class="kit-btn outline" href="#">Read the whole report</a></span>
+          <span class="kit-small kit-muted">Only the Head of ThinkLatent sees these buttons. If it is not signed by 9 Nov, edition 2026-11 stays live and nothing is scored again.</span>
+        </div>
+      </div>
+    </section>
 
     <section class="kit-surface raised" aria-label="A question's life">
       <div class="ix-h"><h3>A question's life</h3><span class="kit-small kit-muted">One way only · nothing returns to an edition · a model is never picked in training on a question that will grade it later</span></div>
@@ -109,52 +134,52 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <span class="ar" aria-hidden="true">→</span>
         <div class="bx"><b>Waiting</b><span class="n">2,100</span><small>Never shown to any model, ours or a vendor's</small></div>
         <span class="ar" aria-hidden="true">→</span>
-        <div class="bx on"><b>In an edition</b><span class="n">1,200</span><small>200 come in each month, 40 a pillar. A question serves about six editions</small></div>
+        <div class="bx on"><b>In an edition</b><span class="n">1,200</span><small>100 come in with each edition, 20 a pillar. A question serves about twelve editions, six months</small></div>
         <span class="ar" aria-hidden="true">→</span>
-        <div class="bx on"><b>In the stage-check set</b><span class="n">1,200</span><small>The 200 that leave an edition arrive here, for checks inside training runs</small></div>
+        <div class="bx on"><b>In the stage-check set</b><span class="n">1,200</span><small>The 100 that leave an edition arrive here, for checks inside training runs</small></div>
         <span class="ar" aria-hidden="true">→</span>
-        <div class="bx"><b>Retired</b><span class="n">0</span><small>The first 200 retire on 24 Nov. Kept, never used again</small></div>
+        <div class="bx"><b>Retired</b><span class="n">0</span><small>The first 100 retire on 10 Nov. Kept, never used again</small></div>
       </div>
     </section>
 
     <section class="kit-surface" aria-label="The pool, pillar by pillar">
-      <div class="ix-h"><h3>The pool, pillar by pillar</h3><span class="kit-small kit-muted">Each edition takes 40 new questions a pillar · the bar is what waits · "enough for" counts editions from 2026-12 on</span></div>
+      <div class="ix-h"><h3>The pool, pillar by pillar</h3><span class="kit-small kit-muted">Each edition takes 20 new questions a pillar · the bar is what waits · "enough for" counts editions from 2026-11b on</span></div>
       <div class="ix-p">
         <span class="h">Pillar</span><span class="h">In edition 2026-11</span><span class="h">Stage-check set</span><span class="h">Waiting</span><span class="h">Enough for</span>
-        <span>Financial data processing<small>Two sets: data and products, numbers and calculations</small></span><span class="n">240</span><span class="n">240</span><span class="ix-bar"><span class="n">1,620</span><span class="tr"><i style="width: 100%"></i></span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>40 editions</span></span></span>
-        <span>Client care</span><span class="n">240</span><span class="n">240</span><span class="ix-bar"><span class="n">90</span><span class="tr"><i style="width: 5.6%"></i></span></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>2 editions</span></span><small>Nothing new to rotate in from the 2027-02 edition</small></span>
-        <span>Compliance and regulatory</span><span class="n">240</span><span class="n">240</span><span class="ix-bar"><span class="n">90</span><span class="tr"><i style="width: 5.6%"></i></span></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>2 editions</span></span><small>Each question also needs a Compliance reviewer</small></span>
-        <span>Safety and grounding</span><span class="n">240</span><span class="n">240</span><span class="ix-bar"><span class="n">90</span><span class="tr"><i style="width: 5.6%"></i></span></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>2 editions</span></span></span>
-        <span>Entity recognition</span><span class="n">240</span><span class="n">240</span><span class="ix-bar"><span class="n">210</span><span class="tr"><i style="width: 13%"></i></span></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>5 editions</span></span></span>
+        <span>Financial data processing<small>Two sets: data and products, numbers and calculations</small></span><span class="n">240</span><span class="n">240</span><span class="ix-bar"><span class="n">1,620</span><span class="tr"><i style="width: 100%"></i></span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>81 editions</span></span></span>
+        <span>Client care</span><span class="n">240</span><span class="n">240</span><span class="ix-bar"><span class="n">90</span><span class="tr"><i style="width: 5.6%"></i></span></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>4 editions</span></span><small>Nothing new to rotate in from 5 Jan</small></span>
+        <span>Compliance and regulatory</span><span class="n">240</span><span class="n">240</span><span class="ix-bar"><span class="n">90</span><span class="tr"><i style="width: 5.6%"></i></span></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>4 editions</span></span><small>Each question also needs a Compliance reviewer</small></span>
+        <span>Safety and grounding</span><span class="n">240</span><span class="n">240</span><span class="ix-bar"><span class="n">90</span><span class="tr"><i style="width: 5.6%"></i></span></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>4 editions</span></span></span>
+        <span>Entity recognition</span><span class="n">240</span><span class="n">240</span><span class="ix-bar"><span class="n">210</span><span class="tr"><i style="width: 13%"></i></span></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>10 editions</span></span></span>
         <span class="tot">The five live pillars</span><span class="n tot">1,200</span><span class="n tot">1,200</span><span class="n tot">2,100</span><span class="tot">4,500 held in all</span>
       </div>
       <div class="ix-ag">
-        <span style="max-width: 860px"><span class="kit-chip env" style="margin-right: 8px">Index agent</span>Ask the writers for 120 new questions a month on Client care, Compliance and Safety, from now. <span class="kit-muted">Rests on these counts and the rule of 40 a pillar · sure: high · the agent proposes, the foundation lead decides · <a href="Agents-AtWork.dc.html">See what it rests on</a></span></span>
+        <span style="max-width: 860px"><span class="kit-chip env" style="margin-right: 8px">Index agent</span>Ask the writers for 60 new questions each edition on Client care, Compliance and Safety, from now. <span class="kit-muted">Rests on these counts and the rule of 20 a pillar · sure: high · the agent proposes, the foundation lead decides · <a href="Agents-AtWork.dc.html">See what it rests on</a></span></span>
         <span style="display: flex; gap: 8px"><a class="kit-btn sm" href="#">Ask the writers</a><a class="kit-btn outline sm" href="#">Not now, and why</a></span>
       </div>
-      <div class="kit-small kit-muted" style="margin-top: 12px">The 11 pillars that are not live hold no checked questions yet. Head to head keeps its own 500 pairs, outside this count. The sets themselves are on <a href="Data-Sets.dc.html">Data sets</a>.</div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">The 11 pillars that are not live hold no checked questions yet. Head to head keeps its own 500 pairs, outside this count. The sets themselves are on <a href="Data-Sets.dc.html">Data sets</a>. A project may offer questions too: <a href="Index-Offer.dc.html">3 offers so far</a>, one for Client care.</div>
     </section>
 
     <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 16px; align-items: start">
       <div style="display: flex; flex-direction: column; gap: 16px">
         <section class="kit-surface" aria-label="The days scores can change">
-          <div class="ix-h"><h3>The days scores can change</h3><span class="kit-small kit-muted">Every second Tuesday, and no other day</span></div>
+          <div class="ix-h"><h3>The days scores can change</h3><span class="kit-small kit-muted">A new edition every second Tuesday, and no other day</span></div>
           <div class="ix-d">
             <span class="n">27 Oct</span><span>Edition 2026-11 published<small>Signed by the Head of ThinkLatent on 26 Oct</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></span>
-            <span class="n">10 Nov</span><span>Corrections run<small>3 corrections · every model scored again on edition 2026-11, version 2</small></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>In 5 days</span></span></span>
-            <span class="n">24 Nov</span><span>Edition 2026-12<small>200 new, 200 leave, corrections folded in · the Head signs by 23 Nov</small></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Being prepared</span></span></span>
-            <span class="n">8 Dec</span><span>Corrections run<small>If any correction is made after 24 Nov</small></span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Planned</span></span></span>
+            <span class="n">10 Nov</span><span>Edition 2026-11b<small>100 new, 100 leave, 3 corrections go in · every model scored again</small></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Waits for sign-off</span></span></span>
+            <span class="n">24 Nov</span><span>Edition 2026-12<small>Its 100 new questions are drawn on 17 Nov</small></span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Planned</span></span></span>
+            <span class="n">8 Dec</span><span>Edition 2026-12b</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Planned</span></span></span>
           </div>
         </section>
         <section class="kit-surface" aria-label="Edition 2026-12, step by step">
-          <div class="ix-h"><h3>Edition 2026-12, step by step</h3><a class="kit-small" href="Index-Queue.dc.html">Its runs in the queue</a></div>
+          <div class="ix-h"><h3>Edition 2026-11b, step by step</h3><a class="kit-small" href="Index-Queue.dc.html">Its runs in the queue</a></div>
           <div class="ix-s">
-            <span><span class="k">1</span></span><span>200 new questions drawn, 40 a pillar, at random among those waiting</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>3 Nov</span></span></span>
-            <span><span class="k">2</span></span><span>The 200 longest-serving chosen to leave for the stage-check set</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>3 Nov</span></span></span>
-            <span><span class="k">3</span></span><span>Corrections made up to 20 Nov folded in</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Open</span></span></span>
-            <span><span class="k">4</span></span><span>The Index agent drafts the edition report</span><span class="kit-muted">Due 20 Nov</span>
-            <span><span class="k">5</span></span><span>The Head of ThinkLatent signs, or asks for a revision</span><span class="kit-muted">Due 23 Nov</span>
-            <span><span class="k">6</span></span><span>Published; every model on the board is scored again</span><span class="kit-muted">24 Nov</span>
+            <span><span class="k">1</span></span><span>100 new questions drawn, 20 a pillar, at random among those waiting</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>3 Nov</span></span></span>
+            <span><span class="k">2</span></span><span>The 100 longest-serving chosen to leave for the stage-check set</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>3 Nov</span></span></span>
+            <span><span class="k">3</span></span><span>Corrections made up to 4 Nov folded in: K-041 to K-043</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>4 Nov</span></span></span>
+            <span><span class="k">4</span></span><span>The Index agent drafted the edition report</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>4 Nov</span></span></span>
+            <span><span class="k">5</span></span><span>The Head of ThinkLatent signs, or asks for a revision</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Due 9 Nov</span></span></span>
+            <span><span class="k">6</span></span><span>Published; every model on the board is scored again</span><span class="kit-muted">10 Nov</span>
           </div>
         </section>
       </div>
@@ -163,11 +188,11 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <div class="ix-h"><h3>Corrections</h3><span class="kit-small kit-muted">Only ThinkLatent corrects a question</span></div>
         <div class="ix-c">
           <span class="h">Id</span><span class="h">What was wrong, and what was done</span><span class="h">What it moves</span>
-          <span class="n">K-041</span><span>The key accepted only one of two valid ways of rounding<small>Financial data processing · the key now accepts both · corrected 30 Oct by Luis F.</small></span><span>Up to +0.4 on this pillar, for all 9 models<small>Scored on 10 Nov</small></span>
-          <span class="n">K-042</span><span>The rule the key cites was replaced in September<small>Compliance and regulatory · question withdrawn · corrected 2 Nov by Hana O., with a Compliance reviewer</small></span><span>239 questions scored on this pillar, not 240<small>Scored on 10 Nov</small></span>
-          <span class="n">K-043</span><span>Two questions were near-copies of each other<small>Entity recognition · one removed · corrected 4 Nov by Arjun K.</small></span><span>239 questions scored on this pillar, not 240<small>Scored on 10 Nov</small></span>
+          <span class="n">K-041</span><span>The key accepted only one of two valid ways of rounding<small>Financial data processing · the key now accepts both · corrected 30 Oct by Luis F.</small></span><span>Up to +0.4 on this pillar, for all 9 models<small>In edition 2026-11b</small></span>
+          <span class="n">K-042</span><span>The rule the key cites was replaced in September<small>Compliance and regulatory · question withdrawn · corrected 2 Nov by Hana O., with a Compliance reviewer</small></span><span>Question withdrawn, another drawn in its place<small>In edition 2026-11b</small></span>
+          <span class="n">K-043</span><span>Two questions were near-copies of each other<small>Entity recognition · one removed · corrected 4 Nov by Arjun K.</small></span><span>One removed, another drawn in its place<small>In edition 2026-11b</small></span>
         </div>
-        <div class="kit-small kit-muted" style="margin-top: 12px">A correction changes the question at once, as a new version of it, and is written to its record: who, when, why, and the version before. Published scores stay as they are until the next run, so that they move only on known days. The list, without the questions, is open to everyone on <a href="Index-Edition.dc.html">the edition's page</a>. 3 more were made before 27 Oct and went out with this edition.</div>
+        <div class="kit-small kit-muted" style="margin-top: 12px">A correction changes the question at once, as a new version of it, and is written to its record: who, when, why, and the version before. Published scores stay as they are until the next edition, two weeks away at most, so that they move only on known days. The list, without the questions, is open to everyone on <a href="Index-Edition.dc.html">the edition's page</a>. 3 more were made before 27 Oct and went out with this edition.</div>
       </section>
     </div>
 
@@ -182,7 +207,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2250}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2557}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
