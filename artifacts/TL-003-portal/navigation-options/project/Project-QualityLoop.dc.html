@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A project's quality, kept honest: the review queue, the judge, drift and the findings register (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ql-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ql-h h3{margin:0;font-size:18px;font-weight:500}
+.ql-n{margin-top:12px;font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.65)}
+.ql-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ql-k>*{display:flex;flex-direction:column;gap:6px}
+.ql-t{display:grid;font-size:13px;line-height:1.45;margin-top:10px}
+.ql-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ql-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ql-t .n{font-variant-numeric:tabular-nums}
+.ql-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ql-q{grid-template-columns:minmax(0,1.7fr) 96px minmax(0,1fr) 120px 96px}
+.ql-j{grid-template-columns:minmax(0,1.2fr) 110px minmax(0,1.5fr)}
+.ql-d{grid-template-columns:minmax(0,1.5fr) 150px 96px 150px 110px}
+.ql-f{grid-template-columns:86px minmax(0,1.8fr) 96px minmax(0,.9fr) 110px minmax(0,1.2fr) 120px}
+.ql-it{margin-top:12px;border-radius:16px;padding:14px 16px;background:rgba(255,255,255,.8);box-shadow:0 0 0 1.5px rgba(27,81,40,.4);display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.5}
+.ql-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ql-bd{display:inline-flex;border-radius:10px;box-shadow:0 0 0 1px rgba(26,26,26,.14);overflow:hidden;font-size:12.5px}
+.ql-bd span{padding:5px 11px}.ql-bd span.on{background:#1A1A1A;color:#fff}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1870px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Organization-Page.dc.html">Retail Business <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Team-Page.dc.html">Advice Tech <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn" href="Project-Page.dc.html">Advisor desktop <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">All features <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Quality · review, judge, drift and findings</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Advisor desktop's members and its two ThinkLatent people</span><span class="kit-chip">Call summary</span><span class="kit-chip">First draft · D-323</span></div>
+        <span class="kit-small kit-muted">What keeps the scores on the Quality tab honest: people checking a sample by hand, the judge checked against them, what is changing in what comes in and goes out, and every finding until it is closed · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Project-Quality.dc.html">Back to the scores</a><a class="kit-btn outline" href="Project-Record.dc.html">The record</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <a role="tab" aria-selected="false" href="Project-Page.dc.html">Overview</a><a role="tab" aria-selected="false" href="Project-Plan.dc.html">Plan</a><a role="tab" aria-selected="false" href="Project-Features.dc.html">Features</a><a role="tab" aria-selected="false" href="Project-Connect.dc.html">Connect</a><a role="tab" aria-selected="false" href="Project-Traces.dc.html">Traces</a><a role="tab" aria-selected="false" href="Project-Operations.dc.html">Operations</a><a role="tab" aria-selected="true" href="Project-Quality.dc.html">Quality</a><a role="tab" aria-selected="false" href="Project-SelfHealing.dc.html">Self-healing and training</a><a role="tab" aria-selected="false" href="Project-Increments.dc.html">Increments</a><a role="tab" aria-selected="false" href="Project-Members.dc.html">Members</a>
+    </div>
+
+    <div class="ql-k">
+      <div class="kit-surface"><span class="kit-caption">Reviewed by hand this week</span><span class="kit-display" style="font-size: 36px">212 of 240</span><span class="kit-small kit-muted">The project asked for 2% of requests</span></div>
+      <div class="kit-surface"><span class="kit-caption">The judge against people</span><span class="kit-display" style="font-size: 36px">Strong</span><span class="kit-small kit-muted">Checked 3 Nov · next 3 Dec</span></div>
+      <div class="kit-surface"><span class="kit-caption">Drift</span><span class="kit-display" style="font-size: 36px">1 shifting</span><span class="kit-small kit-muted">Call length · 4 measures steady</span></div>
+      <div class="kit-surface"><span class="kit-caption">Findings open</span><span class="kit-display" style="font-size: 36px">2</span><span class="kit-small kit-muted">1 high · none past 30 days</span></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface raised" aria-label="Review queue">
+        <div class="ql-h"><h3>Review queue</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Worked by the project's two ThinkLatent people · every opening recorded</span></div>
+        <div class="ql-t ql-q">
+          <span class="h">Request</span><span class="h">Judge said</span><span class="h">Why it is here</span><span class="h">State</span><span class="h"></span>
+          <span>Call of 47 min, two advisers<small>Call summary · 5 Nov 10:12</small></span><span class="n">58%</span><span>Low score · long call</span><span>Waiting</span><span><a href="Project-Traces.dc.html">Open</a></span>
+          <span>Call of 12 min<small>Call summary · 5 Nov 09:40</small></span><span class="n">91%</span><span>Daily sample</span><span>Waiting</span><span><a href="Project-Traces.dc.html">Open</a></span>
+          <span>Call of 31 min<small>Call summary · 4 Nov 16:05</small></span><span class="n">72%</span><span>Sent by an adviser · 'missed the date'</span><span>Second review</span><span><a href="Project-Traces.dc.html">Open</a></span>
+          <span>Call of 9 min<small>Call summary · 4 Nov 15:20</small></span><span class="n">88%</span><span>Daily sample</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Agreed</span></span></span><span><a href="Project-Traces.dc.html">Open</a></span>
+        </div>
+        <div class="ql-n">The project sets the share reviewed; ThinkLatent does the reviewing (D-323). The judge's lowest scores and the longest calls come first, then a daily sample. One in ten is read again by the second reviewer, who does not see the first score.</div>
+      </section>
+      <section class="kit-surface" aria-label="One review">
+        <div class="ql-h"><h3>One review</h3><span class="kit-small kit-muted">Call of 47 min, two advisers</span></div>
+        <div class="ql-it">
+          <span class="kit-small kit-muted">The summary and the call are on the trace; their text shows to members and the two ThinkLatent people only.</span>
+          <span class="ql-row"><span>What was agreed</span><span class="ql-bd"><span>Good</span><span class="on">Partly</span><span>Poor</span></span></span>
+          <span class="ql-row"><span>Follow-up date</span><span class="ql-bd"><span>Good</span><span>Partly</span><span class="on">Poor</span></span></span>
+          <span class="ql-row"><span>Nothing made up</span><span class="ql-bd"><span class="on">Good</span><span>Partly</span><span>Poor</span></span></span>
+          <span>Reason: the second adviser's follow-up date is missing.</span>
+          <span class="ql-row"><button class="kit-btn" type="button">Save the review</button><button class="kit-btn outline" type="button">Write the expected summary</button><button class="kit-btn outline" type="button">Raise a finding</button></span>
+        </div>
+        <div class="ql-n">An expected summary a reviewer writes is offered to the project's owners for the evaluation set; they decide. It never becomes training data from here.</div>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="The judge">
+        <div class="ql-h"><h3>The judge</h3><span class="kit-small kit-muted">Checked each month against fresh hand scores</span></div>
+        <div class="ql-t ql-j">
+          <span class="h">Measure</span><span class="h">Agreement</span><span class="h">What it means</span>
+          <span>Summary quality</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Strong</span></span></span><span>Its scores count as evidence</span>
+          <span>Follow-ups listed</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Fair</span></span></span><span>Counts, with the hand scores beside it</span>
+          <span>Tone</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Weak</span></span></span><span>Greyed on the Quality tab; not evidence until fixed<small>Finding F-0438 · with ThinkLatent</small></span>
+        </div>
+        <div class="ql-n">Members see the word. Agreement by class, and the checks for length, position and favouring its own model's answers, show behind the Engineering switch.</div>
+      </section>
+      <section class="kit-surface raised" aria-label="Drift">
+        <div class="ql-h"><h3>Drift</h3><span class="kit-small kit-muted">The last 7 days against the 30 before · every figure shown to members (D-323)</span></div>
+        <div class="ql-t ql-d">
+          <span class="h">What is watched</span><span class="h">Measure</span><span class="h">Now</span><span class="h">Warns · shifted at</span><span class="h">Stands</span>
+          <span>Topics of the calls coming in</span><span>Population stability</span><span class="n">0.04</span><span class="n">0.10 · 0.25</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Steady</span></span></span>
+          <span>Length of the calls coming in</span><span>Population stability</span><span class="n">0.14</span><span class="n">0.10 · 0.25</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Shifting</span></span></span>
+          <span>Language of the calls</span><span>Share not English</span><span class="n">3%</span><span class="n">5% · 10%</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Steady</span></span></span>
+          <span>Length of the summaries going out</span><span>Median words</span><span class="n">182</span><span class="n">±15% · ±30% of 176</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Steady</span></span></span>
+          <span>Meaning of what comes in</span><span>Embedding distance</span><span class="n">0.06</span><span class="n">0.10 · 0.20</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Steady</span></span></span>
+        </div>
+        <div class="ql-n">Calls are getting longer: 9% now run past 40 minutes, against 5% a month ago. A measure that reaches 'Shifted' opens a finding. The thresholds are sample values and are the project's to set.</div>
+        <div class="ql-n"><b style="font-weight: 500; color: #1A1A1A">The project's own model against the foundation model, each week:</b> Domain-Advice v2 scores 86% ± 5 on this feature, Core 4.2 scores 79% ± 5 on the same requests. The gain holds. If the ranges meet for two weeks, a finding opens.</div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="Findings register">
+      <div class="ql-h"><h3>Findings register</h3><span class="ql-row"><span class="kit-chip brand">Open · 2</span><span class="kit-chip">Closed · 5</span><span class="kit-chip">Accepted · 1</span></span></div>
+      <div class="ql-t ql-f">
+        <span class="h">Finding</span><span class="h">What</span><span class="h">Severity</span><span class="h">Owner</span><span class="h">Due</span><span class="h">Holds back</span><span class="h">State</span>
+        <span>F-0431</span><span>Call summary drops the follow-up date on long calls<small>Raised 30 Oct by the quality agent · 14 reviews agree</small></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>High</span></span></span><span>Priya</span><span>10 Nov</span><span>Increment 6 to Production</span><span>Open · 6 days</span>
+        <span>F-0438</span><span>The tone judge agrees weakly with people<small>Raised 3 Nov at the monthly check</small></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Medium</span></span></span><span>ThinkLatent</span><span>17 Nov</span><span>Tone as evidence</span><span>Open · 2 days</span>
+        <span>F-0412</span><span>Summaries ran long after the 14 Oct release<small>Held again from 21 Oct to 28 Oct</small></span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Low</span></span></span><span>Dev R.</span><span>—</span><span>Nothing</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Closed 28 Oct</span></span></span>
+        <span>F-0398</span><span>Thumbs down on calls about fees<small>Accepted 9 Oct by Priya: 'expected, the fee change upset clients'</small></span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Low</span></span></span><span>Priya</span><span>—</span><span>Nothing</span><span>Accepted, recorded</span>
+      </div>
+      <div class="ql-n">A finding closes only when the measure that raised it holds again for 7 days, or an owner accepts it with a written reason, which goes on the record. Left 14 days it also goes to the owners and the ThinkLatent person (D-321); left 30 days they review it together (D-312).</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1870}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
