@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Models and agents · Data · tags and reviews: the tags, the pipelines that set them, the reviews that check them</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.da-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.da-h h3{margin:0;font-size:18px;font-weight:500}
+.sub{display:inline-flex;gap:4px;padding:3px;border-radius:999px;border:1px solid var(--hairline);background:rgba(255,255,255,.5);align-self:flex-start}
+.sub a{height:28px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:500;color:var(--secondary);display:inline-flex;align-items:center;text-decoration:none}
+.sub a[aria-current="page"]{background:var(--ink);color:var(--canvas)}
+.tg{display:inline-flex;align-items:center;height:21px;padding:0 8px;border-radius:999px;font-size:11.5px;font-weight:500;background:rgba(26,26,26,.07);margin:0 4px 4px 0;white-space:nowrap}
+.tg.u{background:transparent;box-shadow:inset 0 0 0 1px rgba(26,26,26,.45)}
+.tg.c{background:rgba(47,122,109,.15)}
+.tg.e{background:transparent;border:1px dashed rgba(26,26,26,.45)}
+.tt{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,2.1fr) minmax(0,1.15fr) 150px minmax(0,1.15fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.tt>*{padding:11px 14px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.tt .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.tt b{font-weight:500;font-size:14px}
+.tt small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.da-q{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 90px 96px 110px auto;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.da-q>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.da-q .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.da-q small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.da-q .n{font-variant-numeric:tabular-nums}
+.da-p{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+.da-pc{border-radius:18px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px;font-size:13px;line-height:1.45;display:flex;flex-direction:column;gap:6px}
+.da-pc b{font-weight:500;font-size:15px}
+.da-pc .big{font-size:26px;font-weight:300;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.da-pc small{font-size:12px;color:rgba(26,26,26,.65)}
+.da-pc .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.w3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.w3>div{font-size:13px;line-height:1.45;border-top:1px solid rgba(26,26,26,.1);padding-top:10px}
+.w3 b{font-weight:500;font-size:14px;display:block}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2534px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Models-Data.dc.html">Data <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Tags and reviews <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Tags and reviews</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">Pipelines set the tags · people check them</span><span class="kit-chip">7 kinds of tag · 8 pipelines</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">297 items wait for a review</span></div>
+        <span class="kit-small kit-muted">Every item in the store carries the same seven kinds of tag. A pipeline sets a tag and says how sure it is; a person looks at what it was not sure of and at a sample of every version, and each decision teaches the pipeline · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Data-Review.dc.html">Review the next item</a><a class="kit-btn outline" href="#">Propose a pipeline</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Models pages">
+      <a role="tab" aria-selected="false" href="Model-Catalogue.dc.html">Catalogue</a><a role="tab" aria-selected="false" href="Agents-Library.dc.html">Agents</a><a role="tab" aria-selected="false" href="Index-Leaderboards.dc.html">Leaderboards by kind</a><a role="tab" aria-selected="true" href="Models-Data.dc.html">Data</a><a role="tab" aria-selected="false" href="Models-Training.dc.html">Training</a><button role="tab" aria-selected="false" type="button">New and coming</button><button role="tab" aria-selected="false" type="button">Compare</button><button role="tab" aria-selected="false" type="button">Outside models</button><button role="tab" aria-selected="false" type="button">Retired</button>
+    </div>
+
+    <span class="sub" role="group" aria-label="Data pages"><a href="Models-Data.dc.html">What we hold</a><a aria-current="page" href="Data-Tagging.dc.html">Tags and reviews</a><a href="Data-Mix.dc.html">Mixes</a></span>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <a class="kit-surface" href="Data-Review.dc.html" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Waiting for a review</span><span class="kit-display" style="font-size: 40px">297</span><span class="kit-small kit-muted">23 assigned to you · the oldest 3 days</span></a>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Decided this week</span><span class="kit-display" style="font-size: 40px">412</span><span class="kit-small kit-muted">361 may be used · 51 set aside, each with a reason</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Second reviews that agree</span><span class="kit-display" style="font-size: 40px">91%</span><span class="kit-small kit-muted">1 item in 10 is reviewed twice, unseen · 41 this week</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Tagged with a pillar</span><span class="kit-display" style="font-size: 40px">96%</span><span class="kit-small kit-muted">Of the 7.4M items held · 0.3M not mapped</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Tags found right</span><span class="kit-display" style="font-size: 40px">93%</span><span class="kit-small kit-muted">By people, on this month's sample of 1,200 items</span></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The tags">
+      <div class="da-h"><h3>The tags</h3><span class="kit-small kit-muted">The same seven on every item · a tag keeps who or what set it, and how sure it was</span></div>
+      <div class="tt">
+        <span class="h">Tag</span><span class="h">What it says, and its values</span><span class="h">Set by</span><span class="h">Found right</span><span class="h">Checked by people</span>
+
+        <span><b>What it can train</b></span><span>The kinds of training an item can serve. One item can carry several.<small style="margin-top: 5px"><span class="tg u">Plain text</span><span class="tg u">Examples</span><span class="tg u">Pairs by people</span><span class="tg u">Pairs by a judge</span><span class="tg u">Teacher answers</span><span class="tg u">Classifier labels</span><span class="tg u">Task with a check</span><span class="tg e">Evaluation only</span></small></span><span>A rule, from what the item holds<small>Then narrowed by what its source allows</small></span><span>Exact<small>Not a guess</small></span><span>A format check on every version</span>
+
+        <span><b>TL Index pillar</b></span><span>The pillar, and the part of it, that the item would move.<small>The Index's sixteen pillars and their parts, five live · or "not mapped"</small></span><span>The pillar pipeline, version 2<small>ThinkLatent's own</small></span><span class="kit-num">91%<small>4% left not mapped</small></span><span>What it is not sure of, and 400 items of each version</span>
+
+        <span><b>Category</b></span><span>The subject. The list can grow.<small style="margin-top: 5px"><span class="tg c">Financial</span><span class="tg c">General</span><span class="tg c">Regulatory</span><span class="tg c">LM safety</span><span class="tg c">Cyber attack</span></small></span><span>The category pipeline, version 3<small>A tuned classifier</small></span><span class="kit-num">95%</span><span>What it is not sure of, and 400 items of each version</span>
+
+        <span><b>Source and rights</b></span><span>Where it came from, and what it may be used for.<small>An Enterprise project · public, with its licence · made here, with its teacher or judge · brought back from use. May train, may only evaluate, stays inside.</small></span><span>A person, when a source is added<small>Carried to every item cut from it</small></span><span>Exact</span><span>The licence, before the first version is cut</span>
+
+        <span><b>Sensitivity</b></span><span>Whether personal data was found and removed, and whether the item is a complaint or dispute.<small>Redacted · made up · flagged. Raw personal data is never in the store.</small></span><span>The personal-data pipeline, version 4<small>and the complaint pipeline, version 1</small></span><span class="kit-num">94%<small>81% for complaints</small></span><span>Every flag below its level</span>
+
+        <span><b>Who checked it</b></span><span>Whether a person, a pipeline above its level, or nobody yet has passed it.<small>A person · a pipeline · not yet</small></span><span>The review record</span><span>Exact</span><span>1 decision in 10 is reviewed twice, unseen</span>
+
+        <span><b>Shape</b></span><span>What the item looks like to a training job.<small>Language · turns · tools called · text or audio · length · difficulty</small></span><span>A rule, and a difficulty scorer</span><span class="kit-num">88%<small>For difficulty; the rest exact</small></span><span>200 items a month, for difficulty</span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">LM safety and cyber attack are categories like any other: the whole foundation team reads them and they may go into any mix. A mix shows how much of each it holds, so the choice is seen.</div>
+    </section>
+
+    <section class="kit-surface" aria-label="Reviews">
+      <div class="da-h"><h3>Reviews</h3><span class="kit-small kit-muted">A person decides what a pipeline was not sure of, and checks a sample of the rest · ThinkLatent aims to decide within 5 days</span></div>
+      <div class="da-q">
+        <span class="h">Why items are here</span><span class="h">From</span><span class="h">Waiting</span><span class="h">Oldest</span><span class="h">Assigned to you</span><span class="h"></span>
+        <span>May hold personal data<small>Flagged by the personal-data pipeline</small></span><span>Advice calls, 2026</span><span class="n">96</span><span class="n">3 days</span><span class="n">14</span><a href="Data-Review.dc.html">Review</a>
+        <span>A tag the pipeline was not sure of<small>Pillar or category, below its level</small></span><span>Attack prompts and traffic · Safety prompts</span><span class="n">83</span><span class="n">2 days</span><span class="n">0</span><a href="Data-Review.dc.html">Review</a>
+        <span>Self-healing says it will not help<small>A mark from the self-healing scorer, with its reason</small></span><span>Brought back from self-healing</span><span class="n">42</span><span class="n">1 day</span><span class="n">4</span><a href="Data-Review.dc.html">Review</a>
+        <span>Too close to a TL Index question<small>Training on it would flatter the Index</small></span><span>January's training mix · the public tool-calling set</span><span class="n">31</span><span class="n">2 days</span><span class="n">5</span><a href="Data-Review.dc.html">Review</a>
+        <span>A sample of a judge's picks<small>Does a person pick the same answer?</small></span><span>Pairs picked by the training judge</span><span class="n">30</span><span class="n">1 day</span><span class="n">0</span><a href="Data-Review.dc.html">Review</a>
+        <span>A new TL Index question to check<small>Written or found by the team; needs a second pair of eyes</small></span><span>TL Index · Numbers and calculations</span><span class="n">15</span><span class="n">1 day</span><span class="n">0</span><a href="Data-Review.dc.html">Review</a>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">Reviewers this week: Hana O. 148 decided · Luis F. 131 · Ravi D. away · two more named by the team. None past the 5 days.</div>
+    </section>
+
+    <section class="kit-surface" aria-label="Tagging pipelines">
+      <div class="da-h"><h3>Tagging pipelines</h3><span class="kit-small kit-muted">Each reads new data, sets its tag and flags what a person should look at · every review teaches it · a new one runs silently first</span></div>
+      <div class="da-p">
+        <div class="da-pc"><div class="top"><b>Pillar</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div><span class="big">91%</span><small>of its tags were right, by this month's sample · version 2</small><small>On every training set. Asks a person below 0.80, and leaves the item not mapped until then.</small></div>
+        <div class="da-pc"><div class="top"><b>Category</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div><span class="big">95%</span><small>of its tags were right · version 3</small><small>On every training set. Least sure between LM safety and cyber attack, where most of the 83 waiting come from.</small></div>
+        <div class="da-pc"><div class="top"><b>Personal data</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div><span class="big">94%</span><small>of its flags were right, by this month's reviews · version 4 · about 310 flags a day</small><small>Its level was raised on 21 Oct, after 60 reviews found it flagged account types as names.</small></div>
+        <div class="da-pc"><div class="top"><b>Too close to the TL Index</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div><span class="big">88%</span><small>of its flags were right · version 2 · about 12 flags a day</small><small>On every training set, against all four evaluation sets. Keeps the Index honest.</small></div>
+        <div class="da-pc"><div class="top"><b>Complaint or dispute</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div><span class="big">81%</span><small>of its flags were right · version 1 · about 40 flags a day</small><small>On the advice calls. Flagged calls are kept out of training until a person says otherwise.</small></div>
+        <div class="da-pc"><div class="top"><b>Difficulty</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div><span class="big">88%</span><small>within one step of a person's rating · version 1</small><small>Lets a mix start with easier items, or draw the hard ones for a later stage.</small></div>
+        <div class="da-pc"><div class="top"><b>Copies and near-copies</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div><span class="big">0.3%</span><small>of what arrives is removed as a copy of something already held</small><small>Exact copies, near-copies and items that say the same thing in other words.</small></div>
+        <div class="da-pc" style="background: transparent; box-shadow: none; border: 1.5px dashed rgba(26,26,26,.3)"><div class="top"><b>Advice outside policy</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Silent</span></span></div><span class="big">—</span><small>Not measured yet: it has run silently since 2 Nov and its first 200 flags are being reviewed</small><small>Proposed by Hana O. Goes live when 85% of its flags are right.</small></div>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn outline sm" href="#">Propose a pipeline</a><a class="kit-btn outline sm" href="#">Change a pipeline's level</a><span class="kit-small kit-muted" style="align-self: center">A change of level is tried on last month's reviews first, and shows what it would have flagged.</span></div>
+    </section>
+
+    <section class="kit-surface" aria-label="When a person corrects a tag">
+      <div class="da-h"><h3>When a person corrects a tag</h3><span class="kit-small kit-muted">The same three things every time</span></div>
+      <div class="w3">
+        <div><b>The item takes the person's tag</b>From the next version on; versions already cut do not change. The tag is marked as set by a person, and a pipeline does not overwrite it.</div>
+        <div><b>The pipeline learns from it</b>The correction joins its next round of training. A new pipeline version is tried on last month's reviews before it replaces the old one.</div>
+        <div><b>The graph follows</b>Mixes that asked for the old tag are told at their next version, with the count that moved. A run already started keeps the items it was given.</div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2534}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

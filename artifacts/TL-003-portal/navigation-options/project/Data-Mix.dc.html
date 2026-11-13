@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Models and agents · Data · a mix: the ask in tags, what the graph found, the checks, how it is drawn</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.da-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.da-h h3{margin:0;font-size:18px;font-weight:500}
+.sub{display:inline-flex;gap:4px;padding:3px;border-radius:999px;border:1px solid var(--hairline);background:rgba(255,255,255,.5);align-self:flex-start}
+.sub a{height:28px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:500;color:var(--secondary);display:inline-flex;align-items:center;text-decoration:none}
+.sub a[aria-current="page"]{background:var(--ink);color:var(--canvas)}
+.tg{display:inline-flex;align-items:center;height:21px;padding:0 8px;border-radius:999px;font-size:11.5px;font-weight:500;background:rgba(26,26,26,.07);margin:0 4px 4px 0;white-space:nowrap}
+.tg.u{background:transparent;box-shadow:inset 0 0 0 1px rgba(26,26,26,.45)}
+.tg.c{background:rgba(47,122,109,.15)}
+.tg.x{background:transparent;border:1px dashed rgba(26,26,26,.45)}
+.ask{display:grid;grid-template-columns:126px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45;margin-top:10px}
+.ask>*{padding:10px 0 6px;border-top:1px solid rgba(26,26,26,.1)}
+.ask dt{color:rgba(26,26,26,.6)}.ask dd{margin:0}
+.say{border-radius:16px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13.5px;line-height:1.45;margin-top:12px}
+.fd{display:grid;grid-template-columns:minmax(0,1.4fr) 76px minmax(0,1.5fr) 92px 76px;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.fd>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.fd .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.fd small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.fd .n{font-variant-numeric:tabular-nums}
+.fd .tot{font-weight:500;border-top:1.5px solid #1A1A1A}
+.pb{display:grid;grid-template-columns:200px minmax(0,1fr) 64px 170px;gap:0 14px;font-size:13px;line-height:1.4;margin-top:12px;align-items:center}
+.pb>*{padding:8px 0}
+.pb .bw{position:relative;height:14px;border-radius:7px;background:rgba(26,26,26,.07)}
+.pb .bar{position:absolute;left:0;top:0;bottom:0;border-radius:7px;background:rgba(26,26,26,.6)}
+.pb .mk{position:absolute;top:-4px;bottom:-4px;width:0;border-left:2px dashed #1A1A1A}
+.pb .n{font-variant-numeric:tabular-nums;text-align:right}
+.ck{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin-top:10px}
+.ck>*{padding:9px 14px 9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.ck small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.hw{display:grid;grid-template-columns:134px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45;margin-top:10px}
+.hw>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.hw dt{color:rgba(26,26,26,.6)}.hw dd{margin:0}
+.fl{display:flex;align-items:stretch;gap:0;margin-top:14px;flex-wrap:nowrap}
+.fl .bx{flex:1 1 0;border-radius:16px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.4;min-width:0}
+.fl .bx b{display:block;font-weight:500;font-size:14px}
+.fl .bx small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.fl .bx.me{box-shadow:0 0 0 2px #1A1A1A}
+.fl .bx.nx{background:transparent;box-shadow:none;border:1.5px dashed rgba(26,26,26,.35)}
+.fl .ar{flex:0 0 34px;display:flex;align-items:center;justify-content:center;color:rgba(26,26,26,.5);font-size:18px}
+.mx{display:grid;grid-template-columns:minmax(0,1.25fr) 70px minmax(0,2fr) 80px minmax(0,1.3fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.mx>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.mx .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.mx b{font-weight:500;font-size:14px}
+.mx small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mx .n{font-variant-numeric:tabular-nums}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2541px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Models-Data.dc.html">Data <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advice v3 · examples <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <span class="kit-label">Data · a mix</span>
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Advice v3 · examples</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">Version 2 · not saved yet</span><span class="kit-chip">For Domain-Advice version 3 · the stage "Learn from examples"</span><span class="kit-chip">No row is shown here</span></div>
+        <span class="kit-small kit-muted">A mix is a question put to the graph: which items, and in what proportions. Saving it writes the list of files and rows a run will read; the rows stay where they are, and a saved version never changes · Edited by Hana O. · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Save version 2</a><a class="kit-btn outline" href="Training-Recipe.dc.html">Use in a recipe</a><a class="kit-btn outline" href="#">Compare with version 1</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Models pages">
+      <a role="tab" aria-selected="false" href="Model-Catalogue.dc.html">Catalogue</a><a role="tab" aria-selected="false" href="Agents-Library.dc.html">Agents</a><a role="tab" aria-selected="false" href="Index-Leaderboards.dc.html">Leaderboards by kind</a><a role="tab" aria-selected="true" href="Models-Data.dc.html">Data</a><a role="tab" aria-selected="false" href="Models-Training.dc.html">Training</a><button role="tab" aria-selected="false" type="button">New and coming</button><button role="tab" aria-selected="false" type="button">Compare</button><button role="tab" aria-selected="false" type="button">Outside models</button><button role="tab" aria-selected="false" type="button">Retired</button>
+    </div>
+
+    <span class="sub" role="group" aria-label="Data pages"><a href="Models-Data.dc.html">What we hold</a><a href="Data-Tagging.dc.html">Tags and reviews</a><a aria-current="page" href="Data-Mix.dc.html">Mixes</a></span>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Items in the mix</span><span class="kit-display" style="font-size: 40px">725k</span><span class="kit-small kit-muted">Examples with a checked answer · version 1 had 690k</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Drawn from</span><span class="kit-display" style="font-size: 40px">5</span><span class="kit-small kit-muted">Data sets, each at a fixed version · 188 files</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Left out by the checks</span><span class="kit-display" style="font-size: 40px">62.3k</span><span class="kit-small kit-muted">Nearly all near-copies · 212 too close to the Index</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">New to this model</span><span class="kit-display" style="font-size: 40px">80%</span><span class="kit-small kit-muted">145k are replayed from what version 2 learned on</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">LM safety and cyber attack</span><span class="kit-display" style="font-size: 40px">0</span><span class="kit-small kit-muted">None in this mix · shown on every mix and run</span></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1.45fr; gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="The ask">
+        <div class="da-h"><h3>The ask</h3><a href="#">Change</a></div>
+        <div class="say"><span class="kit-caption">Asked in words</span><br>Examples for advice summaries, the newest calls first, with what self-healing brought back counted three times and a fifth replayed from last time.</div>
+        <div class="kit-small kit-muted" style="margin-top: 8px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap"><span class="kit-chip env">Jarvis</span> read it as the tags below · it proposes, the person who saves the mix decides</div>
+        <dl class="ask">
+          <dt>Can train</dt><dd><span class="tg u">Examples</span></dd>
+          <dt>Category</dt><dd><span class="tg c">Financial</span><span class="tg c">Regulatory</span></dd>
+          <dt>TL Index pillar</dt><dd>Client care · Financial data processing · Compliance and regulatory</dd>
+          <dt>Checked by</dt><dd>A person, or a pipeline above its level</dd>
+          <dt>Its source allows</dt><dd>Training ThinkLatent's models</dd>
+          <dt>Leave out</dt><dd><span class="tg x">Too close to the TL Index</span><span class="tg x">Withdrawn</span><span class="tg x">Waiting for a review</span><span class="tg x">Complaint or dispute</span><span class="tg x">Near-copies</span></dd>
+          <dt>Replay</dt><dd>A fifth of the mix from what Domain-Advice version 2 was trained on</dd>
+        </dl>
+      </section>
+
+      <section class="kit-surface raised" aria-label="What the graph found">
+        <div class="da-h"><h3>What the graph found</h3><span class="kit-small kit-muted">Asked at 11:52 · answered in 4 seconds, from tags and links alone</span></div>
+        <div class="fd">
+          <span class="h">Data set, at its version</span><span class="h">Matched</span><span class="h">Left out, and why</span><span class="h">Weight</span><span class="h">In the mix</span>
+          <span>Advice calls, 2026<small>Version 14</small></span><span class="n">610k</span><span>62k near-copies · 212 too close to the Index · 96 waiting for a review</span><span>Once</span><span class="n">548k</span>
+          <span>Advice calls, 2025<small>Version 9 · the replay</small></span><span class="n">1.2M</span><span>Sampled down to a fifth of the mix</span><span>Once</span><span class="n">145k</span>
+          <span>Rules and the Enterprise's policies<small>Version 6 · its 12k checked questions</small></span><span class="n">12k</span><span class="kit-muted">Nothing</span><span>Once</span><span class="n">12k</span>
+          <span>Brought back from self-healing<small>Version 5</small></span><span class="n">11.2k</span><span>42 waiting for a review</span><span>Seen 3 times</span><span class="n">11.2k</span>
+          <span>Advisors' edits and votes<small>Version 2 · the edit taken as the answer</small></span><span class="n">9k</span><span class="kit-muted">Nothing</span><span>Once</span><span class="n">9k</span>
+          <span class="tot">The mix</span><span class="tot n">1.84M</span><span class="tot">62.3k left out by the checks</span><span class="tot"></span><span class="tot n">725k</span>
+        </div>
+        <div class="da-h" style="margin-top: 18px"><h3 style="font-size: 15px">By TL Index pillar, against what the recipe asks for</h3><span class="kit-small kit-muted">The dashed line is the ask</span></div>
+        <div class="pb">
+          <span>Client care</span><span class="bw"><span class="bar" style="width: 80%"></span><span class="mk" style="left: 70%"></span></span><span class="n">402k</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Over the 350k asked</span></span>
+          <span>Financial data processing</span><span class="bw"><span class="bar" style="width: 50%"></span><span class="mk" style="left: 40%"></span></span><span class="n">251k</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Over the 200k asked</span></span>
+          <span>Compliance and regulatory</span><span class="bw"><span class="bar" style="width: 12%"></span><span class="mk" style="left: 16%"></span></span><span class="n">61k</span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Under the 80k asked</span></span>
+          <span>Not mapped to a pillar</span><span class="bw"><span class="bar" style="width: 2.2%"></span></span><span class="n">11k</span><span class="kit-muted">No ask</span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">Compliance and regulatory is thin across the store, not only here: <a href="Models-Data.dc.html">see what is thin</a>. The mix can be saved as it is; the recipe will show the shortfall at this stage.</div>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Checks on this mix">
+        <div class="da-h"><h3>Checks on this mix</h3><span class="kit-small kit-muted">Run by the graph each time the ask changes</span></div>
+        <div class="ck">
+          <span>Nothing held back for the TL Index<small>212 items too close to an Index question were left out</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>Nothing withdrawn by its source<small>Drawn from version 9 of Advice calls, 2025, cut after the withdrawal</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>Every source allows training<small>All five</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>Nothing waiting for a review<small>138 items left out until a person decides</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>No judge that scores the TL Index<small>This mix uses no judge</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>Enough for every pillar the recipe asks for<small>Compliance and regulatory is 19k short</small></span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>1 short</span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="How it is drawn">
+        <div class="da-h"><h3>How it is drawn</h3><a href="#">Change</a></div>
+        <dl class="hw">
+          <dt>Order</dt><dd>Mixed, with the easier half first in the first pass</dd>
+          <dt>Replay</dt><dd>20% from what version 2 learned on, so that nothing learned is lost</dd>
+          <dt>Weight</dt><dd>What self-healing brought back is seen 3 times</dd>
+          <dt>Cap</dt><dd>No one advisor's calls are more than 0.5% of the mix</dd>
+          <dt>Held out</dt><dd>2%, never trained on, for the checks while it trains</dd>
+          <dt>Seed</dt><dd class="kit-num">4172 · the same draw every time</dd>
+        </dl>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="Where it sits">
+      <div class="da-h"><h3>Where it sits</h3><span class="kit-small kit-muted">From the graph · a dashed box has not happened yet</span></div>
+      <div class="fl">
+        <div class="bx"><b>5 data sets</b><small>Each at a fixed version · 3 from Enterprise projects, 1 from Compliance, 1 brought back from use</small></div><span class="ar" aria-hidden="true">→</span>
+        <div class="bx me"><b>This mix · version 2</b><small>725k examples in 188 files</small></div><span class="ar" aria-hidden="true">→</span>
+        <a class="bx" href="Training-Recipe.dc.html" style="color: inherit; text-decoration: none"><b>Recipe: a domain model</b><small>The stage "Learn from examples"</small></a><span class="ar" aria-hidden="true">→</span>
+        <div class="bx nx"><b>A run</b><small>Not started</small></div><span class="ar" aria-hidden="true">→</span>
+        <div class="bx nx"><b>Domain-Advice version 3</b><small>Due 21 Nov</small></div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="The mixes">
+      <div class="da-h"><h3>The mixes</h3><span class="kit-small kit-muted">6 saved · a run always names a mix and its version</span></div>
+      <div class="mx">
+        <span class="h">Mix</span><span class="h">Version</span><span class="h">What it asks for</span><span class="h">Items</span><span class="h">Used by</span>
+        <span><b>Advice v3 · examples</b><small>This one</small></span><span class="n">2<small>not saved</small></span><span>Examples · Financial and Regulatory · a fifth replayed</span><span class="n">725k</span><span>A domain model's recipe, for Domain-Advice version 3</span>
+        <span><b>Core run 7 · choosing the right tool</b></span><span class="n">1</span><span>Examples · the public tool-calling set, what self-healing brought back, January's mix replayed at 20%</span><span class="n">369k</span><span><a href="Model-Training.dc.html">Core, run 7</a> · running</span>
+        <span><b>Shaping · calibration</b></span><span class="n">1</span><span>Plain text · 1,024 items: 40% numbers and reasoning, 30% instructions, 30% the Enterprise's own domains</span><span class="n">1,024</span><span>The base recipe, to prune by what the Enterprise's data uses</span>
+        <span><b>Shaping · the Enterprise's text</b></span><span class="n">1</span><span>Plain text · Financial and Regulatory · calls, filings and policies</span><span class="n">3.0M</span><span>The base recipe, to adjust the base and to distil back</span>
+        <span><b>Distil · Core's answers</b></span><span class="n">4</span><span>Teacher answers · General and Financial</span><span class="n">1.4M</span><span>Distil 4.2</span>
+        <span><b>January's training mix</b></span><span class="n">3</span><span>Examples · General and Financial · cut before mixes were saved, kept as a data set</span><span class="n">310k</span><span>Core, runs 6 and 7</span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2541}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

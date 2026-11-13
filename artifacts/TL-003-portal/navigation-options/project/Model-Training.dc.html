@@ -42,7 +42,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 svg text{font-family:Inter,system-ui,sans-serif}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2025px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2049px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -77,7 +77,7 @@ svg text{font-family:Inter,system-ui,sans-serif}
         <span class="kit-caption">TLM4 · Core · the Training tab</span>
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Continue training Core</h1>
         <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Run 7 is running · 47%</span><span class="kit-chip">From version 4.2, live since 14 Jan</span><span class="kit-chip">Would become 4.3</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">Foundation team only · by IAM role</span></div>
-        <span class="kit-small kit-muted">Train the existing model further on new data, where the training package already exists. A new method is development work and does not start here. Nobody outside the foundation team sees this tab; they see the new version when it is released · As of 11:58 ET · sample data</span>
+        <span class="kit-small kit-muted">Train the existing model further on new data, where the training package already exists. Recipes are built in <a href="Models-Training.dc.html">Training</a>, from the methods listed there; a method that is not in the library yet is development work and arrives there first. Nobody outside the foundation team sees this tab; they see the new version when it is released · As of 11:58 ET · sample data</span>
       </div>
       <div class="kit-actions"><a class="kit-btn outline" href="#">Pause the run</a><a class="kit-btn outline" href="#">Stop and keep the last checkpoint</a></div>
     </div>
@@ -138,7 +138,7 @@ svg text{font-family:Inter,system-ui,sans-serif}
             </div>
             <div class="kit-small kit-muted" style="margin-top: 8px">Examples, counted. No row is shown here. Rows are read only in the <a href="Models-Data.dc.html">Data tab</a>, by the foundation team.</div>
           </div>
-          <dl class="mt-kv"><div><dt>Starts from</dt><dd>Core 4.2 weights</dd></div><div><dt>Recipe</dt><dd>The standing Core recipe · TLM package a41c9e · no new method</dd></div></dl>
+          <dl class="mt-kv"><div><dt>Starts from</dt><dd>Core 4.2 weights</dd></div><div><dt>Recipe</dt><dd><a href="Models-Training.dc.html">Continue a model on new data</a>, version 5 · the standing Core recipe · mix: Core run 7 · choosing the right tool, version 1</dd></div></dl>
         </div>
       </div>
     </section>
@@ -182,12 +182,12 @@ svg text{font-family:Inter,system-ui,sans-serif}
       <div class="mt-box"><h4>Runs on Core so far</h4>
         <div class="mt-ds" style="grid-template-columns: 70px minmax(0, 1fr) auto"><span class="kit-muted">14 Jan</span><span>Run 6 · became version 4.2</span><span class="kit-small kit-muted">TL Index 78 → 81</span><span class="kit-muted">5 Nov</span><span>Run 7 · tool choice, from this page</span><span class="kit-small kit-muted">Running</span></div></div>
       <div class="mt-box"><h4>To start a run from here</h4>
-        <div class="kit-small" style="margin-top: 6px; line-height: 1.55">Pick from <a href="Models-Data.dc.html">the data sets</a> already placed in the training store, keep or change how much of the last mix is replayed, try 60 steps first, then start. The portal submits the job; the package does the rest. <a href="#">Set up the next run</a></div></div>
+        <div class="kit-small" style="margin-top: 6px; line-height: 1.55">Pick a recipe and <a href="Data-Mix.dc.html">a saved mix</a> for each of its stages, try 60 steps first, then start. The portal submits the job; the package does the rest. <a href="Models-Training.dc.html">Set up the next run</a></div></div>
     </div>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2025}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2049}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

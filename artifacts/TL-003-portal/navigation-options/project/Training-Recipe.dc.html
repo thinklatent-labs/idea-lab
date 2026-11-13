@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Models and agents · Training · a recipe: a base from a new open model, with "Shape the base" first</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.da-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.da-h h3{margin:0;font-size:18px;font-weight:500}
+.grpb{border-radius:24px;box-shadow:inset 0 0 0 1.5px #1A1A1A;padding:14px 14px 14px;margin-top:14px}
+.grpb .gl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:0 4px 10px}
+.grpb .gl b{font-size:15px;font-weight:500}
+.row3{display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr;align-items:stretch}
+.row5{display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr 26px 1fr 26px 1fr;align-items:stretch;margin-top:12px}
+.aw{display:flex;align-items:center;justify-content:center;color:rgba(26,26,26,.5);font-size:18px}
+.sg{border-radius:18px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.1);padding:14px 16px;font-size:13px;line-height:1.45;display:flex;flex-direction:column;gap:8px;min-width:0}
+.sg.sel{box-shadow:0 0 0 2px #1A1A1A}
+.sg.wt{background:transparent;box-shadow:none;border:1.5px dashed rgba(26,26,26,.4)}
+.sg .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sg .k{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#1A1A1A;color:#fff;font-size:12px;font-weight:500;flex:none}
+.sg b{font-weight:500;font-size:15px}
+.sg small{font-size:12px;color:rgba(26,26,26,.65)}
+.sg dl{display:grid;grid-template-columns:1fr;gap:6px;margin:0;border-top:1px solid rgba(26,26,26,.1);padding-top:8px}
+.sg dt{font-size:11.5px;color:rgba(26,26,26,.6)}.sg dd{margin:0}
+.se{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.6fr) minmax(0,.8fr) minmax(0,1.5fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.se>*{padding:10px 14px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.se .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.se small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ck{display:grid;grid-template-columns:minmax(0,1fr) auto;font-size:13px;line-height:1.45;margin-top:10px}
+.ck>*{padding:9px 14px 9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.ck small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.tg{display:inline-flex;align-items:center;height:21px;padding:0 8px;border-radius:999px;font-size:11.5px;font-weight:500;background:rgba(26,26,26,.07);margin:0 4px 4px 0;white-space:nowrap}
+.hw{display:grid;grid-template-columns:150px minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px}
+.hw>*{padding:9px 14px 9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.hw dt{color:rgba(26,26,26,.6)}.hw dd{margin:0}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2221px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Models-Training.dc.html">Training <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">A base, from a new open model <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <span class="kit-label">Training · a recipe</span>
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">A base, from a new open model</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">Version 3 · saved 11 Nov</span><span class="kit-chip">Set up for the next Core, from a Gemma base</span><span class="kit-chip">7 stages · 5 ready, 2 wait for their method</span></div>
+        <span class="kit-small kit-muted">A recipe is built here, without code. Each stage is a method from the library, the mix it learns from, the settings that method exposes, and the check it must pass before the next stage begins. Saving writes the recipe as a file in the TLM package, so the portal and the code hold the same one. A Phi base uses the same recipe · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Start stage 1</a><a class="kit-btn outline" href="#">Try it on a small sample</a><a class="kit-btn outline" href="#">Save as version 4</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Models pages">
+      <a role="tab" aria-selected="false" href="Model-Catalogue.dc.html">Catalogue</a><a role="tab" aria-selected="false" href="Agents-Library.dc.html">Agents</a><a role="tab" aria-selected="false" href="Index-Leaderboards.dc.html">Leaderboards by kind</a><a role="tab" aria-selected="false" href="Models-Data.dc.html">Data</a><a role="tab" aria-selected="true" href="Models-Training.dc.html">Training</a><button role="tab" aria-selected="false" type="button">New and coming</button><button role="tab" aria-selected="false" type="button">Compare</button><button role="tab" aria-selected="false" type="button">Outside models</button><button role="tab" aria-selected="false" type="button">Retired</button>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The stages">
+      <div class="da-h"><h3>The stages</h3><span style="display: flex; gap: 8px; flex-wrap: wrap"><a class="kit-btn outline sm" href="Models-Training.dc.html">Add a stage from the methods</a><a class="kit-btn outline sm" href="#">Reorder</a></span></div>
+      <div class="kit-small kit-muted" style="margin-top: 4px">Left to right. A stage starts only when the check before it has passed. A dashed stage can be set up now and waits for its method.</div>
+
+      <div class="grpb">
+        <div class="gl"><b>Shape the base</b><span class="kit-small kit-muted">Done once for each base, and first: the base is fitted to the Enterprise's data before anything is taught on top</span></div>
+        <div class="row3">
+          <div class="sg">
+            <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">1</span><b>Adjust the full base</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span></div>
+            <small>A light fine-tune of the open base, before the cut · AutoModel</small>
+            <dl><div><dt>Learns from</dt><dd>Shaping · the Enterprise's text, version 1 · 3.0M documents</dd></div><div><dt>The check before the next stage</dt><dd>Loss on held-out Enterprise text falls, and no live pillar drops more than 1</dd></div><div><dt>About</dt><dd>18 hours on 16 GPUs</dd></div></dl>
+          </div>
+          <span class="aw" aria-hidden="true">→</span>
+          <div class="sg sel">
+            <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">2</span><b>Prune</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span></div>
+            <small>Takes out what the Enterprise's data does not use · the TLM package</small>
+            <dl><div><dt>Learns from</dt><dd>Shaping · calibration, version 1 · 1,024 items</dd></div><div><dt>The check before the next stage</dt><dd>The best of 10 candidates on a slice of the TL Index. A drop here is expected</dd></div><div><dt>About</dt><dd>2 hours on 8 GPUs</dd></div></dl>
+          </div>
+          <span class="aw" aria-hidden="true">→</span>
+          <div class="sg">
+            <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">3</span><b>Distil back</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span></div>
+            <small>The pruned model learns from the adjusted full base's outputs · AutoModel</small>
+            <dl><div><dt>Learns from</dt><dd>Shaping · the Enterprise's text, version 1 · 3.0M documents</dd></div><div><dt>The check before the next stage</dt><dd>Within 2 points of the adjusted full base on every live pillar</dd></div><div><dt>About</dt><dd>30 hours on 16 GPUs</dd></div></dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="row5">
+        <div class="sg">
+          <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">4</span><b>Learn from examples</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span></div>
+          <small>Supervised fine-tuning, full · AutoModel</small>
+          <dl><div><dt>Learns from</dt><dd>Core run 7 · choosing the right tool, version 1 · 369k</dd></div><div><dt>The check</dt><dd>Every live pillar at or over Core 4.2</dd></div><div><dt>About</dt><dd>14 hours on 16 GPUs</dd></div></dl>
+        </div>
+        <span class="aw" aria-hidden="true">→</span>
+        <div class="sg wt">
+          <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">5</span><b>Learn from preferences</b></span></div>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Method in build</span></span>
+          <small>Preference training · NeMo RL</small>
+          <dl><div><dt>Learns from</dt><dd>No mix chosen · 29.1k pairs by people and 140k by a judge are held</dd></div><div><dt>The check</dt><dd>Picked over the stage 4 model in 55 of 100 held-out pairs</dd></div></dl>
+        </div>
+        <span class="aw" aria-hidden="true">→</span>
+        <div class="sg wt">
+          <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">6</span><b>Learn from checks</b></span></div>
+          <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Method in build</span></span>
+          <small>Reinforcement learning with checks · NeMo RL with NeMo Gym</small>
+          <dl><div><dt>Learns from</dt><dd>Tasks: Numbers and calculations 5.0k, Choosing the right tool 2.4k</dd></div><div><dt>The check</dt><dd>Numbers and calculations at 82 or over, and nothing else drops</dd></div></dl>
+        </div>
+        <span class="aw" aria-hidden="true">→</span>
+        <div class="sg">
+          <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">7</span><b>Make it lighter</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span></div>
+          <small>Quantise to FP8 · Model Optimizer</small>
+          <dl><div><dt>Learns from</dt><dd>Shaping · calibration, version 1 · 1,024 items</dd></div><div><dt>The check</dt><dd>No live pillar drops more than 1</dd></div><div><dt>About</dt><dd>1 hour on 8 GPUs</dd></div></dl>
+        </div>
+        <span class="aw" aria-hidden="true">→</span>
+        <a class="sg" href="Model-Training.dc.html" style="color: inherit; text-decoration: none">
+          <div class="top"><b>Release checks</b></div>
+          <small>The same four steps for every run, not a stage of this recipe</small>
+          <dl><div><dt>1 to 4</dt><dd>The whole TL Index · every project's own checks · released and offered · each project plans its switch</dd></div></dl>
+        </a>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Stage 2, Prune">
+        <div class="da-h"><h3>Stage 2 · Prune</h3><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">Settings to confirm with the foundation lead</span></div>
+        <div class="kit-small kit-muted" style="margin-top: 4px">The settings this method exposes. A value outside its usual range can be saved, and is marked on the run.</div>
+        <div class="se">
+          <span class="h">Setting</span><span class="h">Value</span><span class="h">Usual range</span><span class="h">Why it matters</span>
+          <span>How much to take out</span><span>20% of the model</span><span>10 to 30%</span><span>More is cheaper to serve and harder to win back</span>
+          <span>What to cut</span><span>Width first, then depth</span><span class="kit-muted">—</span><span>Width keeps more of what the model knows; depth is faster to serve</span>
+          <span>Calibration mix</span><span><a href="Data-Mix.dc.html">Shaping · calibration</a>, version 1<small>40% numbers and reasoning · 30% instructions · 30% the Enterprise's own domains</small></span><span>512 to 4,096 items</span><span>What the Enterprise's data uses is what stays</span>
+          <span>How candidates are ranked</span><span>A slice of the TL Index<small>200 questions over the five live pillars, held apart from every mix</small></span><span class="kit-muted">—</span><span>Never a public test alone: the Index is what the model is held to</span>
+          <span>Candidates tried</span><span>10</span><span>5 to 20</span><span>More finds a better shape and takes longer</span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What stage 2 needs">
+        <div class="da-h"><h3>What it needs, and whether it is there</h3><span class="kit-small kit-muted">From the graph</span></div>
+        <div class="ck">
+          <span>A calibration mix, saved at a version<small>Shaping · calibration, version 1</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Held</span></span>
+          <span>The adjusted base from stage 1<small>Stage 1 has not run</small></span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Not yet</span></span>
+          <span>A TL Index slice that is in no mix<small>The graph keeps it fenced</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Held</span></span>
+          <span>8 GPUs for about 2 hours<small>12 are free now</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Free</span></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">If the check after it fails, the recipe stops there. The stage can be run again with less taken out; stage 1 is not repeated.</div>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Before it starts">
+        <div class="da-h"><h3>Before it starts</h3><span class="kit-small kit-muted">Checked for the whole recipe each time it changes</span></div>
+        <div class="ck">
+          <span>Every stage names a mix at a saved version<small>Stage 5 has no mix yet; it also waits for its method</small></span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>1 open</span></span>
+          <span>Nothing from the TL Index in any mix<small>And no item too close to an Index question</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>No judge that scores the TL Index<small>Stage 5 would use the judge for training</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>Every source allows this use<small>Training, and for stage 3 learning from our own model's outputs</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>A try on a small sample<small>Stages 1 to 4 and 7 ran end to end on 11 Nov, 60 steps each</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>LM safety and cyber attack data<small>Shown for every recipe</small></span><span>None in these mixes</span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Running it">
+        <div class="da-h"><h3>Running it</h3></div>
+        <dl class="hw">
+          <dt>When</dt><dd><span class="kit-seg" role="group" aria-label="When to run"><button type="button" aria-pressed="true">Once, by hand</button><button type="button" aria-pressed="false">When enough new data is held</button></span><div class="kit-small kit-muted" style="margin-top: 6px">The second is planned, with continuous training.</div></dd>
+          <dt>The ready stages</dt><dd>About 65 hours of training · <span class="kit-num">$[cost]</span></dd>
+          <dt>Each stage</dt><dd>One job on HyperPod, submitted by the portal. Its checkpoints, log and checks show on the model's Training tab.</dd>
+          <dt>Saved as</dt><dd>A file in the TLM package, version 3 · changed only from this page</dd>
+          <dt>Held to at the end</dt><dd>ThinkLatent's thresholds on the TL Index, and at least Core 4.2 on every live pillar</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2221}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
