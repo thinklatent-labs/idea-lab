@@ -145,6 +145,8 @@ Added to the portal's feature list as N-47 to N-96 on 13 November (portal commit
 | The 16 removals read from decisions | Out, each with the decision it follows from | Jithin, as recommended |
 | A separate check | A separate agent that has not seen the work re-checks every row against the boards once the drawing ends, before any build | Jithin, as recommended |
 
+**Changed later the same night (D-315).** Comparing models comes inside Try TLM with LibreChat, so there is no compare page and Try TLM is no longer one model at a time. Three of the 16 removals return as decided and not drawn (C-p2-17, C-p10-21, C-p10-30). The counts become 222 drawn, 324 half there, 48 decided and not drawn, 26 later-year, 87 out, 5 rules.
+
 ## 12. What is drawn before the build
 
 - **324 half-there details:** 309 on 62 of the 71 boards, and 15 that no single board holds (rules for every board such as the (i) on every number and the number formats, the settings defaults, filters, judge calibration, keyboard shortcuts, the window switch). The most: Project-Operations 31, Data-Tagging 14, Project-SelfHealing 14, Model-Catalogue 13, Project-Connect 11, Project-Record 11, Help-Page 11.
