@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Settings, the states every page can be in, and the patterns every page shares (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ss-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ss-h h3{margin:0;font-size:18px;font-weight:500}
+.ss-s{display:grid;grid-template-columns:200px minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px}
+.ss-s>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ss-s small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ss-seg{display:inline-flex;border-radius:10px;box-shadow:0 0 0 1px rgba(26,26,26,.14);overflow:hidden}
+.ss-seg span{padding:5px 11px;font-size:12.5px}
+.ss-seg span.on{background:#1A1A1A;color:#fff}
+.ss-t{display:grid;grid-template-columns:minmax(0,1.5fr) 110px 120px;font-size:13px;line-height:1.45;margin-top:10px}
+.ss-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ss-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ss-l{display:flex;flex-direction:column;margin-top:8px;font-size:13px;line-height:1.45}
+.ss-l>*{padding:10px 0;border-top:1px solid rgba(26,26,26,.1);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.ss-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ss-c{margin-top:12px;padding:12px 14px;border-radius:14px;background:rgba(27,81,40,.07);font-size:13px;line-height:1.45}
+.ss-st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:12px}
+.ss-st>div{border-radius:16px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.45}
+.ss-st b{font-weight:500;font-size:14px}
+.ss-st small{font-size:12px;color:rgba(26,26,26,.65)}
+.ss-sk{display:flex;flex-direction:column;gap:7px}
+.ss-sk i{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.08)}
+.ss-bn{display:flex;gap:8px;align-items:center;padding:8px 10px;border-radius:10px;background:rgba(201,138,0,.12);font-size:12.5px}
+.ss-bn svg{width:15px;height:15px;flex:none}
+.ss-p{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:12px}
+.ss-p>div{border-radius:16px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px;display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.45}
+.ss-p b{font-weight:500;font-size:14px}
+.ss-p small{font-size:12px;color:rgba(26,26,26,.65)}
+.ss-sh{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:8px;min-height:120px}
+.ss-sh .ls{display:flex;flex-direction:column;gap:6px}
+.ss-sh .ls i{display:block;height:18px;border-radius:6px;background:rgba(26,26,26,.06)}
+.ss-sh .ls i.on{background:rgba(27,81,40,.16)}
+.ss-sh .sh{border-radius:12px;background:#fff;box-shadow:-6px 0 18px rgba(26,26,26,.1);padding:10px;font-size:12px;display:flex;flex-direction:column;gap:4px}
+.ss-hc{position:relative;padding-bottom:4px}
+.ss-hc .cd{margin-top:8px;border-radius:12px;background:#fff;box-shadow:0 8px 22px rgba(26,26,26,.12);padding:10px 12px;font-size:12px;display:flex;flex-direction:column;gap:3px;max-width:260px}
+.ss-to{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:#1A1A1A;color:#fff;font-size:12.5px}
+.ss-to a{color:#fff;font-weight:500}
+.ss-hold{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;background:#1A1A1A;color:#fff;font-size:13px;width:max-content}
+.ss-hold i{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff}
+.ss-bar{display:flex;gap:4px;padding:6px;border-radius:12px;background:rgba(255,255,255,.9);box-shadow:0 2px 10px rgba(26,26,26,.08);font-size:12.5px;width:max-content}
+.ss-bar span{padding:5px 10px;border-radius:8px}
+.ss-bar span.on{background:#1B5128;color:#fff}
+.ss-dk{border-radius:18px;padding:18px 20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:20px;align-items:start}
+.ss-dk .ss-l>*{border-top-color:rgba(255,255,255,.12)}
+.ss-dk small{color:rgba(236,236,236,.62)}
+.ss-dk .kit-status span{color:#ECECEC}
+.ss-dk .kit-status.warning{color:#D08A4A}
+.ss-dk .kit-status.good{color:#3E8F7E}
+.ss-dk .kit-muted{color:#8A8A88}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2680px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-current="page" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Shell-Find.dc.html">← The shell</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">You · Settings</button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Settings</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Yours only</span><span class="kit-chip">The same on every device</span><span class="kit-chip">First draft · D-313</span></div>
+        <span class="kit-small kit-muted">What you can set, your profile, and what the portal keeps about you. Below them, the states any page can be in and the patterns every page shares. As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Shell-Find.dc.html">The shell and the inbox</a><a class="kit-btn outline" href="My-Work.dc.html">My work</a></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface raised" aria-label="Look">
+          <div class="ss-h"><h3>Look</h3><span class="kit-small kit-muted">Also on the header, for the page you are on</span></div>
+          <div class="ss-s">
+            <span>Light or dark<small>Follows the device unless you choose (D-313)</small></span><span><span class="ss-seg"><span>Light</span><span>Dark</span><span class="on">Follow the device</span></span></span>
+            <span>Density<small>Compact fits more rows</small></span><span><span class="ss-seg"><span class="on">Comfortable</span><span>Compact</span></span></span>
+            <span>Engineering view<small>How a page opens for you</small></span><span><span class="ss-seg"><span class="on">Off</span><span>On</span></span><small>The engine's own counters behind it show to ThinkLatent only (D-291)</small></span>
+          </div>
+        </section>
+        <section class="kit-surface" aria-label="Notifications">
+          <div class="ss-h"><h3>Notifications</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Inside the portal only (D-307)</span></div>
+          <div class="ss-t">
+            <span class="h">What</span><span class="h">In the inbox</span><span class="h">On the header count</span>
+            <span>Sign-offs that wait for you</span><span>Always</span><span>Always</span>
+            <span>Requests and reviews for you</span><span>On</span><span>On</span>
+            <span>Replies on your threads</span><span>On</span><span>On</span>
+            <span>Runs and editions you follow</span><span>On</span><span>Off</span>
+            <span>What agents propose to you</span><span>On</span><span>Off</span>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 10px">No email and no chat channel. A sign-off cannot be turned off, because it waits for you alone.</div>
+        </section>
+        <section class="kit-surface" aria-label="Quiet hours and away">
+          <div class="ss-h"><h3>Quiet hours and away</h3></div>
+          <div class="ss-s">
+            <span>Time zone</span><span>Eastern Time<small>From your device; dates and times show in it</small></span>
+            <span>Quiet hours</span><span>19:00 to 08:00 on weekdays, and the weekend<small>The header count waits; the inbox keeps everything</small></span>
+            <span>Away</span><span>20 to 24 Nov<small>Shown beside your name and on what waits for you</small></span>
+            <span>Stand-in while away</span><span>Priya<small>Takes your requests and reviews, marked 'standing in for you'</small></span>
+          </div>
+          <div class="ss-c">Sign-offs and other one-way doors wait for you, with your return date beside them. Edition 2026-11c is due 23 Nov, while you are away: sign it before 20 Nov or it waits until 25 Nov (D-313).</div>
+        </section>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface" aria-label="Saved views">
+          <div class="ss-h"><h3>Saved views</h3><span class="kit-small kit-muted">A page with its filters and order, kept under a name</span></div>
+          <div class="ss-l">
+            <span><span>TL Index · Language pillar, open models<small>Shared as a link · it opens only for those who can see the page</small></span><a href="Index-Language.dc.html">Open</a></span>
+            <span><span>Projects · in Pilot, my team<small>Yours only</small></span><a href="Project-Page.dc.html">Open</a></span>
+            <span><span>Models · retiring within 90 days<small>Yours only</small></span><a href="Model-Catalogue.dc.html">Open</a></span>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 10px">Save from any list with Save view. Rename or delete here; a delete can be undone.</div>
+        </section>
+        <section class="kit-surface" aria-label="Profile">
+          <div class="ss-h"><h3>Profile</h3><span class="kit-small kit-muted">From the Enterprise's access management</span></div>
+          <div class="ss-s">
+            <span>Team</span><span>Advice Tech</span>
+            <span>Projects</span><span>Advisor desktop<small>No roles in the portal: what you may do comes from each project's membership</small></span>
+            <span>Your requests</span><span>Join Claims Ops · waiting on its owners since 3 Nov <a href="Requests-Status.dc.html">Withdraw</a><small>Break glass on Advisor desktop · closed 2 Nov after 4 hours · recorded</small></span>
+          </div>
+        </section>
+        <section class="kit-surface" aria-label="What the portal keeps about you">
+          <div class="ss-h"><h3>What the portal keeps about you</h3><span class="kit-small kit-muted">Read it, or take it with you</span></div>
+          <div class="ss-l">
+            <span><span>Decisions you made, and requests you sent<small>Open to everyone at the Enterprise, like every decision (D-293)</small></span></span>
+            <span><span>Sealed production text you opened<small>Seen by the project's members, ThinkLatent and auditors only (D-293)</small></span></span>
+            <span><span>Your threads, comments and saved views<small>Seen by whoever can open the page they are on</small></span></span>
+            <span><span>Your Try TLM sessions<small>Private to you, kept 30 days, never trained on (D-307)</small></span></span>
+          </div>
+          <div class="ss-row" style="display: flex; gap: 10px; align-items: center; margin-top: 12px"><button class="kit-btn" type="button">Download as a file</button><span class="kit-small kit-muted">The link expires in 7 days · the rest is kept under the Enterprise's records rule</span></div>
+        </section>
+      </div>
+    </div>
+
+    <section class="kit-surface" aria-label="The states a page can be in">
+      <div class="ss-h"><h3>The states a page can be in</h3><span class="kit-small kit-muted">Each says what happened and what you can do next · drawn once here, used on every page</span></div>
+      <div class="ss-st">
+        <div><b>First visit</b><span>A 'Start here' strip on Home: try a model in Try TLM, read the TL Index, or start a project.</span><small>Home stays the same for everyone (D-234); the strip goes once you close it.</small></div>
+        <div><b>Empty</b><span class="kit-muted">No projects in Client Service yet</span><span><button class="kit-btn outline" type="button">Start a project</button></span><small>Says why it is empty and what fills it.</small></div>
+        <div><b>Loading</b><span class="ss-sk"><i style="width: 80%"></i><i style="width: 60%"></i><i style="width: 72%"></i></span><small>Usage, usually under 2 s. A number shows only once it is complete, never half counted.</small></div>
+        <div><b>Failed</b><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>The trace store did not answer</span></span></span><span class="kit-small">Tried at 11:58 · <a href="#">Try again</a></span><small>The rest of the page keeps working; only the part that failed says so.</small></div>
+        <div><b>No access</b><span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Advisor desktop belongs to Advice Tech</span></span><span><button class="kit-btn outline" type="button">Ask to join</button></span><small>The request goes to its owners. In an incident, break glass: hold to open for 4 hours, recorded; the policy text is IT security's (simulated).</small></div>
+        <div><b>Behind its source</b><span class="ss-bn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Usage as of 11:40 · the gateway's log is 18 min late</span><small>The late source is named. A new access grant can take up to 6 min to arrive from the Enterprise's access management.</small></div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="Patterns every page shares">
+      <div class="ss-h"><h3>Patterns every page shares</h3><span class="kit-small kit-muted">The kit's own pieces, used the same way everywhere</span></div>
+      <div class="ss-p">
+        <div><b>Side sheet</b><div class="ss-sh"><div class="ls"><i></i><i class="on"></i><i></i><i></i><i></i></div><div class="sh"><b style="font-size: 12.5px">Run IX-0431</b><span>Core 4.2 · finished 10:05</span><span>3 h 12 min</span></div></div><small>A row's detail opens beside its list, at most 420 px wide; Esc closes it. A list of five columns or more opens the row in place below it.</small></div>
+        <div><b>Hover card</b><div class="ss-hc"><a href="Model-Page.dc.html">Core 4.2</a><div class="cd"><b style="font-size: 12.5px">Core 4.2</b><span>TLM4 · Core · released 14 Oct</span><span>TL Index 84 ± 1 · 12 projects</span></div></div><small>On any model, system, agent or project name. Keyboard focus shows it too.</small></div>
+        <div><b>Undo, not 'Are you sure?'</b><div class="ss-to"><span>Saved view deleted</span><a href="#">Undo</a></div><small>A change you can take back happens at once, with Undo for 10 s and ⌘Z.</small></div>
+        <div><b>Hold to confirm</b><span class="ss-hold"><i></i>Hold to sign</span><small>One-way doors only: promote, approve or send back, sign an edition, break glass. The kit's slide to confirm is not used; it has no keyboard path.</small></div>
+        <div><b>Section bar</b><span class="ss-bar"><span>Summary</span><span>Quality</span><span>Cost</span><span class="on">Decide</span></span><small>A long page keeps its sections in a bar that stays at the top; Decide jumps to what waits on you.</small></div>
+        <div><b>Was this helpful?</b><span class="kit-small"><span class="kit-chip brand">Agent · Jarvis</span> Helpful? <button class="kit-btn outline" type="button">Yes</button> <button class="kit-btn outline" type="button">No</button></span><small>Under what an agent wrote, and nowhere else. The answer goes to the agent's owners.</small></div>
+      </div>
+    </section>
+
+    <section class="kit-surface dark" aria-label="Dark, once" style="background: #111111; color: #ECECEC">
+      <div class="ss-dk">
+        <div style="display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 18px; font-weight: 500">Dark, once</h3><span class="kit-small kit-muted">The inbox with the device set to dark. The kit has both themes; every board is drawn in light (D-313).</span></div>
+        <div class="ss-l">
+          <span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Sign-off</span></span> Edition 2026-11c waits for you<small>Due 23 Nov · hold to sign on its page</small></span></span>
+          <span><span><b style="font-weight: 500">Thread</b> · Core 4.2 · a question from Advisor desktop's lead<small>Agent draft ready</small></span></span>
+          <span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Finished</span></span> Run IX-0431 · Core 4.2<small>3 h 12 min</small></span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2680}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
