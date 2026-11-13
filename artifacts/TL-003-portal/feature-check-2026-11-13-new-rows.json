@@ -1,0 +1,402 @@
+[
+ {
+  "id": "N-47",
+  "feature": "The scope bar: Enterprise, organization, team, project, feature; every project page sits under it",
+  "area": "Shell and theme",
+  "src": "D-255",
+  "where": "Project-Page and every project board",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-48",
+  "feature": "An organization's page and a team's page: their projects, the models they use, spend and value, no person of their own; an organization asks for a domain model through a consulting session",
+  "area": "Use case space",
+  "src": "D-274, D-275",
+  "where": "Organization-Page, Team-Page",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-49",
+  "feature": "A project in ten tabs: Overview, Plan, Features, Connect, Traces, Operations, Quality, Self-healing and training, Increments, Members",
+  "area": "Use case space",
+  "src": "D-255, D-286",
+  "where": "Project-Page",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-50",
+  "feature": "A feature's page in eight tabs: Overview, Models and flow, Prompts, Quality and thresholds, Evaluation set, Feedback, Increments, Settings",
+  "area": "Use case space",
+  "src": "D-260, D-300",
+  "where": "Feature-Page",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-51",
+  "feature": "A model's page in eight tabs: Overview, Improvement, Usage, Adoption, Cost avoided, TL Index, Built from, Training",
+  "area": "Models",
+  "src": "D-255, D-279, D-280",
+  "where": "Model-Page and its tabs",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-52",
+  "feature": "A feature is held to two kinds of bar: ThinkLatent's threshold on the TL Index and the team's own range on its own measures",
+  "area": "Use case: quality and record",
+  "src": "D-260, D-261, D-262",
+  "where": "Feature-Page, Project-Quality",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-53",
+  "feature": "No roles: members give support, the owner decides, with ThinkLatent's two people on each project",
+  "area": "Access model",
+  "src": "D-279, D-280",
+  "where": "Project-Members",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-54",
+  "feature": "The Plan: five phases, five parties with named leads, what each owes and the lead times, open to everyone from the first day",
+  "area": "Journeys",
+  "src": "D-263, D-264, D-265",
+  "where": "Project-Plan",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-55",
+  "feature": "Requests and their status: four kinds of request on one page",
+  "area": "Journeys",
+  "src": "D-259",
+  "where": "Requests-Status",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-56",
+  "feature": "Traces in five views with Sessions folded in, every field the trace store keeps, and a switch that seals text",
+  "area": "Observe: traces",
+  "src": "D-266 to D-270",
+  "where": "Project-Sessions, Project-Traces, Traces-Timeline, Traces-Graph, Traces-Log",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-57",
+  "feature": "Self-healing and training in a project: requirements, gaps, readiness to train, no training data shown; projects do not train",
+  "area": "Training",
+  "src": "D-271 to D-275",
+  "where": "Project-SelfHealing",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-58",
+  "feature": "A new version offered to a project with its results already run; an old version stays 90 days",
+  "area": "Models",
+  "src": "D-281, D-282",
+  "where": "Project-NewVersion",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-59",
+  "feature": "Cost avoided in five layers, on a model and on the Value page; layer 2 waits for one real consulting proposal",
+  "area": "Home",
+  "src": "D-280, D-281",
+  "where": "Model-CostAvoided, Value-Enterprise",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-60",
+  "feature": "Help: ask, ask an expert, problems in the open, answered before; Ask Jarvis with three kinds of answer, handed to a person when needed",
+  "area": "Help",
+  "src": "D-282, D-283",
+  "where": "Help-Page, Jarvis-Ask",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-61",
+  "feature": "Leaderboards by kind beside the TL Index: speech, decision and the rest, ours beside outside models",
+  "area": "TL Index and evaluation",
+  "src": "D-276",
+  "where": "Index-Leaderboards, Index-Decision",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-62",
+  "feature": "Connect: no keys anywhere; applications registered outside the portal sign in through Okta; one endpoint per feature; a sample call with feedback and outcome calls; limits only on shared endpoints",
+  "area": "Usage, keys and limits",
+  "src": "D-286, D-287, D-302",
+  "where": "Project-Connect",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-63",
+  "feature": "A project's open view for everyone, with its numbers and features; a restricted project shows only its name, team and contact",
+  "area": "Use case space",
+  "src": "D-288",
+  "where": "Project-OpenView",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-64",
+  "feature": "A team can offer its own agent for the shelf; ThinkLatent scores it and the team stays its owner",
+  "area": "Agents and playground",
+  "src": "D-289",
+  "where": "Agents-Library",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-65",
+  "feature": "Alerts fire only from what is agreed or from a change the SRE agent sees; the Enterprise's incident tool keeps the record",
+  "area": "Operations",
+  "src": "D-290",
+  "where": "Project-Operations, Project-Incident",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-66",
+  "feature": "Five things can start an increment, a smaller model among them; every rollout starts with a silent day and moves by itself",
+  "area": "Use case: running",
+  "src": "D-291",
+  "where": "Project-Increments, Increment-Rollout, Project-SmallerModel",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-67",
+  "feature": "Operations across the Enterprise: every endpoint, the machines, what the next six weeks need; training machines as a total only",
+  "area": "Operations",
+  "src": "D-292",
+  "where": "Enterprise-Operations",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-68",
+  "feature": "The record inside each project: six kinds of line, auditors through a read-only role, an export that expires, kept for the project's life and then by the Enterprise's rule",
+  "area": "Use case: quality and record",
+  "src": "D-293, D-302",
+  "where": "Project-Record",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-69",
+  "feature": "Every item in the store carries seven tags: what it can train, pillar, category, source and rights, sensitivity, who checked it, shape; pipelines set them and people check them",
+  "area": "Data",
+  "src": "D-295, D-298",
+  "where": "Data-Tagging",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-70",
+  "feature": "A knowledge graph of the tags selects from disk; a mix is a question put to the graph, with its checks",
+  "area": "Data",
+  "src": "D-295, D-298",
+  "where": "Models-Data, Data-Mix",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-71",
+  "feature": "LM safety and cyber attack data are open to the whole foundation team, and every mix shows its share",
+  "area": "Data",
+  "src": "D-295",
+  "where": "Data-Tagging, Data-Mix",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-72",
+  "feature": "Only the foundation team sees the Data and Training pages; rows are read only on a review or a data set's page, and every opening is recorded",
+  "area": "Data",
+  "src": "D-294, D-295",
+  "where": "Models-Data, Data-Review, Data-Set",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-73",
+  "feature": "Recipes built in the portal from 22 methods: standard ones defined at the start, new ones from the methods available; starting a run freezes its recipe",
+  "area": "Training",
+  "src": "D-295, D-301",
+  "where": "Models-Training, Training-Recipe",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-74",
+  "feature": "Shape the base first in every base recipe (adjust, prune by width, distil back); trials at 5, 10 and 20% judged against 2 points allowed on any live pillar",
+  "area": "Training",
+  "src": "D-298, D-299, D-301",
+  "where": "Training-Recipe, Training-Runs",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-75",
+  "feature": "One run with its stages inside; a failed check stops it for a person; best and last checkpoints kept; the portal proposes and the lead decides",
+  "area": "Training",
+  "src": "D-299, D-301",
+  "where": "Training-Run",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-76",
+  "feature": "A run's storage: a readable run id, four places, pointers not copies, 180 days, and the record travels with a released model",
+  "area": "Training",
+  "src": "D-301",
+  "where": "Training-Files",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-77",
+  "feature": "After a run: the whole TL Index confirms it, it is released, projects are told and their evaluations run, each project decides",
+  "area": "Training",
+  "src": "D-301",
+  "where": "Model-Training, Training-Run",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-78",
+  "feature": "Reuse only from a released item or a passed stage of a run still kept; a base shelf for the foundation team",
+  "area": "Training",
+  "src": "D-302",
+  "where": "Models-Training, Training-Files",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-79",
+  "feature": "The training stack: AutoModel, NeMo RL and Gym, Curator, DataDesigner, Evaluator and Model Optimizer, with Skills and Run considered; no Megatron-Bridge; Gemma and Phi bases",
+  "area": "Training",
+  "src": "D-296, D-297",
+  "where": "—",
+  "state": "Rule"
+ },
+ {
+  "id": "N-80",
+  "feature": "A prompt's text lives in the application and is registered with each version; the project's members and its two ThinkLatent people read it",
+  "area": "Workbench: prompts, data sets, alerts",
+  "src": "D-300, D-301",
+  "where": "Feature-Prompts",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-81",
+  "feature": "A system of models has one catalogue page with its own score and thresholds; the models inside show to ThinkLatent only, or also to the project that built it",
+  "area": "Models",
+  "src": "D-302, D-310",
+  "where": "System-CallProcessing, System-NextBestAction",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-82",
+  "feature": "Everyone sees a model's size class and cost per request; parameter count and machine cost show to ThinkLatent only",
+  "area": "Models",
+  "src": "D-307",
+  "where": "—",
+  "state": "Decided, not drawn"
+ },
+ {
+  "id": "N-83",
+  "feature": "Registering the application is the project's engineers' step on the Plan, with AI engineering as help",
+  "area": "Journeys",
+  "src": "D-302",
+  "where": "Project-Plan",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-84",
+  "feature": "A new edition every two weeks: 100 questions in and 100 out at random, corrections with it, signed by the Head of ThinkLatent",
+  "area": "TL Index and evaluation",
+  "src": "D-304, D-306",
+  "where": "Index-Upkeep, Index-Edition",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-85",
+  "feature": "At each edition only new and corrected questions are scored and the overall score is a delta; outside models get a full run each month and at once on a change",
+  "area": "TL Index and evaluation",
+  "src": "D-305, D-306",
+  "where": "Index-Queue, Index-Edition",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-86",
+  "feature": "A stage-check set of 1,200 questions for checks inside training, never in an edition; a question keeps its side",
+  "area": "TL Index and evaluation",
+  "src": "D-302, D-306",
+  "where": "Index-Upkeep, Training-Run",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-87",
+  "feature": "Only the Index team reads TL Index questions; the people who train models see scores and question ids",
+  "area": "TL Index and evaluation",
+  "src": "D-306",
+  "where": "Index-Upkeep",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-88",
+  "feature": "A dedicated Index team keeps the Index fresh and makes every correction",
+  "area": "TL Index and evaluation",
+  "src": "D-303, D-305",
+  "where": "Index-Upkeep",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-89",
+  "feature": "A training run's check shows nameless in the open evaluation queue",
+  "area": "TL Index and evaluation",
+  "src": "D-304",
+  "where": "Index-Queue",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-90",
+  "feature": "At most 5 real calls among a pillar's 20 incoming questions an edition, so outside models can still be scored",
+  "area": "TL Index and evaluation",
+  "src": "D-306",
+  "where": "Index-Offer",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-91",
+  "feature": "Notifications stay inside the portal: no email, no chat",
+  "area": "Shell and theme",
+  "src": "D-307",
+  "where": "—",
+  "state": "Decided, not drawn"
+ },
+ {
+  "id": "N-92",
+  "feature": "A 'What is coming' page in Help carries later-year features by year, with a small 'Planned' line where each will live",
+  "area": "Help",
+  "src": "D-307",
+  "where": "—",
+  "state": "Decided, not drawn"
+ },
+ {
+  "id": "N-93",
+  "feature": "Try TLM: LibreChat underneath, every screen in the ThinkLatent look and built from the kit, every LibreChat feature on day one, a button at the top of every page",
+  "area": "Agents and playground",
+  "src": "D-308, D-309, D-311",
+  "where": "Playground (the header button is not drawn)",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-94",
+  "feature": "Try TLM sessions are private, kept 30 days, never used for training and counted without their text; no client data, with a check; one model at a time",
+  "area": "Agents and playground",
+  "src": "D-307",
+  "where": "Playground",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-95",
+  "feature": "Connectors in Try TLM: any a person adds, with that person's own access, every call listed, reach outside the Enterprise off unless ThinkLatent allows it",
+  "area": "Agents and playground",
+  "src": "D-308, D-311",
+  "where": "Playground (adding a connector is not drawn)",
+  "state": "Drawn"
+ },
+ {
+  "id": "N-96",
+  "feature": "How the build runs: boards accepted as drawn, the list not frozen, shell, Catalogue and TL Index first with Try TLM in parallel, each screen reviewed as it is ready",
+  "area": "Shell and theme",
+  "src": "D-311",
+  "where": "—",
+  "state": "Rule"
+ }
+]
