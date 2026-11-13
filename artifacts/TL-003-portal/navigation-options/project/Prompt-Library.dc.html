@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Models and agents · Prompts: the library of templates anyone can start from, one opened, who started from it</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.da-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.da-h h3{margin:0;font-size:18px;font-weight:500}
+.tl{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.5fr) minmax(0,.95fr) minmax(0,1fr) 76px minmax(0,.8fr) 92px;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.tl>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.tl .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.tl b{font-weight:500;font-size:14px}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.tl .n{font-variant-numeric:tabular-nums}
+.tl .sel{background:rgba(47,122,109,.09)}
+.df{border-radius:16px;background:rgba(255,255,255,.75);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:12px 16px;margin-top:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap}
+.df i{font-style:normal;background:rgba(47,122,109,.18);border-radius:4px;padding:0 3px}
+.us{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr) minmax(0,1.3fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.us>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.us .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.us small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.w3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.w3>div{font-size:13px;line-height:1.45;border-top:1px solid rgba(26,26,26,.1);padding-top:10px}
+.w3 b{font-weight:500;font-size:14px;display:block}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1690px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Prompts <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Prompt library</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Open to everyone at the Enterprise</span><span class="kit-chip">14 templates · 9 by ThinkLatent, 5 offered by teams</span><span class="kit-chip">23 features started from one</span></div>
+        <span class="kit-small kit-muted">Prompts that are known to work with ThinkLatent's models, to start a feature from. A template holds no client data, so its text is open. Your application keeps its own copy and registers it; the library tells you when the template you started from has moved on · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Home-Cockpit.dc.html">Ask Jarvis which fits</a><a class="kit-btn outline" href="#">Offer a template</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Models pages">
+      <a role="tab" aria-selected="false" href="Model-Catalogue.dc.html">Catalogue</a><a role="tab" aria-selected="false" href="Agents-Library.dc.html">Agents</a><a role="tab" aria-selected="false" href="Index-Leaderboards.dc.html">Leaderboards by kind</a><a role="tab" aria-selected="true" href="Prompt-Library.dc.html">Prompts</a><button role="tab" aria-selected="false" type="button">New and coming</button><button role="tab" aria-selected="false" type="button">Compare</button><button role="tab" aria-selected="false" type="button">Outside models</button><button role="tab" aria-selected="false" type="button">Retired</button>
+    </div>
+
+    <section class="kit-surface" aria-label="The templates">
+      <div class="da-h"><h3>The templates</h3><span class="kit-seg" role="group" aria-label="The job"><button type="button" aria-pressed="true">All 14</button><button type="button" aria-pressed="false">Summarise</button><button type="button" aria-pressed="false">Answer from documents</button><button type="button" aria-pressed="false">Pull out fields</button><button type="button" aria-pressed="false">Sort or decide</button><button type="button" aria-pressed="false">Rewrite</button></span></div>
+      <div class="tl">
+        <span class="h">Template</span><span class="h">What it is for</span><span class="h">Written for</span><span class="h">TL Index pillar</span><span class="h">Features on it</span><span class="h">Checks</span><span class="h">Version</span>
+
+        <span class="sel"><b>Call and meeting summary, with follow-ups</b><small>By ThinkLatent</small></span><span class="sel">A summary someone will check and file, ending with what was agreed</span><span class="sel">Domain-Advice · Core</span><span class="sel">Client care</span><span class="sel n">6</span><span class="sel"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 passed</span></span></span><span class="sel n">4<small>3 Nov</small></span>
+        <span><b>Answer from the policies, with the rule cited</b><small>By ThinkLatent</small></span><span>An answer that names the rule it rests on, or says it cannot find one</span><span>Core</span><span>Compliance and regulatory</span><span class="n">4</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 passed</span></span></span><span class="n">3<small>20 Oct</small></span>
+        <span><b>Pull named fields from a document</b><small>By ThinkLatent</small></span><span>Fills a fixed form from a document, leaving blank what is not there</span><span>Core · Distil</span><span>Entity recognition</span><span class="n">5</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 passed</span></span></span><span class="n">2<small>9 Sep</small></span>
+        <span><b>Sort a request into one of your classes</b><small>By ThinkLatent</small></span><span>One class from your list, with how sure it is</span><span>The decision adapter</span><span class="kit-muted">None: scored on its own measure</span><span class="n">3</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 passed</span></span></span><span class="n">2<small>14 Oct</small></span>
+        <span><b>Pick one approved action, or none</b><small>Offered by Advice Tech · reviewed by ThinkLatent 28 Oct</small></span><span>One step from an approved list, and silence when it is not sure</span><span>The decision adapter</span><span>Client care</span><span class="n">1</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 passed</span></span></span><span class="n">1<small>28 Oct</small></span>
+        <span><b>Say it in plain words</b><small>By ThinkLatent</small></span><span>Rewrites a passage for a client, keeping every figure</span><span>Distil</span><span>Client care</span><span class="n">2</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>7 passed, 1 warning</span></span></span><span class="n">2<small>2 Oct</small></span>
+        <span><b>Refuse, and say why</b><small>By ThinkLatent</small></span><span>What to say when a request is outside what the feature may do</span><span>Every language model</span><span>Safety and grounding</span><span class="n">2</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 passed</span></span></span><span class="n">3<small>27 Oct</small></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px"><a href="#">7 more</a>, not started from yet · 4 of them offered by teams · a template joins the library once ThinkLatent has run the eight checks and scored it on its pillar.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px; align-items: start">
+      <section class="kit-surface raised" aria-label="One template">
+        <div class="da-h"><h3>Call and meeting summary, with follow-ups</h3><span class="kit-small kit-muted">Version 4 · 3 Nov · by ThinkLatent</span></div>
+        <div class="df">You write the summary of <i>{kind of conversation}</i>, for <i>{who will check it}</i> to check and file.
+Use only what was said in the transcript below.
+Keep it under <i>{word limit}</i> words.
+Name <i>{what must always be named}</i>.
+End with a list headed "Agreed follow-ups": one line for each thing anyone agreed to do, with who and by when if it was said.
+If nothing was agreed, write "No follow-ups agreed."
+<i>{transcript}</i></div>
+        <div class="kit-small kit-muted" style="margin-top: 8px">The highlighted parts are yours to fill. What changed in version 4: "with who and by when if it was said". <a href="#">Compare with version 3</a></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn sm" href="#">Copy the template</a><a class="kit-btn outline sm" href="Project-Connect.dc.html">How to register your copy</a><a class="kit-btn outline sm" href="#">Try it</a></div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">On Domain-Advice version 2, scored by ThinkLatent on 300 calls: summary quality 89% ± 4 · follow-ups listed 94% ± 4.</div>
+      </section>
+      <section class="kit-surface" aria-label="Who started from it">
+        <div class="da-h"><h3>Who started from it</h3><span class="kit-small kit-muted">6 features · told when the template moves</span></div>
+        <div class="us">
+          <span class="h">Feature</span><span class="h">Started from</span><span class="h">Against version 4</span>
+          <span>Call summary<small><a href="Project-OpenView.dc.html" style="color: inherit">Advisor desktop</a> · Advice Tech</small></span><span>Version 3</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>1 behind</span></span><small>Its own version 8 adds the same thing</small></span>
+          <span>Meeting notes agent<small>An agent on the shelf · 3 projects use it</small></span><span>Version 4</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Current</span></span></span>
+          <span>Case notes<small>Service desk · Client services</small></span><span>Version 2</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>2 behind</span></span></span>
+          <span>3 more<small>In 3 other projects</small></span><span>Versions 3 and 4</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>2 current</span></span><small>1 is 1 behind</small></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">Only the feature's name, team and how far behind it is show here. Its own prompt text shows to its project's members only.</div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="How the library works">
+      <div class="da-h"><h3>How the library works</h3></div>
+      <div class="w3">
+        <div><b>Starting from a template</b>Copy it into your application, fill the highlighted parts and register your version with the template's name. From then on your feature's Prompts page shows which template version you started from.</div>
+        <div><b>When a template moves</b>Every feature that started from it is told, with what changed. Nothing in your application changes by itself: the text lives in your code, and taking the change is a new version of yours.</div>
+        <div><b>Offering one</b>A project owner offers a prompt that has worked. ThinkLatent strips anything particular to the project, runs the eight checks and scores it on its pillar. Then it joins, with your team named.</div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1690}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

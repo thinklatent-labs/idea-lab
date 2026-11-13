@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Advisor desktop · Call summary · Prompts: the versions its application registers, two compared, checks and practice</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.da-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.da-h h3{margin:0;font-size:18px;font-weight:500}
+.pv{display:grid;grid-template-columns:70px minmax(0,1.05fr) minmax(0,1.6fr) minmax(0,1.05fr) 96px minmax(0,1fr) minmax(0,.9fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.pv>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.pv .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.pv b{font-weight:500;font-size:14px}
+.pv small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.pv .n{font-variant-numeric:tabular-nums}
+.pv .sel{background:rgba(47,122,109,.09)}
+.df{border-radius:16px;background:rgba(255,255,255,.75);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:12px 0;margin-top:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.6}
+.df div{padding:1px 16px 1px 40px;position:relative;white-space:pre-wrap}
+.df div::before{position:absolute;left:16px;color:rgba(26,26,26,.5)}
+.df .a{background:rgba(47,122,109,.16)}.df .a::before{content:"+"}
+.df .r{background:rgba(196,38,46,.1);text-decoration:line-through;text-decoration-color:rgba(26,26,26,.45)}.df .r::before{content:"−";text-decoration:none}
+.df .k{color:rgba(26,26,26,.7)}
+.cg{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,1.3fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.cg>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.cg .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.cg .n{font-variant-numeric:tabular-nums}
+.ck{display:grid;grid-template-columns:minmax(0,1fr) auto;font-size:13px;line-height:1.45;margin-top:10px}
+.ck>*{padding:9px 14px 9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.ck small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ck .sep{grid-column:1/-1;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.6);padding-top:12px}
+.pp{border-radius:18px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:14px 16px;font-size:13.5px;line-height:1.5;margin-top:12px}
+.hw{display:grid;grid-template-columns:150px minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px}
+.hw>*{padding:9px 14px 9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.hw dt{color:rgba(26,26,26,.6)}.hw dd{margin:0}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2443px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Organization-Page.dc.html">Retail Business <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Team-Page.dc.html">Advice Tech <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Project-Page.dc.html">Advisor desktop <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn" href="Feature-Page.dc.html">Call summary <span aria-hidden="true">▾</span></a>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Call summary</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Production</span><span class="kit-chip">Prompt "call-summary" · version 7 in production</span><span class="kit-chip">Version 8 registered and practised</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">The text shows to members only</span></div>
+        <span class="kit-small kit-muted">The prompts this feature sends, as its application registers them. The text lives in the application's code. Each version is registered here when the application is built, so every trace and every score ties to the version that produced it. A new version reaches production as an increment · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Project-Increments.dc.html">Start an increment for version 8</a><a class="kit-btn outline" href="Project-Connect.dc.html">How to register a version</a><a class="kit-btn outline" href="Prompt-Library.dc.html">Prompt library</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Feature pages">
+      <a role="tab" aria-selected="false" href="Feature-Page.dc.html">Overview</a><button role="tab" aria-selected="false" type="button">Models and flow</button><a role="tab" aria-selected="true" href="Feature-Prompts.dc.html">Prompts</a><button role="tab" aria-selected="false" type="button">Quality and thresholds</button><a role="tab" aria-selected="false" href="Feature-Evaluation.dc.html">Evaluation set</a><button role="tab" aria-selected="false" type="button">Feedback</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Settings</button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Calls carrying a registered version</span><span class="kit-display" style="font-size: 40px">97%</span><span class="kit-small kit-muted">Of today's 26k · 780 carried none</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">In production</span><span class="kit-display" style="font-size: 40px">v7</span><span class="kit-small kit-muted">Since 5 Oct, with increment 3</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Summary quality, version 7</span><span class="kit-display" style="font-size: 40px">86%<span style="font-size: 20px"> ± 5</span></span><span class="kit-small kit-muted">On the feature's 400 evaluation calls · expects 80%</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Summary quality, version 8</span><span class="kit-display" style="font-size: 40px">88%<span style="font-size: 20px"> ± 5</span></span><span class="kit-small kit-muted">Cannot be told from version 7: +2.3 ± 2.9</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Follow-ups listed, version 8</span><span class="kit-display" style="font-size: 40px">93%<span style="font-size: 20px"> ± 5</span></span><span class="kit-small kit-muted">Version 7: 74% · better by 19 ± 6</span></div>
+    </div>
+
+    <section class="kit-surface" aria-label="The versions">
+      <div class="da-h"><h3>The versions</h3><span class="kit-small kit-muted">A version never changes once registered · tick two to compare · 5 older versions are retired</span></div>
+      <div class="pv">
+        <span class="h">Version</span><span class="h">Registered</span><span class="h">What changed, in its author's words</span><span class="h">Where it stands</span><span class="h">Today's calls</span><span class="h">Summary quality</span><span class="h">Checks</span>
+        <span class="sel"><b>8</b></span><span class="sel">11 Nov, by Lena W.<small>Application release 4.14, not yet out</small></span><span class="sel">Lists what was agreed as follow-ups, with who and by when</span><span class="sel"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Practised</span></span><small>Ready to start an increment</small></span><span class="sel n">0%</span><span class="sel n">88% ± 5</span><span class="sel"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>7 passed, 1 warning</span></span></span>
+        <span class="sel"><b>7</b></span><span class="sel">28 Sep, by Lena W.<small>Application release 4.11</small></span><span class="sel">Shorter, and names the product discussed</span><span class="sel"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Production</span></span><small>Since 5 Oct</small></span><span class="sel n">97%</span><span class="sel n">86% ± 5</span><span class="sel"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 passed</span></span></span>
+        <span><b>6</b></span><span>2 Sep, by Lena W.<small>Application release 4.9</small></span><span>Adds the client's stated goal</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Previous</span></span><small>In production 18 Sep to 5 Oct</small></span><span class="n">0%</span><span class="n">84% ± 5</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 passed</span></span></span>
+        <span class="kit-muted">None</span><span>Not registered<small>Application release 4.8, still on 31 desktops</small></span><span class="kit-muted">Not known</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Serving, unregistered</span></span></span><span class="n">3%</span><span class="kit-muted">Not measured: no version to tie these calls to</span><span class="kit-muted">—</span>
+      </div>
+    </section>
+
+    <section class="kit-surface raised" aria-label="Version 7 against version 8">
+      <div class="da-h"><h3>Version 7, against version 8</h3><span class="kit-small kit-muted">The two ticked · scored on the same 400 evaluation calls</span></div>
+      <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 24px; align-items: start">
+        <div>
+          <div class="kit-caption" style="margin-top: 8px">What changed in the text</div>
+          <div class="df">
+            <div class="k">You write the summary of an advice call, for the advisor to check and file.</div>
+            <div class="k">Use only what was said in the transcript below.</div>
+            <div class="r">Keep it under 150 words.</div>
+            <div class="a">Keep it under 180 words.</div>
+            <div class="k">Name the product discussed.</div>
+            <div class="a">End with a list headed "Agreed follow-ups": one line for each thing the client or the advisor agreed to do, with who and by when if it was said.</div>
+            <div class="a">If nothing was agreed, write "No follow-ups agreed."</div>
+            <div class="k">{transcript}</div>
+          </div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Shown to this project's members and the two ThinkLatent people on it. A prompt's text is never part of the open view.</div>
+        </div>
+        <div>
+          <div class="cg">
+            <span class="h">What it does</span><span class="h">Version 7</span><span class="h">Version 8</span><span class="h">Difference</span>
+            <span>Summary quality</span><span class="n">86% ± 5</span><span class="n">88% ± 5</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Cannot tell · +2.3 ± 2.9</span></span></span>
+            <span>Follow-ups listed, on the 112 calls that had some</span><span class="n">74% ± 8</span><span class="n">93% ± 5</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Better · +19 ± 6</span></span></span>
+            <span>Nothing made up</span><span class="n">94% ± 2</span><span class="n">94% ± 2</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Cannot tell · 0.0 ± 1.4</span></span></span>
+            <span>Length of the prompt, before the transcript</span><span class="n">212 tokens</span><span class="n">268 tokens</span><span class="n">+56</span>
+            <span>The part that is the same on every call</span><span class="n">All of it</span><span class="n">All of it</span><span class="kit-muted">The transcript still comes last</span>
+            <span>Typical length of a summary</span><span class="n">138 tokens</span><span class="n">171 tokens</span><span class="n">+24%</span>
+            <span>Cut off at the length limit</span><span class="n">0.4%</span><span class="n">0.6%</span><span class="n">+0.2 points</span>
+            <span>Typical time</span><span class="n">1.8 s</span><span class="n">2.1 s</span><span class="n">+0.3 s</span>
+            <span>Cost at all of today's traffic</span><span class="n">$[cost] a day</span><span class="n">$[cost] a day</span><span class="n">+$[cost], from the longer summaries</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Checks on version 8">
+        <div class="da-h"><h3>Checks on version 8</h3><span class="kit-small kit-muted">Run when a version is registered</span></div>
+        <div class="ck">
+          <span class="sep">These two keep a version out of an increment</span>
+          <span>No secret in the text<small>No key, password or address of an internal system</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>No client's name or account in the examples</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span class="sep">These six warn, and show on the version</span>
+          <span>Every variable is declared<small>{transcript}</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>The fixed part comes first<small>So it can be reused from call to call</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>The answer has a stated form</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>No two instructions pull against each other<small>"Under 180 words" and "one line for each" can clash on a long call</small></span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Warning</span></span>
+          <span>It says where a reader is told a model wrote it<small>The application shows this beside every summary</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+          <span>Its length suits the model</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Practice">
+        <div class="da-h"><h3>Practice, before an increment</h3><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Both done</span></span></div>
+        <div class="ck">
+          <span>On the evaluation set<small>400 calls, scored by the feature's own measures · 11 Nov · the comparison on this page</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span>
+          <span>Silently, on copies of yesterday's requests<small>1,000 copies · the answers were scored and never shown to an advisor · 12 Nov · no errors · the guardrail held 1.3%, against 1.2% for version 7</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">A version can start an increment once its two blocking checks pass and both practice runs are done. The increment then carries the evidence to the change request, outside the portal.</div>
+        <div class="da-h" style="margin-top: 18px"><h3 style="font-size: 15px">How versions reached production</h3></div>
+        <dl class="hw">
+          <dt>Version 7</dt><dd><a href="Increment-Rollout.dc.html">Increment 3</a>, with Domain-Advice version 2 · raised 2 Oct · everyone by 5 Oct</dd>
+          <dt>Version 6</dt><dd>Increment 2, with the guardrail check · in production 18 Sep</dd>
+          <dt>Who moves the traffic</dt><dd>The application, because the text lives in its code. The portal watches the share on each version at every step and tells the owner and ThinkLatent's on-call when to hold or go back.</dd>
+        </dl>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="A wording proposed by self-healing">
+        <div class="da-h"><h3>A wording proposed for the next version</h3><span class="kit-chip env">Self-healing</span></div>
+        <div class="pp">For the gap "a wrong figure in the summary", add one line: <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px">Copy every figure exactly as it was said. Do not round, and do not work out a new one.</span><div class="kit-small kit-muted" style="margin-top: 8px">Rests on 23 thumbs down this week and the 14 evaluation calls that fail the same way · confidence: medium, a prompt may not be enough and the gap is also a candidate for training · <a href="Project-SelfHealing.dc.html">See what it rests on</a></div></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn outline sm" href="#">Copy the wording</a><a class="kit-btn outline sm" href="Project-Traces.dc.html">See the 23 traces</a><span class="kit-small kit-muted" style="align-self: center">The agent proposes; your application's code is where it goes, and registering it makes version 9.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="What is watched">
+        <div class="da-h"><h3>What is watched</h3><a href="Project-Operations.dc.html">Alerts sit in Operations</a></div>
+        <div class="ck">
+          <span>Calls with no registered version<small>3% today, from application release 4.8 on 31 desktops</small></span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Flagged</span></span>
+          <span>A version in production that was never practised</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>None</span></span>
+          <span>Production moving to a version outside an increment</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>None</span></span>
+          <span>A check that newly fails on a version in production</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>None</span></span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2443}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

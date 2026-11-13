@@ -45,7 +45,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .in-st b{display:block;font-weight:500;font-size:14px;margin-bottom:2px}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1830px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1848px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -79,7 +79,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div style="display: flex; flex-direction: column; gap: 8px; max-width: 780px">
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Increments</h1>
         <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">1 in production</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">1 waiting for approval, outside</span><span class="kit-chip">1 in Build</span><span class="kit-chip">1 could start today</span><a class="kit-chip outline" href="Project-SmallerModel.dc.html" style="text-decoration: none; color: inherit">1 offer: a smaller model</a></div>
-        <span class="kit-small kit-muted">An increment is one change to what runs: a new feature, a retrained model, or a new version from ThinkLatent. Each goes to production on its own change request, approved outside the portal; this page prepares the evidence and shows where it stands · As of 11:58 ET · sample data</span>
+        <span class="kit-small kit-muted">An increment is one change to what runs: a new feature, a retrained model, a new version from ThinkLatent, or a new version of a prompt. Each goes to production on its own change request, approved outside the portal; this page prepares the evidence and shows where it stands · As of 11:58 ET · sample data</span>
       </div>
       <div class="kit-actions"><a class="kit-btn" href="#">Plan an increment</a><a class="kit-btn outline" href="Jarvis-Ask.dc.html">Ask Jarvis what is next</a></div>
     </div>
@@ -171,18 +171,19 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       </div>
     </section>
 
-    <div class="in-box"><h4>Five things can start an increment</h4>
-      <div class="in-st" style="grid-template-columns: repeat(5, minmax(0, 1fr))">
+    <div class="in-box"><h4>Six things can start an increment</h4>
+      <div class="in-st" style="grid-template-columns: repeat(6, minmax(0, 1fr))">
         <a href="Start-Project.dc.html"><b>A new feature</b>Say what it should do; Jarvis proposes the models and adds it to the Plan.</a>
         <a href="Project-SelfHealing.dc.html"><b>A retrained model, from your own use</b>When self-healing says there is enough to train and you start the run.</a>
         <a href="Project-NewVersion.dc.html"><b>A new version from ThinkLatent</b>Offered with your own results already run; you decide whether to switch.</a>
         <a href="Project-Quality.dc.html"><b>A raised range</b>When a measure reaches what you aimed for and you raise it, the new range is the next increment's goal.</a>
         <a href="Project-SmallerModel.dc.html"><b>A smaller model for the same job</b>Offered by the Index agent with your own results already run; you decide whether to switch.</a>
+        <a href="Feature-Prompts.dc.html"><b>A new version of a prompt</b>Registered by your application and practised here; the increment carries its evidence.</a>
       </div></div>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1830}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1848}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
