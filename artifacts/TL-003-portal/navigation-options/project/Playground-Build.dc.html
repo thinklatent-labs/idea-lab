@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · building an agent, adding a connector, what a tool did, and sharing a session (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.pb-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.pb-h h3{margin:0;font-size:18px;font-weight:500}
+.pb-f{display:grid;grid-template-columns:150px minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px}
+.pb-f>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.pb-f small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.pb-in{display:block;padding:8px 12px;border-radius:10px;background:rgba(26,26,26,.05);font-size:13px}
+.pb-in.mono{font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+.pb-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pb-l{display:flex;flex-direction:column;margin-top:8px;font-size:13px;line-height:1.45}
+.pb-l>*{padding:10px 0;border-top:1px solid rgba(26,26,26,.1);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.pb-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.pb-t{display:grid;font-size:13px;line-height:1.45;margin-top:10px}
+.pb-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.pb-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.pb-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.pb-no{margin-top:12px;padding:12px 14px;border-radius:14px;background:rgba(201,138,0,.12);font-size:13px;line-height:1.45;display:flex;justify-content:space-between;gap:12px;align-items:center}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1874px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Playground.dc.html">← Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Agents, tools and sharing</button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Try TLM · agents, tools and sharing</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Everyone at the Enterprise</span><span class="kit-chip">Yours until you share or offer it</span><span class="kit-chip">First draft · D-320</span></div>
+        <span class="kit-small kit-muted">Build an agent of your own, give it tools, see what each tool did, and share one session with people you name. Nothing here is trained on, and no client data goes in · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Playground.dc.html">Back to the chat</a><a class="kit-btn outline" href="Agents-Library.dc.html">Agents library</a></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface raised" aria-label="Build an agent">
+        <div class="pb-h"><h3>Build an agent</h3><span class="kit-small kit-muted">A model, what it is told, and the tools it may use</span></div>
+        <div class="pb-f">
+          <span>Name</span><span><span class="pb-in">Fee explainer</span></span>
+          <span>What it is for</span><span><span class="pb-in">Explains a fund's fees in plain words from its product sheet</span></span>
+          <span>Model</span><span><span class="pb-row"><span class="kit-chip brand">Core 4.2</span><span class="kit-chip">Distil 4.2</span><span class="kit-chip">Domain-Advice v2</span></span><small>One model for an agent</small></span>
+          <span>What it is told</span><span><span class="pb-in">You explain fund fees to someone who is not a specialist. Use only the product sheet you are given. Say so when the sheet does not answer the question.</span><small>Variables and a few worked examples can be added below it</small></span>
+          <span>Tools</span><span><span class="pb-row"><span class="kit-chip brand">Files</span><span class="kit-chip brand">Run code</span><span class="kit-chip brand">Product sheets library</span><span class="kit-chip">Web search · off</span></span><small>A connector works with the access of whoever is using the agent, never the maker's</small></span>
+          <span>Starter questions</span><span><span class="pb-in">What do I pay each year on this fund? · Compare the fees of these two funds</span></span>
+        </div>
+        <div class="pb-row" style="margin-top: 14px"><button class="kit-btn" type="button">Save</button><a class="kit-btn outline" href="Playground.dc.html">Try it</a><a class="kit-btn outline" href="Agents-Library.dc.html">Offer it to the Agents library</a></div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">An agent is private to you and is kept until you delete it; only sessions end after 30 days. To reach other people it is offered to the Agents library, where ThinkLatent accepts it or sends it back (D-320).</div>
+      </section>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface" aria-label="Your agents">
+          <div class="pb-h"><h3>Your agents</h3><span class="kit-small kit-muted">3</span></div>
+          <div class="pb-l">
+            <span><span>Research helper<small>Core 4.2 · Files, Run code · private</small></span><a href="Playground.dc.html">Open</a></span>
+            <span><span>Fee explainer<small>Core 4.2 · being built · private</small></span><span class="kit-chip">Draft</span></span>
+            <span><span>Call notes tidy<small>Offered 3 Nov · with ThinkLatent</small></span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waiting</span></span></span>
+          </div>
+        </section>
+        <section class="kit-surface" aria-label="What comes with LibreChat">
+          <div class="pb-h"><h3>Also in the chat</h3><span class="kit-small kit-muted">LibreChat's own features, in the ThinkLatent look (D-308, D-309)</span></div>
+          <div class="pb-l">
+            <span><span>One input sent to two models<small>Side by side in one session; a session still starts on one model (D-316)</small></span></span>
+            <span><span>Saved settings for a model<small>A model with its settings and what it is told, under a name</small></span></span>
+            <span><span>Branching a conversation<small>Try a different turn without losing the first</small></span></span>
+            <span><span>Search in your own sessions</span></span>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Add a connector">
+        <div class="pb-h"><h3>Add a connector</h3><span class="kit-small kit-muted">A list ThinkLatent keeps, or your own inside the Enterprise</span></div>
+        <div class="pb-t" style="grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.2fr) 110px minmax(0, 1.1fr)">
+          <span class="h">Connector</span><span class="h">What it reaches</span><span class="h">Where</span><span class="h">Where it stands</span>
+          <span>Product sheets library</span><span>Fund and product sheets<small>What you can already open there</small></span><span>Inside</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Connected, with your access</span></span></span>
+          <span>Policy library</span><span>Policies and procedures</span><span>Inside</span><span><button class="kit-btn outline" type="button">Connect</button></span>
+          <span>Team wiki</span><span>Your teams' pages</span><span>Inside</span><span><button class="kit-btn outline" type="button">Connect</button></span>
+          <span>Web search</span><span>The public web</span><span>Outside</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Off until ThinkLatent allows it</span></span></span>
+        </div>
+        <div class="pb-h" style="margin-top: 16px"><h3 style="font-size: 15px">Your own, by address</h3><span class="kit-small kit-muted">Inside the Enterprise only</span></div>
+        <div class="pb-row" style="margin-top: 8px"><span class="pb-in mono" style="flex: 1">https://[an address outside the Enterprise]/mcp</span><button class="kit-btn" type="button">Add</button></div>
+        <div class="pb-no"><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Not added</span></span> This address is outside the Enterprise. ThinkLatent decides which outside tools are allowed.</span><button class="kit-btn outline" type="button">Ask ThinkLatent</button></div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">A connector never sees more than you can. Client data still does not go in, and the check on what you send runs on what a connector brings back too.</div>
+      </section>
+      <section class="kit-surface" aria-label="What the tools did">
+        <div class="pb-h"><h3>What the tools did</h3><span class="kit-small kit-muted">Every call, listed in the session</span></div>
+        <div class="pb-l">
+          <span><span>11:42 · Product sheets library<small>Read 2 sheets · with your access</small></span><a href="Playground.dc.html">Open</a></span>
+          <span><span>11:43 · Run code<small>1.2 s · in a sandbox inside the Enterprise, with no network</small></span><a href="Playground.dc.html">Open</a></span>
+          <span><span>11:43 · Files<small>Read sample-funds.csv · 12 rows</small></span><a href="Playground.dc.html">Open</a></span>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">Web search follows the connector rule: off until ThinkLatent allows it, and then every search is listed here (D-320).</div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="Share a session">
+      <div class="pb-h"><h3>Share a session</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Named people only · no open links (D-320)</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 4px">
+        <div class="pb-f">
+          <span>Session</span><span>Fee comparison · started 5 Nov<small>Ends 5 Dec, 30 days after it started</small></span>
+          <span>Share with</span><span><span class="pb-row"><span class="kit-chip brand">Dev</span><span class="pb-in" style="flex: 1">Add a person at the Enterprise</span></span></span>
+          <span>They can</span><span>Read it, and start their own session from any turn<small>They cannot change yours</small></span>
+          <span>Until</span><span>5 Dec, when the session ends<small>Or sooner: stop sharing at any time</small></span>
+        </div>
+        <div class="pb-l" style="margin-top: 10px">
+          <span><span>What they see<small>The turns, the artifact and the list of tool calls. Not the files you attached, unless you include them.</small></span></span>
+          <span><span>What stays yours<small>Your other sessions, your agents and your connectors</small></span></span>
+          <span><span>A shared session is still never trained on<small>And it is listed under 'What the portal keeps about you' in Settings</small></span><a href="Shell-Settings.dc.html">Settings</a></span>
+        </div>
+      </div>
+      <div class="pb-row" style="margin-top: 14px"><button class="kit-btn" type="button">Share with Dev</button><span class="kit-small kit-muted">Sharing can be undone at once</span></div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1874}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
