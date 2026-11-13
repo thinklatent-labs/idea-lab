@@ -1,6 +1,6 @@
 # Scout brief · The NVIDIA NeMo training stack, and what TLM should use from it
 
-TL-003 portal · Scout · 13 Nov 2026 · version 2 · for Jithin Pradeep, Head of ThinkLatent · written by Claude
+TL-003 portal · Scout · 13 Nov 2026 · version 3 · for Jithin Pradeep, Head of ThinkLatent · written by Claude
 
 **The question.** NeMo is now many GitHub repositories. Which are worth using directly for data work, pretraining, post-training and reinforcement learning, given that pruning the base model on the Enterprise's data is the first step of every base?
 
@@ -8,10 +8,12 @@ TL-003 portal · Scout · 13 Nov 2026 · version 2 · for Jithin Pradeep, Head o
 
 **What changed in version 2.** Version 1 recommended Megatron-Bridge with Model Optimizer for shaping the base. Jithin corrected this the same day: the team decided not to use Megatron-Bridge during training and has been executing without it, because the TLM bases are Gemma and Phi. The brief now takes that as given.
 
+**What changed in version 3.** Jithin marked NeMo Skills and NeMo-Run as *Consider*, and reported that the team has made Gemma 4 work on its own path, the dense model specifically.
+
 ## 1. Bottom line
 
 1. **NeMo is no longer one package.** The original repository is now speech only. Its language-model collection was deprecated in late 2025 and replaced by two libraries, Megatron-Bridge and AutoModel. Any TLM code that still imports the old NeMo 2.0 language-model collection, or its pruning scripts, is on a path NVIDIA has ended.
-2. **The team trains without Megatron-Bridge, and the reading supports that choice.** The bridge's list of supported model families has no Phi, and its support for dense Gemma 4 was incomplete. Staying on Hugging Face checkpoints also keeps every model in the format vLLM serves, with no conversion step to verify.
+2. **The team trains without Megatron-Bridge, and the reading supports that choice.** The bridge's list of supported model families has no Phi, and its support for dense Gemma 4 was incomplete. Staying on Hugging Face checkpoints also keeps every model in the format vLLM serves, with no conversion step to verify. The team already has dense Gemma 4 working on its own path, which was the model the bridge handled least well.
 3. **Six pieces are worth using directly:** AutoModel as the training spine (continued pretraining, fine-tuning, adapters, distilling back), NeMo RL on its PyTorch-native backend, NeMo Gym, Curator, Data Designer and Evaluator. Model Optimizer is for quantisation. The Nemotron repository is the reference to read first: it holds NVIDIA's own recipes as chains of stages.
 4. **Pruning stays the TLM package's own code.** NVIDIA's documented pruning for language models (Minitron) runs on the Megatron side, so it is not on this path. Its findings still apply to the order: adjust the full base to your data, prune by what your data uses, distil back. AutoModel can do the adjusting and the distilling back.
 
@@ -27,9 +29,9 @@ TL-003 portal · Scout · 13 Nov 2026 · version 2 · for Jithin Pradeep, Head o
 | NVIDIA-NeMo/Evaluator | Benchmark runs, on Slurm, against trained checkpoints. | The check at the end of each stage | **Use beside the TL Index** |
 | NVIDIA/Model-Optimizer (ModelOpt) | Quantisation (FP8, INT8, INT4; after training or during it), distillation, and pruning. Its language-model pruning, Minitron, is built for Megatron models. A Hugging Face-side method, Puzzletron, appears only in preview documentation. | Make it lighter | **Use for quantisation.** Watch Puzzletron. |
 | NVIDIA-NeMo/Nemotron | NVIDIA's complete recipes for its own models, each a chain of stages, each stage a step with its own configuration, including an AutoModel fine-tuning step. Also an estimator for machines, time and cost. | Recipes | **Read first; copy the structure** |
-| NVIDIA-NeMo/Run | Submits jobs to Slurm (also Kubernetes, Docker, local) from reusable cluster profiles. | Running a stage | **Consider**, if the TLM package's own submitter is thin |
+| NVIDIA-NeMo/Run | Submits jobs to Slurm (also Kubernetes, Docker, local) from reusable cluster profiles. | Running a stage | **Consider** (Jithin, 13 Nov), beside the TLM package's own submitter |
 | NVIDIA-NeMo/Megatron-Bridge | Training on Megatron-Core with conversion to and from Hugging Face checkpoints. | — | **Not used.** The team's decision. |
-| NVIDIA-NeMo/Skills | Pipelines from made-up data to training to evaluation, moving from a workstation to Slurm with a small change. | Overlaps the above | **Later** |
+| NVIDIA-NeMo/Skills | Pipelines from made-up data to training to evaluation, moving from a workstation to Slurm with a small change. Spreads evaluation over many Slurm jobs, hosts judges itself, and trains through NeMo RL. | Made-up data and evaluation at scale; chaining stages | **Consider** (Jithin, 13 Nov) |
 | NVIDIA-NeMo/Speech (was NVIDIA/NeMo) | Speech recognition and synthesis. | The speech-recognition model only | **Only for speech** |
 | NeMo microservices (Customizer, Evaluator, Data Designer, Safe Synthesizer, Guardrails, Auditor) | A deployed product layer over the same ideas, installed with Helm charts. | — | **Skip for training.** The portal and the TLM package are that layer. |
 | NVIDIA/NeMo-Aligner | The earlier alignment library. Deprecated. | — | **Do not start anything on it** |
