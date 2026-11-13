@@ -22,6 +22,7 @@ Not looked at in this pass: Chainlit, Hugging Face Chat UI, the Vercel AI SDK's 
 1. LibreChat is the base. It is part of the portal, not an app beside it: it carries the ThinkLatent look and is reached from a button at the top of every page ("Try TLM").
 2. Every LibreChat feature is there on day one: advanced prompting, agents with tools, artifacts, files.
 3. A person may add any connector (tool server) of their own.
+4. The look matters (D-309): it must not read as a different product. Every screen of it is in the ThinkLatent design language. The board "Try TLM" on the design canvas is the screen to match; LibreChat supplies what runs underneath. Where restyling LibreChat's own client cannot reach the board, that screen is rebuilt from the design kit against LibreChat's server.
 
 Standing from D-307: open to everyone at the Enterprise; one model at a time; sessions private to the person and kept 30 days; no client data, with a check on what is pasted.
 
