@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Data · reviewing one flagged item, for the foundation team</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.dr-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.dr-h h3{margin:0;font-size:18px;font-weight:500}
+.dr-rec{border-radius:18px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.1);padding:16px 18px;margin-top:12px;font-size:14px;line-height:1.6}
+.dr-rec p{margin:0 0 8px}
+.dr-rec .who{display:inline-block;width:62px;font-size:12px;font-weight:500;color:rgba(26,26,26,.6)}
+.dr-rec .gone{background:rgba(26,26,26,.85);color:transparent;border-radius:4px;padding:0 4px;font-size:12px;user-select:none}
+.dr-rec mark{background:color-mix(in oklab,var(--warning) 28%,white);box-shadow:0 0 0 1.5px var(--warning);border-radius:4px;padding:1px 4px}
+.dr-rec .dim{color:rgba(26,26,26,.55)}
+.dr-kv{display:grid;grid-template-columns:120px minmax(0,1fr);gap:7px 12px;font-size:13px;line-height:1.45;margin:10px 0 0}
+.dr-kv dt{color:rgba(26,26,26,.6)}.dr-kv dd{margin:0}
+.dr-opt{display:grid;gap:8px;margin-top:10px}
+.dr-o{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:start;border-radius:16px;padding:10px 14px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.1);font-size:13px;line-height:1.45}
+.dr-o.on{box-shadow:0 0 0 2px #1A1A1A;background:#fff}
+.dr-o i{display:block;width:16px;height:16px;border-radius:50%;box-shadow:inset 0 0 0 1.5px rgba(26,26,26,.5);margin-top:2px}
+.dr-o.on i{box-shadow:inset 0 0 0 5px #1A1A1A}
+.dr-o b{display:block;font-weight:500;font-size:14px}
+.dr-l{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.dr-l>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.dr-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.dr-l .s{padding-left:12px;text-align:right;font-size:12px;color:rgba(26,26,26,.7);white-space:nowrap}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1300px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Models-Data.dc.html">Data <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Reviews <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 780px">
+        <span class="kit-caption">Data · reviews · item 1 of the 23 assigned to you</span>
+        <h1 style="margin: 0; font-size: 36px; font-weight: 400; letter-spacing: -0.02em">May this be used for training?</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">Flagged: may hold personal data</span><span class="kit-chip">Advice calls, 2026 · for version 15</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">Your opening is recorded</span></div>
+        <span class="kit-small kit-muted">The one place in the portal where a row of a data set can be read, and only by the foundation team and the reviewers it names. Opened at 11:58 ET by Hana O. · sample data, invented for this board</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Models-Data.dc.html">← Data</a><a class="kit-btn outline" href="#">Skip this one</a></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface raised" aria-label="The item">
+          <div class="dr-h"><h3>The item</h3><span class="kit-small kit-muted">Part of one advice call, after redaction · the flagged words are marked · black bars are what redaction already removed</span></div>
+          <div class="dr-rec">
+            <p class="dim"><span class="who">Advisor</span>So the plan would keep paying into the education account until <span class="gone">xxxxxxx</span> turns eighteen.</p>
+            <p><span class="who">Client</span>Yes. And I would want my daughter <mark>Tara, who starts at Hillside College</mark> next September, to be able to draw on it from then.</p>
+            <p class="dim"><span class="who">Advisor</span>Understood. I will note that the first withdrawal is expected next autumn, and send you the form for account <span class="gone">xxxxxxxxxx</span>.</p>
+            <p class="dim" style="margin-bottom: 0"><span class="who">Client</span>Thank you. Could you also remind me what the yearly limit is?</p>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn outline sm" href="#">Show more of the call</a><span class="kit-small kit-muted" style="align-self: center">Showing more is recorded as well.</span></div>
+        </section>
+
+        <section class="kit-surface" aria-label="Why it is here">
+          <div class="dr-h"><h3>Why it is here</h3><span class="kit-small kit-muted">What the pipeline saw</span></div>
+          <dl class="dr-kv">
+            <dt>Flagged by</dt><dd>The personal-data pipeline, version 4</dd>
+            <dt>What it saw</dt><dd>A given name beside a school. Redaction had already removed 5 other places in this call</dd>
+            <dt>How sure</dt><dd>0.71 · it asks a person below 0.90</dd>
+            <dt>The item</dt><dd>Advice calls, 2026 · arrived 2 Nov · waiting 3 days</dd>
+          </dl>
+        </section>
+
+        <section class="kit-surface" aria-label="Similar items decided this month">
+          <div class="dr-h"><h3>Like this one, decided this month</h3><span class="kit-small kit-muted">A given name beside a school or an employer</span></div>
+          <div class="dr-l">
+            <span>14 items decided by 3 reviewers<small>13 kept with the words removed · 1 set aside whole</small></span><span class="s">Mostly: remove and keep</span>
+            <span>9 more like it are waiting<small>Decide this one the usual way and they can be queued to you together</small></span><a class="s" href="#">Queue them</a>
+          </div>
+        </section>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface coloured" aria-label="Your decision">
+          <div class="dr-h"><h3>Your decision</h3><span class="kit-small">Two questions and a reason</span></div>
+          <div class="kit-label" style="margin-top: 12px">1 · Does it hold personal data?</div>
+          <div class="dr-opt">
+            <div class="dr-o"><i></i><span><b>No</b>The flag is wrong. The item is used as it is.</span></div>
+            <div class="dr-o on"><i></i><span><b>Yes: remove the marked words, keep the rest</b>The item is used without them.</span></div>
+            <div class="dr-o"><i></i><span><b>Yes: set the whole item aside</b>It is not used for anything.</span></div>
+          </div>
+          <div class="kit-label" style="margin-top: 14px">2 · Is the rest worth training on?</div>
+          <div class="dr-opt">
+            <div class="dr-o on"><i></i><span><b>Yes, for advice conversations</b>A clear ask and a correct answer.</span></div>
+            <div class="dr-o"><i></i><span><b>No</b>Too short, off topic, or wrong.</span></div>
+          </div>
+          <div class="kit-label" style="margin-top: 14px">Reason</div>
+          <div style="border-radius: 14px; background: #fff; box-shadow: 0 0 0 1px rgba(26,26,26,.12); padding: 10px 14px; font-size: 13px; margin-top: 8px">A relative's name and school</div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px"><a class="kit-btn" href="#">Decide, and show the next</a><a class="kit-btn outline" href="#">Decide</a></div>
+        </section>
+
+        <section class="kit-surface" aria-label="What your decision does">
+          <div class="dr-h"><h3>What your decision does</h3></div>
+          <div class="dr-l">
+            <span>The words come out of the next version<small>Version 15 of Advice calls, 2026 · versions already cut do not change</small></span><span class="s"></span>
+            <span>It teaches the pipeline<small>Counted as a flag that was right; "name beside a school" gains weight</small></span><span class="s"></span>
+            <span>It may be reviewed again<small>1 in 10 of your decisions goes to someone who cannot see yours · this week 13 of your 14 agreed</small></span><span class="s"></span>
+            <span>It is on the record<small>Who opened the item, when, and what was decided · read by the foundation team and auditors</small></span><span class="s"></span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

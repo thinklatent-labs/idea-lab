@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Models and agents · Data, for the foundation team: reviews, pipelines and the register of data sets</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.da-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.da-h h3{margin:0;font-size:18px;font-weight:500}
+.da-q{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 90px 96px 110px auto;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.da-q>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.da-q .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.da-q small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.da-q .n{font-variant-numeric:tabular-nums}
+.da-p{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+.da-pc{border-radius:18px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px;font-size:13px;line-height:1.45;display:flex;flex-direction:column;gap:6px}
+.da-pc b{font-weight:500;font-size:15px}
+.da-pc .big{font-size:26px;font-weight:300;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.da-pc small{font-size:12px;color:rgba(26,26,26,.65)}
+.da-pc .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.da-r{display:grid;grid-template-columns:minmax(0,1.5fr) 92px minmax(0,1fr) 84px 70px minmax(0,1.1fr) minmax(0,1fr);font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.da-r>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.da-r .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.da-r .sep{grid-column:1/-1;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.6);padding-top:14px}
+.da-r b{font-weight:500;font-size:14px}
+.da-r small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.da-r .n{font-variant-numeric:tabular-nums}
+.da-banner{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:center;border-radius:20px;padding:12px 16px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1.5px #1A1A1A;font-size:13.5px;line-height:1.45}
+.da-banner svg{width:19px;height:19px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2170px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Data <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 780px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Data</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">9 data sets · 5 for training, 4 for evaluation</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">184 items wait for a review</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 withdrawal to decide</span></div>
+        <span class="kit-small kit-muted">Where ThinkLatent's foundation team curates what the models learn from and what the TL Index tests them on. Only this team opens this tab, and only here can a row of a data set be read; every opening is recorded · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Data-Review.dc.html">Review the next item</a><a class="kit-btn outline" href="#">Add a data set</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Models pages">
+      <a role="tab" aria-selected="false" href="Model-Catalogue.dc.html">Catalogue</a><a role="tab" aria-selected="false" href="Agents-Library.dc.html">Agents</a><a role="tab" aria-selected="false" href="Index-Leaderboards.dc.html">Leaderboards by kind</a><a role="tab" aria-selected="true" href="Models-Data.dc.html">Data</a><button role="tab" aria-selected="false" type="button">New and coming</button><button role="tab" aria-selected="false" type="button">Compare</button><button role="tab" aria-selected="false" type="button">Outside models</button><button role="tab" aria-selected="false" type="button">Retired</button>
+    </div>
+
+    <div class="da-banner">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+      <span>The Data tab shows only to the foundation team and the reviewers it names, by IAM. Everyone else sees no tab here, and no row of any data set anywhere in the portal. On a model's page they see only what it was built from.</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <a class="kit-surface" href="Data-Review.dc.html" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Waiting for a review</span><span class="kit-display" style="font-size: 40px">184</span><span class="kit-small kit-muted">23 assigned to you · the oldest 3 days</span></a>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Decided this week</span><span class="kit-display" style="font-size: 40px">412</span><span class="kit-small kit-muted">361 may be used · 51 set aside, each with a reason</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Second reviews that agree</span><span class="kit-display" style="font-size: 40px">91%</span><span class="kit-small kit-muted">1 item in 10 is reviewed twice, unseen · 41 this week</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Ready to train on</span><span class="kit-display" style="font-size: 40px">3.1M</span><span class="kit-small kit-muted">Examples in the 5 training sets, after reviews</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">TL Index questions</span><span class="kit-display" style="font-size: 40px">4,310</span><span class="kit-small kit-muted">In the 4 evaluation sets · 126 added for edition 2026-12</span></div>
+    </div>
+
+    <section class="kit-surface" aria-label="Reviews">
+      <div class="da-h"><h3>Reviews</h3><span class="kit-small kit-muted">An item is flagged by a pipeline or by self-healing, and a person decides whether it may be used · ThinkLatent aims to decide within 5 days</span></div>
+      <div class="da-q">
+        <span class="h">Why items are here</span><span class="h">From</span><span class="h">Waiting</span><span class="h">Oldest</span><span class="h">Assigned to you</span><span class="h"></span>
+        <span>May hold personal data<small>Flagged by the personal-data pipeline</small></span><span>Advice calls, 2026</span><span class="n">96</span><span class="n">3 days</span><span class="n">14</span><a href="Data-Review.dc.html">Review</a>
+        <span>Too close to a TL Index question<small>Training on it would flatter the Index</small></span><span>January's training mix · the public tool-calling set</span><span class="n">31</span><span class="n">2 days</span><span class="n">5</span><a href="Data-Review.dc.html">Review</a>
+        <span>Self-healing says it will not help<small>A mark from the self-healing scorer, with its reason</small></span><span>Brought back from self-healing</span><span class="n">42</span><span class="n">1 day</span><span class="n">4</span><a href="Data-Review.dc.html">Review</a>
+        <span>A new TL Index question to check<small>Written or found by the team; needs a second pair of eyes</small></span><span>TL Index · Numbers and calculations</span><span class="n">15</span><span class="n">1 day</span><span class="n">0</span><a href="Data-Review.dc.html">Review</a>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">Reviewers this week: Hana O. 148 decided · Luis F. 131 · Ravi D. away · two more named by the team. None past the 5 days.</div>
+    </section>
+
+    <section class="kit-surface" aria-label="Tagging pipelines">
+      <div class="da-h"><h3>Tagging pipelines</h3><span class="kit-small kit-muted">Each reads new data and flags what a person should look at · every review teaches it · a new one runs silently first</span></div>
+      <div class="da-p">
+        <div class="da-pc"><div class="top"><b>Personal data</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div><span class="big">94%</span><small>of its flags were right, by this month's reviews · version 4 · about 310 flags a day</small><small>On every training set. Its level was raised on 21 Oct, after 60 reviews found it flagged account types as names.</small></div>
+        <div class="da-pc"><div class="top"><b>Too close to the TL Index</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div><span class="big">88%</span><small>of its flags were right · version 2 · about 12 flags a day</small><small>On every training set, against all four evaluation sets. Keeps the Index honest.</small></div>
+        <div class="da-pc"><div class="top"><b>Complaint or dispute</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div><span class="big">81%</span><small>of its flags were right · version 1 · about 40 flags a day</small><small>On the advice calls. Flagged calls are kept out of training until a person says otherwise.</small></div>
+        <div class="da-pc" style="background: transparent; box-shadow: none; border: 1.5px dashed rgba(26,26,26,.3)"><div class="top"><b>Advice outside policy</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Silent</span></span></div><span class="big">—</span><small>Not measured yet: it has run silently since 2 Nov and its first 200 flags are being reviewed</small><small>Proposed by Hana O. Goes live when 85% of its flags are right.</small></div>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn outline sm" href="#">Propose a pipeline</a><a class="kit-btn outline sm" href="#">Change a pipeline's level</a><span class="kit-small kit-muted" style="align-self: center">A change of level is tried on last month's reviews first, and shows what it would have flagged.</span></div>
+    </section>
+
+    <section class="kit-surface raised" aria-label="The register of data sets">
+      <div class="da-h"><h3>The data sets</h3><span class="kit-small kit-muted">A version never changes once it is cut · a row opens the set, its versions and where it was used</span></div>
+      <div class="da-r">
+        <span class="h">Data set</span><span class="h">Version</span><span class="h">Where it comes from</span><span class="h">Examples</span><span class="h">To review</span><span class="h">Used by</span><span class="h">What to know</span>
+
+        <span class="sep">For training</span>
+        <span><a href="Data-Set.dc.html" style="color: inherit"><b>Advice calls, 2025</b></a><small>Redacted transcripts of advice calls</small></span><span class="n">9<small>cut 28 Oct</small></span><span>Call processing, Enterprise services</span><span class="n">1.9M</span><span class="n">0</span><span>Domain-Advice v1 and v2<small>On version 8</small></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>A withdrawal to decide</span></span><small>412 calls taken out at the source's request</small></span>
+        <span><b>Advice calls, 2026</b><small>The same, from January on · grows each week</small></span><span class="n">14<small>cut 2 Nov</small></span><span>Call processing, Enterprise services</span><span class="n">0.84M</span><span class="n">96</span><span>Nothing yet<small>For Domain-Advice version 3</small></span><span class="kit-muted">—</span>
+        <span><b>January's training mix</b><small>What Core 4.2 was trained on</small></span><span class="n">3<small>cut 9 Jan</small></span><span>Curated by the foundation team</span><span class="n">310k</span><span class="n">19</span><span>Core, runs 6 and 7<small>Replayed at 20% in run 7</small></span><span class="kit-muted">—</span>
+        <span><b>Public tool-calling set</b><small>A public set for calling tools</small></span><span class="n">1<small>cut 30 Oct</small></span><span>Public · licence checked 30 Oct</span><span class="n">48k</span><span class="n">12</span><span>Core, run 7</span><span class="kit-muted">—</span>
+        <span><b>Brought back from self-healing</b><small>Examples from projects' own use, redacted before they arrive</small></span><span class="n">5<small>cut 4 Nov</small></span><span>4 features in 2 projects</span><span class="n">11.2k</span><span class="n">42</span><span>Core, run 7</span><span class="kit-muted">—</span>
+
+        <span class="sep">For evaluation · the TL Index</span>
+        <span><b>TL Index · Financial data and products</b><small>Questions with checked answers</small></span><span class="n">2026-11</span><span>Written by the team, with 3 business reviewers</span><span class="n">1,240</span><span class="n">0</span><span>Every edition since 2026-06</span><span>38 added for 2026-12</span>
+        <span><b>TL Index · Numbers and calculations</b><small>Worked problems with one right answer</small></span><span class="n">2026-11</span><span>Written by the team</span><span class="n">860</span><span class="n">15</span><span>Every edition since 2026-06</span><span>The weakest pillar for every model<small>64 added for 2026-12</small></span>
+        <span><b>TL Index · Client care, compliance, safety</b><small>Three pillars, one set</small></span><span class="n">2026-11</span><span>Written by the team, checked by Compliance</span><span class="n">1,710</span><span class="n">0</span><span>Every edition since 2026-06</span><span>24 added for 2026-12</span>
+        <span><b>Head to head · the pairs</b><small>Prompts shown to advisors and reviewers in blind pairs</small></span><span class="n">6</span><span>Drawn from advisors' own questions, redacted</span><span class="n">500</span><span class="n">0</span><span>The preference rating</span><span class="kit-muted">—</span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">An evaluation question is never used for training: the "too close to the TL Index" pipeline checks every training set against all four. Sets a project keeps for its own feature stay in that project.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2170}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

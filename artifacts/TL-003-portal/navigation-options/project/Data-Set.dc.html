@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Data · one data set: its versions, where it was used, and a withdrawal to decide</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.ds-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ds-h h3{margin:0;font-size:18px;font-weight:500}
+.ds-w{border-radius:22px;background:#fff;box-shadow:0 0 0 2px var(--warning);padding:18px 20px}
+.ds-w h3{margin:0;font-size:20px;font-weight:500}
+.ds-w p{margin:8px 0 0;font-size:13.5px;line-height:1.5}
+.ds-f{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.ds-fc{border-radius:16px;background:rgba(26,26,26,.04);padding:12px 14px;font-size:13px;line-height:1.45}
+.ds-fc b{display:block;font-weight:500;font-size:14px;margin-bottom:2px}
+.ds-fc small{display:block;font-size:12px;color:rgba(26,26,26,.65);margin-top:4px}
+.ds-fc.rec{background:color-mix(in oklab,var(--companion) 12%,white);box-shadow:0 0 0 1.5px var(--companion)}
+.ds-v{display:grid;grid-template-columns:84px 96px 110px minmax(0,1.3fr) minmax(0,1.2fr) 150px;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.ds-v>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ds-v .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.ds-v small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ds-v .n{font-variant-numeric:tabular-nums}
+.ds-l{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.ds-l>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.ds-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ds-l .s{padding-left:12px;text-align:right;font-size:12px;color:rgba(26,26,26,.7);white-space:nowrap}
+.ds-g text{font:12px Inter,system-ui,sans-serif;fill:#1A1A1A}
+.ds-g .sm{font-size:11px;fill:rgba(26,26,26,.65)}
+.ds-g rect{fill:#fff;stroke:rgba(26,26,26,.18)}
+.ds-g .wd{stroke:var(--warning);stroke-width:2;stroke-dasharray:5 4}
+.ds-g .fl{stroke:var(--warning);stroke-width:2}
+.ds-g path{fill:none;stroke:rgba(26,26,26,.45);stroke-width:1.5}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1560px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Models-Data.dc.html">Data <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Advice calls, 2025 <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Version 9 <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 780px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Advice calls, 2025</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">For training</span><span class="kit-chip">Version 9, cut 28 Oct</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">A withdrawal to decide</span></div>
+        <span class="kit-small kit-muted">Redacted transcripts of the year's advice calls, from Call processing in Enterprise services. Kept by Hana O. for the foundation team · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Data-Review.dc.html">Read rows</a><a class="kit-btn outline" href="#">Cut a new version</a><a class="kit-btn outline" href="#">Export the list of contents</a></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px">
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Examples, in version 9</span><span class="kit-display" style="font-size: 40px">1.9M</span><span class="kit-small kit-muted">1,899,588 · 412 fewer than version 8</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Set aside by reviews</span><span class="kit-display" style="font-size: 40px">4.1%</span><span class="kit-small kit-muted">Of what arrived · most for personal data</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Waiting for a review</span><span class="kit-display" style="font-size: 40px">0</span><span class="kit-small kit-muted">The year is closed; nothing new arrives</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Models trained on it</span><span class="kit-display" style="font-size: 40px">2</span><span class="kit-small kit-muted">Domain-Advice v1 and v2, both on version 8</span></div>
+      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Rows read, 30 days</span><span class="kit-display" style="font-size: 40px">63</span><span class="kit-small kit-muted">By 2 people of the team · each on the record</span></div>
+    </div>
+
+    <section class="ds-w" aria-label="A withdrawal to decide">
+      <div class="ds-h"><h3>A withdrawal to decide</h3><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Waits for Hana O., since 28 Oct</span></span></div>
+      <p>On 28 Oct, Call processing asked for 412 calls to be taken out of this set. Version 8 was withdrawn and version 9 was cut without them the same day, so nothing new will learn from those calls. One live model already has: <b style="font-weight: 600">Domain-Advice v2</b>, and Advisor desktop's own version of it. The 412 calls are 0.02% of what it was trained on.</p>
+      <div class="ds-f">
+        <div class="ds-fc rec"><b>Let version 3 replace it</b>Version 3 will be trained on version 9 and is due 21 Nov. Version 2 then ends on 19 Feb, after its 90 days.<small>The flag stays on version 2 until it ends.</small></div>
+        <div class="ds-fc"><b>Retrain version 2 now</b>A run of about 3 days on version 9, then every project's checks. Projects would be offered two new versions within a month.</div>
+        <div class="ds-fc"><b>Leave it, with a reason</b>Version 2 stays as it is and the flag stays on it. The reason is kept on the record for auditors.</div>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; align-items: center"><a class="kit-btn" href="#">Decide</a><span class="kit-small kit-muted">The foundation lead decides. The flag shows on the model's Built from page to the foundation team and auditors only. A retrained model is a new version, offered to projects in the usual way.</span></div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Versions">
+        <div class="ds-h"><h3>Versions</h3><span class="kit-small kit-muted">A version never changes once cut · the last three of nine</span></div>
+        <div class="ds-v">
+          <span class="h">Version</span><span class="h">Cut</span><span class="h">Examples</span><span class="h">What changed</span><span class="h">Used by</span><span class="h">State</span>
+          <span class="n">9</span><span>28 Oct</span><span class="n">1,899,588</span><span>412 calls taken out at the source's request</span><span>Nothing yet<small>Domain-Advice version 3, when released</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Current</span></span></span>
+          <span class="n">8</span><span>2 Jul</span><span class="n">1,900,000</span><span>The second quarter's calls added, after review</span><span>Domain-Advice v1 and v2<small>Both flagged</small></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Withdrawn 28 Oct</span></span></span>
+          <span class="n">7</span><span>4 Apr</span><span class="n">1,410,200</span><span>The first quarter's calls added</span><span>Nothing in service</span><span><span class="kit-status neutral"><span>Replaced</span></span></span>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn outline sm" href="#">Compare two versions</a><a class="kit-btn outline sm" href="#">All nine</a></div>
+      </section>
+
+      <section class="kit-surface" aria-label="Checks on version 9">
+        <div class="ds-h"><h3>Checks on version 9</h3><span class="kit-small kit-muted">Run when it was cut</span></div>
+        <div class="ds-l">
+          <span>Every example read by the personal-data pipeline</span><span class="s">Passed</span>
+          <span>Nothing too close to a TL Index question<small>Against all four evaluation sets</small></span><span class="s">Passed</span>
+          <span>No copies<small>0.3% removed as near-copies of another call</small></span><span class="s">Passed</span>
+          <span>Held out for checks while training</span><span class="s">2%, never trained on</span>
+        </div>
+      </section>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Where it went">
+        <div class="ds-h"><h3>Where it went</h3><span class="kit-small kit-muted">From this set to the models that learned from it · the dashed box is withdrawn, the orange outline is a flag</span></div>
+        <svg class="ds-g" viewBox="0 0 760 210" width="100%" role="img" aria-label="Version 8, now withdrawn, fed the runs that made Domain-Advice version 1 and version 2; version 2 is live in Advisor desktop, which also runs its own version of it; all three are flagged. Version 9 feeds the run for Domain-Advice version 3, which is planned." style="display: block; margin-top: 12px">
+          <rect class="wd" x="4" y="20" width="150" height="54" rx="12"></rect><text x="16" y="42">Version 8</text><text class="sm" x="16" y="60">Withdrawn 28 Oct</text>
+          <rect x="4" y="130" width="150" height="54" rx="12"></rect><text x="16" y="152">Version 9</text><text class="sm" x="16" y="170">Current</text>
+          <rect class="fl" x="210" y="20" width="160" height="54" rx="12"></rect><text x="222" y="42">Domain-Advice v2</text><text class="sm" x="222" y="60">Live · flagged</text>
+          <rect x="210" y="130" width="160" height="54" rx="12"></rect><text x="222" y="152">Domain-Advice v3</text><text class="sm" x="222" y="170">Planned · due 21 Nov</text>
+          <rect class="fl" x="426" y="20" width="160" height="54" rx="12"></rect><text x="438" y="42">Advisor desktop's own</text><text class="sm" x="438" y="60">Built on v2 · flagged</text>
+          <rect x="626" y="20" width="130" height="54" rx="12"></rect><text x="638" y="42">Call summary</text><text class="sm" x="638" y="60">26k requests today</text>
+          <path d="M154 47H210"></path><path d="M154 157H210"></path><path d="M370 47H426"></path><path d="M586 47H626"></path>
+        </svg>
+        <div class="kit-small kit-muted" style="margin-top: 8px">Domain-Advice v1, also trained on version 8, is replaced and ends on 3 Jan; it carries the same flag. The same graph, without the flags and the data sets, is what everyone sees on a model's Built from page.</div>
+      </section>
+
+      <section class="kit-surface" aria-label="How it is kept">
+        <div class="ds-h"><h3>How it is kept</h3></div>
+        <div class="ds-l">
+          <span>Where it may go<small>It stays inside the Enterprise. No copy to a project or outside</small></span><span class="s">Inside only</span>
+          <span>How long it is kept<small>By the Enterprise's records policy · to be confirmed</small></span><span class="s">Not set yet</span>
+          <span>Who can read rows<small>The foundation team and the reviewers it names · each opening recorded</small></span><span class="s">7 people</span>
+          <span>What can be exported<small>The list of contents: names, counts, versions and checks. Never a row</small></span><span class="s">List only</span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1560}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
