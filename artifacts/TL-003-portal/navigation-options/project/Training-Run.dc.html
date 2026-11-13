@@ -49,7 +49,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .fl .ar{flex:0 0 34px;display:flex;align-items:center;justify-content:center;color:rgba(26,26,26,.5);font-size:18px}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2066px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2104px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -83,10 +83,10 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
         <span class="kit-label">Training · a run</span>
         <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Shaping trial · 20% taken out</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">Stopped at stage 3's check · 12 Nov</span><span class="kit-chip">Recipe: a base, from a new open model · version 3 · stages 1 to 3</span><span class="kit-chip">On the current Gemma base</span><span class="kit-chip brand">Foundation team only</span></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">Stopped at stage 3's check · 4 Nov</span><span class="kit-chip" style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px">core-shaping20-20261103-a</span><span class="kit-chip">Recipe: a base, from a new open model · version 3 · stages 1 to 3</span><span class="kit-chip">On the current Gemma base</span><span class="kit-chip brand">Foundation team only</span></div>
         <span class="kit-small kit-muted">One run of a recipe, with its stages inside. A stage starts only when the check before it has passed. When a check fails the run stops, and the foundation lead decides what happens next. Nobody outside this team sees a run · Started by Arjun K. · As of 11:58 ET · sample data</span>
       </div>
-      <div class="kit-actions"><a class="kit-btn" href="#next">Decide what happens next</a><a class="kit-btn outline" href="Training-Runs.dc.html">Compare with the 10% trial</a><a class="kit-btn outline" href="#">Open the log</a></div>
+      <div class="kit-actions"><a class="kit-btn" href="#next">Decide what happens next</a><a class="kit-btn outline" href="Training-Runs.dc.html">Compare with the 10% trial</a><a class="kit-btn outline" href="Training-Files.dc.html">Its files</a></div>
     </div>
 
     <div class="kit-tabs" role="tablist" aria-label="Models pages">
@@ -98,20 +98,20 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div class="row4">
         <div class="sg">
           <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">1</span><b>Adjust the full base</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Reused</span></span></div>
-          <span>The adjusted base from the 5% trial of 30 Oct was used again. Its check passed then, so the stage was not repeated.</span>
+          <span>The adjusted base from the 5% trial of 14 Oct was used again. Its check passed then, so the stage was not repeated.</span>
           <small>0 hours here</small>
         </div>
         <span class="aw" aria-hidden="true">→</span>
         <div class="sg">
           <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">2</span><b>Prune</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span></div>
           <span>20% taken out, width only. 10 shapes tried, the best kept. On the slice it scored 71 against 84 before the cut, which is expected at this point.</span>
-          <small>11 Nov, 02:10 to 04:05 · 8 GPUs</small>
+          <small>3 Nov, 02:10 to 04:05 · 8 GPUs</small>
         </div>
         <span class="aw" aria-hidden="true">→</span>
         <div class="sg bad">
           <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">3</span><b>Distil back</b></span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stopped at its check</span></span></div>
           <span>Trained for the full 30 hours. Two pillars are still further below the adjusted full base than the 2 points allowed.</span>
-          <small>11 Nov, 04:10 to 12 Nov, 10:20 · 16 GPUs</small>
+          <small>3 Nov, 04:10 to 4 Nov, 10:20 · 16 GPUs</small>
         </div>
         <span class="aw" aria-hidden="true">→</span>
         <div class="sg wt">
@@ -146,15 +146,15 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 
     <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; align-items: start">
       <section class="kit-surface" aria-label="Stage 3's checkpoints">
-        <div class="da-h"><h3>Stage 3's checkpoints</h3><a href="#">Score another on the whole Index</a></div>
+        <div class="da-h"><h3>Stage 3's checkpoints</h3><span class="kit-small kit-muted">Two are kept for each stage: the best and the last</span></div>
         <div class="cp">
           <span class="h">Step</span><span class="h">Loss on held-out text</span><span class="h">Quick check, 200 questions</span><span class="h"></span>
-          <span class="n">2,000</span><span class="n">2.31</span><span class="n">71</span><span class="kit-muted">Removed after 30 days</span>
-          <span class="n">4,000</span><span class="n">2.12</span><span class="n">76</span><span class="kit-muted">Removed after 30 days</span>
-          <span class="n">6,000</span><span class="n">2.03</span><span class="n">79</span><span class="kit-muted">Removed after 30 days</span>
-          <span class="n">8,000</span><span class="n">1.98</span><span class="n">80</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Proposed</span></span> The best so far, and still getting better. Scored on the whole Index: the table of this page.</span>
+          <span class="n">2,000</span><span class="n">2.31</span><span class="n">71</span><span class="kit-muted">Not kept · its numbers stay</span>
+          <span class="n">4,000</span><span class="n">2.12</span><span class="n">76</span><span class="kit-muted">Not kept · its numbers stay</span>
+          <span class="n">6,000</span><span class="n">2.03</span><span class="n">79</span><span class="kit-muted">Not kept · its numbers stay</span>
+          <span class="n">8,000</span><span class="n">1.98</span><span class="n">80</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Kept · proposed</span></span> Both the best and the last this time. Scored on the whole Index: the table of this page.</span>
         </div>
-        <div class="kit-small kit-muted" style="margin-top: 10px">The portal proposes the checkpoint that does best on the stage's check; the foundation lead confirms it before anything is built on it. The proposed checkpoint and each stage's last are kept; the others go after 30 days.</div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">While a stage trains, a checkpoint that beats the best is written to the run's folder on S3, and the last is written on a timer. Nothing else is kept. The portal proposes the best; the foundation lead confirms it before anything is built on it.</div>
       </section>
       <section class="kit-surface" aria-label="What it used">
         <div class="da-h"><h3>What it used</h3></div>
@@ -163,6 +163,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <dt>Mixes</dt><dd><a href="Data-Mix.dc.html">Shaping · calibration</a>, version 1 · 1,024 items<br>Shaping · the Enterprise's text, version 1 · 3.0M documents</dd>
           <dt>Method</dt><dd>FastNAS, width only · 10 shapes tried</dd>
           <dt>Machines</dt><dd>32 hours · 8 GPUs, then 16 · <span class="kit-num">$[cost]</span></dd>
+          <dt>Where it lives</dt><dd><a href="Training-Files.dc.html">Its folder on S3</a> · kept for 180 days after the run ends</dd>
           <dt>LM safety and cyber attack data</dt><dd>None in these mixes</dd>
         </dl>
       </section>
@@ -172,16 +173,17 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div class="da-h"><h3>From a run to a release</h3><span class="kit-small kit-muted">The same path for every run · a dashed box has not happened</span></div>
       <div class="fl">
         <div class="bx"><b>Every stage's check passed</b><small>Here: stage 3's did not</small></div><span class="ar" aria-hidden="true">→</span>
-        <div class="bx nx"><b>The lead confirms the checkpoint</b><small>The one the portal proposes, or another</small></div><span class="ar" aria-hidden="true">→</span>
-        <a class="bx nx" href="Model-Training.dc.html" style="color: inherit; text-decoration: none"><b>Release checks</b><small>The whole TL Index, then every project's own checks</small></a><span class="ar" aria-hidden="true">→</span>
-        <div class="bx nx"><b>Released and offered</b><small>Each project plans its switch</small></div>
+        <a class="bx nx" href="Model-Training.dc.html" style="color: inherit; text-decoration: none"><b>The whole TL Index is run</b><small>And the foundation lead confirms it works</small></a><span class="ar" aria-hidden="true">→</span>
+        <div class="bx nx"><b>Released</b><small>Copied to the released models, with its record</small></div><span class="ar" aria-hidden="true">→</span>
+        <div class="bx nx"><b>Projects are told</b><small>The portal runs each project's own evaluation for it</small></div><span class="ar" aria-hidden="true">→</span>
+        <div class="bx nx"><b>Each project decides</b><small>A switch travels as an increment</small></div>
       </div>
       <div class="kit-small kit-muted" style="margin-top: 10px">A shaping trial never reaches a release on its own: a shaped base goes on to stages 4 to 7 first. This run cannot go forward until its check passes.</div>
     </section>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2066}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2104}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

@@ -65,7 +65,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .lk svg{width:15px;height:15px;flex:none}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 4084px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2638px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -107,12 +107,12 @@ a{color:#1B5128}a:hover{color:#0C3F09}
     </div>
 
     <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
-      <span class="sub" role="group" aria-label="Data pages"><a aria-current="page" href="Models-Data.dc.html">What we hold</a><a href="Data-Tagging.dc.html">Tags and reviews</a><a href="Data-Mix.dc.html">Mixes</a></span>
+      <span class="sub" role="group" aria-label="Data pages"><a aria-current="page" href="Models-Data.dc.html">What we hold</a><a href="Data-Sets.dc.html">Data sets</a><a href="Data-Tagging.dc.html">Tags and reviews</a><a href="Data-Mix.dc.html">Mixes</a></span>
       <span class="kit-small kit-muted lk" style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg> Shown only to the foundation team and the reviewers it names, by IAM. Nobody else sees this tab, or a row of any data set anywhere in the portal.</span>
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px">
-      <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Held for training</span><span class="kit-display" style="font-size: 36px">7.4M</span><span class="kit-small kit-muted">Items in the 12 training sets, after reviews</span></div>
+      <a class="kit-surface" href="Data-Sets.dc.html" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Held for training</span><span class="kit-display" style="font-size: 36px">7.4M</span><span class="kit-small kit-muted">Items in the 12 training sets, after reviews</span></a>
       <a class="kit-surface" href="Data-Tagging.dc.html" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Tagged with a pillar</span><span class="kit-display" style="font-size: 36px">96%</span><span class="kit-small kit-muted">0.3M the pillar pipeline was not sure of</span></a>
       <a class="kit-surface" href="Data-Tagging.dc.html" style="display: flex; flex-direction: column; gap: 6px; color: inherit; text-decoration: none"><span class="kit-caption">Tags found right</span><span class="kit-display" style="font-size: 36px">93%</span><span class="kit-small kit-muted">By people, on this month's sample of 1,200 items</span></a>
       <div class="kit-surface" style="display: flex; flex-direction: column; gap: 6px"><span class="kit-caption">Tasks with a check</span><span class="kit-display" style="font-size: 36px">9.6k</span><span class="kit-small kit-muted">In 4 sets, for reinforcement learning</span></div>
@@ -180,34 +180,6 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       </section>
     </div>
 
-    <section class="kit-surface raised" aria-label="The data sets">
-      <div class="da-h"><h3>The data sets</h3><span class="kit-small kit-muted">A version never changes once it is cut · tags are kept per item and summed here · a row opens the set, its versions and where it went</span></div>
-      <div class="dr">
-        <span class="h">Data set</span><span class="h">Can train</span><span class="h">Category</span><span class="h">TL Index pillars</span><span class="h">From, and what it may be used for</span><span class="h">Items</span><span class="h">To review</span>
-
-        <span class="sep">For training</span>
-        <span><a href="Data-Set.dc.html" style="color: inherit"><b>Advice calls, 2025</b></a><small>Redacted transcripts, with the summary the advisor kept · version 9</small><span class="kit-status warning" style="margin-top: 4px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>A withdrawal to decide</span></span></span><span><span class="tg u">Plain text</span><span class="tg u">Examples</span></span><span><span class="tg c">Financial</span></span><span>Client care · Financial data processing</span><span>Call processing, Enterprise services<small>May train ThinkLatent's models · stays inside</small></span><span class="n">1.9M</span><span class="n">0</span>
-        <span><b>Advice calls, 2026</b><small>The same, from January on · grows each week · version 14</small></span><span><span class="tg u">Plain text</span><span class="tg u">Examples</span></span><span><span class="tg c">Financial</span></span><span>Client care · Financial data processing</span><span>Call processing, Enterprise services<small>May train ThinkLatent's models · stays inside</small></span><span class="n">0.84M</span><span class="n">96</span>
-        <span><b>January's training mix</b><small>What Core 4.2 was trained on · version 3</small></span><span><span class="tg u">Examples</span></span><span><span class="tg c">General</span><span class="tg c">Financial</span></span><span>Mixed</span><span>Curated by the foundation team<small>May train ThinkLatent's models</small></span><span class="n">310k</span><span class="n">19</span>
-        <span><b>Public tool-calling set</b><small>A public set for calling tools · version 1</small></span><span><span class="tg u">Examples</span></span><span><span class="tg c">General</span></span><span>Tool use · not live yet</span><span>Public<small>Licence checked 30 Oct · training allowed</small></span><span class="n">48k</span><span class="n">12</span>
-        <span><b>Brought back from self-healing</b><small>Examples from projects' own use, redacted before they arrive · version 5</small></span><span><span class="tg u">Examples</span><span class="tg u">Pairs by people</span></span><span><span class="tg c">Financial</span></span><span>By the gap each closes</span><span>4 features in 2 projects<small>May train the shared model · read by this team only</small></span><span class="n">11.2k</span><span class="n">42</span>
-        <span><b>Advisors' edits and votes</b><small>A draft and the advisor's edit, or a thumb up or down · version 2</small></span><span><span class="tg u">Pairs by people</span><span class="tg u">Examples</span></span><span><span class="tg c">Financial</span></span><span>Client care</span><span>3 features, sent back by their applications<small>May train ThinkLatent's models</small></span><span class="n">26k</span><span class="n">0</span>
-        <span><b>Pairs picked by the training judge</b><small>Two answers from Core 4.2, and which the judge preferred · version 1</small></span><span><span class="tg u">Pairs by a judge</span></span><span><span class="tg c">Financial</span><span class="tg c">General</span></span><span>Client care · Financial data processing</span><span>Made here<small>Judge: summaries for training, version 1</small></span><span class="n">140k</span><span class="n">30</span>
-        <span><b>Core 4.2's answers, for Distil</b><small>Prompts with the larger model's answer · version 4</small></span><span><span class="tg u">Teacher answers</span></span><span><span class="tg c">General</span><span class="tg c">Financial</span></span><span>Mixed</span><span>Made here<small>Teacher: Core 4.2, our own, no limit on use</small></span><span class="n">1.4M</span><span class="n">0</span>
-        <span><b>Public filings and fund documents</b><small>Documents as published · version 2</small></span><span><span class="tg u">Plain text</span></span><span><span class="tg c">Financial</span></span><span>Financial data processing</span><span>Public<small>Public record · training allowed</small></span><span class="n">2.6M</span><span class="n">0</span>
-        <span><b>Rules and the Enterprise's policies</b><small>38k documents and 12k questions checked by Compliance · version 6</small></span><span><span class="tg u">Plain text</span><span class="tg u">Examples</span></span><span><span class="tg c">Regulatory</span></span><span>Compliance and regulatory</span><span>Compliance<small>Policy as of 1 Oct · older answers set aside</small></span><span class="n">50k</span><span class="n">0</span>
-        <span><b>Safety prompts with the right response</b><small>What to refuse and how to answer instead · version 3</small></span><span><span class="tg u">Examples</span><span class="tg u">Classifier labels</span></span><span><span class="tg c">LM safety</span></span><span>Safety and grounding</span><span>Written by the team, with public sets<small>May train ThinkLatent's models</small></span><span class="n">21k</span><span class="n">28</span>
-        <span><b>Attack prompts and traffic</b><small>Attempts to turn a model against its instructions · version 2</small></span><span><span class="tg u">Classifier labels</span><span class="tg u">Examples</span></span><span><span class="tg c">Cyber attack</span></span><span>Threat resilience · not live yet</span><span>The guardrail's catches, with public sets<small>May train ThinkLatent's models</small></span><span class="n">64k</span><span class="n">55</span>
-
-        <span class="sep">For evaluation · the TL Index</span>
-        <span><b>TL Index · Financial data and products</b><small>Questions with checked answers · edition 2026-11</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span></span><span>Financial data processing</span><span>Written by the team, with 3 business reviewers</span><span class="n">1,240</span><span class="n">0</span>
-        <span><b>TL Index · Numbers and calculations</b><small>Worked problems with one right answer · edition 2026-11</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span></span><span>Financial data processing, one part</span><span>Written by the team</span><span class="n">860</span><span class="n">15</span>
-        <span><b>TL Index · Client care, compliance, safety</b><small>Three pillars, one set · edition 2026-11</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span><span class="tg c">Regulatory</span><span class="tg c">LM safety</span></span><span>Client care · Compliance and regulatory · Safety and grounding</span><span>Written by the team, checked by Compliance</span><span class="n">1,710</span><span class="n">0</span>
-        <span><b>Head to head · the pairs</b><small>Prompts shown to advisors and reviewers in blind pairs · version 6</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span></span><span>Client care</span><span>Drawn from advisors' own questions, redacted</span><span class="n">500</span><span class="n">0</span>
-      </div>
-      <div class="kit-small kit-muted" style="margin-top: 12px">An evaluation question is never used for training: the graph refuses a mix that holds one, and the "too close to the TL Index" pipeline checks every training set against all four. Sets a project keeps for its own feature stay in that project.</div>
-    </section>
-
     <section class="kit-surface" aria-label="Tasks, checks and judges">
       <div class="da-h"><h3>Tasks, checks and judges</h3><span class="kit-small kit-muted">Not every kind of training learns from rows. These are tagged, versioned and mixed in the same way</span></div>
       <div class="sh">
@@ -223,7 +195,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div class="r"><span>Summaries, for training · version 1<small>Agrees with people on 90 of 100 · picked the 140k pairs</small></span><span class="kit-status good" style="justify-content: flex-end"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div>
           <div class="r"><span>Grounded in the source, for training<small>Agrees with people on 88 of 100</small></span><span class="kit-status good" style="justify-content: flex-end"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></div>
           <div class="r"><span>Tone and care<small>Not measured yet: its first 200 picks are with reviewers</small></span><span class="kit-status info" style="justify-content: flex-end"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Silent</span></span></div>
-          <div class="kit-small kit-muted" style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(26,26,26,.1)">A judge that helps train a model never scores it. The TL Index's standard judge is kept apart, and the graph refuses a recipe that names it.</div>
+          <div class="kit-small kit-muted" style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(26,26,26,.1)">A judge used in training may also score a model on the TL Index.</div>
         </div>
         <div>
           <h4>Reward models</h4><span class="kit-small kit-muted">A small model that scores an answer the way people would</span>
@@ -260,7 +232,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4084}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2638}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Models and agents · Data · the data sets, with their tags, source and rights</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.da-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.da-h h3{margin:0;font-size:18px;font-weight:500}
+.sub{display:inline-flex;gap:4px;padding:3px;border-radius:999px;border:1px solid var(--hairline);background:rgba(255,255,255,.5);align-self:flex-start}
+.sub a{height:28px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:500;color:var(--secondary);display:inline-flex;align-items:center;text-decoration:none}
+.sub a[aria-current="page"]{background:var(--ink);color:var(--canvas)}
+.tg{display:inline-flex;align-items:center;height:21px;padding:0 8px;border-radius:999px;font-size:11.5px;font-weight:500;background:rgba(26,26,26,.07);margin:0 4px 4px 0;white-space:nowrap}
+.tg.u{background:transparent;box-shadow:inset 0 0 0 1px rgba(26,26,26,.45)}
+.tg.c{background:rgba(47,122,109,.15)}
+.tg.e{background:transparent;border:1px dashed rgba(26,26,26,.45)}
+.dm{display:grid;grid-template-columns:minmax(0,1.75fr) repeat(5,minmax(0,1fr)) 92px;gap:6px;margin-top:14px;font-size:13px;line-height:1.35}
+.dm .h{font-size:11.5px;color:rgba(26,26,26,.6);padding:0 4px 2px;align-self:end}
+.dm .l{padding:6px 10px 6px 0;display:flex;flex-direction:column;justify-content:center}
+.dm .l b{font-weight:500;font-size:14px}
+.dm .l small{font-size:12px;color:rgba(26,26,26,.65)}
+.dm .c{border-radius:12px;padding:7px 12px;display:flex;flex-direction:column;justify-content:center;gap:1px;min-height:50px;font-variant-numeric:tabular-nums;font-size:15px}
+.dm .c small{font-size:11.5px;color:rgba(26,26,26,.75);display:flex;align-items:center;gap:4px}
+.dm .c small svg{width:12px;height:12px;color:var(--decision)}
+.dm .l1{background:rgba(26,26,26,.04)}.dm .l2{background:rgba(26,26,26,.085)}.dm .l3{background:rgba(26,26,26,.15)}.dm .l4{background:rgba(26,26,26,.24)}
+.dm .n0{box-shadow:inset 0 0 0 1px rgba(26,26,26,.08);color:rgba(26,26,26,.45)}
+.dm .th{box-shadow:inset 0 0 0 1.5px var(--decision)}
+.dm .t{display:flex;align-items:center;justify-content:flex-end;font-weight:500;font-variant-numeric:tabular-nums;font-size:14px}
+.dp{display:grid;grid-template-columns:minmax(0,1.25fr) 64px minmax(0,.9fr) 70px minmax(0,1.7fr);font-size:13px;line-height:1.4;margin-top:10px;align-items:stretch}
+.dp>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;display:flex;align-items:center}
+.dp .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.dp .n{font-variant-numeric:tabular-nums}
+.dp .bar{display:block;height:8px;border-radius:4px;background:rgba(26,26,26,.55)}
+.dp .bw{width:100%;background:rgba(26,26,26,.07);border-radius:4px;height:8px}
+.th3{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.th3>div{border-radius:16px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 14px;font-size:13px;line-height:1.45;display:flex;flex-direction:column;gap:6px}
+.th3 b{font-weight:500;font-size:14px}
+.dr{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.05fr) minmax(0,.72fr) minmax(0,1fr) minmax(0,1.25fr) 68px 62px;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.dr>*{padding:10px 12px 8px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.dr .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.dr .sep{grid-column:1/-1;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.6);padding-top:14px}
+.dr b{font-weight:500;font-size:14px}
+.dr small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.dr .n{font-variant-numeric:tabular-nums}
+.sh{display:grid;grid-template-columns:1.25fr 1fr .8fr;gap:12px;margin-top:12px}
+.sh>div{border-radius:18px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px;font-size:13px;line-height:1.45}
+.sh h4{margin:0 0 4px;font-size:15px;font-weight:500}
+.sh .r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.sh .r small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.sh .r .n{font-variant-numeric:tabular-nums;text-align:right}
+.da-banner{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:center;border-radius:20px;padding:12px 16px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1.5px #1A1A1A;font-size:13.5px;line-height:1.45}
+.da-banner svg{width:19px;height:19px}
+.gk{display:grid;grid-template-columns:120px minmax(0,1fr);gap:6px 14px;font-size:13px;line-height:1.45;margin-top:10px}
+.gk dt{color:rgba(26,26,26,.6)}.gk dd{margin:0}
+.lk svg{width:15px;height:15px;flex:none}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1869px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Models-Data.dc.html">Data <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Data sets <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Data sets</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Foundation team only</span><span class="kit-chip">16 data sets · 12 for training, 4 for evaluation</span><span class="kit-chip">7.4M items held for training</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px var(--decision)">1 withdrawal to decide</span></div>
+        <span class="kit-small kit-muted">Every data set the foundation team keeps, with the tags its items carry, where it came from and what it may be used for. A version never changes once it is cut; new data arrives as a new version · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Add a source</a><a class="kit-btn outline" href="Data-Mix.dc.html">Build a mix</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Models pages">
+      <a role="tab" aria-selected="false" href="Model-Catalogue.dc.html">Catalogue</a><a role="tab" aria-selected="false" href="Agents-Library.dc.html">Agents</a><a role="tab" aria-selected="false" href="Index-Leaderboards.dc.html">Leaderboards by kind</a><a role="tab" aria-selected="false" href="Prompt-Library.dc.html">Prompts</a><a role="tab" aria-selected="true" href="Models-Data.dc.html">Data</a><a role="tab" aria-selected="false" href="Models-Training.dc.html">Training</a><button role="tab" aria-selected="false" type="button">New and coming</button><button role="tab" aria-selected="false" type="button">Compare</button><button role="tab" aria-selected="false" type="button">Outside models</button><button role="tab" aria-selected="false" type="button">Retired</button>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+      <span class="sub" role="group" aria-label="Data pages"><a href="Models-Data.dc.html">What we hold</a><a aria-current="page" href="Data-Sets.dc.html">Data sets</a><a href="Data-Tagging.dc.html">Tags and reviews</a><a href="Data-Mix.dc.html">Mixes</a></span>
+      <span class="kit-seg" role="group" aria-label="Which sets"><button type="button" aria-pressed="true">All 16</button><button type="button" aria-pressed="false">For training 12</button><button type="button" aria-pressed="false">For evaluation 4</button></span>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The data sets">
+      <div class="da-h"><h3>The data sets</h3><span class="kit-small kit-muted">A version never changes once it is cut · tags are kept per item and summed here · a row opens the set, its versions and where it went</span></div>
+      <div class="dr">
+        <span class="h">Data set</span><span class="h">Can train</span><span class="h">Category</span><span class="h">TL Index pillars</span><span class="h">From, and what it may be used for</span><span class="h">Items</span><span class="h">To review</span>
+
+        <span class="sep">For training</span>
+        <span><a href="Data-Set.dc.html" style="color: inherit"><b>Advice calls, 2025</b></a><small>Redacted transcripts, with the summary the advisor kept · version 9</small><span class="kit-status warning" style="margin-top: 4px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>A withdrawal to decide</span></span></span><span><span class="tg u">Plain text</span><span class="tg u">Examples</span></span><span><span class="tg c">Financial</span></span><span>Client care · Financial data processing</span><span>Call processing, Enterprise services<small>May train ThinkLatent's models · stays inside</small></span><span class="n">1.9M</span><span class="n">0</span>
+        <span><b>Advice calls, 2026</b><small>The same, from January on · grows each week · version 14</small></span><span><span class="tg u">Plain text</span><span class="tg u">Examples</span></span><span><span class="tg c">Financial</span></span><span>Client care · Financial data processing</span><span>Call processing, Enterprise services<small>May train ThinkLatent's models · stays inside</small></span><span class="n">0.84M</span><span class="n">96</span>
+        <span><b>January's training mix</b><small>What Core 4.2 was trained on · version 3</small></span><span><span class="tg u">Examples</span></span><span><span class="tg c">General</span><span class="tg c">Financial</span></span><span>Mixed</span><span>Curated by the foundation team<small>May train ThinkLatent's models</small></span><span class="n">310k</span><span class="n">19</span>
+        <span><b>Public tool-calling set</b><small>A public set for calling tools · version 1</small></span><span><span class="tg u">Examples</span></span><span><span class="tg c">General</span></span><span>Tool use · not live yet</span><span>Public<small>Licence checked 30 Oct · training allowed</small></span><span class="n">48k</span><span class="n">12</span>
+        <span><b>Brought back from self-healing</b><small>Examples from projects' own use, redacted before they arrive · version 5</small></span><span><span class="tg u">Examples</span><span class="tg u">Pairs by people</span></span><span><span class="tg c">Financial</span></span><span>By the gap each closes</span><span>4 features in 2 projects<small>May train the shared model · read by this team only</small></span><span class="n">11.2k</span><span class="n">42</span>
+        <span><b>Advisors' edits and votes</b><small>A draft and the advisor's edit, or a thumb up or down · version 2</small></span><span><span class="tg u">Pairs by people</span><span class="tg u">Examples</span></span><span><span class="tg c">Financial</span></span><span>Client care</span><span>3 features, sent back by their applications<small>May train ThinkLatent's models</small></span><span class="n">26k</span><span class="n">0</span>
+        <span><b>Pairs picked by the training judge</b><small>Two answers from Core 4.2, and which the judge preferred · version 1</small></span><span><span class="tg u">Pairs by a judge</span></span><span><span class="tg c">Financial</span><span class="tg c">General</span></span><span>Client care · Financial data processing</span><span>Made here<small>Judge: summaries for training, version 1</small></span><span class="n">140k</span><span class="n">30</span>
+        <span><b>Core 4.2's answers, for Distil</b><small>Prompts with the larger model's answer · version 4</small></span><span><span class="tg u">Teacher answers</span></span><span><span class="tg c">General</span><span class="tg c">Financial</span></span><span>Mixed</span><span>Made here<small>Teacher: Core 4.2, our own, no limit on use</small></span><span class="n">1.4M</span><span class="n">0</span>
+        <span><b>Public filings and fund documents</b><small>Documents as published · version 2</small></span><span><span class="tg u">Plain text</span></span><span><span class="tg c">Financial</span></span><span>Financial data processing</span><span>Public<small>Public record · training allowed</small></span><span class="n">2.6M</span><span class="n">0</span>
+        <span><b>Rules and the Enterprise's policies</b><small>38k documents and 12k questions checked by Compliance · version 6</small></span><span><span class="tg u">Plain text</span><span class="tg u">Examples</span></span><span><span class="tg c">Regulatory</span></span><span>Compliance and regulatory</span><span>Compliance<small>Policy as of 1 Oct · older answers set aside</small></span><span class="n">50k</span><span class="n">0</span>
+        <span><b>Safety prompts with the right response</b><small>What to refuse and how to answer instead · version 3</small></span><span><span class="tg u">Examples</span><span class="tg u">Classifier labels</span></span><span><span class="tg c">LM safety</span></span><span>Safety and grounding</span><span>Written by the team, with public sets<small>May train ThinkLatent's models</small></span><span class="n">21k</span><span class="n">28</span>
+        <span><b>Attack prompts and traffic</b><small>Attempts to turn a model against its instructions · version 2</small></span><span><span class="tg u">Classifier labels</span><span class="tg u">Examples</span></span><span><span class="tg c">Cyber attack</span></span><span>Threat resilience · not live yet</span><span>The guardrail's catches, with public sets<small>May train ThinkLatent's models</small></span><span class="n">64k</span><span class="n">55</span>
+
+        <span class="sep">For evaluation · the TL Index</span>
+        <span><b>TL Index · Financial data and products</b><small>Questions with checked answers · edition 2026-11</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span></span><span>Financial data processing</span><span>Written by the team, with 3 business reviewers</span><span class="n">1,240</span><span class="n">0</span>
+        <span><b>TL Index · Numbers and calculations</b><small>Worked problems with one right answer · edition 2026-11</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span></span><span>Financial data processing, one part</span><span>Written by the team</span><span class="n">860</span><span class="n">15</span>
+        <span><b>TL Index · Client care, compliance, safety</b><small>Three pillars, one set · edition 2026-11</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span><span class="tg c">Regulatory</span><span class="tg c">LM safety</span></span><span>Client care · Compliance and regulatory · Safety and grounding</span><span>Written by the team, checked by Compliance</span><span class="n">1,710</span><span class="n">0</span>
+        <span><b>Head to head · the pairs</b><small>Prompts shown to advisors and reviewers in blind pairs · version 6</small></span><span><span class="tg e">Evaluation only</span></span><span><span class="tg c">Financial</span></span><span>Client care</span><span>Drawn from advisors' own questions, redacted</span><span class="n">500</span><span class="n">0</span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">An evaluation question is never used for training: the graph refuses a mix that holds one, and the "too close to the TL Index" pipeline checks every training set against all four. Sets a project keeps for its own feature stay in that project.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1869}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

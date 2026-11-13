@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Models and agents · Training · a run's files: the four places, the folder for its run id, how it moved, what is kept</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.da-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.da-h h3{margin:0;font-size:18px;font-weight:500}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+.fl{display:flex;align-items:stretch;margin-top:14px}
+.fl .bx{flex:1 1 0;border-radius:16px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.45;min-width:0;display:flex;flex-direction:column;gap:4px}
+.fl .bx b{font-weight:500;font-size:14px}
+.fl .bx small{font-size:12px;color:rgba(26,26,26,.65)}
+.fl .bx.me{box-shadow:0 0 0 2px #1A1A1A}
+.fl .bx.nx{background:transparent;box-shadow:none;border:1.5px dashed rgba(26,26,26,.35)}
+.fl .ar{flex:0 0 34px;display:flex;align-items:center;justify-content:center;color:rgba(26,26,26,.5);font-size:18px}
+.tr{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.9fr) 150px 84px;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.tr>*{padding:8px 12px 8px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.tr .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.tr .p{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;white-space:pre}
+.tr .n{font-variant-numeric:tabular-nums;text-align:right}
+.tr .em{color:rgba(26,26,26,.5)}
+.tl{display:grid;grid-template-columns:128px minmax(0,1fr) minmax(0,1.1fr);font-size:13px;line-height:1.45;margin-top:10px}
+.tl>*{padding:8px 12px 8px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.tl .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.tl .n{font-variant-numeric:tabular-nums;color:rgba(26,26,26,.65)}
+.kp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);font-size:13px;line-height:1.45;margin-top:10px}
+.kp>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2131px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search models, projects, ids" aria-label="Search"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Models-Training.dc.html">Training <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Training-Run.dc.html">Shaping trial · 20% <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Its files <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 820px">
+        <span class="kit-label">Training · a run's files</span>
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Shaping trial · 20% taken out</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip mono">core-shaping20-20261103-a</span><span class="kit-chip">89 GB in 1,240 files on S3</span><span class="kit-chip">A working copy is on FSx until the run ends</span><span class="kit-chip">Kept 180 days after it ends</span><span class="kit-chip brand">Foundation team only</span></div>
+        <span class="kit-small kit-muted">Everything this run was asked to do, what it read and what it made, under one run id. The id is the model, what the run is for and the day it started. The folder holds lists that point to data, never the rows · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="#">Copy the folder's path</a><a class="kit-btn outline" href="Training-Run.dc.html">Back to the run</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Models pages">
+      <a role="tab" aria-selected="false" href="Model-Catalogue.dc.html">Catalogue</a><a role="tab" aria-selected="false" href="Agents-Library.dc.html">Agents</a><a role="tab" aria-selected="false" href="Index-Leaderboards.dc.html">Leaderboards by kind</a><a role="tab" aria-selected="false" href="Prompt-Library.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Models-Data.dc.html">Data</a><a role="tab" aria-selected="true" href="Models-Training.dc.html">Training</a><button role="tab" aria-selected="false" type="button">New and coming</button><button role="tab" aria-selected="false" type="button">Compare</button><button role="tab" aria-selected="false" type="button">Outside models</button><button role="tab" aria-selected="false" type="button">Retired</button>
+    </div>
+
+    <section class="kit-surface" aria-label="The four places">
+      <div class="da-h"><h3>The four places</h3><span class="kit-small kit-muted">The same for every run · a dashed box has not been reached</span></div>
+      <div class="fl">
+        <a class="bx" href="Data-Sets.dc.html" style="color: inherit; text-decoration: none"><b>The training store</b><span>Every data set, as versions that never change once cut.</span><small>S3 · this run reads 2 mixes from it</small></a><span class="ar" aria-hidden="true">→</span>
+        <div class="bx"><b>The working area</b><span>The fast copy the job trains from, taken once at the start, and its restart checkpoints.</span><small>FSx on the cluster · 1.9 TB now · cleared when the run ends</small></div><span class="ar" aria-hidden="true">→</span>
+        <div class="bx me"><b>This run's folder</b><span>What it was asked to do, what it read, what it made. Two checkpoints for each stage: the best and the last.</span><small>S3, the runs bucket · this page</small></div><span class="ar" aria-hidden="true">→</span>
+        <div class="bx nx"><b>The released models</b><span>What serving loads, with the small record of the run that made it.</span><small>S3 · only after the TL Index confirms the model works</small></div>
+      </div>
+    </section>
+
+    <section class="kit-surface raised" aria-label="This run's folder">
+      <div class="da-h"><h3>This run's folder</h3><span class="kit-small kit-muted mono">runs/core-shaping20-20261103-a/</span></div>
+      <div class="tr">
+        <span class="h">Path</span><span class="h">What it holds</span><span class="h">Written by</span><span class="h" style="text-align: right">Size</span>
+
+        <span class="p">RUN.json</span><span>The run's card: its id and plain name, the model, the recipe and its version, who started it, where it stands</span><span>The portal, at the start</span><span class="n">2 KB</span>
+        <span class="p">config/
+  recipe.yaml
+  resolved.yaml
+  environment.json
+  slurm/</span><span>The recipe exactly as it stood in the portal on 3 Nov, with 20% in place of 10%. Every setting of every stage after defaults are filled in. The TLM package commit, the container, library versions and seed. Each stage's job script and job id.</span><span>The portal, at the start</span><span class="n">41 KB</span>
+        <span class="p">data/
+  shaping-calibration@1/
+  shaping-enterprise-text@1/
+  lineage.json</span><span>For each mix: the ask in tags, how it is drawn, and a list of every file read with its place in the training store, its version there, its checksum and the rows taken. Then where those came from. It points to 3.0M documents and holds none of them.</span><span>The portal, at the start</span><span class="n">96 MB</span>
+        <span class="p">stages/01-adjust/
+  REUSED.json</span><span>Not run again. One file that names the best checkpoint of <span class="mono">core-shaping05-20261014-a</span>, the 5% trial.</span><span>The portal</span><span class="n">1 KB</span>
+        <span class="p">stages/02-prune/
+  checkpoints/best/
+  checkpoints/last/
+  check/
+  decision.json</span><span>The pruned model. Best and last are the same here, stored once. The quick check after the cut, and the decision to go on.</span><span>The job; the portal for the check and the decision</span><span class="n">44 GB</span>
+        <span class="p">stages/03-distil-back/
+  checkpoints/best/
+  checkpoints/last/
+  metrics/  logs/
+  check/
+  decision.json</span><span>Step 8,000, both the best and the last. The best was replaced four times as training went on. Loss, speed and GPU use over time. The check on the whole TL Index, by pillar, with question ids only. The decision is not written yet: it waits for Hana O.</span><span>The job, each time the best was beaten; the portal for the check</span><span class="n">45 GB</span>
+        <span class="p em">output/</span><span class="em">Empty. A model is written here only when every stage's check has passed.</span><span class="em">—</span><span class="n em">—</span>
+        <span class="p em">evaluation/tl-index/</span><span class="em">Empty. The whole-Index run that decides release happens at the end.</span><span class="em">—</span><span class="n em">—</span>
+        <span class="p">record/events.jsonl</span><span>Every change of state and who or what made it: 214 lines so far</span><span>The portal and the job</span><span class="n">58 KB</span>
+        <span class="p em">MANIFEST.sha256</span><span class="em">Checksums of everything, written when the run ends. After that nothing in the folder changes.</span><span class="em">The portal</span><span class="n em">—</span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">No row of training data and no TL Index question is ever in a run's folder. A stage reused from another run is named, not copied.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="How it moved">
+        <div class="da-h"><h3>How it moved</h3><span class="kit-small kit-muted">From the run's record</span></div>
+        <div class="tl">
+          <span class="h">When</span><span class="h">What happened</span><span class="h">Where it was written</span>
+          <span class="n">3 Nov, 02:08</span><span>The checks before a run passed. The run id was made.</span><span>The run's folder: its card, config and data lists</span>
+          <span class="n">02:10</span><span>The job copied the calibration mix and the base to FSx, and checked every file against its checksum.</span><span>The working area</span>
+          <span class="n">02:10 to 04:05</span><span>Stage 2: 10 shapes tried, the best kept.</span><span>The folder: the pruned model, once</span>
+          <span class="n">04:10</span><span>Stage 3 began. The Enterprise's text was copied to FSx.</span><span>The working area: 1.9 TB</span>
+          <span class="n">3 Nov, 11:40 to 4 Nov, 10:20</span><span>The best was beaten four times, at steps 2,000, 4,000, 6,000 and 8,000.</span><span>The folder: best replaced each time; last on a timer</span>
+          <span class="n">4 Nov, 10:40 to 11:55</span><span>The best was scored on the whole TL Index. Two pillars fell further than allowed.</span><span>The folder: the check</span>
+          <span class="n">Now</span><span>Stopped. <a href="Training-Run.dc.html">The foundation lead decides.</a></span><span class="kit-muted">Nothing is written while it waits</span>
+        </div>
+      </section>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface" aria-label="What is kept">
+          <div class="da-h"><h3>What is kept, and until when</h3></div>
+          <div class="kp">
+            <span>This folder</span><span>180 days after the run ends, then deleted</span>
+            <span>The working copy on FSx</span><span>Cleared when the run ends</span>
+            <span>A released model and its record</span><span class="kit-muted">Not reached by this run</span>
+            <span>Its numbers and decisions in the portal</span><span>Stay after the folder has gone</span>
+          </div>
+        </section>
+        <section class="kit-surface" aria-label="If the data changes">
+          <div class="da-h"><h3>If the data changes while it runs</h3></div>
+          <div class="kp">
+            <span>New data arrives</span><span>It becomes a new version. This run named its versions at the start.</span>
+            <span>A file is changed in place</span><span>The checksum no longer matches and the job stops before it trains.</span>
+            <span>Rows are withdrawn</span><span>The run finishes on the copy it took and is flagged at once. The foundation lead then decides.</span>
+            <span>A tag is corrected</span><span>It applies from the mix's next version.</span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2131}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
