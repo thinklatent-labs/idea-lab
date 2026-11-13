@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A model's card · Domain-Advice v2: every field with its owner, the agent's draft, health in parts, changelog and export (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.mc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.mc-h h3{margin:0;font-size:18px;font-weight:500}
+.mc-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.mc-k>*{display:flex;flex-direction:column;gap:6px}
+.mc-t{display:grid;font-size:13px;line-height:1.45;margin-top:10px}
+.mc-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.mc-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.mc-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mc-t .n{font-variant-numeric:tabular-nums}
+.mc-dr{border-radius:16px;padding:14px 16px;background:rgba(255,255,255,.8);box-shadow:0 0 0 1.5px rgba(27,81,40,.4);display:flex;flex-direction:column;gap:10px;font-size:13.5px;line-height:1.5;margin-top:12px}
+.mc-dr .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12px;color:rgba(26,26,26,.65)}
+.mc-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.mc-l{display:flex;flex-direction:column;margin-top:8px;font-size:13px;line-height:1.45}
+.mc-l>*{padding:10px 0;border-top:1px solid rgba(26,26,26,.1)}
+.mc-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mc-tr{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:12px;font-size:12.5px}
+.mc-tr span{padding:9px 10px;border-radius:10px;background:rgba(26,26,26,.05);color:rgba(26,26,26,.6)}
+.mc-tr span.dn{background:rgba(27,81,40,.12);color:#1A1A1A}
+.mc-tr span.on{background:#1B5128;color:#fff}
+.mc-tl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:14px;font-size:13px;line-height:1.45}
+.mc-tl>div{padding:12px 14px 0 0;border-top:2px solid rgba(26,26,26,.18)}
+.mc-tl>div.on{border-top-color:#1B5128}
+.mc-tl b{font-weight:500;display:block}
+.mc-tl small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mc-b{display:grid;grid-template-columns:70px minmax(0,1fr) 60px;gap:10px;align-items:center;font-size:13px;padding:6px 0}
+.mc-b .tr{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.08)}
+.mc-b .tr i{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.55)}
+.mc-b .tr i.lo{background:#C98A00}
+.mc-eng{box-shadow:0 0 0 1.5px rgba(26,26,26,.5) inset}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2051px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">All models and agents <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Model-Catalogue.dc.html">TLM4 <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Domain-Advice <span aria-hidden="true">▾</span></button><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn outline" type="button">Version 2 · live <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">TLM4 Domain-Advice v2</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">TLM4</span><span class="kit-chip outline">Language</span><span class="kit-chip brand">Live</span><span class="kit-chip">Built on Core 4.2</span><span class="kit-chip">Dedicated endpoint</span><span class="kit-chip outline">Approved for use · recorded outside, 4 Oct</span></div>
+        <span class="kit-small kit-muted">Trained for advice conversations. Contact: the foundation team · As of 11:58 ET · sample data</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; align-items: flex-end"><span class="kit-caption">Tokens processed today</span><span class="kit-display" style="font-size: 40px; white-space: nowrap">130M <span style="font-size: 18px">in</span> <span aria-hidden="true" style="font-size: 24px">→</span> 9.6M <span style="font-size: 18px">out</span></span></div>
+        <div class="kit-actions"><a class="kit-btn" href="Playground.dc.html">Try it</a><a class="kit-btn outline" href="Start-Project.dc.html">Use it in a project</a></div>
+      </div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Model pages">
+      <a role="tab" aria-selected="false" href="Model-Page.dc.html">Overview</a><a role="tab" aria-selected="true" href="Model-Card.dc.html">Card</a><a role="tab" aria-selected="false" href="Model-Improvement.dc.html">Improvement</a><a role="tab" aria-selected="false" href="Model-Usage.dc.html">Usage</a><a role="tab" aria-selected="false" href="Model-Adoption.dc.html">Adoption</a><a role="tab" aria-selected="false" href="Model-CostAvoided.dc.html">Cost avoided</a><a role="tab" aria-selected="false" href="Model-TLIndex.dc.html">TL Index</a><a role="tab" aria-selected="false" href="Model-BuiltFrom.dc.html">Built from</a><a role="tab" aria-selected="false" href="Model-Training.dc.html">Training</a><a role="tab" aria-selected="false" href="Model-Versions.dc.html">Versions</a>
+    </div>
+
+    <div class="mc-k">
+      <div class="kit-surface"><span class="kit-caption">Fields confirmed</span><span class="kit-display" style="font-size: 36px">12 of 14</span><span class="kit-small kit-muted">Each by its owner on the foundation team</span></div>
+      <div class="kit-surface"><span class="kit-caption">Agent drafts waiting</span><span class="kit-display" style="font-size: 36px">1</span><span class="kit-small kit-muted">Not shown outside the foundation team until confirmed</span></div>
+      <div class="kit-surface"><span class="kit-caption">Review due</span><span class="kit-display" style="font-size: 36px">1</span><span class="kit-small kit-muted">A field not reviewed for 90 days</span></div>
+      <div class="kit-surface"><span class="kit-caption">Card version</span><span class="kit-display" style="font-size: 36px">6</span><span class="kit-small kit-muted">Changed 5 Nov · the changelog is open to everyone</span></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="The card">
+      <div class="mc-h"><h3>The card</h3><div class="mc-row"><span class="kit-small kit-muted">An agent drafts each field from the training run and the TL Index · its owner confirms it before it shows (D-315)</span><button class="kit-btn" type="button">Export as PDF</button></div></div>
+      <div class="mc-t" style="grid-template-columns: 170px minmax(0, 1.9fr) 150px 120px 150px">
+        <span class="h">Field</span><span class="h">What it says</span><span class="h">Owner</span><span class="h">Last reviewed</span><span class="h">Where it stands</span>
+        <span>What it is for</span><span>Advice conversations: summaries of calls, and wording a suggested next step with its reason</span><span>Model lead</span><span>5 Oct</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Confirmed</span></span></span>
+        <span>Not for</span><span>Deciding for a client without an adviser. Anything outside advice conversations: use Core 4.2</span><span>Model lead</span><span>5 Oct</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Confirmed</span></span></span>
+        <span>Built from</span><span>Core 4.2, trained further on the Enterprise's advice data<small><a href="Model-BuiltFrom.dc.html">Built from</a> shows the whole line</small></span><span>Model lead</span><span>5 Oct</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Confirmed</span></span></span>
+        <span>Size and cost</span><span>About 27B · cost per request $[cost]<small>Size class and cost per request show to everyone (D-307)</small></span><span>Serving lead</span><span>5 Oct</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Confirmed</span></span></span>
+        <span>Takes in, gives out</span><span>Text in, text out · English</span><span>Model lead</span><span>5 Oct</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Confirmed</span></span></span>
+        <span>Context that holds up</span><span>Up to 24,000 tokens. It accepts 32,000, but answers weaken past 24,000<small>One plain line for everyone; the curve behind it is ThinkLatent's (D-315)</small></span><span>Evaluation lead</span><span>5 Oct</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Confirmed</span></span></span>
+        <span>What it learned from</span><span>By tag, never by row: advice calls, product sheets, policy text<small>Left out: sealed production text and client identifiers · it runs inside the Enterprise only · <a href="Models-Data.dc.html">Data</a></small></span><span>Data lead</span><span>2 Aug · 95 days</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Review due</span></span></span>
+        <span>Limits and known issues</span><span>2 open: long calls with several speakers; fund names it has not seen<small>Both are on Overview, in the open</small></span><span>Evaluation lead</span><span>29 Oct</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Confirmed</span></span></span>
+        <span>How it does by group</span><span class="kit-muted">Drafted by the agent, waiting for its owner<small>Shown below to the foundation team only</small></span><span>Evaluation lead</span><span>— not yet</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Agent draft</span></span></span>
+        <span>Service level</span><span>Set for each project on its Plan: shared or dedicated<small><a href="Project-Plan.dc.html">A project's Plan</a></small></span><span>Serving lead</span><span>5 Oct</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Confirmed</span></span></span>
+        <span>Licence</span><span>ThinkLatent's own, for use inside the Enterprise</span><span>Model lead</span><span>5 Oct</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Confirmed</span></span></span>
+        <span>Who to ask</span><span>The model lead for what it does, the serving lead for how it runs, or start a thread on this page</span><span>Model lead</span><span>5 Oct</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Confirmed</span></span></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">12 of the 14 fields are shown; Release notes and Code and package are on <a href="Model-Improvement.dc.html">Improvement</a> and <a href="Model-Training.dc.html">Training</a>. A field not reviewed for 90 days is flagged here, and the next version is not released until it is reviewed.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="An agent's draft, waiting for its owner">
+        <div class="mc-h"><h3>An agent's draft, waiting for its owner</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>The foundation team only, until confirmed</span></div>
+        <div class="mc-dr">
+          <div class="meta"><span class="kit-chip brand">Agent · Model card</span><span>Basis: the release checks of version 2 and edition 2026-11 of the TL Index</span><span>Fairly sure</span><a href="Model-TLIndex.dc.html">View sources</a></div>
+          <div><b style="font-weight: 500">How it does by group.</b> Scored separately on calls from each client segment. The widest gap between two segments is 3 points ± 2, which is inside what the questions can tell apart. Too few calls to say for one segment.</div>
+          <div class="mc-row"><button class="kit-btn" type="button">Confirm</button><button class="kit-btn outline" type="button">Edit</button><button class="kit-btn outline" type="button">Send back</button><span class="kit-small kit-muted">Owner: Evaluation lead · drafted 5 Nov</span></div>
+        </div>
+        <div class="kit-small kit-muted" style="margin-top: 10px">The agent proposes and a person decides. A confirmed field carries its owner's name and date; the agent's draft and what the owner changed stay in the changelog.</div>
+      </section>
+      <section class="kit-surface" aria-label="Changelog and exports">
+        <div class="mc-h"><h3>Changelog and exports</h3><span class="kit-small kit-muted">Open to everyone</span></div>
+        <div class="mc-l">
+          <span>5 Nov · version 6<small>'How it does by group' drafted by the agent; waits for the Evaluation lead</small></span>
+          <span>29 Oct · version 5<small>A known issue added: fund names it has not seen · Evaluation lead</small></span>
+          <span>5 Oct · version 4<small>Released with version 2 of the model · 11 fields confirmed · exported as PDF for the team site</small></span>
+          <span>14 Jul · version 1<small>First card, with version 1 of the model</small></span>
+        </div>
+        <div class="mc-row" style="margin-top: 12px"><button class="kit-btn outline" type="button">Export as PDF</button><a class="kit-btn outline" href="Model-BuiltFrom.dc.html">Export the lineage as an image</a></div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="Health, in parts">
+      <div class="mc-h"><h3>Health, in parts</h3><span class="kit-small kit-muted">Four separate numbers, never one blended score · 30 days</span></div>
+      <div class="mc-t" style="grid-template-columns: minmax(0, 1.3fr) 160px 160px minmax(0, 1fr)">
+        <span class="h">Part</span><span class="h">Now</span><span class="h">Target</span><span class="h">Where it stands</span>
+        <span>Regression suite<small>Cases every version must still pass</small></span><span class="n">412 of 418</span><span class="n">All release-blocking cases</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span><small>The 6 are not release-blocking</small></span>
+        <span>Availability<small>Its dedicated endpoint</small></span><span class="n">99.95%</span><span class="n">99.9%</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span></span>
+        <span>Incidents<small>Opened on features that run on it</small></span><span class="n">1</span><span class="n">— no target</span><span><a href="Project-Incident.dc.html">Closed 28 Oct</a></span>
+        <span>Findings open<small>From reviews and red-team sessions</small></span><span class="n">2</span><span class="n">None older than 30 days</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span><small>The older is 9 days old</small></span>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2051}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
