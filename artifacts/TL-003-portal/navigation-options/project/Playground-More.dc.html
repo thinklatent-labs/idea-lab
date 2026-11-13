@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · the rest of LibreChat: memory, folders, skills, schedules, subagents, workspaces, images, speech and what leaves (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.pm-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.pm-h h3{margin:0;font-size:18px;font-weight:500}
+.pm-l{display:flex;flex-direction:column;margin-top:8px;font-size:13px;line-height:1.45}
+.pm-l>*{padding:10px 0;border-top:1px solid rgba(26,26,26,.1);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.pm-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.pm-n{margin-top:12px;font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.65)}
+.pm-g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.pm-g2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.pm-ask{margin-top:12px;border-radius:16px;padding:14px 16px;background:rgba(255,255,255,.8);box-shadow:0 0 0 1.5px rgba(27,81,40,.4);display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.45}
+.pm-ask code{font:12.5px ui-monospace,Menlo,monospace;background:rgba(26,26,26,.06);padding:2px 6px;border-radius:6px}
+.pm-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pm-bar{display:flex;height:12px;border-radius:6px;overflow:hidden;margin-top:12px;background:rgba(26,26,26,.08)}
+.pm-bar i{display:block;height:12px}
+.pm-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px;font-size:12.5px}
+.pm-k b{display:block;font-size:20px;font-weight:400}
+.pm-t{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.2fr) minmax(0,1.5fr);font-size:13px;line-height:1.45;margin-top:10px}
+.pm-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.pm-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.pm-im{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;margin-top:12px;align-items:center}
+.pm-im .ph{height:96px;border-radius:14px;background:linear-gradient(135deg,rgba(27,81,40,.22),rgba(62,143,126,.12));display:flex;align-items:center;justify-content:center;font-size:11.5px;color:rgba(26,26,26,.6)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2023px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Playground.dc.html">← Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Everything else in Try TLM</button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Try TLM · everything else</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Everyone at the Enterprise</span><span class="kit-chip">All of LibreChat on day one</span><span class="kit-chip">First draft · D-322</span></div>
+        <span class="kit-small kit-muted">The parts of LibreChat the chat and the agent builder do not show: what it remembers, folders, skills, schedules, subagents, code workspaces, images, speech, and what can leave. No client data goes in, and nothing is trained on · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Playground.dc.html">Back to the chat</a><a class="kit-btn outline" href="Playground-Build.dc.html">Agents, tools and sharing</a></div>
+    </div>
+
+    <div class="pm-g2">
+      <section class="kit-surface raised" aria-label="What Try TLM remembers about you">
+        <div class="pm-h"><h3>What Try TLM remembers about you</h3><span class="pm-row"><span class="kit-chip brand">On</span><button class="kit-btn outline" type="button">Turn off</button></span></div>
+        <div class="pm-l">
+          <span><span>Explains things to new advisers, in plain words<small>From 'Fees, explained to a new adviser' · 5 Nov</small></span><span class="pm-row"><a href="#">Edit</a><a href="#">Forget</a></span></span>
+          <span><span>Prefers a table before a paragraph<small>From 'Turning notes into a checklist' · 3 Nov</small></span><span class="pm-row"><a href="#">Edit</a><a href="#">Forget</a></span></span>
+          <span><span>Works in Eastern Time<small>You added this · 29 Oct</small></span><span class="pm-row"><a href="#">Edit</a><a href="#">Forget</a></span></span>
+        </div>
+        <div class="pm-row" style="margin-top: 12px"><button class="kit-btn outline" type="button">Add something</button><button class="kit-btn outline" type="button">Forget everything</button></div>
+        <div class="pm-n">Yours alone, and kept until you forget it: the 30 days cover sessions, not this (D-322). Never trained on. A line that looks like client data is not kept, and Try TLM says so.</div>
+      </section>
+      <section class="kit-surface" aria-label="Folders">
+        <div class="pm-h"><h3>Folders</h3><span class="kit-small kit-muted">LibreChat calls these projects · here a project is something else</span></div>
+        <div class="pm-l">
+          <span><span>Fee explanations<small>4 sessions · 3 files · instructions: 'Plain words, UK spelling, no advice'</small></span><a href="#">Open</a></span>
+          <span><span>Service request sorting<small>2 sessions · 1 file</small></span><a href="#">Open</a></span>
+        </div>
+        <div class="pm-row" style="margin-top: 12px"><button class="kit-btn outline" type="button">New folder</button></div>
+        <div class="pm-n">A folder's instructions and files (50 at most) are kept until you delete them, and each file is checked for client data when added. The sessions inside still end after 30 days.</div>
+      </section>
+    </div>
+
+    <div class="pm-g3">
+      <section class="kit-surface" aria-label="Skills">
+        <div class="pm-h"><h3>Skills</h3><span class="kit-small kit-muted">How to do one kind of task, written once</span></div>
+        <div class="pm-l">
+          <span><span>Write a fee comparison<small>Used when asked · yours</small></span><a href="#">Open</a></span>
+          <span><span>House style for client notes<small>Always on, in the folder 'Fee explanations'</small></span><a href="#">Open</a></span>
+        </div>
+        <div class="pm-n">A skill is private like an agent, and reaches others through the Agents library the same way (D-320).</div>
+      </section>
+      <section class="kit-surface" aria-label="Schedules">
+        <div class="pm-h"><h3>Schedules</h3><span class="kit-small kit-muted">An agent run at set times</span></div>
+        <div class="pm-l">
+          <span><span>Research helper · every Monday 08:00 ET<small>'Summarise what changed in the sample fund sheets' · last run 2 Nov</small></span><a href="#">Pause</a></span>
+        </div>
+        <div class="pm-n">A run counts against your daily limit, lands in your inbox, and is a session like any other: yours, for 30 days. It runs with your access, and stops while you are away unless you say otherwise.</div>
+      </section>
+      <section class="kit-surface" aria-label="Subagents">
+        <div class="pm-h"><h3>Subagents</h3><span class="kit-small kit-muted">An agent hands part of the work to a helper</span></div>
+        <div class="pm-l">
+          <span><span>Research helper<small>Asked 2 helpers: read the three sheets · check the arithmetic</small></span><span>2 of 2 done</span></span>
+        </div>
+        <div class="pm-n">Each helper has its own context and shows as a step you can open. Helpers use the same model, tools and limits as the agent that called them, and nothing more.</div>
+      </section>
+    </div>
+
+    <div class="pm-g2">
+      <section class="kit-surface raised" aria-label="A code workspace">
+        <div class="pm-h"><h3>A code workspace</h3><span class="kit-chip">Experimental</span></div>
+        <div class="kit-small kit-muted" style="margin-top: 6px">An agent can read, change and run files in a workspace. Only in ThinkLatent's sandbox inside the Enterprise, with no network; never on your own machine (D-322).</div>
+        <div class="pm-ask">
+          <span><span class="kit-chip brand">Agent · Research helper</span> wants to run a command</span>
+          <span><code>python compare_fees.py sample-funds.csv</code></span>
+          <span class="kit-small kit-muted">In the workspace 'fee-comparison' · it will write one file, fees.md</span>
+          <span class="pm-row"><button class="kit-btn" type="button">Allow once</button><button class="kit-btn outline" type="button">Deny</button><span class="kit-small kit-muted">It asks before every write and every command. There is no 'always allow'.</span></span>
+        </div>
+        <div class="pm-l">
+          <span><span>fee-comparison<small>4 files · last changed 11:43 · removed with its session after 30 days</small></span><a href="#">Download the files</a></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Images">
+        <div class="pm-h"><h3>Images</h3><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Leaves the Enterprise</span></span></div>
+        <div class="pm-im"><div class="ph">A made-up picture</div><div style="font-size: 13px; line-height: 1.45">"A simple diagram of fees taken from a fund each year, flat colours"<span class="kit-small kit-muted" style="display: block">Made by [an outside image model] · 9 seconds · counted in your limit</span></div></div>
+        <div class="pm-n">ThinkLatent has no image model, so pictures are made by one outside model that ThinkLatent allows (D-322). What you type for a picture goes to that model: the check for client data runs first, the session shows that it left, and every such request is listed for ThinkLatent.</div>
+        <div class="pm-n"><b style="font-weight: 500; color: #1A1A1A">Open:</b> which outside model, and the Enterprise's Risk and IT security have not been asked. Until they are, this stays switched off in the build.</div>
+      </section>
+    </div>
+
+    <div class="pm-g3">
+      <section class="kit-surface" aria-label="Speech">
+        <div class="pm-h"><h3>Speech</h3><span class="kit-small kit-muted">Talk to it, and hear the answer</span></div>
+        <div class="pm-l">
+          <span><span>What you say<small>Turned into text by ThinkLatent's speech model, inside the Enterprise</small></span><span class="kit-chip brand">On</span></span>
+          <span><span>The answer read aloud<small>Off until ThinkLatent has a voice of its own or allows one</small></span><span class="kit-chip">Off</span></span>
+        </div>
+        <div class="pm-n">The sound is not kept; the text is part of the session.</div>
+      </section>
+      <section class="kit-surface" aria-label="What fills the context">
+        <div class="pm-h"><h3>What fills the context</h3><span class="kit-small kit-muted">This session · Core 4.2</span></div>
+        <div class="pm-bar" role="img" aria-label="Context used: 41 percent"><i style="width: 9%; background: #1B5128"></i><i style="width: 14%; background: #3E8F7E"></i><i style="width: 18%; background: rgba(26,26,26,.45)"></i></div>
+        <div class="pm-k"><span><b>9%</b>What it is told</span><span><b>14%</b>The conversation</span><span><b>18%</b>Tools and files</span><span><b>59%</b>Free</span></div>
+        <div class="pm-row" style="margin-top: 12px"><button class="kit-btn outline" type="button">Summarise the earlier turns</button></div>
+        <div class="pm-n">Summarising keeps the recent turns as they are and shortens the rest; the session says where it did so.</div>
+      </section>
+      <section class="kit-surface" aria-label="What can leave Try TLM">
+        <div class="pm-h"><h3>What can leave</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>D-322</span></div>
+        <div class="pm-l">
+          <span><span>Download your own session<small>As text or a file · recorded, like every export</small></span><span class="kit-chip brand">On</span></span>
+          <span><span>Hand a session to a project<small>It becomes the first version of a prompt there</small></span><span class="kit-chip brand">On</span></span>
+          <span><span>Open links, answering in Slack, bringing chats in from other assistants</span><span class="kit-chip">Off</span></span>
+        </div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="What ThinkLatent sets">
+      <div class="pm-h"><h3>What ThinkLatent sets</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>ThinkLatent only · settings, not people</span></div>
+      <div class="pm-t">
+        <span class="h">Setting</span><span class="h">Now</span><span class="h">Note</span>
+        <span>Which features are on</span><span>All but open links, Slack and import</span><span>One switch a feature · a change is recorded with who made it</span>
+        <span>Daily limit a person</span><span>60 requests · a sample value</span><span>Schedules and subagents count against it</span>
+        <span>The connector list</span><span>3 inside · web search off</span><span>Outside addresses are asked for, one at a time</span>
+        <span>Outside models allowed</span><span>None yet · 1 image model asked for</span><span>Waits on the Enterprise's Risk and IT security</span>
+        <span>The marketplace</span><span>Shows the Agents library</span><span>Publishing still goes through ThinkLatent's acceptance; an agent can be shared with named people</span>
+      </div>
+      <div class="pm-n">People and groups come from the Enterprise's access management and are not edited here; no roles are created (D-322). What each person does is in their own sessions and in traces, which ThinkLatent reads as counts, not text.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2023}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

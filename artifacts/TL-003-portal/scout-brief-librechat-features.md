@@ -58,6 +58,21 @@ The code was fetched on 14 November: version v0.8.9-rc1, last commit 13 November
 3. **The server already fits two of the portal's rules.** It signs people in through OpenID, so the Enterprise's access management can be the only way in, and it exports traces to Langfuse, which the backend already uses.
 4. **Two boards are not enough.** After the list is decided, Try TLM needs at least one more board for what stays in: speech, context use, and whichever of memory, folders, skills and schedules are kept.
 
+## 5a. Decided 14 November (D-322)
+
+| Feature | Decision | Whose |
+|---|---|---|
+| Memory | On. The person sees, edits and clears it; kept until cleared. The 30 days cover sessions only | Jithin, against the recommendation to switch it off |
+| LibreChat's projects | Kept, called Folders; instructions and files kept until deleted, sessions inside still end after 30 days | Jithin, as recommended |
+| Slack, open links, import | Off. A person can download their own session, recorded | Jithin, as recommended |
+| Everything else | All of it on day one, the experimental parts included | Jithin, against the recommendation to take the stable parts first |
+| Agent marketplace | It shows the Agents library; publishing still goes through ThinkLatent; an agent can be shared with named people | Jithin, as recommended |
+| Code workspaces | In, only in ThinkLatent's sandbox with no network, asking before every write and command | Jithin, as recommended |
+| Image generation | On, with one outside model ThinkLatent allows | Jithin, against the recommendation to build it switched off |
+| Admin panel | ThinkLatent only, for settings; people come from the Enterprise's access management, no roles | Jithin, as recommended |
+
+Drawn on the board 'Try TLM · everything else'. Open: which outside image model, and the Enterprise's Risk and IT security have not been asked about text leaving for it.
+
 ## 6. Where this is thin
 
 - Read from code and the README, not from a running copy.
