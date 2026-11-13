@@ -145,7 +145,7 @@ Added to the portal's feature list as N-47 to N-96 on 13 November (portal commit
 | The 16 removals read from decisions | Out, each with the decision it follows from | Jithin, as recommended |
 | A separate check | A separate agent that has not seen the work re-checks every row against the boards once the drawing ends, before any build | Jithin, as recommended |
 
-**Changed later the same night (D-315).** Comparing models comes inside Try TLM with LibreChat, so there is no compare page and Try TLM is no longer one model at a time. Three of the 16 removals return as decided and not drawn (C-p2-17, C-p10-21, C-p10-30). The counts become 222 drawn, 324 half there, 48 decided and not drawn, 26 later-year, 87 out, 5 rules.
+**Later the same night (D-315, corrected by D-316).** There is no compare page. Try TLM stays one model at a time (D-307); LibreChat's own chat that sends one input to two models comes with LibreChat (D-308), with nothing more to draw. The 16 removals and the counts above stand.
 
 ## 12. What is drawn before the build
 
