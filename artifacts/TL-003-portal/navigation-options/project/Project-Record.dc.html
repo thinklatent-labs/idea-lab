@@ -33,9 +33,13 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .rc-g .s{padding-left:12px;text-align:right;font-size:12px;color:rgba(26,26,26,.7);white-space:nowrap}
 .rc-f{display:grid;grid-template-columns:92px minmax(0,1fr);gap:8px 12px;margin-top:10px;font-size:13px;line-height:1.45;align-items:center}
 .rc-f dt{color:rgba(26,26,26,.6)}.rc-f dd{margin:0}
+.rc-keep{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px;margin-top:12px;font-size:13px;line-height:1.45}
+.rc-keep>div{display:flex;flex-direction:column;gap:4px;border-top:1px solid rgba(26,26,26,.1);padding-top:10px}
+.rc-keep b{font-size:18px;font-weight:500}
+.rc-keep span:last-child{color:rgba(26,26,26,.7)}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1915px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2169px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -69,7 +73,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px">
         <span class="kit-caption">Members · the whole record</span>
         <h1 style="margin: 0; font-size: 36px; font-weight: 400; letter-spacing: -0.02em">The record of Advisor desktop</h1>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">412 lines since 4 Aug</span><span class="kit-chip">No line can be changed or removed</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">1 ask for production access waits in IAM</span></div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">412 lines since 4 Aug</span><span class="kit-chip">No line can be changed or removed</span><span class="kit-chip">Kept while the project lives, then [period]</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">1 ask for production access waits in IAM</span></div>
         <span class="kit-small kit-muted">Who decided what, who opened sealed text, what the agents proposed, and what arrived from outside. Decisions are open to everyone at the Enterprise. Lines about sealed text, shaded here, show only to this project's members, ThinkLatent and auditors · As of 11:58 ET · sample data</span>
       </div>
       <div class="kit-actions"><a class="kit-btn" href="#">Export this record</a><a class="kit-btn outline" href="Jarvis-Ask.dc.html">Ask Jarvis about a decision</a></div>
@@ -159,10 +163,20 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <div class="kit-small" style="margin-top: 10px; opacity: .8">An owner exports their own project. ThinkLatent and auditors can export any. Every export is itself a line in the record.</div>
       </section>
     </div>
+
+    <section class="kit-surface" aria-label="How long the record is kept">
+      <div class="rc-h"><h3>How long the record is kept</h3><span class="kit-small kit-muted">The Enterprise's records rule sets the period, not ThinkLatent · the same on every project</span></div>
+      <div class="rc-keep">
+        <div><span class="kit-caption">While the project lives</span><b>Every line, in full</b><span>Since 4 Aug. Nothing is thinned, summarised or moved away.</span></div>
+        <div><span class="kit-caption">After the project closes</span><b>[period]</b><span>The time the Enterprise's records rule gives a record of this kind. The number is shown here once the Enterprise names it.</span></div>
+        <div><span class="kit-caption">When that period ends</span><b>Removed</b><span>As the same rule says. The portal keeps it no longer and no shorter.</span></div>
+        <div><span class="kit-caption">Not the record</span><b>An export file · 7 days</b><span>The file expires. The line that says who exported, and when, stays with the record.</span></div>
+      </div>
+    </section>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1915}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2169}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

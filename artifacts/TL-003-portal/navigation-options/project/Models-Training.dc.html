@@ -41,9 +41,15 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .rn .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
 .rn b{font-weight:500;font-size:14px}
 .rn small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.bs{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1.25fr) minmax(0,1.2fr) minmax(0,.9fr) minmax(0,1.1fr) auto;font-size:13px;line-height:1.45;margin-top:10px;align-items:start}
+.bs>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;align-self:stretch}
+.bs .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.bs b{font-weight:500;font-size:14px}
+.bs small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3071px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3472px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -124,6 +130,17 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       </div>
     </section>
 
+    <section class="kit-surface" aria-label="The base shelf">
+      <div class="da-h"><h3>The base shelf</h3><span class="kit-small kit-muted">Bases released for this team only · never in the catalogue, and no project is told · a base on the shelf is kept while any model built on it is kept</span></div>
+      <div class="bs">
+        <span class="h">Base</span><span class="h">Where it is</span><span class="h">Its check</span><span class="h">Reused by</span><span class="h">Kept until</span><span class="h"></span>
+        <span><b>The adjusted full base</b><small>The open base after a light fine-tune on the Enterprise's text</small></span><span>In its run<small class="mono">core-shaping05-20261014-a · stage 1</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed, 14 Oct</span></span></span><span>The 10% and 20% trials</span><span>Held while a run uses it<small>Otherwise its folder goes in April 2027</small></span><span><a class="kit-btn outline sm" href="#">Release to the shelf</a></span>
+        <span><b>The base shaped at 10%</b><small>10% taken out, then distilled back</small></span><span>In its run<small class="mono">core-shaping10-20261022-a · stage 3</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed, by Hana O.</span></span><small>4 pillars hold, 1 cannot be told apart</small></span><span>No run yet</span><span>Its folder goes in April 2027</span><span><a class="kit-btn outline sm" href="#">Release to the shelf</a></span>
+        <span><b>The base shaped at 20%</b><small>20% taken out, then distilled back</small></span><span>In its run<small class="mono">core-shaping20-20261103-a · stage 3</small></span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stopped at its check</span></span><small>2 pillars fell further than allowed</small></span><span class="kit-muted">Cannot be reused</span><span class="kit-muted">—</span><span><a class="kit-small" href="Training-Run.dc.html">Waits for Hana O.</a></span>
+      </div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">Nothing is on the shelf yet. A run may start from a base on the shelf, from a released model, or from a stage of a run that is still kept and whose check passed. Releasing a base is the foundation lead's decision, and rests on the stage's check, on the stage-check set.</div>
+    </section>
+
     <section class="kit-surface raised" aria-label="The methods">
       <div class="da-h"><h3>The methods</h3><span class="kit-small kit-muted">Every way a model can be trained here, what it needs from the Data tab and whether the store holds it · "Held now" is read from the graph</span></div>
       <div class="mt">
@@ -179,7 +196,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3071}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3472}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

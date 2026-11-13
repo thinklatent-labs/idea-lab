@@ -1,6 +1,6 @@
 # ThinkLatent Portal · Training runs: where a run lives, the process and the folder for each run id
 
-TL-003 portal · requirement, version 1.0 · 13 Nov 2026 · for the AI engineering team, from Jithin Pradeep, Head of ThinkLatent · written by Claude
+TL-003 portal · requirement, version 1.1 · 13 Nov 2026 · for the AI engineering team, from Jithin Pradeep, Head of ThinkLatent · written by Claude
 
 This is the requirement behind the boards *Training · a run* and *Training · a run's files*. It says where everything a training run reads and writes is kept, who writes it, and what is kept afterwards. Names in angle brackets are configuration, not fixed names.
 
@@ -15,8 +15,11 @@ This is the requirement behind the boards *Training · a run* and *Training · a
 7. A run's id is readable and meaningful: the model, what the run is for (the project where there is one), and the date.
 8. Recipes are kept in the portal. ThinkLatent defines standard recipes at the start, and new ones can be built from the methods that are available. Starting a run freezes a copy of its recipe into the run's folder.
 9. If a source withdraws rows while a run that uses them is going, the run finishes and the foundation lead then decides.
+10. Reuse (added in version 1.1). A checkpoint is kept while any run uses it. What proves valuable and works is released, and from then on follows the released lifecycle, not the 180 days. A run reuses work only from a released item or from an active run id. A run is active while it is going, or has ended and is inside its 180 days; only a stage that passed its check can be reused.
+11. Stage checks (added in version 1.1). A stage is checked on the stage-check set: 1,200 questions drawn from the TL Index's pool, on the same pillars, that are never in an edition. The edition's own questions are used once, for the whole-Index run that decides release. A checkpoint is therefore never picked on the questions that later grade the model.
+12. Bases (added in version 1.1). A shaped or adjusted base that works is released as a base, beside the models. Only the foundation team sees it, on Training; it is never in the catalogue and no project is told. A base is kept while any model built on it is kept.
 
-## 2. The four places
+## 2. The four places, and the base shelf
 
 | Place | What it is | Who writes | Kept |
 |---|---|---|---|
@@ -24,6 +27,7 @@ This is the requirement behind the boards *Training · a run* and *Training · a
 | **The runs bucket** · `s3://<runs-bucket>/runs/<run-id>/` | The record of one run: what it was asked to do, what it read, what it produced | The portal at the start and at each decision; the job as it trains | 180 days after the run ends |
 | **The working area** · `/fsx/runs/<run-id>/` | The fast copy the job trains from, and its restart checkpoints | The job | Cleared when the run ends |
 | **The released models** · `s3://<models-bucket>/released/<model>/<version>/` | What serving loads, with the small record of the run that made it | The portal, at release | As long as the model is kept |
+| **The base shelf**, in the same bucket · `s3://<models-bucket>/bases/<base>/<version>/` | A base that later runs start from, with the small record of the run that made it. Serving never reads it | The portal, when the foundation lead releases a base | While any model built on it is kept |
 
 The portal's own database holds the list of runs, their live numbers and every decision. It is what the portal's pages read. The folders are the evidence behind it.
 
@@ -69,7 +73,7 @@ s3://<runs-bucket>/runs/<run-id>/
 │       │   └── POINTERS.json  which step each one is, when it was written, checksums
 │       ├── metrics/           loss, speed and GPU use over time
 │       ├── logs/
-│       ├── check/             the stage's check on the whole TL Index: by pillar, differences,
+│       ├── check/             the stage's check on the stage-check set: by pillar, differences,
 │       │                      verdict. Question ids only, never the questions
 │       └── decision.json      what the portal proposed, what the lead decided, when and why
 ├── output/
@@ -86,7 +90,7 @@ s3://<runs-bucket>/runs/<run-id>/
 Rules for the folder:
 
 - **Two checkpoints a stage.** `best/` is replaced only when a checkpoint beats it; `last/` is replaced on a timer and at the stage's end. Nothing else reaches S3. Restart checkpoints stay on FSx.
-- **A stage reused from another run is not copied.** Its folder holds one file, `REUSED.json`, that names the other run's `best/`.
+- **A stage reused from another run is not copied.** Its folder holds one file, `REUSED.json`, that names what it starts from. Three things may be named, and the checks before a run refuse anything else: a released model, a base on the shelf, or the `best/` of a stage that passed its check in a run that is still kept. While a run that is still kept names a checkpoint, the checkpoint is held: the 180 days do not remove it.
 - **No rows.** The folder never holds a row of training data or the text of a TL Index question. It holds lists that point to them.
 - **Written once.** After the run ends, nothing in the folder changes except `data/withdrawn.jsonl` and the pointer to a released copy in `RUN.json`.
 
@@ -122,6 +126,18 @@ s3://<models-bucket>/released/<model>/<version>/
 
 There is one step: released. A project's own evaluation results are held with the project, not here.
 
+A base is released the same way, to the shelf, when the foundation lead decides:
+
+```
+s3://<models-bucket>/bases/<base>/<version>/
+├── checkpoint/            the base as later runs load it
+├── PROVENANCE.json        the run id and stage it came from, checksums, who released it, when
+└── record/                the same small record as a model's: config, data lists, the stage's
+                           check on the stage-check set and the decision, events
+```
+
+A base has no model card for projects and no entry in the catalogue. `PROVENANCE.json` of every model built on it names the base and its version.
+
 ## 7. The process, and who writes what
 
 | # | Step | Who | Writes |
@@ -131,9 +147,9 @@ There is one step: released. A project's own evaluation results are held with th
 | 3 | **Train.** Restart checkpoints go to FSx. Live numbers go to the portal's database. | Job | `/fsx/.../work/`; the database |
 | 4 | **Beat the best.** At each evaluation point, a checkpoint that beats the best is copied to S3. The last is copied on a timer. | Job | `stages/<nn>/checkpoints/best/`, `last/`, `POINTERS.json` |
 | 5 | **End the stage.** Final best and last, numbers and logs go to S3. | Job | `stages/<nn>/metrics/`, `logs/`, `status.json` |
-| 6 | **Check.** The best checkpoint is scored on the whole TL Index. The portal proposes; the foundation lead decides. | Portal, lead | `stages/<nn>/check/`, `decision.json` |
+| 6 | **Check.** The best checkpoint is scored on the stage-check set, every live pillar. The portal proposes; the foundation lead decides. | Portal, lead | `stages/<nn>/check/`, `decision.json` |
 | 7 | **Next stage, or stop.** A passed check releases the next stage. A failed check stops the run until a person decides. | Portal | Next stage to Slurm; `record/events.jsonl` |
-| 8 | **Finish.** The model is written as it will be served, with its card. The whole TL Index is run. | Job, portal | `output/`, `evaluation/tl-index/` |
+| 8 | **Finish.** The model is written as it will be served, with its card. The whole TL Index is run, on the current edition's questions, for the first and only time in this run. | Job, portal | `output/`, `evaluation/tl-index/` |
 | 9 | **Release.** The lead confirms it works. The model and its small record are copied to the released models. The catalogue is updated. | Lead, portal | `released/<model>/<version>/`; the pointer in `RUN.json` |
 | 10 | **Tell the projects.** Every project on the model is told. The portal runs each project's own evaluation on the released model and shows the result in the project. | Portal | The project's offer |
 | 11 | **Each project decides.** A switch travels as an increment. | Project owner | The increment |
@@ -154,7 +170,9 @@ After a withdrawal, a run can no longer be repeated exactly. That is recorded in
 ## 9. What is kept, and for how long
 
 - **A run's folder:** 180 days after the run ends, then deleted. This includes the checkpoints of stopped and failed trials.
-- **A released model and its small record:** as long as the model is kept.
+- **A checkpoint another run reuses:** held while any run that is still kept uses it, whatever the age of the run it sits in. The rest of that run's folder still goes at 180 days. Once no kept run uses it, it goes too.
+- **A base on the shelf:** while any model built on it is kept.
+- **A released model and its small record:** as long as the model is kept. Work that is valuable is expected to be released rather than kept alive in a run's folder; later runs then start from the released copy.
 - **The portal's database:** every run's numbers and decisions stay, after its folder has gone.
 - **FSx:** nothing, once the run ends.
 
@@ -167,19 +185,22 @@ After a withdrawal, a run can no longer be repeated exactly. That is recorded in
 
 ## 11. Open choices for AI engineering
 
-Each has a recommendation. None is decided.
+Each has a recommendation. They are AI engineering's to choose, except where a line says decided.
 
 1. **How files move between S3 and FSx.** FSx for Lustre can be linked to an S3 prefix so that files load on first read and written files are exported by themselves. *Recommended:* copy explicitly for everything the job writes, so that exactly two checkpoints a stage reach S3; consider a read-only link for bringing data in.
 2. **Restart checkpoints.** HyperPod can requeue a job on healthy machines after a failure, and offers a managed way to checkpoint to memory with a backup on S3. *Recommended:* use the requeue; try the managed checkpointing for the restart copies only, never for `best/` and `last/`.
 3. **Written once.** *Recommended:* versioning on all three buckets; deny overwrites under a data set version; a lock on `released/`.
 4. **The 180 days.** *Recommended:* a lifecycle rule keyed on a tag the portal sets when a run closes, so that a run still going is never deleted.
-5. **A checkpoint another run reuses.** The shaping trials reuse the adjusted base of an earlier run. After 180 days that base would be gone. *To be asked of Jithin:* whether a checkpoint that later runs reuse is kept past 180 days.
+5. **The hold on a checkpoint another run reuses.** Decided by Jithin: it is kept while any run uses it (section 1, item 10). Open for engineering is how. *Recommended:* the portal sets the delete tag for each stage folder, not once for the whole run, and does not set it on a stage that another run's `REUSED.json` names; when the last run that names it has itself passed its time, the portal sets the tag. The portal's database holds who names what, in both directions.
 
 ## 12. Where this is thin
 
 - **Deleting at 180 days removes the evidence of trials that did not release.** The numbers stay in the portal; the weights do not, so a trial cannot be scored again after that.
-- **"Best" during training is judged on a quick check.** The whole TL Index is run on that one checkpoint at the stage's end. A checkpoint that was not best on the quick check is never scored on the whole Index.
+- **"Best" during training is judged on a quick check.** The whole stage-check set is run on that one checkpoint at the stage's end. A checkpoint that was not best on the quick check is never scored on the whole set.
+- **A base is released without ever meeting an edition's questions.** It rests on the stage-check set alone. That is by design, but it means a base's numbers and a model's published numbers are not on the same questions.
 - **Two checkpoints for each of seven stages is a lot of storage for the largest Core.** Roughly fourteen full copies for a base recipe, before the served model.
+- **The hold only delays the loss.** A checkpoint reused from a run is gone once the last run using it passes its own 180 days. Anything meant to last must be released to the shelf; the portal should say so on the run before the date arrives.
+- **Reuse makes one run's evidence depend on another run's folder.** The hold keeps the checkpoint, but the settings, data lists and checks behind it leave with the rest of that folder at 180 days. A run that reuses a stage should copy that stage's small record (its settings, data lists, check and decision), though not its weights.
 - **Nothing here has been built or tried.** The S3 and FSx behaviour is taken from AWS's documentation.
 
 ## Sources

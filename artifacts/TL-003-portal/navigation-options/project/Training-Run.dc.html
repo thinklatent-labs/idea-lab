@@ -49,7 +49,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .fl .ar{flex:0 0 34px;display:flex;align-items:center;justify-content:center;color:rgba(26,26,26,.5);font-size:18px}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2104px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2157px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -98,7 +98,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
       <div class="row4">
         <div class="sg">
           <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">1</span><b>Adjust the full base</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Reused</span></span></div>
-          <span>The adjusted base from the 5% trial of 14 Oct was used again. Its check passed then, so the stage was not repeated.</span>
+          <span>The adjusted base from the 5% trial of 14 Oct was used again. Its check passed then, so the stage was not repeated. That run is still kept and the stage passed, so it may be reused. Its checkpoint is held while this run uses it.</span>
           <small>0 hours here</small>
         </div>
         <span class="aw" aria-hidden="true">→</span>
@@ -131,7 +131,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <span>Safety and grounding</span><span class="n">80 ± 5</span><span class="n">66 ± 6</span><span class="n">75 ± 5</span><span class="n">−4.9 ± 1.8</span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Fell further than allowed</span></span>
         <span>Entity recognition</span><span class="n">89 ± 4</span><span class="n">79 ± 5</span><span class="n">88 ± 4</span><span class="n">−1.3 ± 1.4</span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Cannot tell</span></span>
       </div>
-      <div class="kit-small kit-muted" style="margin-top: 12px">Each pillar is scored on its 240 questions of the TL Index. The difference is taken question by question on the same questions, which is why its range is tighter than either score's. "Cannot tell" means the range crosses the 2 points allowed. The 200-question slice used inside the stage could not have shown any of this.</div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">Each pillar is scored on its 240 questions in the stage-check set: questions from the TL Index's pool, on the same pillars, that are never in an edition. So nothing chosen here touches the score a released model is given. The difference is taken question by question on the same questions, which is why its range is tighter than either score's. "Cannot tell" means the range crosses the 2 points allowed. The 200-question slice used inside the stage could not have shown any of this.</div>
     </section>
 
     <section class="kit-surface" aria-label="What happens next" id="next">
@@ -152,7 +152,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <span class="n">2,000</span><span class="n">2.31</span><span class="n">71</span><span class="kit-muted">Not kept · its numbers stay</span>
           <span class="n">4,000</span><span class="n">2.12</span><span class="n">76</span><span class="kit-muted">Not kept · its numbers stay</span>
           <span class="n">6,000</span><span class="n">2.03</span><span class="n">79</span><span class="kit-muted">Not kept · its numbers stay</span>
-          <span class="n">8,000</span><span class="n">1.98</span><span class="n">80</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Kept · proposed</span></span> Both the best and the last this time. Scored on the whole Index: the table of this page.</span>
+          <span class="n">8,000</span><span class="n">1.98</span><span class="n">80</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Kept · proposed</span></span> Both the best and the last this time. Scored on the whole stage-check set: the table of this page.</span>
         </div>
         <div class="kit-small kit-muted" style="margin-top: 10px">While a stage trains, a checkpoint that beats the best is written to the run's folder on S3, and the last is written on a timer. Nothing else is kept. The portal proposes the best; the foundation lead confirms it before anything is built on it.</div>
       </section>
@@ -178,12 +178,12 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <div class="bx nx"><b>Projects are told</b><small>The portal runs each project's own evaluation for it</small></div><span class="ar" aria-hidden="true">→</span>
         <div class="bx nx"><b>Each project decides</b><small>A switch travels as an increment</small></div>
       </div>
-      <div class="kit-small kit-muted" style="margin-top: 10px">A shaping trial never reaches a release on its own: a shaped base goes on to stages 4 to 7 first. This run cannot go forward until its check passes.</div>
+      <div class="kit-small kit-muted" style="margin-top: 10px">A shaping trial does not release a model: a shaped base goes on to stages 4 to 7 first. A shaped base that passes its check can be released to the <a href="Models-Training.dc.html">base shelf</a>, for the foundation team only, and no project is told. This run cannot go forward until its check passes.</div>
     </section>
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2104}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2157}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

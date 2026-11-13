@@ -45,7 +45,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .hw dt{color:rgba(26,26,26,.6)}.hw dd{margin:0}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2317px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2332px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -104,7 +104,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div class="sg sel">
             <div class="top"><span style="display: flex; gap: 8px; align-items: center"><span class="k">2</span><b>Prune</b></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span></div>
             <small>Narrower layers, keeping the shape that scores best on the Enterprise's questions · FastNAS, in the TLM package</small>
-            <dl><div><dt>Learns from</dt><dd>Shaping · calibration, version 1 · 1,024 items</dd></div><div><dt>The check before the next stage</dt><dd>The best of 10 candidates on a slice of the TL Index. A drop here is expected</dd></div><div><dt>About</dt><dd>2 hours on 8 GPUs</dd></div></dl>
+            <dl><div><dt>Learns from</dt><dd>Shaping · calibration, version 1 · 1,024 items</dd></div><div><dt>The check before the next stage</dt><dd>The best of 10 candidates on a slice of the stage-check set. A drop here is expected</dd></div><div><dt>About</dt><dd>2 hours on 8 GPUs</dd></div></dl>
           </div>
           <span class="aw" aria-hidden="true">→</span>
           <div class="sg">
@@ -160,7 +160,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <span>How much to take out</span><span>20% of the model, the aim<small>5% and 10% have been run and hold · <a href="Training-Run.dc.html">the 20% trial stopped at its check on 4 Nov</a></small></span><span>5 to 20%</span><span>More is cheaper to serve and harder to win back</span>
           <span>What to cut</span><span>Width only<small>Narrower layers; no layer is removed</small></span><span class="kit-muted">—</span><span>Width keeps more of what the model knows</span>
           <span>Calibration mix</span><span><a href="Data-Mix.dc.html">Shaping · calibration</a>, version 1<small>40% numbers and reasoning · 30% instructions · 30% the Enterprise's own domains</small></span><span>512 to 4,096 items</span><span>What the Enterprise's data uses is what stays</span>
-          <span>How candidates are ranked</span><span>A slice of the TL Index<small>200 questions over the five live pillars, held apart from every mix</small></span><span class="kit-muted">—</span><span>This is the score the method searches on, so a better evaluation makes a better cut</span>
+          <span>How candidates are ranked</span><span>A slice of the stage-check set<small>200 questions over the five live pillars · from the TL Index's pool, never in an edition, and in no mix</small></span><span class="kit-muted">—</span><span>This is the score the method searches on, so a better evaluation makes a better cut</span>
           <span>Candidates tried</span><span>10</span><span>5 to 20</span><span>More finds a better shape and takes longer</span>
         </div>
       </section>
@@ -169,7 +169,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
         <div class="ck">
           <span>A calibration mix, saved at a version<small>Shaping · calibration, version 1</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Held</span></span>
           <span>The adjusted base from stage 1<small>Stage 1 has not run</small></span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Not yet</span></span>
-          <span>A TL Index slice that is in no mix<small>The graph keeps it fenced</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Held</span></span>
+          <span>A stage-check slice that is in no mix<small>The graph keeps it fenced</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Held</span></span>
           <span>8 GPUs for about 2 hours<small>12 are free now</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Free</span></span>
         </div>
         <div class="kit-small kit-muted" style="margin-top: 10px">If the check after it fails, the recipe stops there. The stage can be run again with less taken out; stage 1 is not repeated.</div>
@@ -201,7 +201,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2317}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2332}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};

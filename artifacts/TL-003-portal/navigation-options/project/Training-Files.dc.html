@@ -39,7 +39,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
 .kp>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
 </style>
 </helmet>
-<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2131px">
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2305px">
   <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
 
   <header class="kit-top">
@@ -109,7 +109,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   shaping-enterprise-text@1/
   lineage.json</span><span>For each mix: the ask in tags, how it is drawn, and a list of every file read with its place in the training store, its version there, its checksum and the rows taken. Then where those came from. It points to 3.0M documents and holds none of them.</span><span>The portal, at the start</span><span class="n">96 MB</span>
         <span class="p">stages/01-adjust/
-  REUSED.json</span><span>Not run again. One file that names the best checkpoint of <span class="mono">core-shaping05-20261014-a</span>, the 5% trial.</span><span>The portal</span><span class="n">1 KB</span>
+  REUSED.json</span><span>Not run again. One file that names the best checkpoint of <span class="mono">core-shaping05-20261014-a</span>, the 5% trial: a run still kept, whose stage passed its check. The checkpoint is held while this run uses it.</span><span>The portal</span><span class="n">1 KB</span>
         <span class="p">stages/02-prune/
   checkpoints/best/
   checkpoints/last/
@@ -120,13 +120,13 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   checkpoints/last/
   metrics/  logs/
   check/
-  decision.json</span><span>Step 8,000, both the best and the last. The best was replaced four times as training went on. Loss, speed and GPU use over time. The check on the whole TL Index, by pillar, with question ids only. The decision is not written yet: it waits for Hana O.</span><span>The job, each time the best was beaten; the portal for the check</span><span class="n">45 GB</span>
+  decision.json</span><span>Step 8,000, both the best and the last. The best was replaced four times as training went on. Loss, speed and GPU use over time. The check on the stage-check set, by pillar, with question ids only. The decision is not written yet: it waits for Hana O.</span><span>The job, each time the best was beaten; the portal for the check</span><span class="n">45 GB</span>
         <span class="p em">output/</span><span class="em">Empty. A model is written here only when every stage's check has passed.</span><span class="em">—</span><span class="n em">—</span>
         <span class="p em">evaluation/tl-index/</span><span class="em">Empty. The whole-Index run that decides release happens at the end.</span><span class="em">—</span><span class="n em">—</span>
         <span class="p">record/events.jsonl</span><span>Every change of state and who or what made it: 214 lines so far</span><span>The portal and the job</span><span class="n">58 KB</span>
         <span class="p em">MANIFEST.sha256</span><span class="em">Checksums of everything, written when the run ends. After that nothing in the folder changes.</span><span class="em">The portal</span><span class="n em">—</span>
       </div>
-      <div class="kit-small kit-muted" style="margin-top: 12px">No row of training data and no TL Index question is ever in a run's folder. A stage reused from another run is named, not copied.</div>
+      <div class="kit-small kit-muted" style="margin-top: 12px">No row of training data and no TL Index question is ever in a run's folder. A stage reused from another run is named, not copied. Only a released model, a base on the shelf, or a passed stage of a run still kept can be named.</div>
     </section>
 
     <div style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 16px; align-items: start">
@@ -139,7 +139,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <span class="n">02:10 to 04:05</span><span>Stage 2: 10 shapes tried, the best kept.</span><span>The folder: the pruned model, once</span>
           <span class="n">04:10</span><span>Stage 3 began. The Enterprise's text was copied to FSx.</span><span>The working area: 1.9 TB</span>
           <span class="n">3 Nov, 11:40 to 4 Nov, 10:20</span><span>The best was beaten four times, at steps 2,000, 4,000, 6,000 and 8,000.</span><span>The folder: best replaced each time; last on a timer</span>
-          <span class="n">4 Nov, 10:40 to 11:55</span><span>The best was scored on the whole TL Index. Two pillars fell further than allowed.</span><span>The folder: the check</span>
+          <span class="n">4 Nov, 10:40 to 11:55</span><span>The best was scored on the stage-check set. Two pillars fell further than allowed.</span><span>The folder: the check</span>
           <span class="n">Now</span><span>Stopped. <a href="Training-Run.dc.html">The foundation lead decides.</a></span><span class="kit-muted">Nothing is written while it waits</span>
         </div>
       </section>
@@ -149,9 +149,12 @@ a{color:#1B5128}a:hover{color:#0C3F09}
           <div class="kp">
             <span>This folder</span><span>180 days after the run ends, then deleted</span>
             <span>The working copy on FSx</span><span>Cleared when the run ends</span>
+            <span>A checkpoint another run reuses</span><span>Held while any run still kept uses it</span>
+            <span>A base on the shelf</span><span>While any model built on it is kept</span>
             <span>A released model and its record</span><span class="kit-muted">Not reached by this run</span>
             <span>Its numbers and decisions in the portal</span><span>Stay after the folder has gone</span>
           </div>
+          <div class="kit-small kit-muted" style="margin-top: 10px">What proves its worth is released: a model to the catalogue, a base to the base shelf, which only the foundation team sees. From then on the 180 days no longer apply, and later runs start from the released copy.</div>
         </section>
         <section class="kit-surface" aria-label="If the data changes">
           <div class="da-h"><h3>If the data changes while it runs</h3></div>
@@ -167,7 +170,7 @@ a{color:#1B5128}a:hover{color:#0C3F09}
   </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2131}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2305}}'>
 class Component extends DCLogic {
 renderVals() {
 return {};
