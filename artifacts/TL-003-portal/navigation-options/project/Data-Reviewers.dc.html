@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Data review · reviewers, second reviews, the 14-day rule and proposing a pipeline (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.x-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.x-h h3{margin:0;font-size:18px;font-weight:500}
+.x-n{margin-top:12px;font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.65)}
+.x-t{display:grid;font-size:13px;line-height:1.45;margin-top:10px}
+.x-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.x-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.x-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.x-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.x-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.x-box{margin-top:12px;border-radius:16px;padding:14px 16px;background:rgba(255,255,255,.8);box-shadow:0 0 0 1.5px rgba(27,81,40,.4);display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.5}
+.x-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.x-log{margin-top:10px;border-radius:12px;background:#151515;color:#DADAD6;font:12px/1.6 ui-monospace,Menlo,monospace;padding:12px 14px;white-space:pre-wrap}
+.x-log b{color:#D08A4A;font-weight:400}
+.x-c{border-radius:14px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 14px;display:flex;flex-direction:column;gap:4px;font-size:12.5px}
+.x-c b{font-size:20px;font-weight:400}
+.x-bar{display:block;height:8px;border-radius:4px;background:rgba(26,26,26,.08)}
+.x-bar i{display:block;height:8px;border-radius:4px;background:#1B5128}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1347px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Data-Tagging.dc.html">← Tags and reviews</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Reviewers and proposals</button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Data review · who reviews, and how well</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">The foundation team only</span><span class="kit-chip">4 reviewers · 312 decisions in 30 days</span><span class="kit-chip">First draft · D-325</span></div>
+        <span class="kit-small kit-muted">Who decides on what a tagging pipeline flags, how often two people agree, what has waited too long, and how a new pipeline is proposed. No row of a data set shows here, only counts · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Data-Tagging.dc.html">Back to tags and reviews</a><a class="kit-btn outline" href="Data-Sets.dc.html">Data sets</a></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Reviewers">
+      <div class="x-h"><h3>Reviewers</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Data lead and the reviewer</span></div>
+      <div class="x-t" style="grid-template-columns: minmax(0,1.2fr) 100px 120px minmax(0,1fr) 120px"><span class="h">Reviewer</span><span class="h">Decisions</span><span class="h">Typical time</span><span class="h">Agreement on second review</span><span class="h">Stands</span><span>Reviewer A</span><span>118</span><span>2 min</span><span>Strong · 11 of 12</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Reviewing</span></span></span><span>Reviewer B</span><span>96</span><span>3 min</span><span>Strong · 9 of 10</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Reviewing</span></span></span><span>Reviewer C</span><span>71</span><span>6 min</span><span>Fair · 5 of 7</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Paired for a week</span></span></span><span>Reviewer D</span><span>27</span><span>4 min</span><span>Too few to say</span><span>New</span></div><div class="x-n">Shown to the data lead and the reviewer themself; other reviewers see their own row only. It is for pairing and training, not ranking.</div>
+    </section><div class="x-2">
+    <section class="kit-surface" aria-label="Second reviews">
+      <div class="x-h"><h3>Second reviews</h3><span class="kit-small kit-muted">1 decision in 10, read again by someone who does not see the first</span></div>
+      <div class="x-t" style="grid-template-columns: minmax(0,1.3fr) 90px 90px 110px"><span class="h">Tag</span><span class="h">Read twice</span><span class="h">Agreed</span><span class="h">Stands</span><span>Personal data</span><span>14</span><span>13</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Strong</span></span></span><span>Client data</span><span>9</span><span>9</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Strong</span></span></span><span>Source</span><span>5</span><span>3</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Weak</span></span></span><span>Sensitivity</span><span>3</span><span>3</span><span>Too few</span></div><div class="x-n">Where two reviewers disagree, the data lead decides and the pattern is written down. 'Source' disagreements are mostly one case: text copied from a public page into an internal note.</div>
+    </section>
+    <section class="kit-surface" aria-label="Waiting too long">
+      <div class="x-h"><h3>Waiting too long</h3><span class="kit-small kit-muted">Past 14 days it goes to the data lead</span></div>
+      <div class="x-t" style="grid-template-columns: minmax(0,1.5fr) 90px minmax(0,1fr)"><span class="h">What waits</span><span class="h">Days</span><span class="h">With</span><span>41 flags on the service-notes set</span><span>16</span><span>The data lead since day 14</span><span>A corrected tag on fund sheets v3</span><span>9</span><span>Reviewer B</span><span>12 flags on call transcripts</span><span>3</span><span>Reviewer A</span></div><div class="x-n">While a flag waits, its rows stay out of every mix. Median time to a decision is 4 days; 92% are decided within 14.</div>
+    </section></div>
+    <section class="kit-surface" aria-label="Propose a tagging pipeline">
+      <div class="x-h"><h3>Propose a tagging pipeline</h3><span class="kit-small kit-muted">Anyone on the foundation team proposes · ThinkLatent decides within 14 days</span></div>
+      <div class="x-box"><span><b style="font-weight: 500">What it should flag:</b> account numbers written out in words</span><span><b style="font-weight: 500">Why:</b> 6 were found by hand in call transcripts last month; the current pipeline catches digits only</span><span><b style="font-weight: 500">Where it would run:</b> call transcripts, service notes</span><span class="x-row"><button class="kit-btn" type="button">Send the proposal</button><span class="kit-small kit-muted">3 others have asked for the same · it is tried on a copy first, and its flags are compared with people's before it is switched on</span></span></div><div class="x-t" style="grid-template-columns: minmax(0,1.6fr) 90px minmax(0,1fr)"><span class="h">Earlier proposals</span><span class="h">Asked by</span><span class="h">Answer</span><span>Flag made-up client names</span><span>5</span><span>Accepted 2 Nov · on in 3 sets</span><span>Flag languages other than English</span><span>2</span><span>Declined 20 Oct: the language tag already does it</span></div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1347}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

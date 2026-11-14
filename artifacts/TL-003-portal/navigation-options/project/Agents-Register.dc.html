@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agents · the register of every agent, and a failing run step by step (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.x-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.x-h h3{margin:0;font-size:18px;font-weight:500}
+.x-n{margin-top:12px;font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.65)}
+.x-t{display:grid;font-size:13px;line-height:1.45;margin-top:10px}
+.x-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.x-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.x-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.x-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.x-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.x-box{margin-top:12px;border-radius:16px;padding:14px 16px;background:rgba(255,255,255,.8);box-shadow:0 0 0 1.5px rgba(27,81,40,.4);display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.5}
+.x-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.x-log{margin-top:10px;border-radius:12px;background:#151515;color:#DADAD6;font:12px/1.6 ui-monospace,Menlo,monospace;padding:12px 14px;white-space:pre-wrap}
+.x-log b{color:#D08A4A;font-weight:400}
+.x-c{border-radius:14px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 14px;display:flex;flex-direction:column;gap:4px;font-size:12.5px}
+.x-c b{font-size:20px;font-weight:400}
+.x-bar{display:block;height:8px;border-radius:4px;background:rgba(26,26,26,.08)}
+.x-bar i{display:block;height:8px;border-radius:4px;background:#1B5128}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1136px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-current="page" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Agents-Library.dc.html">← Agents library</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Register</button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Agents · the register</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Open to everyone at the Enterprise</span><span class="kit-chip">9 agents · 3 act with approval</span><span class="kit-chip">First draft · D-325</span></div>
+        <span class="kit-small kit-muted">Every agent in one list: who answers for it, who builds it, how much it may do on its own, and who uses it. Below, one failing run of an agent, step by step, for its builders · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Agents-Library.dc.html">The library</a><a class="kit-btn outline" href="Agents-AtWork.dc.html">Agents at work</a></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Every agent">
+      <div class="x-h"><h3>Every agent</h3><span class="kit-small kit-muted">A row opens the agent's page</span></div>
+      <div class="x-t" style="grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) 170px 120px 110px"><span class="h">Agent</span><span class="h">Answers for it</span><span class="h">Builds it</span><span class="h">May do on its own</span><span class="h">Used by</span><span class="h">Runs, 30 days</span><span><a href="Agent-Page.dc.html">Research helper</a><small>Reads documents and compares</small></span><span>ThinkLatent</span><span>ThinkLatent AI engineering</span><span>Suggests only</span><span>4 projects · Try TLM</span><span>3,120</span><span>Quality agent<small>Scores, drafts findings and summaries</small></span><span>ThinkLatent</span><span>ThinkLatent AI engineering</span><span>Suggests only</span><span>Every project</span><span>Every request</span><span>SRE agent<small>Watches serving, proposes fixes</small></span><span>ThinkLatent</span><span>ThinkLatent platform</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Acts with approval</span></span></span><span>Every project</span><span>412</span><span>Claims router<small>Routes a claim to a desk</small></span><span>Claims Ops Tech</span><span>Claims Ops Tech</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Acts with approval</span></span></span><span>1 project</span><span>11k a day</span><span>Index agent<small>Runs evaluations, watches saturation</small></span><span>The Index team</span><span>The Index team</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Acts alone, within limits</span></span></span><span>TL Index</span><span>64</span></div><div class="x-n">Three levels: suggests only; acts with a person's approval each time; acts alone within written limits. The Index agent may start and stop evaluation runs alone and nothing else. No agent decides a one-way door.</div>
+    </section><div class="x-2">
+    <section class="kit-surface" aria-label="A failing run, step by step">
+      <div class="x-h"><h3>A failing run, step by step</h3><span class="kit-small kit-muted">Research helper · 5 Nov 10:41 · for its builders</span></div>
+      <div class="x-t" style="grid-template-columns: 40px minmax(0,1.4fr) 110px minmax(0,1fr)"><span class="h"></span><span class="h">Step</span><span class="h">Result</span><span class="h">Note</span><span>1</span><span>Read the request</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Fine</span></span></span><span>0.3 s</span><span>2</span><span>Search approved documents</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Fine</span></span></span><span>2 passages</span><span>3</span><span>Run a calculation</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Failed</span></span></span><span>The tool returned text where a number was expected</span><span>4</span><span>Write the answer</span><span>Skipped</span><span>Stopped at step 3</span></div><div class="x-n">14 runs failed the same way this week, all on sheets where fees are written as words. Text of the request shows only to members of the project it ran in.</div>
+    </section>
+    <section class="kit-surface" aria-label="Try it again on another version">
+      <div class="x-h"><h3>Try it again on another version</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>The agent's builders</span></div>
+      <div class="x-box"><span>Replay this run from step 3 on</span><span class="x-row"><span class="kit-chip brand">Research helper v8 · on trial</span><span class="kit-chip">v7 · live</span><span class="kit-chip">v6</span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>v8 passes</span></span> · the tool now reads numbers written as words</span><span class="x-row"><button class="kit-btn" type="button">Replay</button><button class="kit-btn outline" type="button">Raise a finding</button><span class="kit-small kit-muted">A replay runs on a copy, changes nothing, and is listed in the agent's runs</span></span></div>
+    </section></div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1136}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

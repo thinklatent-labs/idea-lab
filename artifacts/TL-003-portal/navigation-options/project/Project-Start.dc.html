@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Starting a project with an agent's draft, and what a project's Overview asks of its owner (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.x-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.x-h h3{margin:0;font-size:18px;font-weight:500}
+.x-n{margin-top:12px;font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.65)}
+.x-t{display:grid;font-size:13px;line-height:1.45;margin-top:10px}
+.x-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.x-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.x-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.x-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.x-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.x-box{margin-top:12px;border-radius:16px;padding:14px 16px;background:rgba(255,255,255,.8);box-shadow:0 0 0 1.5px rgba(27,81,40,.4);display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.5}
+.x-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.x-log{margin-top:10px;border-radius:12px;background:#151515;color:#DADAD6;font:12px/1.6 ui-monospace,Menlo,monospace;padding:12px 14px;white-space:pre-wrap}
+.x-log b{color:#D08A4A;font-weight:400}
+.x-c{border-radius:14px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 14px;display:flex;flex-direction:column;gap:4px;font-size:12.5px}
+.x-c b{font-size:20px;font-weight:400}
+.x-bar{display:block;height:8px;border-radius:4px;background:rgba(26,26,26,.08)}
+.x-bar i{display:block;height:8px;border-radius:4px;background:#1B5128}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1607px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Team-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Start-Project.dc.html">← Start a project</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Drafted for you</button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Start a project · drafted for you</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Anyone at the Enterprise</span><span class="kit-chip">Nothing is created until you say so</span><span class="kit-chip">First draft · D-325</span></div>
+        <span class="kit-small kit-muted">Say what the job is in a few lines. An agent drafts the rest for you to check, shows who already does something like it, and recommends the smallest model that fits. Below: what a project's Overview then asks of its owner · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Start-Project.dc.html">The short form</a><a class="kit-btn outline" href="Projects-All.dc.html">All projects</a></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="What you told it">
+      <div class="x-h"><h3>What you told it</h3><span class="kit-small kit-muted"></span></div>
+      <div class="x-box"><span>"We want a draft reply to routine client letters about address changes and statements, for the service team to check and send. About 2,000 letters a week."</span><span class="x-row"><span class="kit-chip brand">Agent · the intake agent</span><span class="kit-small kit-muted">Drafted the 7 answers below from this and from projects like it · check each</span><button class="kit-btn outline" type="button">Accept all</button><button class="kit-btn outline" type="button">Clear the drafts</button></span></div>
+    </section><div class="x-2">
+    <section class="kit-surface" aria-label="The draft">
+      <div class="x-h"><h3>The draft</h3><span class="kit-small kit-muted">Each answer is yours to change</span></div>
+      <div class="x-t" style="grid-template-columns: 150px minmax(0,1fr) 120px"><span class="h">Question</span><span class="h">Answer</span><span class="h">Stands</span><span>Team</span><span>Client Service Tech</span><span>Drafted · check</span><span>Feature</span><span>Letter drafting</span><span>Drafted · check</span><span>Who reads the output</span><span>The service team, before anything is sent</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>You confirmed</span></span></span><span>Volume</span><span>About 2,000 a week, working hours</span><span>Drafted · check</span><span>How fast</span><span>Within 10 seconds</span><span>Drafted · check</span><span>Data it touches</span><span>Client letters: client data, so a project endpoint, not Try TLM</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Check this one</span></span></span><span>What good looks like</span><span>Right facts, right tone, nothing made up; a starting threshold of 80%</span><span>Drafted · check</span></div><div class="x-n">A drafted answer is never sent as yours until you confirm it or change it.</div>
+    </section><div style="display: flex; flex-direction: column; gap: 16px">
+    <section class="kit-surface" aria-label="Already being done">
+      <div class="x-h"><h3>Already being done</h3><span class="kit-small kit-muted">2 look alike</span></div>
+      <div class="x-t" style="grid-template-columns: minmax(0,1.4fr) 80px minmax(0,1fr)"><span class="h">What</span><span class="h">Alike</span><span class="h"></span><span>Client letters · Letter drafting<small>Client Service Tech · in Pilot</small></span><span>Very</span><span><a href="Requests-Status.dc.html">Ask to join</a></span><span>Agent: Plain-language rewrite<small>In the Agents library</small></span><span>Partly</span><span><a href="Agents-Library.dc.html">Reuse it</a></span></div><div class="x-n">This looks like a project that already exists. Joining it is usually faster than starting another; you can still start your own.</div>
+    </section>
+    <section class="kit-surface" aria-label="Recommended model">
+      <div class="x-h"><h3>Recommended model</h3><span class="kit-small kit-muted">The smallest that meets every threshold the job needs</span></div>
+      <div class="x-t" style="grid-template-columns: minmax(0,1.2fr) 90px minmax(0,1fr)"><span class="h">Model</span><span class="h">Size</span><span class="h">Why</span><span>Distil 4.2 <span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Recommended</span></span></span><span>Small</span><span>Meets writing and tone thresholds on the TL Index; about a third of the cost of Core</span><span>Core 4.2</span><span>Large</span><span>Meets them too; choose it if letters get long or unusual</span></div><div class="x-n">The Plan then shows a clock from here to the first working call. Projects like this one took 6 working days.</div>
+    </section></div></div>
+    <section class="kit-surface" aria-label="On a project's Overview: needs a decision">
+      <div class="x-h"><h3>On a project's Overview: needs a decision</h3><span class="kit-small kit-muted">Advisor desktop · shown to its owners at the top of Overview</span></div>
+      <div class="x-t" style="grid-template-columns: minmax(0,1.6fr) minmax(0,1fr) 150px"><span class="h">What</span><span class="h">Where it is decided</span><span class="h"></span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>High finding</span></span> F-0431 holds Increment 6 back</span><span>Quality · findings register</span><span><a href="Project-QualityLoop.dc.html">Open</a></span><span>Next best action can ask for Production: 4 of 5 pieces of evidence are in</span><span>Increments</span><span><a href="Project-Increments.dc.html">Open</a></span><span>Dev asks to join as an engineer</span><span>Members</span><span><a href="Project-Members.dc.html">Open</a></span></div>
+    </section>
+    <section class="kit-surface" aria-label="Readiness summary, before asking for the next stage">
+      <div class="x-h"><h3>Readiness summary, before asking for the next stage</h3><span class="kit-small kit-muted">Drafted by an agent from the evidence · the owner edits and signs</span></div>
+      <div class="x-box"><span class="x-row"><span class="kit-chip brand">Agent · the quality agent</span><span class="kit-small kit-muted">Basis: the 5 pieces of evidence for Increment 6, as of 5 Nov · fairly sure · <a href="Project-Record.dc.html">View sources</a></span></span><span>Next best action is ready for Production on quality (71% ± 3 against 65%) and safety. It is not ready on speed: the slowest 5% take 4.1 s against the 3 s agreed. One finding is open and does not concern this feature.</span><span class="x-row"><button class="kit-btn" type="button">Hold to sign</button><button class="kit-btn outline" type="button">Edit</button><span class="kit-small kit-muted">Signed, it goes on the record with the request. It says what the evidence shows; whether to go ahead is decided outside the portal.</span></span></div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1607}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

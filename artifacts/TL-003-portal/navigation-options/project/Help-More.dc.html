@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Help · office hours, problems, the knowledge base, what Jarvis keeps, and what is coming (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.x-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.x-h h3{margin:0;font-size:18px;font-weight:500}
+.x-n{margin-top:12px;font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.65)}
+.x-t{display:grid;font-size:13px;line-height:1.45;margin-top:10px}
+.x-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.x-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.x-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.x-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.x-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.x-box{margin-top:12px;border-radius:16px;padding:14px 16px;background:rgba(255,255,255,.8);box-shadow:0 0 0 1.5px rgba(27,81,40,.4);display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.5}
+.x-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.x-log{margin-top:10px;border-radius:12px;background:#151515;color:#DADAD6;font:12px/1.6 ui-monospace,Menlo,monospace;padding:12px 14px;white-space:pre-wrap}
+.x-log b{color:#D08A4A;font-weight:400}
+.x-c{border-radius:14px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 14px;display:flex;flex-direction:column;gap:4px;font-size:12.5px}
+.x-c b{font-size:20px;font-weight:400}
+.x-bar{display:block;height:8px;border-radius:4px;background:rgba(26,26,26,.08)}
+.x-bar i{display:block;height:8px;border-radius:4px;background:#1B5128}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1508px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-current="page" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Help-Page.dc.html">← Help</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">More help</button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Help · people, problems and what is coming</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Open to everyone at the Enterprise</span><span class="kit-chip">ThinkLatent answers</span><span class="kit-chip">First draft · D-325</span></div>
+        <span class="kit-small kit-muted">Beyond the guides: time with ThinkLatent, a place to log a problem that everyone can read, a knowledge base that grows from answers, what Jarvis keeps for you, and what the portal will do later · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Help-Page.dc.html">Back to Help</a><a class="kit-btn outline" href="Jarvis-Ask.dc.html">Ask Jarvis</a></div>
+    </div>
+<div class="x-3">
+    <section class="kit-surface" aria-label="Office hours">
+      <div class="x-h"><h3>Office hours</h3><span class="kit-small kit-muted">With ThinkLatent · twice a week</span></div>
+      <div class="x-t" style="grid-template-columns: minmax(0,1fr) 110px"><span class="h">When</span><span class="h"></span><span>Tue 10 Nov · 10:00 ET · 4 places left</span><span><a href="#">Book</a></span><span>Thu 12 Nov · 14:00 ET · 6 places left</span><span><a href="#">Book</a></span></div><div class="x-n">Say what you are bringing when you book. Last month: 31 people came; most asked about thresholds and about connecting an application.</div>
+    </section>
+    <section class="kit-surface" aria-label="Log a problem">
+      <div class="x-h"><h3>Log a problem</h3><span class="kit-small kit-muted">Everyone can read the register</span></div>
+      <div class="x-row" style="margin-top: 10px"><span class="kit-chip brand">Something is broken</span><span class="kit-chip">I am waiting on something</span><span class="kit-chip">A risk</span></div><div class="x-t" style="grid-template-columns: minmax(0,1.5fr) 100px"><span class="h">Open now · 6</span><span class="h">Since</span><span>Usage is 18 min behind on some pages</span><span>5 Nov</span><span>Export of a long session times out</span><span>3 Nov</span><span>Node 3 runs hot in training</span><span>2 Nov</span></div><div class="x-n">Each has an owner at ThinkLatent and a date. No project's text goes in a problem.</div>
+    </section>
+    <section class="kit-surface" aria-label="Knowledge base">
+      <div class="x-h"><h3>Knowledge base</h3><span class="kit-small kit-muted">Each page says where it came from</span></div>
+      <div class="x-t" style="grid-template-columns: minmax(0,1.5fr) 120px"><span class="h">Page</span><span class="h">From</span><span>Setting a threshold you can defend</span><span>Written</span><span>Why a score moved between editions</span><span>An answer, 28 Oct</span><span>First call fails with 'ids missing'</span><span>A fix, 21 Oct</span></div><div class="x-n">Jarvis answers from these pages and the portal's own. A page from an answer is checked by ThinkLatent before it is kept.</div>
+    </section></div><div class="x-2">
+    <section class="kit-surface" aria-label="What Jarvis could not answer">
+      <div class="x-h"><h3>What Jarvis could not answer</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>ThinkLatent only</span></div>
+      <div class="x-t" style="grid-template-columns: minmax(0,1.6fr) 70px minmax(0,1fr)"><span class="h">Question</span><span class="h">Asked</span><span class="h">What happens</span><span>Can two projects share one endpoint?</span><span>7</span><span>A knowledge base page is being written</span><span>When is the next Core model?</span><span>5</span><span>Answered on the model's Training tab; Jarvis now points there</span><span>What does Risk need from me?</span><span>4</span><span>Outside the portal; Jarvis says who to ask</span></div><div class="x-n">Jarvis says when it does not know; it does not guess. 'Was this helpful?' under each answer feeds this list.</div>
+    </section>
+    <section class="kit-surface" aria-label="What Jarvis keeps for you">
+      <div class="x-h"><h3>What Jarvis keeps for you</h3><span class="kit-small kit-muted">Yours alone · 30 days, like Try TLM sessions</span></div>
+      <div class="x-t" style="grid-template-columns: minmax(0,1.6fr) 110px 150px"><span class="h">You asked</span><span class="h">When</span><span class="h"></span><span>Why did Call summary's score move last week?</span><span>4 Nov</span><span><a href="#">Save as a view</a></span><span>Which projects use Core 4.1?</span><span>2 Nov</span><span>Pinned to Core 4.1's page</span></div><div class="x-n">A saved or pinned answer carries the time it was true: 'as of 4 Nov'. Pinned to a page, it shows to whoever can open that page. One Jarvis, no modes: it works out what you are asking about.</div>
+    </section></div>
+    <section class="kit-surface" aria-label="What is coming">
+      <div class="x-h"><h3>What is coming</h3><span class="kit-small kit-muted">Not built in the first year · listed so nobody thinks it was forgotten</span></div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 12px"><div class="x-c"><span>A compounding index across editions</span><span class="kit-muted">V-01</span></div><div class="x-c"><span>Voice, in and out</span><span class="kit-muted">V-04</span></div><div class="x-c"><span>A twin of a project to try changes on</span><span class="kit-muted">V-06</span></div><div class="x-c"><span>Automatic right-sizing of models</span><span class="kit-muted">V-07</span></div><div class="x-c"><span>TLM5 pages</span><span class="kit-muted">V-09</span></div><div class="x-c"><span>Agents that improve as a group</span><span class="kit-muted">V-10</span></div><div class="x-c"><span>Data agreements between teams</span><span class="kit-muted">V-13</span></div><div class="x-c"><span>The SRE agent acting within limits</span><span class="kit-muted">V-16</span></div><div class="x-c"><span>Chargeback and GPU trading</span><span class="kit-muted">V-20</span></div><div class="x-c"><span>A resilience view</span><span class="kit-muted">V-21</span></div><div class="x-c"><span>An academy</span><span class="kit-muted">V-22</span></div><div class="x-c"><span>A portal API and MCP server, with the registry's API</span><span class="kit-muted">V-23</span></div><div class="x-c"><span>Federation with other portals</span><span class="kit-muted">V-24</span></div><div class="x-c"><span>Portfolio simulation</span><span class="kit-muted">V-25</span></div><div class="x-c"><span>Jarvis acting with your approval</span><span class="kit-muted">V-05</span></div><div class="x-c"><span>Statements for Finance, adoption by person and team, a composite score</span><span class="kit-muted">D-312</span></div></div><div class="x-n">Each line moves onto a page when it is decided. Nothing here has a date (D-307, D-312).</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1508}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
