@@ -1,7 +1,7 @@
-# Portal prototype
+# The portal build
 
-Live: https://claude.ai/artifact/XxhCieUgDt6CCiMtxbs2Z9 (private), version 1794454355-21f4. Source: thinklatent-labs/portal, `apps/portal`, commit 7bd63d2; `pnpm build` writes `apps/portal/dist/index.html`.
+Live: https://claude.ai/artifact/XxhCieUgDt6CCiMtxbs2Z9 (private), version 1794632856-b91e. Source: thinklatent-labs/portal, `apps/portal`, branch `build-1-shell-home`, commit f7fe246; `pnpm build` writes `apps/portal/dist/index.html`. To run it: Node 22 and pnpm, then `pnpm install` and `pnpm dev`.
 
-Build of 11 Nov: the desktop shell; Home redone to board H1's composition and compared side by side with the board (D-247, D-248); My work; Help, Coverage (every feature with its state and screen); the TL Index leaderboard, model page and trends. From here the build goes board by board. The feature lists and the status file are in the portal repository under `docs/features/`.
+Build of 14 Nov (D-327, D-328): build 1 of nine began. The old prototype's pages and sample data were deleted. Built: the sample world of the approved boards (as of Thu 5 Nov, 11:58 ET), the shell (find, go or ask; meetings; Try TLM; the inbox bell; density; Engineering view; the dock ending with You; light or dark from the device) and Home. Every other page says which build makes it. The plan is `build-plan-2026-11-14.md` beside this file.
 
-Build of 12 Nov: the same screens on design-kit v0.9.0 (e2a4cac, D-257). Nothing on screen changed; twenty pages were compared pixel for pixel with the build of 11 Nov. The structure of models and projects agreed since (D-249 to D-255) is drawn on the navigation-options canvas and is not in this build yet.
+Earlier builds of this page (11 and 12 Nov) were the old prototype by workspace; they are in the page's version history and in the portal repository's history before f7fe246.
