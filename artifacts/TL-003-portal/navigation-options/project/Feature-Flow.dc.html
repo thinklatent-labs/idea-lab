@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A feature · Models and flow: versions in service, the days, and requests by size (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.fr-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.fr-h h3{margin:0;font-size:18px;font-weight:500}
+.fr-n{margin-top:12px;font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.65)}
+.fr-seg{display:inline-flex;border-radius:10px;box-shadow:0 0 0 1px rgba(26,26,26,.14);overflow:hidden;font-size:12.5px}
+.fr-seg span{padding:5px 11px}.fr-seg span.on{background:#1A1A1A;color:#fff}
+.fr-t{display:grid;grid-template-columns:150px minmax(0,1.2fr) 120px minmax(0,1fr) minmax(0,1.3fr);font-size:13px;line-height:1.45;margin-top:10px}
+.fr-t>*{padding:11px 12px 11px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.fr-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.fr-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.fr-cs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:12px}
+.fr-c{border-radius:16px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.fr-b{font-size:24px;font-weight:400}
+.fr-g{display:grid;grid-template-columns:110px repeat(3,minmax(0,1fr));gap:6px;margin-top:12px;font-size:13px}
+.fr-g .h{font-size:11.5px;color:rgba(26,26,26,.6);padding:0 0 4px}
+.fr-g .rl{display:flex;align-items:center;font-size:12.5px}
+.fr-g .cl{display:flex;align-items:center;justify-content:center;height:46px;border-radius:10px;font-variant-numeric:tabular-nums}
+.fr-l{display:grid;grid-template-columns:minmax(0,1.4fr) 64px 70px 84px 110px;font-size:13px;line-height:1.45;margin-top:10px}
+.fr-l>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;font-variant-numeric:tabular-nums}
+.fr-l .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 1675px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Organization-Page.dc.html">Retail Business <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Team-Page.dc.html">Advice Tech <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Project-Page.dc.html">Advisor desktop <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Call summary <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Call summary</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Production</span><span class="kit-chip">Domain-Advice v2 live · v3 on trial for 5% of requests</span><span class="kit-chip">No alerts open</span><span class="kit-chip">First draft · D-324</span></div>
+        <span class="kit-small kit-muted">Writes the summary of an advice call · owner: Priya · As of 11:58 ET · sample data</span>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><span class="fr-seg" role="group" aria-label="Time window"><span>Today</span><span>7 days</span><span class="on">30 days</span><span>Quarter</span></span><span class="kit-small kit-muted">The same switch as Home, on every project and feature page · each number against the window before</span></div>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Increment-Rollout.dc.html">The rollout of v3</a><a class="kit-btn outline" href="Project-Operations.dc.html">Operations</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Feature pages">
+      <a role="tab" aria-selected="false" href="Feature-Page.dc.html">Overview</a><button role="tab" aria-selected="true" type="button">Models and flow</button><a role="tab" aria-selected="false" href="Feature-Prompts.dc.html">Prompts</a><button role="tab" aria-selected="false" type="button">Quality and thresholds</button><button role="tab" aria-selected="false" type="button">Evaluation set</button><button role="tab" aria-selected="false" type="button">Feedback</button><button role="tab" aria-selected="false" type="button">Increments</button><button role="tab" aria-selected="false" type="button">Settings</button>
+    </div>
+
+    <section class="kit-surface raised" aria-label="Versions in service">
+      <div class="fr-h"><h3>Versions in service</h3><span class="kit-small kit-muted">Which model answers this feature's requests right now · engineers know these as aliases</span></div>
+      <div class="fr-t">
+        <span class="h">Place</span><span class="h">Model</span><span class="h">Share of requests</span><span class="h">Since</span><span class="h">Note</span>
+        <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Live</span></span></span><span>Domain-Advice v2</span><span>95%</span><span>14 Oct</span><span>Scores 86% ± 5 against the 80% you expect</span>
+        <span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>On trial</span></span></span><span>Domain-Advice v3</span><span>5%</span><span>3 Nov</span><span>Increment 6 · 2 of 4 checks passed<small><a href="Increment-Rollout.dc.html">Open the rollout</a></small></span>
+        <span>Kept ready</span><span>Domain-Advice v1</span><span>0%</span><span>Until 12 Jan</span><span>To go back to within 90 days of v2's release</span>
+        <span>Fallback</span><span>Core 4.2</span><span>0%</span><span>Always</span><span>Answers if the feature's own model cannot<small>Used 14 times in 30 days, all on 21 Oct</small></span>
+      </div>
+      <div class="fr-n">A fallback or a kept-ready version that points at a model due to retire is flagged here and in the inbox from 90 days out (D-315).</div>
+    </section>
+
+    <section class="kit-surface" aria-label="The last 30 days, by day">
+      <div class="fr-h"><h3>The last 30 days, by day</h3><span class="kit-small kit-muted">The dashed line is what was agreed · the marked day is the worst · the same four charts sit on the project's Operations page for all its features</span></div>
+      <div class="fr-cs"><div class="fr-c"><span class="kit-caption">Requests a day</span><span class="fr-b">26k today</span><svg viewBox="0 0 300 96" role="img" aria-label="Requests a day over 30 days" style="width: 100%; height: 96px; display: block"><polyline points="6.0,30.8 15.9,28.2 25.9,25.6 35.8,23.0 45.7,25.6 55.7,64.6 65.6,67.2 75.5,25.6 85.4,23.0 95.4,20.4 105.3,23.0 115.2,20.4 125.2,62.0 135.1,64.6 145.0,23.0 155.0,20.4 164.9,17.8 174.8,20.4 184.8,23.0 194.7,62.0 204.6,64.6 214.6,20.4 224.5,17.8 234.4,20.4 244.3,17.8 254.3,20.4 264.2,59.4 274.1,64.6 284.1,20.4 294.0,20.4" fill="none" stroke="#1B5128" stroke-width="2" stroke-linejoin="round"></polyline></svg><span class="kit-small kit-muted">Weekdays about 26k, weekends about 9k · 4% up on the 30 days before</span></div><div class="fr-c"><span class="kit-caption">Errors</span><span class="fr-b">0.3% today</span><svg viewBox="0 0 300 96" role="img" aria-label="Errors a day against the agreed 1 percent" style="width: 100%; height: 96px; display: block"><line x1="6" x2="294" y1="39.2" y2="39.2" stroke="rgba(26,26,26,.45)" stroke-dasharray="4 4" stroke-width="1"></line><polyline points="6.0,73.4 15.9,78.2 25.9,73.4 35.8,68.5 45.7,73.4 55.7,78.2 65.6,78.2 75.5,73.4 85.4,73.4 95.4,78.2 105.3,68.5 115.2,73.4 125.2,78.2 135.1,78.2 145.0,73.4 155.0,19.8 164.9,68.5 174.8,73.4 184.8,73.4 194.7,78.2 204.6,78.2 214.6,73.4 224.5,73.4 234.4,68.5 244.3,73.4 254.3,73.4 264.2,78.2 274.1,78.2 284.1,73.4 294.0,73.4" fill="none" stroke="#1B5128" stroke-width="2" stroke-linejoin="round"></polyline><circle cx="155.0" cy="19.8" r="4" fill="#C0692B"></circle></svg><span class="kit-small kit-muted">Worst day 21 Oct, 1.4% · 1 day over the agreed 1%</span></div><div class="fr-c"><span class="kit-caption">Available</span><span class="fr-b">100% today</span><svg viewBox="0 0 300 96" role="img" aria-label="Availability a day against the agreed 99.9 percent" style="width: 100%; height: 96px; display: block"><line x1="6" x2="294" y1="21.1" y2="21.1" stroke="rgba(26,26,26,.45)" stroke-dasharray="4 4" stroke-width="1"></line><polyline points="6.0,13.7 15.9,13.7 25.9,21.1 35.8,13.7 45.7,13.7 55.7,13.7 65.6,13.7 75.5,13.7 85.4,21.1 95.4,13.7 105.3,13.7 115.2,13.7 125.2,13.7 135.1,13.7 145.0,13.7 155.0,73.1 164.9,13.7 174.8,13.7 184.8,13.7 194.7,13.7 204.6,13.7 214.6,13.7 224.5,21.1 234.4,13.7 244.3,13.7 254.3,13.7 264.2,13.7 274.1,13.7 284.1,13.7 294.0,13.7" fill="none" stroke="#1B5128" stroke-width="2" stroke-linejoin="round"></polyline><circle cx="155.0" cy="73.1" r="4" fill="#C0692B"></circle></svg><span class="kit-small kit-muted">30 days: 99.96% · agreed 99.9% · worst day 21 Oct, 99.2%</span></div><div class="fr-c"><span class="kit-caption">Speed, the slowest 5%</span><span class="fr-b">2.2 s today</span><svg viewBox="0 0 300 96" role="img" aria-label="Seconds for the slowest 5 percent a day against the agreed 3 seconds" style="width: 100%; height: 96px; display: block"><line x1="6" x2="294" y1="32.3" y2="32.3" stroke="rgba(26,26,26,.45)" stroke-dasharray="4 4" stroke-width="1"></line><polyline points="6.0,65.7 15.9,62.0 25.9,65.7 35.8,58.3 45.7,62.0 55.7,76.9 65.6,76.9 75.5,62.0 85.4,58.3 95.4,62.0 105.3,54.6 115.2,58.3 125.2,73.1 135.1,76.9 145.0,58.3 155.0,17.4 164.9,50.9 174.8,58.3 184.8,62.0 194.7,73.1 204.6,76.9 214.6,62.0 224.5,58.3 234.4,54.6 244.3,58.3 254.3,62.0 264.2,73.1 274.1,76.9 284.1,58.3 294.0,62.0" fill="none" stroke="#1B5128" stroke-width="2" stroke-linejoin="round"></polyline><circle cx="155.0" cy="17.4" r="4" fill="#C0692B"></circle></svg><span class="kit-small kit-muted">Agreed 3 s · 1 day over, 21 Oct at 3.4 s</span></div></div>
+      <div class="fr-n">21 Oct is one event: a replica restarted at the morning peak, and the fallback answered for 11 minutes. It is on Operations as a closed problem. <a href="#">See these as a table</a></div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 16px; align-items: start">
+      <section class="kit-surface raised" aria-label="Requests by size">
+        <div class="fr-h"><h3>Requests by size</h3><span class="fr-seg" role="group" aria-label="Measure"><span class="on">Share</span><span>Time</span><span>Cost</span><span>Quality</span></span></div>
+        <div class="kit-small kit-muted" style="margin-top: 6px">How long the call was, against how long the summary came out · share of requests in 30 days</div>
+        <div class="fr-g"><span class="h"></span><span class="h">Short summary</span><span class="h">Usual</span><span class="h">Long</span><span class="rl">Under 10 min</span><span class="cl" style="background: rgba(27,81,40,0.75); color: #fff">31%</span><span class="cl" style="background: rgba(27,81,40,0.35); color: #1A1A1A">12%</span><span class="cl" style="background: rgba(27,81,40,0.12); color: #1A1A1A">2%</span><span class="rl">10 to 25 min</span><span class="cl" style="background: rgba(27,81,40,0.48); color: #1A1A1A">18%</span><span class="cl" style="background: rgba(27,81,40,0.39); color: #1A1A1A">14%</span><span class="cl" style="background: rgba(27,81,40,0.17); color: #1A1A1A">4%</span><span class="rl">25 to 40 min</span><span class="cl" style="background: rgba(27,81,40,0.17); color: #1A1A1A">4%</span><span class="cl" style="background: rgba(27,81,40,0.26); color: #1A1A1A">8%</span><span class="cl" style="background: rgba(27,81,40,0.19); color: #1A1A1A">5%</span><span class="rl">Over 40 min</span><span class="cl" style="background: rgba(27,81,40,0.09); color: #1A1A1A">0.5%</span><span class="cl" style="background: rgba(27,81,40,0.10); color: #1A1A1A">1%</span><span class="cl" style="background: rgba(27,81,40,0.09); color: #1A1A1A">0.5%</span></div>
+        <div class="fr-n">One measure at a time on the same grid. The engine's own timings stay behind the Engineering switch, for ThinkLatent (D-291).</div>
+      </section>
+      <section class="kit-surface" aria-label="The busiest sizes">
+        <div class="fr-h"><h3>The busiest sizes, all four measures</h3><span class="kit-small kit-muted">30 days</span></div>
+        <div class="fr-l">
+          <span class="h">Size</span><span class="h">Share</span><span class="h">Time</span><span class="h">Cost each</span><span class="h">Quality</span>
+          <span>Under 10 min · short summary</span><span>31%</span><span>1.1 s</span><span>$[cost]</span><span>91% ± 4</span>
+          <span>10 to 25 min · short summary</span><span>18%</span><span>1.6 s</span><span>$[cost]</span><span>88% ± 5</span>
+          <span>10 to 25 min · usual</span><span>14%</span><span>2.0 s</span><span>$[cost]</span><span>87% ± 5</span>
+          <span>25 to 40 min · usual</span><span>8%</span><span>2.6 s</span><span>$[cost]</span><span>82% ± 6</span>
+          <span>Over 40 min · any</span><span>2%</span><span>3.3 s</span><span>$[cost]</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>68% ± 9</span></span></span>
+        </div>
+        <div class="fr-n">The longest calls are few, slow and score lowest: this is finding F-0431 on the Quality tab. Quality in a cell with under 50 requests shows as a dash, not a number.</div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="Sealed production text">
+      <div class="fr-h"><h3>Sealed production text</h3><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Asked in the Enterprise's access management</span></div>
+      <div class="fr-n" style="margin-top: 8px">What an adviser typed and what the model wrote stay sealed on every trace. To read them for a period, a member asks in the Enterprise's access management; the portal does not take the request and has no button for it (D-293, D-324). Every opening shows on the project's record.</div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1675}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
