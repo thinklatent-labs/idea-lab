@@ -1,12 +1,12 @@
 # ThinkLatent Portal (portal) · Build 2 check
 
-14 November 2026 · v0.1, for approval · TL-003 · for Jithin, Head of ThinkLatent
+14 November 2026 · v0.2, approved by Jithin on 14 November (D-347) · TL-003 · for Jithin, Head of ThinkLatent
 
 ## 1. The answer
 
-Build 2, Models, is complete on the branch `build-2-models` and on the private build page. All 14 boards have their screen, every screen was put beside its board at 1,440 wide, and every repository check passes. It waits for Jithin's approval before it goes to main and build 3 begins.
+Build 2, Models, is complete on the branch `build-2-models` and on the private build page. All 14 boards have their screen, every screen was put beside its board at 1,440 wide, and every repository check passes. Jithin approved it on 14 November; it is on main at `123f9cd`, and build 3, the TL Index, has begun on the branch `build-3-tl-index`.
 
-The check found two small faults, both fixed, and two things that stay as they are on a phone (section 3). There are 27 places where boards disagreed and Claude settled the value (section 5); one is still open (section 7).
+The check found two small faults, both fixed, and two things that stay as they are on a phone (section 3). There are 27 places where boards disagreed and Claude settled the value (section 5). Jithin's four answers are in section 7.
 
 ## 2. What is built
 
@@ -145,12 +145,14 @@ These fill the nine models the boards do not draw, and the places where a board 
 - **Versions.** Core 4.2 ends 7 Feb and its projects were told 26 Oct; scores at lower precision and at longer inputs for Core, Distil and Core 3.4; cost and speed at full and 4-bit precision.
 - **Speech.** The tabs 'By business line' and 'Speech leaderboard' are named on the board and drawn on no board. They were built from the Overview's table and the leaderboards board.
 
-## 7. Open with Jithin
+## 7. Decided by Jithin on 14 November (D-347)
 
-1. **Home's count of features under their threshold.** Next best action has a line under its threshold (answers within 2 seconds: 93% against 95%). Home counts one, Claims triage. Recommendation: Home counts both and names both, so the number means the same thing on every page.
-2. **'Bar' or 'threshold'.** The boards use both ('Its bar: 8% or lower' on the speech model, 'Threshold 85%' on the systems), and the screens follow each board. The controlled vocabulary (D-229) lists 'bar'. One word would be better; it touches every build, so it is a decision, not a fix.
-3. **An appetite for each build** (section 9).
-4. Carried from before: real outside prices and endpoint costs; which outside image model; an estimate for rebuilding LibreChat's screens; the weekly review slot the Building gate asks for (D-152).
+1. **Build 2 is approved.** It goes to main and build 3 starts.
+2. **Home counts both features under their threshold.** Home shows 2 and names both: Claims triage, on its score (finding F-0425), and Next best action, on speed in Pilot. The day's brief and the team rows say the same.
+3. **'Threshold' everywhere, never 'bar'.** Every screen and the sample data now use the one word; a model that clears it reads 'Meets its threshold'. This replaces 'bar' in the controlled vocabulary of 10 November (D-229). Later builds follow it.
+4. **No appetite in hours and no hour tracking.** Jithin's words: everything needs to be done, so keep going. Section 9 is withdrawn.
+
+Still open, carried from before: real outside prices and endpoint costs; which outside image model; an estimate for rebuilding LibreChat's screens; the weekly review slot the Building gate asks for (D-152).
 
 ## 8. Features and asks of the kit
 
@@ -165,26 +167,11 @@ These fill the nine models the boards do not draw, and the places where a board 
 5. A meter drawn as cells; a line chart on a numeric axis with a mark for 'now'.
 6. A bar chart that thins its labels when they do not fit.
 
-## 9. A proposed appetite for builds 3 to 9
+## 9. Appetite: none, by Jithin's decision
 
-**What the pace has been.** Build 2's 14 boards took one working day of sessions, record included: about half an hour a board. Build 1's 8 boards took less than a day.
+Claude proposed one hour a board for builds 3 to 9 (65 boards, about 2 engineer-weeks). Jithin declined a number: every board is to be built, and hours are not tracked (D-347). The portal keeps the appetite on its register row, one quarter; no build has a number of its own.
 
-**The proposal: one hour a board, twice the pace so far,** so there is room for the harder screens, plus two days in build 4 to stand LibreChat up and size its rebuild.
-
-| Build | Boards | Appetite, working days |
-|---|---|---|
-| 3 · TL Index | 11 | 1.5 |
-| 4 · Try TLM | 3 | 2.5 |
-| 5 · A project | 12 | 1.5 |
-| 6 · Running a project | 11 | 1.5 |
-| 7 · Features and increments | 10 | 1.5 |
-| 8 · Agents and prompts | 5 | 0.5 |
-| 9 · Data and training | 13 | 1.5 |
-| **Total** | **65** | **10.5, about 2 engineer-weeks** |
-
-A build that reaches its number stops and comes to Jithin with what is done and what to cut. It is not extended. Each build ends with one review by Jithin; seven reviews in all.
-
-**Where this is thin.** The pace was measured on two builds in one day, on screens with sample data only. Build 4 depends on LibreChat running, which has not been tried. Build 6 has traces in five views, the most complex screens on the canvas. Jithin's review time, not build time, sets the calendar.
+What this leaves thin: nothing forces a cut if a build runs long. The harder builds are 4 (LibreChat has not been stood up) and 6 (traces in five views).
 
 ## 10. Where this check is thin
 
