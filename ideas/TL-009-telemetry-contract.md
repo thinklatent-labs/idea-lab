@@ -20,7 +20,7 @@ standard: null
 last_touched: 2026-11-02
 sensitivity: none
 critique_recorded: null
-next_step: "Audit what Langfuse captures today against the v0 fields, per endpoint; then a Shaping session to set the schema and the Relay changes. From TL-003 (2026-11-02): Contract v0.1 additions and the derived-metric list are in the ThinkLatent Portal card. From TL-012 (2026-11-02): task mining reads the store; v0 fields are enough for a first pass From Portfolio (2026-11-07): Next #1. Cheapest unblocker: it feeds the index's per-use-case line, the portal and task mining. Run the Langfuse audit first. From TL-004 (2026-11-07): classifying gateway telemetry into token-shape cells and pillar families moved out of the TL Index's Phase 0 to this contract."
+next_step: "Audit what Langfuse captures today against the v0 fields, per endpoint; then a Shaping session to set the schema and the Relay changes. From TL-003 (2026-11-02): Contract v0.1 additions and the derived-metric list are in the ThinkLatent Portal card. From TL-012 (2026-11-02): task mining reads the store; v0 fields are enough for a first pass From Portfolio (2026-11-07): Next #1. Cheapest unblocker: it feeds the index's per-use-case line, the portal and task mining. Run the Langfuse audit first. From TL-004 (2026-11-07): classifying gateway telemetry into token-shape cells and pillar families moved out of the TL Index's Phase 0 to this contract. From TL-022 (2026-11-15): the telemetry contract needs bucket, service class, borrowed flag, priority, replica, and prompt and reply tokens per call, so each bucket's promise can be tracked."
 next_step_due: null
 ---
 
@@ -33,7 +33,7 @@ next_step_due: null
 
 Owner: Harness and platform lead to be named. Appetite: not set. Score: not scored .
 
-Next step: Audit what Langfuse captures today against the v0 fields, per endpoint; then a Shaping session to set the schema and the Relay changes. From TL-003 (2026-11-02): Contract v0.1 additions and the derived-metric list are in the ThinkLatent Portal card. From TL-012 (2026-11-02): task mining reads the store; v0 fields are enough for a first pass From Portfolio (2026-11-07): Next #1. Cheapest unblocker: it feeds the index's per-use-case line, the portal and task mining. Run the Langfuse audit first. From TL-004 (2026-11-07): classifying gateway telemetry into token-shape cells and pillar families moved out of the TL Index's Phase 0 to this contract.
+Next step: Audit what Langfuse captures today against the v0 fields, per endpoint; then a Shaping session to set the schema and the Relay changes. From TL-003 (2026-11-02): Contract v0.1 additions and the derived-metric list are in the ThinkLatent Portal card. From TL-012 (2026-11-02): task mining reads the store; v0 fields are enough for a first pass From Portfolio (2026-11-07): Next #1. Cheapest unblocker: it feeds the index's per-use-case line, the portal and task mining. Run the Langfuse audit first. From TL-004 (2026-11-07): classifying gateway telemetry into token-shape cells and pillar families moved out of the TL Index's Phase 0 to this contract. From TL-022 (2026-11-15): the telemetry contract needs bucket, service class, borrowed flag, priority, replica, and prompt and reply tokens per call, so each bucket's promise can be tracked.
 
 Production surface: not named (reads as an H3 experiment).
 
