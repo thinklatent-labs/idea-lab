@@ -76,7 +76,7 @@ _None recorded._
 | ThinkLatent site — launch brackets to fill (TL-016) | doc | [artifacts/TL-016-team-site/docs/launch-brackets.md](../artifacts/TL-016-team-site/docs/launch-brackets.md) | [claude.ai](https://claude.ai/artifact/38RGiipB795FZiQZCkzwAu) | 2026-11-16 |
 | How we build responsibly — page wording for Risk review | doc | [artifacts/TL-016-team-site/docs/trust-risk-review.md](../artifacts/TL-016-team-site/docs/trust-risk-review.md) | [claude.ai](https://claude.ai/artifact/1G31Mjqx1usWaXoQEynMBD) | 2026-11-07 |
 | ThinkLatent site — SharePoint build guide (v10) | doc | [artifacts/TL-016-team-site/docs/sharepoint-build-guide.md](../artifacts/TL-016-team-site/docs/sharepoint-build-guide.md) | [claude.ai](https://claude.ai/artifact/8aaC53w8XNkk4UVcoErQMr) | 2026-11-16 |
-| ThinkLatent site — theme pack v10.1 | files | [artifacts/TL-016-team-site/theme-pack/README.md](../artifacts/TL-016-team-site/theme-pack/README.md) |  | 2026-11-16 |
+| ThinkLatent site — theme pack v10.2 | files | [artifacts/TL-016-team-site/theme-pack/README.md](../artifacts/TL-016-team-site/theme-pack/README.md) |  | 2026-11-16 |
 | ThinkLatent site — page copy for SharePoint (v10) | doc | [artifacts/TL-016-team-site/docs/page-copy.md](../artifacts/TL-016-team-site/docs/page-copy.md) | [claude.ai](https://claude.ai/artifact/SYuzrTCs1uxD9f5b3H9Ru5) | 2026-11-16 |
 
 ### Decision log
