@@ -20,7 +20,7 @@ standard: "v1"
 last_touched: 2026-11-04
 sensitivity: none
 critique_recorded: null
-next_step: "Portfolio session 1 amended 2026-11-07 (D-133); next Portfolio session scores the Next rows. Roles convention live everywhere 2026-11-07 (D-151, D-152), including the Project instructions. From TL-016 (2026-11-07): the project-knowledge mirror of the Idea Register (claude/Idea Register.md) was a day behind GitHub, so a session offered work already done; a Lab-operations chat should fix the mirror's sync From the TL-003 chat of 13 Nov (D-311): Jithin chose to review the portal's screens as each is ready, not in a fixed weekly slot; decide in a Lab operations session whether that satisfies the Building gate of D-152 or the rule changes."
+next_step: "Portfolio session 1 amended 2026-11-07 (D-133); next Portfolio session scores the Next rows. Roles convention live everywhere 2026-11-07 (D-151, D-152), including the Project instructions. From TL-016 (2026-11-07): the project-knowledge mirror of the Idea Register (claude/Idea Register.md) was a day behind GitHub, so a session offered work already done; a Lab-operations chat should fix the mirror's sync From the TL-003 chat of 13 Nov (D-311): Jithin chose to review the portal's screens as each is ready, not in a fixed weekly slot; decide in a Lab operations session whether that satisfies the Building gate of D-152 or the rule changes. From TL-022 (2026-11-15): the claude.ai Idea Register doc and its project-knowledge mirror still show 'Next ID: TL-018' and no rows TL-018 to TL-021, while the repo (the source of truth) holds TL-001 to TL-022; a Lab-operations chat should retire or resync that doc's counter and the Project instructions' claim rule."
 next_step_due: null
 ---
 
@@ -33,7 +33,7 @@ next_step_due: null
 
 Owner: Jithin. Appetite: not set. Score: not scored .
 
-Next step: Portfolio session 1 amended 2026-11-07 (D-133); next Portfolio session scores the Next rows. Roles convention live everywhere 2026-11-07 (D-151, D-152), including the Project instructions. From TL-016 (2026-11-07): the project-knowledge mirror of the Idea Register (claude/Idea Register.md) was a day behind GitHub, so a session offered work already done; a Lab-operations chat should fix the mirror's sync From the TL-003 chat of 13 Nov (D-311): Jithin chose to review the portal's screens as each is ready, not in a fixed weekly slot; decide in a Lab operations session whether that satisfies the Building gate of D-152 or the rule changes.
+Next step: Portfolio session 1 amended 2026-11-07 (D-133); next Portfolio session scores the Next rows. Roles convention live everywhere 2026-11-07 (D-151, D-152), including the Project instructions. From TL-016 (2026-11-07): the project-knowledge mirror of the Idea Register (claude/Idea Register.md) was a day behind GitHub, so a session offered work already done; a Lab-operations chat should fix the mirror's sync From the TL-003 chat of 13 Nov (D-311): Jithin chose to review the portal's screens as each is ready, not in a fixed weekly slot; decide in a Lab operations session whether that satisfies the Building gate of D-152 or the rule changes. From TL-022 (2026-11-15): the claude.ai Idea Register doc and its project-knowledge mirror still show 'Next ID: TL-018' and no rows TL-018 to TL-021, while the repo (the source of truth) holds TL-001 to TL-022; a Lab-operations chat should retire or resync that doc's counter and the Project instructions' claim rule.
 
 Production surface: not named (reads as an H3 experiment).
 
