@@ -16,8 +16,8 @@ An internal home for the ThinkLatent team: vision, products, wins, publications,
 | Theme served | T-001 Sovereign AI (as its narrative surface: the site is where the owned-model story is told inside the Enterprise) |
 | Stage | Shaping (idea card v0, 2026-11-04) |
 | Horizon | H1 |
-| Appetite | Two engineer-weeks proposed (one engineer plus Claude Code), pending Jithin |
-| Owner | Head of ThinkLatent (sponsor); site editor to be named |
+| Appetite | No hour budget: built continuously by Jithin with Claude alongside (D-386) |
+| Owner | Head of ThinkLatent (sponsor and product lead); site editor (Claude) |
 | Rubric composite | Not scored; set at Stress test |
 | Links | reuses TL-013 design-kit; related-to TL-003 portal (the portal shows models and use cases; the site tells the team's story); evidence-for TL-013 H1 (second consumer of the kit); related-to TL-002 think-latent (external voice) |
 | Sensitivity | Low for the site; medium for content: publications and press mentions carry Enterprise comms and disclosure rules |
@@ -49,13 +49,13 @@ The audience the idea is thinnest on is the first: no sponsor has asked for this
 
 | ID | Claim | Measurement | Confirmed if | Refuted if |
 | --- | --- | --- | --- | --- |
-| S1 | A single internal home for ThinkLatent's story is read by people outside the team without being pushed | Unique readers outside ThinkLatent per month, from the static host's access log or a privacy-safe counter | 100 readers outside ThinkLatent in the second month after launch, with at least 10 from outside the AI organisation | Fewer than 30 readers outside ThinkLatent in month 2 |
-| S2 | The site changes conversations: sponsors and partner teams cite it | Count of meetings or messages where the site is referenced, logged by the team for one quarter | 10 citations in the first quarter, at least 3 from sponsors | Under 3 citations; the team still opens with a deck |
-| S3 | The team will write for it without a mandate | Posts published per month by authors other than the Head of ThinkLatent | 4 posts a month by month 3, from at least 6 distinct authors | Under 2 posts a month, or the Head of ThinkLatent is the only author |
-| S4 | The kit holds as the site's whole design: no component built outside it | Components added outside packages/design-kit during the build | Zero; every gap is filed as a kit issue | More than three site-only components, or the kit's tokens are overridden |
-| S5 | A content-as-code site with no internal integration is enough: nothing live is needed for the story | Requests for live data (model counts, usage) in the first quarter's feedback | Fewer than 3 such requests; the portal link answers them | Readers ask for live numbers and leave when they find static ones |
+| S1 | A single internal home for ThinkLatent's story is read by people outside the team without being pushed | Unique viewers per month from SharePoint site usage, less ThinkLatent's own headcount | 100 viewers beyond ThinkLatent's headcount in the second month after launch | Fewer than 30 beyond the headcount in month 2 |
+| S2 | The site changes conversations: sponsors and partner teams cite it | Rows in the site's Citations list (each meeting, message or deck that links the site), kept by the site editor for one quarter | 10 citations in the first quarter, at least 3 from sponsors | Under 3 citations; the team still opens with a deck |
+| S3 | The team will write for it without a mandate | News posts published per month by authors other than the Head of ThinkLatent, read from the Site Pages library | 4 posts a month by month 3, from at least 6 distinct authors | Under 2 posts a month, or the Head of ThinkLatent is the only author |
+| S4 | The look comes only from the kit: the theme pack, custom.css and the gradient images, with no page-level styling | Pages styled outside the pack at launch: colours, fonts, sizes or images not in the v10 system | Zero; every gap is filed as a TL-013 kit issue | More than three pages styled by hand, or the pack's colours overridden |
+| S5 | Static, sourced numbers are enough: nothing live is needed for the story | Requests for live data (model counts, usage) in the first quarter, from page comments and the Bring us a problem form | Fewer than 3 such requests; the portal link answers them | Readers ask for live numbers and leave when they find static ones |
 
-S1 and S3 are the kill hypotheses: a site nobody reads or nobody writes for is a brochure, and ThinkLatent should not spend attention on brochures. S4 is also evidence for TL-013's H1 (the kit pays for itself by the second consumer).
+S1 and S3 are the kill hypotheses: a site nobody reads or nobody writes for is a brochure, and ThinkLatent should not spend attention on brochures. S4 is also evidence for TL-013's H1 (the kit pays for itself by the second consumer). Re-registered on 16 Nov on Jithin's call that everything is made for SharePoint (D-386): every measure is read inside SharePoint (site usage, the Citations list, the Site Pages library, page comments and Forms). The static-site wording of 4 Nov stays in this card's history.
 
 ## Why now, why us
 
@@ -138,6 +138,8 @@ Modern SharePoint Online allows no custom CSS without an SPFx application custom
 **What the kit cannot reach in SharePoint, so the design must not promise it:** glass and blur, dark mode, squircle tiles with large radii (tier 2 can round corners, not reshape components), the floating pill bar and dock, display numerals as a component, and custom charts. The v4 home is the reference for mood and hierarchy, not a target to reproduce.
 
 The theme pack is the primitive version Jithin asked for: colours first, in a form SharePoint accepts, generated from the kit's tokens so a palette change in design-kit regenerates the SharePoint theme. Tier 2 is the CSS version; it goes in the kit now and waits for the one request.
+
+**Build kit for SharePoint (2026-11-16, D-383 and D-386).** Canvas v10 (D-381) is buildable in SharePoint as it stands: the [build guide](https://claude.ai/artifact/8aaC53w8XNkk4UVcoErQMr) in ten steps; the [page copy](https://claude.ai/artifact/SYuzrTCs1uxD9f5b3H9Ru5), every word of the fourteen pages and eleven templates in SharePoint section and web part order with text styles; the theme pack (four gradients, six Mandate drawings, the theme JSON and admin script, custom.css, the status column format, five lists and the brackets tracker as CSV); and the [launch brackets](https://claude.ai/artifact/38RGiipB795FZiQZCkzwAu), 171 Enterprise values grouped by the system they come from. Two checks against Microsoft's current behaviour moved the tiers: the Text web part takes any font size from 8 to 250, so the type scale is tier 1 by hand and custom.css only makes it automatic; and lists can be created straight from a CSV file.
 
 ## Workstreams
 
@@ -494,9 +496,9 @@ Each is a bet with a kill condition, so boldness stays honest.
 
 ## Appetite
 
-Two engineer-weeks for the first version: one engineer paired with Claude Code, under one of the five lab streams, pending Jithin. Week 1 builds the repo, the seven templates, the home page and the deploy path on the chosen host; week 2 fills Vision, five Products pages, two Wins and the Publications list from existing material, and ships. The Blog opens empty with one post from the Head of ThinkLatent.
+No hour budget (D-386, 16 Nov): Jithin builds the site in SharePoint continuously, with Claude alongside; hours are logged per page for the retrospective, and the 19 Dec check reads progress only. The 4 Nov static-site plan, superseded: Week 1 builds the repo, the seven templates, the home page and the deploy path on the chosen host; week 2 fills Vision, five Products pages, two Wins and the Publications list from existing material, and ships. The Blog opens empty with one post from the Head of ThinkLatent.
 
-The standing cost is editorial, not engineering: an editor spending two hours a week on reviews and the news list. If nobody can give that, the site should not be built (see S3).
+The standing cost is editorial: the critique measured 25 to 35 hours a month. There is no editor budget (D-386); the site editor is played by Claude until the company version, and the May 2027 freeze check (S3 and stale pages) still applies.
 
 ## Capabilities reused and created
 
@@ -538,12 +540,12 @@ Honest critique, recorded at Shaping so the Stress test has something to attack.
 | --- | --- | --- |
 | Nobody outside ThinkLatent has asked for this | Evidence of need is the rubric's second-heaviest criterion and it is zero today | Three sponsors or partner leads say they would read it, or one asks for it unprompted; cheapest test: show the v4 home mock to five people and count who asks for the URL |
 | Two surfaces about ThinkLatent | The portal's showroom and this site both describe ThinkLatent's products; readers will not know which is canonical | The split written down: the site tells, the portal shows and runs; every Products page links to the portal; the fold into the portal (Option C) has a trigger date |
-| Content sites decay | Most internal team sites are dead within a year because nobody owns the editorial cadence | A named editor with two hours a week before the build starts; a stale-page check as a scheduled task; S3 read at month 3 |
+| Content sites decay | Most internal team sites are dead within a year because nobody owns the editorial cadence | The site editor is played by Claude, with no hour budget (D-386); a stale-page check as a scheduled task; S3 read at month 3 |
 | The host is unknown | The whole no-breakage story rests on an internal static host existing and being allowed; if the only option is SharePoint, the kit cannot be used and the idea changes shape | Q2 answered: a URL on an internal static host that serves a hello-world page built on design-kit, before any content is written |
 | Where the repo lives | Content about Enterprise products and wins in a GitHub org outside the boundary may breach policy even as a private repo | Q1 answered by Jithin or the Security liaison; the template can live outside, the content inside |
 | The kit is not finished | The palette is provisional and decisions 1, 3 and 4 are open; a second consumer on a moving kit either waits or forks | Pin to a kit release; the site uses only tokens and components already decided (rows 1 to 30); gaps become kit issues, never site code |
-| No measurement path | S1 depends on a reader count the host may not give | Q2 includes the access log question; a privacy-safe counter is the fallback |
-| The value is sponsorship, which is hard to measure | S2 counts citations, which the team must log by hand | A one-line log kept by the editor; the quarterly review reads it |
+| No measurement path | S1 depends on a reader count the host may not give | Closed 16 Nov: S1 reads SharePoint site usage, less the team's headcount (D-386) |
+| The value is sponsorship, which is hard to measure | S2 counts citations, which the team must log by hand | The Citations list on the site (citations.csv); the quarterly review reads it |
 
 ## Open questions
 
@@ -551,7 +553,7 @@ Honest critique, recorded at Shaping so the Stress test has something to attack.
 | --- | --- | --- | --- | --- |
 | Q1 | Where does the content repo live: thinklatent-labs (outside the boundary, private) or an internal GitHub? | Jithin, with the Security liaison | Yes, before any content is written | Template and build in thinklatent-labs/team-site; content in an internal repo; the build pulls both |
 | Q2 | Which internal host serves static pages, what is its URL pattern, and does it give an access log? | Site engineer, with the platform team | Yes, before the build | Prove it with a hello-world page on design-kit in week 1, day 1 |
-| Q3 | Who is the site editor (two hours a week)? | Jithin | Yes, before the build | Someone on the team who already writes; not the Head of ThinkLatent |
+| Q3 | Who is the site editor? Closed 16 Nov: played by Claude until the company version, with no hour budget (D-386). | Jithin | Yes, before the build | Someone on the team who already writes; not the Head of ThinkLatent |
 | Q4 | Which kit release does the site pin to, and what happens when the palette changes? | TL-013 kit core | No | Pin to the first tagged release; re-pin at each kit release as a one-line PR |
 | Q5 | What is the first Wins story, and who in the partner team consents to it? | Product leads | No, but the site launches thin without one | The flagship use case behind task mining (TL-012 wave 1) |
 | Q6 | Does the site carry the kit's documentation (component gallery, tokens) as a section? | Jithin | No | Yes, as a hidden-by-default Kit section; it costs nothing on a static build |
@@ -564,12 +566,12 @@ The critique scored v8 as it stands at 2.85 on the quarter weights, below the 3.
 
 | Seat | Finding | Answer | Status |
 | --- | --- | --- | --- |
-| Feasibility | v8 build is 150–210 hours of the Head of ThinkLatent's own time (13 pages, 11 templates, 4 lists, Forms) before 13 Feb; about 15 hours a week through the holidays | Jithin holds full v8 for February; the 19 Dec kill check moves the date or cuts the scope if pages run over 8 hours | Open: dissent recorded |
-| Feasibility | Upkeep is 25–35 hours a month, not the 2 hours a week the appetite budgets | Re-set appetite and editor budget in the build guide | Open |
+| Feasibility | v8 build is 150–210 hours of the Head of ThinkLatent's own time (13 pages, 11 templates, 4 lists, Forms) before 13 Feb; about 15 hours a week through the holidays | Jithin holds full v8 for February; since D-386 there is no hour budget and the 19 Dec check reads progress only | Open: dissent recorded |
+| Feasibility | Upkeep is 25–35 hours a month, not the 2 hours a week the appetite budgets | Closed 16 Nov (D-386): no hour or editor budget, by Jithin's choice | Open |
 | Feasibility | About 53 launch brackets empty two weeks before 21 Nov; how-we-work numbers, portal-registry counts and TL Index scores cannot be sourced by February | 21 Nov kill check: under half sourced triggers the six-page cut | Open |
 | Feasibility | SPFx customizer often refused or slow in regulated tenants and targets markup Microsoft changes; no tier-1 fallback drawn | 12 Dec kill check: no IT date means every board is re-baselined to tier 1 | Open |
 | Feasibility | A live Enterprise page needs real people on owner lines; in the lab the roles are played by Claude | Go-live is a company-version step; owner lines stay \[Name\] until then | Answered |
-| Feasibility | Hypotheses S1 (measurement), S4 and S5 and the two-week appetite were written for the dropped static site | Re-register for SharePoint in the build-guide session | Open |
+| Feasibility | Hypotheses S1 (measurement), S4 and S5 and the two-week appetite were written for the dropped static site | Closed 16 Nov (D-386): S1 to S5 re-registered for SharePoint | Open |
 | Risk (simulated) | "35M+ client interactions" is sourced only to the Head of ThinkLatent; "In production" chips read as validation claims | Every number needs an owner, a source system and a date; a person is not a source | Open |
 | Risk (simulated) | ThinkLatent Trust stated controls ThinkLatent does not own ("five signatures", status competing with the model inventory, no validation step) | Jithin: rewrite, then Risk review. Done: renamed "How we build responsibly", independent validation added as Risk's step, absolutes removed, inventory named authoritative, corrections note added | Answered; simulated review next |
 | Risk (simulated) | TL Index tile and model cards are developer claims with no authoritative source until TL-003 and TL-004 are live | Label "developer evaluation, not model validation"; the tile and cards come off if the portal card or index is not live by January | Open |
@@ -580,10 +582,10 @@ The critique scored v8 as it stands at 2.85 on the quarter weights, below the 3.
 
 | Check | Criterion | Action |
 | --- | --- | --- |
-| 21 Nov 2026 | Under half the launch brackets have a source and date | Cut the launch to Home, Mandate and Products, Wins, Team, Blog, At a glance; the rest to Q2 |
+| 21 Nov 2026 | Under half the launch brackets have a source and date (86 of 171 in the v10 count) | Cut the launch to Home, Mandate and Products, Wins, Team, Blog, At a glance; the rest to Q2 |
 | 5 Dec 2026 | Fewer than three of five shown ask for the URL | Evidence stays at 2; score re-read; Jithin decides proceed or park |
-| 12 Dec 2026 | No IT date for the customizer | Re-baseline every board to tier 1 |
-| 19 Dec 2026 | Home, Wins and Products not on the test site, or more than 8 hours a page | Launch moves to April 2027 or the six-page cut applies |
+| 12 Dec 2026 | No IT date for the customizer | Launch with sizes typed by hand and green buttons; no stripe or card radii |
+| 19 Dec 2026 | Home, Wins and Products not on the test site (a progress read since D-386: hours logged, no cap) | Launch moves to April 2027 or the six-page cut applies |
 | Launch −2 weeks | No win with stored written consent covering every channel it goes to | Launch without Wins, no placeholder |
 | Any time | Site status contradicts the model inventory | Unpublish the status list within one working day |
 | May 2027 | Under 2 posts a month (S3), or more than 3 owned pages past review | Freeze to an About page |
@@ -612,3 +614,8 @@ The critique scored v8 as it stands at 2.85 on the quarter weights, below the 3.
 | 2026-11-05 | Features 21 to 30: (21) nav grouped to six: Mandate · Products ▾ (TLM, ThinkLatent Portal, TL Index, ThinkLatent Trust) · Our work ▾ (Wins, Research, Publications) · Stories ▾ (Blog, AI Perspectives) · Team + Write for ThinkLatent; Home is the logo (supersedes the nine-item nav in features 2 and 17); (22) profiles at launch for the Head of ThinkLatent, function heads and principal scientists, each auto-listing the person's posts and publications, author fields linked site-wide; (23) a \~40-term plain-language glossary as a List, owned by the blog editors; (24) 6–8 'questions teams ask first' as collapsible sections on Home; (25) a business-partner quote per Win plus a rotating Home quote, a short post for each new business unit or IT engagement, no logo walls; (26) podcast piloted after launch, 'ThinkLatent Perspectives: \[topic\] with \[business leader\]', hosted by team members who podcast; (27) the monthly newsletter stays email-only, the site links its archive (chosen over the recommended site-built digest); (28) two named site owners, 'Review by' dates on Mandate, Products, ThinkLatent Trust and Write for ThinkLatent, quarterly check, SAM policies if licensed; (29) quarterly awards page plus winners featured on Home for the quarter and a Viva Engage shout-out, nominations stay in the recognition portal; (30) one plain 'ThinkLatent at a glance' index page kept current quarterly so Copilot and search answer questions about ThinkLatent | Jithin |
 | 2026-11-05 | Features 31 to 40: (31) Release template gains 'Getting started' (how a team starts, linking the portal), acknowledgments and a contact; links go to the portal model card and the TL Index run, not weights or code; (32) Write for ThinkLatent grows to eleven templates: + Model card, Win story, Conference roundup, New partner; (33) page comments on everywhere (chosen over the recommended Blog and Perspectives only), moderated by the editors; (34) session recordings at launch, a 2–3 minute outcome video per product after launch; (35) a 'Work in ThinkLatent' block on Team after launch linking internal roles and rotations; (36) tie to the Enterprise's AI Summit and own a yearly ThinkLatent Day with a hackathon on ThinkLatent products (Jithin's own option); (37) ThinkLatent Day hackathon: mixed business and ThinkLatent teams build on TLM, the ThinkLatent Portal or the TL Index over 1–2 days, demos judged by the Head of ThinkLatent and two business leaders, winners join the quarterly awards, the best idea enters the Idea Lab as a Seed; ThinkLatent Day page under Stories; (38) Home hero: fixed mandate line and two buttons plus four editor-rotated tiles (latest Win, next AI Perspectives, newest release, a Perspective post); (39) native filters only: category button links on Blog and Stories, List filter/sort/gallery on Publications and Wins, team chips by custom CSS; (40) a 'Use AI at the Enterprise' block on Home and Products linking the approved tools list and training (governance owner), the portal playground and model cards, and the TL Index; ThinkLatent copies none of them | Jithin |
 | 2026-11-05 | Features 41 and 42, inventory review complete: (41) a business-side champions network six months after launch: one champion per business unit using ThinkLatent products, a one-page charter, a badge, a monthly call, feedback to the roadmap; office advocates stay as syndication; (42) small items accepted as a bundle. Adopt: jump links on long pages, role labels and start year on profiles, location rows on Team, a footer with Follow, Viva Engage, Portal and contact, native site search. Later: interactive lineage (portal), automatic team output counts (manual quarterly until then), Power Automate intake routing, university lab tours, corrections log (TL Index). Skip: breadcrumbs, logo walls, alumni page, docs-as-code blogging, prompt of the week, a separate AI Perspectives microsite. New pages the boards now need: Mandate, Products landing, ThinkLatent Trust, ThinkLatent Day, Glossary, ThinkLatent at a glance; four new templates | Jithin |
+| 2026-11-07 | D-191 and D-192: critique recorded (feasibility and Risk seats simulated as separate agents, business-line seat Jithin); score 3.50 set against the critique's 2.85; full v8 held for February; five sponsors shown the Home board by 5 Dec; Proposal only after that read. | Jithin |
+| 2026-11-15 | D-379 and D-380: canvas v9 from the 15 Nov scout pass: Mandate as five chapters on one spine with the four measured targets under chapter 05; Home merged to eight sections; chapter 04 on the safer line, flagged; wording scoped to D-192. | Jithin |
+| 2026-11-16 | D-381: canvas v10 on all 25 boards: one type scale, the palette gradients (Meadow, Canopy, Lagoon, Mint rise), red only on buttons and the stripe, lab facts in place of generic text, and a design system board. | Jithin (go); thinking partner |
+| 2026-11-16 | D-383: SharePoint build guide (v10) and theme pack; canvas v10.1. | Jithin (go); thinking partner |
+| 2026-11-16 | D-386: no hour or editor budget, built continuously by Jithin with Claude (the thinking partner recommended five weeks with the 19 Dec breaker; dissent recorded); S1 to S5 re-registered for SharePoint; site editor played by Claude; page copy for SharePoint and the list CSVs made; launch brackets rebuilt for v10 (171 lines); the type scale is tier 1 by hand. | Jithin; thinking partner |

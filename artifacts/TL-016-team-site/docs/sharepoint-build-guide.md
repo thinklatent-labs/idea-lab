@@ -2,19 +2,21 @@
 
 Nov 16, 2026 · @Jithin Pradeep
 
-This guide builds the ThinkLatent site in SharePoint Online from design canvas v10 (D-381), on a test site first. A site owner can do nearly all of it with native web parts and image backgrounds; one IT request (custom.css) brings the exact type scale and the red buttons.
+This guide builds the ThinkLatent site in SharePoint Online from design canvas v10 (D-381), on a test site first. A site owner can do nearly all of it with native web parts and image backgrounds; the type scale is typed into each Text web part, and one IT request (custom.css) makes it automatic and brings the red buttons.
 
 ## Before you start
 
-You need Full Control on a new communication site, the theme pack, and the design canvas open beside you. Every step below says who can do it.
+You need Full Control on a new communication site, the theme pack, and the page copy doc open beside you. Every step below says who can do it.
+
+**The page copy.** Every word of every page and template, section by section with its web part and text style, is in [ThinkLatent site — page copy for SharePoint (v10)](https://claude.ai/artifact/SYuzrTCs1uxD9f5b3H9Ru5). Copy from there; the canvas is the picture of each page.
 
 | Tier | Who | What it covers |
 | --- | --- | --- |
-| 1 | Site owner | The site, the theme (Site branding route), navigation, sections with image backgrounds, Text, Hero, Button, Image, Quick links, News, Events, People, List views, Forms, Call to action, Viva Engage |
+| 1 | Site owner | The site, the theme (Site branding route), the type scale typed into Text web parts, navigation, sections with image backgrounds, Text, Hero, Button, Image, Quick links, News, Events, People, List views, Forms, Call to action, Viva Engage |
 | 1a | One admin action, optional | The exact theme palette (Add-SPOTheme) and Inter as a brand font (Brand Center). Skip both and the site still works |
-| 2 | IT, one request | custom.css through one SPFx application customizer: the type scale, red pill buttons, the header stripe, card radii |
+| 2 | IT, one request | custom.css through one SPFx application customizer: the type scale applied by itself, red pill buttons, the header stripe, card radii |
 
-**Time.** The stress test put the full build at 150 to 210 hours of hands-on work and 25 to 35 hours a month to keep it current (D-191). Log real hours per page: the 19 Dec check compares them against 8.
+**Time.** The stress test put the full build at 150 to 210 hours of hands-on work and 25 to 35 hours a month to keep it current (D-191). There is no hour budget: the site is built continuously, with Claude alongside (D-386). Log the hours per page anyway, so the retrospective can say what it cost.
 
 **The theme pack.** In GitHub at thinklatent-labs/idea-lab, folder artifacts/TL-016-team-site/theme-pack, and attached in the chat.
 
@@ -29,6 +31,8 @@ You need Full Control on a new communication site, the theme pack, and the desig
 | Add-ThinkLatentTheme.ps1 | Registers the theme (SharePoint administrator) |
 | custom.css | The tier 2 stylesheet |
 | stage-column-format.json | The process-stage column on How we build responsibly |
+
+The pack's lists folder holds the five lists as CSV files for New > List > From CSV: glossary (all 46 terms), publications (eight seed rows), wins, process-stage and citations.
 
 ## Step 1 · The test site
 
@@ -91,6 +95,8 @@ Create these before any page, because the pages show them. Tier 1.
 | Process stage | Product, Stage (Intake, Risk classification, Developer evaluation, Independent validation, Human review, Monitoring), Inventory record (link), As of, Contact (Person) | How we build responsibly; format Stage with stage-column-format.json |
 | Glossary | Term, Letter (A to Z), Definition, Link | Glossary, filtered by letter |
 
+Create each list from its CSV in the pack: New > List > From CSV, then check each column's type in the preview (Choice for Type, Status and Stage; Date for As of; Yes/No for With the university). Add the Person columns (Authors, Contact) and the stage format after import. The Glossary CSV holds all 46 terms, so that list is done on import; the others carry seed rows to replace. A fifth list, Citations, is the S2 log: one row each time a meeting, message or deck links to the site.
+
 **Forms** (Microsoft Forms, each with an owner role named on the page):
 
 | Form | Fields | Owner role |
@@ -116,7 +122,7 @@ When a news post is sent as email, SharePoint swaps section backgrounds for them
 
 ## Step 6 · Team-first pages
 
-Build each page top to bottom, one row per section, copying the words from its board on the canvas. Brackets stay in brackets until the fact has an owner, a source and a date. Every page ends with the closing band: a Call to action on Canopy, "Which part of your work should the model learn next?", button Start a use case to the Bring us a problem form.
+Build each page top to bottom, one row per section, copying the words from the page copy doc. Brackets stay in brackets until the fact has an owner, a source and a date. Every page ends with the closing band: a Call to action on Canopy, "Which part of your work should the model learn next?", button Start a use case to the Bring us a problem form.
 
 ### Home
 
@@ -191,7 +197,7 @@ Goes live only after the real Risk review of its wording (company version).
 
 ## Step 7 · Our work and Stories pages
 
-Same method: one row per section, words from the board, the closing band last. Every hero is on Meadow except AI Perspectives, which is on Lagoon.
+Same method: one row per section, words from the page copy doc, the closing band last. Every hero is on Meadow except AI Perspectives, which is on Lagoon.
 
 | Page | Sections, top to bottom | Web parts |
 | --- | --- | --- |
@@ -210,7 +216,7 @@ Same method: one row per section, words from the board, the closing band last. E
 | ThinkLatent at a glance | One plain page of headings and lists, every number with its source, refreshed each quarter, so search and Copilot can answer "what has ThinkLatent done on X?" · closing band | Text only; Call to action |
 | Write for ThinkLatent | Hero · the eleven templates · Perspective or Deep dive · three steps, reviewed within five working days · how the blog runs · the ThinkLatent voice · submit · closing band | Quick links (grid); Text; Forms; Call to action |
 
-**Templates.** Build each one once as a page with the sections on its board, set its Category, then Page details > Save as template. Authors start every post from these.
+**Templates.** Build each one once as a page with the blocks listed for it in the page copy doc, set its Category, then Page details > Save as template. Authors start every post from these.
 
 | Template | Category | What it holds |
 | --- | --- | --- |
@@ -228,11 +234,11 @@ Same method: one row per section, words from the board, the closing band last. E
 
 ## Step 9 · custom.css: the one IT request
 
-custom.css is the only part that needs IT, and the site works without it. SharePoint's own Text headings are 24, 20 and 18, so the v10 scale (48 for sections, 72 for page titles) comes only with this file. Tier 2.
+custom.css is the only part that needs IT, and the site works without it. The type scale does not wait for it: the Text web part's font size box takes any size from 8 to 250, so every size in the page copy can be typed by hand (tier 1). The file makes those sizes apply by themselves, sets the page title size, and adds the red pill buttons, the header stripe and the card radii. Tier 2.
 
 | What custom.css changes | Without it |
 | --- | --- |
-| The type scale: page title 72, sections 48, cards 26, lead 22, body 17 | SharePoint's sizes: headings 24, 20, 18 |
+| The type scale applied by itself: page title 72, sections 48, cards 26, lead 22, body 17 | The same sizes typed by hand in each Text web part; the page title keeps SharePoint's size |
 | Primary buttons in page content become red pills | Buttons stay the theme's green |
 | The 4 px red stripe on the site header | No stripe |
 | Large radii on cards; visible focus rings | SharePoint's square cards |
@@ -254,17 +260,17 @@ Why: the ThinkLatent team site's type sizes, button colours and header stripe.
 If IT already has an approved CSS-loading customizer, we would use that one.
 Rollback: remove the customizer from the site; the site returns to SharePoint's own look.
 Owner: Head of ThinkLatent. Wanted by: 12 Dec 2026, the date the team decides whether the
-launch design keeps the type scale or falls back to SharePoint's sizes.
+launch design gets the red buttons and automatic sizes, or keeps typing sizes by hand.
 ```
 
 ## Step 10 · Before launch
 
-The site goes past the test site only when every box below is ticked. The four dated checks are the stress test's kill criteria (D-191).
+The site goes past the test site only when every box below is ticked. The dated checks are the stress test's kill criteria (D-191); since D-386 the 19 Dec one reads progress only.
 
-- [ ] Nov 21, 2026 At least half the launch brackets have an owner, a source system and a date; otherwise launch with six pages (Home, Mandate and Products, Wins, Team, Blog, At a glance).
+- [ ] Nov 21, 2026 At least 86 of the 171 launch brackets in the launch brackets doc have a value, a source system and a date; otherwise launch with six pages (Home, Mandate and Products, Wins, Team, Blog, At a glance).
 - [ ] Dec 5, 2026 Three of the five sponsors or partner leads shown the v10 Home board asked for the link; otherwise re-score and decide proceed or park.
-- [ ] Dec 12, 2026 IT has a date for custom.css; otherwise every page uses SharePoint's sizes and green buttons.
-- [ ] Dec 19, 2026 Home, Wins and Products are on the test site at 8 hours a page or less; otherwise launch moves to April 2027 or the six-page cut applies.
+- [ ] Dec 12, 2026 IT has a date for custom.css; otherwise launch with sizes typed by hand and green buttons.
+- [ ] Dec 19, 2026 Home, Wins and Products are on the test site with the hours logged per page. A progress read, not a cut: there is no hour budget (D-386).
 - [ ] Every number on a live page names its source and date. A person is not a source. Blocks without one come off.
 - [ ] How we build responsibly: the real Risk review is done, questions 6 and 7 answered, and the review line dated.
 - [ ] Every win has written consent stored for each channel it goes to, and the corrections procedure has an owner.
@@ -286,3 +292,7 @@ Checked 16 Nov 2026. Test each step on the test site, because SharePoint changes
 - [Section backgrounds in pages and news posts](https://sharepointmaven.com/sharepoint-page-section-backgrounds) (SharePoint Maven)
 - [MC752513: Text web part heading sizes 24, 20 and 18](https://mc.merill.net/message/MC752513/v/2024-06-19T20-52-35-793Z) (Message Center archive)
 - [News emails swap section backgrounds for theme colours](https://supersimple365.com/new-sharepoint-section-backgrounds-for-pages-and-news/) (Super Simple 365)
+- [MC799209: Text web part font sizes from 8 to 250](https://mc.merill.net/message/MC799209) (Message Center archive)
+- [MC888883: Text web part custom font colours](https://mc.merill.net/message/MC888883) (Message Center archive)
+- [MC668787: create a list from a CSV file](https://petri.com/microsoft-changelog/m365-changelog-sharepoint-microsoft-lists-create-a-list-from-csv-and-export-to-csv/) (Petri changelog)
+- [Create a list based on a spreadsheet or CSV](https://support.microsoft.com/office/380cfeb5-6e14-438e-988a-c2b9bea574fa) (Microsoft Support)

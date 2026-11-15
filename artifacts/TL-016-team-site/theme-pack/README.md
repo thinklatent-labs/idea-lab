@@ -1,4 +1,4 @@
-# ThinkLatent site · theme pack v10
+# ThinkLatent site · theme pack v10.1
 
 Everything SharePoint needs to look like canvas v10 of the ThinkLatent site. Made 2026-11-16 from the ThinkLatent kit colour system v1.1 (TL-016, D-381). The build guide says where each file goes.
 
@@ -13,6 +13,18 @@ Everything SharePoint needs to look like canvas v10 of the ThinkLatent site. Mad
 | `Add-ThinkLatentTheme.ps1` | Registers the theme in the tenant gallery with `Add-SPOTheme`. | SharePoint administrator |
 | `custom.css` | Type scale, red pill buttons, header stripe, card radii, focus rings. | IT, through one SPFx application customizer |
 | `stage-column-format.json` | Column formatting for the process-stage list on How we build responsibly: a glyph and a word, never colour alone. | Site owner (list column, Format this column) |
+| `lists/glossary.csv` | The Glossary list: all 46 terms with their one-line definitions, done on import. | Site owner (New > List > From CSV) |
+| `lists/publications.csv` | The Publications list: eight seed rows from the boards, brackets where a value is still to come. | Site owner (From CSV) |
+| `lists/wins.csv` | The Wins list: one sample row; replace it with the first real win before importing, or delete it after. | Site owner (From CSV) |
+| `lists/process-stage.csv` | The Process stage list: TLM4 Core, TLM4 Distil, TLM4 Domain · Advice, TLM5 (Intake). Stages come from the model inventory. | Site owner (From CSV) |
+| `lists/citations.csv` | The Citations list, the S2 log: one row each time a meeting, message or deck links to the site. | Site owner (From CSV) |
+| `lists/launch-brackets.csv` | Optional: the 190 brackets as a tracker list on the test site (171 for launch, 19 for ThinkLatent Day). | Site owner (From CSV) |
+
+## Lists
+
+Create each list from its file: New > List > From CSV, then check the column types in the preview (Choice for Type, Status and Stage; Date for As of; Yes/No for With the university). Person columns (Authors, Contact) and the stage format are added after import. SharePoint keeps a copy of each uploaded CSV in Site Assets.
+
+The words for every page are not in this pack: they are in the page copy doc, ThinkLatent site — page copy for SharePoint (v10), and in GitHub at artifacts/TL-016-team-site/docs/page-copy.md.
 
 ## Derived colours
 
