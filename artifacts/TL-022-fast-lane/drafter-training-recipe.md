@@ -146,7 +146,8 @@ vllm serve google/gemma-4-31B-it --tensor-parallel-size 8 --max-num-seqs 8 \
 ### Step 8. Ship and keep it aligned
 
 - A drafter belongs to one exact target version. Register them together, deploy them together, and roll them back together.
-- Retrain the drafter on every Core refresh, since self-healing SFT changes the target. NeMo RL can also train an EAGLE-3 drafter online alongside the policy, keeping it aligned during RL; consider that if Core training moves that way.
+- Check acceptance at every Core refresh, since self-healing SFT changes the target, and refresh the drafter when a bucket falls below what its promise needs. Warm-start from the current drafter (`speculators train --from-pretrained`) rather than training from scratch. Whether every refresh retrains regardless is open (TL-022 Q7). NeMo RL can also train an EAGLE-3 drafter online alongside the policy, keeping it aligned during RL; consider that if Core training moves that way.
+- Correction (2026-11-15): an earlier version said to retrain on every Core refresh and never to reuse a 31B drafter. That was too strong; see the pitfall below.
 - Watch acceptance in production per bucket. A drop means the traffic has drifted from the drafter's training data, and is a cue to retrain.
 
 ## 3. Lab version and company version
@@ -160,7 +161,7 @@ vllm serve google/gemma-4-31B-it --tensor-parallel-size 8 --max-num-seqs 8 \
 ## 4. Pitfalls
 
 - Training on a dataset's original answers instead of the target's own: acceptance drops sharply.
-- Hidden states from a different checkpoint than the served one (a width-pruned Core changes them): retrain on the Core, never reuse the 31B drafter.
+- Hidden states from a different checkpoint than the served one. A drafter reads the target's internal states, so a 31B drafter loads on the width-pruned Core only if the prune kept the hidden size. Google's MTP drafter also needs the attention layout unchanged, because it shares the target's KV cache. If it loads, measure acceptance per bucket before deciding to train; if it falls short, fine-tune it on the Core's own replies. Which dimensions the prune cut is TL-022 Q8.
 - Short training contexts with long production prompts.
 - A chat template or system prompt different from production.
 - Judging a drafter on random-token benchmarks.

@@ -1,0 +1,281 @@
+# Fast-lane proof (ThinkLatent Idea Lab, TL-022): configuration.
+#
+# Paths come from environment variables (scripts/env.sh sets them for HyperPod;
+# defaults assume FSx at /fsx). A plan chooses the stages and their size; the rest
+# is shared. Any value can be overridden on the command line:
+#   python -m fastlane run --plan standard --set load.input_tokens_per_minute=2000000
+#
+# Hypothesis thresholds (hypotheses:) were fixed before any run. Change them only
+# with a new decision line in the register, never after seeing results.
+
+version: 1
+default_plan: standard
+default_best: dflash_redhat@8      # used if the screen stage has not run
+
+paths:
+  models: ${FASTLANE_MODELS:-/fsx/models}
+  data: ${FASTLANE_DATA:-/fsx/fastlane/data}
+  work: ${FASTLANE_WORK:-/fsx/fastlane/work}
+  repos: ${FASTLANE_REPOS:-/fsx/fastlane/repos}
+  results: ${FASTLANE_RESULTS:-results}      # inside this repo so results can be pushed
+
+envs:
+  serve: ${FASTLANE_ENVS:-/fsx/envs}/fastlane-serve        # vLLM 0.33.0 + this kit
+  hs: ${FASTLANE_ENVS:-/fsx/envs}/fastlane-hs              # vLLM 0.27.1 + hs_connectors (Speculators hidden states)
+  train: ${FASTLANE_ENVS:-/fsx/envs}/fastlane-train        # Speculators
+  modelopt: ${FASTLANE_ENVS:-/fsx/envs}/fastlane-modelopt  # NVIDIA Model Optimizer
+
+versions:
+  vllm_serve: "0.33.0"            # latest release (2 Nov 2026): EAGLE-3, DFlash, DSpark, Gemma 4 MTP
+  vllm_hidden_states: "0.27.1"    # what Speculators' training tutorial pins for launch_vllm.py
+  speculators_commit: 05f9ba2324fef505cef8700669f2bdc20f8ae219
+  modelopt_commit: ef893e77084198c161cc908eb91380b3a47eccad
+
+hardware:
+  gpus_per_node: 8
+  base_port: 8100
+
+models:
+  target_fp8:
+    repo: RedHatAI/gemma-4-31B-it-FP8-dynamic     # FP8 weights, dynamic per-token activations
+    served_name: g4-31b-fp8
+  target_bf16:
+    repo: google/gemma-4-31B-it                   # for drafter training (hidden states) and generation
+    served_name: g4-31b-bf16
+  target_w4a16:
+    repo: google/gemma-4-31B-it-qat-w4a16-ct      # Google's quantization-aware 4-bit weights
+    served_name: g4-31b-w4a16
+  small:
+    repo: google/gemma-4-E2B-it                   # stand-in for the 7B Core (also E2B-based)
+    served_name: g4-e2b-fp8
+    extra_flags: ["--quantization", "fp8"]
+
+drafters:
+  eagle3_redhat: {repo: RedHatAI/gemma-4-31B-it-speculator.eagle3, method: eagle3, k: 3}
+  dflash_redhat: {repo: RedHatAI/gemma-4-31B-it-speculator.dflash, method: dflash, k: 8}
+  dspark_redhat: {repo: RedHatAI/gemma-4-31B-it-speculator.dspark, method: dspark, k: 7}
+  mtp_google: {repo: google/gemma-4-31B-it-assistant, method: mtp, k: 4}
+  suffix: {method: suffix, k: 8}                  # no draft model; needs arctic-inference
+  ngram: {method: ngram, k: 4, spec_extra: {prompt_lookup_max: 4, prompt_lookup_min: 2}}
+  small_mtp: {repo: google/gemma-4-E2B-it-assistant, method: mtp, k: 4}
+  dflash_zlab:                                    # off by default: runs the repository's own code
+    repo: z-lab/gemma-4-31B-it-DFlash
+    method: dflash
+    k: 15
+    spec_extra: {attention_backend: flash_attn}
+    server_flags: ["--attention-backend", "triton_attn", "--trust-remote-code"]
+  # The train stage adds trained_speculators_eagle3, trained_speculators_dflash and
+  # trained_modelopt_eagle3 at run time (results/<run>/drafters.json).
+
+serving:
+  max_model_len: 12288            # 10,000-token prompts + 1,000-token replies + template
+  gpu_memory_utilization: 0.90
+  startup_timeout_s: 2400
+  base_flags:
+    - --enable-prefix-caching
+    - --enable-chunked-prefill
+    - --scheduling-policy
+    - priority
+    - --limit-mm-per-prompt
+    - '{"image": 0, "audio": 0}'
+  optional_flags:                 # tried first, dropped automatically if a server will not start with them
+    - --kv-cache-dtype
+    - fp8
+    - --async-scheduling
+  modes:
+    latency: {max_num_seqs: 16, max_num_batched_tokens: 8192, long_prefill_token_threshold: 2048}
+    wide: {max_num_seqs: 64, max_num_batched_tokens: 16384, long_prefill_token_threshold: 4096}
+    bulk: {max_num_seqs: 256, max_num_batched_tokens: 16384}
+  env:
+    VLLM_LOGGING_LEVEL: INFO
+    HF_HUB_OFFLINE: "1"
+
+profiles:
+  # Same settings on every replica of a profile (D-376).
+  fp8_tp8_none:   {model: target_fp8, tp: 8, replicas: 1, drafter: none, mode: latency}
+  fp8_tp8_best:   {model: target_fp8, tp: 8, replicas: 1, drafter: best, mode: latency}
+  fp8_tp4_best:   {model: target_fp8, tp: 4, replicas: 2, drafter: best, mode: latency}
+  fp8_tp4_none:   {model: target_fp8, tp: 4, replicas: 2, drafter: none, mode: latency}
+  w4a16_tp8_best: {model: target_w4a16, tp: 8, replicas: 1, drafter: best, mode: latency}
+  w4a16_tp8_none: {model: target_w4a16, tp: 8, replicas: 1, drafter: none, mode: latency}
+  bf16_tp8_none:  {model: target_bf16, tp: 8, replicas: 1, drafter: none, mode: latency}
+  lay_tp8_best:   {model: target_fp8, tp: 8, replicas: 1, drafter: best, mode: wide}
+  lay_tp4_best:   {model: target_fp8, tp: 4, replicas: 2, drafter: best, mode: wide}
+  lay_tp2_none:   {model: target_fp8, tp: 2, replicas: 4, drafter: none, mode: bulk}
+  lay_tp1_none:   {model: target_fp8, tp: 1, replicas: 8, drafter: none, mode: bulk}
+  small_tp1_mtp:  {model: small, tp: 1, replicas: 8, drafter: small_mtp, mode: latency}
+  small_tp2_mtp:  {model: small, tp: 2, replicas: 4, drafter: small_mtp, mode: latency}
+  small_tp4_mtp:  {model: small, tp: 4, replicas: 2, drafter: small_mtp, mode: latency}
+  small_tp4_none: {model: small, tp: 4, replicas: 2, drafter: none, mode: latency}
+  gen_bf16_dp4:   {model: target_bf16, tp: 2, dp: 4, replicas: 1, drafter: none, mode: bulk}
+
+request:
+  temperature: 0.0
+  chat_template_kwargs: {enable_thinking: false}
+  timeout_s: 900
+  fix_output_length: true         # min_tokens = max_tokens: every reply has its cell's length
+
+prompts:
+  tokenizer_model: target_fp8
+  lengths: [1000, 2000, 4000, 6000, 8000, 10000]
+  pool_size: 160
+  eval_documents: 6000
+  train_documents: 30000
+  system_prompt: "You are an analyst. Answer accurately and only from the documents provided."
+  sources:
+    documents: {dataset: abisee/cnn_dailymail, config: "3.0.0", split: train, field: article, license: Apache-2.0}
+    chat: {dataset: HuggingFaceH4/ultrachat_200k, split: train_sft, field: prompt, license: MIT}
+    math: {dataset: openai/gsm8k, config: main, split: test, license: MIT}
+
+buckets:
+  # Draft edges until Langfuse gives real per-application lengths (TL-022 open question 1).
+  - {name: quick,      prompt: [0, 4000],     reply: [0, 64],     classes: [fast]}
+  - {name: answer,     prompt: [0, 4000],     reply: [65, 300],   classes: [fast]}
+  - {name: long_read,  prompt: [4001, 12000], reply: [0, 300],    classes: [fast]}
+  - {name: long_write, prompt: [0, 12000],    reply: [301, 1000], classes: [fast]}
+  - {name: bulk,       prompt: [0, 12000],    reply: [0, 4000],   classes: [standard, batch]}
+
+promise:
+  concurrency: 8                  # promises hold with up to 8 calls in flight per replica
+  margin: 0.15                    # promise = p95 at the range edge x 1.15
+
+class_priority: {fast: 0, standard: 5, batch: 10}   # vLLM serves lower numbers first
+borrow_priority_penalty: 20       # borrowed calls queue behind the lender's own calls
+
+load:
+  input_tokens_per_minute: 1000000
+  apps:
+    # Assumed mix until Langfuse distributions arrive. Mean prompt about 3,900 tokens,
+    # so 1M input tokens a minute is about 4.3 calls a second.
+    - {name: assist,   cls: fast,     share: 0.40, prompt: {dist: lognormal, median: 2500, sigma: 0.45, min: 1000, max: 4000},
+       reply: {dist: uniform, min: 64, max: 300}, sessions: 40, shared_prefix_tokens: 1200}
+    - {name: docqa,    cls: fast,     share: 0.25, prompt: {dist: uniform, min: 4001, max: 10000},
+       reply: {dist: uniform, min: 150, max: 300}, sessions: 30, shared_prefix_tokens: 1500}
+    - {name: classify, cls: fast,     share: 0.20, prompt: {dist: uniform, min: 1000, max: 3000},
+       reply: {dist: fixed, value: 10}, sessions: 10, shared_prefix_tokens: 600}
+    - {name: report,   cls: standard, share: 0.15, prompt: {dist: uniform, min: 2000, max: 8000},
+       reply: {dist: fixed, value: 1000}, sessions: 10, shared_prefix_tokens: 800}
+  cluster:
+    profile: fp8_tp4_best         # two TP4 replicas, each home to two fast buckets (design day 3)
+    home:
+      0: [quick, answer, bulk]
+      1: [long_read, long_write, bulk]
+    max_inflight_per_replica: 8
+    lend_max_load: 2
+    bounded_load_eps: 0.25
+
+hypotheses:
+  H1: {tau_confirm: 3.5, tau_refute: 2.5, temperature_max: 0.3}
+  H2: {tps_target: 1000, concurrency: 8, reply: 300, prompt_max: 4000}
+  H3: {max_drop_points: 1.0}
+  H4: {e2e_ms: 200, reply: 300, concurrency_max: 8, prompts: [1000, 4000, 10000], profile: small_tp4_mtp}
+  H5: {max_p95_rise: 0.10}
+  H6: {rate_gain: 0.5}
+  H7: {attainment: 0.95, multiplier: 1.0}
+  H8: {attainment_gain_points: 5}
+  H9: {tau_within: 0.10}
+  H10: {e2e_ms: 200, reply: 300, prompt: 1000, concurrency: 1}
+
+sim:
+  time_scale: 1.0                 # dry runs only: <1 speeds the simulated servers up
+
+plans:
+  smoke:
+    about: "Simulated servers, a few minutes: tests the pipeline end to end (use with --dry-run)."
+    hours: 0.1
+    dry_run: true
+    stages: [preflight, data, screen, grid, small, layouts, load, scale, train, report]
+    prompts: {lengths: [1000, 4000, 10000], pool_size: 24, eval_documents: 300, train_documents: 200}
+    sim: {time_scale: 0.05}
+    screen: {drafters: [none, eagle3_redhat@3, dflash_redhat@8, mtp_google@4], inputs: [1000], outputs: [64],
+             concurrency: [1], requests: 6, temperatures: [0.0]}
+    grid: {profiles: [fp8_tp8_none, fp8_tp8_best, fp8_tp4_best, w4a16_tp8_best], inputs: [1000, 4000, 10000],
+           outputs: [10, 64, 300, 1000], concurrency: [1, 8], requests_min: 8, rounds: 2,
+           prefix: {inputs: [4000], outputs: [64], shares: [0.5], concurrency: [8]}}
+    quality: {profiles: [fp8_tp8_best, w4a16_tp8_best], questions: 40}
+    small: {profiles: [small_tp4_mtp], inputs: [1000, 4000, 10000], outputs: [10, 300], concurrency: [1, 8],
+            requests_min: 8, rounds: 2}
+    layouts: {profiles: [lay_tp8_best, lay_tp1_none], shape: [4000, 300], concurrency: [1, 8, 32],
+              requests_per_level: 2}
+    load: {capacity: [1.0, 2.0], policies: [round_robin, bucketed], duration_s: 20, warmup_s: 3,
+           cluster: {max_inflight_per_replica: 2},
+           borrowing: {enabled: true, step_s: 8, max_steps: 4, start_rps: 4.0, growth: 2.0, lead_s: 4,
+                       lender_window_s: 10}}
+    scale: {duration_s: 10, warmup_s: 2}
+    train: {routes: [speculators_eagle3, modelopt_eagle3], samples: 60, long_share: 0.3, epochs: 1,
+            generate_concurrency: 16, max_new_tokens: 64,
+            eval: {inputs: [1000], outputs: [64], requests: 4}}
+
+  quick:
+    about: "Real hardware smoke test: every serving stage at small size, no training."
+    hours: 3
+    stages: [preflight, data, screen, grid, small, layouts, load, report]
+    prompts: {lengths: [1000, 4000, 10000], pool_size: 64}
+    screen: {drafters: [none, eagle3_redhat@3, dflash_redhat@8, mtp_google@4], inputs: [4000], outputs: [300],
+             concurrency: [1], requests: 12, temperatures: [0.0]}
+    grid: {profiles: [fp8_tp8_best, fp8_tp4_best], inputs: [1000, 4000, 10000], outputs: [10, 64, 300, 1000],
+           concurrency: [1, 8], requests_min: 12, rounds: 2}
+    quality: {profiles: [], questions: 0}
+    small: {profiles: [small_tp4_mtp], inputs: [1000, 4000, 10000], outputs: [300], concurrency: [1, 8],
+            requests_min: 12, rounds: 2}
+    layouts: {profiles: [lay_tp8_best, lay_tp1_none], shape: [4000, 300], concurrency: [1, 8, 64],
+              requests_per_level: 2}
+    load: {capacity: [1.0], policies: [round_robin], duration_s: 180, warmup_s: 20, borrowing: {enabled: false}}
+
+  standard:
+    about: "The proof: every hypothesis but H5 (two nodes), one EAGLE-3 training run by Speculators."
+    hours: 24
+    stages: [preflight, data, screen, grid, small, layouts, load, train, report]
+    screen: {drafters: [none, eagle3_redhat@3, eagle3_redhat@5, dflash_redhat@8, dspark_redhat@7, mtp_google@4,
+                        mtp_google@6, suffix@8], inputs: [2000, 8000], outputs: [64, 300], concurrency: [1],
+             requests: 24, temperatures: [0.0, 0.7]}
+    grid: {profiles: [fp8_tp8_none, fp8_tp8_best, fp8_tp4_best, w4a16_tp8_best],
+           inputs: [1000, 2000, 4000, 6000, 8000, 10000], outputs: [10, 64, 300, 1000], concurrency: [1, 4, 8, 16],
+           requests_min: 16, rounds: 3,
+           prefix: {inputs: [4000, 10000], outputs: [300], shares: [0.5, 0.8], concurrency: [8]}}
+    quality: {profiles: [fp8_tp8_best, w4a16_tp8_best], questions: 1319}
+    small: {profiles: [small_tp1_mtp, small_tp2_mtp, small_tp4_mtp, small_tp4_none],
+            inputs: [1000, 2000, 4000, 6000, 8000, 10000], outputs: [10, 64, 150, 300], concurrency: [1, 4, 8],
+            requests_min: 16, rounds: 3}
+    layouts: {profiles: [lay_tp8_best, lay_tp4_best, lay_tp2_none, lay_tp1_none], shape: [4000, 300],
+              concurrency: [1, 8, 32, 64, 128, 256, 512], requests_per_level: 3}
+    load: {capacity: [0.5, 1.0, 1.5, 2.0], policies: [round_robin, least_load, affinity, bucketed],
+           duration_s: 300, warmup_s: 30,
+           borrowing: {enabled: true, step_s: 120, max_steps: 8, start_rps: 0.5, growth: 1.3, lead_s: 60,
+                       lender_window_s: 120}}
+    train: {routes: [speculators_eagle3], samples: 20000, long_share: 0.3, epochs: 3, seq_length: 12288,
+            lr: {eagle3: 1.0e-4, dflash: 6.0e-4}, layer_ids: {dflash: [1, 17, 29, 47, 58]},
+            eval: {inputs: [2000, 8000], outputs: [300], requests: 24}, timeout_h: 30}
+
+  full:
+    about: "Everything in standard, wider sweeps, both training routes (Speculators EAGLE-3 and DFlash, Model Optimizer EAGLE-3)."
+    hours: 60
+    stages: [preflight, data, screen, grid, small, layouts, load, train, report]
+    screen: {drafters: [none, eagle3_redhat@2, eagle3_redhat@3, eagle3_redhat@5, dflash_redhat@6, dflash_redhat@8,
+                        dflash_redhat@12, dspark_redhat@7, mtp_google@4, mtp_google@6, mtp_google@8, suffix@8, ngram@4],
+             inputs: [1000, 4000, 10000], outputs: [64, 300, 1000], concurrency: [1], requests: 24,
+             temperatures: [0.0, 0.7]}
+    grid: {profiles: [fp8_tp8_none, fp8_tp8_best, fp8_tp4_best, fp8_tp4_none, w4a16_tp8_best, w4a16_tp8_none],
+           inputs: [1000, 2000, 4000, 6000, 8000, 10000], outputs: [10, 64, 150, 300, 500, 1000],
+           concurrency: [1, 2, 4, 8, 16, 32], requests_min: 16, rounds: 3,
+           prefix: {inputs: [4000, 10000], outputs: [64, 300], shares: [0.5, 0.8], concurrency: [8]}}
+    quality: {profiles: [fp8_tp8_best, w4a16_tp8_best], questions: 1319}
+    small: {profiles: [small_tp1_mtp, small_tp2_mtp, small_tp4_mtp, small_tp4_none],
+            inputs: [1000, 2000, 4000, 6000, 8000, 10000], outputs: [10, 64, 150, 300], concurrency: [1, 2, 4, 8],
+            requests_min: 16, rounds: 3}
+    layouts: {profiles: [lay_tp8_best, lay_tp4_best, lay_tp2_none, lay_tp1_none], shape: [4000, 300],
+              concurrency: [1, 8, 32, 64, 128, 256, 512], requests_per_level: 3}
+    load: {capacity: [0.5, 1.0, 1.5, 2.0, 2.5, 3.0], policies: [round_robin, least_load, affinity, bucketed],
+           duration_s: 300, warmup_s: 30,
+           borrowing: {enabled: true, step_s: 120, max_steps: 10, start_rps: 0.5, growth: 1.3, lead_s: 60,
+                       lender_window_s: 180}}
+    train: {routes: [speculators_eagle3, speculators_dflash, modelopt_eagle3], samples: 100000, long_share: 0.3,
+            epochs: 5, seq_length: 12288, lr: {eagle3: 1.0e-4, dflash: 6.0e-4},
+            layer_ids: {dflash: [1, 17, 29, 47, 58]}, modelopt: {training_seq_len: 8192, learning_rate: 1.0e-4},
+            eval: {inputs: [1000, 4000, 10000], outputs: [64, 300], requests: 24}, timeout_h: 40}
+
+  two_node:
+    about: "H5: one unit at 1x load against two units at 2x across two nodes (sbatch --nodes=2)."
+    hours: 1
+    stages: [preflight, data, scale, report]
+    scale: {duration_s: 300, warmup_s: 30}

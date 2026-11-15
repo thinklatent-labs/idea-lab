@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-15
 sensitivity: none
 critique_recorded: null
-next_step: "Run the proof on one 8x H100 node per the serving design (section 7): day 1 the 27B at TP8 with no drafter, EAGLE-3 and DFlash in FP8 and 4-bit across the prompt x reply grid; day 2 layouts (TP4, TP2, TP1, bulk) and the 7B at two TP4 replicas; day 3 two 27B buckets behind Envoy and the picker with mixed-traffic replay and borrowing (H6); day 4 a drafter-training dry run on public Gemma 4 31B by both routes (Speculators and Model Optimizer) to time the pipeline and compare acceptance (D-377). Inputs Jithin holds: from Langfuse, the prompt and reply length distributions per application and how much of each prompt repeats, to set bucket boundaries and mean shapes; where 200 ms is measured; today's TP and any drafter on the 27B endpoints. Drafters trained on the Core models and H1 run in the company version"
+next_step: "Jithin creates the private repository thinklatent-labs/fast-lane (empty) and Claude pushes the proof kit (built and tested on simulated servers, mirrored at artifacts/TL-022-fast-lane/fast-lane-kit/). Then on one 8x H100 node: scripts/setup.sh, PLAN=standard scripts/download.sh, PLAN=quick sbatch scripts/proof.sbatch (about 3 h, shakes out flags and versions), then PLAN=standard PUBLISH=1 sbatch (about a day) so results land in the repository; the next session records H1 to H10 from results/<run-id>/summary.json. Inputs Jithin holds: Langfuse prompt and reply lengths per application, where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8)"
 next_step_due: "2026-11-27"
 ---
 
@@ -29,11 +29,11 @@ next_step_due: "2026-11-27"
 <!-- generated:start -->
 ## Lab record
 
-**TL-022 fast-lane** · Idea · Seed (Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15) · H1
+**TL-022 fast-lane** · Idea · Seed (Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15; proof built as a runnable kit on public Gemma 4 31B with H7 to H10 added (D-378)) · H1
 
 Owner: Head of ThinkLatent (Jithin), sponsor and decider; serving lead (Claude). Appetite: not set. Score: not scored .
 
-Next step: Run the proof on one 8x H100 node per the serving design (section 7): day 1 the 27B at TP8 with no drafter, EAGLE-3 and DFlash in FP8 and 4-bit across the prompt x reply grid; day 2 layouts (TP4, TP2, TP1, bulk) and the 7B at two TP4 replicas; day 3 two 27B buckets behind Envoy and the picker with mixed-traffic replay and borrowing (H6); day 4 a drafter-training dry run on public Gemma 4 31B by both routes (Speculators and Model Optimizer) to time the pipeline and compare acceptance (D-377). Inputs Jithin holds: from Langfuse, the prompt and reply length distributions per application and how much of each prompt repeats, to set bucket boundaries and mean shapes; where 200 ms is measured; today's TP and any drafter on the 27B endpoints. Drafters trained on the Core models and H1 run in the company version (due 2026-11-27)
+Next step: Jithin creates the private repository thinklatent-labs/fast-lane (empty) and Claude pushes the proof kit (built and tested on simulated servers, mirrored at artifacts/TL-022-fast-lane/fast-lane-kit/). Then on one 8x H100 node: scripts/setup.sh, PLAN=standard scripts/download.sh, PLAN=quick sbatch scripts/proof.sbatch (about 3 h, shakes out flags and versions), then PLAN=standard PUBLISH=1 sbatch (about a day) so results land in the repository; the next session records H1 to H10 from results/<run-id>/summary.json. Inputs Jithin holds: Langfuse prompt and reply lengths per application, where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8) (due 2026-11-27)
 
 Production surface: Applications with a service level on TLM4 Core 27B calls (replies under 300 tokens in 200 ms) · A fast-lane pool on HyperPod: 8x H100 units behind Envoy with service-class routing, vLLM with a drafter per served model · p95 end-to-end latency and tok/s per request at the stated load
 
@@ -51,6 +51,10 @@ Governance: not recorded.
 | H4. The 7B Core with its drafter returns 300-token replies in 200 ms or less at p95 with up to 8 in flight per TP4 replica across 1,000 to 10,000-token prompts, and the TL Index shows it sufficient on those use cases | Both met | Either fails: the 200 ms class moves to shorter replies or faster silicon | opinion | not set | open |
 | H5. Units of 8 H100s scale linearly behind the prefix-aware Envoy | p95 within 10% at twice the load | p95 rises more than 10% | opinion | not set | open |
 | H6. Borrowing works: with one bucket idle, a busy bucket's sustainable rate rises at least 50% by borrowing the idle bucket's replicas, and the lender's p95 stays inside its promise once its own traffic returns | Rate up 50% or more and the lender's promise held | The lender's p95 breaks its promise | opinion | not set | open |
+| H7. One 8x H100 node serves 1 million input tokens a minute of mixed 1,000 to 10,000-token traffic with 95% of fast calls inside their bucket's promise (bucketed picker) | 95% or more | Under 95% | opinion | not set | open |
+| H8. The bucketed picker beats round robin on fast-call attainment on the same traffic | 5 points or more | 0 points or less: plain load balancing is enough | opinion | not set | open |
+| H9. A drafter we train on public data comes within 10% of the public drafter's mean accepted length (per route: Speculators EAGLE-3; in the full plan also Speculators DFlash and Model Optimizer EAGLE-3) | 0.90 or more: the pipeline is ready for the Core | Under 0.75 | opinion | not set | open |
+| H10. Gemma 4 31B on 8x H100 returns 300 tokens in 200 ms at p95 (1,000-token prompt, one call); pre-registered expectation: refuted | 200 ms or less | Over 200 ms: the 200 ms class belongs on the small model | opinion | not set | open |
 
 ### Kill signals
 | Signal | By | Status | Action |
@@ -66,6 +70,8 @@ Governance: not recorded.
 | Which service-level use cases may move to the 7B Core if the TL Index shows it sufficient? | Head of ThinkLatent, with TL-004 | No |
 | Faster silicon (B300, or Cerebras on AWS): in scope if (b) must hold on the 27B? | Head of ThinkLatent | No |
 | Sampling settings of service-level calls (temperature, structured outputs) | Head of ThinkLatent | No |
+| Drafter refresh at each Core release: retrain every release, or check acceptance first and refresh (warm-started) only when a bucket falls below its promise? Recommendation: check first | Head of ThinkLatent | No |
+| Which dimensions did the Core 27B's width prune cut (hidden size, attention heads, MLP)? Public Gemma 4 31B drafters load on the Core only if the hidden size was kept (Google's MTP drafter also needs the attention layout) | Head of ThinkLatent | No (yes for reusing public drafters on the Core) |
 
 ### Links
 | Link | To | Note |
@@ -93,6 +99,8 @@ Governance: not recorded.
 | Fast lane (fast-lane) - Serving design and proof plan 2026-11-15 | doc | [artifacts/TL-022-fast-lane/serving-design-and-proof-plan.md](../artifacts/TL-022-fast-lane/serving-design-and-proof-plan.md) | [claude.ai](project-knowledge:claude/Fast lane (fast-lane) - Serving design and proof plan 2026-11-15.md) | 2026-11-15 |
 | Fast lane (fast-lane) - Drafter training recipe 2026-11-15 | doc | [artifacts/TL-022-fast-lane/drafter-training-recipe.md](../artifacts/TL-022-fast-lane/drafter-training-recipe.md) | [claude.ai](project-knowledge:claude/Fast lane (fast-lane) - Drafter training recipe 2026-11-15.md) | 2026-11-15 |
 | Proof kit: bench_grid.sh (vllm bench serve sweep) and bucket_sheet.py (bucket sheet from results) | code | [artifacts/TL-022-fast-lane/proof-kit/](../artifacts/TL-022-fast-lane/proof-kit/) |  | 2026-11-15 |
+| Fast lane (fast-lane) - Proof kit and experiment design 2026-11-15 | doc | [artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md](../artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md) | [claude.ai](project-knowledge:claude/Fast lane (fast-lane) - Proof kit and experiment design 2026-11-15.md) | 2026-11-15 |
+| fast-lane kit v0.1: the runnable proof (stages, picker and router, report with H1-H10 verdicts, Slurm scripts) | code | [artifacts/TL-022-fast-lane/fast-lane-kit/](../artifacts/TL-022-fast-lane/fast-lane-kit/) |  | 2026-11-15 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -104,6 +112,7 @@ Governance: not recorded.
 | D-375 | 2026-11-15 | One shared cluster for many applications: the gateway (Envoy with the ext_proc picker) diverts each call by bucket (prompt tokens x reply cap), service class, task and session, keeping an application's or session's calls on the same replica; each bucket publishes a per-range promise ('send requests in these ranges and you get these numbers'); pools are planned at each bucket's mean shape; idle replicas lend capacity to other buckets at lower priority. What is done now: dedicated, isolated machines per production use case | Jithin | accepted |
 | D-376 | 2026-11-15 | Every replica of a model runs the same vLLM settings, so buckets are routing groups and borrowing is instant; a bucket gets its own settings only where the proof shows a gain of 20% or more. Promises are p95 at the bucket's range edge plus a margin, and GPUs are sized at the bucket mean. Shared by default, with dedicated pools on request, per-application cache salt, priorities and quotas | Jithin (on questions with recommendations) | accepted |
 | D-377 | 2026-11-15 | Draft models (EAGLE-3, then DFlash) are trained by both routes, Speculators (vLLM-native) and Model Optimizer (NVIDIA's route), on the same target-written data, and compared on accepted length per bucket, tok/s per request and training hours. Dissent recorded: the recommendation was Speculators with Model Optimizer as a cross-check; both routes cost an extra training run per model | Jithin (against the recommendation) | accepted |
+| D-378 | 2026-11-15 | The proof is built as runnable code, not more answers: one Slurm job on one 8x H100 node runs public Gemma 4 31B (FP8, vLLM 0.33.0) through a drafter screen, the prompt x reply x in-flight grid, the small-model 200 ms class, layouts, mixed traffic behind the picker (capacity, policies, borrowing) and drafter training, then writes a report that judges pre-registered H1 to H10 and pushes results to GitHub. H7 to H10 added. Public drafters are tested first and our training is measured against them; the full plan keeps both training routes (D-377). The kit lives in thinklatent-labs/fast-lane, which Jithin creates | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
@@ -138,3 +147,28 @@ The serving design (`artifacts/TL-022-fast-lane/serving-design-and-proof-plan.md
 - the benchmark and a four-day proof.
 
 The drafter recipe (`artifacts/TL-022-fast-lane/drafter-training-recipe.md`) gives NVIDIA's route and the Speculators route step by step. The proof kit in `proof-kit/` turns `vllm bench serve` results into the bucket sheet.
+
+### 2026-11-15 · TL-022 session (continued) · Spec (proof build)
+
+Jithin asked for the proof as code he runs, with the results made available afterwards, instead of more answers. The result is the fast-lane kit. It will live in `thinklatent-labs/fast-lane`, a private repository Jithin is creating. Until then it is mirrored at `artifacts/TL-022-fast-lane/fast-lane-kit/`.
+
+One Slurm job on one 8× H100 node runs public Gemma 4 31B (FP8, vLLM 0.33.0) through these stages:
+
+- a drafter screen: Red Hat EAGLE-3, DFlash and DSpark, Google MTP, and suffix decoding, all on identical prompts;
+- the prompt × reply × in-flight grid that yields the bucket sheet, with the 4-bit GSM8K check alongside;
+- the 200 ms class on Gemma 4 E2B with MTP;
+- the four layouts from TP8 to 8× TP1;
+- mixed traffic behind the picker at 0.5x to 2x of 1M input tokens a minute, with four policies and the borrowing test;
+- drafter training by Speculators, plus Model Optimizer in the full plan.
+
+The job writes a report that judges H1 to H10 mechanically against thresholds fixed in advance, and pushes the results to GitHub.
+
+New hypotheses for the proof:
+- H7: capacity at 1M input tokens a minute;
+- H8: the picker against round robin;
+- H9: our drafter against the public one;
+- H10: the 31B's 200 ms ceiling, expected to refute.
+
+The kit passed every test on simulated servers. It has not yet run on GPUs, so `PLAN=quick` comes first.
+
+This session also corrected the drafter recipe and the scout brief. They said the public 31B drafters would not fit the Core and that every Core refresh retrains. A drafter loads on the Core only if the width prune kept the hidden size, so it should be tested before deciding to train. Q7 (refresh policy) and Q8 (which dimensions the prune cut) are open. The design and the hypothesis table are in `artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md` (D-378).
