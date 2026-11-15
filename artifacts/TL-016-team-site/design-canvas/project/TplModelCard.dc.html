@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#F7F7F5;font-family:Inter,system-ui,sans-serif;color:#1A1A1A;font-size:16px;line-height:1.65}
@@ -48,6 +48,59 @@ td.n,th.n{text-align:right}
 .comments input{width:100%;min-height:44px;border-radius:12px;border:1px solid #E6E6E2;padding:0 14px;font-family:inherit;font-size:14px;background:#FFFFFF}
 .owners{font-size:12px;color:#5C5C5A;display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-top:1px solid #EFEFEC}
 .nav a.on{background:#6CB769;color:#0C3F09}
+
+/* v10 · one type scale and palette gradients (2026-11-16, D-381) */
+body{font-size:17px;line-height:1.6}
+.wrap{max-width:1280px}
+h1,h2,h3{font-weight:500}
+.cap{font-size:14px;letter-spacing:0;text-transform:none;font-weight:600;color:#2E6B3C}
+.meta{font-size:15px;line-height:1.5}
+.h2{font-size:48px;line-height:1.06;font-weight:500;letter-spacing:-.032em}
+.tag{height:28px;padding:0 12px;font-size:13px}
+.nav a{font-size:15px}
+.pill{min-height:48px;padding:0 22px;font-size:15px}
+.pill.sm{min-height:40px;padding:0 16px;font-size:14px}
+.panel{border-radius:28px}
+.door{border-radius:24px;padding:26px}
+.display{font-weight:300;letter-spacing:-.045em}
+.jump a{font-size:14px;padding:8px 14px}
+.tbl{font-size:15px}
+.gl{font-size:17px}
+.hero{background:radial-gradient(1100px 560px at 92% -4%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),radial-gradient(900px 520px at -4% 104%,rgba(47,122,109,.22),rgba(47,122,109,0) 60%),linear-gradient(180deg,#F7F7F5 0%,#EEF6F0 50%,#E2EFE7 100%)}
+.hero.teal,.globe{background:radial-gradient(900px 520px at 90% -6%,rgba(108,183,105,.45),rgba(108,183,105,0) 60%),linear-gradient(140deg,#1F4A44 0%,#2F7A6D 100%)}
+.wave,.green{background:radial-gradient(820px 480px at 92% -8%,rgba(108,183,105,.42),rgba(108,183,105,0) 62%),linear-gradient(135deg,#0C3F09 0%,#1B5128 40%,#1F4A44 76%,#2F7A6D 100%)}
+.band{background:linear-gradient(180deg,#F7F7F5 0%,#E9F3EC 100%)}
+.wave .pill.go,.green .pill.go,.globe .pill.go,.hero.teal .pill.go{background:#C4262E;color:#FFFFFF;border-color:rgba(255,255,255,.75)}
+.wave .pill.go:hover,.green .pill.go:hover,.globe .pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.statement{font-size:56px;line-height:1.06;letter-spacing:-.035em;font-weight:500}
+.chn{font-size:14px;text-transform:none;letter-spacing:.02em}
+.ip-big dd{font-size:80px;letter-spacing:-.05em}
+.iprow{font-size:16px}
+.names span{font-size:20px}
+.quote{font-size:26px}
+.pillar{padding:32px;border-radius:28px}
+.pillar .k{font-size:15px}
+.fig figcaption{font-size:15px}
+.boardnote{font-size:14px}
+.mstrip{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mchip{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1px solid #E6E6E2;font-size:15px;font-weight:500;color:#1A1A1A}
+.mchip i{width:10px;height:10px;border-radius:50%;background:#3E9A5C;display:inline-block;flex:none}
+.mchip.out{background:transparent;border-style:dashed;color:#5C5C5A}
+.mchip.out i{background:#8A8A88}
+.agent{display:grid;grid-template-columns:64px minmax(0,1.2fr) minmax(0,2fr) 150px 170px;gap:20px;align-items:center;padding:24px 0;border-bottom:1px solid #E6E6E2}
+.agent .no{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;color:#2E6B3C;font-weight:500}
+.agent h3{font-size:22px}
+.screen{border-radius:18px;aspect-ratio:16/10;background:radial-gradient(420px 220px at 88% -6%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),linear-gradient(160deg,#F2F2EF 0%,#E6F1EF 100%);border:1px solid #E6E6E2;display:flex;align-items:flex-end;padding:16px;font-size:14px;color:#5C5C5A}
+.qa{display:flex;flex-direction:column;gap:10px;padding:28px;border-radius:24px;background:#FFFFFF;border:1px solid #E6E6E2}
+.qa h3{font-size:22px}
+.qa p{color:#3A3A38}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid #CFE6D6;font-size:14px;font-weight:500;color:#1B5128}
+.sw{display:flex;flex-direction:column;gap:8px}
+.sw b{display:block;height:88px;border-radius:18px;border:1px solid rgba(26,26,26,.08)}
+.gfield{border-radius:28px;min-height:260px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.trow{display:grid;grid-template-columns:220px minmax(0,1fr) 300px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E6E6E2}
+@media (max-width:760px){.agent{grid-template-columns:44px minmax(0,1fr)}.agent>*:nth-child(n+3){grid-column:2}.trow{grid-template-columns:minmax(0,1fr)}}
 </style>
 </helmet>
 <div style="min-height:100vh;display:flex;flex-direction:column">
@@ -55,8 +108,8 @@ td.n,th.n{text-align:right}
 <header style="background:#FFFFFF;border-top:4px solid #C4262E;border-bottom:1px solid #E6E6E2">
   <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
     <a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1A1A1A" aria-label="Home">
-      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">TL</span>
-      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:15px">ThinkLatent</span><span style="font-size:12px;color:#5C5C5A">Team site</span></span>
+      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px">TL</span>
+      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:16px">ThinkLatent</span><span style="font-size:13px;color:#5C5C5A">Team site</span></span>
     </a>
     <nav class="nav" aria-label="Site" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
       <a class="" href="Mandate.dc.html">Mandate</a><a class="on" href="Products.dc.html">Products<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Wins.dc.html">Our work<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Blog.dc.html">Stories<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Team.dc.html">Team</a>
@@ -66,22 +119,22 @@ td.n,th.n{text-align:right}
 </header>
 
 <div style="background:#FFF7EC;border-bottom:1px solid #F1DDC3">
-  <div class="wrap" style="padding-top:12px;padding-bottom:12px;font-size:14px;color:#6B3E10;display:flex;flex-wrap:wrap;gap:8px 20px">
+  <div class="wrap" style="padding-top:12px;padding-bottom:12px;font-size:15px;color:#6B3E10;display:flex;flex-wrap:wrap;gap:8px 20px">
     <strong style="font-weight:600">Template · Model card</strong><span>One per model and per release; the short card on the site, the full card in the ThinkLatent Portal. Where they differ, the portal card wins; the site editor checks this card against it every quarter.</span><span>Highlighted boxes are instructions: delete them.</span><span>Category is preset to Model card.</span>
   </div>
 </div>
 
 <section class="band" style="min-height:420px;display:flex;align-items:flex-end">
   <div class="wrap" style="width:100%;padding-top:72px;padding-bottom:44px;display:flex;flex-direction:column;gap:18px;max-width:1240px">
-    <div style="display:flex;flex-wrap:wrap;gap:8px"><span class="tag" style="background:#E8EEF1;color:#355F6B">Model card</span><span class="tag" style="background:#F2F2EF;color:#3A3A38">[In production · Preview · Retired]</span></div>
-    <h1 style="font-size:48px;line-height:1.08;font-weight:400;letter-spacing:-.03em;max-width:880px">[Model name, tier and version]: [what it is for, in one line]</h1>
+    <div style="display:flex;flex-wrap:wrap;gap:8px"><span class="tag" style="background:#E8EEF1;color:#355F6B">Model card</span><span class="tag" style="background:#F2F2EF;color:#3A3A38">[In use · Preview · Retired] · inventory record [link]</span></div>
+    <h1 style="font-size:60px;line-height:1.08;font-weight:500;letter-spacing:-.03em;max-width:880px">[Model name, tier and version]: [what it is for, in one line]</h1>
   </div>
 </section>
 
 <main class="wrap" style="display:flex;flex-direction:column;gap:32px;padding-top:40px;width:100%">
   <div class="guide" style="max-width:880px"><b>Title area</b>The name as the portal has it, then what it is for. "TLM4 Distil: the desk model for bounded, high-volume tasks". One screen; a business reader should finish it in a minute.</div>
 
-  <section class="card" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px;padding:24px 28px"><span class="fact"><small>Owner</small>[Name]</span><span class="fact"><small>Status</small>[In production · Preview]</span><span class="fact"><small>Since</small>[DATE]</span><span class="fact"><small>Full card</small>[ThinkLatent Portal link]</span></section>
+  <section class="card" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px;padding:24px 28px"><span class="fact"><small>Owner</small>[Name]</span><span class="fact"><small>Status</small>[In use · Preview]</span><span class="fact"><small>Since</small>[DATE]</span><span class="fact"><small>Full card</small>[ThinkLatent Portal link]</span></section>
 
   <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
     <article class="body" style="flex:999 1 560px;min-width:0;max-width:760px;display:flex;flex-direction:column;gap:20px">
@@ -105,7 +158,7 @@ td.n,th.n{text-align:right}
       <div class="guide"><b>Three links</b>Request access, the Relay call, the playground in the portal.</div>
       <p class="fill">[Links.]</p>
 
-      <div class="card" style="background:#1F4A44;color:#FFFFFF;display:flex;flex-direction:column;gap:12px;padding:28px"><h2 style="font-size:22px;margin:0;color:#FFFFFF">The full card</h2><p style="color:#D3ECE6">Architecture, training data at the level allowed, evaluations and the changelog live in the ThinkLatent Portal.</p><div style="display:flex;flex-wrap:wrap;gap:10px"><a class="pill" href="#">Open in the ThinkLatent Portal</a><a class="pill" href="TplRelease.dc.html" style=background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,.55)>Release notes</a></div></div>
+      <div class="card" style="background:#1F4A44;color:#FFFFFF;display:flex;flex-direction:column;gap:12px;padding:28px"><h2 style="font-size:26px;margin:0;color:#FFFFFF">The full card</h2><p style="color:#D3ECE6">Architecture, training data at the level allowed, evaluations and the changelog live in the ThinkLatent Portal.</p><div style="display:flex;flex-wrap:wrap;gap:10px"><a class="pill" href="#">Open in the ThinkLatent Portal</a><a class="pill" href="TplRelease.dc.html" style=background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,.55)>Release notes</a></div></div>
       <div class="guide"><b>Before you publish</b>Owner named · process stage current · inventory record linked · index run referenced · limits written in plain words · portal link live · reviewed each release · checked against the portal card every quarter.</div>
     </article>
 

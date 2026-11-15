@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#F7F7F5;font-family:Inter,system-ui,sans-serif;color:#1A1A1A;font-size:15px;line-height:1.55}
@@ -129,14 +129,67 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
 .tbl td{padding:12px;border-bottom:1px solid #EFEFEC;vertical-align:top}
 .tbl tr:last-child td{border-bottom:0}
 @media (max-width:760px){.wrap{padding:0 16px}.row{grid-template-columns:minmax(0,1fr)}.gl{grid-template-columns:minmax(0,1fr)}}
+
+/* v10 · one type scale and palette gradients (2026-11-16, D-381) */
+body{font-size:17px;line-height:1.6}
+.wrap{max-width:1280px}
+h1,h2,h3{font-weight:500}
+.cap{font-size:14px;letter-spacing:0;text-transform:none;font-weight:600;color:#2E6B3C}
+.meta{font-size:15px;line-height:1.5}
+.h2{font-size:48px;line-height:1.06;font-weight:500;letter-spacing:-.032em}
+.tag{height:28px;padding:0 12px;font-size:13px}
+.nav a{font-size:15px}
+.pill{min-height:48px;padding:0 22px;font-size:15px}
+.pill.sm{min-height:40px;padding:0 16px;font-size:14px}
+.panel{border-radius:28px}
+.door{border-radius:24px;padding:26px}
+.display{font-weight:300;letter-spacing:-.045em}
+.jump a{font-size:14px;padding:8px 14px}
+.tbl{font-size:15px}
+.gl{font-size:17px}
+.hero{background:radial-gradient(1100px 560px at 92% -4%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),radial-gradient(900px 520px at -4% 104%,rgba(47,122,109,.22),rgba(47,122,109,0) 60%),linear-gradient(180deg,#F7F7F5 0%,#EEF6F0 50%,#E2EFE7 100%)}
+.hero.teal,.globe{background:radial-gradient(900px 520px at 90% -6%,rgba(108,183,105,.45),rgba(108,183,105,0) 60%),linear-gradient(140deg,#1F4A44 0%,#2F7A6D 100%)}
+.wave,.green{background:radial-gradient(820px 480px at 92% -8%,rgba(108,183,105,.42),rgba(108,183,105,0) 62%),linear-gradient(135deg,#0C3F09 0%,#1B5128 40%,#1F4A44 76%,#2F7A6D 100%)}
+.band{background:linear-gradient(180deg,#F7F7F5 0%,#E9F3EC 100%)}
+.wave .pill.go,.green .pill.go,.globe .pill.go,.hero.teal .pill.go{background:#C4262E;color:#FFFFFF;border-color:rgba(255,255,255,.75)}
+.wave .pill.go:hover,.green .pill.go:hover,.globe .pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.statement{font-size:56px;line-height:1.06;letter-spacing:-.035em;font-weight:500}
+.chn{font-size:14px;text-transform:none;letter-spacing:.02em}
+.ip-big dd{font-size:80px;letter-spacing:-.05em}
+.iprow{font-size:16px}
+.names span{font-size:20px}
+.quote{font-size:26px}
+.pillar{padding:32px;border-radius:28px}
+.pillar .k{font-size:15px}
+.fig figcaption{font-size:15px}
+.boardnote{font-size:14px}
+.mstrip{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mchip{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1px solid #E6E6E2;font-size:15px;font-weight:500;color:#1A1A1A}
+.mchip i{width:10px;height:10px;border-radius:50%;background:#3E9A5C;display:inline-block;flex:none}
+.mchip.out{background:transparent;border-style:dashed;color:#5C5C5A}
+.mchip.out i{background:#8A8A88}
+.agent{display:grid;grid-template-columns:64px minmax(0,1.2fr) minmax(0,2fr) 150px 170px;gap:20px;align-items:center;padding:24px 0;border-bottom:1px solid #E6E6E2}
+.agent .no{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;color:#2E6B3C;font-weight:500}
+.agent h3{font-size:22px}
+.screen{border-radius:18px;aspect-ratio:16/10;background:radial-gradient(420px 220px at 88% -6%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),linear-gradient(160deg,#F2F2EF 0%,#E6F1EF 100%);border:1px solid #E6E6E2;display:flex;align-items:flex-end;padding:16px;font-size:14px;color:#5C5C5A}
+.qa{display:flex;flex-direction:column;gap:10px;padding:28px;border-radius:24px;background:#FFFFFF;border:1px solid #E6E6E2}
+.qa h3{font-size:22px}
+.qa p{color:#3A3A38}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid #CFE6D6;font-size:14px;font-weight:500;color:#1B5128}
+.sw{display:flex;flex-direction:column;gap:8px}
+.sw b{display:block;height:88px;border-radius:18px;border:1px solid rgba(26,26,26,.08)}
+.gfield{border-radius:28px;min-height:260px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.trow{display:grid;grid-template-columns:220px minmax(0,1fr) 300px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E6E6E2}
+@media (max-width:760px){.agent{grid-template-columns:44px minmax(0,1fr)}.agent>*:nth-child(n+3){grid-column:2}.trow{grid-template-columns:minmax(0,1fr)}}
 </style>
 </helmet>
 <div style="min-height:100vh;display:flex;flex-direction:column">
 <header style="background:#FFFFFF;border-top:4px solid #C4262E;border-bottom:1px solid #E6E6E2">
   <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
     <a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1A1A1A" aria-label="Home">
-      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">TL</span>
-      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:15px">ThinkLatent</span><span style="font-size:12px;color:#5C5C5A">Team site</span></span>
+      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px">TL</span>
+      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:16px">ThinkLatent</span><span style="font-size:13px;color:#5C5C5A">Team site</span></span>
     </a>
     <nav class="nav" aria-label="Site" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
       <a class="" href="Mandate.dc.html">Mandate</a><a class="" href="Products.dc.html">Products<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Wins.dc.html">Our work<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="on" href="Blog.dc.html">Stories<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Team.dc.html">Team</a>
@@ -149,14 +202,14 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
   <div class="wrap" style="width:100%;padding-top:80px;padding-bottom:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:40px;align-items:end">
     <div style="display:flex;flex-direction:column;gap:18px">
       <p class="cap">Stories · ThinkLatent Day · yearly, alongside the Enterprise's AI Summit</p>
-      <h1 style="font-size:56px;line-height:1.04;font-weight:400;letter-spacing:-.03em">Build on the Enterprise's own intelligence, in two days.</h1>
-      <p style="font-size:18px;color:#3A3A38;max-width:600px">A hackathon on ThinkLatent's products: business teams and ThinkLatent builders, together, on TLM, the ThinkLatent Portal and the TL Index. Demos on the second afternoon, judged by the Head of ThinkLatent and two business leaders. Winners join the quarter's ThinkLatent awards; the best idea enters the Idea Lab.</p>
+      <h1 style="font-size:72px;line-height:1.04;font-weight:500;letter-spacing:-.03em">Build on the Enterprise's own intelligence, in two days.</h1>
+      <p style="font-size:21px;color:#3A3A38;max-width:600px">A hackathon on ThinkLatent's products: business teams and ThinkLatent builders, together, on TLM, the ThinkLatent Portal and the TL Index. Demos on the second afternoon, judged by the Head of ThinkLatent and two business leaders. Winners join the quarter's ThinkLatent awards; the best idea enters the Idea Lab.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px"><a class="pill go" href="#signup">Sign up a team</a><a class="pill" href="#summit">ThinkLatent at the AI Summit</a></div>
     </div>
     <div class="glass" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:480px;justify-self:end">
-      <div><p class="display" style="font-size:52px">[DD]</p><p class="meta" style="margin-top:8px">[MONTH] · next ThinkLatent Day</p></div>
-      <div><p class="display" style="font-size:52px">2</p><p class="meta" style="margin-top:8px">days</p></div>
-      <div><p class="display" style="font-size:52px">[N]</p><p class="meta" style="margin-top:8px">teams last year</p></div>
+      <div><p class="display" style="font-size:72px">[DD]</p><p class="meta" style="margin-top:8px">[MONTH] · next ThinkLatent Day</p></div>
+      <div><p class="display" style="font-size:72px">2</p><p class="meta" style="margin-top:8px">days</p></div>
+      <div><p class="display" style="font-size:72px">[N]</p><p class="meta" style="margin-top:8px">teams last year</p></div>
     </div>
   </div>
 </section>
@@ -164,10 +217,10 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
   <section class="sec">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">How it runs</p><h2 class="h2">Mixed teams, real problems, a working demo</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">One business partner with two or three ThinkLatent builders per team. The problem comes from the business side; the build runs on ThinkLatent's products; the demo shows what a team can do now.</p></div></div>
     <ol style="list-style:none;margin:0;padding:0" class="grid g4">
-      <li class="stage"><span class="num">Before</span><h3 style="font-size:20px">Bring a problem</h3><p style="font-size:14px;color:#3A3A38">Business teams sign up with the problem in their words. ThinkLatent matches each with builders and a product: TLM Core or Distil, the portal, or the index.</p></li>
-      <li class="stage"><span class="num">Day 1</span><h3 style="font-size:20px">Build</h3><p style="font-size:14px;color:#3A3A38">Relay endpoints, the playground and a ThinkLatent coach per team. Office hours from Risk for anything client-facing. Nothing touches client data.</p></li>
-      <li class="stage"><span class="num">Day 2</span><h3 style="font-size:20px">Demo</h3><p style="font-size:14px;color:#3A3A38">Eight minutes a team, a live demo in each, one Q&amp;A at the end. Judged by the Head of ThinkLatent and two business leaders on the gain, the number and whether it could ship.</p></li>
-      <li class="stage"><span class="num">After</span><h3 style="font-size:20px">Carry it on</h3><p style="font-size:14px;color:#3A3A38">Winners join the quarter's ThinkLatent awards and are featured on Home. The best idea enters the Idea Lab as a Seed. Every demo is recorded and recapped.</p></li>
+      <li class="stage"><span class="num">Before</span><h3 style="font-size:24px">Bring a problem</h3><p style="font-size:16px;color:#3A3A38">Business teams sign up with the problem in their words. ThinkLatent matches each with builders and a product: TLM Core or Distil, the portal, or the index.</p></li>
+      <li class="stage"><span class="num">Day 1</span><h3 style="font-size:24px">Build</h3><p style="font-size:16px;color:#3A3A38">Relay endpoints, the playground and a ThinkLatent coach per team. Office hours from Risk for anything client-facing. Nothing touches client data.</p></li>
+      <li class="stage"><span class="num">Day 2</span><h3 style="font-size:24px">Demo</h3><p style="font-size:16px;color:#3A3A38">Eight minutes a team, a live demo in each, one Q&amp;A at the end. Judged by the Head of ThinkLatent and two business leaders on the gain, the number and whether it could ship.</p></li>
+      <li class="stage"><span class="num">After</span><h3 style="font-size:24px">Carry it on</h3><p style="font-size:16px;color:#3A3A38">Winners join the quarter's ThinkLatent awards and are featured on Home. The best idea enters the Idea Lab as a Seed. Every demo is recorded and recapped.</p></li>
     </ol>
   </section>
 
@@ -175,29 +228,36 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
     <div class="sec">
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">Themes</p><h2 class="h2">This year's three</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">Problems ThinkLatent wants to see solved on its products. A team can bring its own instead.</p></div></div>
       <div class="grid g3" style="gap:12px">
-        <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag" style="align-self:flex-start">TLM</span><h3 style="font-size:18px">[Theme one]</h3><p class="meta">[One line on the problem and which tier fits]</p></div>
-        <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag steel" style="align-self:flex-start">ThinkLatent Portal</span><h3 style="font-size:18px">[Theme two]</h3><p class="meta">[One line]</p></div>
-        <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag teal" style="align-self:flex-start">The TL Index</span><h3 style="font-size:18px">[Theme three]</h3><p class="meta">[One line]</p></div>
+        <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag" style="align-self:flex-start">TLM</span><h3 style="font-size:21px">[Theme one]</h3><p class="meta">[One line on the problem and which tier fits]</p></div>
+        <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag steel" style="align-self:flex-start">ThinkLatent Portal</span><h3 style="font-size:21px">[Theme two]</h3><p class="meta">[One line]</p></div>
+        <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag teal" style="align-self:flex-start">The TL Index</span><h3 style="font-size:21px">[Theme three]</h3><p class="meta">[One line]</p></div>
       </div>
       <div class="panel" style="padding:24px 28px;display:flex;flex-direction:column;gap:0"><p class="cap" style="margin-bottom:6px">Judging · three questions</p><a class="pline" href="#"><span style="font-weight:500">What can the team do now that it could not before?</span><span class="meta">the gain</span></a><a class="pline" href="#"><span style="font-weight:500">What is the number, and where does it come from?</span><span class="meta">the proof</span></a><a class="pline" href="#"><span style="font-weight:500">Could it pass ThinkLatent's steps and the Enterprise's model risk review in a quarter?</span><span class="meta">the path</span></a></div>
     </div>
-    <div id="signup" class="panel" style="display:flex;flex-direction:column;gap:14px;padding:28px;border-radius:4px"><p class="cap">Microsoft Forms web part</p><h3 style="font-size:22px">Sign up a team</h3><p class="meta">Business teams first; ThinkLatent builders are matched by the organisers. Sign-up closes [DATE].</p><ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;color:#3A3A38"><li>Your team and the business you serve</li><li>The problem, in your words</li><li>Who from your team will be in the room</li><li>Which theme, or your own</li></ol><a href="#signup" style="align-self:flex-start;background:#1B5128;color:#FFFFFF;padding:0 20px;min-height:44px;display:inline-flex;align-items:center;border-radius:4px;font-size:14px;font-weight:500;text-decoration:none">Open the form</a></div>
+    <div id="signup" class="panel" style="display:flex;flex-direction:column;gap:14px;padding:28px;border-radius:4px"><p class="cap">Microsoft Forms web part</p><h3 style="font-size:26px">Sign up a team</h3><p class="meta">Business teams first; ThinkLatent builders are matched by the organisers. Sign-up closes [DATE].</p><ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;color:#3A3A38"><li>Your team and the business you serve</li><li>The problem, in your words</li><li>Who from your team will be in the room</li><li>Which theme, or your own</li></ol><a href="#signup" style="align-self:flex-start;background:#1B5128;color:#FFFFFF;padding:0 20px;min-height:44px;display:inline-flex;align-items:center;border-radius:4px;font-size:15px;font-weight:500;text-decoration:none">Open the form</a></div>
   </section>
 
   <section id="summit" class="grid g2" style="align-items:start">
-    <div style="display:flex;flex-direction:column;gap:14px"><p class="cap">ThinkLatent at the Enterprise's AI Summit</p><h2 class="h2" style="margin:0">ThinkLatent Day runs alongside the Summit, not instead of it</h2><p style="font-size:17px;color:#3A3A38;max-width:560px">The Enterprise's internal AI conference is where the firm meets AI; ThinkLatent Day is where it builds on ThinkLatent's products. ThinkLatent's Summit sessions, the Head of ThinkLatent's fireside and the lab's track are listed here each year, with recordings afterwards.</p></div>
+    <div style="display:flex;flex-direction:column;gap:14px"><p class="cap">ThinkLatent at the Enterprise's AI Summit</p><h2 class="h2" style="margin:0">ThinkLatent Day runs alongside the Summit, not instead of it</h2><p style="font-size:20px;color:#3A3A38;max-width:560px">The Enterprise's internal AI conference is where the firm meets AI; ThinkLatent Day is where it builds on ThinkLatent's products. ThinkLatent's Summit sessions, the Head of ThinkLatent's fireside and the lab's track are listed here each year, with recordings afterwards.</p></div>
     <div class="panel" style="padding:28px;display:flex;flex-direction:column;gap:0"><p class="cap" style="margin-bottom:6px">Summit sessions · [YEAR]</p><a class="pline" href="#"><span style="font-weight:500">Fireside: the Head of ThinkLatent with [business leader]</span><span class="meta">[DATE · TIME]</span></a><a class="pline" href="#"><span style="font-weight:500">TLM in production: three wins, three numbers</span><span class="meta">[DATE · TIME]</span></a><a class="pline" href="#"><span style="font-weight:500">The university lab: what a year of joint work produced</span><span class="meta">[DATE · TIME]</span></a><a class="pline" href="#"><span style="font-weight:500">Hands-on: build on TLM in an hour</span><span class="meta">[DATE · TIME]</span></a></div>
   </section>
 
   <section class="sec">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">Past winners</p><h2 class="h2">What the last ThinkLatent Day produced</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">Every demo recorded and recapped; winners joined the quarter's ThinkLatent awards.</p></div></div>
     <div class="grid g3">
-      <a class="panel card" href="TplWin.dc.html" style="gap:10px"><div style="display:flex;justify-content:space-between;align-items:center"><span class="tag red">Winner · [YEAR]</span><span class="meta">[Business team] + ThinkLatent</span></div><h3 style="font-size:19px">[What the team built, in outcomes]</h3><p class="meta">[One number] · now at process stage [N]</p></a>
-      <a class="panel card" href="TplWin.dc.html" style="gap:10px"><div style="display:flex;justify-content:space-between;align-items:center"><span class="tag">Runner-up</span><span class="meta">[Business team] + ThinkLatent</span></div><h3 style="font-size:19px">[What the team built]</h3><p class="meta">[One number] · entered the Idea Lab as a Seed</p></a>
-      <a class="panel card" href="TplSession.dc.html" style="gap:10px"><div style="display:flex;justify-content:space-between;align-items:center"><span class="tag teal">Recordings</span><span class="meta">[N] demos</span></div><h3 style="font-size:19px">All demos, recorded and recapped</h3><p class="meta">In the AI Perspectives recordings library</p></a>
+      <a class="panel card" href="TplWin.dc.html" style="gap:10px"><div style="display:flex;justify-content:space-between;align-items:center"><span class="tag red">Winner · [YEAR]</span><span class="meta">[Business team] + ThinkLatent</span></div><h3 style="font-size:22px">[What the team built, in outcomes]</h3><p class="meta">[One number] · now at process stage [N]</p></a>
+      <a class="panel card" href="TplWin.dc.html" style="gap:10px"><div style="display:flex;justify-content:space-between;align-items:center"><span class="tag">Runner-up</span><span class="meta">[Business team] + ThinkLatent</span></div><h3 style="font-size:22px">[What the team built]</h3><p class="meta">[One number] · entered the Idea Lab as a Seed</p></a>
+      <a class="panel card" href="TplSession.dc.html" style="gap:10px"><div style="display:flex;justify-content:space-between;align-items:center"><span class="tag teal">Recordings</span><span class="meta">[N] demos</span></div><h3 style="font-size:22px">All demos, recorded and recapped</h3><p class="meta">In the AI Perspectives recordings library</p></a>
     </div>
   </section>
 </main>
+<section class="wave" style="margin-top:96px">
+  <div class="wrap" style="padding-top:112px;padding-bottom:112px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+    <h2 style="font-size:60px;line-height:1.04;font-weight:500;letter-spacing:-.035em;max-width:900px">Which part of your work should the model learn next?</h2>
+    <p style="color:#D6E9DB;font-size:20px;max-width:620px">Tell us in your words. Every use case makes the next one easier.</p>
+    <a class="pill go" href="Wins.dc.html#talk">Start a use case</a>
+  </div>
+</section>
 <div class="wrap"><div class="comments"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><p class="cap">Comments · on, moderated by the editors</p><span class="meta">[N] comments</span></div><input placeholder="Add a comment, or ask the author a question" aria-label="Add a comment"></div></div>
 <footer style="background:#ECECEA;border-top:1px solid #E6E6E2;margin-top:80px">
   <div class="wrap" style="padding-top:48px;padding-bottom:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px">

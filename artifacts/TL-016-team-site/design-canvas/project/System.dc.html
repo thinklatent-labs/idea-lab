@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent · Site design system v10</title>
+<script src="./support.js"></script>
+</head>
+
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F7F7F5;font-family:Inter,system-ui,sans-serif;color:#1A1A1A;font-size:15px;line-height:1.55}
+a{color:#2E6B3C}a:hover{color:#0C3F09}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:500;letter-spacing:-.015em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.cap{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:#5C5C5A}
+.panel{background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05);border-radius:24px;padding:24px}
+.glass{background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.9);border-radius:24px;padding:22px;box-shadow:inset 0 1px 0 #FFFFFF,0 16px 48px rgba(26,26,26,.08)}
+.glass.g{background:rgba(27,81,40,.92);color:#FFFFFF;border-color:rgba(255,255,255,.35)}
+.glass.g .meta,.glass.g .cap,.glass.g p{color:#D6E9DB}
+.glass.g h3{color:#FFFFFF}
+.glass.g .tag{background:rgba(255,255,255,.18);color:#FFFFFF}
+.glass.g .thumb{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
+.glass.g .pill{background:rgba(255,255,255,.14);color:#FFFFFF;border-color:rgba(255,255,255,.45)}
+.glass.t{background:rgba(31,74,68,.92);color:#FFFFFF;border-color:rgba(255,255,255,.35)}
+.glass.t .meta,.glass.t .cap,.glass.t p{color:#D3ECE6}.glass.t h3{color:#FFFFFF}.glass.t .tag{background:rgba(255,255,255,.18);color:#FFFFFF}.glass.t .thumb{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}.glass.t .pill{background:rgba(255,255,255,.14);color:#FFFFFF;border-color:rgba(255,255,255,.45)}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(26,26,26,.16);font-size:14px;font-weight:500;color:#1A1A1A;text-decoration:none;background:#FFFFFF;font-family:inherit}
+.pill:hover{color:#1A1A1A;border-color:#1A1A1A}
+.pill.go{background:#C4262E;color:#FFFFFF;border-color:#C4262E}
+.pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.pill.on{background:#1B5128;color:#FFFFFF;border-color:#1B5128}
+.pill.sm{min-height:38px;font-size:13px}
+.nav a{color:#3A3A38;text-decoration:none;font-size:14px;font-weight:500;padding:0 12px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover{background:#F2F2EF;color:#1A1A1A}
+.nav a.on{background:#6CB769;color:#0C3F09}
+.display{font-weight:300;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.tag{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#E9F3EC;color:#2E6B3C;font-size:12px;font-weight:600;white-space:nowrap}
+.tag.teal{background:#E6F1EF;color:#1F4A44}
+.tag.red{background:#FBEAEA;color:#9A1B22}
+.tag.grey{background:#F2F2EF;color:#3A3A38}
+.tag.dark{background:#1A1A1A;color:#FFFFFF}
+.tag.steel{background:#E8EEF1;color:#355F6B}
+.tag.terra{background:#F8ECE6;color:#9E4C27}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.meta{font-size:13px;color:#5C5C5A}
+.hero{background:#E9F3EC}
+.hero.teal{background:#2F7A6D;color:#FFFFFF}
+.hero.teal h1,.hero.teal h2,.hero.teal h3{color:#FFFFFF}.hero.teal p,.hero.teal .meta,.hero.teal .cap{color:#D3ECE6}.hero.teal .tag{background:rgba(255,255,255,.18);color:#FFFFFF}.hero.teal .pill{background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,.55)}.hero.teal .pill.go{background:#C4262E;color:#FFFFFF;border-color:#C4262E}
+.wave{background:#1B5128;color:#FFFFFF}
+.wave .cap,.wave .meta{color:#D6E9DB}
+.wave .pill{color:#FFFFFF;border-color:rgba(255,255,255,.5);background:transparent}
+.wave .pill.go{background:#FFFFFF;color:#0C3F09;border-color:#FFFFFF}
+.wave .panel{color:#1A1A1A}
+.wave .panel .cap{color:#5C5C5A}
+.band{background:#E9F3EC}
+.thumb{border-radius:16px;background:#E9F3EC;aspect-ratio:16/10;border:1px solid #EFEFEC}
+.thumb.net{background:#E9F3EC}.thumb.steel{background:#E8EEF1}.thumb.terra{background:#F8ECE6}.thumb.wave{background:#E6F1EF}.thumb.globe{background:#EEF1F3}
+.card{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A}
+.card:hover{color:#1A1A1A;border-color:#1A1A1A}
+.av{width:36px;height:36px;border-radius:50%;background:#F2F2EF;color:#3A3A38;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex:none;border:2px solid #FFFFFF}
+.av.lg{width:48px;height:48px;font-size:12px}
+.faq{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #EFEFEC;font-size:17px;font-weight:500}
+.faq span:last-child{width:32px;height:32px;border-radius:50%;border:1px solid rgba(26,26,26,.2);display:inline-flex;align-items:center;justify-content:center;font-weight:400;color:#5C5C5A;flex:none}
+.sec{display:flex;flex-direction:column;gap:20px}
+.h2{font-size:36px;line-height:1.1;margin-top:6px;font-weight:400;letter-spacing:-.025em}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.fam{display:flex;flex-direction:column;gap:10px;padding:22px;border-radius:16px;border:1px solid #E6E6E2;background:#FFFFFF}
+.gen{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05);min-height:170px}
+.gen .g{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#5C5C5A}
+.mean{margin-top:auto;padding:14px 16px;border-radius:14px;background:#E9F3EC;color:#0C3F09;font-size:14px;border:1px solid #CFE6D6}
+.mean b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#2E6B3C;margin-bottom:2px}
+.proj{display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;box-shadow:0 1px 0 rgba(26,26,26,.03),0 10px 30px rgba(26,26,26,.05)}
+.globe{background:#2F7A6D;color:#FFFFFF}
+.globe .cap,.globe .meta{color:#D3ECE6}.globe h2,.globe h3{color:#FFFFFF}.globe p{color:#D3ECE6}
+.globe .proj{color:#1A1A1A}.globe .proj .meta{color:#5C5C5A}.globe .proj h3{color:#1A1A1A}
+.globe .pill{color:#FFFFFF;border-color:rgba(255,255,255,.5);background:transparent}
+.green{background:linear-gradient(160deg,#0C3F09 0%,#1B5128 60%,#6CB769 100%);border-radius:20px;color:#FFFFFF}
+.n{font-weight:600;display:block;color:#1A1A1A}
+.person{display:flex;gap:12px;align-items:center;padding:14px 0;border-top:1px solid #EFEFEC}
+.step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:14px;background:#F7F7F5;border:1px solid #EFEFEC}
+.play{width:52px;height:52px;border-radius:50%;background:#1B5128;border:1px solid #2E6B3C;display:inline-flex;align-items:center;justify-content:center;color:#FFFFFF}
+.win{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;min-height:260px}
+.row{display:grid;grid-template-columns:90px minmax(0,1fr) 150px 140px 70px;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid #EFEFEC}
+.row a.t{font-weight:600;color:#1A1A1A;text-decoration:none}
+.post{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;padding:14px;background:#FFFFFF;border-radius:20px;border:1px solid #E6E6E2}
+.post .thumb{display:flex;align-items:flex-start;justify-content:space-between;padding:12px}
+.series{background:#E9F3EC;border:1px solid #E6E6E2;border-radius:20px;padding:32px}
+.paper{aspect-ratio:16/10;border-radius:12px;background:#F7F7F5;padding:14px 16px;display:flex;flex-direction:column;gap:6px;border:1px solid #EFEFEC}
+.paper .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.paper .top span{height:14px;width:54px;border-radius:999px}
+.paper b{display:block;height:10px;border-radius:3px;background:#1A1A1A;width:70%}
+.paper i{display:block;height:6px;border-radius:3px;background:#D9D9D5}
+.tpl{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#1A1A1A;padding:14px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:auto;padding:12px 0 0;border-top:1px solid #EFEFEC}
+.facts span{display:flex;flex-direction:column;font-size:13px;font-weight:500}
+.facts small{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500}
+.door{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:#1A1A1A;padding:22px;border-radius:20px;background:#FFFFFF;border:1px solid #E6E6E2}
+.door:hover{border-color:#1A1A1A}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0;border:1px solid #E6E6E2;border-radius:20px;overflow:hidden;background:#FFFFFF}
+.ladder div{padding:22px;border-right:1px solid #EFEFEC;display:flex;flex-direction:column;gap:8px}
+.ladder div:last-child{border-right:0}
+.trend{display:flex;flex-direction:column;gap:6px}
+.trend svg{width:96px;height:28px}
+.stage{display:flex;flex-direction:column;gap:8px;padding:22px;border-radius:16px;background:#FFFFFF;border:1px solid #E6E6E2;position:relative}
+.stage .num{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#2E6B3C}
+.feed{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid #EFEFEC}
+.feed:first-of-type{border-top:0}
+.jump{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.jump a{font-size:13px;color:#2E6B3C;text-decoration:none;padding:6px 12px;border-radius:999px;background:#FFFFFF;border:1px solid #E6E6E2}
+.gl{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid #EFEFEC;font-size:15px}
+.gl b{font-weight:600}
+.note{font-size:13px;color:#5C5C5A;background:#F2F2EF;border-radius:12px;padding:10px 14px}
+.later{border-style:dashed;background:#FBFBFA}
+.comments{border-top:1px solid #E6E6E2;padding:28px 0 0;display:flex;flex-direction:column;gap:12px}
+.comments input{width:100%;min-height:44px;border-radius:12px;border:1px solid #E6E6E2;padding:0 14px;font-family:inherit;font-size:14px;background:#FFFFFF}
+.owners{font-size:12px;color:#5C5C5A;display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-top:1px solid #EFEFEC}
+.pline{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:14px 0;border-bottom:1px solid #EFEFEC;text-decoration:none;color:#1A1A1A}
+.pline:last-child{border-bottom:0}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5C5C5A;font-weight:500;text-align:left;padding:10px 12px;border-bottom:1px solid #E6E6E2}
+.tbl td{padding:12px;border-bottom:1px solid #EFEFEC;vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+@media (max-width:760px){.wrap{padding:0 16px}.row{grid-template-columns:minmax(0,1fr)}.gl{grid-template-columns:minmax(0,1fr)}}
+
+/* v10 · one type scale and palette gradients (2026-11-16, D-381) */
+body{font-size:17px;line-height:1.6}
+.wrap{max-width:1280px}
+h1,h2,h3{font-weight:500}
+.cap{font-size:14px;letter-spacing:0;text-transform:none;font-weight:600;color:#2E6B3C}
+.meta{font-size:15px;line-height:1.5}
+.h2{font-size:48px;line-height:1.06;font-weight:500;letter-spacing:-.032em}
+.tag{height:28px;padding:0 12px;font-size:13px}
+.nav a{font-size:15px}
+.pill{min-height:48px;padding:0 22px;font-size:15px}
+.pill.sm{min-height:40px;padding:0 16px;font-size:14px}
+.panel{border-radius:28px}
+.door{border-radius:24px;padding:26px}
+.display{font-weight:300;letter-spacing:-.045em}
+.jump a{font-size:14px;padding:8px 14px}
+.tbl{font-size:15px}
+.gl{font-size:17px}
+.hero{background:radial-gradient(1100px 560px at 92% -4%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),radial-gradient(900px 520px at -4% 104%,rgba(47,122,109,.22),rgba(47,122,109,0) 60%),linear-gradient(180deg,#F7F7F5 0%,#EEF6F0 50%,#E2EFE7 100%)}
+.hero.teal,.globe{background:radial-gradient(900px 520px at 90% -6%,rgba(108,183,105,.45),rgba(108,183,105,0) 60%),linear-gradient(140deg,#1F4A44 0%,#2F7A6D 100%)}
+.wave,.green{background:radial-gradient(820px 480px at 92% -8%,rgba(108,183,105,.42),rgba(108,183,105,0) 62%),linear-gradient(135deg,#0C3F09 0%,#1B5128 40%,#1F4A44 76%,#2F7A6D 100%)}
+.band{background:linear-gradient(180deg,#F7F7F5 0%,#E9F3EC 100%)}
+.wave .pill.go,.green .pill.go,.globe .pill.go,.hero.teal .pill.go{background:#C4262E;color:#FFFFFF;border-color:rgba(255,255,255,.75)}
+.wave .pill.go:hover,.green .pill.go:hover,.globe .pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.statement{font-size:56px;line-height:1.06;letter-spacing:-.035em;font-weight:500}
+.chn{font-size:14px;text-transform:none;letter-spacing:.02em}
+.ip-big dd{font-size:80px;letter-spacing:-.05em}
+.iprow{font-size:16px}
+.names span{font-size:20px}
+.quote{font-size:26px}
+.pillar{padding:32px;border-radius:28px}
+.pillar .k{font-size:15px}
+.fig figcaption{font-size:15px}
+.boardnote{font-size:14px}
+.mstrip{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mchip{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1px solid #E6E6E2;font-size:15px;font-weight:500;color:#1A1A1A}
+.mchip i{width:10px;height:10px;border-radius:50%;background:#3E9A5C;display:inline-block;flex:none}
+.mchip.out{background:transparent;border-style:dashed;color:#5C5C5A}
+.mchip.out i{background:#8A8A88}
+.agent{display:grid;grid-template-columns:64px minmax(0,1.2fr) minmax(0,2fr) 150px 170px;gap:20px;align-items:center;padding:24px 0;border-bottom:1px solid #E6E6E2}
+.agent .no{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;color:#2E6B3C;font-weight:500}
+.agent h3{font-size:22px}
+.screen{border-radius:18px;aspect-ratio:16/10;background:radial-gradient(420px 220px at 88% -6%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),linear-gradient(160deg,#F2F2EF 0%,#E6F1EF 100%);border:1px solid #E6E6E2;display:flex;align-items:flex-end;padding:16px;font-size:14px;color:#5C5C5A}
+.qa{display:flex;flex-direction:column;gap:10px;padding:28px;border-radius:24px;background:#FFFFFF;border:1px solid #E6E6E2}
+.qa h3{font-size:22px}
+.qa p{color:#3A3A38}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid #CFE6D6;font-size:14px;font-weight:500;color:#1B5128}
+.sw{display:flex;flex-direction:column;gap:8px}
+.sw b{display:block;height:88px;border-radius:18px;border:1px solid rgba(26,26,26,.08)}
+.gfield{border-radius:28px;min-height:260px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.trow{display:grid;grid-template-columns:220px minmax(0,1fr) 300px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E6E6E2}
+@media (max-width:760px){.agent{grid-template-columns:44px minmax(0,1fr)}.agent>*:nth-child(n+3){grid-column:2}.trow{grid-template-columns:minmax(0,1fr)}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#F7F7F5">
+<section class="hero"><div class="wrap" style="padding-top:88px;padding-bottom:64px;display:flex;flex-direction:column;gap:20px">
+  <p class="cap">Site design system · v10</p>
+  <h1 style="font-size:72px;line-height:1;font-weight:500;letter-spacing:-.04em;max-width:1000px">One type scale and four gradients, from the ThinkLatent palette.</h1>
+  <p style="font-size:22px;color:#3A3A38;max-width:760px">Every page uses the same sizes and the same four fields of colour. Decision Red stays for the primary action and the header stripe.</p>
+</div></section>
+<main class="wrap" style="display:flex;flex-direction:column;gap:88px;padding-top:72px;padding-bottom:96px">
+  <section class="sec"><div><p class="cap">Type</p><h2 class="h2">Inter for reading, JetBrains Mono only for sequence</h2></div><div style="border-top:1px solid #E6E6E2"><div class="trow"><div><p style="font-weight:600">Display</p><p class="meta">92 / 0.98 · medium 500 · −0.045em</p></div><div style="overflow:hidden"><span style="font-size:92px;line-height:.98;font-weight:500;letter-spacing:-.045em">Start from what you know.</span></div><p class="meta">Home hero. Hero web part title, or Text at the largest size; exact size through custom.css (tier 2).</p></div><div class="trow"><div><p style="font-weight:600">Page title</p><p class="meta">72 / 1.0 · medium 500 · −0.04em</p></div><div style="overflow:hidden"><span style="font-size:72px;line-height:1;font-weight:500;letter-spacing:-.04em">How the mandate is delivered.</span></div><p class="meta">Every page hero. Title area or Text web part; custom.css for the size.</p></div><div class="trow"><div><p style="font-weight:600">Section</p><p class="meta">48 / 1.06 · medium 500 · −0.032em</p></div><div style="overflow:hidden"><span style="font-size:48px;line-height:1.06;font-weight:500;letter-spacing:-.032em">Six kinds of work</span></div><p class="meta">Text web part, Heading 1 with the size set.</p></div><div class="trow"><div><p style="font-weight:600">Card</p><p class="meta">26 / 1.2 · medium 500</p></div><div style="overflow:hidden"><span style="font-size:26px;line-height:1.2;font-weight:500">Knowledge agent</span></div><p class="meta">Text, Heading 2; Quick links and News titles.</p></div><div class="trow"><div><p style="font-weight:600">Lead</p><p class="meta">22 / 1.5 · regular 400 · #3A3A38</p></div><div style="overflow:hidden"><span style="font-size:22px;line-height:1.5;color:#3A3A38">Every team starts on a TLM model.</span></div><p class="meta">Text, the first paragraph under a heading.</p></div><div class="trow"><div><p style="font-weight:600">Body</p><p class="meta">17 / 1.6 · regular 400</p></div><div style="overflow:hidden"><span style="font-size:17px;line-height:1.6">Answers from the Enterprise's own documents, with the sources shown.</span></div><p class="meta">Text, Normal; custom.css raises SharePoint's default to 17.</p></div><div class="trow"><div><p style="font-weight:600">Small</p><p class="meta">15 / 1.5 · #5C5C5A</p></div><div style="overflow:hidden"><span style="font-size:15px;color:#5C5C5A">Source: the ThinkLatent Portal, as of [date]</span></div><p class="meta">Captions, sources, dates.</p></div><div class="trow"><div><p style="font-weight:600">Label</p><p class="meta">14 · semibold 600 · green 700 · sentence case</p></div><div style="overflow:hidden"><span style="font-size:14px;font-weight:600;color:#2E6B3C">What runs on TLM</span></div><p class="meta">One short label where a section needs a name; never in capitals.</p></div><div class="trow"><div><p style="font-weight:600">Numerals</p><p class="meta">80 to 128 · light 300 · −0.05em · tabular</p></div><div style="overflow:hidden"><span style="font-size:96px;line-height:1;font-weight:300;letter-spacing:-.05em">[n]</span></div><p class="meta">Proof panel and stat tiles; tier 2 (custom.css).</p></div><div class="trow"><div><p style="font-weight:600">Sequence</p><p class="meta">JetBrains Mono 15 · medium 500 · green 700</p></div><div style="overflow:hidden"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;font-weight:500;color:#2E6B3C">01 · 02 · 03</span></div><p class="meta">Only where order is real: Mandate chapters, the six steps, agents in ship order.</p></div></div></section>
+  <section class="sec"><div><p class="cap">Palette</p><h2 class="h2">Ten colours, each with a job</h2></div><div class="grid g5"><div class="sw"><b style="background:#1B5128"></b><p style="font-weight:600">Forest</p><p class="meta">#1B5128 · Primary; deep fields</p></div><div class="sw"><b style="background:#2E6B3C"></b><p style="font-weight:600">Green 700</p><p class="meta">#2E6B3C · Text green, labels, links</p></div><div class="sw"><b style="background:#3E9A5C"></b><p style="font-weight:600">Green 500</p><p class="meta">#3E9A5C · Dots and data</p></div><div class="sw"><b style="background:#6CB769"></b><p style="font-weight:600">Sage</p><p class="meta">#6CB769 · Glows and the active nav item</p></div><div class="sw"><b style="background:#E9F3EC"></b><p style="font-weight:600">Mint</p><p class="meta">#E9F3EC · Soft fields</p></div><div class="sw"><b style="background:#1F4A44"></b><p style="font-weight:600">Teal deep</p><p class="meta">#1F4A44 · Lagoon start</p></div><div class="sw"><b style="background:#2F7A6D"></b><p style="font-weight:600">Teal</p><p class="meta">#2F7A6D · Secondary; immersive moments</p></div><div class="sw"><b style="background:#C4262E"></b><p style="font-weight:600">Decision Red</p><p class="meta">#C4262E · Primary action and the header stripe</p></div><div class="sw"><b style="background:#1A1A1A"></b><p style="font-weight:600">Ink</p><p class="meta">#1A1A1A · Text</p></div><div class="sw"><b style="background:#F7F7F5"></b><p style="font-weight:600">Canvas</p><p class="meta">#F7F7F5 · Page background</p></div></div></section>
+  <section class="sec"><div><p class="cap">Gradients</p><h2 class="h2">Four fields, made only from the palette</h2></div><div class="grid g2"><div class="hero gfield" style=""><p style="font-size:30px;font-weight:500;letter-spacing:-.02em">Meadow</p><p style="font-size:15px;opacity:.9">Off-white to mint, top to bottom, with a sage glow at the top right and a teal glow at the bottom left.</p></div><div style="display:flex;flex-direction:column;gap:6px;padding:4px 4px 20px"><p><b style="font-weight:600">Used for:</b> Every page hero.</p><p><b style="font-weight:600">Text:</b> Ink text.</p><p class="meta"><b style="font-weight:600;color:#1A1A1A">SharePoint:</b> Section or Hero background image, 2880 × 1200 PNG made from the tokens (tier 1).</p></div><div class="wave gfield" style="color:#FFFFFF"><p style="font-size:30px;font-weight:500;letter-spacing:-.02em">Canopy</p><p style="font-size:15px;opacity:.9">135°: #0C3F09 → #1B5128 → #1F4A44 → #2F7A6D, with a sage glow at the top right.</p></div><div style="display:flex;flex-direction:column;gap:6px;padding:4px 4px 20px"><p><b style="font-weight:600">Used for:</b> The closing band on every page; dark tiles.</p><p><b style="font-weight:600">Text:</b> White text over the forest and teal stops, never over the sage glow. The red button carries a white ring here.</p><p class="meta"><b style="font-weight:600;color:#1A1A1A">SharePoint:</b> Call to action or section background image (tier 1).</p></div><div class="globe gfield" style="color:#FFFFFF"><p style="font-size:30px;font-weight:500;letter-spacing:-.02em">Lagoon</p><p style="font-size:15px;opacity:.9">140°: #1F4A44 → #2F7A6D, with a sage glow at the top right.</p></div><div style="display:flex;flex-direction:column;gap:6px;padding:4px 4px 20px"><p><b style="font-weight:600">Used for:</b> AI Perspectives hero, the university lab, Where TLM works.</p><p><b style="font-weight:600">Text:</b> White text.</p><p class="meta"><b style="font-weight:600;color:#1A1A1A">SharePoint:</b> Section background image (tier 1).</p></div><div class="band gfield" style=""><p style="font-size:30px;font-weight:500;letter-spacing:-.02em">Mint rise</p><p style="font-size:15px;opacity:.9">Canvas #F7F7F5 to mint #E9F3EC, top to bottom.</p></div><div style="display:flex;flex-direction:column;gap:6px;padding:4px 4px 20px"><p><b style="font-weight:600">Used for:</b> Soft bands between sections.</p><p><b style="font-weight:600">Text:</b> Ink text.</p><p class="meta"><b style="font-weight:600;color:#1A1A1A">SharePoint:</b> Section background image, or the theme's Soft section (tier 1).</p></div></div></section>
+  <section class="sec"><div><p class="cap">Rules</p><h2 class="h2">How the colour is spent</h2></div>
+    <ol style="margin:0;padding-left:24px;display:flex;flex-direction:column;gap:12px;font-size:19px;max-width:880px">
+      <li>One deep field per page: the Canopy closing band. Lagoon only for the three teal moments.</li>
+      <li>Every page hero sits on Meadow, so the site reads as one place.</li>
+      <li>Red only on the primary action and the 4 px header stripe; on a deep field the red button carries a white ring.</li>
+      <li>White text only over forest or teal, never over sage. No gradient text: SharePoint cannot render it.</li>
+      <li>Numerals light, headings medium, labels in sentence case.</li>
+      <li>Dots stay the only motif: they gather when a lesson is kept and scatter when it is lost.</li>
+    </ol>
+    <p class="boardnote"><b>Board note.</b> The gradients reach SharePoint as images generated from these tokens, with no IT request. The type sizes need custom.css (tier 2): the theme sets colours, not sizes, so without it SharePoint's own smaller sizes apply.</p>
+  </section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3600}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

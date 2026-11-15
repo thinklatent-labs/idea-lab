@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#F7F7F5;font-family:Inter,system-ui,sans-serif;color:#1A1A1A;font-size:15px;line-height:1.55}
@@ -129,14 +129,67 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
 .tbl td{padding:12px;border-bottom:1px solid #EFEFEC;vertical-align:top}
 .tbl tr:last-child td{border-bottom:0}
 @media (max-width:760px){.wrap{padding:0 16px}.row{grid-template-columns:minmax(0,1fr)}.gl{grid-template-columns:minmax(0,1fr)}}
+
+/* v10 · one type scale and palette gradients (2026-11-16, D-381) */
+body{font-size:17px;line-height:1.6}
+.wrap{max-width:1280px}
+h1,h2,h3{font-weight:500}
+.cap{font-size:14px;letter-spacing:0;text-transform:none;font-weight:600;color:#2E6B3C}
+.meta{font-size:15px;line-height:1.5}
+.h2{font-size:48px;line-height:1.06;font-weight:500;letter-spacing:-.032em}
+.tag{height:28px;padding:0 12px;font-size:13px}
+.nav a{font-size:15px}
+.pill{min-height:48px;padding:0 22px;font-size:15px}
+.pill.sm{min-height:40px;padding:0 16px;font-size:14px}
+.panel{border-radius:28px}
+.door{border-radius:24px;padding:26px}
+.display{font-weight:300;letter-spacing:-.045em}
+.jump a{font-size:14px;padding:8px 14px}
+.tbl{font-size:15px}
+.gl{font-size:17px}
+.hero{background:radial-gradient(1100px 560px at 92% -4%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),radial-gradient(900px 520px at -4% 104%,rgba(47,122,109,.22),rgba(47,122,109,0) 60%),linear-gradient(180deg,#F7F7F5 0%,#EEF6F0 50%,#E2EFE7 100%)}
+.hero.teal,.globe{background:radial-gradient(900px 520px at 90% -6%,rgba(108,183,105,.45),rgba(108,183,105,0) 60%),linear-gradient(140deg,#1F4A44 0%,#2F7A6D 100%)}
+.wave,.green{background:radial-gradient(820px 480px at 92% -8%,rgba(108,183,105,.42),rgba(108,183,105,0) 62%),linear-gradient(135deg,#0C3F09 0%,#1B5128 40%,#1F4A44 76%,#2F7A6D 100%)}
+.band{background:linear-gradient(180deg,#F7F7F5 0%,#E9F3EC 100%)}
+.wave .pill.go,.green .pill.go,.globe .pill.go,.hero.teal .pill.go{background:#C4262E;color:#FFFFFF;border-color:rgba(255,255,255,.75)}
+.wave .pill.go:hover,.green .pill.go:hover,.globe .pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.statement{font-size:56px;line-height:1.06;letter-spacing:-.035em;font-weight:500}
+.chn{font-size:14px;text-transform:none;letter-spacing:.02em}
+.ip-big dd{font-size:80px;letter-spacing:-.05em}
+.iprow{font-size:16px}
+.names span{font-size:20px}
+.quote{font-size:26px}
+.pillar{padding:32px;border-radius:28px}
+.pillar .k{font-size:15px}
+.fig figcaption{font-size:15px}
+.boardnote{font-size:14px}
+.mstrip{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mchip{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1px solid #E6E6E2;font-size:15px;font-weight:500;color:#1A1A1A}
+.mchip i{width:10px;height:10px;border-radius:50%;background:#3E9A5C;display:inline-block;flex:none}
+.mchip.out{background:transparent;border-style:dashed;color:#5C5C5A}
+.mchip.out i{background:#8A8A88}
+.agent{display:grid;grid-template-columns:64px minmax(0,1.2fr) minmax(0,2fr) 150px 170px;gap:20px;align-items:center;padding:24px 0;border-bottom:1px solid #E6E6E2}
+.agent .no{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;color:#2E6B3C;font-weight:500}
+.agent h3{font-size:22px}
+.screen{border-radius:18px;aspect-ratio:16/10;background:radial-gradient(420px 220px at 88% -6%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),linear-gradient(160deg,#F2F2EF 0%,#E6F1EF 100%);border:1px solid #E6E6E2;display:flex;align-items:flex-end;padding:16px;font-size:14px;color:#5C5C5A}
+.qa{display:flex;flex-direction:column;gap:10px;padding:28px;border-radius:24px;background:#FFFFFF;border:1px solid #E6E6E2}
+.qa h3{font-size:22px}
+.qa p{color:#3A3A38}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid #CFE6D6;font-size:14px;font-weight:500;color:#1B5128}
+.sw{display:flex;flex-direction:column;gap:8px}
+.sw b{display:block;height:88px;border-radius:18px;border:1px solid rgba(26,26,26,.08)}
+.gfield{border-radius:28px;min-height:260px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.trow{display:grid;grid-template-columns:220px minmax(0,1fr) 300px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E6E6E2}
+@media (max-width:760px){.agent{grid-template-columns:44px minmax(0,1fr)}.agent>*:nth-child(n+3){grid-column:2}.trow{grid-template-columns:minmax(0,1fr)}}
 </style>
 </helmet>
 <div style="min-height:100vh;display:flex;flex-direction:column">
 <header style="background:#FFFFFF;border-top:4px solid #C4262E;border-bottom:1px solid #E6E6E2">
   <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
     <a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1A1A1A" aria-label="Home">
-      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">TL</span>
-      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:15px">ThinkLatent</span><span style="font-size:12px;color:#5C5C5A">Team site</span></span>
+      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px">TL</span>
+      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:16px">ThinkLatent</span><span style="font-size:13px;color:#5C5C5A">Team site</span></span>
     </a>
     <nav class="nav" aria-label="Site" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
       <a class="" href="Mandate.dc.html">Mandate</a><a class="" href="Products.dc.html">Products<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Wins.dc.html">Our work<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Blog.dc.html">Stories<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="on" href="Team.dc.html">Team</a>
@@ -149,13 +202,13 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
   <div class="wrap" style="width:100%;padding-top:80px;padding-bottom:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:40px;align-items:end">
     <div style="display:flex;flex-direction:column;gap:18px">
       <p class="cap">Team</p>
-      <h1 style="font-size:56px;line-height:1.04;font-weight:400;letter-spacing:-.03em">One team, three functions, one way of working with AI.</h1>
-      <p style="font-size:18px;color:#3A3A38;max-width:560px">Research proves the method, Applied Research makes it the Enterprise's, AI Products puts it in production. Three locations, one mandate.</p>
+      <h1 style="font-size:72px;line-height:1.04;font-weight:500;letter-spacing:-.03em">One team, three functions, one way of working with AI.</h1>
+      <p style="font-size:21px;color:#3A3A38;max-width:560px">Research proves the method, Applied Research makes it the Enterprise's, AI Products puts it in production. Three locations, one mandate.</p>
     </div>
     <div class="glass" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:480px;justify-self:end">
-      <div><p class="display" style="font-size:52px">45</p><p class="meta" style="margin-top:8px">people</p></div>
-      <div><p class="display" style="font-size:52px">3</p><p class="meta" style="margin-top:8px">functions</p></div>
-      <div><p class="display" style="font-size:52px">3</p><p class="meta" style="margin-top:8px">countries</p></div>
+      <div><p class="display" style="font-size:72px">45</p><p class="meta" style="margin-top:8px">people</p></div>
+      <div><p class="display" style="font-size:72px">3</p><p class="meta" style="margin-top:8px">functions</p></div>
+      <div><p class="display" style="font-size:72px">3</p><p class="meta" style="margin-top:8px">countries</p></div>
     </div>
   </div>
 </section>
@@ -163,9 +216,9 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
   <section class="sec">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">Our three functions</p><h2 class="h2">From a paper to a solution in people's hands</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">Each function has a mission line, a head, and an output count the editors update every quarter: posts, releases, papers and wins.</p></div></div>
     <div class="grid g3">
-      <article class="panel" style="display:flex;flex-direction:column;gap:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag teal">Research</span><span class="meta">[N] outputs this quarter</span></div><h3 style="font-size:22px">The engine</h3><p style="font-size:15px;font-weight:500;color:#2E6B3C">Prove the method before anyone builds on it.</p><p style="color:#3A3A38;font-size:14px">Three themes: autonomous AI, trustworthy AI and cybersecurity. Publishes, and runs the university lab. Never uses vendor data.</p><div class="person" style="margin-top:auto"><span class="av lg">[I]</span><span><span class="n">[Name]</span><span class="meta">Head of Research</span></span></div></article>
-      <article class="panel" style="display:flex;flex-direction:column;gap:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag ">Applied Research</span><span class="meta">[N] outputs this quarter</span></div><h3 style="font-size:22px">The heartbeat</h3><p style="font-size:15px;font-weight:500;color:#2E6B3C">Make the method the Enterprise's.</p><p style="color:#3A3A38;font-size:14px">Proves the methods on the Enterprise's own data and builds TLM: the Core, Distil and Domain models that carry the Enterprise's knowledge, and the generation after them.</p><div class="person" style="margin-top:auto"><span class="av lg">[I]</span><span><span class="n">[Name]</span><span class="meta">Head of Applied Research</span></span></div></article>
-      <article class="panel" style="display:flex;flex-direction:column;gap:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag grey">AI Products</span><span class="meta">[N] outputs this quarter</span></div><h3 style="font-size:22px">Production, at enterprise grade</h3><p style="font-size:15px;font-weight:500;color:#2E6B3C">Put it in people's hands, and keep it there.</p><p style="color:#3A3A38;font-size:14px">Owns the ThinkLatent Portal, the gateway, Relay and the infrastructure behind them; the standards; How we build responsibly; and every push to production.</p><div class="person" style="margin-top:auto"><span class="av lg">[I]</span><span><span class="n">[Name]</span><span class="meta">Head of AI Products</span></span></div></article>
+      <article class="panel" style="display:flex;flex-direction:column;gap:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag teal">Research</span><span class="meta">[N] outputs this quarter</span></div><h3 style="font-size:26px">The engine</h3><p style="font-size:17px;font-weight:500;color:#2E6B3C">Prove the method before anyone builds on it.</p><p style="color:#3A3A38;font-size:16px">Three themes: autonomous AI, trustworthy AI and cybersecurity. Publishes, and runs the university lab. Never uses vendor data.</p><div class="person" style="margin-top:auto"><span class="av lg">[I]</span><span><span class="n">[Name]</span><span class="meta">Head of Research</span></span></div></article>
+      <article class="panel" style="display:flex;flex-direction:column;gap:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag ">Applied Research</span><span class="meta">[N] outputs this quarter</span></div><h3 style="font-size:26px">The heartbeat</h3><p style="font-size:17px;font-weight:500;color:#2E6B3C">Make the method the Enterprise's.</p><p style="color:#3A3A38;font-size:16px">Proves the methods on the Enterprise's own data and builds TLM: the Core, Distil and Domain models that carry the Enterprise's knowledge, and the generation after them.</p><div class="person" style="margin-top:auto"><span class="av lg">[I]</span><span><span class="n">[Name]</span><span class="meta">Head of Applied Research</span></span></div></article>
+      <article class="panel" style="display:flex;flex-direction:column;gap:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag grey">AI Products</span><span class="meta">[N] outputs this quarter</span></div><h3 style="font-size:26px">Production, at enterprise grade</h3><p style="font-size:17px;font-weight:500;color:#2E6B3C">Put it in people's hands, and keep it there.</p><p style="color:#3A3A38;font-size:16px">Owns the ThinkLatent Portal, the gateway, Relay and the infrastructure behind them; the standards; How we build responsibly; and every push to production.</p><div class="person" style="margin-top:auto"><span class="av lg">[I]</span><span><span class="n">[Name]</span><span class="meta">Head of AI Products</span></span></div></article>
     </div>
   </section>
 
@@ -185,40 +238,40 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
   <section class="sec">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">Where we are</p><h2 class="h2">Three locations, one team</h2></div></div>
     <div class="grid g3">
-      <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag" style="align-self:flex-start">United States</span><h3 style="font-size:20px">[N] people</h3><p class="meta">The Head of ThinkLatent, AI Products, Applied Research</p></div>
-      <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag teal" style="align-self:flex-start">Canada</span><h3 style="font-size:20px">[N] people</h3><p class="meta">Research and the university lab; the advocates who carry ThinkLatent's news into the office</p></div>
-      <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag grey" style="align-self:flex-start">[City], India</span><h3 style="font-size:20px">[N] people</h3><p class="meta">[Functions]; the advocates who carry ThinkLatent's news into the office</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag" style="align-self:flex-start">United States</span><h3 style="font-size:24px">[N] people</h3><p class="meta">The Head of ThinkLatent, AI Products, Applied Research</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag teal" style="align-self:flex-start">Canada</span><h3 style="font-size:24px">[N] people</h3><p class="meta">Research and the university lab; the advocates who carry ThinkLatent's news into the office</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:8px"><span class="tag grey" style="align-self:flex-start">[City], India</span><h3 style="font-size:24px">[N] people</h3><p class="meta">[Functions]; the advocates who carry ThinkLatent's news into the office</p></div>
     </div>
   </section>
 
   <section id="how" class="sec">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">How we work with AI</p><h2 class="h2">An AI-augmented team, in the open</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">The principles we hold each other to, and three numbers that show it is real. Updated monthly; any Enterprise team is welcome to copy it.</p></div><a class="pill" href="Perspectives.dc.html">Join a "how we work" session</a></div>
     <div class="grid g5">
-      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:32px;color:#2E6B3C">01</span><h3 style="font-size:18px">Draft with AI, decide as people</h3><p class="meta">[One line on what this means day to day]</p></div>
-      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:32px;color:#2E6B3C">02</span><h3 style="font-size:18px">Show the gain before the build</h3><p class="meta">[One line]</p></div>
-      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:32px;color:#2E6B3C">03</span><h3 style="font-size:18px">Ship small, show often</h3><p class="meta">[One line]</p></div>
-      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:32px;color:#2E6B3C">04</span><h3 style="font-size:18px">Write it down once</h3><p class="meta">[One line]</p></div>
-      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:32px;color:#2E6B3C">05</span><h3 style="font-size:18px">Measure how we work</h3><p class="meta">[One line]</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:40px;color:#2E6B3C">01</span><h3 style="font-size:21px">Draft with AI, decide as people</h3><p class="meta">[One line on what this means day to day]</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:40px;color:#2E6B3C">02</span><h3 style="font-size:21px">Show the gain before the build</h3><p class="meta">[One line]</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:40px;color:#2E6B3C">03</span><h3 style="font-size:21px">Ship small, show often</h3><p class="meta">[One line]</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:40px;color:#2E6B3C">04</span><h3 style="font-size:21px">Write it down once</h3><p class="meta">[One line]</p></div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="display" style="font-size:40px;color:#2E6B3C">05</span><h3 style="font-size:21px">Measure how we work</h3><p class="meta">[One line]</p></div>
     </div>
     <div class="green" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;padding:36px">
-      <div><p class="display" style="font-size:64px">[N]<span style="font-size:20px;font-weight:400;letter-spacing:0;color:#D6E9DB"> hrs</span></p><p style="font-size:14px;color:#D6E9DB;margin-top:10px">saved per person per week · [SOURCE, DATE]</p></div>
-      <div><p class="display" style="font-size:64px">[N]<span style="font-size:20px;font-weight:400;letter-spacing:0;color:#D6E9DB"> days</span></p><p style="font-size:14px;color:#D6E9DB;margin-top:10px">from draft to published page · [SOURCE, DATE]</p></div>
-      <div><p class="display" style="font-size:64px">[N]<span style="font-size:20px;font-weight:400;letter-spacing:0;color:#D6E9DB">%</span></p><p style="font-size:14px;color:#D6E9DB;margin-top:10px">of pages drafted with AI, edited by a person · [SOURCE, DATE]</p></div>
+      <div><p class="display" style="font-size:96px">[N]<span style="font-size:22px;font-weight:400;letter-spacing:0;color:#D6E9DB"> hrs</span></p><p style="font-size:16px;color:#D6E9DB;margin-top:10px">saved per person per week · [SOURCE, DATE]</p></div>
+      <div><p class="display" style="font-size:96px">[N]<span style="font-size:22px;font-weight:400;letter-spacing:0;color:#D6E9DB"> days</span></p><p style="font-size:16px;color:#D6E9DB;margin-top:10px">from draft to published page · [SOURCE, DATE]</p></div>
+      <div><p class="display" style="font-size:96px">[N]<span style="font-size:22px;font-weight:400;letter-spacing:0;color:#D6E9DB">%</span></p><p style="font-size:16px;color:#D6E9DB;margin-top:10px">of pages drafted with AI, edited by a person · [SOURCE, DATE]</p></div>
     </div>
   </section>
 
   <section id="awards" class="sec">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">ThinkLatent quarterly awards</p><h2 class="h2">Six awards, every quarter</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">Three map to how ThinkLatent is judged, three to the habits we want more of. Winners are featured on the Home page for the quarter and get a shout-out in the Viva Engage community. A category can go unawarded; it is never given to fill a slot.</p></div><a class="pill" href="TplAwards.dc.html">[Q · YEAR] winners</a></div>
     <div class="grid g3">
-      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag" style="align-self:flex-start">Scoreboard · cycle time</span><h3 style="font-size:20px">Research to Production</h3><p class="meta" style="color:#3A3A38">Took a method from a write-up to people's hands fastest, without cutting corners.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: weeks from Research write-up to production, from Jira</p></article>
-      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag" style="align-self:flex-start">Scoreboard · in people's hands</span><h3 style="font-size:20px">In People's Hands</h3><p class="meta" style="color:#3A3A38">Shipped a solution that changed how a partner team works.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: the partner's number and their words</p></article>
-      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag" style="align-self:flex-start">Scoreboard · AI-native workforce</span><h3 style="font-size:20px">AI-Native</h3><p class="meta" style="color:#3A3A38">Showed how work changes when AI is a teammate, and taught others to do it.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: time saved, or people taught</p></article>
-      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag teal" style="align-self:flex-start">Habit · telling the story</span><h3 style="font-size:20px">Storyteller</h3><p class="meta" style="color:#3A3A38">Made ThinkLatent's work understood outside ThinkLatent: a post, a session, a talk to a business team.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: what was published, and who it reached</p></article>
-      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag teal" style="align-self:flex-start">Habit · research that travels</span><h3 style="font-size:20px">Published</h3><p class="meta" style="color:#3A3A38">A paper, talk or patent that put ThinkLatent's research in front of the field.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: the venue, and the Publications row</p></article>
-      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag grey" style="align-self:flex-start">Habit · enterprise grade</span><h3 style="font-size:20px">Production Grade</h3><p class="meta" style="color:#3A3A38">Kept what we run steady, safe and fast, often where nobody sees it.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: uptime, incidents avoided, time to recover</p></article>
+      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag" style="align-self:flex-start">Scoreboard · cycle time</span><h3 style="font-size:24px">Research to Production</h3><p class="meta" style="color:#3A3A38">Took a method from a write-up to people's hands fastest, without cutting corners.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: weeks from Research write-up to production, from Jira</p></article>
+      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag" style="align-self:flex-start">Scoreboard · in people's hands</span><h3 style="font-size:24px">In People's Hands</h3><p class="meta" style="color:#3A3A38">Shipped a solution that changed how a partner team works.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: the partner's number and their words</p></article>
+      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag" style="align-self:flex-start">Scoreboard · AI-native workforce</span><h3 style="font-size:24px">AI-Native</h3><p class="meta" style="color:#3A3A38">Showed how work changes when AI is a teammate, and taught others to do it.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: time saved, or people taught</p></article>
+      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag teal" style="align-self:flex-start">Habit · telling the story</span><h3 style="font-size:24px">Storyteller</h3><p class="meta" style="color:#3A3A38">Made ThinkLatent's work understood outside ThinkLatent: a post, a session, a talk to a business team.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: what was published, and who it reached</p></article>
+      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag teal" style="align-self:flex-start">Habit · research that travels</span><h3 style="font-size:24px">Published</h3><p class="meta" style="color:#3A3A38">A paper, talk or patent that put ThinkLatent's research in front of the field.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: the venue, and the Publications row</p></article>
+      <article class="panel" style="display:flex;flex-direction:column;gap:10px"><span class="tag grey" style="align-self:flex-start">Habit · enterprise grade</span><h3 style="font-size:24px">Production Grade</h3><p class="meta" style="color:#3A3A38">Kept what we run steady, safe and fast, often where nobody sees it.</p><p class="meta" style="margin-top:auto;padding-top:10px;border-top:1px solid #EFEFEC">Evidence: uptime, incidents avoided, time to recover</p></article>
     </div>
     <div class="panel" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;align-items:center;padding:28px">
-      <div><p class="cap">Recognition</p><h3 style="font-size:22px;margin-top:6px">Shout-outs monthly, awards quarterly, nominations in the Enterprise's portal</h3><p class="meta" style="margin-top:8px;color:#3A3A38">Every nomination goes through the Enterprise's recognition portal. ThinkLatent leadership reviews the quarter's nominations in its quarterly meeting, picks the ThinkLatent award winners, posts them here and features them on Home. ThinkLatent Day hackathon winners join the same quarter's list.</p></div>
+      <div><p class="cap">Recognition</p><h3 style="font-size:26px;margin-top:6px">Shout-outs monthly, awards quarterly, nominations in the Enterprise's portal</h3><p class="meta" style="margin-top:8px;color:#3A3A38">Every nomination goes through the Enterprise's recognition portal. ThinkLatent leadership reviews the quarter's nominations in its quarterly meeting, picks the ThinkLatent award winners, posts them here and features them on Home. ThinkLatent Day hackathon winners join the same quarter's list.</p></div>
       <div style="display:flex;flex-direction:column;gap:0">
         <p style="display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #EFEFEC"><span>Nominations close</span><span class="meta">[DATE]</span></p>
         <p style="display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #EFEFEC"><span>ThinkLatent awards announced · town hall</span><span class="meta">[DATE]</span></p>
@@ -229,10 +282,17 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
   </section>
 
   <section class="panel later" style="padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;align-items:center">
-    <div><span class="tag grey" style="align-self:flex-start">After launch</span><h3 style="font-size:22px;margin-top:10px">Work in ThinkLatent</h3><p class="meta" style="margin-top:8px;color:#3A3A38">Open internal roles and rotations, linked from here once they exist. MScAC interns are listed under the university lab on the Research page.</p></div>
+    <div><span class="tag grey" style="align-self:flex-start">After launch</span><h3 style="font-size:26px;margin-top:10px">Work in ThinkLatent</h3><p class="meta" style="margin-top:8px;color:#3A3A38">Open internal roles and rotations, linked from here once they exist. MScAC interns are listed under the university lab on the Research page.</p></div>
     <p class="note" style="justify-self:end">Placeholder: links to internal mobility; nothing is posted here before launch.</p>
   </section>
 </main>
+<section class="wave" style="margin-top:96px">
+  <div class="wrap" style="padding-top:112px;padding-bottom:112px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+    <h2 style="font-size:60px;line-height:1.04;font-weight:500;letter-spacing:-.035em;max-width:900px">Which part of your work should the model learn next?</h2>
+    <p style="color:#D6E9DB;font-size:20px;max-width:620px">Tell us in your words. Every use case makes the next one easier.</p>
+    <a class="pill go" href="Wins.dc.html#talk">Start a use case</a>
+  </div>
+</section>
 <div class="wrap"><div class="comments"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><p class="cap">Comments · on, moderated by the editors</p><span class="meta">[N] comments</span></div><input placeholder="Add a comment, or ask the author a question" aria-label="Add a comment"></div></div>
 <footer style="background:#ECECEA;border-top:1px solid #E6E6E2;margin-top:80px">
   <div class="wrap" style="padding-top:48px;padding-bottom:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px">

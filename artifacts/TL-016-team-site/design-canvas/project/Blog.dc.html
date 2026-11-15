@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#F7F7F5;font-family:Inter,system-ui,sans-serif;color:#1A1A1A;font-size:15px;line-height:1.55}
@@ -129,14 +129,67 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
 .tbl td{padding:12px;border-bottom:1px solid #EFEFEC;vertical-align:top}
 .tbl tr:last-child td{border-bottom:0}
 @media (max-width:760px){.wrap{padding:0 16px}.row{grid-template-columns:minmax(0,1fr)}.gl{grid-template-columns:minmax(0,1fr)}}
+
+/* v10 · one type scale and palette gradients (2026-11-16, D-381) */
+body{font-size:17px;line-height:1.6}
+.wrap{max-width:1280px}
+h1,h2,h3{font-weight:500}
+.cap{font-size:14px;letter-spacing:0;text-transform:none;font-weight:600;color:#2E6B3C}
+.meta{font-size:15px;line-height:1.5}
+.h2{font-size:48px;line-height:1.06;font-weight:500;letter-spacing:-.032em}
+.tag{height:28px;padding:0 12px;font-size:13px}
+.nav a{font-size:15px}
+.pill{min-height:48px;padding:0 22px;font-size:15px}
+.pill.sm{min-height:40px;padding:0 16px;font-size:14px}
+.panel{border-radius:28px}
+.door{border-radius:24px;padding:26px}
+.display{font-weight:300;letter-spacing:-.045em}
+.jump a{font-size:14px;padding:8px 14px}
+.tbl{font-size:15px}
+.gl{font-size:17px}
+.hero{background:radial-gradient(1100px 560px at 92% -4%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),radial-gradient(900px 520px at -4% 104%,rgba(47,122,109,.22),rgba(47,122,109,0) 60%),linear-gradient(180deg,#F7F7F5 0%,#EEF6F0 50%,#E2EFE7 100%)}
+.hero.teal,.globe{background:radial-gradient(900px 520px at 90% -6%,rgba(108,183,105,.45),rgba(108,183,105,0) 60%),linear-gradient(140deg,#1F4A44 0%,#2F7A6D 100%)}
+.wave,.green{background:radial-gradient(820px 480px at 92% -8%,rgba(108,183,105,.42),rgba(108,183,105,0) 62%),linear-gradient(135deg,#0C3F09 0%,#1B5128 40%,#1F4A44 76%,#2F7A6D 100%)}
+.band{background:linear-gradient(180deg,#F7F7F5 0%,#E9F3EC 100%)}
+.wave .pill.go,.green .pill.go,.globe .pill.go,.hero.teal .pill.go{background:#C4262E;color:#FFFFFF;border-color:rgba(255,255,255,.75)}
+.wave .pill.go:hover,.green .pill.go:hover,.globe .pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.statement{font-size:56px;line-height:1.06;letter-spacing:-.035em;font-weight:500}
+.chn{font-size:14px;text-transform:none;letter-spacing:.02em}
+.ip-big dd{font-size:80px;letter-spacing:-.05em}
+.iprow{font-size:16px}
+.names span{font-size:20px}
+.quote{font-size:26px}
+.pillar{padding:32px;border-radius:28px}
+.pillar .k{font-size:15px}
+.fig figcaption{font-size:15px}
+.boardnote{font-size:14px}
+.mstrip{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mchip{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1px solid #E6E6E2;font-size:15px;font-weight:500;color:#1A1A1A}
+.mchip i{width:10px;height:10px;border-radius:50%;background:#3E9A5C;display:inline-block;flex:none}
+.mchip.out{background:transparent;border-style:dashed;color:#5C5C5A}
+.mchip.out i{background:#8A8A88}
+.agent{display:grid;grid-template-columns:64px minmax(0,1.2fr) minmax(0,2fr) 150px 170px;gap:20px;align-items:center;padding:24px 0;border-bottom:1px solid #E6E6E2}
+.agent .no{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;color:#2E6B3C;font-weight:500}
+.agent h3{font-size:22px}
+.screen{border-radius:18px;aspect-ratio:16/10;background:radial-gradient(420px 220px at 88% -6%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),linear-gradient(160deg,#F2F2EF 0%,#E6F1EF 100%);border:1px solid #E6E6E2;display:flex;align-items:flex-end;padding:16px;font-size:14px;color:#5C5C5A}
+.qa{display:flex;flex-direction:column;gap:10px;padding:28px;border-radius:24px;background:#FFFFFF;border:1px solid #E6E6E2}
+.qa h3{font-size:22px}
+.qa p{color:#3A3A38}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid #CFE6D6;font-size:14px;font-weight:500;color:#1B5128}
+.sw{display:flex;flex-direction:column;gap:8px}
+.sw b{display:block;height:88px;border-radius:18px;border:1px solid rgba(26,26,26,.08)}
+.gfield{border-radius:28px;min-height:260px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.trow{display:grid;grid-template-columns:220px minmax(0,1fr) 300px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E6E6E2}
+@media (max-width:760px){.agent{grid-template-columns:44px minmax(0,1fr)}.agent>*:nth-child(n+3){grid-column:2}.trow{grid-template-columns:minmax(0,1fr)}}
 </style>
 </helmet>
 <div style="min-height:100vh;display:flex;flex-direction:column">
 <header style="background:#FFFFFF;border-top:4px solid #C4262E;border-bottom:1px solid #E6E6E2">
   <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
     <a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1A1A1A" aria-label="Home">
-      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">TL</span>
-      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:15px">ThinkLatent</span><span style="font-size:12px;color:#5C5C5A">Team site</span></span>
+      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px">TL</span>
+      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:16px">ThinkLatent</span><span style="font-size:13px;color:#5C5C5A">Team site</span></span>
     </a>
     <nav class="nav" aria-label="Site" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
       <a class="" href="Mandate.dc.html">Mandate</a><a class="" href="Products.dc.html">Products<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Wins.dc.html">Our work<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="on" href="Blog.dc.html">Stories<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Team.dc.html">Team</a>
@@ -149,8 +202,8 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
   <div class="wrap" style="width:100%;padding-top:64px;padding-bottom:44px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px">
     <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
       <p class="cap">Stories · Blog</p>
-      <h1 style="font-size:52px;line-height:1.06;font-weight:400;letter-spacing:-.03em">What the team is thinking.</h1>
-      <p style="font-size:18px;color:#3A3A38">Written by the people who build ThinkLatent, edited by two or three of them, published at most twice a month. Two kinds of post: a Perspective for business readers, a Deep dive for practitioners.</p>
+      <h1 style="font-size:64px;line-height:1.06;font-weight:500;letter-spacing:-.03em">What the team is thinking.</h1>
+      <p style="font-size:21px;color:#3A3A38">Written by the people who build ThinkLatent, edited by two or three of them, published at most twice a month. Two kinds of post: a Perspective for business readers, a Deep dive for practitioners.</p>
     </div>
     <a class="pill go" href="Write.dc.html">Write a post</a>
   </div>
@@ -163,38 +216,38 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
     <div class="thumb wave" style="aspect-ratio:16/10;align-items:flex-end"><span class="tag">Featured</span></div>
     <div style="display:flex;flex-direction:column;gap:14px;padding:8px 8px 8px 0">
       <div style="display:flex;gap:8px"><span class="tag red">Leadership series · No. [N]</span><span class="tag">Perspective</span></div>
-      <h2 style="font-size:34px;line-height:1.12;font-weight:400;letter-spacing:-.025em">Proprietary only counts if it fuels the business</h2>
-      <p style="color:#5C5C5A;font-size:16px">[Two-sentence summary: the problem in plain words and why it matters at the Enterprise.]</p>
+      <h2 style="font-size:40px;line-height:1.12;font-weight:500;letter-spacing:-.025em">Proprietary only counts if it fuels the business</h2>
+      <p style="color:#5C5C5A;font-size:18px">[Two-sentence summary: the problem in plain words and why it matters at the Enterprise.]</p>
       <p class="meta">Jithin Pradeep, Head of ThinkLatent · [DATE] · 5 min read</p>
     </div>
   </a>
   <section class="grid g4" style="gap:20px">
-    <a class="post" href="TplPaper.dc.html"><div class="thumb terra"><span class="tag">Paper explained</span><span class="tag dark">Perspective</span></div><h3 style="font-size:19px">Can a small model beat a large one? What the university pretraining project means here</h3><p class="meta" style="margin-top:auto">[Author] · Research · 6 min</p></a>
-    <a class="post" href="TplBlog.dc.html"><div class="thumb net"><span class="tag">Perspective</span></div><h3 style="font-size:19px">Self-healing: a model that finds its own gaps and closes them</h3><p class="meta" style="margin-top:auto">[Author] · Applied Research · 4 min</p></a>
-    <a class="post" href="TplWin.dc.html"><div class="thumb wave"><span class="tag">Win</span><span class="tag dark">Perspective</span></div><h3 style="font-size:19px">[Partner team] now [does what] in [time]</h3><p class="meta" style="margin-top:auto">[Author] · with [partner team] · 4 min</p></a>
-    <a class="post" href="TplBlog.dc.html"><div class="thumb globe"><span class="tag">Deep dive</span></div><h3 style="font-size:19px">Will an SLM work on your data? We can tell before training</h3><p class="meta" style="margin-top:auto">[Author] · Research · 5 min</p></a>
-    <a class="post" href="TplRelease.dc.html"><div class="thumb net"><span class="tag">Release</span><span class="tag dark">Perspective</span></div><h3 style="font-size:19px">TLM4: Core, Distil and Domain, in outcomes</h3><p class="meta" style="margin-top:auto">[Author] · Applied Research · 3 min</p></a>
-    <a class="post" href="TplSession.dc.html"><div class="thumb wave"><span class="tag">AI Perspectives</span></div><h3 style="font-size:19px">M-cube: red teaming a model before an attacker does</h3><p class="meta" style="margin-top:auto">[Host] · [DATE] · recording</p></a>
-    <a class="post" href="TplPaper.dc.html"><div class="thumb terra"><span class="tag">Paper explained</span><span class="tag dark">Deep dive</span></div><h3 style="font-size:19px">Safeguarding compliant responses: policy as a constraint on a chatbot</h3><p class="meta" style="margin-top:auto">A principal scientist · with a faculty lead's group · 6 min</p></a>
-    <a class="post" href="TplBlog.dc.html"><div class="thumb globe"><span class="tag">Deep dive</span></div><h3 style="font-size:19px">From endpoint to use case in a week, with Relay</h3><p class="meta" style="margin-top:auto">[Author] · AI Products · 4 min</p></a>
+    <a class="post" href="TplPaper.dc.html"><div class="thumb terra"><span class="tag">Paper explained</span><span class="tag dark">Perspective</span></div><h3 style="font-size:22px">Can a small model beat a large one? What the university pretraining project means here</h3><p class="meta" style="margin-top:auto">[Author] · Research · 6 min</p></a>
+    <a class="post" href="TplBlog.dc.html"><div class="thumb net"><span class="tag">Perspective</span></div><h3 style="font-size:22px">Self-healing: a model that finds its own gaps and closes them</h3><p class="meta" style="margin-top:auto">[Author] · Applied Research · 4 min</p></a>
+    <a class="post" href="TplWin.dc.html"><div class="thumb wave"><span class="tag">Win</span><span class="tag dark">Perspective</span></div><h3 style="font-size:22px">[Partner team] now [does what] in [time]</h3><p class="meta" style="margin-top:auto">[Author] · with [partner team] · 4 min</p></a>
+    <a class="post" href="TplBlog.dc.html"><div class="thumb globe"><span class="tag">Deep dive</span></div><h3 style="font-size:22px">Will an SLM work on your data? We can tell before training</h3><p class="meta" style="margin-top:auto">[Author] · Research · 5 min</p></a>
+    <a class="post" href="TplRelease.dc.html"><div class="thumb net"><span class="tag">Release</span><span class="tag dark">Perspective</span></div><h3 style="font-size:22px">TLM4: Core, Distil and Domain, in outcomes</h3><p class="meta" style="margin-top:auto">[Author] · Applied Research · 3 min</p></a>
+    <a class="post" href="TplSession.dc.html"><div class="thumb wave"><span class="tag">AI Perspectives</span></div><h3 style="font-size:22px">M-cube: red teaming a model before an attacker does</h3><p class="meta" style="margin-top:auto">[Host] · [DATE] · recording</p></a>
+    <a class="post" href="TplPaper.dc.html"><div class="thumb terra"><span class="tag">Paper explained</span><span class="tag dark">Deep dive</span></div><h3 style="font-size:22px">Safeguarding compliant responses: policy as a constraint on a chatbot</h3><p class="meta" style="margin-top:auto">A principal scientist · with a faculty lead's group · 6 min</p></a>
+    <a class="post" href="TplBlog.dc.html"><div class="thumb globe"><span class="tag">Deep dive</span></div><h3 style="font-size:22px">From endpoint to use case in a week, with Relay</h3><p class="meta" style="margin-top:auto">[Author] · AI Products · 4 min</p></a>
   </section>
   <section id="review" class="panel" style="padding:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px;align-items:center;background:#1B5128;border-color:#2E6B3C;color:#FFFFFF">
-    <div><span class="tag" style="background:rgba(255,255,255,.12);color:#D6E9DB">Year in review · every January</span><h2 style="font-size:32px;line-height:1.12;font-weight:400;letter-spacing:-.025em;margin-top:12px;color:#FFFFFF">ThinkLatent in 2026</h2><p style="color:#D6E9DB;margin-top:8px;max-width:560px">One post a year, by function and by product, with the numbers that compounded. Published in January 2027, ahead of launch; the one page executives reliably read.</p></div>
+    <div><span class="tag" style="background:rgba(255,255,255,.12);color:#D6E9DB">Year in review · every January</span><h2 style="font-size:40px;line-height:1.12;font-weight:500;letter-spacing:-.025em;margin-top:12px;color:#FFFFFF">ThinkLatent in 2026</h2><p style="color:#D6E9DB;margin-top:8px;max-width:560px">One post a year, by function and by product, with the numbers that compounded. Published in January 2027, ahead of launch; the one page executives reliably read.</p></div>
     <div style="display:flex;flex-direction:column;gap:8px;justify-self:end;width:100%;max-width:360px"><a class="pline" href="TplBlog.dc.html" style="color:#FFFFFF;border-color:rgba(255,255,255,.2)"><span style="font-weight:500">ThinkLatent in 2026</span><span class="meta" style="color:#A8D5B4">January 2027</span></a><a class="pline" href="#" style="color:#FFFFFF;border-color:rgba(255,255,255,.2)"><span style="font-weight:500">ThinkLatent in 2027</span><span class="meta" style="color:#A8D5B4">January 2028</span></a></div>
   </section>
   <section id="series" class="series" style="display:flex;flex-direction:column;gap:20px">
-    <div><p class="cap">Leadership series</p><h2 style="font-size:32px;line-height:1.1;margin-top:6px;font-weight:400;letter-spacing:-.025em">One leadership post a month, the four leaders in turn</h2></div>
+    <div><p class="cap">Leadership series</p><h2 style="font-size:40px;line-height:1.1;margin-top:6px;font-weight:500;letter-spacing:-.025em">One leadership post a month, the four leaders in turn</h2></div>
     <div class="grid g4" style="gap:16px">
-      <a class="post" href="TplLeader.dc.html" style="padding:22px;gap:10px;background:rgba(255,255,255,.9)"><span class="tag red" style="align-self:flex-start">Head of ThinkLatent</span><h3 style="font-size:18px">[Series name]</h3><p class="meta">Why proprietary, how we are judged, the AI-native team</p><p class="meta" style="margin-top:auto;color:#2E6B3C;font-weight:500">Latest: No. [N]</p></a>
-      <a class="post" href="TplLeader.dc.html" style="padding:22px;gap:10px;background:rgba(255,255,255,.9)"><span class="tag teal" style="align-self:flex-start">Head of Research</span><h3 style="font-size:18px">[Series name]</h3><p class="meta">Research, explained for the people who use it</p><p class="meta" style="margin-top:auto;color:#2E6B3C;font-weight:500">Latest: No. [N]</p></a>
-      <a class="post" href="TplLeader.dc.html" style="padding:22px;gap:10px;background:rgba(255,255,255,.9)"><span class="tag" style="align-self:flex-start">Head of Applied Research</span><h3 style="font-size:18px">[Series name]</h3><p class="meta">How a method becomes a TLM model</p><p class="meta" style="margin-top:auto;color:#2E6B3C;font-weight:500">Latest: No. [N]</p></a>
-      <a class="post" href="TplLeader.dc.html" style="padding:22px;gap:10px;background:rgba(255,255,255,.9)"><span class="tag dark" style="align-self:flex-start">Head of AI Products</span><h3 style="font-size:18px">[Series name]</h3><p class="meta">Production, the portal, onboarding</p><p class="meta" style="margin-top:auto;color:#2E6B3C;font-weight:500">Latest: No. [N]</p></a>
+      <a class="post" href="TplLeader.dc.html" style="padding:22px;gap:10px;background:rgba(255,255,255,.9)"><span class="tag red" style="align-self:flex-start">Head of ThinkLatent</span><h3 style="font-size:21px">[Series name]</h3><p class="meta">Why proprietary, how we are judged, the AI-native team</p><p class="meta" style="margin-top:auto;color:#2E6B3C;font-weight:500">Latest: No. [N]</p></a>
+      <a class="post" href="TplLeader.dc.html" style="padding:22px;gap:10px;background:rgba(255,255,255,.9)"><span class="tag teal" style="align-self:flex-start">Head of Research</span><h3 style="font-size:21px">[Series name]</h3><p class="meta">Research, explained for the people who use it</p><p class="meta" style="margin-top:auto;color:#2E6B3C;font-weight:500">Latest: No. [N]</p></a>
+      <a class="post" href="TplLeader.dc.html" style="padding:22px;gap:10px;background:rgba(255,255,255,.9)"><span class="tag" style="align-self:flex-start">Head of Applied Research</span><h3 style="font-size:21px">[Series name]</h3><p class="meta">How a method becomes a TLM model</p><p class="meta" style="margin-top:auto;color:#2E6B3C;font-weight:500">Latest: No. [N]</p></a>
+      <a class="post" href="TplLeader.dc.html" style="padding:22px;gap:10px;background:rgba(255,255,255,.9)"><span class="tag dark" style="align-self:flex-start">Head of AI Products</span><h3 style="font-size:21px">[Series name]</h3><p class="meta">Production, the portal, onboarding</p><p class="meta" style="margin-top:auto;color:#2E6B3C;font-weight:500">Latest: No. [N]</p></a>
     </div>
   </section>
   <section class="grid g2" style="align-items:start">
     <div class="panel" style="padding:28px;display:flex;flex-direction:column;gap:10px">
       <p class="cap">How the blog runs</p>
-      <h3 style="font-size:22px">Researchers write. Three editors keep it moving.</h3>
+      <h3 style="font-size:26px">Researchers write. Three editors keep it moving.</h3>
       <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;color:#3A3A38;font-size:15px"><li>Written by the people who did the work; drafted with AI if they like, authored by them</li><li>An editorial board of two or three, with one function head as advisor; review within five working days</li><li>At most two posts a month, one leadership post (the four leaders in turn) and one from the team: fewer, better posts beat a feed</li><li>Every post is a Perspective (outcomes, for business readers) or a Deep dive (technique allowed, for practitioners)</li><li>Shared to the intranet and the Canada and India office news; the external blog later, through Comms</li><li>Comments are on, moderated by the editors</li></ul>
     </div>
     <section id="archive" class="panel" style="padding:28px;display:flex;flex-direction:column;gap:8px">
@@ -204,6 +257,13 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
     </section>
   </section>
 </main>
+<section class="wave" style="margin-top:96px">
+  <div class="wrap" style="padding-top:112px;padding-bottom:112px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+    <h2 style="font-size:60px;line-height:1.04;font-weight:500;letter-spacing:-.035em;max-width:900px">Which part of your work should the model learn next?</h2>
+    <p style="color:#D6E9DB;font-size:20px;max-width:620px">Tell us in your words. Every use case makes the next one easier.</p>
+    <a class="pill go" href="Wins.dc.html#talk">Start a use case</a>
+  </div>
+</section>
 <div class="wrap"><div class="comments"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><p class="cap">Comments · on, moderated by the editors</p><span class="meta">[N] comments</span></div><input placeholder="Add a comment, or ask the author a question" aria-label="Add a comment"></div></div>
 <footer style="background:#ECECEA;border-top:1px solid #E6E6E2;margin-top:72px">
   <div class="wrap" style="padding-top:48px;padding-bottom:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px">

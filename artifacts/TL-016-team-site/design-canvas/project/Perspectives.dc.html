@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#F7F7F5;font-family:Inter,system-ui,sans-serif;color:#1A1A1A;font-size:15px;line-height:1.55}
@@ -129,14 +129,67 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
 .tbl td{padding:12px;border-bottom:1px solid #EFEFEC;vertical-align:top}
 .tbl tr:last-child td{border-bottom:0}
 @media (max-width:760px){.wrap{padding:0 16px}.row{grid-template-columns:minmax(0,1fr)}.gl{grid-template-columns:minmax(0,1fr)}}
+
+/* v10 · one type scale and palette gradients (2026-11-16, D-381) */
+body{font-size:17px;line-height:1.6}
+.wrap{max-width:1280px}
+h1,h2,h3{font-weight:500}
+.cap{font-size:14px;letter-spacing:0;text-transform:none;font-weight:600;color:#2E6B3C}
+.meta{font-size:15px;line-height:1.5}
+.h2{font-size:48px;line-height:1.06;font-weight:500;letter-spacing:-.032em}
+.tag{height:28px;padding:0 12px;font-size:13px}
+.nav a{font-size:15px}
+.pill{min-height:48px;padding:0 22px;font-size:15px}
+.pill.sm{min-height:40px;padding:0 16px;font-size:14px}
+.panel{border-radius:28px}
+.door{border-radius:24px;padding:26px}
+.display{font-weight:300;letter-spacing:-.045em}
+.jump a{font-size:14px;padding:8px 14px}
+.tbl{font-size:15px}
+.gl{font-size:17px}
+.hero{background:radial-gradient(1100px 560px at 92% -4%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),radial-gradient(900px 520px at -4% 104%,rgba(47,122,109,.22),rgba(47,122,109,0) 60%),linear-gradient(180deg,#F7F7F5 0%,#EEF6F0 50%,#E2EFE7 100%)}
+.hero.teal,.globe{background:radial-gradient(900px 520px at 90% -6%,rgba(108,183,105,.45),rgba(108,183,105,0) 60%),linear-gradient(140deg,#1F4A44 0%,#2F7A6D 100%)}
+.wave,.green{background:radial-gradient(820px 480px at 92% -8%,rgba(108,183,105,.42),rgba(108,183,105,0) 62%),linear-gradient(135deg,#0C3F09 0%,#1B5128 40%,#1F4A44 76%,#2F7A6D 100%)}
+.band{background:linear-gradient(180deg,#F7F7F5 0%,#E9F3EC 100%)}
+.wave .pill.go,.green .pill.go,.globe .pill.go,.hero.teal .pill.go{background:#C4262E;color:#FFFFFF;border-color:rgba(255,255,255,.75)}
+.wave .pill.go:hover,.green .pill.go:hover,.globe .pill.go:hover{background:#9A1B22;color:#FFFFFF}
+.statement{font-size:56px;line-height:1.06;letter-spacing:-.035em;font-weight:500}
+.chn{font-size:14px;text-transform:none;letter-spacing:.02em}
+.ip-big dd{font-size:80px;letter-spacing:-.05em}
+.iprow{font-size:16px}
+.names span{font-size:20px}
+.quote{font-size:26px}
+.pillar{padding:32px;border-radius:28px}
+.pillar .k{font-size:15px}
+.fig figcaption{font-size:15px}
+.boardnote{font-size:14px}
+.mstrip{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mchip{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1px solid #E6E6E2;font-size:15px;font-weight:500;color:#1A1A1A}
+.mchip i{width:10px;height:10px;border-radius:50%;background:#3E9A5C;display:inline-block;flex:none}
+.mchip.out{background:transparent;border-style:dashed;color:#5C5C5A}
+.mchip.out i{background:#8A8A88}
+.agent{display:grid;grid-template-columns:64px minmax(0,1.2fr) minmax(0,2fr) 150px 170px;gap:20px;align-items:center;padding:24px 0;border-bottom:1px solid #E6E6E2}
+.agent .no{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;color:#2E6B3C;font-weight:500}
+.agent h3{font-size:22px}
+.screen{border-radius:18px;aspect-ratio:16/10;background:radial-gradient(420px 220px at 88% -6%,rgba(108,183,105,.38),rgba(108,183,105,0) 62%),linear-gradient(160deg,#F2F2EF 0%,#E6F1EF 100%);border:1px solid #E6E6E2;display:flex;align-items:flex-end;padding:16px;font-size:14px;color:#5C5C5A}
+.qa{display:flex;flex-direction:column;gap:10px;padding:28px;border-radius:24px;background:#FFFFFF;border:1px solid #E6E6E2}
+.qa h3{font-size:22px}
+.qa p{color:#3A3A38}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid #CFE6D6;font-size:14px;font-weight:500;color:#1B5128}
+.sw{display:flex;flex-direction:column;gap:8px}
+.sw b{display:block;height:88px;border-radius:18px;border:1px solid rgba(26,26,26,.08)}
+.gfield{border-radius:28px;min-height:260px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.trow{display:grid;grid-template-columns:220px minmax(0,1fr) 300px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E6E6E2}
+@media (max-width:760px){.agent{grid-template-columns:44px minmax(0,1fr)}.agent>*:nth-child(n+3){grid-column:2}.trow{grid-template-columns:minmax(0,1fr)}}
 </style>
 </helmet>
 <div style="min-height:100vh;display:flex;flex-direction:column">
 <header style="background:#FFFFFF;border-top:4px solid #C4262E;border-bottom:1px solid #E6E6E2">
   <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
     <a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1A1A1A" aria-label="Home">
-      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">TL</span>
-      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:15px">ThinkLatent</span><span style="font-size:12px;color:#5C5C5A">Team site</span></span>
+      <span style="width:40px;height:40px;border-radius:12px;background:#C4262E;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px">TL</span>
+      <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:16px">ThinkLatent</span><span style="font-size:13px;color:#5C5C5A">Team site</span></span>
     </a>
     <nav class="nav" aria-label="Site" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
       <a class="" href="Mandate.dc.html">Mandate</a><a class="" href="Products.dc.html">Products<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Wins.dc.html">Our work<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="on" href="Blog.dc.html">Stories<svg class="ico" style="width:16px;height:16px;margin-left:4px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><a class="" href="Team.dc.html">Team</a>
@@ -149,16 +202,16 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
   <div class="wrap" style="width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:40px;align-items:center;padding-top:80px;padding-bottom:64px">
     <div style="display:flex;flex-direction:column;gap:20px">
       <p class="cap">Stories · AI Perspectives · a monthly seminar series</p>
-      <h1 style="font-size:56px;line-height:1.04;font-weight:400;letter-spacing:-.03em">A paper, what it means at the Enterprise, and the ThinkLatent solution that carries it.</h1>
-      <p style="font-size:18px;max-width:560px">Then you tell us what to build next. About 200 people come; every request is answered on the open roadmap within two weeks. Every session is recorded with captions, and the library doubles as onboarding.</p>
+      <h1 style="font-size:72px;line-height:1.04;font-weight:500;letter-spacing:-.03em">A paper, what it means at the Enterprise, and the ThinkLatent solution that carries it.</h1>
+      <p style="font-size:21px;max-width:560px">Then you tell us what to build next. About 200 people come; every request is answered on the open roadmap within two weeks. Every session is recorded with captions, and the library doubles as onboarding.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px"><a class="pill go" href="#next">Join the next session</a><a class="pill" href="#ask">Ask for it on the roadmap</a></div>
     </div>
     <div class="glass t card" style="max-width:420px;justify-self:end;gap:14px">
       <div class="thumb" style="display:flex;align-items:center;justify-content:center;aspect-ratio:16/9"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
       <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag">Last session</span><span class="meta">[DATE] · [N] attended</span></div>
-      <h3 style="font-size:20px">[Session topic]: what it means for the Enterprise</h3>
+      <h3 style="font-size:24px">[Session topic]: what it means for the Enterprise</h3>
       <p class="meta">Recording, the Enterprise slide and the [N] requests it raised.</p>
-      <a class="pill" href="TplSession.dc.html" style="align-self:flex-start;min-height:36px;font-size:13px">Watch the recording</a>
+      <a class="pill" href="TplSession.dc.html" style="align-self:flex-start;min-height:36px;font-size:14px">Watch the recording</a>
     </div>
   </div>
 </section>
@@ -166,17 +219,17 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
   <section id="next" class="panel" style="padding:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:32px">
     <div style="display:flex;flex-direction:column;gap:14px">
       <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span class="tag">Next session</span><span class="meta">[DATE · TIME · Teams link]</span></div>
-      <h2 style="font-size:32px;line-height:1.12;font-weight:400;letter-spacing:-.02em">[Session topic]</h2>
+      <h2 style="font-size:40px;line-height:1.12;font-weight:500;letter-spacing:-.02em">[Session topic]</h2>
       <p style="color:#3A3A38"><b style="font-weight:600">Abstract.</b> [Three sentences: the paper or technology, what it means at the Enterprise, and the ThinkLatent solution that carries it.]</p>
       <div style="display:flex;gap:12px;align-items:center"><span class="av lg">[I]</span><span><span class="n">[Host name]</span><span class="meta">[Role] · [one line of bio: what they work on and why they picked this paper]</span></span></div>
       <div style="display:flex;gap:12px;align-items:center"><span class="av lg">[I]</span><span><span class="n">[Guest, if any]</span><span class="meta">[Business leader · role]</span></span></div>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px"><a class="pill go" href="#next">Add to calendar</a><a class="pill" href="TplSession.dc.html">The session template</a></div>
     </div>
     <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px">
-      <li class="step"><span class="display" style="font-size:28px;color:#2F7A6D;width:40px">10</span><span><strong style="font-weight:600;display:block">The paper or technology</strong><span class="meta">What it is, in plain words</span></span></li>
-      <li class="step"><span class="display" style="font-size:28px;color:#2F7A6D;width:40px">5</span><span><strong style="font-weight:600;display:block">What it means at the Enterprise</strong><span class="meta">The problem it solves here, and for whom</span></span></li>
-      <li class="step"><span class="display" style="font-size:28px;color:#2F7A6D;width:40px">5</span><span><strong style="font-weight:600;display:block">The ThinkLatent solution that carries it</strong><span class="meta">Which product, which TLM, and when</span></span></li>
-      <li class="step"><span class="display" style="font-size:28px;color:#2F7A6D;width:40px">10</span><span><strong style="font-weight:600;display:block">Your requests</strong><span class="meta">Ask for it on the roadmap, live</span></span></li>
+      <li class="step"><span class="display" style="font-size:32px;color:#2F7A6D;width:40px">10</span><span><strong style="font-weight:600;display:block">The paper or technology</strong><span class="meta">What it is, in plain words</span></span></li>
+      <li class="step"><span class="display" style="font-size:32px;color:#2F7A6D;width:40px">5</span><span><strong style="font-weight:600;display:block">What it means at the Enterprise</strong><span class="meta">The problem it solves here, and for whom</span></span></li>
+      <li class="step"><span class="display" style="font-size:32px;color:#2F7A6D;width:40px">5</span><span><strong style="font-weight:600;display:block">The ThinkLatent solution that carries it</strong><span class="meta">Which product, which TLM, and when</span></span></li>
+      <li class="step"><span class="display" style="font-size:32px;color:#2F7A6D;width:40px">10</span><span><strong style="font-weight:600;display:block">Your requests</strong><span class="meta">Ask for it on the roadmap, live</span></span></li>
     </ol>
   </section>
 
@@ -192,22 +245,29 @@ h1,h2,h3{font-weight:500;letter-spacing:-.015em}
   <section class="sec">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">Recordings library</p><h2 class="h2">Past sessions, with the Enterprise slide</h2><p style="color:#5C5C5A;margin-top:8px;max-width:720px">Every recording carries its requests and their answer dates. New joiners watch three of these in their first week.</p></div><a class="pill" href="#">All recordings · Stream</a></div>
     <div class="grid g3">
-      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb net" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:18px">Aligning pretraining data with downstream uses: small models, done right</h3><p class="meta">With the university project team · [DATE] · [N] requests · 41 min</p></div></a>
-      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb wave" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:18px">M-cube: red teaming a model before an attacker does</h3><p class="meta">Research · [DATE] · [N] requests · 38 min</p></div></a>
-      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb globe" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:18px">Decision models: a yes or no in under 50 milliseconds</h3><p class="meta">Applied Research · [DATE] · [N] requests · 44 min</p></div></a>
+      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb net" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:21px">Aligning pretraining data with downstream uses: small models, done right</h3><p class="meta">With the university project team · [DATE] · [N] requests · 41 min</p></div></a>
+      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb wave" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:21px">M-cube: red teaming a model before an attacker does</h3><p class="meta">Research · [DATE] · [N] requests · 38 min</p></div></a>
+      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb globe" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:21px">Decision models: a yes or no in under 50 milliseconds</h3><p class="meta">Applied Research · [DATE] · [N] requests · 44 min</p></div></a>
     </div>
   </section>
 
   <section class="grid g2" style="align-items:start">
-    <div id="ask" class="panel" style="display:flex;flex-direction:column;gap:14px;padding:28px;border-radius:4px"><p class="cap">Microsoft Forms web part</p><h3 style="font-size:22px">Ask for it on the roadmap</h3><p class="meta">Every request gets an answer within two weeks, on the open roadmap.</p><ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;color:#3A3A38"><li>Your team</li><li>The problem you want solved, in your words</li><li>Which session sparked it</li><li>How much it matters</li></ol><a href="#ask" style="align-self:flex-start;background:#1B5128;color:#FFFFFF;padding:0 20px;min-height:44px;display:inline-flex;align-items:center;border-radius:4px;font-size:14px;font-weight:500;text-decoration:none">Open the form</a></div>
-    <div class="panel" style="display:flex;flex-direction:column;gap:4px;padding:24px 28px"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><p class="cap">ThinkLatent community · Viva Engage web part</p><h3 style="font-size:20px;margin-top:4px">Questions, wins and follow-ups</h3></div><a class="pill sm" href="#">Open the community</a></div><div class="feed"><span class="av">[I]</span><div><p style="font-size:14px"><strong style="font-weight:600">[Name], [Business team]</strong> <span class="meta">· 2 h</span></p><p style="font-size:14px;color:#3A3A38;margin-top:2px">Request from Thursday: can Distil handle the [task] queue? Answered on the roadmap, [DATE].</p></div></div><div class="feed"><span class="av">[I]</span><div><p style="font-size:14px"><strong style="font-weight:600">[Name], ThinkLatent</strong> <span class="meta">· 1 d</span></p><p style="font-size:14px;color:#3A3A38;margin-top:2px">Recording and the Enterprise slide are up; every request has its answer date.</p></div></div><div class="feed"><span class="av">[I]</span><div><p style="font-size:14px"><strong style="font-weight:600">[Name], [Business team]</strong> <span class="meta">· 3 d</span></p><p style="font-size:14px;color:#3A3A38;margin-top:2px">Who is hosting the demo edition? I have a use case to show.</p></div></div></div>
+    <div id="ask" class="panel" style="display:flex;flex-direction:column;gap:14px;padding:28px;border-radius:4px"><p class="cap">Microsoft Forms web part</p><h3 style="font-size:26px">Ask for it on the roadmap</h3><p class="meta">Every request gets an answer within two weeks, on the open roadmap.</p><ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;color:#3A3A38"><li>Your team</li><li>The problem you want solved, in your words</li><li>Which session sparked it</li><li>How much it matters</li></ol><a href="#ask" style="align-self:flex-start;background:#1B5128;color:#FFFFFF;padding:0 20px;min-height:44px;display:inline-flex;align-items:center;border-radius:4px;font-size:15px;font-weight:500;text-decoration:none">Open the form</a></div>
+    <div class="panel" style="display:flex;flex-direction:column;gap:4px;padding:24px 28px"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><p class="cap">ThinkLatent community · Viva Engage web part</p><h3 style="font-size:24px;margin-top:4px">Questions, wins and follow-ups</h3></div><a class="pill sm" href="#">Open the community</a></div><div class="feed"><span class="av">[I]</span><div><p style="font-size:16px"><strong style="font-weight:600">[Name], [Business team]</strong> <span class="meta">· 2 h</span></p><p style="font-size:16px;color:#3A3A38;margin-top:2px">Request from Thursday: can Distil handle the [task] queue? Answered on the roadmap, [DATE].</p></div></div><div class="feed"><span class="av">[I]</span><div><p style="font-size:16px"><strong style="font-weight:600">[Name], ThinkLatent</strong> <span class="meta">· 1 d</span></p><p style="font-size:16px;color:#3A3A38;margin-top:2px">Recording and the Enterprise slide are up; every request has its answer date.</p></div></div><div class="feed"><span class="av">[I]</span><div><p style="font-size:16px"><strong style="font-weight:600">[Name], [Business team]</strong> <span class="meta">· 3 d</span></p><p style="font-size:16px;color:#3A3A38;margin-top:2px">Who is hosting the demo edition? I have a use case to show.</p></div></div></div>
   </section>
 
   <section class="grid g2" style="align-items:start">
-    <div class="panel later" style="display:flex;flex-direction:column;gap:12px;padding:28px"><span class="tag grey" style="align-self:flex-start">Coming · quarterly, after launch</span><h2 style="font-size:24px;font-weight:400;letter-spacing:-.02em">The demo edition</h2><p style="color:#3A3A38">One session a quarter becomes a demo day: 8 to 12 minute talks, a live demo in each, one Q&amp;A at the end, recorded, with a written recap. Expect a fifth to a third of those who sign up to come; one strong live use case converts more sceptics than any post.</p></div>
-    <div class="panel later" style="display:flex;flex-direction:column;gap:12px;padding:28px"><span class="tag grey" style="align-self:flex-start">Coming · pilot, after launch</span><h2 style="font-size:24px;font-weight:400;letter-spacing:-.02em">ThinkLatent Perspectives, the podcast</h2><p style="color:#3A3A38">"ThinkLatent Perspectives: [topic] with [business leader]": twenty minutes, hosted by the team members who already podcast, piloted once two sessions are recorded.</p><a class="pill" href="#ask" style="align-self:flex-start">Suggest a guest</a></div>
+    <div class="panel later" style="display:flex;flex-direction:column;gap:12px;padding:28px"><span class="tag grey" style="align-self:flex-start">Coming · quarterly, after launch</span><h2 style="font-size:28px;font-weight:500;letter-spacing:-.02em">The demo edition</h2><p style="color:#3A3A38">One session a quarter becomes a demo day: 8 to 12 minute talks, a live demo in each, one Q&amp;A at the end, recorded, with a written recap. Expect a fifth to a third of those who sign up to come; one strong live use case converts more sceptics than any post.</p></div>
+    <div class="panel later" style="display:flex;flex-direction:column;gap:12px;padding:28px"><span class="tag grey" style="align-self:flex-start">Coming · pilot, after launch</span><h2 style="font-size:28px;font-weight:500;letter-spacing:-.02em">ThinkLatent Perspectives, the podcast</h2><p style="color:#3A3A38">"ThinkLatent Perspectives: [topic] with [business leader]": twenty minutes, hosted by the team members who already podcast, piloted once two sessions are recorded.</p><a class="pill" href="#ask" style="align-self:flex-start">Suggest a guest</a></div>
   </section>
 </main>
+<section class="wave" style="margin-top:96px">
+  <div class="wrap" style="padding-top:112px;padding-bottom:112px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+    <h2 style="font-size:60px;line-height:1.04;font-weight:500;letter-spacing:-.035em;max-width:900px">Which part of your work should the model learn next?</h2>
+    <p style="color:#D6E9DB;font-size:20px;max-width:620px">Tell us in your words. Every use case makes the next one easier.</p>
+    <a class="pill go" href="Wins.dc.html#talk">Start a use case</a>
+  </div>
+</section>
 <div class="wrap"><div class="comments"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><p class="cap">Comments · on, moderated by the editors</p><span class="meta">[N] comments</span></div><input placeholder="Add a comment, or ask the author a question" aria-label="Add a comment"></div></div>
 <footer style="background:#ECECEA;border-top:1px solid #E6E6E2;margin-top:80px">
   <div class="wrap" style="padding-top:48px;padding-bottom:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px">
