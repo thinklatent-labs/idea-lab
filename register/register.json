@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-16T04:15:00+05:30",
+  "asOf": "2026-11-16T04:17:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 550,
+    "registerRev": 551,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1947,7 +1947,7 @@
       },
       "docUrl": null,
       "standardVersion": "pre-v1",
-      "lastTouched": "2026-11-15",
+      "lastTouched": "2026-11-16",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": null,
@@ -1965,15 +1965,15 @@
           "since": "2026-11-15"
         }
       ],
-      "nextStepOrigin": "TL-022 session 2026-11-15 (proof build)",
+      "nextStepOrigin": "TL-022 session 2026-11-16 (company version and audit)",
       "id": "TL-022",
       "slug": "fast-lane",
       "title": "Fast lane: a low-latency serving tier for TLM4 Core 27B on HyperPod and vLLM (over 1,000 tok/s per request; 300 tokens in 200 ms; about 1 million input tokens a minute), proven on one 8x H100 node and scaled out by adding H100 nodes",
-      "stageNote": "Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15; proof built as a runnable kit on public Gemma 4 31B with H7 to H10 added (D-378)",
+      "stageNote": "Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15; proof built as a runnable kit on public Gemma 4 31B with H7 to H10 added (D-378); kit moved to thinklatent-labs/fast-lane and made the company version 0.2.1 on 2026-11-16 (runs inside the Enterprise on the Core itself, results stay inside, independent audit fixed) (D-382)",
       "horizon": "H1",
       "owner": "Head of ThinkLatent (Jithin), sponsor and decider; serving lead (Claude)",
       "docTitle": "Scout brief in project knowledge: claude/scout-brief-fast-lane.md; Serving design and proof plan 2026-11-15; Drafter training recipe 2026-11-15; Proof kit and experiment design 2026-11-15 (all mirrored at artifacts/TL-022-fast-lane/, with the runnable kit in fast-lane-kit/ until thinklatent-labs/fast-lane exists)",
-      "nextStep": "Jithin creates the private repository thinklatent-labs/fast-lane (empty) and Claude pushes the proof kit (built and tested on simulated servers, mirrored at artifacts/TL-022-fast-lane/fast-lane-kit/). Then on one 8x H100 node: scripts/setup.sh, PLAN=standard scripts/download.sh, PLAN=quick sbatch scripts/proof.sbatch (about 3 h, shakes out flags and versions), then PLAN=standard PUBLISH=1 sbatch (about a day) so results land in the repository; the next session records H1 to H10 from results/<run-id>/summary.json. Inputs Jithin holds: Langfuse prompt and reply lengths per application, where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8)",
+      "nextStep": "Jithin runs the proof inside the Enterprise from thinklatent-labs/fast-lane (kit 0.2.1, ENTERPRISE.md): fill config/enterprise.yaml (Core 27B FP8 and BF16 paths, 7B Core), scripts/setup.sh, preflight on a GPU node, PLAN=quick then PLAN=standard on one 8x H100 node, then python -m fastlane export. If Q9 allows, the numbers-only export comes back and the next session records H1 to H10 from it. Inputs Jithin holds: Langfuse prompt and reply lengths per application (scripts/langfuse_to_replay.py --stats prints them), where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8)",
       "nextStepDue": "2026-11-27",
       "productionSurface": {
         "users": "Applications with a service level on TLM4 Core 27B calls (replies under 300 tokens in 200 ms)",
@@ -2120,6 +2120,11 @@
           "question": "Which dimensions did the Core 27B's width prune cut (hidden size, attention heads, MLP)? Public Gemma 4 31B drafters load on the Core only if the hidden size was kept (Google's MTP drafter also needs the attention layout)",
           "owner": "Head of ThinkLatent",
           "blocking": "No (yes for reusing public drafters on the Core)"
+        },
+        {
+          "question": "Q9: may a numbers-only export of the Enterprise run (report, verdicts, tables and charts; no prompts, replies, logs, paths or host names) come back to the lab, so H1 to H10 are recorded here? Recommendation: yes, after Jithin reviews the export",
+          "owner": "Head of ThinkLatent",
+          "blocking": "Yes, for recording H1 to H10 in the lab"
         }
       ]
     }
@@ -5373,6 +5378,19 @@
       "health": "at-risk",
       "healthNote": "Design is converging and now covers every page; launch still rests on Jithin's build hours, custom.css approval and sourced numbers by 21 Nov",
       "nextStepDue": "2026-11-21"
+    },
+    {
+      "date": "2026-11-16",
+      "scope": "TL-022 fast-lane",
+      "ideaIds": [
+        "TL-022"
+      ],
+      "mode": "Spec (proof build)",
+      "outcome": "Jithin created thinklatent-labs/fast-lane; Claude pushed the kit and, as Jithin will run it inside the Enterprise, made kit 0.2.1 the company version: config overlays (extends, FASTLANE_CONFIG) with config/enterprise.example.yaml for TLM4 Core 27B itself, staged weights never downloaded, prompts from local JSONL, a drafter fit check (hidden size, tapped layers) that skips public drafters a pruned Core cannot load, preflight asking the installed vLLM and Speculators for every flag, Langfuse replay with anonymised app names, a numbers-only export, results kept inside, firewall-ready setup, ENTERPRISE.md and CI. An independent audit by a separate agent found 12 problems (2 would have stopped a real run: CPU-only torch from a GPU-less login node, Model Optimizer conversion on Gemma 4's config; 4 would have skewed numbers or verdicts: repeated load contexts, uncounted failures, crashed cells read as results, a start-up failure firing the kill signal); all fixed with regression tests. Verified: every vLLM flag, metric and request field against 0.33.0 (its request model accepts the client's body), Speculators and Model Optimizer commands at their pinned commits, all ten Hugging Face repositories (Apache-2.0, not gated). 42 unit tests and two end-to-end dry runs pass, also in a real vLLM 0.33 environment; fast-lane at 197458d",
+      "docsTouched": "Fast lane (fast-lane) - Proof kit and experiment design 2026-11-15 (company version, audit, D-382); idea-lab artifacts/TL-022-fast-lane/fast-lane-kit replaced by a pointer to the repository",
+      "health": "at-risk",
+      "healthNote": "Nothing has run on GPUs yet; if the prune changed the hidden size no public drafter loads on the Core, so H1 and H2 rest on the drafter the train stage builds; document prompts remain the weakest case for acceptance; recording H1 to H10 in the lab waits on Q9",
+      "nextStepDue": "2026-11-27"
     }
   ],
   "decisions": [
@@ -10695,6 +10713,20 @@
       "reviewOn": null,
       "supersedes": null,
       "type": "decision"
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-022",
+      "date": "2026-11-16",
+      "door": "two-way",
+      "id": "D-382",
+      "by": "Jithin",
+      "decision": "The proof runs inside the Enterprise, separately from the lab: Jithin takes the kit from thinklatent-labs/fast-lane (created 2026-11-16) and runs it there. Kit 0.2.1 is that company version: one config overlay runs it on TLM4 Core 27B itself, weights, data and results stay inside, and only a numbers-only export may come back to the lab, if Jithin clears it (Q9). Thresholds unchanged. The 12 findings of an independent audit are fixed in 0.2.1."
     }
   ],
   "syncLog": [

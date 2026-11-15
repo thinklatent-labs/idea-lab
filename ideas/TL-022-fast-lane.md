@@ -17,10 +17,10 @@ score: null
 score_status: none
 doc_url: null
 standard: "pre-v1"
-last_touched: 2026-11-15
+last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: null
-next_step: "Jithin creates the private repository thinklatent-labs/fast-lane (empty) and Claude pushes the proof kit (built and tested on simulated servers, mirrored at artifacts/TL-022-fast-lane/fast-lane-kit/). Then on one 8x H100 node: scripts/setup.sh, PLAN=standard scripts/download.sh, PLAN=quick sbatch scripts/proof.sbatch (about 3 h, shakes out flags and versions), then PLAN=standard PUBLISH=1 sbatch (about a day) so results land in the repository; the next session records H1 to H10 from results/<run-id>/summary.json. Inputs Jithin holds: Langfuse prompt and reply lengths per application, where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8)"
+next_step: "Jithin runs the proof inside the Enterprise from thinklatent-labs/fast-lane (kit 0.2.1, ENTERPRISE.md): fill config/enterprise.yaml (Core 27B FP8 and BF16 paths, 7B Core), scripts/setup.sh, preflight on a GPU node, PLAN=quick then PLAN=standard on one 8x H100 node, then python -m fastlane export. If Q9 allows, the numbers-only export comes back and the next session records H1 to H10 from it. Inputs Jithin holds: Langfuse prompt and reply lengths per application (scripts/langfuse_to_replay.py --stats prints them), where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8)"
 next_step_due: "2026-11-27"
 ---
 
@@ -29,11 +29,11 @@ next_step_due: "2026-11-27"
 <!-- generated:start -->
 ## Lab record
 
-**TL-022 fast-lane** · Idea · Seed (Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15; proof built as a runnable kit on public Gemma 4 31B with H7 to H10 added (D-378)) · H1
+**TL-022 fast-lane** · Idea · Seed (Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15; proof built as a runnable kit on public Gemma 4 31B with H7 to H10 added (D-378); kit moved to thinklatent-labs/fast-lane and made the company version 0.2.1 on 2026-11-16 (runs inside the Enterprise on the Core itself, results stay inside, independent audit fixed) (D-382)) · H1
 
 Owner: Head of ThinkLatent (Jithin), sponsor and decider; serving lead (Claude). Appetite: not set. Score: not scored .
 
-Next step: Jithin creates the private repository thinklatent-labs/fast-lane (empty) and Claude pushes the proof kit (built and tested on simulated servers, mirrored at artifacts/TL-022-fast-lane/fast-lane-kit/). Then on one 8x H100 node: scripts/setup.sh, PLAN=standard scripts/download.sh, PLAN=quick sbatch scripts/proof.sbatch (about 3 h, shakes out flags and versions), then PLAN=standard PUBLISH=1 sbatch (about a day) so results land in the repository; the next session records H1 to H10 from results/<run-id>/summary.json. Inputs Jithin holds: Langfuse prompt and reply lengths per application, where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8) (due 2026-11-27)
+Next step: Jithin runs the proof inside the Enterprise from thinklatent-labs/fast-lane (kit 0.2.1, ENTERPRISE.md): fill config/enterprise.yaml (Core 27B FP8 and BF16 paths, 7B Core), scripts/setup.sh, preflight on a GPU node, PLAN=quick then PLAN=standard on one 8x H100 node, then python -m fastlane export. If Q9 allows, the numbers-only export comes back and the next session records H1 to H10 from it. Inputs Jithin holds: Langfuse prompt and reply lengths per application (scripts/langfuse_to_replay.py --stats prints them), where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8) (due 2026-11-27)
 
 Production surface: Applications with a service level on TLM4 Core 27B calls (replies under 300 tokens in 200 ms) · A fast-lane pool on HyperPod: 8x H100 units behind Envoy with service-class routing, vLLM with a drafter per served model · p95 end-to-end latency and tok/s per request at the stated load
 
@@ -72,6 +72,7 @@ Governance: not recorded.
 | Sampling settings of service-level calls (temperature, structured outputs) | Head of ThinkLatent | No |
 | Drafter refresh at each Core release: retrain every release, or check acceptance first and refresh (warm-started) only when a bucket falls below its promise? Recommendation: check first | Head of ThinkLatent | No |
 | Which dimensions did the Core 27B's width prune cut (hidden size, attention heads, MLP)? Public Gemma 4 31B drafters load on the Core only if the hidden size was kept (Google's MTP drafter also needs the attention layout) | Head of ThinkLatent | No (yes for reusing public drafters on the Core) |
+| Q9: may a numbers-only export of the Enterprise run (report, verdicts, tables and charts; no prompts, replies, logs, paths or host names) come back to the lab, so H1 to H10 are recorded here? Recommendation: yes, after Jithin reviews the export | Head of ThinkLatent | Yes, for recording H1 to H10 in the lab |
 
 ### Links
 | Link | To | Note |
@@ -99,8 +100,8 @@ Governance: not recorded.
 | Fast lane (fast-lane) - Serving design and proof plan 2026-11-15 | doc | [artifacts/TL-022-fast-lane/serving-design-and-proof-plan.md](../artifacts/TL-022-fast-lane/serving-design-and-proof-plan.md) | [claude.ai](project-knowledge:claude/Fast lane (fast-lane) - Serving design and proof plan 2026-11-15.md) | 2026-11-15 |
 | Fast lane (fast-lane) - Drafter training recipe 2026-11-15 | doc | [artifacts/TL-022-fast-lane/drafter-training-recipe.md](../artifacts/TL-022-fast-lane/drafter-training-recipe.md) | [claude.ai](project-knowledge:claude/Fast lane (fast-lane) - Drafter training recipe 2026-11-15.md) | 2026-11-15 |
 | Proof kit: bench_grid.sh (vllm bench serve sweep) and bucket_sheet.py (bucket sheet from results) | code | [artifacts/TL-022-fast-lane/proof-kit/](../artifacts/TL-022-fast-lane/proof-kit/) |  | 2026-11-15 |
-| Fast lane (fast-lane) - Proof kit and experiment design 2026-11-15 | doc | [artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md](../artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md) | [claude.ai](project-knowledge:claude/Fast lane (fast-lane) - Proof kit and experiment design 2026-11-15.md) | 2026-11-15 |
-| fast-lane kit v0.1: the runnable proof (stages, picker and router, report with H1-H10 verdicts, Slurm scripts) | code | [artifacts/TL-022-fast-lane/fast-lane-kit/](../artifacts/TL-022-fast-lane/fast-lane-kit/) |  | 2026-11-15 |
+| Fast lane (fast-lane) - Proof kit and experiment design 2026-11-15 | doc | [artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md](../artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md) | [claude.ai](project-knowledge:claude/Fast lane (fast-lane) - Proof kit and experiment design 2026-11-15.md) | 2026-11-16 |
+| fast-lane kit: pointer to thinklatent-labs/fast-lane (kit 0.2.1, company version) | code | [artifacts/TL-022-fast-lane/fast-lane-kit/](../artifacts/TL-022-fast-lane/fast-lane-kit/) | [claude.ai](https://github.com/thinklatent-labs/fast-lane) | 2026-11-16 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -113,6 +114,7 @@ Governance: not recorded.
 | D-376 | 2026-11-15 | Every replica of a model runs the same vLLM settings, so buckets are routing groups and borrowing is instant; a bucket gets its own settings only where the proof shows a gain of 20% or more. Promises are p95 at the bucket's range edge plus a margin, and GPUs are sized at the bucket mean. Shared by default, with dedicated pools on request, per-application cache salt, priorities and quotas | Jithin (on questions with recommendations) | accepted |
 | D-377 | 2026-11-15 | Draft models (EAGLE-3, then DFlash) are trained by both routes, Speculators (vLLM-native) and Model Optimizer (NVIDIA's route), on the same target-written data, and compared on accepted length per bucket, tok/s per request and training hours. Dissent recorded: the recommendation was Speculators with Model Optimizer as a cross-check; both routes cost an extra training run per model | Jithin (against the recommendation) | accepted |
 | D-378 | 2026-11-15 | The proof is built as runnable code, not more answers: one Slurm job on one 8x H100 node runs public Gemma 4 31B (FP8, vLLM 0.33.0) through a drafter screen, the prompt x reply x in-flight grid, the small-model 200 ms class, layouts, mixed traffic behind the picker (capacity, policies, borrowing) and drafter training, then writes a report that judges pre-registered H1 to H10 and pushes results to GitHub. H7 to H10 added. Public drafters are tested first and our training is measured against them; the full plan keeps both training routes (D-377). The kit lives in thinklatent-labs/fast-lane, which Jithin creates | Jithin | accepted |
+| D-382 | 2026-11-16 | The proof runs inside the Enterprise, separately from the lab: Jithin takes the kit from thinklatent-labs/fast-lane (created 2026-11-16) and runs it there. Kit 0.2.1 is that company version: one config overlay runs it on TLM4 Core 27B itself, weights, data and results stay inside, and only a numbers-only export may come back to the lab, if Jithin clears it (Q9). Thresholds unchanged. The 12 findings of an independent audit are fixed in 0.2.1. | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
@@ -172,3 +174,33 @@ New hypotheses for the proof:
 The kit passed every test on simulated servers. It has not yet run on GPUs, so `PLAN=quick` comes first.
 
 This session also corrected the drafter recipe and the scout brief. They said the public 31B drafters would not fit the Core and that every Core refresh retrains. A drafter loads on the Core only if the width prune kept the hidden size, so it should be tested before deciding to train. Q7 (refresh policy) and Q8 (which dimensions the prune cut) are open. The design and the hypothesis table are in `artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md` (D-378).
+
+### 2026-11-16 · TL-022 session (continued) · Spec (company version and audit)
+
+Jithin created thinklatent-labs/fast-lane, and the kit now lives there. The copy in
+idea-lab is a pointer, so the code has one home. Jithin will run the proof inside the
+Enterprise, separately from the lab (D-382).
+
+Kit 0.2.1 is that company version:
+- One overlay, `config/enterprise.yaml`, points at the staged Core 27B and 7B Core.
+- It renames the report and turns off stand-in scaling.
+- It keeps results inside, with a numbers-only export for the lab (Q9).
+- It works behind a firewall: package, Git and Hugging Face mirrors, staged public
+  prompts, and checked CUDA 13 torch builds.
+
+A fit check skips any public 31B drafter that cannot load on the Core (hidden size or
+tapped layers). So on a width-pruned Core, the drafter the train stage builds is what
+carries H1 and H2.
+
+An independent audit by a separate agent found 12 problems, and all are fixed with
+regression tests:
+- two would have stopped a real run (CPU-only torch from a GPU-less login node; Model
+  Optimizer's conversion on Gemma 4's config);
+- four would have skewed numbers or verdicts (repeated load-test contexts, uncounted
+  failures, crashed cells read as results, and a start-up failure firing the kill signal).
+
+Verdicts now read NOT RUN whenever their data is missing.
+
+Checked on a real install: vLLM 0.33.0 from PyPI brings torch 2.14.0 built for CUDA
+13.0, and its own request model accepts every field the client sends. All ten Hugging
+Face repositories the kit uses exist, are Apache-2.0 and are not gated.
