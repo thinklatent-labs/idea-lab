@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-16T05:05:00+05:30",
+  "asOf": "2026-11-16T05:06:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 552,
+    "registerRev": 553,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1965,15 +1965,15 @@
           "since": "2026-11-15"
         }
       ],
-      "nextStepOrigin": "TL-022 session 2026-11-16 (company version and audit)",
+      "nextStepOrigin": "TL-022 session 2026-11-16 (roadmap and hardware plan)",
       "id": "TL-022",
       "slug": "fast-lane",
       "title": "Fast lane: a low-latency serving tier for TLM4 Core 27B on HyperPod and vLLM (over 1,000 tok/s per request; 300 tokens in 200 ms; about 1 million input tokens a minute), proven on one 8x H100 node and scaled out by adding H100 nodes",
-      "stageNote": "Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15; proof built as a runnable kit on public Gemma 4 31B with H7 to H10 added (D-378); kit moved to thinklatent-labs/fast-lane and made the company version 0.2.1 on 2026-11-16 (runs inside the Enterprise on the Core itself, results stay inside, independent audit fixed) (D-382)",
+      "stageNote": "Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15; proof built as a runnable kit on public Gemma 4 31B with H7 to H10 added (D-378); kit moved to thinklatent-labs/fast-lane and made the company version 0.2.1 on 2026-11-16 (runs inside the Enterprise on the Core itself, results stay inside, independent audit fixed) (D-382); roadmap after the proof with a hardware track (G7e, Trainium) and H11 to H15 proposed (D-384)",
       "horizon": "H1",
       "owner": "Head of ThinkLatent (Jithin), sponsor and decider; serving lead (Claude)",
       "docTitle": "Scout brief in project knowledge: claude/scout-brief-fast-lane.md; Serving design and proof plan 2026-11-15; Drafter training recipe 2026-11-15; Proof kit and experiment design 2026-11-15 (all mirrored at artifacts/TL-022-fast-lane/, with the runnable kit in fast-lane-kit/ until thinklatent-labs/fast-lane exists)",
-      "nextStep": "Jithin runs the proof inside the Enterprise from thinklatent-labs/fast-lane (kit 0.2.1, ENTERPRISE.md): fill config/enterprise.yaml (Core 27B FP8 and BF16 paths, 7B Core), scripts/setup.sh, preflight on a GPU node, PLAN=quick then PLAN=standard on one 8x H100 node, then python -m fastlane export. If Q9 allows, the numbers-only export comes back and the next session records H1 to H10 from it. Inputs Jithin holds: Langfuse prompt and reply lengths per application (scripts/langfuse_to_replay.py --stats prints them), where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8)",
+      "nextStep": "Jithin runs the proof inside the Enterprise from thinklatent-labs/fast-lane (kit 0.2.1, ENTERPRISE.md): fill config/enterprise.yaml (Core 27B FP8 and BF16 paths, 7B Core), scripts/setup.sh, preflight on a GPU node, PLAN=quick then PLAN=standard on one 8x H100 node, then python -m fastlane export. If Q9 allows, the numbers-only export comes back and the next session records H1 to H10 from it. Inputs Jithin holds: Langfuse prompt and reply lengths per application (scripts/langfuse_to_replay.py --stats prints them), where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8). In parallel: Jithin answers Q10 to Q12 (G7 or G7e; Trainium2 now or Trainium3 and the discount terms; g7e quota), and Claude builds the G7e overlay once Q10 is settled; phases 0 to 4 are in the roadmap doc",
       "nextStepDue": "2026-11-27",
       "productionSurface": {
         "users": "Applications with a service level on TLM4 Core 27B calls (replies under 300 tokens in 200 ms)",
@@ -2070,6 +2070,51 @@
           "evidence": 0,
           "confidence": null,
           "result": null
+        },
+        {
+          "claim": "H11. The Core 27B on g7e.48xlarge (Blackwell RTX PRO 6000), best layout and drafter, gives 1,000 tok/s per call at p50 with 8 in flight; pre-registered expectation: refuted at FP8 (proposed 2026-11-16; Jithin fixes it before any chip run)",
+          "measurement": "Same grid as H2, on G7e",
+          "confirmedIf": "1,000 or more",
+          "refutedIf": "Under 1,000: G7e serves throughput classes, not the fast lane",
+          "evidence": 0,
+          "confidence": null,
+          "result": null
+        },
+        {
+          "claim": "H12. G7e keeps the standard, bulk and long-write promises at 30% or more below H100's cost per million output tokens (on-demand prices) (proposed 2026-11-16; Jithin fixes it before any chip run)",
+          "measurement": "Bucket sheet on G7e and H100, cost per million tokens at each promise",
+          "confirmedIf": "30% or more cheaper",
+          "refutedIf": "Not cheaper than H100",
+          "evidence": 0,
+          "confidence": null,
+          "result": null
+        },
+        {
+          "claim": "H13. Within 2 engineer-weeks the Core 27B is served by vLLM Neuron on Trn2 with an EAGLE-3 drafter, plain decoding matching the GPU replies on the screen prompts (proposed 2026-11-16; Jithin fixes it before any chip run)",
+          "measurement": "Porting check",
+          "confirmedIf": "Both",
+          "refutedIf": "No served model when the check ends: Trainium leaves the fast lane",
+          "evidence": 0,
+          "confidence": null,
+          "result": null
+        },
+        {
+          "claim": "H14. At the discounted price, Trn2 keeps the fast buckets' promises at lower cost per million tokens than H100 (stretch: 1,000 tok/s per call) (proposed 2026-11-16; Jithin fixes it before any chip run)",
+          "measurement": "Bucket sheet on Trn2 and H100",
+          "confirmedIf": "Cheaper at the promise",
+          "refutedIf": "Dearer, or promises missed",
+          "evidence": 0,
+          "confidence": null,
+          "result": null
+        },
+        {
+          "claim": "H15. A mixed fleet (each bucket on its cheapest chip that keeps the promise) costs 25% or more below all-H100 at equal attainment for 1M input tokens a minute, counting the operating cost of more chip types (proposed 2026-11-16; Jithin fixes it before any chip run)",
+          "measurement": "Fleet cost model from the measured bucket sheets",
+          "confirmedIf": "25% or more cheaper",
+          "refutedIf": "Under 10% cheaper",
+          "evidence": 0,
+          "confidence": null,
+          "result": null
         }
       ],
       "killSignals": [
@@ -2125,6 +2170,21 @@
           "question": "Q9: may a numbers-only export of the Enterprise run (report, verdicts, tables and charts; no prompts, replies, logs, paths or host names) come back to the lab, so H1 to H10 are recorded here? Recommendation: yes, after Jithin reviews the export",
           "owner": "Head of ThinkLatent",
           "blocking": "Yes, for recording H1 to H10 in the lab"
+        },
+        {
+          "question": "Q10: G7 (RTX PRO 4500, 32 GB per GPU) or G7e (RTX PRO 6000, 96 GB, 1.6 TB/s)? Recommendation: G7e for the 27B; G7 only later for the 7B bulk tier",
+          "owner": "Head of ThinkLatent",
+          "blocking": "Yes, for the G7e overlay"
+        },
+        {
+          "question": "Q11: Trainium2 now or wait for Trainium3, and the discount terms (rate, term, minimum)? Recommendation: porting check on Trn2 now (trn2.3xlarge, then trn2.48xlarge); ask AWS for Trn3 slice sizes and the discount in writing before the bake-off",
+          "owner": "Head of ThinkLatent",
+          "blocking": "Yes, for Phase 2b"
+        },
+        {
+          "question": "Q12: can the Enterprise account get g7e quota in US East for about three days?",
+          "owner": "Head of ThinkLatent",
+          "blocking": "Yes, for Phase 2a"
         }
       ]
     }
@@ -5404,6 +5464,19 @@
       "health": "at-risk",
       "healthNote": "Everything needed to build is now in hand; the launch rests on Jithin's build hours, the custom.css request and sourced numbers by 21 Nov",
       "nextStepDue": "2026-11-21"
+    },
+    {
+      "date": "2026-11-16",
+      "scope": "TL-022 fast-lane",
+      "ideaIds": [
+        "TL-022"
+      ],
+      "mode": "Scout and Spec (roadmap)",
+      "outcome": "Jithin asked what comes after the H100 proof, and to plan for two more chips: AWS G7 (Blackwell) and Trainium (discount promised). Scouted both: G7e is RTX PRO 6000 Blackwell (96 GB GDDR7, 1.6 TB/s per GPU, PCIe, about $33/h for 8); G7 is RTX PRO 4500 (32 GB, a poor fit for the 27B); trn2.48xlarge is 16 Trainium2 (96 GB HBM3, 2.9 TB/s each, $35.76/h as a Capacity Block); Trn3 comes as UltraServers. vLLM on Neuron lists no Gemma models and EAGLE-3 is its only learned drafter, so Trainium needs the Core onboarded. Wrote the roadmap: phases 0 to 4 with gates and appetites, bandwidth ceilings per chip (G7e cannot reach 1,000 tok/s per call on the 27B at FP8), H11 to H15 proposed, kit work per chip, Q10 to Q12",
+      "docsTouched": "Fast lane (fast-lane) - Roadmap and hardware plan 2026-11-16 (new, D-384)",
+      "health": "at-risk",
+      "healthNote": "Unchanged from the proof: nothing has run on GPUs yet; the hardware track adds the Trainium porting risk and attention cost, so it waits on Phase 0 numbers",
+      "nextStepDue": "2026-11-27"
     }
   ],
   "decisions": [
@@ -10754,6 +10827,20 @@
       "reviewOn": "2026-11-21",
       "supersedes": null,
       "type": "decision"
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-022",
+      "date": "2026-11-16",
+      "door": "two-way",
+      "id": "D-384",
+      "by": "Jithin",
+      "decision": "After the H100 proof, test two more chips: AWS G7-family Blackwell (cheaper, easier to get now) and Trainium (a discount is promised). The roadmap runs phases 0 to 4: the H100 proof, making it real on H100, a hardware bake-off (G7e quickly with the same kit; Trainium behind a 2-week porting check of the Core and an EAGLE-3 drafter on vLLM Neuron), fleet design by cost per million tokens at each bucket's promise, then production. H11 to H15 proposed; Jithin fixes them before any chip run"
     }
   ],
   "syncLog": [

@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: null
-next_step: "Jithin runs the proof inside the Enterprise from thinklatent-labs/fast-lane (kit 0.2.1, ENTERPRISE.md): fill config/enterprise.yaml (Core 27B FP8 and BF16 paths, 7B Core), scripts/setup.sh, preflight on a GPU node, PLAN=quick then PLAN=standard on one 8x H100 node, then python -m fastlane export. If Q9 allows, the numbers-only export comes back and the next session records H1 to H10 from it. Inputs Jithin holds: Langfuse prompt and reply lengths per application (scripts/langfuse_to_replay.py --stats prints them), where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8)"
+next_step: "Jithin runs the proof inside the Enterprise from thinklatent-labs/fast-lane (kit 0.2.1, ENTERPRISE.md): fill config/enterprise.yaml (Core 27B FP8 and BF16 paths, 7B Core), scripts/setup.sh, preflight on a GPU node, PLAN=quick then PLAN=standard on one 8x H100 node, then python -m fastlane export. If Q9 allows, the numbers-only export comes back and the next session records H1 to H10 from it. Inputs Jithin holds: Langfuse prompt and reply lengths per application (scripts/langfuse_to_replay.py --stats prints them), where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8). In parallel: Jithin answers Q10 to Q12 (G7 or G7e; Trainium2 now or Trainium3 and the discount terms; g7e quota), and Claude builds the G7e overlay once Q10 is settled; phases 0 to 4 are in the roadmap doc"
 next_step_due: "2026-11-27"
 ---
 
@@ -29,11 +29,11 @@ next_step_due: "2026-11-27"
 <!-- generated:start -->
 ## Lab record
 
-**TL-022 fast-lane** · Idea · Seed (Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15; proof built as a runnable kit on public Gemma 4 31B with H7 to H10 added (D-378); kit moved to thinklatent-labs/fast-lane and made the company version 0.2.1 on 2026-11-16 (runs inside the Enterprise on the Core itself, results stay inside, independent audit fixed) (D-382)) · H1
+**TL-022 fast-lane** · Idea · Seed (Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15; proof built as a runnable kit on public Gemma 4 31B with H7 to H10 added (D-378); kit moved to thinklatent-labs/fast-lane and made the company version 0.2.1 on 2026-11-16 (runs inside the Enterprise on the Core itself, results stay inside, independent audit fixed) (D-382); roadmap after the proof with a hardware track (G7e, Trainium) and H11 to H15 proposed (D-384)) · H1
 
 Owner: Head of ThinkLatent (Jithin), sponsor and decider; serving lead (Claude). Appetite: not set. Score: not scored .
 
-Next step: Jithin runs the proof inside the Enterprise from thinklatent-labs/fast-lane (kit 0.2.1, ENTERPRISE.md): fill config/enterprise.yaml (Core 27B FP8 and BF16 paths, 7B Core), scripts/setup.sh, preflight on a GPU node, PLAN=quick then PLAN=standard on one 8x H100 node, then python -m fastlane export. If Q9 allows, the numbers-only export comes back and the next session records H1 to H10 from it. Inputs Jithin holds: Langfuse prompt and reply lengths per application (scripts/langfuse_to_replay.py --stats prints them), where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8) (due 2026-11-27)
+Next step: Jithin runs the proof inside the Enterprise from thinklatent-labs/fast-lane (kit 0.2.1, ENTERPRISE.md): fill config/enterprise.yaml (Core 27B FP8 and BF16 paths, 7B Core), scripts/setup.sh, preflight on a GPU node, PLAN=quick then PLAN=standard on one 8x H100 node, then python -m fastlane export. If Q9 allows, the numbers-only export comes back and the next session records H1 to H10 from it. Inputs Jithin holds: Langfuse prompt and reply lengths per application (scripts/langfuse_to_replay.py --stats prints them), where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8). In parallel: Jithin answers Q10 to Q12 (G7 or G7e; Trainium2 now or Trainium3 and the discount terms; g7e quota), and Claude builds the G7e overlay once Q10 is settled; phases 0 to 4 are in the roadmap doc (due 2026-11-27)
 
 Production surface: Applications with a service level on TLM4 Core 27B calls (replies under 300 tokens in 200 ms) · A fast-lane pool on HyperPod: 8x H100 units behind Envoy with service-class routing, vLLM with a drafter per served model · p95 end-to-end latency and tok/s per request at the stated load
 
@@ -55,6 +55,11 @@ Governance: not recorded.
 | H8. The bucketed picker beats round robin on fast-call attainment on the same traffic | 5 points or more | 0 points or less: plain load balancing is enough | opinion | not set | open |
 | H9. A drafter we train on public data comes within 10% of the public drafter's mean accepted length (per route: Speculators EAGLE-3; in the full plan also Speculators DFlash and Model Optimizer EAGLE-3) | 0.90 or more: the pipeline is ready for the Core | Under 0.75 | opinion | not set | open |
 | H10. Gemma 4 31B on 8x H100 returns 300 tokens in 200 ms at p95 (1,000-token prompt, one call); pre-registered expectation: refuted | 200 ms or less | Over 200 ms: the 200 ms class belongs on the small model | opinion | not set | open |
+| H11. The Core 27B on g7e.48xlarge (Blackwell RTX PRO 6000), best layout and drafter, gives 1,000 tok/s per call at p50 with 8 in flight; pre-registered expectation: refuted at FP8 (proposed 2026-11-16; Jithin fixes it before any chip run) | 1,000 or more | Under 1,000: G7e serves throughput classes, not the fast lane | opinion | not set | open |
+| H12. G7e keeps the standard, bulk and long-write promises at 30% or more below H100's cost per million output tokens (on-demand prices) (proposed 2026-11-16; Jithin fixes it before any chip run) | 30% or more cheaper | Not cheaper than H100 | opinion | not set | open |
+| H13. Within 2 engineer-weeks the Core 27B is served by vLLM Neuron on Trn2 with an EAGLE-3 drafter, plain decoding matching the GPU replies on the screen prompts (proposed 2026-11-16; Jithin fixes it before any chip run) | Both | No served model when the check ends: Trainium leaves the fast lane | opinion | not set | open |
+| H14. At the discounted price, Trn2 keeps the fast buckets' promises at lower cost per million tokens than H100 (stretch: 1,000 tok/s per call) (proposed 2026-11-16; Jithin fixes it before any chip run) | Cheaper at the promise | Dearer, or promises missed | opinion | not set | open |
+| H15. A mixed fleet (each bucket on its cheapest chip that keeps the promise) costs 25% or more below all-H100 at equal attainment for 1M input tokens a minute, counting the operating cost of more chip types (proposed 2026-11-16; Jithin fixes it before any chip run) | 25% or more cheaper | Under 10% cheaper | opinion | not set | open |
 
 ### Kill signals
 | Signal | By | Status | Action |
@@ -73,6 +78,9 @@ Governance: not recorded.
 | Drafter refresh at each Core release: retrain every release, or check acceptance first and refresh (warm-started) only when a bucket falls below its promise? Recommendation: check first | Head of ThinkLatent | No |
 | Which dimensions did the Core 27B's width prune cut (hidden size, attention heads, MLP)? Public Gemma 4 31B drafters load on the Core only if the hidden size was kept (Google's MTP drafter also needs the attention layout) | Head of ThinkLatent | No (yes for reusing public drafters on the Core) |
 | Q9: may a numbers-only export of the Enterprise run (report, verdicts, tables and charts; no prompts, replies, logs, paths or host names) come back to the lab, so H1 to H10 are recorded here? Recommendation: yes, after Jithin reviews the export | Head of ThinkLatent | Yes, for recording H1 to H10 in the lab |
+| Q10: G7 (RTX PRO 4500, 32 GB per GPU) or G7e (RTX PRO 6000, 96 GB, 1.6 TB/s)? Recommendation: G7e for the 27B; G7 only later for the 7B bulk tier | Head of ThinkLatent | Yes, for the G7e overlay |
+| Q11: Trainium2 now or wait for Trainium3, and the discount terms (rate, term, minimum)? Recommendation: porting check on Trn2 now (trn2.3xlarge, then trn2.48xlarge); ask AWS for Trn3 slice sizes and the discount in writing before the bake-off | Head of ThinkLatent | Yes, for Phase 2b |
+| Q12: can the Enterprise account get g7e quota in US East for about three days? | Head of ThinkLatent | Yes, for Phase 2a |
 
 ### Links
 | Link | To | Note |
@@ -102,6 +110,7 @@ Governance: not recorded.
 | Proof kit: bench_grid.sh (vllm bench serve sweep) and bucket_sheet.py (bucket sheet from results) | code | [artifacts/TL-022-fast-lane/proof-kit/](../artifacts/TL-022-fast-lane/proof-kit/) |  | 2026-11-15 |
 | Fast lane (fast-lane) - Proof kit and experiment design 2026-11-15 | doc | [artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md](../artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md) | [claude.ai](project-knowledge:claude/Fast lane (fast-lane) - Proof kit and experiment design 2026-11-15.md) | 2026-11-16 |
 | fast-lane kit: pointer to thinklatent-labs/fast-lane (kit 0.2.1, company version) | code | [artifacts/TL-022-fast-lane/fast-lane-kit/](../artifacts/TL-022-fast-lane/fast-lane-kit/) | [claude.ai](https://github.com/thinklatent-labs/fast-lane) | 2026-11-16 |
+| Fast lane (fast-lane) - Roadmap and hardware plan 2026-11-16 | doc | [artifacts/TL-022-fast-lane/roadmap-and-hardware-plan.md](../artifacts/TL-022-fast-lane/roadmap-and-hardware-plan.md) | [claude.ai](project-knowledge:claude/Fast lane (fast-lane) - Roadmap and hardware plan 2026-11-16.md) | 2026-11-16 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -115,6 +124,7 @@ Governance: not recorded.
 | D-377 | 2026-11-15 | Draft models (EAGLE-3, then DFlash) are trained by both routes, Speculators (vLLM-native) and Model Optimizer (NVIDIA's route), on the same target-written data, and compared on accepted length per bucket, tok/s per request and training hours. Dissent recorded: the recommendation was Speculators with Model Optimizer as a cross-check; both routes cost an extra training run per model | Jithin (against the recommendation) | accepted |
 | D-378 | 2026-11-15 | The proof is built as runnable code, not more answers: one Slurm job on one 8x H100 node runs public Gemma 4 31B (FP8, vLLM 0.33.0) through a drafter screen, the prompt x reply x in-flight grid, the small-model 200 ms class, layouts, mixed traffic behind the picker (capacity, policies, borrowing) and drafter training, then writes a report that judges pre-registered H1 to H10 and pushes results to GitHub. H7 to H10 added. Public drafters are tested first and our training is measured against them; the full plan keeps both training routes (D-377). The kit lives in thinklatent-labs/fast-lane, which Jithin creates | Jithin | accepted |
 | D-382 | 2026-11-16 | The proof runs inside the Enterprise, separately from the lab: Jithin takes the kit from thinklatent-labs/fast-lane (created 2026-11-16) and runs it there. Kit 0.2.1 is that company version: one config overlay runs it on TLM4 Core 27B itself, weights, data and results stay inside, and only a numbers-only export may come back to the lab, if Jithin clears it (Q9). Thresholds unchanged. The 12 findings of an independent audit are fixed in 0.2.1. | Jithin | accepted |
+| D-384 | 2026-11-16 | After the H100 proof, test two more chips: AWS G7-family Blackwell (cheaper, easier to get now) and Trainium (a discount is promised). The roadmap runs phases 0 to 4: the H100 proof, making it real on H100, a hardware bake-off (G7e quickly with the same kit; Trainium behind a 2-week porting check of the Core and an EAGLE-3 drafter on vLLM Neuron), fleet design by cost per million tokens at each bucket's promise, then production. H11 to H15 proposed; Jithin fixes them before any chip run | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
@@ -204,3 +214,34 @@ Verdicts now read NOT RUN whenever their data is missing.
 Checked on a real install: vLLM 0.33.0 from PyPI brings torch 2.14.0 built for CUDA
 13.0, and its own request model accepts every field the client sends. All ten Hugging
 Face repositories the kit uses exist, are Apache-2.0 and are not gated.
+
+### 2026-11-16 · TL-022 session (continued) · Scout and Spec (roadmap)
+
+Jithin asked what comes after the H100 proof, and to plan for two more chips: AWS G7
+(Blackwell, cheaper and easier to get now) and Trainium (a discount is promised).
+The roadmap doc sets out five phases:
+
+0. the H100 proof;
+1. making it real on H100;
+2. a hardware bake-off;
+3. fleet design;
+4. production.
+
+Each phase has a gate and an appetite.
+
+The bake-off has two sides:
+- **G7e** (RTX PRO 6000, 96 GB, 1.6 TB/s per GPU, about $33 an hour for eight) runs the
+  kit as is.
+- **Trainium2** (2.9 TB/s per chip, $35.76 an hour for 16 as a Capacity Block) first
+  needs a 2-week porting check. vLLM on Neuron lists no Gemma models, and EAGLE-3 is its
+  only learned drafter.
+
+The plain G7 (32 GB per GPU) is a poor fit for the 27B.
+
+Bandwidth ceilings say G7e cannot give 1,000 tok/s per call on the 27B at FP8. Its role
+is cheaper throughput for the standard, bulk and long-write buckets.
+
+H11 to H15 are proposed, for Jithin to fix before any chip run. The decision metric is
+cost per million tokens at each bucket's promise, so each bucket can go to the cheapest
+chip that keeps it (D-384). Q10 to Q12 are open: G7 or G7e, Trainium generation and
+discount terms, and g7e quota.
