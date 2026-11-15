@@ -57,7 +57,7 @@ Governance: not recorded.
 | H10. Gemma 4 31B on 8x H100 returns 300 tokens in 200 ms at p95 (1,000-token prompt, one call); pre-registered expectation: refuted | 200 ms or less | Over 200 ms: the 200 ms class belongs on the small model | opinion | not set | open |
 | H11. The Core 27B on g7e.48xlarge (Blackwell RTX PRO 6000), best layout and drafter, gives 1,000 tok/s per call at p50 with 8 in flight; pre-registered expectation: refuted at FP8 (proposed 2026-11-16; Jithin fixes it before any chip run) | 1,000 or more | Under 1,000: G7e serves throughput classes, not the fast lane | opinion | not set | open |
 | H12. G7e keeps the standard, bulk and long-write promises at 30% or more below H100's cost per million output tokens (on-demand prices) (proposed 2026-11-16; Jithin fixes it before any chip run) | 30% or more cheaper | Not cheaper than H100 | opinion | not set | open |
-| H13. Within 2 engineer-weeks the Core 27B is served by vLLM Neuron on Trn2 with an EAGLE-3 drafter, plain decoding matching the GPU replies on the screen prompts (proposed 2026-11-16; Jithin fixes it before any chip run) | Both | No served model when the check ends: Trainium leaves the fast lane | opinion | not set | open |
+| H13a. Within 2 engineer-weeks, vLLM Neuron on Trn2 serves the public Gemma 4 31B and then the Core 27B, greedy outputs matching the GPU token for token on the screen prompts; H13b. within up to 2 more weeks an EAGLE-3 drafter runs on it (proposed 2026-11-16, split after the Gemma on Trainium scout; Jithin fixes it before any chip run) | Both | H13a fails: Trainium leaves the fast lane; H13b fails: Trainium runs without speculation | opinion | not set | open |
 | H14. At the discounted price, Trn2 keeps the fast buckets' promises at lower cost per million tokens than H100 (stretch: 1,000 tok/s per call) (proposed 2026-11-16; Jithin fixes it before any chip run) | Cheaper at the promise | Dearer, or promises missed | opinion | not set | open |
 | H15. A mixed fleet (each bucket on its cheapest chip that keeps the promise) costs 25% or more below all-H100 at equal attainment for 1M input tokens a minute, counting the operating cost of more chip types (proposed 2026-11-16; Jithin fixes it before any chip run) | 25% or more cheaper | Under 10% cheaper | opinion | not set | open |
 
@@ -81,6 +81,7 @@ Governance: not recorded.
 | Q10: G7 (RTX PRO 4500, 32 GB per GPU) or G7e (RTX PRO 6000, 96 GB, 1.6 TB/s)? Recommendation: G7e for the 27B; G7 only later for the 7B bulk tier | Head of ThinkLatent | Yes, for the G7e overlay |
 | Q11: Trainium2 now or wait for Trainium3, and the discount terms (rate, term, minimum)? Recommendation: porting check on Trn2 now (trn2.3xlarge, then trn2.48xlarge); ask AWS for Trn3 slice sizes and the discount in writing before the bake-off | Head of ThinkLatent | Yes, for Phase 2b |
 | Q12: can the Enterprise account get g7e quota in US East for about three days? | Head of ThinkLatent | Yes, for Phase 2a |
+| Q13: make Gemma 4 support part of the Trainium discount deal (Annapurna engineering help or an existing internal port) before we spend our own weeks porting? Recommendation: yes | Head of ThinkLatent | No, but it decides who carries the porting risk |
 
 ### Links
 | Link | To | Note |
@@ -111,6 +112,7 @@ Governance: not recorded.
 | Fast lane (fast-lane) - Proof kit and experiment design 2026-11-15 | doc | [artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md](../artifacts/TL-022-fast-lane/proof-kit-and-experiment-design.md) | [claude.ai](project-knowledge:claude/Fast lane (fast-lane) - Proof kit and experiment design 2026-11-15.md) | 2026-11-16 |
 | fast-lane kit: pointer to thinklatent-labs/fast-lane (kit 0.2.1, company version) | code | [artifacts/TL-022-fast-lane/fast-lane-kit/](../artifacts/TL-022-fast-lane/fast-lane-kit/) | [claude.ai](https://github.com/thinklatent-labs/fast-lane) | 2026-11-16 |
 | Fast lane (fast-lane) - Roadmap and hardware plan 2026-11-16 | doc | [artifacts/TL-022-fast-lane/roadmap-and-hardware-plan.md](../artifacts/TL-022-fast-lane/roadmap-and-hardware-plan.md) | [claude.ai](project-knowledge:claude/Fast lane (fast-lane) - Roadmap and hardware plan 2026-11-16.md) | 2026-11-16 |
+| Scout brief: Gemma on Trainium with vLLM, 2026-11-16 | brief | [artifacts/TL-022-fast-lane/scout-brief-gemma-on-trainium.md](../artifacts/TL-022-fast-lane/scout-brief-gemma-on-trainium.md) | [claude.ai](project-knowledge:claude/scout-brief-gemma-on-trainium.md) | 2026-11-16 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -125,6 +127,7 @@ Governance: not recorded.
 | D-378 | 2026-11-15 | The proof is built as runnable code, not more answers: one Slurm job on one 8x H100 node runs public Gemma 4 31B (FP8, vLLM 0.33.0) through a drafter screen, the prompt x reply x in-flight grid, the small-model 200 ms class, layouts, mixed traffic behind the picker (capacity, policies, borrowing) and drafter training, then writes a report that judges pre-registered H1 to H10 and pushes results to GitHub. H7 to H10 added. Public drafters are tested first and our training is measured against them; the full plan keeps both training routes (D-377). The kit lives in thinklatent-labs/fast-lane, which Jithin creates | Jithin | accepted |
 | D-382 | 2026-11-16 | The proof runs inside the Enterprise, separately from the lab: Jithin takes the kit from thinklatent-labs/fast-lane (created 2026-11-16) and runs it there. Kit 0.2.1 is that company version: one config overlay runs it on TLM4 Core 27B itself, weights, data and results stay inside, and only a numbers-only export may come back to the lab, if Jithin clears it (Q9). Thresholds unchanged. The 12 findings of an independent audit are fixed in 0.2.1. | Jithin | accepted |
 | D-384 | 2026-11-16 | After the H100 proof, test two more chips: AWS G7-family Blackwell (cheaper, easier to get now) and Trainium (a discount is promised). The roadmap runs phases 0 to 4: the H100 proof, making it real on H100, a hardware bake-off (G7e quickly with the same kit; Trainium behind a 2-week porting check of the Core and an EAGLE-3 drafter on vLLM Neuron), fleet design by cost per million tokens at each bucket's promise, then production. H11 to H15 proposed; Jithin fixes them before any chip run | Jithin | accepted |
+| D-385 | 2026-11-16 | Trainium track re-scoped after the scout: no one serves Gemma 4 on Trainium through vLLM (AWS's Neuron stack has no Gemma model class; one community engineer hand-ported Gemma 4 to Inferentia2 outside vLLM, and the vendor vLLM path served fluent gibberish). H13 splits into H13a (public Gemma 4 31B, then the Core, on vLLM Neuron Trn2 with greedy outputs matching the GPU, 2 engineer-weeks) and H13b (EAGLE-3 on it, up to 2 more weeks); recommend making Gemma 4 support part of the Trainium discount deal (Q13) | Thinking partner, pending Jithin | proposed |
 <!-- generated:end -->
 
 ## Notes
@@ -245,3 +248,25 @@ H11 to H15 are proposed, for Jithin to fix before any chip run. The decision met
 cost per million tokens at each bucket's promise, so each bucket can go to the cheapest
 chip that keeps it (D-384). Q10 to Q12 are open: G7 or G7e, Trainium generation and
 discount terms, and g7e quota.
+
+### 2026-11-16 · TL-022 session (continued) · Scout (Gemma on Trainium)
+
+Jithin asked whether anyone runs Gemma on Trainium with vLLM. Nobody we found serves
+Gemma 4 on Trainium through vLLM:
+- AWS's Neuron stack has no Gemma model class.
+- One community engineer hand-ported the Gemma 4 family to Inferentia2 and Trn1, but
+  outside vLLM, after the vendor path served fluent gibberish.
+
+So Trainium is a porting project, not an instance swap. The blockers are in
+`scout-brief-gemma-on-trainium`. The main ones:
+- Gemma 4's mixed attention, with different head sizes and KV heads per layer type;
+- K equals V on global layers;
+- dual RoPE;
+- soft-capping;
+- fixed shapes;
+- EAGLE as the only speculative method;
+- silent wrongness.
+
+H13 is now H13a (Gemma 4, then the Core, greedy-exact on vLLM Neuron, 2 weeks) and H13b
+(EAGLE-3, up to 2 more weeks). Q13 asks to make Gemma 4 support part of the Trainium
+discount deal.

@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-16T05:06:00+05:30",
+  "asOf": "2026-11-16T05:07:00+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 553,
+    "registerRev": 554,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -2090,10 +2090,10 @@
           "result": null
         },
         {
-          "claim": "H13. Within 2 engineer-weeks the Core 27B is served by vLLM Neuron on Trn2 with an EAGLE-3 drafter, plain decoding matching the GPU replies on the screen prompts (proposed 2026-11-16; Jithin fixes it before any chip run)",
-          "measurement": "Porting check",
+          "claim": "H13a. Within 2 engineer-weeks, vLLM Neuron on Trn2 serves the public Gemma 4 31B and then the Core 27B, greedy outputs matching the GPU token for token on the screen prompts; H13b. within up to 2 more weeks an EAGLE-3 drafter runs on it (proposed 2026-11-16, split after the Gemma on Trainium scout; Jithin fixes it before any chip run)",
+          "measurement": "Porting check, against a GPU reference run of the same prompts",
           "confirmedIf": "Both",
-          "refutedIf": "No served model when the check ends: Trainium leaves the fast lane",
+          "refutedIf": "H13a fails: Trainium leaves the fast lane; H13b fails: Trainium runs without speculation",
           "evidence": 0,
           "confidence": null,
           "result": null
@@ -2185,6 +2185,11 @@
           "question": "Q12: can the Enterprise account get g7e quota in US East for about three days?",
           "owner": "Head of ThinkLatent",
           "blocking": "Yes, for Phase 2a"
+        },
+        {
+          "question": "Q13: make Gemma 4 support part of the Trainium discount deal (Annapurna engineering help or an existing internal port) before we spend our own weeks porting? Recommendation: yes",
+          "owner": "Head of ThinkLatent",
+          "blocking": "No, but it decides who carries the porting risk"
         }
       ]
     }
@@ -5476,6 +5481,19 @@
       "docsTouched": "Fast lane (fast-lane) - Roadmap and hardware plan 2026-11-16 (new, D-384)",
       "health": "at-risk",
       "healthNote": "Unchanged from the proof: nothing has run on GPUs yet; the hardware track adds the Trainium porting risk and attention cost, so it waits on Phase 0 numbers",
+      "nextStepDue": "2026-11-27"
+    },
+    {
+      "date": "2026-11-16",
+      "scope": "TL-022 fast-lane",
+      "ideaIds": [
+        "TL-022"
+      ],
+      "mode": "Scout (Gemma on Trainium)",
+      "outcome": "Jithin asked whether anyone runs Gemma on Trainium with vLLM and what would block us. Found: AWS's vLLM-on-Neuron supported list has no Gemma; a community engineer hand-ported the whole Gemma 4 family (31B included) to Inferentia2 and Trn1 outside vLLM after the vendor path served fluent gibberish; Gemma 4 31B on Intel Gaudi 3 needed a sliding-window KV fix. Blockers ranked: no model class (onboard into the vLLM Neuron plugin), Gemma 4 specifics (5:1 sliding/global attention with different head sizes and KV heads, K=V on global layers, dual RoPE, logit soft-capping, 262K vocabulary), silent wrongness, compiler limits and fixed shapes, EAGLE-only speculation, pruned-Core tile sizes, version lag and FP8 format. H13 split into H13a and H13b; Q13 added",
+      "docsTouched": "scout-brief-gemma-on-trainium (new, D-385)",
+      "health": "at-risk",
+      "healthNote": "Unchanged; the Trainium track is now known to be a porting project, not an instance swap",
       "nextStepDue": "2026-11-27"
     }
   ],
@@ -10841,6 +10859,20 @@
       "id": "D-384",
       "by": "Jithin",
       "decision": "After the H100 proof, test two more chips: AWS G7-family Blackwell (cheaper, easier to get now) and Trainium (a discount is promised). The roadmap runs phases 0 to 4: the H100 proof, making it real on H100, a hardware bake-off (G7e quickly with the same kit; Trainium behind a 2-week porting check of the Core and an EAGLE-3 drafter on vLLM Neuron), fleet design by cost per million tokens at each bucket's promise, then production. H11 to H15 proposed; Jithin fixes them before any chip run"
+    },
+    {
+      "pending": true,
+      "status": "proposed",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-022",
+      "date": "2026-11-16",
+      "door": "two-way",
+      "id": "D-385",
+      "by": "Thinking partner, pending Jithin",
+      "decision": "Trainium track re-scoped after the scout: no one serves Gemma 4 on Trainium through vLLM (AWS's Neuron stack has no Gemma model class; one community engineer hand-ported Gemma 4 to Inferentia2 outside vLLM, and the vendor vLLM path served fluent gibberish). H13 splits into H13a (public Gemma 4 31B, then the Core, on vLLM Neuron Trn2 with greedy outputs matching the GPU, 2 engineer-weeks) and H13b (EAGLE-3 on it, up to 2 more weeks); recommend making Gemma 4 support part of the Trainium discount deal (Q13)"
     }
   ],
   "syncLog": [
