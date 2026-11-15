@@ -15,6 +15,7 @@ Scout session, 2026-11-15. Engineering material: techniques are named in full. E
 | Horizon | H1 (a production requirement today) |
 | Related ideas | TL-008 harness-served (per-endpoint serving environments; the harness stays off the hot path), TL-014 model-mix (its 50 ms decision target is the same latency engineering on the 7B Core), TL-018 tlm-roadmap (one serving path for the TLM suite), TL-004 index (the quality gate for 4-bit weights and for the 7B track) |
 | Hardware | About 16 H100s in hand. The proof runs on one 8× H100 node; more H100 nodes are added as they come (D-373) |
+| Prompts | 1,000 to 10,000 tokens on average (Jithin, 2026-11-15; D-374) |
 | Data rule | The lab works on public weights and public data. The Core weights, Enterprise traffic and drafters trained on that traffic belong to the company version |
 
 ## 1. The ask, in numbers
@@ -38,14 +39,25 @@ At 1,000 input tokens, the output that fits in 200 ms is about 175 tokens at 1,0
 
 **Finding 2: the volume is light; per-request speed is the hard part.** 1 million input tokens a minute is about 16,700 tokens arriving every second. Divided by the average prompt length, that gives requests per second. Requests in flight (being worked on at the same moment) are requests per second times how long each takes (Little's law), here about 0.2 s.
 
-| Average prompt | Requests per second | Requests per minute | In flight at once | In flight at 3x bursts |
-| --- | --- | --- | --- | --- |
-| 250 tokens | 67 | 4,000 | about 13 | about 40 |
-| 500 tokens | 33 | 2,000 | about 7 | about 20 |
-| 1,000 tokens | 17 | 1,000 | about 3 | about 10 |
-| 2,000 tokens | 8 | 500 | about 2 | about 5 |
+| Average prompt | Requests per second | Requests per minute | In flight at once |
+| --- | --- | --- | --- |
+| 1,000 tokens | 17 | 1,000 | about 3 |
+| 2,000 tokens | 8 | 500 | about 2 |
+| 4,000 tokens | 4 | 250 | about 1 |
+| 10,000 tokens | 1.7 | 100 | under 1 |
 
-The same 1 million tokens a minute can mean 500 or 4,000 requests a minute; the GPU count follows the requests in flight, so the real prompt and output lengths (Q1) decide the unit count. Either way the work is per-request decode speed, not throughput.
+Jithin's prompts average 1,000 to 10,000 tokens, so 1 million tokens a minute is 100 to 1,000 requests a minute. Either way the work is per-request speed, not throughput.
+
+**Finding 4: with 1,000 to 10,000-token prompts, reading the prompt is the biggest cost inside 200 ms.** Prefill (time to first token) grows with prompt length:
+
+| Prompt tokens | Core 27B on 8× H100 (TP8) | Core 27B on 8× B300 (TP8) | 7B Core, TP2 on H100 | 7B Core, TP4 on H100 |
+| --- | --- | --- | --- | --- |
+| 1,000 | 17 ms | 9 ms | 6 ms | 4 ms |
+| 2,000 | 31 ms | 16 ms | 10 ms | 7 ms |
+| 4,000 | 60 ms | 29 ms | 19 ms | 13 ms |
+| 10,000 | 146 ms | 69 ms | 45 ms | 31 ms |
+
+With no prefix-cache hits: on one 8× H100 node the Core 27B (drafter τ 4.3, about 1,110 tok/s) finishes 150 tokens inside 200 ms only for prompts up to about 3,250 tokens, and 300 tokens at no prompt length. The 7B Core at TP4 (τ 4.0, about 2,200 tok/s) finishes 300 tokens inside 200 ms for prompts up to about 15,000 tokens: 156 ms at 1,000-token prompts, 182 ms at 10,000. Prefix caching changes the picture for the 27B: if half of a 10,000-token prompt repeats across calls (system prompt, shared documents), its prefill falls from 146 to 74 ms; at 80% repeated, to 31 ms. At the full 1 million tokens a minute, prefill takes about a quarter of one 27B unit's time whatever the prompt length, which is when a prefill/decode split starts to pay.
 
 **Finding 3: more H100s add capacity, not per-request speed.** A single request's speed is set by one replica (8 GPUs on one NVLink domain) and by how many draft tokens the model accepts per step. Adding nodes adds replicas. Scaling out answers the 1 million tokens a minute; it does not make a 300-token reply faster.
 
@@ -103,39 +115,39 @@ Ranked by expected effect. Each lever states what is done now.
 1. **A drafter trained on the Core 27B.** Now: no drafter recorded. Proposed: train DFlash and EAGLE-3 drafters with Speculators, which trains EAGLE-3, P-EAGLE, DFlash, DSpark and MTP drafters for one's own target and serves them in vLLM; Gemma 4 31B already has EAGLE-3 and DFlash speculators. A width-pruned target changes the hidden states a drafter reads, so the public drafters will not fit the Core: retrain, and retrain on every Core refresh. vLLM 0.20 and later serve Speculators-trained DFlash drafters, and 0.26.0 adds hybrid sliding-window drafters, which suits Gemma 4's local and global attention, so no engine upgrade is needed. Expected 2.5x to 5x at small batch. Acceptance is the swing factor: greedy or low-temperature decoding and templated outputs raise it.
 2. **4-bit weights.** Now: FP8. On H100: W4A16 (AWQ or GPTQ) cuts the bytes each step streams from about 28 GB to about 16 GB, worth about 20% per request at small batch and lowering the acceptance needed for 1,000 tok/s from about 3.9 to about 3.3. On Blackwell: NVFP4 with ModelOpt. Either way, gate it on the TL Index tasks of the fast-lane use cases (H3); a pruned model may lose more than the public 31B.
 3. **A min-latency serving profile on one 8× H100 node.** TP8 (TP4 if measured within 10%); CUDA graphs captured for batch 1 to 8; at most 8 requests in flight per replica; chunked prefill sized so a prefill chunk does not stall decodes; prefix caching on; FP8 KV cache; tight max_tokens; structured-output decoding measured separately because grammar masking adds per-token cost.
-4. **The 7B Core for the 200 ms class.** Four replicas at TP2 on one node, each with its own drafter. Estimated 300-token replies in about 185 ms at τ 4.0 and 150-token replies in about 110 ms. Used only where the TL Index shows the 7B is sufficient (TL-004's "sufficiency over size").
-5. **Routing by service class.** Relay carries a service class on the call; Envoy sends that class to the fast pool and everything else to the bulk lane. Above a replica's cap, overflow goes to the 7B lane or the bulk lane instead of a queue (admission control). Provision for the burst rather than autoscaling reactively: a replica takes minutes to come up (instance, FSx weight load, CUDA graph capture).
+4. **The 7B Core for the 200 ms class.** Two replicas at TP4 on one node (TP2 only if prompts stay under about 4,000 tokens), each with its own drafter. Estimated 300-token replies in 156 to 182 ms across 1,000 to 10,000-token prompts at τ 4.0. Used only where the TL Index shows the 7B is sufficient (TL-004's "sufficiency over size").
+5. **Routing by service class, and prefix reuse.** Relay carries a service class on the call; Envoy sends that class to the fast pool and everything else to the bulk lane, keeping the prefix-aware hashing already in place so calls sharing a prompt prefix land on the replica that holds it. With 1,000 to 10,000-token prompts, prefix reuse is the largest lever on time to first token: put the stable parts first (system prompt, policies, shared documents) and the per-call parts last. HyperPod's managed tiered KV cache and intelligent routing (vLLM only) extend reuse across replicas; AWS reports up to 40% lower time to first token on long contexts. Above a replica's cap, overflow goes to the 7B lane or the bulk lane instead of a queue (admission control). Provision for the burst rather than autoscaling reactively: a replica takes minutes to come up (instance, FSx weight load, CUDA graph capture).
 6. **A clean hot path.** The harness steps aside on the call (TL-008 already designs this for first turns); Langfuse writes asynchronously; Okta tokens are checked once and cached at Envoy; clients sit in the same region and zone; connections stay alive. Budget no more than 15 ms for everything that is not the model.
 7. **One engine bake-off.** vLLM against SGLang (Spec V2 with DFlash) and TensorRT-LLM on the same node at 1, 4 and 8 in flight. Stay on vLLM unless another engine is more than 20% faster at end-to-end p95: vLLM is the stack, Speculators targets it, and HyperPod's managed tiered KV cache and intelligent routing support only vLLM containers. A different engine or version per endpoint depends on TL-008's multi-environment work.
-8. **Prefill/decode split at scale only.** Prefill is the 27B unit's capacity limit at longer prompts (about 17 ms per 1,000 tokens at TP8). When units multiply, a node dedicated to prefill is the lever to test; Shift Parallelism (Arctic Inference) is the candidate if one pool must serve both lanes.
+8. **Prefill/decode split when scaling out.** Prefill is the 27B unit's capacity limit (about 15 to 17 ms per 1,000 prompt tokens at TP8; about a quarter of one unit's time at the full load). With a second node, test one node for prefill and one for decode, moving the KV cache over EFA, against two mixed nodes; long prefills then stop stalling decode steps. SwiftKV (Arctic Inference) cuts prefill compute by up to 50%, and Shift Parallelism is the candidate if one pool must serve both lanes.
 9. **Model shape at the next Core refresh.** Evaluate a depth-aware prune (fewer layers) beside the width-pruned Core on the TL Index. Gemma 4 26B-A4B (30 layers, 3.8B active of 25.2B) is a candidate fast base. Caveat: verifying a 16-token draft block on a mixture-of-experts model touches many more experts per step, so its gain from speculation is smaller; measure it.
 10. **Faster silicon only if (b) must hold on the 27B.** B300 nodes (p6-b300: 7.7 TB/s per GPU, FP4; $112.32 an hour per instance on capacity blocks in Oregon and N. Virginia, $142.42 on demand) bring the needed acceptance down to about 4.3. Cerebras on AWS is the only measured route well beyond that. Neither is decided (open question Q5).
 
 ## 6. Prove on one 8× H100 node, then scale out (D-373)
 
-The unit is one p5 node (8 H100s), running either the Core 27B as one replica at TP8 or the 7B Core as four replicas at TP2. More nodes mean more units.
+The unit is one p5 node (8 H100s), running either the Core 27B as one replica at TP8 or the 7B Core as two replicas at TP4. More nodes mean more units.
 
-Table E. What one 8× H100 node can show for each target (1,000 input tokens; planning estimates)
+Table E. What one 8× H100 node can show for each target (prompts of 1,000 to 10,000 tokens, no prefix-cache hits; planning estimates)
 
 | Target | Configuration on the node | Estimate | What it needs | Expected result |
 | --- | --- | --- | --- | --- |
-| (a) Over 1,000 tok/s on the Core 27B | One replica, TP8, drafter trained on the Core | FP8: 906 tok/s at τ 3.5, 1,113 at τ 4.3, 1,294 at τ 5.0; 4-bit: 1,094 at τ 3.5 (one in flight) | τ about 3.9 (FP8) or 3.3 (4-bit) | Pass if the drafter is strong on service-level outputs (H1, H2) |
-| (b) 300 tokens in 200 ms on the Core 27B | Same | 152 to 262 tokens fit in 200 ms (FP8 τ 3.5 to 4-bit τ 5.0) | About 1,780 tok/s: τ about 6.9 (FP8) or 5.7 (4-bit) | Expected to fall short on H100 except on highly predictable outputs; the proof records the ceiling |
-| (c) 200 ms class on the 7B Core | Four replicas at TP2, drafter | 300-token reply in 208 ms at τ 3.5, 185 at τ 4.0, 152 at τ 5.0; 150-token reply in about 110 ms | τ about 3.7 | Pass if the drafter reaches about 4 and the TL Index shows the 7B is sufficient (H4) |
+| (a) Over 1,000 tok/s on the Core 27B | One replica, TP8, drafter trained on the Core | FP8: 906 tok/s at τ 3.5, 1,113 at τ 4.3, 1,294 at τ 5.0; 4-bit: 1,094 at τ 3.5 (one in flight). Prompt length barely moves decode speed | τ about 3.9 (FP8) or 3.3 (4-bit) | Pass if the drafter is strong on service-level outputs (H1, H2) |
+| (b) 300 tokens in 200 ms on the Core 27B | Same | 301 ms at 1,000-token prompts, 431 ms at 10,000 (τ 4.3); 150 tokens fit in 200 ms only up to about 3,250-token prompts | About 1,780 tok/s plus a short prompt, or heavy prefix-cache hits | Out of reach on H100; the proof records the ceiling and the effect of prefix-cache hits |
+| (c) 200 ms class on the 7B Core | Two replicas at TP4, drafter | 300-token reply in 156 ms at 1,000-token prompts and 182 ms at 10,000 (τ 4.0); 190 ms at 10,000 with 8 in flight | τ about 3.7 | Pass if the drafter reaches about 4 and the TL Index shows the 7B is sufficient (H4) |
 
 Table F. What one unit carries, and units for 1 million input tokens a minute (mean in flight held at a third of the cap of 8 so 3x bursts fit; prefill held under 20% of the unit's time; 150-token mean replies; one spare unit)
 
-| Unit | Input tokens per request | Requests/s per unit | Input tokens/min per unit | Units for 1M/min (incl. spare) | H100s |
+| Unit | Prompt tokens | Requests/s per unit | Input tokens/min per unit | Units for 1M/min (incl. spare) | H100s |
 | --- | --- | --- | --- | --- | --- |
-| Core 27B, TP8, τ 4.3 | 500 | 15.2 | 0.46M | 4 | 32 |
 | Core 27B, TP8, τ 4.3 | 1,000 | 11.8 | 0.71M | 3 | 24 |
-| Core 27B, TP8, τ 4.3 | 2,000 | 6.4 | 0.77M | 3 | 24 |
-| 7B Core, 4 × TP2, τ 4.0 | 500 | 98.8 | 2.96M | 2 | 16 |
-| 7B Core, 4 × TP2, τ 4.0 | 1,000 | 96.8 | 5.81M | 2 | 16 |
+| Core 27B, TP8, τ 4.3 | 4,000 | 3.3 | 0.80M | 3 | 24 |
+| Core 27B, TP8, τ 4.3 | 10,000 | 1.4 | 0.82M | 3 | 24 |
+| 7B Core, 2 × TP4, τ 4.0 | 1,000 | 58.5 | 3.51M | 2 | 16 |
+| 7B Core, 2 × TP4, τ 4.0 | 10,000 | 12.8 | 7.65M | 2 | 16 |
 
-Reading: one 27B unit carries roughly half to three-quarters of the stated load. The ~16 H100s in hand (two units) cover about 1.4 million input tokens a minute on the 27B at 1,000-token prompts with no spare, or 0.7 million with one. A single 7B unit covers the whole load. Prefix caching on shared system prompts raises the 27B unit's capacity.
+Reading: one 27B unit carries about 0.7 to 0.8 million input tokens a minute at any prompt length, because prefill time grows with prompt tokens. The ~16 H100s in hand (two units) cover about 1.5 million on the 27B with no spare, or 0.8 million with one; prefix-cache hits raise both. A single 7B unit covers the whole load.
 
-Scaling rule: add one 27B unit per 8 requests of peak in flight (about 0.5 to 0.8 million input tokens a minute each), or one 7B unit per about 3 million; route with the prefix-aware Envoy hashing already in place; cap each replica at 8 in flight; send overflow to the 7B lane or bulk.
+Scaling rule: add one 27B unit per about 0.7 million input tokens a minute (prefill-bound), or one 7B unit per about 3.5 million or more; route with the prefix-aware Envoy hashing already in place; cap each replica at 8 in flight; send overflow to the 7B lane or bulk; from the second 27B unit on, test a prefill/decode split.
 
 ## 7. Cost reference if faster silicon is bought
 
@@ -154,9 +166,9 @@ A dedicated low-batch fleet costs more per token than Cerebras's public price fo
 
 | Option | What it is | For | Against |
 | --- | --- | --- | --- |
-| A. H100 fast lane for the 27B (now) | Levers 1 to 3 and 5 to 7 on one 8× H100 node, scaled by units | Owned model on GPUs in hand; over 1,000 tok/s if the drafter is strong | 300 tokens in 200 ms only on highly predictable outputs |
-| B. The 7B Core for the 200 ms class (now) | Lever 4: four TP2 replicas per node | 300 tokens in about 185 ms at τ 4.0; one unit carries the whole load | Only where the TL Index shows it is sufficient |
-| C. Shorter outputs for service-level calls | Output contracts, structured outputs, stop rules | 150 tokens fits 200 ms at about 1,000 tok/s on the 27B | Needs the use cases to accept it |
+| A. H100 fast lane for the 27B (now) | Levers 1 to 3 and 5 to 7 on one 8× H100 node, scaled by units | Owned model on GPUs in hand; over 1,000 tok/s if the drafter is strong | 300 tokens in 200 ms out of reach at 1,000 to 10,000-token prompts; 150 tokens only up to about 3,250-token prompts without prefix-cache hits |
+| B. The 7B Core for the 200 ms class (now) | Lever 4: two TP4 replicas per node | 300 tokens in 156 to 182 ms across 1,000 to 10,000-token prompts at τ 4.0; one unit carries the whole load | Only where the TL Index shows it is sufficient |
+| C. Shorter replies and shorter or reused prompts | Output contracts, stop rules, stable prompt prefixes first, trimmed retrieval | 150-token replies fit 200 ms on the 27B up to about 3,250-token prompts, longer with prefix-cache hits | Needs the use cases to accept it |
 | D. Faster silicon (B300, or Cerebras on AWS) | Lever 10 | The only routes to 300 tokens in 200 ms on the 27B for open-ended outputs | Cost; Cerebras's custom-model hosting, data handling and residency are unknown and sit against the sovereign stance unless the Core stays inside the Enterprise's boundary |
 | E. Change nothing | vLLM defaults on H100 | No work | About 250 to 300 tok/s per request; 300 tokens take about a second |
 
@@ -167,7 +179,7 @@ A dedicated low-batch fleet costs more per token than Cerebras's public price fo
 | H1 | A DFlash or EAGLE-3 drafter trained on the served model reaches a mean accepted length of at least 3.5 on service-level calls at temperature 0.3 or lower | τ ≥ 3.5 on held-out service-level prompts | τ < 2.5: the 27B cannot pass 1,000 tok/s on H100, and the 200 ms class moves to B, C or D |
 | H2 | One 8× H100 node serving the Core 27B at TP8 with that drafter gives at least 1,000 tok/s per request at p50 with up to 8 in flight | Met in the proof grid | p50 under 1,000 at 8 in flight |
 | H3 | 4-bit weights (W4A16 on H100, NVFP4 on Blackwell) stay within 1 point of FP8 on the TL Index tasks of the fast-lane use cases, with no task worse by more than 2 points | Within bounds | Any task drops more than 2 points: stay on FP8 |
-| H4 | The 7B Core with its drafter returns 300-token replies in 200 ms or less at p95 with up to 8 in flight per TP2 replica, and the TL Index shows it sufficient on those use cases | Both met | Either fails: the 200 ms class moves to C or D |
+| H4 | The 7B Core with its drafter returns 300-token replies in 200 ms or less at p95 with up to 8 in flight per TP4 replica across 1,000 to 10,000-token prompts, and the TL Index shows it sufficient on those use cases | Both met | Either fails: the 200 ms class moves to C or D |
 | H5 | Units scale linearly: two 27B units behind the prefix-aware Envoy carry twice one unit's load with p95 within 10% | Met on the second node | p95 rises more than 10% at twice the load |
 
 Kill criterion: if H1 and H2 both refute, stop building a GPU fast lane for the 27B and choose B, C or D for the 200 ms class.
@@ -177,7 +189,7 @@ Kill criterion: if H1 and H2 both refute, stop building a GPU fast lane for the 
 - Hardware: one p5 node (8 H100s) from the ~16 in hand; the second node only for H5.
 - Stand-ins: public Gemma 4 31B (FP8 and 4-bit) for the Core 27B, with the public EAGLE-3 and DFlash drafters for Gemma 4 31B; public Gemma 4 E2B for the 7B Core, with Google's MTP drafter where one exists or an EAGLE-3 drafter trained with Speculators. This measures hardware and runtime. Acceptance on Enterprise outputs (H1) is measured in the company version, with drafters trained on the Core models.
 - Engines: vLLM 0.26.0; SGLang current as the control.
-- Grid: 27B at TP8 and TP4 × FP8 and 4-bit × no drafter, EAGLE-3, DFlash; 7B at TP1 and TP2; each × 1, 4, 8, 16 in flight × 500, 1,000, 2,000 input tokens × 150 and 300 output tokens × temperature 0 and 0.7.
+- Grid: 27B at TP8 and TP4 × FP8 and 4-bit × no drafter, EAGLE-3, DFlash; 7B at TP2 and TP4; each × 1, 4, 8, 16 in flight × 1,000, 4,000 and 10,000-token prompts × 0%, 50% and 80% of the prompt repeated across calls (prefix-cache hits) × 150 and 300 output tokens × temperature 0 and 0.7.
 - Measures: time to first token, time per output token, tok/s per request, end-to-end p50/p95/p99, accepted length, GPU utilisation, tokens per GPU-hour.
 - Output: Tables B, E and F replaced with measurements, H2 and H4 read, the 27B's 200 ms ceiling recorded, and a go or no-go on training drafters on the Core models.
 
@@ -191,7 +203,7 @@ Created, at Idea maturity: CAP-036 latency-tier serving profile (min-latency eng
 
 | # | Question | Owner | Blocking |
 | --- | --- | --- | --- |
-| Q1 | Traffic shape of service-level calls: input and output token distributions, their share of the 1 million input tokens a minute, burst profile (from Langfuse) | Jithin | Yes, for unit counts |
+| Q1 | Traffic shape of service-level calls: prompts average 1,000 to 10,000 tokens (answered); still needed: the distribution within that range, reply lengths, how much of each prompt repeats across calls (prefix-cache potential), their share of the 1 million input tokens a minute and the burst profile (from Langfuse) | Jithin | Yes, for unit counts |
 | Q2 | Where is 200 ms measured: at the client, at the gateway, or at vLLM? | Jithin | Yes, for the budget |
 | Q3 | The TP degree of today's 27B endpoints, and whether any drafter is in use | Jithin | No |
 | Q4 | Which service-level use cases may move to the 7B Core if the TL Index shows it sufficient? | Jithin, with TL-004 | No |
@@ -204,6 +216,7 @@ Created, at Idea maturity: CAP-036 latency-tier serving profile (min-latency eng
 - Drafter acceptance on Enterprise outputs is the swing factor, and it can only be measured inside the Enterprise.
 - Target (b) on H100 rests on acceptance well above published chat results (DFlash on Gemma 4 31B: 3.0x on chat, 5.8x on math).
 - The 7B track rests on the TL Index showing the 7B sufficient for service-level use cases; nothing yet shows it.
+- With 1,000 to 10,000-token prompts, the 27B's 200 ms budget depends on how much of each prompt repeats across calls; that share is unknown.
 - Provider speeds are moving snapshots, measured on the public 31B, not the Core.
 - Costs use list rates; negotiated rates differ.
 
@@ -214,6 +227,7 @@ Created, at Idea maturity: CAP-036 latency-tier serving profile (min-latency eng
 | D-371 | 2026-11-15 | Registered as TL-022 fast-lane at Seed, its own row (not a feature of TL-008), linked to TL-008, TL-014, TL-018 and TL-004; this brief is its doc | Jithin (on a question with a recommendation) |
 | D-372 | 2026-11-15 | Run the three targets together: (a) over 1,000 tok/s on the Core 27B, (b) 300 tokens in 200 ms on the Core 27B, (c) the 200 ms class on the 7B Core where the TL Index shows it sufficient. Dissent recorded: the recommendation was (a) with 200 ms for replies of 150 tokens or fewer first, because (b) on H100 needs acceptance beyond published chat results | Jithin |
 | D-373 | 2026-11-15 | Prove the fast lane on one 8× H100 node from the ~16 H100s in hand, then scale out with more H100 nodes as they come. Recorded with it: more H100s add capacity, not per-request speed. Faster silicon stays open (Q5) | Jithin |
+| D-374 | 2026-11-15 | Prompts average 1,000 to 10,000 tokens. Consequences recorded: 1 million tokens a minute is 100 to 1,000 requests a minute; prefill becomes the largest cost inside 200 ms (146 ms for 10,000 tokens on the 27B on 8× H100), so 300 tokens in 200 ms is out of reach on the 27B on H100 at any prompt length, and 150 tokens only up to about 3,250-token prompts; the 7B Core at TP4 fits the whole range; the proof grid moves to 1,000, 4,000 and 10,000-token prompts with prefix-cache hit rates of 0%, 50% and 80% | Jithin (fact); Claude (consequences) |
 
 ## Sources
 

@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.3",
-  "asOf": "2026-11-15T13:26:15+05:30",
+  "asOf": "2026-11-15T13:30:12+05:30",
   "generatedBy": "Session TL-007 lab-dashboard (2026-11-08, maintenance pass, D-204), register rev 397.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 545,
+    "registerRev": 546,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1969,11 +1969,11 @@
       "id": "TL-022",
       "slug": "fast-lane",
       "title": "Fast lane: a low-latency serving tier for TLM4 Core 27B on HyperPod and vLLM (over 1,000 tok/s per request; 300 tokens in 200 ms; about 1 million input tokens a minute), proven on one 8x H100 node and scaled out by adding H100 nodes",
-      "stageNote": "Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373)",
+      "stageNote": "Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374)",
       "horizon": "H1",
       "owner": "Head of ThinkLatent (Jithin), sponsor and decider; serving lead (Claude)",
       "docTitle": "Scout brief in project knowledge: claude/scout-brief-fast-lane.md (mirrored at artifacts/TL-022-fast-lane/)",
-      "nextStep": "Prove it on one 8x H100 node (scout brief section 10): public Gemma 4 31B in FP8 and 4-bit with its public EAGLE-3 and DFlash drafters on vLLM 0.26.0 (SGLang as control) for targets (a) and (b), and public Gemma 4 E2B as the 7B Core stand-in at TP2 for target (c); read H2 and H4, record the 27B's 200 ms token ceiling, and size units of 8 H100s for the scale-out (H5 on the second node). Inputs Jithin holds: the traffic shape of service-level calls from Langfuse (prompt and reply token distributions, share of the 1 million a minute, bursts), where 200 ms is measured, and today's TP and any drafter on the 27B endpoints. Drafters trained on the Core models and H1 run in the company version",
+      "nextStep": "Prove it on one 8x H100 node (scout brief section 10): public Gemma 4 31B in FP8 and 4-bit with its public EAGLE-3 and DFlash drafters on vLLM 0.26.0 (SGLang as control) for targets (a) and (b), and public Gemma 4 E2B as the 7B Core stand-in at TP4 and TP2 for target (c), at 1,000, 4,000 and 10,000-token prompts with 0%, 50% and 80% prefix-cache hits; read H2 and H4, record the 27B's 200 ms ceiling against prompt length, and size units of 8 H100s for the scale-out (H5 and a prefill/decode split on the second node). Inputs Jithin holds: from Langfuse, the prompt-length distribution within 1,000 to 10,000, reply lengths, how much of each prompt repeats across calls, the share of the 1 million a minute that is service-level, and bursts; where 200 ms is measured; today's TP and any drafter on the 27B endpoints. Drafters trained on the Core models and H1 run in the company version",
       "nextStepDue": "2026-11-27",
       "productionSurface": {
         "users": "Applications with a service level on TLM4 Core 27B calls (replies under 300 tokens in 200 ms)",
@@ -2009,8 +2009,8 @@
           "result": null
         },
         {
-          "claim": "H4. The 7B Core with its drafter returns 300-token replies in 200 ms or less at p95 with up to 8 in flight per TP2 replica, and the TL Index shows it sufficient on those use cases",
-          "measurement": "End-to-end p95 at 1,000-token prompts; TL Index sufficiency on service-level tasks",
+          "claim": "H4. The 7B Core with its drafter returns 300-token replies in 200 ms or less at p95 with up to 8 in flight per TP4 replica across 1,000 to 10,000-token prompts, and the TL Index shows it sufficient on those use cases",
+          "measurement": "End-to-end p95 at 1,000, 4,000 and 10,000-token prompts; TL Index sufficiency on service-level tasks",
           "confirmedIf": "Both met",
           "refutedIf": "Either fails: the 200 ms class moves to shorter replies or faster silicon",
           "evidence": 0,
@@ -2037,7 +2037,7 @@
       ],
       "openQuestions": [
         {
-          "question": "Traffic shape of service-level calls: prompt and reply token distributions, their share of the 1 million input tokens a minute, burst profile (from Langfuse)",
+          "question": "Traffic shape of service-level calls: prompts average 1,000 to 10,000 tokens (answered 2026-11-15); still needed from Langfuse: the distribution within that range, reply lengths, how much of each prompt repeats across calls, their share of the 1 million input tokens a minute, and bursts",
           "owner": "Head of ThinkLatent",
           "blocking": "Yes, for unit counts"
         },
@@ -5228,7 +5228,7 @@
         "TL-022"
       ],
       "mode": "Scout (with an engineering sizing)",
-      "outcome": "What the fast providers do (Cerebras, Groq, SambaNova; NVIDIA's 1,038 tok/s per user on Maverick; DFlash 3.0x to 5.8x on Gemma 4 31B; Gemma 4 MTP drafters; Shift Parallelism) and a planning model for the Core 27B on H100, H200 and B300. Findings: the two targets are different bars; 1 million input tokens a minute is light (17 requests a second at 1,000-token prompts, about 3 in flight); on one 8x H100 node the 27B passes 1,000 tok/s only with a drafter accepting about 3.9 tokens a step (3.3 with 4-bit weights), 300 tokens in 200 ms is out of reach on the 27B except on highly predictable outputs, and the 7B Core at TP2 reaches it at about 4. Registered as TL-022 at Seed; D-371 to D-373; five hypotheses and a kill signal pre-registered; capabilities CAP-036 to CAP-038 at Idea maturity",
+      "outcome": "What the fast providers do (Cerebras, Groq, SambaNova; NVIDIA's 1,038 tok/s per user on Maverick; DFlash 3.0x to 5.8x on Gemma 4 31B; Gemma 4 MTP drafters; Shift Parallelism) and a planning model for the Core 27B on H100, H200 and B300. Findings: the two targets are different bars; 1 million input tokens a minute is light (17 requests a second at 1,000-token prompts, about 3 in flight); on one 8x H100 node the 27B passes 1,000 tok/s only with a drafter accepting about 3.9 tokens a step (3.3 with 4-bit weights), 300 tokens in 200 ms is out of reach on the 27B except on highly predictable outputs, and the 7B Core at TP2 reaches it at about 4. Registered as TL-022 at Seed; D-371 to D-373; five hypotheses and a kill signal pre-registered; capabilities CAP-036 to CAP-038 at Idea maturity. Jithin then gave the prompt range (1,000 to 10,000 tokens; D-374): prefill becomes the largest cost inside 200 ms, the 27B on H100 cannot finish 300 tokens in 200 ms at any prompt length, the 7B Core at TP4 fits the whole range, and prefix-cache hits become a first-order lever",
       "docsTouched": "claude/scout-brief-fast-lane.md (new, project knowledge; mirrored at artifacts/TL-022-fast-lane/); ideas/TL-022-fast-lane.md (new); this register (TL-022 row, links, capability reuse, three decision lines; one line each in the TL-004, TL-006 and TL-008 next steps)",
       "health": "at-risk",
       "healthNote": "Target (b) on the 27B rests on drafter acceptance above published chat results; everything rests on acceptance, which only the company version can measure on Enterprise outputs",
@@ -10443,6 +10443,20 @@
       "id": "D-373",
       "by": "Jithin",
       "decision": "Prove the fast lane on one 8x H100 node from the ~16 H100s in hand, then scale out by adding H100 nodes as they come; the unit is one node (Core 27B as one TP8 replica, or the 7B Core as four TP2 replicas). Recorded with it: more H100s add capacity (about 0.5 to 0.8 million input tokens a minute per 27B unit and about 3 million or more per 7B unit, estimated), not per-request speed. Faster silicon (B300, Cerebras on AWS) is not decided: decisionsDue, recommended after the proof"
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-022",
+      "date": "2026-11-15",
+      "door": "two-way",
+      "id": "D-374",
+      "by": "Jithin (fact); Claude (consequences)",
+      "decision": "Prompts average 1,000 to 10,000 tokens. Consequences recorded: 1 million input tokens a minute is 100 to 1,000 requests a minute; prefill becomes the largest cost inside 200 ms (about 146 ms for a 10,000-token prompt on the 27B on 8x H100), so 300 tokens in 200 ms is out of reach on the 27B on H100 at any prompt length and 150 tokens only up to about 3,250-token prompts without prefix-cache hits; the 7B Core at TP4 fits the whole range (156 to 182 ms for 300 tokens at drafter acceptance 4.0); one 27B unit carries about 0.7 to 0.8 million input tokens a minute at any prompt length (prefill-bound); the proof grid moves to 1,000, 4,000 and 10,000-token prompts with prefix-cache hit rates of 0%, 50% and 80%"
     }
   ],
   "syncLog": [
