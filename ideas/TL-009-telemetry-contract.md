@@ -6,8 +6,8 @@ aliases: []
 type: Feature
 parent: "TL-003"
 themes: ["T-001"]
-stage: "Seed"
-stage_since: null
+stage: "Merged"
+stage_since: "2026-11-16"
 horizon: "H1"
 stream: null
 appetite_weeks: null
@@ -17,11 +17,13 @@ score: null
 score_status: none
 doc_url: null
 standard: null
-last_touched: 2026-11-02
+last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: null
-next_step: "Audit what Langfuse captures today against the v0 fields, per endpoint; then a Shaping session to set the schema and the Relay changes. From TL-003 (2026-11-02): Contract v0.1 additions and the derived-metric list are in the ThinkLatent Portal card. From TL-012 (2026-11-02): task mining reads the store; v0 fields are enough for a first pass From Portfolio (2026-11-07): Next #1. Cheapest unblocker: it feeds the index's per-use-case line, the portal and task mining. Run the Langfuse audit first. From TL-004 (2026-11-07): classifying gateway telemetry into token-shape cells and pillar families moved out of the TL Index's Phase 0 to this contract. From TL-022 (2026-11-15): the telemetry contract needs bucket, service class, borrowed flag, priority, replica, and prompt and reply tokens per call, so each bucket's promise can be tracked."
+next_step: "None here: work continues in TL-003 portal's Telemetry contract track (TL-003.telemetry), which carries this row's next step and open items (D-389)."
 next_step_due: null
+merged_into: "TL-003"
+track: "TL-003.telemetry"
 ---
 
 # Use-case telemetry contract — required fields in Relay, the canonical event, enrichment records
@@ -29,11 +31,13 @@ next_step_due: null
 <!-- generated:start -->
 ## Lab record
 
-**TL-009 telemetry-contract** · Feature of TL-003 · Seed (v0 recorded 2026-11-02 in the parent card) · H1
+> **Merged** into [TL-003 portal](TL-003-portal.md) as the **Telemetry contract** track (TL-003.telemetry) on 2026-11-16 (D-389). Its purpose, next step and every open item continue on the track, listed in the parent's doc under Tracks; this record stays as it stood at the merge.
+
+**TL-009 telemetry-contract** · Feature of TL-003 · Merged (Merged into TL-003 portal as the Telemetry contract track (TL-003.telemetry) on 2026-11-16 (D-389); its purpose and every open item moved to the track; this row is the record up to the merge. Before: v0 recorded 2026-11-02 in the parent card) · H1
 
 Owner: Harness and platform lead to be named. Appetite: not set. Score: not scored .
 
-Next step: Audit what Langfuse captures today against the v0 fields, per endpoint; then a Shaping session to set the schema and the Relay changes. From TL-003 (2026-11-02): Contract v0.1 additions and the derived-metric list are in the ThinkLatent Portal card. From TL-012 (2026-11-02): task mining reads the store; v0 fields are enough for a first pass From Portfolio (2026-11-07): Next #1. Cheapest unblocker: it feeds the index's per-use-case line, the portal and task mining. Run the Langfuse audit first. From TL-004 (2026-11-07): classifying gateway telemetry into token-shape cells and pillar families moved out of the TL Index's Phase 0 to this contract. From TL-022 (2026-11-15): the telemetry contract needs bucket, service class, borrowed flag, priority, replica, and prompt and reply tokens per call, so each bucket's promise can be tracked.
+Next step: None here: work continues in TL-003 portal's Telemetry contract track (TL-003.telemetry), which carries this row's next step and open items (D-389).
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -60,7 +64,9 @@ _None recorded._
 _None recorded._
 
 ### Decision log
-_None recorded._
+| ID | Date | Decision | By | Status |
+| --- | --- | --- | --- | --- |
+| D-389 | 2026-11-16 | TL-009 telemetry-contract merged into TL-003 portal as the Telemetry contract track (TL-003.telemetry): the fields every call carries through Relay, the gateway and Langfuse, so the portal's numbers come from real calls. Next, by 27 Nov (date set on Jithin's call): the Langfuse field audit, run inside the Enterprise alongside the fast-lane proof, against the v0 fields, the trace and session requirement of 12 Nov and D-267 (project and feature ids on every Relay call); then a short critique before the contract is built, since the track was at Seed. | Jithin (question prompt) | accepted |
 <!-- generated:end -->
 
 ## Notes

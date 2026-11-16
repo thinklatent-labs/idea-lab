@@ -6,6 +6,8 @@ import { appetiteState, buildingGate, evaluateRules, healthOf, openNextSteps, ty
 import { dueItems, type DueItem, type Idea, type Register } from '../lib/types';
 import type { InboxDoc } from '../lib/inbox';
 import { calendarDaysUntil, localDay, weekdayOf } from '../lib/day';
+import { liveTracks, trackLabel } from '../lib/tracks';
+import type { Track } from '../lib/types';
 
 const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -31,6 +33,7 @@ const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, n - 1)}…`
 
 /** One line per row, with everything Jarvis needs to answer "what is going on with X". */
 function rowLine(reg: Register, i: Idea, d: Derived, now: Date, inbox: Map<string, InboxDoc>): string {
+  if (i.stage === 'Merged') return `${i.id} ${i.slug} — Merged into ${i.mergedInto} as track ${i.trackId} on ${i.stageSince ?? ''}; its next step and open items live on the track (see TRACKS)`;
   const parts: string[] = [`${i.id} ${i.slug} — ${clip(i.title, 110)}`];
   parts.push(`${i.type}${i.parentId ? ` of ${i.parentId}` : ''}`);
   parts.push(`${i.stage}${i.stageSince ? ` since ${i.stageSince}` : ''}${d.daysInStage != null ? ` (${d.daysInStage} d)` : ''}`);
@@ -58,6 +61,25 @@ function rowLine(reg: Register, i: Idea, d: Derived, now: Date, inbox: Map<strin
   return parts.join(' · ');
 }
 
+/** One line per track (D-387): a merged row's work, open items and dates, under its parent. */
+function trackLine(reg: Register, t: Track, now: Date, inbox: Map<string, InboxDoc>): string {
+  const parts: string[] = [`${t.id} (${trackLabel(reg, t)}) — ${clip(t.purpose, 110)}`];
+  parts.push(`merged from ${t.mergedFrom.join(', ')} on ${t.mergedOn}${t.decisionId ? ` (${t.decisionId})` : ''}`);
+  parts.push(`${t.stage}, ${t.status}`);
+  parts.push(`owner: ${clip(t.owner, 90)}`);
+  if (t.streamId) parts.push(`stream ${t.streamId}`);
+  if (t.appetiteWeeks != null) parts.push(`appetite ${t.appetiteWeeks} engineer-weeks${t.appetiteEnds ? ` to ${t.appetiteEnds}` : ''}`);
+  if (t.reviewSlot) parts.push(`review ${clip(t.reviewSlot, 60)}`);
+  parts.push(`next: ${clip(t.nextStep, 220)}${t.nextStepDue ? ` (${whenText(t.nextStepDue, now)}, ${t.nextStepDue})` : ''}`);
+  const due = dueItems({ id: t.id, decisionsDue: t.decisionsDue });
+  if (due.length) parts.push(`decisions due: ${due.map((x) => dueLine(x, inbox)).join(' | ')}`);
+  const oq = t.openQuestions?.length ?? 0;
+  const hy = t.hypotheses?.length ?? 0;
+  const ks = (t.killSignals ?? []).filter((k) => k.status === 'open').length;
+  if (oq || hy || ks) parts.push(`${oq} open questions, ${hy} hypotheses, ${ks} open kill signals`);
+  return parts.join(' · ');
+}
+
 function dueLine(x: DueItem, inbox: Map<string, InboxDoc>): string {
   const rec = inbox.get(x.id);
   const state = rec ? ` [Jithin chose "${rec.optionLabel}" on the dashboard; ${rec.status}]` : '';
@@ -77,12 +99,17 @@ export interface DigestInput {
 /** What Claude reads about the lab: compact, factual, and nothing the register does not say. */
 export function buildDigest({ reg, derived, now, inbox, lastVisit, visibleIdeas }: DigestInput): string {
   const out: string[] = [];
-  const live = visibleIdeas.filter((i) => !['Graduated', 'Killed'].includes(i.stage));
+  const live = visibleIdeas.filter((i) => !['Graduated', 'Killed', 'Merged'].includes(i.stage));
   out.push(`REGISTER rev ${reg.source.registerRev}, as of ${reg.asOf}. ${visibleIdeas.length} rows, ${live.length} live. Today is ${localDay(now)} (${WEEKDAYS[now.getDay()]}).${lastVisit ? ` Jithin last opened the dashboard on ${lastVisit}.` : ''}`);
   out.push('', 'ROWS (most in need of attention first):');
   const order = attentionQueue(reg, derived).filter((i) => visibleIdeas.includes(i));
   const rest = visibleIdeas.filter((i) => !order.includes(i));
   for (const i of [...order, ...rest]) out.push(`- ${rowLine(reg, i, derived.get(i.id)!, now, inbox)}`);
+  const tracks = liveTracks(reg, visibleIdeas);
+  if (tracks.length) {
+    out.push('', 'TRACKS (workstreams inside higher-order ideas; a merged row\'s purpose and open items live here, D-387):');
+    for (const t of tracks) out.push(`- ${trackLine(reg, t, now, inbox)}`);
+  }
 
   if (reg.streams?.length) {
     out.push('', 'STREAMS (one engineer plus a coding agent each):');
@@ -127,7 +154,7 @@ export function rules(digest: string): string {
     `- Views you can open: pulse (the command center), queue, register, board, graph, catalogue, scores, changes, log.`,
     '- End with exactly one line: "Confidence: high|medium|low — <what it rests on>".',
     '',
-    'Lab rules: stages Seed, Shaping, Stress test, Proposal (funded by default; Jithin rejects explicitly), Building, Shipped (a first user in production and the metric read), Graduated, Parked, Killed. No idea passes Stress test without a recorded critique. The Building gate (D-152): an owner role (played by Claude until the company version; owner fields read role then player), a stream, an appetite in engineer-weeks, and a weekly review slot Jithin commits to; ideas in Building never outnumber his review slots. The register has no review-slot field yet, so say a slot is not recorded rather than missing. Staleness windows: Seed 60, Shaping 30, Stress test 21, Proposal 14, Shipped 30 days; Building runs by its appetite. Five streams S-A to S-E. Modes: Brainstorm, Critic, Scout, Spec, Portfolio, Comms. A chat opens with "Lab session · TL-### slug · Mode".',
+    'Lab rules: stages Seed, Shaping, Stress test, Proposal (funded by default; Jithin rejects explicitly), Building, Shipped (a first user in production and the metric read), Graduated, Merged (closed into a higher-order idea; its work continues as a track of the parent, D-387), Parked, Killed. When asked about a merged row, answer from its track. No idea passes Stress test without a recorded critique. The Building gate (D-152): an owner role (played by Claude until the company version; owner fields read role then player), a stream, an appetite in engineer-weeks, and a weekly review slot Jithin commits to; ideas in Building never outnumber his review slots. The register records the slot in the Building gate of each row (schema 1.4); where a row has none recorded, say it is not recorded rather than missing. Staleness windows: Seed 60, Shaping 30, Stress test 21, Proposal 14, Shipped 30 days; Building runs by its appetite. Five streams S-A to S-E. Modes: Brainstorm, Critic, Scout, Spec, Portfolio, Comms. A chat opens with "Lab session · TL-### slug · Mode", or "Lab session · TL-### slug › Track · Mode" when it is scoped to one track.',
     '',
     digest,
   ].join('\n');
@@ -147,8 +174,12 @@ export interface LocalBrief {
 }
 
 export function localBrief(reg: Register, derived: Map<string, Derived>, now: Date, inbox: Map<string, InboxDoc>, visible: Idea[]): LocalBrief {
-  const live = visible.filter((i) => !['Graduated', 'Killed'].includes(i.stage) && i.type !== 'Capability');
-  const due = visible.filter((i) => i.stage !== 'Killed').flatMap((i) => dueItems(i).map((item) => ({ i, item })));
+  const live = visible.filter((i) => !['Graduated', 'Killed', 'Merged'].includes(i.stage) && i.type !== 'Capability');
+  const parentOf = new Map(visible.map((i) => [i.id, i]));
+  const due = [
+    ...visible.filter((i) => i.stage !== 'Killed' && i.stage !== 'Merged').flatMap((i) => dueItems(i).map((item) => ({ i, item }))),
+    ...liveTracks(reg, visible).flatMap((t) => dueItems({ id: t.id, decisionsDue: t.decisionsDue }).map((item) => ({ i: parentOf.get(t.parentId)!, item }))),
+  ];
   const quick = due.filter(({ item }) => item.kind === 'quick' && !inbox.has(item.id)).length;
   const input = due.filter(({ item }) => item.kind === 'input').length;
   const steps = openNextSteps(reg, now).filter((s) => visible.some((v) => v.id === s.ideaId));

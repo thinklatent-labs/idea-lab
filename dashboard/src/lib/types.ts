@@ -1,6 +1,8 @@
-// Types for register.json (data contract v1.0). Keep in step with schema/register.schema.json.
+// Types for register.json (data contract v1.4). Keep in step with schema/register.schema.json.
 
-export const STAGES = ['Seed', 'Shaping', 'Stress test', 'Proposal', 'Building', 'Shipped', 'Graduated', 'Parked', 'Killed'] as const;
+export const STAGES = ['Seed', 'Shaping', 'Stress test', 'Proposal', 'Building', 'Shipped', 'Graduated', 'Merged', 'Parked', 'Killed'] as const;
+/** Rows that carry no live work: their next steps and open items live elsewhere or are finished (D-387). */
+export const CLOSED_STAGES: readonly Stage[] = ['Graduated', 'Merged', 'Killed'];
 export type Stage = (typeof STAGES)[number];
 
 export const NODE_TYPES = ['Theme', 'Idea', 'Feature', 'Capability', 'Experiment'] as const;
@@ -233,11 +235,70 @@ export interface Idea {
   governance?: Governance | null;
   shipped?: Shipped | null;
   rejectedBy?: string | null;
-  buildingGate?: { ownerNamed: boolean; streamNamed: boolean; appetiteSet: boolean; startedOn?: string | null; /** D-152: the weekly review slot Jithin commits to; a field Lab operations still owes. */ reviewSlot?: string | null } | null;
+  buildingGate?: { ownerNamed?: boolean; streamNamed?: boolean; appetiteSet?: boolean; startedOn?: string | null; /** D-152: the weekly review slot Jithin commits to (schema 1.4). */ reviewSlot?: string | null } | null;
   hypotheses?: Hypothesis[];
   openQuestions?: OpenQuestion[];
   killCriteria?: KillCriterion[];
   phases?: Phase[];
+  /** Merged rows only (schema 1.4, D-387): the higher-order idea this row was merged into. */
+  mergedInto?: string | null;
+  /** Merged rows only: the track that carries this row's purpose and open items; links naming the row resolve to it. */
+  trackId?: string | null;
+}
+
+export type TrackStatus = 'active' | 'planned' | 'paused' | 'done' | 'split-out';
+
+export interface TrackSource {
+  id: string;
+  slug?: string;
+  title: string;
+  type: NodeType;
+  stageAtMerge: Stage;
+  stageSince?: string | null;
+  scoreAtMerge?: Score;
+  docUrl?: string | null;
+  docTitle?: string | null;
+  lastTouched?: string | null;
+  nextStepAtMerge?: string;
+  nextStepDueAtMerge?: string | null;
+  nextStepOriginAtMerge?: string | null;
+}
+
+/** A workstream inside a higher-order idea, made when a row is merged into it (schema 1.4, D-387). */
+export interface Track {
+  id: string;
+  parentId: string;
+  name: string;
+  slug?: string;
+  purpose: string;
+  mergedFrom: string[];
+  mergedOn: string;
+  decisionId?: string | null;
+  stage: Stage;
+  status: TrackStatus;
+  owner: string;
+  streamId?: string | null;
+  appetiteWeeks?: number | null;
+  appetiteEnds?: string | null;
+  reviewSlot?: string | null;
+  nextStep: string;
+  nextStepDue: string | null;
+  nextStepOrigin?: string | null;
+  docUrl?: string | null;
+  docTitle?: string | null;
+  lastTouched?: string;
+  critiqueRecorded?: boolean | null;
+  openQuestions?: OpenQuestion[];
+  hypotheses?: Hypothesis[];
+  killCriteria?: KillCriterion[];
+  killSignals?: KillSignal[] | null;
+  phases?: Phase[] | null;
+  decisionsDue: (string | DueItem)[];
+  governance?: Governance | null;
+  productionSurface?: ProductionSurface | null;
+  buildingGate?: Idea['buildingGate'];
+  flags?: string[];
+  sources: TrackSource[];
 }
 
 export interface Link {
@@ -278,6 +339,7 @@ export interface Session {
   health?: Health | null;
   healthNote?: string;
   nextStepDue?: string | null;
+  trackIds?: string[];
 }
 
 export interface Decision {
@@ -293,6 +355,7 @@ export interface Decision {
   reviewOn?: string | null;
   supersedes?: string | null;
   type?: 'decision' | 'rejection' | 'gate' | 'retro' | null;
+  trackId?: string | null;
 }
 
 export interface SyncRow {
@@ -324,7 +387,7 @@ export interface Portfolio {
 }
 
 export interface Register {
-  schemaVersion: '1.0' | '1.1' | '1.2' | '1.3';
+  schemaVersion: '1.0' | '1.1' | '1.2' | '1.3' | '1.4';
   asOf: string;
   generatedBy: string;
   source: { registerUrl: string; registerRev: number; operatingModelUrl?: string };
@@ -336,6 +399,8 @@ export interface Register {
   stalenessWindows: Partial<Record<Stage, number | null>>;
   themes: Theme[];
   ideas: Idea[];
+  /** Schema 1.4 (D-387); absent in older snapshots. */
+  tracks?: Track[];
   links: Link[];
   capabilities: Capability[];
   sessions: Session[];

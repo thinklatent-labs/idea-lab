@@ -21,6 +21,7 @@ export const STAGE_VAR: Record<Stage, string> = {
   Building: 'var(--lab-stage-building)',
   Shipped: 'var(--lab-stage-shipped)',
   Graduated: 'var(--lab-stage-graduated)',
+  Merged: 'var(--lab-stage-merged)',
   Parked: 'var(--lab-stage-parked)',
   Killed: 'var(--lab-stage-killed)',
 };

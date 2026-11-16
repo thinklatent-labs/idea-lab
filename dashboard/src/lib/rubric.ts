@@ -55,6 +55,7 @@ export const LINK_MEANING: Record<string, string> = {
   supersedes: 'replaces',
   'evidence-for': 'result bears on',
   'related-to': 'shares users, data or a thesis with',
+  'track-of': 'is a track of: merged into it, carrying the merged row\'s purpose and open items (D-387)',
 };
 
 export const STAGE_MEANING: Record<string, string> = {
@@ -65,6 +66,7 @@ export const STAGE_MEANING: Record<string, string> = {
   Building: 'Work running against the appetite; no owner, no stream or no appetite means no start',
   Shipped: 'A first user in production and the metric read; retrospectives count this',
   Graduated: 'A Project of its own with the Shipped evidence behind it; the lab keeps a pointer',
+  Merged: 'Merged into a higher-order idea as a track that carries its purpose and every open item; the row stays as the record up to the merge (D-387)',
   Parked: 'Good but not now; a trigger and a re-check date',
   Killed: 'Fails the stress test or the decision; the reason is kept as evidence',
 };

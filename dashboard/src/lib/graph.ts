@@ -1,10 +1,16 @@
 // Deterministic layered layout for the idea graph: themes on top, ideas, features, capabilities,
 // experiments at the bottom. The same register always draws the same picture.
 import type { LinkType, NodeType, Register } from './types';
+import { resolveMerged, trackById } from './tracks';
+
+/** Register node types plus the tracks inside higher-order ideas (D-387). */
+export type GNodeType = NodeType | 'Track';
+/** Register link types plus the drawn track-of edge from a track to its parent. */
+export type GLinkType = LinkType | 'track-of';
 
 export interface GNode {
   id: string;
-  type: NodeType;
+  type: GNodeType;
   label: string;
   sub: string;
   x: number;
@@ -19,7 +25,7 @@ export interface GEdge {
   id: string;
   from: string;
   to: string;
-  type: LinkType;
+  type: GLinkType;
   note?: string;
   directed: boolean;
   path: string;
@@ -45,9 +51,10 @@ const TOP = 56;
 const MAX_PER_ROW = 7;
 const UNDIRECTED: LinkType[] = ['related-to', 'competes-with'];
 
-const LAYERS: { type: NodeType; label: string }[] = [
+const LAYERS: { type: GNodeType; label: string }[] = [
   { type: 'Theme', label: 'Themes' },
   { type: 'Idea', label: 'Ideas' },
+  { type: 'Track', label: 'Tracks' },
   { type: 'Feature', label: 'Features' },
   { type: 'Capability', label: 'Capabilities' },
   { type: 'Experiment', label: 'Experiments' },
@@ -65,10 +72,22 @@ export function canonicalId(reg: Register, id: string | null): string | null {
   return id;
 }
 
+/** Where a link end draws: canonical, then a merged row moves to the track that carries it (D-387). */
+export function drawnId(reg: Register, id: string | null): string | null {
+  return resolveMerged(reg, canonicalId(reg, id));
+}
+
 export function layoutGraph(reg: Register): GraphLayout {
   const raw: Omit<GNode, 'x' | 'y' | 'w' | 'h' | 'layer' | 'wrapRow'>[] = [];
   for (const t of reg.themes) raw.push({ id: t.id, type: 'Theme', label: short(t.name.split(':')[0], 19), sub: t.id });
-  for (const i of reg.ideas) raw.push({ id: i.id, type: i.type, label: short(i.slug, 19), sub: `${i.id} · ${i.stage}` });
+  for (const i of reg.ideas) {
+    if (i.stage === 'Merged') continue; // drawn as its track, under the parent
+    raw.push({ id: i.id, type: i.type, label: short(i.slug, 19), sub: `${i.id} · ${i.stage}` });
+  }
+  // tracks grouped by parent, in the order the parents appear
+  const parentOrder = new Map(reg.ideas.map((i, n) => [i.id, n]));
+  const tracks = [...(reg.tracks ?? [])].sort((a, b) => (parentOrder.get(a.parentId) ?? 0) - (parentOrder.get(b.parentId) ?? 0));
+  for (const t of tracks) raw.push({ id: t.id, type: 'Track', label: short(t.name, 19), sub: `${t.parentId} · ${t.stage}` });
   for (const c of reg.capabilities) {
     if (c.ideaId) continue;
     raw.push({ id: c.id, type: 'Capability', label: short(c.name, 19), sub: `${c.maturity} · demand ${c.demand}` });
@@ -115,19 +134,31 @@ export function layoutGraph(reg: Register): GraphLayout {
 
   const edges: GEdge[] = [];
   const seen = new Set<string>();
+  // a track and its own parent are joined by one track-of edge; their other links are internal to the programme
+  const internal = (x: string, y: string) => trackById(reg, x)?.parentId === y || trackById(reg, y)?.parentId === x;
+  for (const t of tracks) {
+    const a = pos.get(t.id);
+    const b = pos.get(t.parentId);
+    if (!a || !b) continue;
+    const key = `${t.id}|track-of|${t.parentId}`;
+    seen.add(key);
+    edges.push(makeEdge(key, a, b, 'track-of', `merged from ${t.mergedFrom.join(', ')} (${t.decisionId ?? t.mergedOn})`, nodes));
+  }
   for (const l of reg.links) {
-    const to = canonicalId(reg, l.toId);
-    if (!to) continue;
-    const a = pos.get(l.fromId);
+    const to = drawnId(reg, l.toId);
+    const from = drawnId(reg, l.fromId);
+    if (!to || !from || to === from || internal(from, to)) continue;
+    const a = pos.get(from);
     const b = pos.get(to);
     if (!a || !b) continue;
-    const key = `${l.fromId}|${l.type}|${to}`;
+    const key = `${from}|${l.type}|${to}`;
     if (seen.has(key)) continue;
     seen.add(key);
     edges.push(makeEdge(key, a, b, l.type, l.note, nodes));
   }
   // theme membership not spelled as a link row still draws as "serves"
   for (const i of reg.ideas) {
+    if (i.stage === 'Merged') continue;
     for (const t of i.themeIds) {
       const key = `${i.id}|serves|${t}`;
       if (seen.has(key)) continue;
@@ -141,8 +172,8 @@ export function layoutGraph(reg: Register): GraphLayout {
   return { nodes, edges, width, height, layerLabels };
 }
 
-function makeEdge(id: string, a: GNode, b: GNode, type: LinkType, note: string | undefined, all: GNode[]): GEdge {
-  const directed = !UNDIRECTED.includes(type);
+function makeEdge(id: string, a: GNode, b: GNode, type: GLinkType, note: string | undefined, all: GNode[]): GEdge {
+  const directed = !(UNDIRECTED as string[]).includes(type);
   let path: string;
   let mx: number;
   let my: number;

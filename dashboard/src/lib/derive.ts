@@ -3,8 +3,9 @@
 import type { Capability, Criterion, Idea, Link, Register, Stage, Weights } from './types';
 import { calendarDaysUntil } from './day';
 import { CRITERIA } from './types';
+import { isClosed, nodeInfo, resolveMerged, tracksOf, type NodeInfo } from './tracks';
 
-export type Lane = 'Now' | 'Next' | 'Later' | 'Graduated' | 'Capabilities' | 'Killed';
+export type Lane = 'Now' | 'Next' | 'Later' | 'Graduated' | 'Capabilities' | 'Merged' | 'Killed';
 
 export type ReasonKind =
   | 'decision'
@@ -85,9 +86,16 @@ export function laneOf(idea: Idea): Lane {
       return 'Later';
     case 'Graduated':
       return 'Graduated';
+    case 'Merged':
+      return 'Merged';
     case 'Killed':
       return 'Killed';
   }
+}
+
+/** The lifecycle lane a stage alone implies: used for tracks, which have a stage but no row of their own (D-387). */
+export function laneOfStage(stage: Stage): Lane {
+  return laneOf({ type: 'Idea', stage } as Idea);
 }
 
 /** Weighted composite from the eight criteria; null unless all eight are present. */
@@ -119,6 +127,7 @@ export function defaultMode(stage: Stage): Mode {
     case 'Graduated':
       return 'Critic';
     case 'Parked':
+    case 'Merged':
     case 'Killed':
       return 'Portfolio';
   }
@@ -130,7 +139,7 @@ export function sessionLine(idea: Pick<Idea, 'id' | 'slug'>, mode: Mode): string
 }
 
 export function stageCounts(ideas: Idea[]): Record<Stage, number> {
-  const counts = { Seed: 0, Shaping: 0, 'Stress test': 0, Proposal: 0, Building: 0, Shipped: 0, Graduated: 0, Parked: 0, Killed: 0 } as Record<Stage, number>;
+  const counts = { Seed: 0, Shaping: 0, 'Stress test': 0, Proposal: 0, Building: 0, Shipped: 0, Graduated: 0, Merged: 0, Parked: 0, Killed: 0 } as Record<Stage, number>;
   for (const i of ideas) counts[i.stage] += 1;
   return counts;
 }
@@ -159,14 +168,34 @@ export function deriveAll(reg: Register, now: Date): Map<string, Derived> {
     const overdueDays = stale && window != null ? daysUntouched - window : 0;
     const parkedOverdue = idea.stage === 'Parked' && !!idea.recheckDate && daysBetween(idea.recheckDate, now) > 0 && Date.parse(idea.recheckDate) < now.getTime();
 
-    const blockedBy = reg.links
-      .filter((l) => l.fromId === idea.id && l.type === 'depends-on' && l.toId && byId.has(l.toId))
-      .map((l) => byId.get(l.toId!)!)
-      .filter((t) => t.stage !== 'Graduated')
-      .map((t) => t.id);
-    const blocks = reg.links
-      .filter((l) => l.toId === idea.id && l.type === 'depends-on' && idea.stage !== 'Graduated')
-      .map((l) => l.fromId);
+    // A programme waits on what its tracks wait on outside it, and blocks whatever waits on its tracks (D-387).
+    // Links keep naming merged rows; resolveMerged turns them into the track that carries the work.
+    const myTracks = new Set(tracksOf(reg, idea.id).map((t) => t.id));
+    const mine = (id: string | null) => id === idea.id || (id != null && myTracks.has(id));
+    const blockedBy =
+      idea.stage === 'Merged'
+        ? []
+        : [
+            ...new Set(
+              reg.links
+                .filter((l) => l.type === 'depends-on' && l.toId && mine(resolveMerged(reg, l.fromId)))
+                .map((l) => nodeInfo(reg, l.toId))
+                .filter((n): n is NodeInfo => !!n && n.ideaId !== idea.id && n.stage !== 'Graduated')
+                .map((n) => n.id),
+            ),
+          ];
+    const blocks =
+      idea.stage === 'Graduated' || idea.stage === 'Merged'
+        ? []
+        : [
+            ...new Set(
+              reg.links
+                .filter((l) => l.type === 'depends-on' && mine(resolveMerged(reg, l.toId)))
+                .map((l) => nodeInfo(reg, l.fromId))
+                .filter((n): n is NodeInfo => !!n && n.ideaId !== idea.id && !isClosed(n.stage))
+                .map((n) => n.id),
+            ),
+          ];
 
     const parent = idea.parentId ? byId.get(idea.parentId) : undefined;
     const blocksParent =
@@ -176,29 +205,34 @@ export function deriveAll(reg: Register, now: Date): Map<string, Derived> {
       (parent.stage === 'Proposal' || parent.stage === 'Building' || parent.stage === 'Shipped' || parent.stage === 'Graduated');
 
     const pending = pendingCount.get(idea.id) ?? 0;
-    const needsDecision = idea.decisionsDue.length > 0 || idea.score.status === 'proposed';
+    // A programme answers for its tracks' decisions and questions: they wait on Jithin through it (D-387).
+    const openTracks = isClosed(idea.stage) ? [] : tracksOf(reg, idea.id).filter((t) => t.status !== 'done' && t.status !== 'split-out');
+    const trackDue = openTracks.filter((t) => t.decisionsDue.length > 0);
+    const dueCount = idea.decisionsDue.length + trackDue.reduce((a, t) => a + t.decisionsDue.length, 0);
+    const needsDecision = dueCount > 0 || idea.score.status === 'proposed';
     const last = lastDecision.get(idea.id);
     const daysSinceDecision = last ? daysBetween(last, now) : null;
 
     const reasons: Reason[] = [];
-    if (idea.decisionsDue.length > 0) {
-      reasons.push({ kind: 'decision', label: idea.decisionsDue.length === 1 ? '1 decision due' : `${idea.decisionsDue.length} decisions due`, weight: 100 + 10 * Math.min(idea.decisionsDue.length, 3) });
+    if (dueCount > 0) {
+      const where = trackDue.length ? ` (${[...(idea.decisionsDue.length ? ['the row'] : []), ...trackDue.map((t) => t.name)].join(', ')})` : '';
+      reasons.push({ kind: 'decision', label: `${dueCount === 1 ? '1 decision due' : `${dueCount} decisions due`}${where}`, weight: 100 + 10 * Math.min(dueCount, 3) });
     }
     if (idea.score.status === 'proposed') reasons.push({ kind: 'score-proposed', label: 'score proposed, not set', weight: 60 });
     if (blocksParent) reasons.push({ kind: 'blocks-parent', label: `P0 feature holding ${parent!.id}`, weight: 70 });
     if (stale) reasons.push({ kind: 'stale', label: `stale ${overdueDays} ${overdueDays === 1 ? 'day' : 'days'} past window`, weight: 50 + Math.min(overdueDays, 30) });
     if (parkedOverdue) reasons.push({ kind: 'parked-overdue', label: 'parked past re-check', weight: 45 });
-    const openBlocking = (idea.openQuestions ?? []).filter((q) => /^yes/i.test(q.blocking) && !ownerNamed(q.owner));
+    const openBlocking = [...(idea.openQuestions ?? []), ...openTracks.flatMap((t) => t.openQuestions ?? [])].filter((q) => /^yes/i.test(q.blocking) && !ownerNamed(q.owner));
     if (openBlocking.length) reasons.push({ kind: 'open-blocking', label: `${openBlocking.length} blocking question${openBlocking.length === 1 ? '' : 's'} without an owner`, weight: 20 });
     if (blockedBy.length) reasons.push({ kind: 'blocked', label: `waits on ${blockedBy.join(', ')}`, weight: 15 });
-    const active = idea.stage !== 'Graduated' && idea.stage !== 'Killed';
+    const active = !isClosed(idea.stage);
     if (active) for (const f of idea.flags.slice(0, 3)) reasons.push({ kind: 'flag', label: f, weight: 8 });
     // With the decision log hidden from an audience, silence is not evidence of a quiet row (fix review 5).
     const decisionsKnown = reg.decisions.length > 0;
     if (active && decisionsKnown && daysSinceDecision != null && daysSinceDecision >= 30) reasons.push({ kind: 'quiet', label: `no decision in ${daysSinceDecision} days`, weight: 20 });
     if (active && decisionsKnown && daysSinceDecision == null) reasons.push({ kind: 'quiet', label: 'no decision logged yet', weight: 10 });
 
-    const attention = idea.stage === 'Killed' ? 0 : reasons.reduce((a, r) => a + r.weight, 0);
+    const attention = idea.stage === 'Killed' || idea.stage === 'Merged' ? 0 : reasons.reduce((a, r) => a + r.weight, 0);
 
     out.set(idea.id, {
       id: idea.id,
@@ -258,6 +292,7 @@ export function alerts(reg: Register, derived: Map<string, Derived>, now: Date):
   }
   const byId = new Map(reg.ideas.map((i) => [i.id, i]));
   for (const i of reg.ideas) {
+    if (i.stage === 'Merged') continue; // closed into a track; the track's items surface through its parent
     const d = derived.get(i.id)!;
     if (d.stale) list.push({ severity: 'warning', rule: 'staleness', text: `${i.id} ${i.slug} untouched ${d.daysUntouched} days; the ${i.stage} window is ${d.window}.`, ideaId: i.id });
     if (d.parkedOverdue) list.push({ severity: 'warning', rule: 'parked', text: `${i.id} ${i.slug} is parked past its re-check date (${i.recheckDate}).`, ideaId: i.id });

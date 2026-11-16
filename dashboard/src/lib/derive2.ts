@@ -2,8 +2,9 @@
 // the funnel, the prediction ledger, the evidence map, open next steps and the decision index.
 import type { Capability, Decision, Health, Idea, Register, Rule, Stage, Weights } from './types';
 import { CRITERIA, STAGES } from './types';
-import { daysBetween, hoursBetween, laneOf, type Derived, type Lane } from './derive';
+import { daysBetween, hoursBetween, laneOf, laneOfStage, type Derived, type Lane } from './derive';
 import { canonicalId } from './graph';
+import { ideaOf, isClosed, nodeInfo, resolveMerged, trackLabel } from './tracks';
 import { calendarDaysUntil } from './day';
 
 export type Level = 'alert' | 'warn' | 'info';
@@ -57,9 +58,9 @@ export function updateState(reg: Register, idea: Idea, now: Date): UpdateState {
   return { level, daysSinceSession: d, cadence: rule.warnDays ?? null };
 }
 
-const LANE_RANK: Record<Lane, number> = { Graduated: -1, Now: 0, Capabilities: 0, Next: 1, Later: 2, Killed: 9 };
+const LANE_RANK: Record<Lane, number> = { Graduated: -1, Now: 0, Capabilities: 0, Next: 1, Later: 2, Merged: 9, Killed: 9 };
 const H_RANK: Record<string, number> = { H1: 0, H2: 1, H3: 2 };
-const STAGE_RANK: Record<Stage, number> = { Seed: 0, Shaping: 1, 'Stress test': 2, Proposal: 3, Building: 4, Shipped: 5, Graduated: 6, Parked: 1, Killed: 9 };
+const STAGE_RANK: Record<Stage, number> = { Seed: 0, Shaping: 1, 'Stress test': 2, Proposal: 3, Building: 4, Shipped: 5, Graduated: 6, Merged: 9, Parked: 1, Killed: 9 };
 
 export interface Conflict {
   dependentId: string;
@@ -67,20 +68,31 @@ export interface Conflict {
   reason: string;
 }
 
-/** A dependent that sits ahead of what it waits on: earlier lane, earlier horizon, or a later stage. */
+/**
+ * A dependent that sits ahead of what it waits on: earlier lane, earlier horizon, or a later stage.
+ * Either end may be a track (a merged row resolves to its track, D-387): a track is compared on its own stage
+ * and horizon and on its parent's lane; a programme's dependency on its own track is internal and skipped.
+ */
 export function dependencyConflicts(reg: Register): Conflict[] {
   const byId = new Map(reg.ideas.map((i) => [i.id, i]));
   const out: Conflict[] = [];
+  const seen = new Set<string>();
   for (const l of reg.links) {
     if (l.type !== 'depends-on' || !l.toId) continue;
-    const a = byId.get(l.fromId);
-    const b = byId.get(canonicalId(reg, l.toId) ?? '');
-    if (!a || !b || b.stage === 'Graduated' || b.stage === 'Shipped') continue;
+    const a = nodeInfo(reg, l.fromId);
+    const b = nodeInfo(reg, canonicalId(reg, l.toId));
+    if (!a || !b || a.id === b.id || b.stage === 'Graduated' || b.stage === 'Shipped' || isClosed(a.stage)) continue;
+    const key = `${a.id}|${b.id}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    // a track's lane follows its own stage; a programme leaning on its own track still shows when it sits ahead of it
+    const la = a.isTrack ? laneOfStage(a.stage) : laneOf(byId.get(a.ideaId)!);
+    const lb = b.isTrack ? laneOfStage(b.stage) : laneOf(byId.get(b.ideaId)!);
     const reasons: string[] = [];
-    if (LANE_RANK[laneOf(a)] < LANE_RANK[laneOf(b)]) reasons.push(`${a.id} is ${laneOf(a)} while ${b.id} is ${laneOf(b)}`);
+    if (LANE_RANK[la] < LANE_RANK[lb]) reasons.push(`${a.id} is ${la} while ${b.id} is ${lb}`);
     if (a.horizon && b.horizon && H_RANK[a.horizon] < H_RANK[b.horizon]) reasons.push(`${a.id} is ${a.horizon} while ${b.id} is ${b.horizon}`);
-    if (STAGE_RANK[a.stage] > STAGE_RANK[b.stage] && a.stage !== 'Killed') reasons.push(`${a.id} is at ${a.stage} while ${b.id} is at ${b.stage}`);
-    if (reasons.length) out.push({ dependentId: a.id, blockerId: b.id, reason: reasons.join('; ') });
+    if (STAGE_RANK[a.stage] > STAGE_RANK[b.stage]) reasons.push(`${a.id} is at ${a.stage} while ${b.id} is at ${b.stage}`);
+    if (reasons.length) out.push({ dependentId: a.ideaId, blockerId: b.id, reason: reasons.join('; ') });
   }
   return out;
 }
@@ -96,9 +108,12 @@ export function collisionCandidates(reg: Register, min = 3): Collision[] {
   const caps = new Map<string, Set<string>>();
   for (const l of reg.links) {
     if ((l.type !== 'reuses' && l.type !== 'creates') || !l.toId) continue;
-    const to = canonicalId(reg, l.toId)!;
-    if (!caps.has(l.fromId)) caps.set(l.fromId, new Set());
-    caps.get(l.fromId)!.add(to);
+    // a merged row's capabilities count for the idea that now carries its track (D-387); its own tracks are not shared
+    const to = resolveMerged(reg, canonicalId(reg, l.toId))!;
+    const from = ideaOf(reg, resolveMerged(reg, l.fromId))?.id ?? l.fromId;
+    if (ideaOf(reg, to)?.id === from) continue;
+    if (!caps.has(from)) caps.set(from, new Set());
+    caps.get(from)!.add(to);
   }
   const byId = new Map(reg.ideas.map((i) => [i.id, i]));
   const ids = [...caps.keys()].sort();
@@ -240,7 +255,7 @@ export function funnel(reg: Register): FunnelRow[] {
     h.forEach((e, idx) => {
       entered.set(e.stage, (entered.get(e.stage) ?? 0) + 1);
       const next = h[idx + 1];
-      if (next) {
+      if (next && next.stage !== 'Merged') {
         if (!stays.has(e.stage)) stays.set(e.stage, []);
         stays.get(e.stage)!.push(daysBetween(e.since, next.since));
       }
@@ -262,6 +277,8 @@ export function funnel(reg: Register): FunnelRow[] {
 
 export interface LedgerRow {
   ideaId: string;
+  /** Set when the prediction belongs to a track of the idea (D-387). */
+  trackId?: string;
   claim: string;
   confidence: number | null;
   evidence: 0 | 1 | 2 | null;
@@ -271,9 +288,14 @@ export interface LedgerRow {
 
 export function predictionLedger(reg: Register): LedgerRow[] {
   const out: LedgerRow[] = [];
-  for (const i of reg.ideas)
+  for (const i of reg.ideas) {
+    if (i.stage === 'Merged') continue; // its hypotheses moved to its track
     for (const h of i.hypotheses ?? [])
       out.push({ ideaId: i.id, claim: h.claim, confidence: h.confidence ?? null, evidence: h.evidence ?? null, resolveBy: h.resolveBy ?? null, result: h.result ?? null });
+  }
+  for (const t of reg.tracks ?? [])
+    for (const h of t.hypotheses ?? [])
+      out.push({ ideaId: t.parentId, trackId: t.id, claim: `${t.name}: ${h.claim}`, confidence: h.confidence ?? null, evidence: h.evidence ?? null, resolveBy: h.resolveBy ?? null, result: h.result ?? null });
   return out;
 }
 
@@ -301,7 +323,7 @@ export interface EvidencePoint {
 
 export function evidenceMap(reg: Register): EvidencePoint[] {
   return reg.ideas
-    .filter((i) => i.stage !== 'Killed')
+    .filter((i) => i.stage !== 'Killed' && i.stage !== 'Merged')
     .map((i) => {
       const hs = (i.hypotheses ?? []).filter((h) => h.evidence != null);
       const ev = hs.length ? hs.reduce((a, h) => a + (h.evidence ?? 0), 0) / hs.length : null;
@@ -317,6 +339,8 @@ export function evidenceMap(reg: Register): EvidencePoint[] {
 
 export interface OpenStep {
   ideaId: string;
+  /** Set when the step belongs to a track of the idea (D-387). */
+  trackId?: string;
   step: string;
   due: string | null;
   daysLeft: number | null;
@@ -324,16 +348,18 @@ export interface OpenStep {
 }
 
 export function openNextSteps(reg: Register, now: Date): OpenStep[] {
-  return reg.ideas
-    .filter((i) => i.stage !== 'Killed' && i.nextStep.trim().length > 0)
-    .map((i) => ({
-      ideaId: i.id,
-      step: i.nextStep,
-      due: i.nextStepDue ?? null,
-      daysLeft: i.nextStepDue && !Number.isNaN(daysUntil(i.nextStepDue, now)) ? daysUntil(i.nextStepDue, now) : null,
-      origin: i.nextStepOrigin ? (reg.decisions.find((d) => d.id === i.nextStepOrigin) ?? null) : null,
-    }))
-    .sort((a, b) => (a.daysLeft ?? 9999) - (b.daysLeft ?? 9999));
+  const left = (due: string | null | undefined) => (due && !Number.isNaN(daysUntil(due, now)) ? daysUntil(due, now) : null);
+  const origin = (id: string | null | undefined) => (id ? (reg.decisions.find((d) => d.id === id) ?? null) : null);
+  const rows: OpenStep[] = reg.ideas
+    .filter((i) => i.stage !== 'Killed' && i.stage !== 'Merged' && i.nextStep.trim().length > 0)
+    .map((i) => ({ ideaId: i.id, step: i.nextStep, due: i.nextStepDue ?? null, daysLeft: left(i.nextStepDue), origin: origin(i.nextStepOrigin) }));
+  const parents = new Map(reg.ideas.map((i) => [i.id, i]));
+  for (const t of reg.tracks ?? []) {
+    const p = parents.get(t.parentId);
+    if (!p || isClosed(p.stage) || t.status === 'done' || t.status === 'split-out' || !t.nextStep.trim()) continue;
+    rows.push({ ideaId: t.parentId, trackId: t.id, step: `${t.name}: ${t.nextStep}`, due: t.nextStepDue ?? null, daysLeft: left(t.nextStepDue), origin: origin(t.nextStepOrigin) });
+  }
+  return rows.sort((a, b) => (a.daysLeft ?? 9999) - (b.daysLeft ?? 9999));
 }
 
 export function appetiteState(idea: Idea, now: Date): { daysLeft: number; level: 'ok' | 'warn' | 'expired' } | null {
@@ -349,6 +375,25 @@ export function evaluateRules(reg: Register, derived: Map<string, Derived>, now:
   const rules = reg.rules ?? [];
   const byId = new Map(reg.ideas.map((i) => [i.id, i]));
   const push = (rule: Rule, level: Level, text: string, ideaId?: string, capabilityId?: string) => hits.push({ ruleId: rule.id, rule: rule.name, level, text, ideaId, capabilityId });
+  // Merged rows carry no live work: their items moved to a track (D-387), which the date-bound rules read below.
+  const live = reg.ideas.filter((i) => i.stage !== 'Merged');
+  // A decision line on a merged row still waits on Jithin; it is shown under the programme that now carries the row.
+  const ownerFor = (id: string) => {
+    const row = byId.get(id);
+    return row?.stage === 'Merged' && row.mergedInto ? row.mergedInto : id;
+  };
+  const whoFor = (id: string) => {
+    const row = byId.get(id);
+    if (row?.stage === 'Merged' && row.trackId) {
+      const t = (reg.tracks ?? []).find((x) => x.id === row.trackId);
+      return `${id} ${row.slug} (now ${t ? trackLabel(reg, t) : row.trackId})`;
+    }
+    return `${id} ${row?.slug ?? ''}`.trim();
+  };
+  const openTracks = (reg.tracks ?? []).filter((t) => {
+    const p = byId.get(t.parentId);
+    return !!p && !isClosed(p.stage) && t.status !== 'done' && t.status !== 'split-out';
+  });
   const ageH = hoursBetween(reg.asOf, now);
   if (ageH > 36) hits.push({ ruleId: 'R-00', rule: 'Freshness', level: 'alert', text: `This snapshot is ${Math.floor(ageH / 24) || Math.floor(ageH)} ${ageH >= 48 ? 'days' : ageH >= 24 ? 'day' : 'hours'} old. ${reg.generatedBy}` });
 
@@ -357,7 +402,7 @@ export function evaluateRules(reg: Register, derived: Map<string, Derived>, now:
     const level = (days: number): Level | null => (rule.alertDays != null && days >= rule.alertDays ? 'alert' : rule.warnDays != null && days >= rule.warnDays ? 'warn' : null);
     switch (rule.kind) {
       case 'untouched':
-        for (const i of reg.ideas) {
+        for (const i of live) {
           if (!inStage(i)) continue;
           const d = derived.get(i.id)!;
           const lv = level(d.daysUntouched);
@@ -365,7 +410,7 @@ export function evaluateRules(reg: Register, derived: Map<string, Derived>, now:
         }
         break;
       case 'no-session':
-        for (const i of reg.ideas) {
+        for (const i of live) {
           if (!inStage(i)) continue;
           const u = updateState(reg, i, now);
           if (u.daysSinceSession == null) push(rule, 'warn', `${i.id} ${i.slug}: no session logged yet, so no health call.`, i.id);
@@ -373,7 +418,7 @@ export function evaluateRules(reg: Register, derived: Map<string, Derived>, now:
         }
         break;
       case 'high-score-idle':
-        for (const i of reg.ideas) {
+        for (const i of live) {
           if (!inStage(i) || i.score.composite == null || (rule.minScore != null && i.score.composite < rule.minScore)) continue;
           const d = derived.get(i.id)!;
           const days = d.daysInStage ?? d.daysUntouched;
@@ -386,61 +431,85 @@ export function evaluateRules(reg: Register, derived: Map<string, Derived>, now:
           if (!dcn.pending) continue;
           const days = daysBetween(dcn.date, now);
           const lv = level(days);
-          if (lv) push(rule, lv, `${dcn.ideaId} ${byId.get(dcn.ideaId)?.slug ?? ''}: a decision has waited ${days} days (${dcn.id ?? dcn.date}).${rule.escalate ? ` Escalation: ${rule.escalate}.` : ''}`, dcn.ideaId);
+          if (lv) push(rule, lv, `${whoFor(dcn.ideaId)}: a decision has waited ${days} days (${dcn.id ?? dcn.date}).${rule.escalate ? ` Escalation: ${rule.escalate}.` : ''}`, ownerFor(dcn.ideaId));
         }
         break;
       case 'proposal-without-critique':
-        for (const i of reg.ideas) if (inStage(i) && i.critiqueRecorded === false && i.type !== 'Capability') push(rule, 'alert', `${i.id} ${i.slug} is at ${i.stage} with no recorded critique pass.`, i.id);
+        for (const i of live) if (inStage(i) && i.critiqueRecorded === false && i.type !== 'Capability') push(rule, 'alert', `${i.id} ${i.slug} is at ${i.stage} with no recorded critique pass.`, i.id);
+        // A track below Stress test gets a short critique before it builds (D-387).
+        for (const t of openTracks)
+          if ((!rule.stages || rule.stages.includes(t.stage)) && t.critiqueRecorded !== true)
+            push(rule, 'alert', `${trackLabel(reg, t)} is at ${t.stage} with no recorded critique pass.`, t.parentId);
         break;
       case 'parked-recheck':
-        for (const i of reg.ideas) if (i.stage === 'Parked' && derived.get(i.id)!.parkedOverdue) push(rule, 'alert', `${i.id} ${i.slug} is parked past its re-check date (${i.recheckDate}).`, i.id);
+        for (const i of live) if (i.stage === 'Parked' && derived.get(i.id)!.parkedOverdue) push(rule, 'alert', `${i.id} ${i.slug} is parked past its re-check date (${i.recheckDate}).`, i.id);
         break;
       case 'appetite':
-        for (const i of reg.ideas) {
+        for (const i of live) {
           const a = appetiteState(i, now);
           if (!a || i.stage === 'Graduated' || i.stage === 'Killed') continue;
           if (a.level === 'expired') push(rule, 'alert', `${i.id} ${i.slug}: appetite expired ${-a.daysLeft} days ago; back to Shaping, not extended.`, i.id);
           else if (rule.warnDays != null && a.daysLeft <= rule.warnDays) push(rule, 'warn', `${i.id} ${i.slug}: appetite ends in ${a.daysLeft} days (${i.appetiteEnds}).`, i.id);
         }
+        for (const t of openTracks) {
+          if (!t.appetiteEnds) continue;
+          const d = daysUntil(t.appetiteEnds, now);
+          if (Number.isNaN(d)) continue;
+          if (d < 0) push(rule, 'alert', `${trackLabel(reg, t)}: appetite expired ${-d} days ago; back to Shaping, not extended.`, t.parentId);
+          else if (rule.warnDays != null && d <= rule.warnDays) push(rule, 'warn', `${trackLabel(reg, t)}: appetite ends in ${d} days (${t.appetiteEnds}).`, t.parentId);
+        }
         break;
       case 'kill-signal':
-        for (const i of reg.ideas)
+        for (const i of live)
           for (const k of i.killSignals ?? []) {
             if (k.status === 'fired') push(rule, 'alert', `${i.id} ${i.slug}: kill signal fired: ${k.signal}${k.action ? ` → ${k.action}` : ''}.`, i.id);
             else if (k.status === 'open' && k.by && daysUntil(k.by, now) < 0) push(rule, 'alert', `${i.id} ${i.slug}: kill signal lapsed on ${k.by} without a verdict: ${k.signal}.`, i.id);
             else if (k.status === 'open' && k.by && daysUntil(k.by, now) <= 14) push(rule, 'warn', `${i.id} ${i.slug}: kill signal due ${k.by}: ${k.signal}.`, i.id);
           }
+        for (const t of openTracks)
+          for (const k of t.killSignals ?? []) {
+            const where = trackLabel(reg, t);
+            if (k.status === 'fired') push(rule, 'alert', `${where}: kill signal fired: ${k.signal}${k.action ? ` → ${k.action}` : ''}.`, t.parentId);
+            else if (k.status === 'open' && k.by && daysUntil(k.by, now) < 0) push(rule, 'alert', `${where}: kill signal lapsed on ${k.by} without a verdict: ${k.signal}.`, t.parentId);
+            else if (k.status === 'open' && k.by && daysUntil(k.by, now) <= 14) push(rule, 'warn', `${where}: kill signal due ${k.by}: ${k.signal}.`, t.parentId);
+          }
         break;
       case 'next-step-due':
-        for (const i of reg.ideas) {
+        for (const i of live) {
           if (!i.nextStepDue || i.stage === 'Killed') continue;
           const d = daysUntil(i.nextStepDue, now);
           if (d < 0) push(rule, 'alert', `${i.id} ${i.slug}: next step overdue by ${-d} days (${i.nextStepDue}).`, i.id);
           else if (rule.warnDays != null && d <= rule.warnDays) push(rule, 'warn', `${i.id} ${i.slug}: next step due in ${d} days (${i.nextStepDue}).`, i.id);
+        }
+        for (const t of openTracks) {
+          if (!t.nextStepDue) continue;
+          const d = daysUntil(t.nextStepDue, now);
+          if (d < 0) push(rule, 'alert', `${trackLabel(reg, t)}: next step overdue by ${-d} days (${t.nextStepDue}).`, t.parentId);
+          else if (rule.warnDays != null && d <= rule.warnDays) push(rule, 'warn', `${trackLabel(reg, t)}: next step due in ${d} days (${t.nextStepDue}).`, t.parentId);
         }
         break;
       case 'review-due':
         for (const dcn of reg.decisions) {
           if (!dcn.reviewOn || dcn.status === 'superseded') continue;
           const d = daysUntil(dcn.reviewOn, now);
-          if (d < 0) push(rule, 'alert', `${dcn.ideaId}: decision ${dcn.id ?? ''} review overdue by ${-d} days (${dcn.reviewOn}).`, dcn.ideaId);
-          else if (rule.warnDays != null && d <= rule.warnDays) push(rule, 'warn', `${dcn.ideaId}: decision ${dcn.id ?? ''} up for review in ${d} days (${dcn.reviewOn}).`, dcn.ideaId);
+          if (d < 0) push(rule, 'alert', `${whoFor(dcn.ideaId)}: decision ${dcn.id ?? ''} review overdue by ${-d} days (${dcn.reviewOn}).`, ownerFor(dcn.ideaId));
+          else if (rule.warnDays != null && d <= rule.warnDays) push(rule, 'warn', `${whoFor(dcn.ideaId)}: decision ${dcn.id ?? ''} up for review in ${d} days (${dcn.reviewOn}).`, ownerFor(dcn.ideaId));
         }
         break;
       case 'no-theme':
-        for (const i of reg.ideas) if (i.stage !== 'Killed' && i.themeIds.length === 0 && i.type !== 'Capability') push(rule, 'info', `${i.id} ${i.slug} serves no theme.`, i.id);
+        for (const i of live) if (i.stage !== 'Killed' && i.themeIds.length === 0 && i.type !== 'Capability') push(rule, 'info', `${i.id} ${i.slug} serves no theme.`, i.id);
         break;
       case 'no-owner':
-        for (const i of reg.ideas) if (/to be named|tbd|unassigned/i.test(i.owner.split(';')[0]) || !i.owner.trim()) push(rule, 'info', `${i.id} ${i.slug} has no named owner.`, i.id);
+        for (const i of live) if (/to be named|tbd|unassigned/i.test(i.owner.split(';')[0]) || !i.owner.trim()) push(rule, 'info', `${i.id} ${i.slug} has no named owner.`, i.id);
         break;
       case 'standard-behind':
-        for (const i of reg.ideas) if (i.standardVersion && i.standardVersion !== reg.standardVersion && i.stage !== 'Graduated' && i.stage !== 'Killed') push(rule, 'info', `${i.id} ${i.slug} follows ${i.standardVersion}; current is ${reg.standardVersion}.`, i.id);
+        for (const i of live) if (i.standardVersion && i.standardVersion !== reg.standardVersion && i.stage !== 'Graduated' && i.stage !== 'Killed') push(rule, 'info', `${i.id} ${i.slug} follows ${i.standardVersion}; current is ${reg.standardVersion}.`, i.id);
         break;
       case 'dependency-conflict':
         for (const c of dependencyConflicts(reg)) push(rule, 'warn', `${c.dependentId} depends on ${c.blockerId} but sits ahead of it: ${c.reason}.`, c.dependentId);
         break;
       case 'building-gate':
-        for (const i of reg.ideas) {
+        for (const i of live) {
           if (!inStage(i) || i.type === 'Capability') continue;
           const g = buildingGate(i);
           if (i.stage === 'Proposal' && !g.passed) push(rule, 'alert', `${i.id} ${i.slug} is funded but cannot start: needs ${g.missing.join(', ')}.`, i.id);
@@ -448,11 +517,17 @@ export function evaluateRules(reg: Register, derived: Map<string, Derived>, now:
         }
         break;
       case 'governance-blocked':
-        for (const i of reg.ideas) {
+        for (const i of live) {
           const gv = i.governance;
           if (!gv || gv.status === 'not needed' || gv.status === 'cleared') continue;
           if (gv.status === 'blocked') push(rule, 'alert', `${i.id} ${i.slug}: governance review blocked (${gv.review ?? 'review'}; ${gv.owner ?? 'separate team'}).`, i.id);
           else if (gv.criticalPath) push(rule, 'warn', `${i.id} ${i.slug}: governance is on the critical path (${gv.review ?? 'review'}, ${gv.status ?? 'not started'}${gv.expectedWeeks != null ? `, about ${gv.expectedWeeks} weeks` : ''}).`, i.id);
+        }
+        for (const t of openTracks) {
+          const gv = t.governance;
+          if (!gv || gv.status === 'not needed' || gv.status === 'cleared') continue;
+          if (gv.status === 'blocked') push(rule, 'alert', `${trackLabel(reg, t)}: governance review blocked (${gv.review ?? 'review'}; ${gv.owner ?? 'separate team'}).`, t.parentId);
+          else if (gv.criticalPath) push(rule, 'warn', `${trackLabel(reg, t)}: governance is on the critical path (${gv.review ?? 'review'}, ${gv.status ?? 'not started'}).`, t.parentId);
         }
         break;
     }

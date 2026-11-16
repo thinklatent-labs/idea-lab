@@ -6,8 +6,8 @@ aliases: ["omni", "TLM omni", "tlm-duplex", "omni model", "full-duplex model"]
 type: Feature
 parent: "TL-018"
 themes: ["T-001"]
-stage: "Seed"
-stage_since: "2026-11-07"
+stage: "Merged"
+stage_since: "2026-11-16"
 horizon: "H3"
 stream: null
 appetite_weeks: null
@@ -17,11 +17,13 @@ score: null
 score_status: none
 doc_url: null
 standard: "pre-v1"
-last_touched: 2026-11-07
+last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: null
-next_step: "Brainstorm in TL-019's own chat: re-plan the brief under the lab's public-data rule (Enterprise call recordings are company-version only): which public or licensed two-channel conversation corpus can carry a lab spike, and whether the lab spike is the cascade control (option C) or a PersonaPlex fine-tune (option D); pick where the model talks first (the brief leans to the simulated caller, which also builds the τ-style eval TL-004 needs); state H1 to H3 from the brief with confirm and refute. Sequencing sits with TL-018: the Thinker stage reuses Core and the Judge family"
-next_step_due: "2026-12-05"
+next_step: "None here: work continues in TL-018 tlm-roadmap's Omni track (TL-018.omni), which carries this row's next step and open items (D-391)."
+next_step_due: null
+merged_into: "TL-018"
+track: "TL-018.omni"
 ---
 
 # TLM omni: a real-time, full-duplex conversational model on Gemma that listens, talks, takes interruption and realigns, carrying the register and institutional knowledge of call handling
@@ -29,11 +31,13 @@ next_step_due: "2026-12-05"
 <!-- generated:start -->
 ## Lab record
 
-**TL-019 tlm-omni** · Feature of TL-018 · Seed (Registered 2026-11-07 as a feature of TL-018 (D-176), from the 2026-11-05 scout brief (pre-idea until now)) · H3
+> **Merged** into [TL-018 tlm-roadmap](TL-018-tlm-roadmap.md) as the **Omni** track (TL-018.omni) on 2026-11-16 (D-391). Its purpose, next step and every open item continue on the track, listed in the parent's doc under Tracks; this record stays as it stood at the merge.
+
+**TL-019 tlm-omni** · Feature of TL-018 · Merged (Merged into TL-018 tlm-roadmap as the Omni track (TL-018.omni) on 2026-11-16 (D-391); its purpose and every open item moved to the track; this row is the record up to the merge. Before: Registered 2026-11-07 as a feature of TL-018 (D-176), from the 2026-11-05 scout brief (pre-idea until now)) · H3
 
 Owner: Head of ThinkLatent (Jithin), sponsor; omni lead (Claude). Appetite: not set. Score: not scored .
 
-Next step: Brainstorm in TL-019's own chat: re-plan the brief under the lab's public-data rule (Enterprise call recordings are company-version only): which public or licensed two-channel conversation corpus can carry a lab spike, and whether the lab spike is the cascade control (option C) or a PersonaPlex fine-tune (option D); pick where the model talks first (the brief leans to the simulated caller, which also builds the τ-style eval TL-004 needs); state H1 to H3 from the brief with confirm and refute. Sequencing sits with TL-018: the Thinker stage reuses Core and the Judge family (due 2026-12-05)
+Next step: None here: work continues in TL-018 tlm-roadmap's Omni track (TL-018.omni), which carries this row's next step and open items (D-391).
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -70,6 +74,7 @@ _None recorded._
 | ID | Date | Decision | By | Status |
 | --- | --- | --- | --- | --- |
 | D-176 | 2026-11-07 | The omni model (scout brief 2026-11-05, "not an idea yet") registered as TL-019 tlm-omni, a Seed feature of TL-018 at H3; Enterprise call data stays company-version only, so the lab spike needs a public or licensed two-channel corpus | Jithin | accepted |
+| D-391 | 2026-11-16 | TL-011 domain-model-portfolio, TL-014 model-mix, TL-019 tlm-omni, TL-020 judge-family and TL-021 tlm5 merged into TL-018 tlm-roadmap as five tracks (domain-tier, model-mix, omni, judges, tlm5), each keeping its stage, doc, next step and dates. Supersedes D-175 on purpose: D-175 kept them as features so TL-014's decided architecture and dataset work would not reset, and tracks keep that work intact. D-175's demotion test lapses, since TL-018 now owns seven running tracks. The Domain tier gets its Shaping read at gate 1 on 5 Dec (date set on Jithin's call). | Jithin (question prompt) | accepted |
 <!-- generated:end -->
 
 ## Notes

@@ -5,15 +5,17 @@ import { Button } from '@kit/ui/components/button';
 import { Slider } from '@kit/ui/components/slider';
 import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
-import { layoutGraph, neighbourhood, type GEdge, type GNode } from '../lib/graph';
+import { layoutGraph, neighbourhood, type GEdge, type GLinkType, type GNode, type GNodeType } from '../lib/graph';
+import { trackById, trackLabel } from '../lib/tracks';
 import { fmtDate, plural } from '../lib/format';
 import { LINK_MEANING } from '../lib/rubric';
-import { LINK_TYPES, NODE_TYPES, type LinkType, type NodeType } from '../lib/types';
+import { LINK_TYPES, NODE_TYPES } from '../lib/types';
 import { EmptyNote, SectionHead, Segmented, STAGE_VAR } from '../kit/parts';
 import { spring } from '../kit/motion';
 
 /** Edge styles by link type: the dash carries the type, so colour is never the only cue. */
-const DASH: Partial<Record<LinkType, string>> = {
+const DASH: Partial<Record<GLinkType, string>> = {
+  'track-of': '9 3',
   'feature-of': '5 4',
   serves: '2 4',
   'related-to': '1 4',
@@ -22,12 +24,12 @@ const DASH: Partial<Record<LinkType, string>> = {
   enables: '3 3',
   'evidence-for': '2 2',
 };
-const WIDTH: Partial<Record<LinkType, number>> = { 'depends-on': 1.6, creates: 1.3, reuses: 1 };
+const WIDTH: Partial<Record<GLinkType, number>> = { 'track-of': 2, 'depends-on': 1.6, creates: 1.3, reuses: 1 };
 
 type Depth = '1' | '2' | 'all';
 
 /** A small shape per node type, so a node's type reads without its colour. */
-function Glyph({ type, x, y, fill }: { type: NodeType; x: number; y: number; fill: string }) {
+function Glyph({ type, x, y, fill }: { type: GNodeType; x: number; y: number; fill: string }) {
   const s = { fill };
   switch (type) {
     case 'Theme':
@@ -40,6 +42,8 @@ function Glyph({ type, x, y, fill }: { type: NodeType; x: number; y: number; fil
       return <rect x={x - 0.5} y={y + 2} width={9} height={4.5} rx={1} style={s} />;
     case 'Experiment':
       return <polygon points={`${x + 4},${y} ${x + 8.5},${y + 8} ${x - 0.5},${y + 8}`} style={s} />;
+    case 'Track':
+      return <polygon points={`${x},${y} ${x + 8.5},${y + 4} ${x},${y + 8.5}`} style={s} />;
   }
 }
 
@@ -64,13 +68,14 @@ export default function Graph() {
   const [hover, setHover] = useState<string | null>(null);
   const [kbd, setKbd] = useState<string | null>(null);
   const [depth, setDepth] = useState<Depth>('1');
-  const dates = useMemo(() => [...new Set(reg.ideas.map((i) => i.createdOn ?? i.lastTouched))].sort(), [reg]);
+  const dates = useMemo(() => [...new Set([...reg.ideas.map((i) => i.createdOn ?? i.lastTouched), ...(reg.tracks ?? []).map((t) => t.mergedOn)])].sort(), [reg]);
   const [dateIdx, setDateIdx] = useState<number>(dates.length - 1);
   const cutoff = dates[dateIdx] ?? dates[dates.length - 1];
-  const stageOf = useMemo(() => new Map(reg.ideas.map((i) => [i.id, i.stage])), [reg]);
+  const stageOf = useMemo(() => new Map([...reg.ideas.map((i) => [i.id, i.stage] as const), ...(reg.tracks ?? []).map((t) => [t.id, t.stage] as const)]), [reg]);
 
   useEffect(() => {
-    if (selectedId) focusOn(selectedId);
+    // a track opens its parent's record; keep the graph's focus on the track itself
+    if (selectedId && !(focus && trackById(reg, focus)?.parentId === selectedId)) focusOn(selectedId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId]);
 
@@ -80,11 +85,11 @@ export default function Graph() {
   }
   const open = (id: string) => {
     focusOn(id);
-    select(id);
+    select(trackById(reg, id)?.parentId ?? id);
   };
 
   const nb = focus ? (depth === 'all' ? { nodes: new Set(layout.nodes.map((n) => n.id)), edges: new Set(layout.edges.map((e) => e.id)) } : neighbourhood(layout, focus, Number(depth))) : null;
-  const createdOn = new Map(reg.ideas.map((i) => [i.id, i.createdOn ?? i.lastTouched]));
+  const createdOn = new Map([...reg.ideas.map((i) => [i.id, i.createdOn ?? i.lastTouched] as const), ...(reg.tracks ?? []).map((t) => [t.id, t.mergedOn] as const)]);
   const afterCutoff = (id: string) => {
     const d = createdOn.get(id);
     return !!d && !!cutoff && d > cutoff;
@@ -93,6 +98,8 @@ export default function Graph() {
   const focusEdges = focus ? layout.edges.filter((e) => nb!.edges.has(e.id)) : [];
   const nodeById = new Map(layout.nodes.map((n) => [n.id, n]));
   const fullName = (id: string) => {
+    const tr = trackById(reg, id);
+    if (tr) return trackLabel(reg, tr);
     const i = reg.ideas.find((x) => x.id === id);
     if (i) return `${i.id} ${i.slug}`;
     const c = reg.capabilities.find((x) => x.id === id);
@@ -105,7 +112,8 @@ export default function Graph() {
     if (st) return STAGE_VAR[st];
     return n.type === 'Theme' ? 'var(--kit-companion)' : 'var(--muted-foreground)';
   };
-  const typesShown = LINK_TYPES.filter((t) => layout.edges.some((e) => e.type === t));
+  const typesShown = (['track-of', ...LINK_TYPES] as GLinkType[]).filter((t) => layout.edges.some((e) => e.type === t));
+  const nodeTypesShown = (['Theme', 'Idea', 'Track', ...NODE_TYPES.filter((t) => t !== 'Theme' && t !== 'Idea')] as GNodeType[]).filter((t) => t !== 'Track' || layout.nodes.some((n) => n.type === 'Track'));
   const layerOf = new Map(layout.nodes.map((n) => [n.id, n.layer]));
 
   return (
@@ -113,7 +121,7 @@ export default function Graph() {
       <ViewHeader
         kicker={`${plural(layout.nodes.length, 'node')} · ${plural(layout.edges.length, 'link')}`}
         title="Idea graph"
-        caption="Themes on top, then ideas, features and the capabilities they reuse or create. Tap a node to light its neighbours and open its record; on a phone the graph scrolls inside its frame."
+        caption="Themes on top, then ideas, the tracks merged into them, features and the capabilities they reuse or create. Links that named a merged row now point at its track. Tap a node to light its neighbours and open its record; on a phone the graph scrolls inside its frame."
         actions={
           <>
             <Segmented
@@ -265,7 +273,7 @@ export default function Graph() {
       </Surface>
 
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2 px-1 text-xs text-muted-foreground" aria-label="Legend">
-        {NODE_TYPES.map((t) => (
+        {nodeTypesShown.map((t) => (
           <span key={t} className="inline-flex items-center gap-1.5">
             <svg width={10} height={10} viewBox="-1 -1 10 10" aria-hidden="true">
               <Glyph type={t} x={0} y={0} fill="currentColor" />

@@ -8,7 +8,7 @@ Only the Claude session in the Idea Lab Project writes to this repository (throu
 
 ## Layout
 
-- `register/register.json`: the single list of every idea, link, capability, decision, session and sync run (contract v1.2, `register/schema/register.schema.json`). Read it first, update it last, every session.
+- `register/register.json`: the single list of every idea, track, link, capability, decision, session and sync run (contract v1.4, `register/schema/register.schema.json`). Read it first, update it last, every session.
 - `register/history/`: one dated snapshot per export plus `index.json`; the dashboard diffs the two most recent.
 - `ideas/TL-###-slug.md`: one doc per idea. Frontmatter and the block between `<!-- generated:start -->` and `<!-- generated:end -->` are rendered from the register by `scripts/render-ideas.mjs`; write prose under `## Notes` and the headings after it.
 - `artifacts/TL-###-slug/`: read-only mirrors of each idea's claude.ai artifacts (idea card and its tabs as markdown, sketches, canvases and playgrounds as HTML) and its scout briefs from project knowledge, listed in `artifacts/index.json`. The live versions stay on claude.ai and win; edit there, then re-export. Every session that creates or changes an artifact re-exports it here before `scripts/lab-sync.sh`, and the nightly sync re-exports anything whose revision moved.
@@ -18,7 +18,9 @@ Only the Claude session in the Idea Lab Project writes to this repository (throu
 
 ## Lifecycle
 
-Seed, Shaping, Stress test, Proposal, Building, Shipped, Graduated, Parked, Killed.
+Seed, Shaping, Stress test, Proposal, Building, Shipped, Graduated, Merged, Parked, Killed.
+
+- Merged (D-387): Jithin can merge an idea or feature into a higher-order idea. The row closes at `Merged` with `mergedInto` and `trackId` and stays as the record up to the merge; its purpose and every open item move to a track in `tracks` on the parent, with its own owner, stage, status and dated next step. Links that name a merged row resolve to its track; the dashboard draws tracks under their parent. A track below Stress test gets a short critique before it builds; a track can be split out again as an idea.
 
 - Proposal is funded by default; Jithin rejects explicitly with a decision of type `rejection`, everything else proceeds.
 - The Building gate: an owner role assigned (played by Claude until the company version), a stream, an appetite in engineer-weeks, and a weekly review slot Jithin commits to (D-152). Missing any of the four means no start. Ideas in Building never outnumber Jithin's review slots: his review time, not build capacity, is the lab's constraint.
@@ -42,8 +44,8 @@ Brainstorm, Critic, Scout, Spec, Portfolio, Comms. Match the session to the stag
 
 ## Every session
 
-1. Apply any waiting dashboard decisions first (lab-decisions skill). Then open with the session line: `Lab session · TL-### slug · Mode`, and read the row's last decision and next step back before acting.
-2. One chat, one scope: a single idea, a Portfolio session, or Lab operations. Lab-operations sessions change the Operating Model, the register's structure, standards and scheduled tasks, never an idea's stage, score or doc. Idea sessions write only their own idea's row, doc and links.
+1. Apply any waiting dashboard decisions first (lab-decisions skill). Then open with the session line: `Lab session · TL-### slug · Mode` (or `Lab session · TL-### slug › Track · Mode` for one track), and read the row's last decision and next step back before acting.
+2. One chat, one scope: a single idea, one track of a higher-order idea, a Portfolio session, or Lab operations. Lab-operations sessions change the Operating Model, the register's structure, standards and scheduled tasks, never an idea's stage, score or doc. Idea sessions write only their own idea's row, doc and links.
 3. Do not advance an idea past Stress test without a critique pass recorded.
 4. At the end: update the register row (stage, score, next step with a due date, links), add a decision-log line (immutable; a reversal is a new line that supersedes the old), add a Sessions row with a health call (on-track, at-risk, off-track), bump `asOf` and `source.registerRev`, re-export any artifact the session created or changed into `artifacts/` (with its `index.json` entry), then run `scripts/lab-sync.sh`. GitHub must match the live register and artifacts at the end of every session; a session that cannot push says so in its closing reply.
 

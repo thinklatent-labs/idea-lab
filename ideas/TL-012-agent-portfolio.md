@@ -6,8 +6,8 @@ aliases: []
 type: Idea
 parent: null
 themes: ["T-001"]
-stage: "Stress test"
-stage_since: "2026-11-07"
+stage: "Merged"
+stage_since: "2026-11-16"
 horizon: "H1"
 stream: "S-D"
 appetite_weeks: 12
@@ -17,11 +17,13 @@ score: 3.15
 score_status: set
 doc_url: "https://claude.ai/artifact/T5rhguUBWXiUtPamFxxELT"
 standard: "v1"
-last_touched: 2026-11-07
+last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: true
-next_step: "Spec session (pre-Proposal changes from the Stress test pack): cap each purpose at two variants x two levels; write the judge stand-in calibration plan (frontier-panel judge from a different model line, human audit, published agreement); harden the after-call design (no CRM write credential in v1, protected fields excluded, injection test set, approved-with-error measure); declare each purpose's dataset and what it can prove; record the loop's governance cost under both answers to the variant question. Then move to Proposal. Building can start at week 8 (2026-12-28) with slots Tuesday and Friday, 30 minutes, if TL-004's week-4 gate (2026-12-04) is met; otherwise pre-review only. Quick call TL-012-q3 (kill-criteria read dates) on the dashboard From TL-003 (2026-11-07, D-178): the agent library's first entry is marketing pre-review, matching wave-1 order; the knowledge agent shows as coming next. From TL-007 (2026-11-08, D-204): D-051 still reads proposed although D-159 accepted it; add a line that marks it accepted so it leaves the 'awaiting your accept' count."
-next_step_due: "2026-11-21"
+next_step: "None here: work continues in TL-003 portal's Agents library track (TL-003.agents), which carries this row's next step and open items (D-390)."
+next_step_due: null
+merged_into: "TL-003"
+track: "TL-003.agents"
 ---
 
 # Agent portfolio — one agent purpose, several methodology variants on TLM, compared on the index and published in the library; the demand side of the Domain tier
@@ -29,11 +31,13 @@ next_step_due: "2026-11-21"
 <!-- generated:start -->
 ## Lab record
 
-**TL-012 agent-portfolio** · Idea · Stress test (Critique recorded 2026-11-07 (D-170); score set 3.15 (D-172); appetite 12 engineer-weeks, weeks 8 to 13 (D-171). Stays at Stress test until the pack's pre-Proposal changes land) · H1 · S-D
+> **Merged** into [TL-003 portal](TL-003-portal.md) as the **Agents library** track (TL-003.agents) on 2026-11-16 (D-390). Its purpose, next step and every open item continue on the track, listed in the parent's doc under Tracks; this record stays as it stood at the merge.
+
+**TL-012 agent-portfolio** · Idea · Merged (Merged into TL-003 portal as the Agents library track (TL-003.agents) on 2026-11-16 (D-390); its purpose and every open item moved to the track; this row is the record up to the merge. Before: Critique recorded 2026-11-07 (D-170); score set 3.15 (D-172); appetite 12 engineer-weeks, weeks 8 to 13 (D-171). Stays at Stress test until the pack's pre-Proposal changes land) · H1 · S-D
 
 Owner: Head of ThinkLatent, sponsor (Jithin). Task mining: business, Head of Applied Research (Jithin); build, Applied Research engineer (Claude). After-call agent: business, Head of AI Products (Jithin); build, harness and platform lead (Claude). Pre-review: business, Head of Applied Research, interim (Jithin); build, Applied Research engineer (Claude). Appetite: 12 engineer-weeks. Score: 3.15 (set).
 
-Next step: Spec session (pre-Proposal changes from the Stress test pack): cap each purpose at two variants x two levels; write the judge stand-in calibration plan (frontier-panel judge from a different model line, human audit, published agreement); harden the after-call design (no CRM write credential in v1, protected fields excluded, injection test set, approved-with-error measure); declare each purpose's dataset and what it can prove; record the loop's governance cost under both answers to the variant question. Then move to Proposal. Building can start at week 8 (2026-12-28) with slots Tuesday and Friday, 30 minutes, if TL-004's week-4 gate (2026-12-04) is met; otherwise pre-review only. Quick call TL-012-q3 (kill-criteria read dates) on the dashboard From TL-003 (2026-11-07, D-178): the agent library's first entry is marketing pre-review, matching wave-1 order; the knowledge agent shows as coming next. From TL-007 (2026-11-08, D-204): D-051 still reads proposed although D-159 accepted it; add a line that marks it accepted so it leaves the 'awaiting your accept' count. (due 2026-11-21)
+Next step: None here: work continues in TL-003 portal's Agents library track (TL-003.agents), which carries this row's next step and open items (D-390).
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -115,6 +119,7 @@ _None recorded._
 | D-172 | 2026-11-07 | Score set at 3.15 on the quarter weights, under the 3.5 bar: the red team's 3.00 with feasibility raised from 2 to 3 for the protected S-E, the later and smaller appetite and the ordered wave 1. Evidence of need stays 2 because every business owner is still Jithin. Funded by default; the score is the case for the smaller bet, which D-171 takes | Jithin | accepted |
 | D-173 | 2026-11-07 | Kill-criteria read dates re-timed to the new appetite (thresholds unchanged), proposed by the thinking partner: I-1 end of week 8 (2027-01-01); I-2 TL-004's week-4 gate (2026-12-04) read as a start condition, missed means wave 1 starts with pre-review only; pre-review labelled set ready end of week 8, read week 11; task-mining spike read end of week 9; after-call (c) TL-008 shaped by week 8, (a) and (b) read week 12; I-3 judge agreement week 10; I-5 H3 deltas week 12; I-6 burn read week 11; I-4 rolling from week 8. Quick call on the dashboard (TL-012-q3) | Thinking partner, pending Jithin | proposed |
 | D-174 | 2026-11-07 | Re-time the kill-criteria read dates to the 12-week appetite in weeks 8 to 13 (thresholds unchanged): Accept the proposed read dates (decided on the dashboard 2026-11-07). D-173 accepted; killCriteria now carry only the re-timed dates | Jithin (dashboard) | accepted |
+| D-390 | 2026-11-16 | TL-012 agent-portfolio and TL-010 blueprints merged into TL-003 portal as one Agents library track (TL-003.agents). TL-012 merged on Jithin's call, against the recommendation to keep it separate until its Proposal. The track keeps TL-012's stage (Stress test, critique D-170), score 3.15 as history, H1 to H8, kill criteria I-1 to I-6 and the three purpose checks, 12 engineer-weeks in weeks 8 to 13 on S-D with Tuesday and Friday slots, and the Spec session due 21 Nov; nothing builds before the pre-Proposal changes and the TL Index track's week-4 gate (4 Dec). TL-010's purpose, a forkable reference build with the gateway, observability and evaluation wired in, becomes how an agent is packaged, since agents replaced blueprints in the portal. | Jithin (question prompt) | accepted |
 <!-- generated:end -->
 
 ## Notes

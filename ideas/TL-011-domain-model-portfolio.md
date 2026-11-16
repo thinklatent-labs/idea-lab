@@ -6,8 +6,8 @@ aliases: []
 type: Feature
 parent: "TL-018"
 themes: ["T-001"]
-stage: "Seed"
-stage_since: null
+stage: "Merged"
+stage_since: "2026-11-16"
 horizon: "H1"
 stream: null
 appetite_weeks: null
@@ -17,11 +17,13 @@ score: null
 score_status: none
 doc_url: null
 standard: "pre-v1"
-last_touched: 2026-11-07
+last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: null
-next_step: "Shaping session: write the idea card (domain = domain knowledge plus its tasks; all Domain models on Core; first adapters from task mining on the flagship), set the appetite for Build 1 (Judge family on Core) and declare the capabilities reused and created. From TL-012 (2026-11-02): wave 1 raises demand on the Judge family (the advisor-summary rubric grader first) and on the Compliance pre-review adapter (the same work as Build 3); the task-mining agent runs as TL-012's wave-1 spike and supplies the first adapters from the flagship Now a feature of TL-018 tlm-roadmap (D-175): stage, doc and next step unchanged; cross-suite sequencing is decided in TL-018. TL-018 (2026-11-07, D-188): the Judge family (Build 1) is now its own feature, TL-020 judge-family; TL-011 keeps Builds 2 to 8 and depends on TL-020 for scoring."
+next_step: "None here: work continues in TL-018 tlm-roadmap's Domain tier track (TL-018.domain-tier), which carries this row's next step and open items (D-391)."
 next_step_due: null
+merged_into: "TL-018"
+track: "TL-018.domain-tier"
 ---
 
 # TLM Domain tier — which domain and task models to build (Advice, Compliance, Judge, Cybersecurity) and in what order
@@ -29,11 +31,13 @@ next_step_due: null
 <!-- generated:start -->
 ## Lab record
 
-**TL-011 domain-model-portfolio** · Feature of TL-018 · Seed (Scout brief recorded and validated against the TL-003 TLM session 2026-11-02; three design decisions logged; Idea card not yet written) · H1
+> **Merged** into [TL-018 tlm-roadmap](TL-018-tlm-roadmap.md) as the **Domain tier** track (TL-018.domain-tier) on 2026-11-16 (D-391). Its purpose, next step and every open item continue on the track, listed in the parent's doc under Tracks; this record stays as it stood at the merge.
+
+**TL-011 domain-model-portfolio** · Feature of TL-018 · Merged (Merged into TL-018 tlm-roadmap as the Domain tier track (TL-018.domain-tier) on 2026-11-16 (D-391); its purpose and every open item moved to the track; this row is the record up to the merge. Before: Scout brief recorded and validated against the TL-003 TLM session 2026-11-02; three design decisions logged; Idea card not yet written) · H1
 
 Owner: Head of ThinkLatent (sponsor); domain leads to be named per build. Appetite: not set. Score: not scored .
 
-Next step: Shaping session: write the idea card (domain = domain knowledge plus its tasks; all Domain models on Core; first adapters from task mining on the flagship), set the appetite for Build 1 (Judge family on Core) and declare the capabilities reused and created. From TL-012 (2026-11-02): wave 1 raises demand on the Judge family (the advisor-summary rubric grader first) and on the Compliance pre-review adapter (the same work as Build 3); the task-mining agent runs as TL-012's wave-1 spike and supplies the first adapters from the flagship Now a feature of TL-018 tlm-roadmap (D-175): stage, doc and next step unchanged; cross-suite sequencing is decided in TL-018. TL-018 (2026-11-07, D-188): the Judge family (Build 1) is now its own feature, TL-020 judge-family; TL-011 keeps Builds 2 to 8 and depends on TL-020 for scoring.
+Next step: None here: work continues in TL-018 tlm-roadmap's Domain tier track (TL-018.domain-tier), which carries this row's next step and open items (D-391).
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -81,6 +85,7 @@ _None recorded._
 | --- | --- | --- | --- | --- |
 | D-039 | 2026-11-02 | Registered at Seed with a scout brief; proposed order: Judge family and house PII encoders now, Compliance pre-review adapters now, Advice evaluation harness and suitability layer (no advice model) now, Cyber reuse evaluation with no training now; Core flywheel, Compliance document-intelligence layer, Advice narrative adapters and a conditional Cyber adapter in 12–24 months | Thinking partner, pending Jithin | proposed |
 | D-041 | 2026-11-02 | Three design decisions after validating the scout brief against the TLM line: (1) Core-only rule stays: every Domain-tier model, judges and classifiers included, is built on Core, not Distil; (2) Advice stays one domain, not split into servicing and recommendation; (3) Cybersecurity stays on Core as its base, no separate foundation model, reuse evaluation before any training. Dissent recorded: the brief's evidence puts scoring and gating models at 0.6–8B with no gain above, so Core-sized judges carry a compute cost the index should measure | Jithin | accepted |
+| D-391 | 2026-11-16 | TL-011 domain-model-portfolio, TL-014 model-mix, TL-019 tlm-omni, TL-020 judge-family and TL-021 tlm5 merged into TL-018 tlm-roadmap as five tracks (domain-tier, model-mix, omni, judges, tlm5), each keeping its stage, doc, next step and dates. Supersedes D-175 on purpose: D-175 kept them as features so TL-014's decided architecture and dataset work would not reset, and tracks keep that work intact. D-175's demotion test lapses, since TL-018 now owns seven running tracks. The Domain tier gets its Shaping read at gate 1 on 5 Dec (date set on Jithin's call). | Jithin (question prompt) | accepted |
 <!-- generated:end -->
 
 ## Notes

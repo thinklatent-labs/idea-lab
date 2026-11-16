@@ -6,8 +6,8 @@ aliases: ["Judge family", "judges", "TL-011 Build 1", "rubric grader", "reward m
 type: Feature
 parent: "TL-018"
 themes: ["T-001"]
-stage: "Seed"
-stage_since: "2026-11-07"
+stage: "Merged"
+stage_since: "2026-11-16"
 horizon: "H1"
 stream: null
 appetite_weeks: 6
@@ -17,11 +17,13 @@ score: null
 score_status: none
 doc_url: null
 standard: "pre-v1"
-last_touched: 2026-11-07
+last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: null
-next_step: "Shaping in TL-020's own chat: write the idea card from TL-011's Build 1 (Core-only rule, not Distil as the scout brief first said); choose the first rubric (TL-012's advisor-summary grader) and the public rubric data that can reach 0.6 agreement on a 100-item human audit (H-R2); plan to train through TL-014's Core adapter pipeline (H-R1). Building on S-A once its plumbing ends in week 3 (D-190): the Building gate still needs the appetite and Jithin's review slot. Building-gate inputs set 2026-11-07 (D-193, D-194): owner role Judge lead (Claude), stream S-A, 6 engineer-weeks, review slot shared with TL-012's Friday 30 min. The gate is read after Shaping and a recorded critique, not before"
-next_step_due: "2026-11-28"
+next_step: "None here: work continues in TL-018 tlm-roadmap's Judge family track (TL-018.judges), which carries this row's next step and open items (D-391)."
+next_step_due: null
+merged_into: "TL-018"
+track: "TL-018.judges"
 ---
 
 # Judge family: groundedness, rubric and reward adapters on TLM4 Core, the shared scorer for every model in the suite and for the TL Index
@@ -29,11 +31,13 @@ next_step_due: "2026-11-28"
 <!-- generated:start -->
 ## Lab record
 
-**TL-020 judge-family** · Feature of TL-018 · Seed (Split out of TL-011 as its own feature of TL-018 on 2026-11-07 (D-188); was TL-011 Build 1) · H1
+> **Merged** into [TL-018 tlm-roadmap](TL-018-tlm-roadmap.md) as the **Judge family** track (TL-018.judges) on 2026-11-16 (D-391). Its purpose, next step and every open item continue on the track, listed in the parent's doc under Tracks; this record stays as it stood at the merge.
+
+**TL-020 judge-family** · Feature of TL-018 · Merged (Merged into TL-018 tlm-roadmap as the Judge family track (TL-018.judges) on 2026-11-16 (D-391); its purpose and every open item moved to the track; this row is the record up to the merge. Before: Split out of TL-011 as its own feature of TL-018 on 2026-11-07 (D-188); was TL-011 Build 1) · H1
 
 Owner: Judge lead (Claude); Head of ThinkLatent (Jithin), sponsor. Appetite: 6 engineer-weeks. Score: not scored .
 
-Next step: Shaping in TL-020's own chat: write the idea card from TL-011's Build 1 (Core-only rule, not Distil as the scout brief first said); choose the first rubric (TL-012's advisor-summary grader) and the public rubric data that can reach 0.6 agreement on a 100-item human audit (H-R2); plan to train through TL-014's Core adapter pipeline (H-R1). Building on S-A once its plumbing ends in week 3 (D-190): the Building gate still needs the appetite and Jithin's review slot. Building-gate inputs set 2026-11-07 (D-193, D-194): owner role Judge lead (Claude), stream S-A, 6 engineer-weeks, review slot shared with TL-012's Friday 30 min. The gate is read after Shaping and a recorded critique, not before (due 2026-11-28)
+Next step: None here: work continues in TL-018 tlm-roadmap's Judge family track (TL-018.judges), which carries this row's next step and open items (D-391).
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -69,6 +73,7 @@ _None recorded._
 | D-190 | 2026-11-07 | Judge Build 1 is planned on stream S-A once its lab-plumbing work ends in week 3; the Building gate still needs an appetite and a review slot | Jithin | accepted |
 | D-193 | 2026-11-07 | Judge Build 1 appetite set at 6 engineer-weeks on S-A (rubric grader and public data, groundedness and reward, the 100-item audit and the co-hosting test) | Jithin | accepted |
 | D-194 | 2026-11-07 | TL-020's weekly review shares TL-012's Friday 30-min slot; no new slot | Jithin | accepted |
+| D-391 | 2026-11-16 | TL-011 domain-model-portfolio, TL-014 model-mix, TL-019 tlm-omni, TL-020 judge-family and TL-021 tlm5 merged into TL-018 tlm-roadmap as five tracks (domain-tier, model-mix, omni, judges, tlm5), each keeping its stage, doc, next step and dates. Supersedes D-175 on purpose: D-175 kept them as features so TL-014's decided architecture and dataset work would not reset, and tracks keep that work intact. D-175's demotion test lapses, since TL-018 now owns seven running tracks. The Domain tier gets its Shaping read at gate 1 on 5 Dec (date set on Jithin's call). | Jithin (question prompt) | accepted |
 <!-- generated:end -->
 
 ## Notes

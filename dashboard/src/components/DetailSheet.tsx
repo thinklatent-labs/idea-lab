@@ -7,7 +7,8 @@ import { Badge } from '@kit/ui/components/badge';
 import { Button } from '@kit/ui/components/button';
 import { cn } from '@kit/ui/lib/utils';
 import { useLab } from '../lib/context';
-import { CRITERIA, dueItems, type Idea } from '../lib/types';
+import { CRITERIA, dueItems, type Idea, type Track } from '../lib/types';
+import { isClosed, tracksOf, trackById, trackSessionLine } from '../lib/tracks';
 import { MODES, defaultMode, readiness, relatedIdeas, sessionLine, capabilityPriority, type Mode } from '../lib/derive';
 import { canonicalId } from '../lib/graph';
 import { healthOf, updateState, appetiteState, buildingGate } from '../lib/derive2';
@@ -166,6 +167,122 @@ function Check({ met, label, detail }: { met: boolean; label: string; detail: Re
   );
 }
 
+const count = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
+
+/** One track of a programme: what it is for, where it stands, and everything it carried in (D-387). */
+function TrackCard({ track: t, parent }: { track: Track; parent: Idea }) {
+  const { now, select } = useLab();
+  const [mode, setMode] = useState<Mode>(defaultMode(t.stage));
+  const raw = t.nextStepDue ? calendarDaysUntil(t.nextStepDue, now) : null;
+  const due = raw != null && !Number.isNaN(raw) ? raw : null;
+  const oq = t.openQuestions ?? [];
+  const hy = t.hypotheses ?? [];
+  const kc = t.killCriteria ?? [];
+  const ks = t.killSignals ?? [];
+  const items = dueItems({ id: t.id, decisionsDue: t.decisionsDue });
+  const dueWord = due == null ? 'no due date' : due < 0 ? `${-due} days overdue` : due === 0 ? 'due today' : `${due} days left`;
+  return (
+    <Fold
+      title={
+        <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+          <span>{t.name}</span>
+          <span className="kit-num text-xs font-normal text-muted-foreground">{t.id}</span>
+          <StageTag stage={t.stage} />
+        </span>
+      }
+      aside={`${t.status} · ${dueWord}`}
+    >
+      <div className="space-y-3 text-sm">
+        <p className="leading-relaxed text-muted-foreground">{t.purpose}</p>
+        <FactList
+          items={[
+            ['Owner', t.owner],
+            [
+              'Merged from',
+              <span className="flex flex-wrap gap-x-3 gap-y-1">
+                {t.sources.map((src) => (
+                  <IdLink key={src.id} id={src.id} onOpen={select}>{`${src.id} ${src.slug ?? ''} (was ${src.stageAtMerge})`}</IdLink>
+                ))}
+              </span>,
+            ],
+            ['Stream, appetite, review', `${t.streamId ?? 'no stream'}; ${t.appetiteWeeks != null ? `${t.appetiteWeeks} engineer-weeks${t.appetiteEnds ? ` to ${fmtDate(t.appetiteEnds)}` : ''}` : 'no appetite set'}; ${t.reviewSlot ?? 'no review slot of its own'}`],
+            ['Carried in', `${count(oq.length, 'open question', 'open questions')} · ${count(hy.length, 'hypothesis', 'hypotheses')} · ${count(kc.length, 'kill criterion', 'kill criteria')} · ${count(ks.length, 'kill signal', 'kill signals')} · ${count(items.length, 'decision due', 'decisions due')}`],
+            ...((t.governance ? [['Governance', `${t.governance.status ?? 'not started'}${t.governance.review ? `: ${t.governance.review}` : ''}`]] : []) as [ReactNode, ReactNode][]),
+          ]}
+        />
+        <div className="lab-row px-4 py-3">
+          <div className="kit-caption">Next step{t.nextStepDue ? ` · due ${fmtDate(t.nextStepDue)}` : ''}{t.nextStepOrigin ? ` · set by ${t.nextStepOrigin}` : ''}</div>
+          <p className="mt-1 leading-relaxed">{t.nextStep}</p>
+          {due != null && (
+            <div className="mt-2">
+              <Status tone={due < 0 ? 'critical' : due <= 7 ? 'warning' : 'neutral'} word={due < 0 ? `${-due} days overdue` : due === 0 ? 'Due today' : `${due} days left`} />
+            </div>
+          )}
+        </div>
+        {items.length > 0 && (
+          <div className="space-y-2">
+            {items.map((item) => (
+              <DueCard key={item.id} idea={parent} item={item} />
+            ))}
+          </div>
+        )}
+        {oq.length > 0 && (
+          <Fold title="Open questions" aside={String(oq.length)}>
+            <ul className="space-y-2">
+              {oq.map((q, k) => (
+                <li key={k}>
+                  {q.question} <span className="text-xs text-muted-foreground">— {q.owner}; blocking: {q.blocking}</span>
+                </li>
+              ))}
+            </ul>
+          </Fold>
+        )}
+        {hy.length > 0 && (
+          <Fold title="Hypotheses" aside={String(hy.length)}>
+            <ul className="space-y-2">
+              {hy.map((h, k) => (
+                <li key={k}>
+                  {h.claim}
+                  {(h.confirmedIf || h.refutedIf) && (
+                    <span className="block text-xs text-muted-foreground">
+                      Confirmed if {h.confirmedIf || '—'} · refuted if {h.refutedIf || '—'} · {h.result ?? 'open'}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </Fold>
+        )}
+        {(kc.length > 0 || ks.length > 0) && (
+          <Fold title="Kill criteria and signals" aside={String(kc.length + ks.length)}>
+            <ul className="space-y-2">
+              {kc.map((c, k) => (
+                <li key={`c${k}`}>
+                  {c.criterion} <span className="text-xs text-muted-foreground">— checked {c.checked}; then {c.action}</span>
+                </li>
+              ))}
+              {ks.map((x, k) => (
+                <li key={`s${k}`}>
+                  {x.signal} <span className="text-xs text-muted-foreground">— {x.status}{x.by ? `, by ${fmtDate(x.by)}` : ''}{x.action ? `; then ${x.action}` : ''}</span>
+                </li>
+              ))}
+            </ul>
+          </Fold>
+        )}
+        <div className="space-y-2">
+          <Segmented id={`mode-${t.id}`} size="sm" options={MODES.map((m) => ({ value: m, label: m }))} value={mode} onChange={setMode} />
+          <CopyLine text={trackSessionLine(parent, t, mode)} label="Copy the track's session line" />
+        </div>
+        {t.docUrl && (
+          <a className="text-xs underline decoration-foreground/30 underline-offset-4" href={t.docUrl} target="_blank" rel="noreferrer">
+            {t.docTitle ?? 'Open the doc'}
+          </a>
+        )}
+      </div>
+    </Fold>
+  );
+}
+
 function IdeaDetail({ idea }: { idea: Idea }) {
   const { reg, derived, now, select, lastVisit, hidden, inbox } = useLab();
   const jarvis = useJarvis();
@@ -173,7 +290,7 @@ function IdeaDetail({ idea }: { idea: Idea }) {
   const health = healthOf(reg, idea.id);
   const upd = updateState(reg, idea, now);
   const appetite = appetiteState(idea, now);
-  const active = idea.stage !== 'Graduated' && idea.stage !== 'Killed';
+  const active = !isClosed(idea.stage);
   const mentions = (reg.mentions ?? []).filter((m) => m.ideaId === idea.id);
   const stepDueRaw = idea.nextStepDue ? calendarDaysUntil(idea.nextStepDue, now) : null;
   const stepDue = stepDueRaw != null && !Number.isNaN(stepDueRaw) ? stepDueRaw : null;
@@ -183,7 +300,9 @@ function IdeaDetail({ idea }: { idea: Idea }) {
   const showGate = idea.type !== 'Capability' && (idea.stage === 'Proposal' || idea.stage === 'Building' || idea.stage === 'Stress test');
   const [mode, setMode] = useState<Mode>(defaultMode(idea.stage));
   const parent = idea.parentId ? reg.ideas.find((i) => i.id === idea.parentId) : null;
-  const children = reg.ideas.filter((i) => i.parentId === idea.id);
+  const children = reg.ideas.filter((i) => i.parentId === idea.id && i.stage !== 'Merged');
+  const tracks = tracksOf(reg, idea.id);
+  const mergedTrack = idea.stage === 'Merged' ? trackById(reg, idea.trackId) : undefined;
   const out = reg.links.filter((l) => l.fromId === idea.id);
   const inbound = reg.links.filter((l) => canonicalId(reg, l.toId) === idea.id);
   const related = relatedIdeas(reg, idea.id);
@@ -231,6 +350,28 @@ function IdeaDetail({ idea }: { idea: Idea }) {
           )}
         </div>
       </div>
+
+      {idea.stage === 'Merged' && (
+        <Block title="Merged" caption="The merge rule (D-387): the row closes and its work continues as a track of its parent.">
+          <div className="lab-row px-4 py-3.5 text-sm leading-relaxed">
+            Merged into{' '}
+            {idea.mergedInto ? (
+              <IdLink id={idea.mergedInto} onOpen={select}>
+                {nameOf(reg, idea.mergedInto, idea.mergedInto)}
+              </IdLink>
+            ) : (
+              'its parent'
+            )}{' '}
+            as the <span className="font-medium">{mergedTrack?.name ?? idea.trackId}</span> track ({idea.trackId}){idea.stageSince ? ` on ${fmtDate(idea.stageSince)}` : ''}
+            {mergedTrack?.decisionId ? ` (${mergedTrack.decisionId})` : ''}. Its purpose, next step and every open item continue there; this record stays as it stood at the merge.
+            {mergedTrack && (
+              <div className="mt-2">
+                <Status tone={mergedTrack.status === 'active' ? 'good' : 'neutral'} word={`Track ${mergedTrack.status}, ${mergedTrack.stage}${mergedTrack.nextStepDue ? `, next step due ${fmtDate(mergedTrack.nextStepDue)}` : ''}`} />
+              </div>
+            )}
+          </div>
+        </Block>
+      )}
 
       <MiniKpis
         items={[
@@ -285,10 +426,22 @@ function IdeaDetail({ idea }: { idea: Idea }) {
         </div>
       </Block>
 
-      <Block title="Open a session" caption="Paste the line into a new chat in the Idea Lab project; the chat reads the row back before it acts.">
-        <Segmented id={`mode-${idea.id}`} size="sm" options={MODES.map((m) => ({ value: m, label: m }))} value={mode} onChange={setMode} />
-        <CopyLine text={sessionLine(idea, mode)} label="Copy session line" />
-      </Block>
+      {tracks.length > 0 && (
+        <Block title="Tracks" count={tracks.length} caption="Rows merged into this one (D-387). Each track keeps its purpose, owner, stage, next step and every open item; a track can have its own chat.">
+          <div className="space-y-2">
+            {tracks.map((t) => (
+              <TrackCard key={t.id} track={t} parent={idea} />
+            ))}
+          </div>
+        </Block>
+      )}
+
+      {idea.stage !== 'Merged' && (
+        <Block title="Open a session" caption="Paste the line into a new chat in the Idea Lab project; the chat reads the row back before it acts.">
+          <Segmented id={`mode-${idea.id}`} size="sm" options={MODES.map((m) => ({ value: m, label: m }))} value={mode} onChange={setMode} />
+          <CopyLine text={sessionLine(idea, mode)} label="Copy session line" />
+        </Block>
+      )}
 
       {showGate && (
         <Block title="Building gate" caption={gate.passed ? (idea.stage === 'Building' ? 'Passed; building.' : 'Passed; it can start.') : idea.stage === 'Proposal' ? 'Funded by default at Proposal; it starts Building when all four are present (D-152).' : "The TL Index's rule, generalised: unnamed, not started."}>

@@ -15,7 +15,7 @@ import { Dash, EmptyNote, HealthTag, IdLink, Segmented, StageTag } from '../kit/
 import { spring } from '../kit/motion';
 
 type SortKey = 'id' | 'stage' | 'score' | 'touched' | 'attention';
-const STAGE_ORDER: Record<Stage, number> = { Seed: 0, Shaping: 1, 'Stress test': 2, Proposal: 3, Building: 4, Shipped: 5, Graduated: 6, Parked: 7, Killed: 8 };
+const STAGE_ORDER: Record<Stage, number> = { Seed: 0, Shaping: 1, 'Stress test': 2, Proposal: 3, Building: 4, Shipped: 5, Graduated: 6, Merged: 7, Parked: 8, Killed: 9 };
 const SORTS: { value: SortKey; label: string }[] = [
   { value: 'id', label: 'ID' },
   { value: 'stage', label: 'Stage' },
@@ -220,7 +220,7 @@ function RegisterRow({ idea: i, index, showScore, stalled }: { idea: Idea; index
   const { reg, derived, now, select, selectedId, lastVisit } = useLab();
   const d = derived.get(i.id)!;
   const isNew = !!lastVisit && i.lastTouched >= lastVisit;
-  const ended = i.stage === 'Graduated' || i.stage === 'Killed';
+  const ended = i.stage === 'Graduated' || i.stage === 'Killed' || i.stage === 'Merged';
   const h = healthOf(reg, i.id);
   const u = updateState(reg, i, now);
   const open = () => select(i.id);

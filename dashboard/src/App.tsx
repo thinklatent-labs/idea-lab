@@ -113,7 +113,7 @@ export default function App() {
       .then(async (r) => {
         if (!r.ok) throw new Error(`register.json: HTTP ${r.status}`);
         const reg = (await r.json()) as Register;
-        const known = ['1.0', '1.1', '1.2', '1.3'];
+        const known = ['1.0', '1.1', '1.2', '1.3', '1.4'];
         if (!known.includes(reg.schemaVersion)) throw new Error(`register.json schema ${reg.schemaVersion} is not one of ${known.join(', ')}; rebuild the page or re-export`);
         // A refresh keeps the page as it is unless the register actually moved; when it moved, the diff snapshot moves too.
         const unchanged = refresh && latestRev.current === `${reg.source.registerRev}|${reg.asOf}`;

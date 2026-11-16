@@ -6,8 +6,8 @@ aliases: ["fast lane", "low-latency serving", "latency tier", "1,000 tok/s", "20
 type: Idea
 parent: null
 themes: ["T-001"]
-stage: "Seed"
-stage_since: "2026-11-15"
+stage: "Merged"
+stage_since: "2026-11-16"
 horizon: "H1"
 stream: null
 appetite_weeks: null
@@ -20,8 +20,10 @@ standard: "pre-v1"
 last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: null
-next_step: "Jithin runs the proof inside the Enterprise from thinklatent-labs/fast-lane (kit 0.2.1, ENTERPRISE.md): fill config/enterprise.yaml (Core 27B FP8 and BF16 paths, 7B Core), scripts/setup.sh, preflight on a GPU node, PLAN=quick then PLAN=standard on one 8x H100 node, then python -m fastlane export. If Q9 allows, the numbers-only export comes back and the next session records H1 to H10 from it. Inputs Jithin holds: Langfuse prompt and reply lengths per application (scripts/langfuse_to_replay.py --stats prints them), where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8). In parallel: Jithin answers Q10 to Q12 (G7 or G7e; Trainium2 now or Trainium3 and the discount terms; g7e quota), and Claude builds the G7e overlay once Q10 is settled; phases 0 to 4 are in the roadmap doc"
-next_step_due: "2026-11-27"
+next_step: "None here: work continues in TL-018 tlm-roadmap's Fast lane track (TL-018.fast-lane), which carries this row's next step and open items (D-392)."
+next_step_due: null
+merged_into: "TL-018"
+track: "TL-018.fast-lane"
 ---
 
 # Fast lane: a low-latency serving tier for TLM4 Core 27B on HyperPod and vLLM (over 1,000 tok/s per request; 300 tokens in 200 ms; about 1 million input tokens a minute), proven on one 8x H100 node and scaled out by adding H100 nodes
@@ -29,18 +31,20 @@ next_step_due: "2026-11-27"
 <!-- generated:start -->
 ## Lab record
 
-**TL-022 fast-lane** · Idea · Seed (Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15; proof built as a runnable kit on public Gemma 4 31B with H7 to H10 added (D-378); kit moved to thinklatent-labs/fast-lane and made the company version 0.2.1 on 2026-11-16 (runs inside the Enterprise on the Core itself, results stay inside, independent audit fixed) (D-382); roadmap after the proof with a hardware track (G7e, Trainium) and H11 to H15 proposed (D-384)) · H1
+> **Merged** into [TL-018 tlm-roadmap](TL-018-tlm-roadmap.md) as the **Fast lane** track (TL-018.fast-lane) on 2026-11-16 (D-392). Its purpose, next step and every open item continue on the track, listed in the parent's doc under Tracks; this record stays as it stood at the merge.
+
+**TL-022 fast-lane** · Idea · Merged (Merged into TL-018 tlm-roadmap as the Fast lane track (TL-018.fast-lane) on 2026-11-16 (D-392); its purpose and every open item moved to the track, including 1 decision due; this row is the record up to the merge. Before: Registered 2026-11-15 at Seed from a Scout session (D-371); three targets run together (D-372); proof on one 8x H100 node, then scale out with H100s as they come (D-373); prompts average 1,000 to 10,000 tokens (D-374); serving design (shared bucketed cluster, D-375 and D-376) and drafter recipe with both training routes (D-377) written 2026-11-15; proof built as a runnable kit on public Gemma 4 31B with H7 to H10 added (D-378); kit moved to thinklatent-labs/fast-lane and made the company version 0.2.1 on 2026-11-16 (runs inside the Enterprise on the Core itself, results stay inside, independent audit fixed) (D-382); roadmap after the proof with a hardware track (G7e, Trainium) and H11 to H15 proposed (D-384)) · H1
 
 Owner: Head of ThinkLatent (Jithin), sponsor and decider; serving lead (Claude). Appetite: not set. Score: not scored .
 
-Next step: Jithin runs the proof inside the Enterprise from thinklatent-labs/fast-lane (kit 0.2.1, ENTERPRISE.md): fill config/enterprise.yaml (Core 27B FP8 and BF16 paths, 7B Core), scripts/setup.sh, preflight on a GPU node, PLAN=quick then PLAN=standard on one 8x H100 node, then python -m fastlane export. If Q9 allows, the numbers-only export comes back and the next session records H1 to H10 from it. Inputs Jithin holds: Langfuse prompt and reply lengths per application (scripts/langfuse_to_replay.py --stats prints them), where 200 ms is measured, today's TP and drafter on the 27B endpoints, and which dimensions the prune cut (Q8). In parallel: Jithin answers Q10 to Q12 (G7 or G7e; Trainium2 now or Trainium3 and the discount terms; g7e quota), and Claude builds the G7e overlay once Q10 is settled; phases 0 to 4 are in the roadmap doc (due 2026-11-27)
+Next step: None here: work continues in TL-018 tlm-roadmap's Fast lane track (TL-018.fast-lane), which carries this row's next step and open items (D-392).
 
 Production surface: Applications with a service level on TLM4 Core 27B calls (replies under 300 tokens in 200 ms) · A fast-lane pool on HyperPod: 8x H100 units behind Envoy with service-class routing, vLLM with a drafter per served model · p95 end-to-end latency and tok/s per request at the stated load
 
 Governance: not recorded.
 
 ### Decisions due
-- Faster silicon if (b) must hold on the 27B: B300 nodes or Cerebras on AWS (Q5); recommendation: decide after the 8x H100 proof and track Cerebras on AWS as the benchmark
+_None._
 
 ### Hypotheses
 | Claim | Confirmed if | Refuted if | Evidence | Confidence | Result |
@@ -128,6 +132,7 @@ Governance: not recorded.
 | D-382 | 2026-11-16 | The proof runs inside the Enterprise, separately from the lab: Jithin takes the kit from thinklatent-labs/fast-lane (created 2026-11-16) and runs it there. Kit 0.2.1 is that company version: one config overlay runs it on TLM4 Core 27B itself, weights, data and results stay inside, and only a numbers-only export may come back to the lab, if Jithin clears it (Q9). Thresholds unchanged. The 12 findings of an independent audit are fixed in 0.2.1. | Jithin | accepted |
 | D-384 | 2026-11-16 | After the H100 proof, test two more chips: AWS G7-family Blackwell (cheaper, easier to get now) and Trainium (a discount is promised). The roadmap runs phases 0 to 4: the H100 proof, making it real on H100, a hardware bake-off (G7e quickly with the same kit; Trainium behind a 2-week porting check of the Core and an EAGLE-3 drafter on vLLM Neuron), fleet design by cost per million tokens at each bucket's promise, then production. H11 to H15 proposed; Jithin fixes them before any chip run | Jithin | accepted |
 | D-385 | 2026-11-16 | Trainium track re-scoped after the scout: no one serves Gemma 4 on Trainium through vLLM (AWS's Neuron stack has no Gemma model class; one community engineer hand-ported Gemma 4 to Inferentia2 outside vLLM, and the vendor vLLM path served fluent gibberish). H13 splits into H13a (public Gemma 4 31B, then the Core, on vLLM Neuron Trn2 with greedy outputs matching the GPU, 2 engineer-weeks) and H13b (EAGLE-3 on it, up to 2 more weeks); recommend making Gemma 4 support part of the Trainium discount deal (Q13) | Thinking partner, pending Jithin | proposed |
+| D-392 | 2026-11-16 | The serving path joins TL-018 tlm-roadmap (Jithin's call, over a home in the portal, a separate platform idea, or waiting for the fast-lane proof): TL-008 harness-served and TL-022 fast-lane merged as the Harness serving (TL-018.harness) and Fast lane (TL-018.fast-lane) tracks. The harness stays off the portal's screens (12 Nov); the portal lists both as backend dependencies. Harness serving: Shaping session by 4 Dec, ahead of gate 1 (date set on Jithin's call), with a short critique before it builds. Fast lane carries the proof Jithin runs inside the Enterprise (due 27 Nov), H1 to H15, its thirteen open questions, its kill signal and the faster-silicon decision; D-385 still waits for his accept. | Jithin (question prompt) | accepted |
 <!-- generated:end -->
 
 ## Notes

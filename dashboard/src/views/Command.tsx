@@ -9,6 +9,7 @@ import { useLab } from '../lib/context';
 import { attentionQueue, stageCounts } from '../lib/derive';
 import { decisionIndex, evaluateRules, funnel, healthOf, openNextSteps, updateState, appetiteState, buildingGate, type RuleHit } from '../lib/derive2';
 import { dueItems, type Idea, type Stage } from '../lib/types';
+import { liveTracks } from '../lib/tracks';
 import { fmtDate, fmtDateTime, plural } from '../lib/format';
 import DueCard from '../components/DueCard';
 import { BriefHero } from '../jarvis/BriefHero';
@@ -36,8 +37,13 @@ export default function Command() {
   const reviews = useMemo(() => decisionIndex(reg, now).filter((d) => d.reviewDays != null && d.reviewDays <= 7 && d.status !== 'superseded'), [reg, now]);
   const fun = useMemo(() => funnel(reg), [reg]);
 
-  const live = visibleIdeas.filter((i) => !['Graduated', 'Killed'].includes(i.stage));
-  const allDue = visibleIdeas.filter((i) => i.stage !== 'Killed').flatMap((i) => dueItems(i).map((item) => ({ idea: i, item })));
+  const live = visibleIdeas.filter((i) => !['Graduated', 'Killed', 'Merged'].includes(i.stage));
+  // A track's decisions due surface under its parent, named by the track (D-387).
+  const trackDue = liveTracks(reg, visibleIdeas).flatMap((t) => {
+    const parent = visibleIdeas.find((i) => i.id === t.parentId)!;
+    return dueItems({ id: t.id, decisionsDue: t.decisionsDue }).map((item) => ({ idea: parent, item: { ...item, text: `${t.name}: ${item.text}` } }));
+  });
+  const allDue = [...visibleIdeas.filter((i) => i.stage !== 'Killed' && i.stage !== 'Merged').flatMap((i) => dueItems(i).map((item) => ({ idea: i, item }))), ...trackDue];
   const quickOpen = allDue.filter(({ item }) => item.kind === 'quick' && inbox.docs.get(item.id)?.status !== 'applied');
   const quickPending = quickOpen.filter(({ item }) => !inbox.docs.has(item.id)).length;
   const inputDue = allDue.filter(({ item }) => item.kind === 'input');

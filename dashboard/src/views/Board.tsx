@@ -9,6 +9,7 @@ import { HORIZONS, type Idea } from '../lib/types';
 import { relDays, plural } from '../lib/format';
 import { EmptyNote, ReasonTags, Segmented, StageTag } from '../kit/parts';
 import { spring } from '../kit/motion';
+import { tracksOf } from '../lib/tracks';
 
 type LaneKey = Lane | 'Unplaced';
 type Lens = 'lifecycle' | 'portfolio';
@@ -37,7 +38,7 @@ export default function Board() {
 
   const laneOf = (i: Idea): LaneKey => {
     const lane = derived.get(i.id)!.lane;
-    if (lens === 'lifecycle' || lane === 'Capabilities' || lane === 'Killed') return lane;
+    if (lens === 'lifecycle' || lane === 'Capabilities' || lane === 'Killed' || lane === 'Merged') return lane;
     if (p?.now?.includes(i.id)) return 'Now';
     if (p?.next?.includes(i.id)) return 'Next';
     if (p?.later?.includes(i.id)) return 'Later';
@@ -48,6 +49,7 @@ export default function Board() {
   const byLane = (k: LaneKey) => shown.filter((i) => laneOf(i) === k);
   const caps = byLane('Capabilities');
   const killed = byLane('Killed');
+  const merged = byLane('Merged');
   const disagree = useMemo(
     () =>
       p
@@ -149,7 +151,7 @@ export default function Board() {
         </div>
         </div>
 
-        {(caps.length > 0 || killed.length > 0) && (
+        {(caps.length > 0 || killed.length > 0 || merged.length > 0) && (
           <div className="grid gap-3 @min-[640px]:grid-cols-2 @min-[1400px]:grid-cols-4">
             {caps.length > 0 && (
               <motion.section layout className="kit-surface-frame flex min-w-0 flex-col gap-2 p-3.5" aria-label="Capabilities to watch">
@@ -178,6 +180,20 @@ export default function Board() {
                 </AnimatePresence>
               </motion.section>
             )}
+            {merged.length > 0 && (
+              <motion.section layout className="kit-surface-frame flex min-w-0 flex-col gap-2 p-3.5 @min-[1400px]:col-span-2" aria-label="Merged">
+                <div className="flex items-baseline justify-between px-1">
+                  <h2 className="text-[17px] font-medium">Merged</h2>
+                  <span className="kit-num text-xs text-muted-foreground">{merged.length}</span>
+                </div>
+                <p className="px-1 text-xs text-muted-foreground">Closed into a programme; each one's work and open items continue as a track of its parent (D-387).</p>
+                <AnimatePresence mode="popLayout">
+                  {merged.map((i, k) => (
+                    <BoardCard key={i.id} idea={i} index={k} quiet />
+                  ))}
+                </AnimatePresence>
+              </motion.section>
+            )}
           </div>
         )}
       </LayoutGroup>
@@ -192,8 +208,9 @@ export default function Board() {
 }
 
 function BoardCard({ idea, index, quiet = false }: { idea: Idea; index: number; quiet?: boolean }) {
-  const { derived, select, selectedId, lastVisit } = useLab();
+  const { reg, derived, select, selectedId, lastVisit } = useLab();
   const d = derived.get(idea.id)!;
+  const tracks = tracksOf(reg, idea.id);
   const isNew = !!lastVisit && idea.lastTouched >= lastVisit;
   return (
     <motion.button
@@ -228,6 +245,12 @@ function BoardCard({ idea, index, quiet = false }: { idea: Idea; index: number; 
           </Badge>
         )}
         <span>touched {relDays(d.daysUntouched)}</span>
+        {tracks.length > 0 && (
+          <Badge variant="outline" className="rounded-full" title={tracks.map((t) => t.name).join(', ')}>
+            {plural(tracks.length, 'track')}
+          </Badge>
+        )}
+        {idea.stage === 'Merged' && idea.mergedInto && <span>track of {idea.mergedInto}</span>}
         {isNew && <Status tone="info" word="Changed" />}
       </div>
       {!quiet && d.reasons.length > 0 && <ReasonTags reasons={d.reasons} max={2} className="mt-2" />}

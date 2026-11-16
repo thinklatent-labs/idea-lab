@@ -6,8 +6,8 @@ aliases: []
 type: Feature
 parent: "TL-018"
 themes: ["T-001"]
-stage: "Shaping"
-stage_since: null
+stage: "Merged"
+stage_since: "2026-11-16"
 horizon: "H2"
 stream: null
 appetite_weeks: null
@@ -17,11 +17,13 @@ score: null
 score_status: none
 doc_url: "https://claude.ai/artifact/LEufPZM5G332V5Co5oDk8X"
 standard: "v1"
-last_touched: 2026-11-07
+last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: null
-next_step: "Dataset lead (Claude): check the licences, then build the typed-decision dataset from Banking77, CLINC150 and the financial-news topic set (5-option questions, options set per row); confirm multi-LoRA on vLLM 0.26; train the general adapter leave-one-out for H-DM2 and on all three; run the latency curve (model time p50 and p95, end-to-end through Relay recorded) and the index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment Now a feature of TL-018 tlm-roadmap (D-175): stage, doc and next step unchanged; cross-suite sequencing is decided in TL-018."
-next_step_due: "2026-11-21"
+next_step: "None here: work continues in TL-018 tlm-roadmap's Model mix (decision models) track (TL-018.model-mix), which carries this row's next step and open items (D-391)."
+next_step_due: null
+merged_into: "TL-018"
+track: "TL-018.model-mix"
 ---
 
 # TLM model mix — decision models (CLM, CDM) served through vLLM beside SLMs, BERT-style models, LLMs and TLM5 (the trajectory engine)
@@ -29,11 +31,13 @@ next_step_due: "2026-11-21"
 <!-- generated:start -->
 ## Lab record
 
-**TL-014 model-mix** · Feature of TL-018 · Shaping (architecture decided 2026-11-03; Critic pass recorded 2026-11-03) · H2
+> **Merged** into [TL-018 tlm-roadmap](TL-018-tlm-roadmap.md) as the **Model mix (decision models)** track (TL-018.model-mix) on 2026-11-16 (D-391). Its purpose, next step and every open item continue on the track, listed in the parent's doc under Tracks; this record stays as it stood at the merge.
+
+**TL-014 model-mix** · Feature of TL-018 · Merged (Merged into TL-018 tlm-roadmap as the Model mix (decision models) track (TL-018.model-mix) on 2026-11-16 (D-391); its purpose and every open item moved to the track; this row is the record up to the merge. Before: architecture decided 2026-11-03; Critic pass recorded 2026-11-03) · H2
 
 Owner: Jithin. Appetite: not set. Score: not scored .
 
-Next step: Dataset lead (Claude): check the licences, then build the typed-decision dataset from Banking77, CLINC150 and the financial-news topic set (5-option questions, options set per row); confirm multi-LoRA on vLLM 0.26; train the general adapter leave-one-out for H-DM2 and on all three; run the latency curve (model time p50 and p95, end-to-end through Relay recorded) and the index shadow test on the 0.26 interim path while TL-008 provides the 0.32+ environment Now a feature of TL-018 tlm-roadmap (D-175): stage, doc and next step unchanged; cross-suite sequencing is decided in TL-018. (due 2026-11-21)
+Next step: None here: work continues in TL-018 tlm-roadmap's Model mix (decision models) track (TL-018.model-mix), which carries this row's next step and open items (D-391).
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -91,6 +95,7 @@ _None recorded._
 | D-075 | 2026-11-03 | Dataset and deployment shape proposed: a common decision dataset and one general adapter as the default, a per-application adapter only when the index shows a gap, never per task; tasks are questions in the request, not heads; H-DM2 pre-registered; pending Jithin | thinking partner (proposal) | accepted |
 | D-081 | 2026-11-04 | Questions in one request run in parallel in vLLM's continuous batch (first-arrival prefix sharing to be measured); a task never gets its own LoRA: improvement ladder is rewrite the question, calibrate per task, add rows to the common dataset, then the application adapter | thinking partner (clarification); pending Jithin | proposed |
 | D-158 | 2026-11-07 | First use case and dataset settled on public data, as the lab requires: intent routing on Banking77 and CLINC150 plus the financial-news topic set, each row a typed question with its options set per row; the dataset is owned by the Dataset lead role, played by Claude (D-134). H-DM2 is tested leave-one-out (train on two, score the third, rotate), giving three held-out reads against the two required. The 50 ms target stays as pre-registered in H-DM1: p50 model time per request on the production GPU (FP8, warm prefix, prompt of 500 tokens or less, capped batch); p95 and end-to-end through Relay are measured and carry no target until TL-008's 0.32+ environment exists. The card's line drawing data from the Enterprise's own use cases is replaced by these public stand-ins inside the lab | Jithin (datasets, latency definition); thinking partner (leave-one-out design, public stand-ins) | accepted |
+| D-391 | 2026-11-16 | TL-011 domain-model-portfolio, TL-014 model-mix, TL-019 tlm-omni, TL-020 judge-family and TL-021 tlm5 merged into TL-018 tlm-roadmap as five tracks (domain-tier, model-mix, omni, judges, tlm5), each keeping its stage, doc, next step and dates. Supersedes D-175 on purpose: D-175 kept them as features so TL-014's decided architecture and dataset work would not reset, and tracks keep that work intact. D-175's demotion test lapses, since TL-018 now owns seven running tracks. The Domain tier gets its Shaping read at gate 1 on 5 Dec (date set on Jithin's call). | Jithin (question prompt) | accepted |
 <!-- generated:end -->
 
 ## Notes
