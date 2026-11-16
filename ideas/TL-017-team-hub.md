@@ -20,8 +20,8 @@ standard: "pre-v1"
 last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: true
-next_step: "Jithin merges cortex PR 47 (Cortex 0.17.0: P-11 to P-15, away status, notifications read one at a time, and fixes for the menus and the header), then PR 48 (the console smoke test in CI); both have all six CI jobs green, and CI tags v0.17.0 by itself. Everything that needs nobody else is built (D-398); the pilot inside the Enterprise starts about 2026-11-21 and reads H1 and H2 by 2026-12-05; V-1a runs when Jithin judges the time is right, and no build work waits on it."
-next_step_due: "2026-11-17"
+next_step: "Pilot inside the Enterprise on Cortex v0.17.0 from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. Everything that needs nobody else is built (D-398); Jithin merged cortex PR 47 (0.17.0) and PR 48 (the console smoke test, D-401) on 2026-11-16, and CI tagged v0.17.0 on 4f53c9f by itself. V-1a runs when Jithin judges the time is right; no build work waits on it."
+next_step_due: "2026-11-21"
 ---
 
 # Team hub: a Claude Code plugin plus an AWS service giving the team's sessions shared rules, memory, artifacts, presence and a message path
@@ -33,7 +33,7 @@ next_step_due: "2026-11-17"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Jithin merges cortex PR 47 (Cortex 0.17.0: P-11 to P-15, away status, notifications read one at a time, and fixes for the menus and the header), then PR 48 (the console smoke test in CI); both have all six CI jobs green, and CI tags v0.17.0 by itself. Everything that needs nobody else is built (D-398); the pilot inside the Enterprise starts about 2026-11-21 and reads H1 and H2 by 2026-12-05; V-1a runs when Jithin judges the time is right, and no build work waits on it. (due 2026-11-17)
+Next step: Pilot inside the Enterprise on Cortex v0.17.0 from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. Everything that needs nobody else is built (D-398); Jithin merged cortex PR 47 (0.17.0) and PR 48 (the console smoke test, D-401) on 2026-11-16, and CI tagged v0.17.0 on 4f53c9f by itself. V-1a runs when Jithin judges the time is right; no build work waits on it. (due 2026-11-21)
 
 Production surface: not named (reads as an H3 experiment).
 
