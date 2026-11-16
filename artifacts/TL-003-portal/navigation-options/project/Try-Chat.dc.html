@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Chat: the session page, with its tabs, your sessions, the session's set-up and its other states</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.pg{display:grid;grid-template-columns:250px minmax(0,1fr) 340px;gap:16px;align-items:start}
+.pg-find{display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);background:rgba(255,255,255,.7);margin-top:10px}
+.pg-find svg{width:15px;height:15px;flex:none;color:rgba(26,26,26,.6)}
+.pg-find input{border:0;background:transparent;font:inherit;font-size:13px;width:100%;min-width:0;outline:0;color:inherit}
+.pg-cap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);margin:14px 0 0}
+.pg-s{display:flex;flex-direction:column}
+.pg-s a{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-top:1px solid rgba(26,26,26,.1);color:inherit;text-decoration:none;font-size:13px;line-height:1.4}
+.pg-s a:first-child{border-top:0}
+.pg-s a.on{font-weight:500}
+.pg-s small{font-size:12px;color:rgba(26,26,26,.65);font-weight:400}
+.pg-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pg-msg{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.pg-msg.me{background:rgba(26,26,26,.06);margin-left:120px}
+.pg-msg.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08);margin-right:60px}
+.pg-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin:10px 60px 0 0;font-size:12.5px;color:rgba(26,26,26,.65)}
+.pg-stop{margin-top:14px;border-radius:18px;box-shadow:0 0 0 1.5px var(--decision);padding:14px 16px;font-size:13px;line-height:1.5;display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+.pg-in{margin-top:14px;border-radius:18px;box-shadow:0 0 0 1px rgba(26,26,26,.18);background:#fff;padding:12px 14px;display:flex;flex-direction:column;gap:10px;font-size:14px}
+.pg-in .ph{color:rgba(26,26,26,.6)}
+.pg-in .row{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.pg-g{display:grid;grid-template-columns:104px minmax(0,1fr);font-size:13px;line-height:1.45;margin:8px 0 0}
+.pg-g>*{padding:9px 10px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.pg-g dt{color:rgba(26,26,26,.62)}.pg-g dd{margin:0}
+.pg-m{height:10px;border-radius:5px;background:rgba(26,26,26,.08);margin-top:10px}
+.pg-m i{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.55)}
+.pg-steps{display:flex;flex-direction:column;gap:6px;margin:12px 60px 0 0}
+.pg-steps>span{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35}
+.pg-steps small{font-size:12px;color:rgba(26,26,26,.65)}
+.pg-art{margin-top:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:13px;line-height:1.4}
+.pg-art small{font-size:12px;color:rgba(26,26,26,.65)}
+.pg-tb{display:grid;grid-template-columns:minmax(0,1fr) 52px 150px;font-size:13px;line-height:1.4;margin-top:8px;align-items:center}
+.pg-tb>*{padding:9px 8px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.pg-tb .h{font-size:11.5px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.pg-tb .n{font-variant-numeric:tabular-nums}
+.pg-bx{display:flex;align-items:center;gap:8px}
+.pg-bx i{display:block;height:10px;border-radius:5px;background:var(--companion);flex:none}
+.pg-bx em{font-style:normal;font-size:12px;color:rgba(26,26,26,.65);white-space:nowrap}
+.st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.st h4{margin:0;font-size:14px;font-weight:500}
+.st .cap{font-size:12px;color:rgba(26,26,26,.65);line-height:1.45;margin:4px 0 0}
+.st .mini{margin-top:12px;border-radius:16px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);padding:14px;font-size:13px;line-height:1.5;display:flex;flex-direction:column;gap:10px;min-height:150px}
+.st .say{border-radius:14px;background:rgba(26,26,26,.06);padding:8px 12px;align-self:flex-end;max-width:80%}
+.st .dots{display:inline-flex;gap:4px;vertical-align:middle;margin-left:6px}
+.st .dots i{width:6px;height:6px;border-radius:50%;background:rgba(26,26,26,.45);display:block}
+.st .ring{border-radius:14px;box-shadow:0 0 0 1.5px var(--decision);padding:10px 12px}
+.st .soft{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 12px}
+.st .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2413px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Fees, explained to a new adviser <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Try TLM</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Open to everyone at the Enterprise</span><span class="kit-chip">One model at a time</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">Try a released ThinkLatent model the way you would use an assistant: write a prompt, give it tools, let it work as an agent, and see what it makes. What you type is yours alone for 30 days and is never used for training. Its text is kept where only you can read it · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Try-Chat.dc.html">New session</a><a class="kit-btn outline" href="Start-Project.dc.html">Start a project</a><a class="kit-btn outline" href="Help-Page.dc.html">What each model is for</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="true" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="pg">
+      <section class="kit-surface" aria-label="Your sessions">
+        <div class="ix-h"><h3>Your sessions</h3><a class="kit-small" href="#">All 14</a></div>
+        <span class="kit-small kit-muted">Only you see these · each is removed after 30 days</span>
+        <label class="pg-find"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search your sessions" aria-label="Search your sessions"></label>
+
+        <p class="pg-cap">Pinned</p>
+        <div class="pg-s">
+          <a href="#">Plain-language rewrite of a policy line<small>Core 4.2 · 29 Oct · removed 28 Nov</small></a>
+        </div>
+        <p class="pg-cap">Today</p>
+        <div class="pg-s">
+          <a class="on" href="#" aria-current="true">Fees, explained to a new adviser<small>Core 4.2 · Research helper · 2 exchanges</small></a>
+        </div>
+        <p class="pg-cap">Earlier</p>
+        <div class="pg-s">
+          <a href="#">Turning notes into a checklist<small>Distil 4.2 · 3 Nov · removed 3 Dec</small></a>
+          <a href="#">Sorting made-up service requests<small>Distil 4.2 · 21 Oct · removed 20 Nov</small></a>
+        </div>
+        <p class="pg-cap">In a folder</p>
+        <div class="pg-s">
+          <a href="Playground-More.dc.html">Onboarding notes<small>Folder · 3 sessions · 2 files</small></a>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn outline sm" href="#">New session</a><a class="kit-btn ghost sm" href="#">Archived · 3</a></div>
+      </section>
+
+      <section class="kit-surface raised" aria-label="The session">
+        <div class="pg-bar" role="group" aria-label="This session's set-up">
+          <button class="kit-btn" type="button">Core 4.2 <span aria-hidden="true">▾</span></button>
+          <button class="kit-btn outline" type="button">Agent: Research helper <span aria-hidden="true">▾</span></button>
+          <button class="kit-btn outline" type="button">Tools · 3 <span aria-hidden="true">▾</span></button>
+          <button class="kit-btn outline" type="button">System prompt <span aria-hidden="true">▾</span></button>
+          <button class="kit-btn outline" type="button">Saved settings <span aria-hidden="true">▾</span></button>
+          <span style="flex: 1"></span>
+          <button class="kit-btn outline sm" type="button">Share</button>
+          <button class="kit-btn outline sm" type="button" aria-label="More for this session: rename, pin, move to a folder, download, archive, delete">More <span aria-hidden="true">▾</span></button>
+        </div>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px"><a class="kit-small" href="Prompt-Library.dc.html">Start from a template</a><a class="kit-small" href="#">Ask a second model the same thing</a></div>
+
+        <div class="pg-msg me">Compare the ongoing charges of the three sample funds in this sheet and draft a five-line note for a new adviser.<br><span class="kit-chip" style="margin-top: 8px">sample-funds.csv · 3 rows · checked, no client data</span></div>
+
+        <div class="pg-steps" role="list" aria-label="What the agent did">
+          <span role="listitem"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Read the file</span></span><small>3 funds, 4 columns</small></span>
+          <span role="listitem"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Searched approved documents</span></span><small>Tool: Fund documents search · 2 passages used</small></span>
+          <span role="listitem"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ran a calculation</span></span><small>Tool: Code sandbox · 0.4 seconds</small></span>
+          <span role="listitem"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Asked before acting</span></span><small>"Save the note to your files?" · you said no</small></span>
+        </div>
+
+        <div class="pg-msg it">
+          The three funds charge 0.12%, 0.45% and 0.80% a year. On 10,000 invested for ten years at the same growth, the dearest costs about seven times what the cheapest does. I have put the comparison and the note in a document beside this chat.
+          <div class="pg-art"><span><b style="font-weight: 500">Fee comparison</b><br><small>A table, a chart and a five-line note · version 1</small></span><span class="kit-btn outline sm">Shown beside</span></div>
+        </div>
+        <div class="pg-meta">
+          <span>6.2 seconds · 4 steps, 2 tools · about $[cost] · a sample answer, not advice</span>
+          <span style="display: flex; gap: 8px; flex-wrap: wrap"><button class="kit-btn outline sm" type="button">Good</button><button class="kit-btn outline sm" type="button">Not good</button><button class="kit-btn outline sm" type="button">Copy</button><button class="kit-btn outline sm" type="button" aria-label="More for this answer: try again, edit your message, branch from here, read aloud">More <span aria-hidden="true">▾</span></button></span>
+        </div>
+
+        <div class="pg-stop">
+          <span style="max-width: 560px"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stopped before it was sent</span></span><br>What you pasted looks like a client's name with an account number. Client data does not belong here; in a project it comes under that project's rules. Nothing was sent to the model and nothing was kept.</span>
+          <span style="display: flex; gap: 8px"><button class="kit-btn sm" type="button">Remove it and send</button><a class="kit-btn outline sm" href="Help-Page.dc.html">Why</a></span>
+        </div>
+
+        <div class="pg-in">
+          <span class="ph">Ask, attach a file, or give the agent a task · no client's details</span>
+          <div class="row">
+            <span style="display: flex; gap: 8px; flex-wrap: wrap"><button class="kit-btn outline sm" type="button">Attach</button><button class="kit-btn outline sm" type="button">Tools</button><button class="kit-btn outline sm" type="button">Speak</button></span>
+            <span style="display: flex; gap: 10px; align-items: center"><span class="kit-small kit-muted">Context 18% used</span><button class="kit-btn sm" type="button">Send</button></span>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 14px">
+          <span class="kit-small kit-muted">Found something that works? Hand it to a project and it becomes the first version of a prompt there.</span>
+          <a class="kit-btn outline sm" href="Feature-Prompts.dc.html">Hand this session to a project</a>
+        </div>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <section class="kit-surface raised" aria-label="The artifact">
+          <div class="ix-h"><h3>Fee comparison</h3><span class="kit-small kit-muted">Made by the agent · yours to edit</span></div>
+          <div class="pg-tb">
+            <span class="h">Fund</span><span class="h">A year</span><span class="h">Ten years on 10,000</span>
+            <span>Sample fund A</span><span class="n">0.12%</span><span class="pg-bx"><i style="width: 10px"></i><em>about 150</em></span>
+            <span>Sample fund B</span><span class="n">0.45%</span><span class="pg-bx"><i style="width: 38px"></i><em>about 570</em></span>
+            <span>Sample fund C</span><span class="n">0.80%</span><span class="pg-bx"><i style="width: 68px"></i><em>about 1,010</em></span>
+          </div>
+          <span class="kit-small kit-muted" style="display: block; margin-top: 10px">Illustrative figures on made-up funds.</span>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px"><button class="kit-btn outline sm" type="button">Open wider</button><button class="kit-btn outline sm" type="button">Download</button><button class="kit-btn ghost sm" type="button">Close</button></div>
+        </section>
+        <section class="kit-surface" aria-label="This session">
+          <div class="ix-h"><h3>This session</h3><a class="kit-small" href="Playground-Build.dc.html">Add a connector</a></div>
+          <dl class="pg-g">
+            <dt>Model</dt><dd>Core 4.2 · large · TL Index 81 ± 1 · <a href="Model-Page.dc.html">its page</a></dd>
+            <dt>Agent</dt><dd>Research helper · yours · <a href="Playground-Build.dc.html">open it</a></dd>
+            <dt>Tools on</dt><dd>Fund documents search · Calculator · Code sandbox</dd>
+            <dt>Your own</dt><dd>None added. A connector you add works with your own access, and every call it makes is listed in the steps</dd>
+            <dt>Context</dt><dd>18% used · 5,760 of 32,000 tokens · <a href="Playground-More.dc.html">what fills it</a></dd>
+          </dl>
+        </section>
+        <section class="kit-surface" aria-label="Your limit today">
+          <div class="ix-h"><h3>Your limit today</h3><span class="kit-small kit-muted">Shared endpoint</span></div>
+          <div class="pg-m" role="img" aria-label="23 of 60 requests used today"><i style="width: 38%"></i></div>
+          <span class="kit-small kit-muted" style="display: block; margin-top: 8px">23 of 60 requests · starts again at midnight ET · the limit is a sample value. For more, start a project and get an endpoint of its own.</span>
+        </section>
+        <section class="kit-surface" aria-label="What is kept">
+          <div class="ix-h"><h3>What is kept</h3></div>
+          <dl class="pg-g">
+            <dt>Who sees it</dt><dd>You, and anyone you share a session with by name</dd>
+            <dt>How long</dt><dd>Sessions: 30 days, then removed</dd>
+            <dt>Its text</dt><dd>Kept where only you can read it</dd>
+            <dt>Memory</dt><dd>On · kept until you forget it · <a href="Playground-More.dc.html">see and edit it</a></dd>
+            <dt>Training</dt><dd>Never used</dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+
+    <section class="kit-surface" aria-label="The same page in its other states">
+      <div class="ix-h"><h3>The same page in its other states</h3><span class="kit-small kit-muted">Only the middle column changes · the sessions list and the right panel stay</span></div>
+      <div class="st" style="margin-top: 14px">
+        <div>
+          <h4>New and empty</h4>
+          <p class="cap">A session before its first message. The right panel shows the set-up, the limit and what is kept; no artifact card.</p>
+          <div class="mini">
+            <span style="font-size: 18px; font-weight: 500">What would you like to try?</span>
+            <span class="kit-muted">You are talking to Core 4.2. Pick another model, an agent or a template above.</span>
+            <div class="acts"><span class="kit-chip outline">Explain a fee table</span><span class="kit-chip outline">Turn notes into a checklist</span><span class="kit-chip outline">Rewrite in plain language</span></div>
+          </div>
+        </div>
+        <div>
+          <h4>Answering</h4>
+          <p class="cap">The answer arrives as it is written. Send becomes Stop; steps appear one by one as the agent takes them.</p>
+          <div class="mini">
+            <span class="say">Compare the three sample funds…</span>
+            <span class="soft"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Searching approved documents</span></span></span>
+            <span>The three funds charge 0.12%, 0.45% and<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></span>
+            <div class="acts"><button class="kit-btn sm" type="button">Stop</button></div>
+          </div>
+        </div>
+        <div>
+          <h4>Stopped by you</h4>
+          <p class="cap">What was written so far stays, marked as stopped. Nothing is lost; you can carry on or try again.</p>
+          <div class="mini">
+            <span>The three funds charge 0.12%, 0.45% and</span>
+            <span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg><span>You stopped this answer</span></span>
+            <div class="acts"><button class="kit-btn outline sm" type="button">Carry on</button><button class="kit-btn outline sm" type="button">Try again</button></div>
+          </div>
+        </div>
+        <div>
+          <h4>Limit reached</h4>
+          <p class="cap">The 60th request of the day is answered; the next is not sent. The limit card on the right is full.</p>
+          <div class="mini">
+            <span class="ring"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>You have used today's 60 requests</span></span><br>It starts again at midnight ET. Your sessions stay as they are. For more, start a project and get an endpoint of its own.</span>
+            <div class="acts"><a class="kit-btn sm" href="Start-Project.dc.html">Start a project</a><button class="kit-btn outline sm" type="button">Tell me at midnight</button></div>
+          </div>
+        </div>
+        <div>
+          <h4>The model did not answer</h4>
+          <p class="cap">Said in plain words, with what to do. The request does not count against the limit.</p>
+          <div class="mini">
+            <span class="say">Compare the three sample funds…</span>
+            <span class="ring"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Core 4.2 did not answer</span></span><br>The shared endpoint is busy or down. This one was not counted.</span>
+            <div class="acts"><button class="kit-btn sm" type="button">Try again</button><button class="kit-btn outline sm" type="button">Ask Distil 4.2</button><a class="kit-btn ghost sm" href="Enterprise-Operations.dc.html">Is it down?</a></div>
+          </div>
+        </div>
+        <div>
+          <h4>A long session</h4>
+          <p class="cap">When the context is nearly full, the page says so before the model starts to forget, and offers to summarise.</p>
+          <div class="mini">
+            <span class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Context 92% used</span></span><br>The earliest messages will soon be left out. Summarise the session so far to make room, or start a new one from here.</span>
+            <div class="acts"><button class="kit-btn sm" type="button">Summarise and carry on</button><button class="kit-btn outline sm" type="button">New session from here</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2413}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
