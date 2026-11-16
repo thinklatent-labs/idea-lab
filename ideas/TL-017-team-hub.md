@@ -17,11 +17,11 @@ score: null
 score_status: none
 doc_url: null
 standard: "pre-v1"
-last_touched: 2026-11-07
+last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: true
-next_step: "Cortex 0.9 pilot hardening under a feature freeze (D-166): land PR 22 (readiness pack, C-14 to C-21) and PR 23 (second red-team pass, C-22 to C-29); build C-22 to C-25 (sender identity, framing every peer string, privacy promises, transport and secrets) and C-29 (circuit breaker, kill switch) first, then run C-21, the one-hour live test on a Bedrock-signed-in Claude Code (H1, H2 against the real model). No pilot while any of C-22 to C-25 is open. Pilot: 3 to 5 volunteers inside the Enterprise from about 2026-11-21; the volunteers and the Enterprise's real InfoSec and IT sign-off come from the Enterprise, outside the lab, and do not block the lab stage. Reviews Mondays 30 min with Jithin. Still to set in this row (raised from TL-007): links, theme and capability. Open for the company version: real Jira (Cloud or Data Center, plugin, capability, compulsory fields), managed settings, hosting and SSO details. Related: TL-003 portal bridge and the console overlap (D-126) stay in TL-003's chat; kit blocks (C-12) in TL-013's. From TL-003 (2026-11-07, D-177): settled; Cortex stays a separate web application and plugin, the portal carries no core-team view, Jira display or Claude Code bridge. From TL-013 (2026-11-07, D-196): start the next chat by upgrading to design-kit at commit d76a3b3 (v0.3.1: 2,269 of 2,402 vendored components usable through the gates) and add `node <kit>/scripts/check-usable.mjs src` to the checks; look at any vendored piece on screen the first time it is used. From TL-013 (2026-11-11, D-254): design-kit v0.8.0 (cdebcec) adds Beautiful UI, Bencho, BoardUI and the Transitions.dev stylesheet as owned source on kit tokens; re-pin to use them, through @kit/kit wrappers as before (ask TL-013 for the wrapper)."
-next_step_due: "2026-11-16"
+next_step: "Jithin merges cortex PR 47 (Cortex 0.17.0: P-11 to P-15, away status, notifications read one at a time, and fixes for the menus and the header; all six CI jobs green), and CI tags v0.17.0 by itself. Everything that needs nobody else is built (D-398); the pilot inside the Enterprise starts about 2026-11-21 and reads H1 and H2 by 2026-12-05; V-1a runs when Jithin judges the time is right, and no build work waits on it."
+next_step_due: "2026-11-17"
 ---
 
 # Team hub: a Claude Code plugin plus an AWS service giving the team's sessions shared rules, memory, artifacts, presence and a message path
@@ -33,7 +33,7 @@ next_step_due: "2026-11-16"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Cortex 0.9 pilot hardening under a feature freeze (D-166): land PR 22 (readiness pack, C-14 to C-21) and PR 23 (second red-team pass, C-22 to C-29); build C-22 to C-25 (sender identity, framing every peer string, privacy promises, transport and secrets) and C-29 (circuit breaker, kill switch) first, then run C-21, the one-hour live test on a Bedrock-signed-in Claude Code (H1, H2 against the real model). No pilot while any of C-22 to C-25 is open. Pilot: 3 to 5 volunteers inside the Enterprise from about 2026-11-21; the volunteers and the Enterprise's real InfoSec and IT sign-off come from the Enterprise, outside the lab, and do not block the lab stage. Reviews Mondays 30 min with Jithin. Still to set in this row (raised from TL-007): links, theme and capability. Open for the company version: real Jira (Cloud or Data Center, plugin, capability, compulsory fields), managed settings, hosting and SSO details. Related: TL-003 portal bridge and the console overlap (D-126) stay in TL-003's chat; kit blocks (C-12) in TL-013's. From TL-003 (2026-11-07, D-177): settled; Cortex stays a separate web application and plugin, the portal carries no core-team view, Jira display or Claude Code bridge. From TL-013 (2026-11-07, D-196): start the next chat by upgrading to design-kit at commit d76a3b3 (v0.3.1: 2,269 of 2,402 vendored components usable through the gates) and add `node <kit>/scripts/check-usable.mjs src` to the checks; look at any vendored piece on screen the first time it is used. From TL-013 (2026-11-11, D-254): design-kit v0.8.0 (cdebcec) adds Beautiful UI, Bencho, BoardUI and the Transitions.dev stylesheet as owned source on kit tokens; re-pin to use them, through @kit/kit wrappers as before (ask TL-013 for the wrapper). (due 2026-11-16)
+Next step: Jithin merges cortex PR 47 (Cortex 0.17.0: P-11 to P-15, away status, notifications read one at a time, and fixes for the menus and the header; all six CI jobs green), and CI tags v0.17.0 by itself. Everything that needs nobody else is built (D-398); the pilot inside the Enterprise starts about 2026-11-21 and reads H1 and H2 by 2026-12-05; V-1a runs when Jithin judges the time is right, and no build work waits on it. (due 2026-11-17)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -63,6 +63,7 @@ _None recorded._
 | Artifact | Kind | In this repo | Live | Exported |
 | --- | --- | --- | --- | --- |
 | Team hub (team-hub) - Critique pass, 2026-11-07 (second pass) | doc | [artifacts/TL-017-team-hub/critique-2026-11-07.md](../artifacts/TL-017-team-hub/critique-2026-11-07.md) |  | 2026-11-07 |
+| Team hub (team-hub) - Console build 5 (Cortex 0.17.0), 2026-11-16 | doc | [artifacts/TL-017-team-hub/console-build-5-2026-11-16.md](../artifacts/TL-017-team-hub/console-build-5-2026-11-16.md) |  | 2026-11-16 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -86,6 +87,7 @@ _None recorded._
 | D-164 | 2026-11-07 | Critique pass recorded. Two passes: one in cortex PR 22 (proceed with conditions) and a second with separate feasibility and Risk seats (both recommend Stress test, not Building). No evidence from real sessions yet; the Risk seat proved four high findings with a live probe (spoofable sender, unframed claim text, hand-off and invite-only room text readable by the team, default collab secret) plus no real authentication. Kept as docs/critique/2026-11-07-red-team.md and -2.md in the cortex repo and artifacts/TL-017-team-hub/critique-2026-11-07.md | Thinking partner (feasibility and Risk red-team seats, separate agents); Jithin (business-line seat) | accepted |
 | D-165 | 2026-11-07 | Building gate passed under D-152; moved from Seed to Building against both red-team seats' recommendation of Stress test (dissent recorded in D-164). Owner role Platform lead (Claude) as the S-D stream engineer; appetite 4 engineer-weeks ending 2026-12-05; review slot Mondays 30 min. Building holds three ideas against three committed slots (TL-004 Fridays, TL-007 Thursdays, TL-017 Mondays) | Jithin | accepted |
 | D-166 | 2026-11-07 | 0.9 is pilot hardening and readiness under a feature freeze (C-14 to C-29; no pilot while C-22 to C-25 are open), and the first pilot inside the Enterprise is 3 to 5 volunteers before any wider group. Rooms, specs, co-editing, gates, loops, detectors, forecasts and ask stay built but off in the pilot scope | Jithin (on the thinking partner's recommendation) | accepted |
+| D-398 | 2026-11-16 | V-1a (the live Claude Code session test) is no dependency for any build work: Jithin runs it when he judges the time is right, and Claude neither asks about it nor runs it. Everything that needs nobody else is built out, including P-11 to P-15, which the console register had left for later: Cortex 0.17.0 in cortex PR 47 (search from the Cmd-K palette, Needs you from the keyboard, answers from your session with tables and charts, the epic's pull requests, checks, test runs and commits, the training-data counts), with away status (cortex out) and notifications read one at a time. The browser check for it found and fixed two console faults shipped since 0.14.0: the account and scope menus stopped the console when opened, and below 1,536 px the header hid the account menu and theme switch. Release tags come from CI's release-tag job (cortex PR 45), since Claude Code cloud sessions cannot push tags. | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
@@ -106,3 +108,26 @@ _Session notes and the idea card's prose live here; the register row and the gen
 - **0.9 is pilot hardening under a feature freeze (D-166).** It covers C-14 to C-29, and no pilot runs while C-22 to C-25 are open. The first pilot inside the Enterprise is 3 to 5 volunteers.
 - **Watch:**
   - The hardening alone, about 17 principal-engineer days, nearly fills the appetite.
+
+### 2026-11-16 · Build (0.17.0)
+
+- **Jithin's call (D-398).** V-1a is no dependency for any build work. He runs it when he judges the time is right, and Claude neither asks about it nor runs it. Everything that needs nobody else is built out.
+- **Cortex 0.17.0 (cortex PR 47, all six CI jobs green, waiting for his merge).** It builds the five features the console register had left for later:
+  - P-11 search from ⌘K;
+  - P-12 Needs you from the keyboard;
+  - P-13 answers from your session with tables and charts;
+  - P-14 the epic's pull requests, checks, test runs and commits;
+  - P-15 the training-data counts.
+
+  It also adds away status (`cortex out`) and notifications read one at a time. 307 tests pass on SQLite and Postgres, and the first load is 247 KB of 250.
+- **Found by a browser check of the demo, and fixed:**
+  - Since 0.14.0, opening the account menu or the scope switcher stopped the whole console (a menu label outside its group).
+  - Below 1,536 px the header hid the account menu and the theme switch.
+  - Nothing automated opens the console, so this shipped in three releases. A browser smoke test in CI is put to Jithin.
+- **Earlier in the session:**
+  - CI's release-tag job (PR 45). Cloud sessions cannot push tags, so CI tags each merged version bump, and it tagged `v0.16.2`.
+  - The backlog as of 16 November (PR 46).
+- **Records:**
+  - Build log: `claude/Team hub (team-hub) - Console build 5 2026-11-16.md`, mirrored in `artifacts/TL-017-team-hub/`.
+  - The feature register is at v0.5.
+  - Board S-05 is redrawn with six numbers.

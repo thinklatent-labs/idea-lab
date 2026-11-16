@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-16T11:54:00-05:00",
+  "asOf": "2026-11-16T15:55:00-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 561,
+    "registerRev": 562,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1691,8 +1691,8 @@
       "docUrl": null,
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
-      "lastTouched": "2026-11-07",
-      "nextStep": "Cortex 0.9 pilot hardening under a feature freeze (D-166): land PR 22 (readiness pack, C-14 to C-21) and PR 23 (second red-team pass, C-22 to C-29); build C-22 to C-25 (sender identity, framing every peer string, privacy promises, transport and secrets) and C-29 (circuit breaker, kill switch) first, then run C-21, the one-hour live test on a Bedrock-signed-in Claude Code (H1, H2 against the real model). No pilot while any of C-22 to C-25 is open. Pilot: 3 to 5 volunteers inside the Enterprise from about 2026-11-21; the volunteers and the Enterprise's real InfoSec and IT sign-off come from the Enterprise, outside the lab, and do not block the lab stage. Reviews Mondays 30 min with Jithin. Still to set in this row (raised from TL-007): links, theme and capability. Open for the company version: real Jira (Cloud or Data Center, plugin, capability, compulsory fields), managed settings, hosting and SSO details. Related: TL-003 portal bridge and the console overlap (D-126) stay in TL-003's chat; kit blocks (C-12) in TL-013's. From TL-003 (2026-11-07, D-177): settled; Cortex stays a separate web application and plugin, the portal carries no core-team view, Jira display or Claude Code bridge. From TL-013 (2026-11-07, D-196): start the next chat by upgrading to design-kit at commit d76a3b3 (v0.3.1: 2,269 of 2,402 vendored components usable through the gates) and add `node <kit>/scripts/check-usable.mjs src` to the checks; look at any vendored piece on screen the first time it is used. From TL-013 (2026-11-11, D-254): design-kit v0.8.0 (cdebcec) adds Beautiful UI, Bencho, BoardUI and the Transitions.dev stylesheet as owned source on kit tokens; re-pin to use them, through @kit/kit wrappers as before (ask TL-013 for the wrapper).",
+      "lastTouched": "2026-11-16",
+      "nextStep": "Jithin merges cortex PR 47 (Cortex 0.17.0: P-11 to P-15, away status, notifications read one at a time, and fixes for the menus and the header; all six CI jobs green), and CI tags v0.17.0 by itself. Everything that needs nobody else is built (D-398); the pilot inside the Enterprise starts about 2026-11-21 and reads H1 and H2 by 2026-12-05; V-1a runs when Jithin judges the time is right, and no build work waits on it.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -1721,8 +1721,8 @@
         "appetiteSet": true,
         "startedOn": "2026-11-07"
       },
-      "nextStepDue": "2026-11-16",
-      "nextStepOrigin": "TL-017 session 2026-11-07",
+      "nextStepDue": "2026-11-17",
+      "nextStepOrigin": "TL-017 session 2026-11-16",
       "killSignals": [
         {
           "signal": "H1 median over 30 s, or any planted H2 injection acted on, in the pilot's first week",
@@ -6808,6 +6808,20 @@
       "docsTouched": "register (ideas, tracks, decisions D-387 to D-393, portfolio); ideas/ docs for the 13 rows; dashboard",
       "health": "at-risk",
       "healthNote": "The structure is clean; the risk is the queue waiting on Jithin: portal builds 3, 5 and 8 to approve, Try TLM's approach, the fast-lane run and its inputs, the TL Index bars."
+    },
+    {
+      "date": "2026-11-16",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "On Jithin's call that V-1a is no dependency and everything is built out (D-398): Cortex 0.17.0 in cortex PR 47 with search from Cmd-K (P-11), Needs you from the keyboard (P-12), answers from your session with tables and charts (P-13), the epic's pull requests, checks, test runs and commits (P-14), the training-data counts (P-15), away status (cortex out) and notifications read one at a time. A headless-Chrome check of the demo found and fixed two console faults shipped since 0.14.0 (the account and scope menus stopped the console; below 1,536 px the header hid the account menu and theme switch). 307 tests pass on SQLite and Postgres; all six CI jobs green; first load 247 KB of 250. Earlier in the session: CI's release-tag job (PR 45; CI tagged v0.16.2) and the backlog as of 16 November (PR 46). Board S-05 redrawn with six numbers; demo republished; issue #15 no longer frames V-1a as a dependency.",
+      "docsTouched": "register (TL-017 row, D-398, this row); the live register (TL-017 row, links, decision log, sessions log); claude/Team hub (team-hub) - Console build 5 2026-11-16.md (new); claude/Team hub (team-hub) - Console feature and screen register.md (v0.5); Cortex console: boards canvas (S-05); Cortex command center (demo); cortex PR 47 (docs/design.md, docs/backlog.md); cortex issue #15; ideas/TL-017-team-hub.md (Notes); artifacts/TL-017-team-hub/console-build-5-2026-11-16.md (new)",
+      "health": "at-risk",
+      "healthNote": "Everything buildable is built and green. What the 2026-12-05 kill signal reads (H1, H2) needs real sessions, which come with the pilot inside the Enterprise from about 2026-11-21. This mirror holds TL-017's decisions only to D-166 and now D-398; those of 8 to 16 November are in the live register's decision log.",
+      "nextStepDue": "2026-11-17"
     }
   ],
   "decisions": [
@@ -12357,6 +12371,20 @@
       "id": "D-397",
       "by": "Jithin",
       "decision": "TL-003 portal (the portal app), build 9 and build 7: the Live training page is built, which completes build 9 with thirteen boards of thirteen, and build 7 is split over two tracks so it finishes sooner. The Live page (Training-Live) is at /training/runs/core-4-3-20261105-a/live and shows Core, run 7, as Jithin chose (D-394); Core's Training tab links to it. What differs from the board: no over-fitting flag and no buttons for it, because the rule has not fired on run 7; the machines show the sample world's figures, with a dash for power and heat, which the world does not hold; the log shows the world's seven lines; the run's id is made up. Shared changes on the way: the picture tools start Chrome with no network; the shared branch now stands on the approved main (16 Nov) plus shared changes, and follows its own branch. Build 7 on two tracks (in line with Jithin's ask of 16 Nov to finish 6, 7 and 9 faster in parallel; it replaces the earlier 'builds 5, 6, 7 in sequence' for the feature pages only): a new Track F on branch build-7-features builds the five boards of a feature's own pages (Feature-Page, Feature-Flow, Feature-Prompts, Feature-Evaluation, Feature-EvalBuild) under /projects/<project>/feature/<feature>, with its own facts, routes, feature rows and report; Track A keeps the project's tabs of build 7 after build 6. A route Track F defines takes the place of Track A's placeholder for the same address. Running on 16 Nov: Track A on sessions and traces (build 6), Track F on the feature pages (build 7), Track E on bringing LibreChat in and its inventory (build 4). Build page 1794847727-d23c from integration d0e7d0bf; shared branch ba7a0e9d. Open for Jithin: a look at the Live page; builds 6, 7 and 9 as wholes when complete."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-16",
+      "door": "two-way",
+      "id": "D-398",
+      "by": "Jithin",
+      "decision": "V-1a (the live Claude Code session test) is no dependency for any build work: Jithin runs it when he judges the time is right, and Claude neither asks about it nor runs it. Everything that needs nobody else is built out, including P-11 to P-15, which the console register had left for later: Cortex 0.17.0 in cortex PR 47 (search from the Cmd-K palette, Needs you from the keyboard, answers from your session with tables and charts, the epic's pull requests, checks, test runs and commits, the training-data counts), with away status (cortex out) and notifications read one at a time. The browser check for it found and fixed two console faults shipped since 0.14.0: the account and scope menus stopped the console when opened, and below 1,536 px the header hid the account menu and theme switch. Release tags come from CI's release-tag job (cortex PR 45), since Claude Code cloud sessions cannot push tags."
     }
   ],
   "syncLog": [
