@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: true
-next_step: "Jithin merges cortex PR 47 (Cortex 0.17.0: P-11 to P-15, away status, notifications read one at a time, and fixes for the menus and the header; all six CI jobs green), and CI tags v0.17.0 by itself. Everything that needs nobody else is built (D-398); the pilot inside the Enterprise starts about 2026-11-21 and reads H1 and H2 by 2026-12-05; V-1a runs when Jithin judges the time is right, and no build work waits on it."
+next_step: "Jithin merges cortex PR 47 (Cortex 0.17.0: P-11 to P-15, away status, notifications read one at a time, and fixes for the menus and the header), then PR 48 (the console smoke test in CI); both have all six CI jobs green, and CI tags v0.17.0 by itself. Everything that needs nobody else is built (D-398); the pilot inside the Enterprise starts about 2026-11-21 and reads H1 and H2 by 2026-12-05; V-1a runs when Jithin judges the time is right, and no build work waits on it."
 next_step_due: "2026-11-17"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-11-17"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Jithin merges cortex PR 47 (Cortex 0.17.0: P-11 to P-15, away status, notifications read one at a time, and fixes for the menus and the header; all six CI jobs green), and CI tags v0.17.0 by itself. Everything that needs nobody else is built (D-398); the pilot inside the Enterprise starts about 2026-11-21 and reads H1 and H2 by 2026-12-05; V-1a runs when Jithin judges the time is right, and no build work waits on it. (due 2026-11-17)
+Next step: Jithin merges cortex PR 47 (Cortex 0.17.0: P-11 to P-15, away status, notifications read one at a time, and fixes for the menus and the header), then PR 48 (the console smoke test in CI); both have all six CI jobs green, and CI tags v0.17.0 by itself. Everything that needs nobody else is built (D-398); the pilot inside the Enterprise starts about 2026-11-21 and reads H1 and H2 by 2026-12-05; V-1a runs when Jithin judges the time is right, and no build work waits on it. (due 2026-11-17)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -88,6 +88,7 @@ _None recorded._
 | D-165 | 2026-11-07 | Building gate passed under D-152; moved from Seed to Building against both red-team seats' recommendation of Stress test (dissent recorded in D-164). Owner role Platform lead (Claude) as the S-D stream engineer; appetite 4 engineer-weeks ending 2026-12-05; review slot Mondays 30 min. Building holds three ideas against three committed slots (TL-004 Fridays, TL-007 Thursdays, TL-017 Mondays) | Jithin | accepted |
 | D-166 | 2026-11-07 | 0.9 is pilot hardening and readiness under a feature freeze (C-14 to C-29; no pilot while C-22 to C-25 are open), and the first pilot inside the Enterprise is 3 to 5 volunteers before any wider group. Rooms, specs, co-editing, gates, loops, detectors, forecasts and ask stay built but off in the pilot scope | Jithin (on the thinking partner's recommendation) | accepted |
 | D-398 | 2026-11-16 | V-1a (the live Claude Code session test) is no dependency for any build work: Jithin runs it when he judges the time is right, and Claude neither asks about it nor runs it. Everything that needs nobody else is built out, including P-11 to P-15, which the console register had left for later: Cortex 0.17.0 in cortex PR 47 (search from the Cmd-K palette, Needs you from the keyboard, answers from your session with tables and charts, the epic's pull requests, checks, test runs and commits, the training-data counts), with away status (cortex out) and notifications read one at a time. The browser check for it found and fixed two console faults shipped since 0.14.0: the account and scope menus stopped the console when opened, and below 1,536 px the header hid the account menu and theme switch. Release tags come from CI's release-tag job (cortex PR 45), since Claude Code cloud sessions cannot push tags. | Jithin | accepted |
+| D-401 | 2026-11-16 | A browser smoke test runs in CI on every pull request (cortex PR 48), as recommended: headless Chrome opens every page, menu and sheet of the replay demo and fails on an uncaught page error, a blank page, a page in its error state, a menu or sheet that does not open, or a header wider than the window. It catches the 0.16.2 menu fault when that is put back. Playwright is installed in CI only and is not a dependency of Cortex. | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
@@ -123,7 +124,7 @@ _Session notes and the idea card's prose live here; the register row and the gen
 - **Found by a browser check of the demo, and fixed:**
   - Since 0.14.0, opening the account menu or the scope switcher stopped the whole console (a menu label outside its group).
   - Below 1,536 px the header hid the account menu and the theme switch.
-  - Nothing automated opens the console, so this shipped in three releases. A browser smoke test in CI is put to Jithin.
+  - Nothing automated opened the console, so this shipped in three releases. Jithin chose a browser smoke test on every pull request (D-401): cortex PR 48 opens 52 pages and every menu and sheet of the demo in headless Chrome, and fails when the menu fault is put back.
 - **Earlier in the session:**
   - CI's release-tag job (PR 45). Cloud sessions cannot push tags, so CI tags each merged version bump, and it tagged `v0.16.2`.
   - The backlog as of 16 November (PR 46).

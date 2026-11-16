@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-16T16:43:00-05:00",
+  "asOf": "2026-11-16T17:05:00-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 564,
+    "registerRev": 565,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1692,7 +1692,7 @@
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
       "lastTouched": "2026-11-16",
-      "nextStep": "Jithin merges cortex PR 47 (Cortex 0.17.0: P-11 to P-15, away status, notifications read one at a time, and fixes for the menus and the header; all six CI jobs green), and CI tags v0.17.0 by itself. Everything that needs nobody else is built (D-398); the pilot inside the Enterprise starts about 2026-11-21 and reads H1 and H2 by 2026-12-05; V-1a runs when Jithin judges the time is right, and no build work waits on it.",
+      "nextStep": "Jithin merges cortex PR 47 (Cortex 0.17.0: P-11 to P-15, away status, notifications read one at a time, and fixes for the menus and the header), then PR 48 (the console smoke test in CI); both have all six CI jobs green, and CI tags v0.17.0 by itself. Everything that needs nobody else is built (D-398); the pilot inside the Enterprise starts about 2026-11-21 and reads H1 and H2 by 2026-12-05; V-1a runs when Jithin judges the time is right, and no build work waits on it.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -6817,8 +6817,8 @@
       ],
       "trackIds": [],
       "mode": "Build",
-      "outcome": "On Jithin's call that V-1a is no dependency and everything is built out (D-398): Cortex 0.17.0 in cortex PR 47 with search from Cmd-K (P-11), Needs you from the keyboard (P-12), answers from your session with tables and charts (P-13), the epic's pull requests, checks, test runs and commits (P-14), the training-data counts (P-15), away status (cortex out) and notifications read one at a time. A headless-Chrome check of the demo found and fixed two console faults shipped since 0.14.0 (the account and scope menus stopped the console; below 1,536 px the header hid the account menu and theme switch). 307 tests pass on SQLite and Postgres; all six CI jobs green; first load 247 KB of 250. Earlier in the session: CI's release-tag job (PR 45; CI tagged v0.16.2) and the backlog as of 16 November (PR 46). Board S-05 redrawn with six numbers; demo republished; issue #15 no longer frames V-1a as a dependency.",
-      "docsTouched": "register (TL-017 row, D-398, this row); the live register (TL-017 row, links, decision log, sessions log); claude/Team hub (team-hub) - Console build 5 2026-11-16.md (new); claude/Team hub (team-hub) - Console feature and screen register.md (v0.5); Cortex console: boards canvas (S-05); Cortex command center (demo); cortex PR 47 (docs/design.md, docs/backlog.md); cortex issue #15; ideas/TL-017-team-hub.md (Notes); artifacts/TL-017-team-hub/console-build-5-2026-11-16.md (new)",
+      "outcome": "On Jithin's call that V-1a is no dependency and everything is built out (D-398): Cortex 0.17.0 in cortex PR 47 with search from Cmd-K (P-11), Needs you from the keyboard (P-12), answers from your session with tables and charts (P-13), the epic's pull requests, checks, test runs and commits (P-14), the training-data counts (P-15), away status (cortex out) and notifications read one at a time. A headless-Chrome check of the demo found and fixed two console faults shipped since 0.14.0 (the account and scope menus stopped the console; below 1,536 px the header hid the account menu and theme switch). 307 tests pass on SQLite and Postgres; all six CI jobs green; first load 247 KB of 250. Earlier in the session: CI's release-tag job (PR 45; CI tagged v0.16.2) and the backlog as of 16 November (PR 46). Board S-05 redrawn with six numbers; demo republished; issue #15 no longer frames V-1a as a dependency. Then, on Jithin's call through the pop-up (D-401), a console smoke test in CI on every pull request: cortex PR 48, 52 pages and 75 steps in headless Chrome, all six CI jobs green.",
+      "docsTouched": "register (TL-017 row, D-398, this row); the live register (TL-017 row, links, decision log, sessions log); claude/Team hub (team-hub) - Console build 5 2026-11-16.md (new); claude/Team hub (team-hub) - Console feature and screen register.md (v0.5); Cortex console: boards canvas (S-05); Cortex command center (demo); cortex PR 47 (docs/design.md, docs/backlog.md); cortex issue #15; ideas/TL-017-team-hub.md (Notes); artifacts/TL-017-team-hub/console-build-5-2026-11-16.md (new); cortex PR 48 (scripts/console_smoke.py, CI, CLAUDE.md, docs)",
       "health": "at-risk",
       "healthNote": "Everything buildable is built and green. What the 2026-12-05 kill signal reads (H1, H2) needs real sessions, which come with the pilot inside the Enterprise from about 2026-11-21. This mirror holds TL-017's decisions only to D-166 and now D-398; those of 8 to 16 November are in the live register's decision log.",
       "nextStepDue": "2026-11-17"
@@ -12413,6 +12413,20 @@
       "id": "D-400",
       "by": "Jithin",
       "decision": "TL-003 portal (the portal app), builds 6 and 7: eight more boards are built, checked by the lead beside their boards at 1,440, merged and published. Build 6 (six of eleven): Project-Sessions at /projects/<project>/traces (Traces opens on the sessions; there is no separate Sessions tab), Project-Traces at /traces/<session> (the tree), Traces-Timeline at /traces/<session>/timeline. The trace pages open sealed; the board's switch turns the seal off and shows only the text a board prints word for word. The lead took off a hold that asked for production access, which no board draws and D-324 rules out: the page says sealed text is asked for in the Enterprise's access management and shows where the reader's own ask stands (AC-0421). Enterprise operations now reads the world's busy shares alone (the Decision adapter 9%, Embedding 12%, corrected in the world). Build 7 (five of ten), on Track F: Feature-Page at /projects/<project>/feature/<feature>, Feature-Flow at /flow, Feature-Prompts at /prompts, Feature-Evaluation at /evaluation, Feature-EvalBuild at /evaluation/next. The world wins over the first-draft Flow board: nothing is on trial (Domain-Advice v3 is planned for 21 Nov), version 2 serves everyone since 5 Oct, kept ready until 3 Jan, the one event is the incident of 20 Oct, and errors, availability and speed are the project's agreed levels. The lead narrowed a table that was cut off at 1,440 and made accepting a group into a draft set a button with Undo, as the board draws it. Settled by Claude, open to overrule: request time 11:42:07 on Connect as on the trace boards; the hand score and 'send to review' are forms that land on Requests, review going to the project's own members; JSON and All fields are shown and not pickable; the time-window switch of the Flow board is left out (no approved page has it, the world holds today and 30 days); non-members of a project get a short 'for members' page at a feature's address; eight feature tabs are shown and four say they have no board or are built later. Made up, for Jithin to correct: which features the five other sessions hold; on Flow, the day-by-day errors and slowest-5% for the days no board gives, and time and quality for the grid cells the board leaves blank; one figure on Prompts (1 of the 1,000 copies held); the words of undrawn results on EvalBuild. Open clashes listed for him: the evaluation set's upload day (4 Nov) against its offer to the TL Index (2 Nov); a prompt change request CR-2284 on Requests that the Prompts board does not know; 138 tokens typical on Prompts against 312 a call in the world; 32,768 against 'accepts 32,000'. Running since: Track A on Traces-Graph, Traces-Log, Project-Quality, Project-QualityLoop and Value-Enterprise; Track F on the five project-level boards of build 7 (increments, the rollout, a new version, a smaller model, self-healing), moved to it so build 7 finishes beside build 6. Build page 1794852523-0941 from integration 2e0701ad; shared branch 5af43175. Coverage: 762 features, Partly 237, Built 61."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-16",
+      "door": "two-way",
+      "id": "D-401",
+      "by": "Jithin",
+      "decision": "A browser smoke test runs in CI on every pull request (cortex PR 48), as recommended: headless Chrome opens every page, menu and sheet of the replay demo and fails on an uncaught page error, a blank page, a page in its error state, a menu or sheet that does not open, or a header wider than the window. It catches the 0.16.2 menu fault when that is put back. Playwright is installed in CI only and is not a dependency of Cortex."
     }
   ],
   "syncLog": [
