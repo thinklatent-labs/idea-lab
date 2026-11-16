@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Chat: your sessions, each one's menu, search and archived</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.ls{display:grid;grid-template-columns:minmax(0,1.6fr) 150px 170px 150px 190px;font-size:13px;line-height:1.4;margin-top:10px;align-items:stretch}
+.ls>*{display:flex;flex-direction:column;justify-content:center}
+.ls>.acts{flex-direction:row;align-items:center;justify-content:flex-start}
+.ls>*{padding:10px 10px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ls .h{font-size:11.5px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.ls small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.flt{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.find{display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);background:rgba(255,255,255,.7);flex:1;min-width:240px;font-size:13px}
+.find input{border:0;background:transparent;font:inherit;width:100%;outline:0}
+.mn{margin-top:8px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.10);padding:6px;font-size:13px;line-height:1.4;display:flex;flex-direction:column;max-width:320px}
+.mn .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 10px;border-radius:10px}
+.mn .it small{font-size:12px;color:rgba(26,26,26,.66)}
+.mn hr{border:0;border-top:1px solid rgba(26,26,26,.1);margin:4px 6px}
+.hit{border-top:1px solid rgba(26,26,26,.1);padding:10px 0;font-size:13px;line-height:1.5}
+.hit:first-child{border-top:0}
+.hit small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.hit mark{background:rgba(62,154,92,.22);color:inherit;border-radius:3px;padding:0 2px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2010px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Your sessions <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Your sessions</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Chat</span><span class="kit-chip">6 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">The full list behind the chat's left column, what can be done to a session, search and its results, and what happens before a session is removed · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="true" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="All your sessions">
+        <div class="ix-h"><h3>1 · All your sessions</h3><span class="kit-small kit-muted">14 · only you see these · each is removed 30 days after its last message</span></div>
+        <p class="rule">Opened from "All 14" in the chat's left column. Newest first; pinned ones stay on top. A session in a folder is listed here too, with its folder's name.</p>
+        <div class="flt"><label class="find"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search your sessions" aria-label="Search your sessions"></label><button class="kit-btn outline" type="button">Model: any <span aria-hidden="true">▾</span></button><button class="kit-btn outline" type="button">Folder: any <span aria-hidden="true">▾</span></button><button class="kit-btn outline" type="button">Shared by me</button><button class="kit-btn outline" type="button">With files</button><a class="kit-btn" href="Try-Chat.dc.html">New session</a></div>
+        <div class="ls">
+          <span class="h">Session</span><span class="h">Model · agent</span><span class="h">Last message</span><span class="h">Removed on</span><span class="h"></span>
+          <span><a href="Try-Chat.dc.html" style="color: inherit; text-decoration: none">Plain-language rewrite of a policy line</a><small>Pinned · 6 exchanges</small></span><span>Core 4.2</span><span>29 Oct</span><span>28 Nov</span><span class="acts"><span class="kit-chip outline">Pinned</span><button class="kit-btn ghost sm" type="button" aria-label=&quot;More for Plain-language rewrite of a policy line&quot;>More</button></span>
+          <span style="font-weight: 500"><a href="Try-Chat.dc.html" style="color: inherit; text-decoration: none">Fees, explained to a new adviser</a><small>2 exchanges · 1 file · 1 artifact</small></span><span>Core 4.2 · Research helper</span><span>Today 11:42</span><span>5 Dec</span><span class="acts"><span class="kit-chip outline">Shared with 1</span><button class="kit-btn ghost sm" type="button" aria-label=&quot;More for Fees, explained to a new adviser&quot;>More</button></span>
+          <span><a href="Try-Chat.dc.html" style="color: inherit; text-decoration: none">Turning notes into a checklist</a><small>4 exchanges</small></span><span>Distil 4.2</span><span>3 Nov</span><span>3 Dec</span><span class="acts"><button class="kit-btn ghost sm" type="button" aria-label=&quot;More for Turning notes into a checklist&quot;>More</button></span>
+          <span><a href="Try-Chat.dc.html" style="color: inherit; text-decoration: none">First-week reading list</a><small>Folder: Onboarding notes · 3 exchanges</small></span><span>Core 4.2</span><span>2 Nov</span><span>2 Dec</span><span class="acts"><span class="kit-chip outline">In a folder</span><button class="kit-btn ghost sm" type="button" aria-label=&quot;More for First-week reading list&quot;>More</button></span>
+          <span><a href="Try-Chat.dc.html" style="color: inherit; text-decoration: none">Sorting made-up service requests</a><small>9 exchanges</small></span><span>Distil 4.2</span><span>21 Oct</span><span>20 Nov · in 15 days</span><span class="acts"><button class="kit-btn ghost sm" type="button" aria-label=&quot;More for Sorting made-up service requests&quot;>More</button></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 12px"><span class="kit-small kit-muted">5 of 14 shown · the rest load as you scroll</span><span class="acts"><a class="kit-btn ghost sm" href="#">Archived · 3</a><a class="kit-btn ghost sm" href="Shell-Settings.dc.html">Download all my sessions</a></span></div>
+      </section>
+      <section class="kit-surface" aria-label="One session's menu">
+        <div class="ix-h"><h3>2 · One session's menu</h3><span class="kit-small kit-muted">"More", open</span></div>
+        <p class="rule">Everything that can be done to a session. Removing is the one thing that cannot be taken back, so it is held.</p>
+        <div class="mn" role="menu" aria-label="More for this session">
+          <span class="it" role="menuitem">Rename</span>
+          <span class="it" role="menuitem">Pin to the top</span>
+          <span class="it" role="menuitem"><span>Move to a folder</span><small>Onboarding notes ▸</small></span>
+          <span class="it" role="menuitem"><span>Share</span><small>with named people</small></span>
+          <span class="it" role="menuitem"><span>Download</span><small>as text or a page</small></span>
+          <span class="it" role="menuitem">Start a copy from here</span>
+          <span class="it" role="menuitem"><span>Archive</span><small>out of the list, kept its 30 days</small></span>
+          <hr>
+          <span class="it" role="menuitem"><span style="color: var(--decision)">Hold to remove now</span><small>cannot be undone</small></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Search, with results">
+        <div class="ix-h"><h3>3 · Search, with results</h3><span class="kit-small kit-muted">Across your own sessions only</span></div>
+        <p class="rule">Search looks in the titles and the text of your own sessions and nobody else's. Each result shows the line that matched and opens the session at that message.</p>
+        <div class="flt"><label class="find"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" value="ongoing charge" aria-label="Search your sessions"></label><span class="kit-small kit-muted">3 matches in 2 sessions</span></div>
+        <div style="margin-top: 8px">
+          <div class="hit"><a href="Try-Chat.dc.html">Fees, explained to a new adviser</a><small>Today · you</small>Compare the <mark>ongoing charge</mark>s of the three sample funds in this sheet…</div>
+          <div class="hit"><a href="Try-Chat.dc.html">Fees, explained to a new adviser</a><small>Today · Core 4.2</small>…the dearest <mark>ongoing charge</mark> costs about seven times the cheapest…</div>
+          <div class="hit"><a href="#">Plain-language rewrite of a policy line</a><small>29 Oct · you</small>The <mark>ongoing charge</mark> is taken from the fund each year.</div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Nothing found">
+        <div class="ix-h"><h3>4 · Nothing found</h3><span class="kit-small kit-muted">And nothing yet</span></div>
+        <p class="rule">Said plainly, with the next thing to do. A removed session cannot be found: it is gone.</p>
+        <div class="kit-empty"><b style="font-weight: 500; color: #1A1A1A">No session of yours mentions "beneficiary"</b><span class="kit-small">Sessions are removed 30 days after their last message, so an older one may be gone.</span><button class="kit-btn outline sm" type="button">Clear the search</button></div>
+        <div class="kit-empty" style="margin-top: 12px"><b style="font-weight: 500; color: #1A1A1A">You have no sessions yet</b><span class="kit-small">Start one and it appears here. Only you see it.</span><a class="kit-btn sm" href="Try-Chat.dc.html">New session</a></div>
+      </section>
+      <section class="kit-surface" aria-label="Archived">
+        <div class="ix-h"><h3>5 · Archived</h3><span class="kit-small kit-muted">Out of the list, not gone</span></div>
+        <p class="rule">Archiving tidies the list. An archived session still counts its 30 days and is still found by search; it can be brought back until then.</p>
+        <div class="ls" style="grid-template-columns: minmax(0,1fr) 120px 150px">
+          <span class="h">Session</span><span class="h">Removed on</span><span class="h"></span>
+          <span>Draft welcome note<small>Core 4.2 · archived 1 Nov</small></span><span>26 Nov</span><span class="acts"><button class="kit-btn outline sm" type="button">Bring back</button></span>
+          <span>Glossary of fund terms<small>Distil 4.2 · archived 30 Oct</small></span><span>24 Nov</span><span class="acts"><button class="kit-btn outline sm" type="button">Bring back</button></span>
+          <span>Test of the calculator<small>Core 4.2 · archived 22 Oct</small></span><span>19 Nov · in 14 days</span><span class="acts"><button class="kit-btn outline sm" type="button">Bring back</button></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Before a session is removed">
+        <div class="ix-h"><h3>6 · Before a session is removed</h3><span class="kit-small kit-muted">Three days ahead</span></div>
+        <p class="rule">A session about to go says so in the list and at its top, so nothing disappears unseen. Keeping its content means saving it yourself: a download, or handing it to a project.</p>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>This session is removed on 8 Nov, in 3 days</span></span><br>Sessions are kept 30 days from their last message. A new message starts the 30 days again.
+          <div class="acts" style="margin-top: 10px"><button class="kit-btn outline sm" type="button">Download it</button><a class="kit-btn outline sm" href="Feature-Prompts.dc.html">Hand it to a project</a><button class="kit-btn ghost sm" type="button">Let it go</button></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2010}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
