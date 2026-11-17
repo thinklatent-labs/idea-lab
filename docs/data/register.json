@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-17T09:12:00-05:00",
+  "asOf": "2026-11-17T10:38:02-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 594,
+    "registerRev": 595,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1692,7 +1692,7 @@
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
       "lastTouched": "2026-11-17",
-      "nextStep": "Jithin reviews the requirements document (130 requirements; seven gaps, collaboration first) and decides the gaps; then boards for taking part in rooms and tests from the browser and for a live demo where every action works; then their UI and backend (0.21.0). The pilot from about 2026-11-21 needs a running hub inside the Enterprise (install handover, phases 1 to 4). 0.20.0 (stored vectors, recipient index, load test, handover) stays on its branch until its load test passes. V-1a runs when Jithin judges the time is right; no build work waits on it.",
+      "nextStep": "Wave 1, Cortex 0.20.0: the fixes with the privacy leak first, the speed work, a connection pool and indexes with the load test passing. Four workers build in parallel, then the clean-up pass O-1 to O-10, integration, a re-recorded demo and a full click-check, then a PR for Jithin's merge. Then wave 2, 0.21.0: rooms and tests from the browser and the live demo. The appetite ends 2026-12-05 and is never extended; the order lands the privacy fix and browser collaboration first. V-1a runs when Jithin judges the time is right; no build work waits on it.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -1722,7 +1722,7 @@
         "startedOn": "2026-11-07",
         "reviewSlot": "Mondays 30 min (D-165)"
       },
-      "nextStepDue": "2026-11-17",
+      "nextStepDue": "2026-11-18",
       "nextStepOrigin": "TL-017 session 2026-11-17",
       "killSignals": [
         {
@@ -6851,6 +6851,20 @@
       "health": "at-risk",
       "healthNote": "Nobody can yet take part in a room or a test from the browser, the demo cannot act, and no hub runs inside the Enterprise; the pilot from about 2026-11-21 needs the install. 0.20.0 fails its first load test (one database connection per node, three unindexed queries).",
       "nextStepDue": "2026-11-17"
+    },
+    {
+      "date": "2026-11-17",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "Audit of every board, all 1,430 clicks and the console code: 639 drawn items (296 built as drawn, 256 differently, 87 missing), 55 dead clicks, 14 record types with no page or drawer, 219 of 272 number tiles without a link, 18 groups of duplicates; 221 new requirements on the requirements document's Audit tab and a build plan in five waves; Jithin's five calls (D-429); wave 1 (0.20.0) started with four parallel workers.",
+      "docsTouched": "Requirements document (Audit tab, Build plan): https://claude.ai/artifact/3LwCJDi6sJHptQU8AdbePW; cortex branches w1/hub, w1/scale, w1/console-a, w1/console-b (unmerged); this register (TL-017 row, decision log)",
+      "health": "at-risk",
+      "healthNote": "The appetite ends 2026-12-05 and the plan holds about 220 items; the privacy leak (B-S38-1) stays open until 0.20.0 merges; nobody can yet take part in a room or a test from the browser.",
+      "nextStepDue": "2026-11-18"
     }
   ],
   "decisions": [
@@ -12834,6 +12848,20 @@
       "id": "D-428",
       "by": "Jithin",
       "decision": "TL-003 portal (the portal app), build 4, Try TLM: Jithin, 17 Nov, on the phone board's six screens beside their build: 'Phone screen look great can we now build all theses thing into portal please'. Read by the lead as: the phone screens are accepted, and everything still pending in the build goes into the portal; said back to him. The chat's six phone screens are merged and published (build page version 1794924745-3d20, integration 47c1a171, scenario tests 632): the chat in one column under the portal's two rows, your sessions as a drawer with Try TLM's other tabs at its foot marked with what a phone allows, the set-up as a sheet from the bottom, a message's steps opened in place, an artifact full screen, and the box riding on the keyboard with the attach menu opening upwards. Still being finished on the same track: the Agents, Connectors and Schedules tabs offer on a phone only what the board allows (read and use; a schedule can be paused; no building or changing), and four additions on the lead's recommendation, for Jithin to overrule: the two links under the box move to the foot of the set-up sheet; a row 'What is kept' there; 'Shared' in the drawer's foot; the code workspace full screen on a phone. Kept as built: the steps in the chat's own words; the artifact's foot as the board draws it; your message's actions on a tap; 'Ask a second model the same thing' on a phone. Then the final check, the build 4 check document, and build 4 to main."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-17",
+      "door": "two-way",
+      "id": "D-429",
+      "by": "Jithin",
+      "decision": "TL-017 team-hub: after the 17 November audit (every board, all 1,430 clicks and the console code; 221 new requirements: 176 board rows B-, 21 click items CL-, 24 clean-up items O-; the worst finding a privacy leak of proposed memory, B-S38-1), Jithin chose the recommended option on each of five calls. (1) Build order in five waves, each a release that is done only when a person can do every action in it end to end in the live demo: 0.20.0 fixes, speed and scale; 0.21.0 rooms and tests from the browser plus the live demo; 0.22.0 every click opens its record; 0.23.0 the rest of the boards; 0.24.0 the six intelligence features; clean-up items go into the wave that touches the same code. (2) Room votes: 3 dot votes per person in the converge round, totals shown when the round ends; the convener still accepts or rejects each idea with a reason. (3) Comments: reply threads on each idea, spec and test result, @name notifies, closed during the blind round, seen by Claude Code through safety.frame(). (4) The published demo opens on the recording and switches to the real hub running in the page once it has loaded. (5) The 19 old pages: each one's unique part moves onto its board and the old address opens the board, lifting the additive-only rule (10 November, console feature register) for those pages. Wave 1 started the same day with four parallel workers."
     }
   ],
   "syncLog": [
