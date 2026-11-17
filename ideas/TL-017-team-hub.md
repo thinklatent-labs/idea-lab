@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: true
-next_step: "Jithin merges cortex PR 49 (0.18.0, the Projects boards), then PR 50 (0.19.0, This week, My session, Evidence, Knowledge, Operations and Help); CI tags v0.18.0 and v0.19.0. Every board is built (D-417). Then the pilot inside the Enterprise on the newest tag from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it."
+next_step: "Pilot inside the Enterprise on Cortex v0.19.0 from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. Every board is built (D-417); Jithin merged cortex PR 49 (0.18.0) and PR 50 (0.19.0) on 2026-11-16, and CI tagged v0.18.0 on 93b89ea and v0.19.0 on bb4465f by itself. V-1a runs when Jithin judges the time is right; no build work waits on it."
 next_step_due: "2026-11-21"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-11-21"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Jithin merges cortex PR 49 (0.18.0, the Projects boards), then PR 50 (0.19.0, This week, My session, Evidence, Knowledge, Operations and Help); CI tags v0.18.0 and v0.19.0. Every board is built (D-417). Then the pilot inside the Enterprise on the newest tag from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it. (due 2026-11-21)
+Next step: Pilot inside the Enterprise on Cortex v0.19.0 from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. Every board is built (D-417); Jithin merged cortex PR 49 (0.18.0) and PR 50 (0.19.0) on 2026-11-16, and CI tagged v0.18.0 on 93b89ea and v0.19.0 on bb4465f by itself. V-1a runs when Jithin judges the time is right; no build work waits on it. (due 2026-11-21)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -157,4 +157,5 @@ _Session notes and the idea card's prose live here; the register row and the gen
 - **Records:**
   - Build log: `claude/Team hub (team-hub) - Console build 6 2026-11-16.md`, mirrored in `artifacts/TL-017-team-hub/`.
   - The feature register is at v0.6.
-- **Watch.** Two releases wait on one merge order: PR 49, then PR 50. The kill signal still needs real sessions from the pilot.
+- **Merged.** Jithin merged PR 49 and PR 50 the same evening; CI tagged `v0.18.0` and `v0.19.0` by itself.
+- **Watch.** The kill signal still needs real sessions from the pilot.

@@ -1,6 +1,6 @@
 # Team hub (team-hub) · Console build 6
 
-16 November 2026, evening (US Eastern) · TL-017 Cortex 0.18.0 and 0.19.0 · cortex PR 49 (`build/0.18.0`) and PR 50 (`build/0.19.0`, stacked on PR 49), both waiting for Jithin's merge · design kit v0.9.0 (e2a4cac) · for Jithin, Head of ThinkLatent · follows "Team hub (team-hub) - Console build 5 2026-11-16" (0.17.0)
+16 November 2026, evening (US Eastern) · TL-017 Cortex 0.18.0 and 0.19.0 · cortex PR 49 (`build/0.18.0`) and PR 50 (`build/0.19.0`, stacked on PR 49), merged by Jithin; CI tagged `v0.18.0` on 93b89ea and `v0.19.0` on bb4465f · design kit v0.9.0 (e2a4cac) · for Jithin, Head of ThinkLatent · follows "Team hub (team-hub) - Console build 5 2026-11-16" (0.17.0)
 
 ## 1. The answer
 
@@ -11,7 +11,7 @@ Every board is built.
 
 Each page asks its board's numbered questions, in the board's order. The page from before stays one switch away (`?view=`), so no link breaks and nothing is removed (R-12).
 
-Merge PR 49 first, then PR 50. CI then tags `v0.18.0` and `v0.19.0` by itself.
+Jithin merged PR 49 at 19:39 and PR 50 at 20:33 (US Eastern). CI was green on main for both and tagged `v0.18.0` and `v0.19.0` by itself.
 
 ## 2. Jithin's decision, 16 November 2026, evening
 
@@ -124,5 +124,4 @@ Merge PR 49 first, then PR 50. CI then tags `v0.18.0` and `v0.19.0` by itself.
 
 ## 8. Next
 
-1. Jithin merges PR 49, then PR 50, and CI tags `v0.18.0` and `v0.19.0`.
-2. The pilot starts inside the Enterprise from about 21 November.
+The pilot starts inside the Enterprise on `v0.19.0` from about 21 November.
