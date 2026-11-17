@@ -95,7 +95,7 @@ Merge PR 49 first, then PR 50. CI then tags `v0.18.0` and `v0.19.0` by itself.
 - **Tests:** the full list in CLAUDE.md passes on SQLite and on local PostgreSQL 16:
   - 319 tests on 0.19.0;
   - 311 tests on 0.18.0.
-- **PR 49 (0.18.0):** all six CI jobs green.
+- **CI:** all six jobs green on PR 49 (0.18.0) and on PR 50 (0.19.0).
 - **Checks:**
   - The plugin validates.
   - The usable-imports and responsive checks pass.
