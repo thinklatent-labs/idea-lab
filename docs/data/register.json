@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-17T16:47:25-05:00",
+  "asOf": "2026-11-17T17:01:06-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 609,
+    "registerRev": 610,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1692,7 +1692,7 @@
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
       "lastTouched": "2026-11-17",
-      "nextStep": "Cortex 0.20.0 is merged (PR #51) and tagged v0.20.0 (Jithin, by hand, 17 November); while the organisation's Actions billing keeps CI from running, Jithin makes each release tag by hand, and CI is trimmed to save minutes (D-440). 0.21.0 (draft PR #52, now against main): rooms, votes, comments, tests and Needs you from the browser, people and knowledge reads, the live demo and the stream fix are in; left: the people, messages and knowledge screens, Needs you back under budget, the seat-change card and the room-file tidy-up, when the account's weekly usage limit resets (2026-11-23 11:00 Eastern) or is raised. 0.22.0 and 0.23.0 follow. The appetite ends 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it.",
+      "nextStep": "Cortex 0.21.0 is finished on PR #53 (ready; #52 merged on 17 November): Jithin merges it and makes the v0.21.0 tag by hand at the merge commit while the organisation's Actions billing keeps CI from running (CI trimmed, D-440). Then wave 3 (0.22.0, every click opens its record), built by the lead now rather than waiting for the account's usage limit: the hub's record reads (w3/hub-records) are done; the console records and the click check follow; then 0.23.0 (the rest of the boards) and 0.24.0 (intelligence). The appetite ends 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -1722,7 +1722,7 @@
         "startedOn": "2026-11-07",
         "reviewSlot": "Mondays 30 min (D-165)"
       },
-      "nextStepDue": "2026-11-23",
+      "nextStepDue": "2026-11-20",
       "nextStepOrigin": "TL-017 session 2026-11-17",
       "killSignals": [
         {
@@ -6907,6 +6907,20 @@
       "health": "at-risk",
       "healthNote": "Workers stay stopped at the account's weekly usage limit until 2026-11-23; CI cannot run until the organisation's Actions billing allows it, so tags are made by hand meanwhile.",
       "nextStepDue": "2026-11-23"
+    },
+    {
+      "date": "2026-11-17",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "Jithin merged #52 and asked for 0.21.0 to be finished; the lead built the rest himself instead of waiting for the workers' usage limit, as PR #53 (ready, version 0.21.0): Needs you and My session under budget (254 to 203 KB, 566 to 233 KB, budgets locked at 205 and 240); the seat-change card; people and messages (message from any name, Sent and Reply, the group picker, hand-off states and the region table, what someone is on, drawer Links and History, My session's steps, Remote's expiry, notifications); knowledge (memory numbers, vouching, the project panel, who decides, the working day, the families per the board); the baton on a clock (G-3) and the session map with each loop round kept by the hub (G-2). 435 tests on SQLite and Postgres, plugin validates, smoke 55 pages and 78 steps, live demo 27 of 27.",
+      "docsTouched": "Cortex PR #53 (build/0.21.0-finish); requirements document (Where it stands); this register (TL-017 row)",
+      "health": "on-track",
+      "healthNote": "Waves 1 and 2 are built by 17 November with 18 days of appetite left for waves 3 to 5; CI still cannot run (billing), so every check runs locally and Jithin makes each tag by hand.",
+      "nextStepDue": "2026-11-20"
     }
   ],
   "decisions": [
@@ -13072,6 +13086,20 @@
       "id": "D-441",
       "by": "Jithin",
       "decision": "TL-003 portal (the portal app): Jithin, 17 Nov afternoon, on the build page and in chat. (1) Design comments, fixed and published the same hour (build page 1794949115-63a9, integration 16592460): the section bar is pinned flush to the top of the window on a band in the page's colour that fades out under it, solid, above every tile (it floated with a gap and the page showed through); rows of tabs draw no scroll bar; the page canvas in light is whiter (#F7F7F5 for the kit's #ECECEA), set in the product layer with an ask of the design kit (TL-013) to move its canvas token. (2) His plan, said back to him: finish the build fast; he reviews the design of everything and works with the lead to close it; development then happens in the actual region with his engineers; if time permits after the design work, as much of the backend as possible is built here rather than leaving a functional UI only. Read by the lead as: no new features after what is in hand (the four new boards' screens, the triage's 47, the re-marks); the build page is kept current for his review and each comment fixed as it comes; main waits for his word that the design is closed (this replaces 'to main after the check' of D-439); then the backend here as far as it goes: the Node service, Postgres schema, the API behind every screen, saved actions, sample data served through the API, sign-in against a stand-in, containers and a deploy guide, with clean interfaces where the Enterprise's systems plug in. Also published: the four page behaviours (D-431) on every page; helper C's eleven triage rows (the data triage agent among them) with 13 rows re-marked Built and 30 Partly, the Built ones resting mostly on page text and to be looked at in the final check; coverage 762: Built 108, Partly 301, Not built 212, Out by decision 87, Later 40. Built and being merged: the four new boards' screens and the project group's 17 rows."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-17",
+      "door": "two-way",
+      "id": "D-442",
+      "by": "Jithin",
+      "decision": "TL-017 team-hub, Evidence › Metrics (B-S34-5): the metric families follow the board (the recommended option). Experience adds hand-offs between regions and people in context; Knowledge adds learnings confirmed and memory accepted; each tab keeps four charts or fewer, and Every measure keeps everything. Built in Cortex 0.21.0 (#53)."
     }
   ],
   "syncLog": [
