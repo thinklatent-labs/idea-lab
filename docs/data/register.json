@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-17T07:34:00-05:00",
+  "asOf": "2026-11-17T08:55:32-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 592,
+    "registerRev": 593,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1691,8 +1691,8 @@
       "docUrl": null,
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
-      "lastTouched": "2026-11-16",
-      "nextStep": "Pilot inside the Enterprise on Cortex v0.19.0 from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. Every board is built (D-417); Jithin merged cortex PR 49 (0.18.0) and PR 50 (0.19.0) on 2026-11-16, and CI tagged v0.18.0 on 93b89ea and v0.19.0 on bb4465f by itself. V-1a runs when Jithin judges the time is right; no build work waits on it.",
+      "lastTouched": "2026-11-17",
+      "nextStep": "Jithin reviews the requirements document (130 requirements; seven gaps, collaboration first) and decides the gaps; then boards for taking part in rooms and tests from the browser and for a live demo where every action works; then their UI and backend (0.21.0). The pilot from about 2026-11-21 needs a running hub inside the Enterprise (install handover, phases 1 to 4). 0.20.0 (stored vectors, recipient index, load test, handover) stays on its branch until its load test passes. V-1a runs when Jithin judges the time is right; no build work waits on it.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -1719,10 +1719,11 @@
         "ownerNamed": true,
         "streamNamed": true,
         "appetiteSet": true,
-        "startedOn": "2026-11-07"
+        "startedOn": "2026-11-07",
+        "reviewSlot": "Mondays 30 min (D-165)"
       },
-      "nextStepDue": "2026-11-21",
-      "nextStepOrigin": "TL-017 session 2026-11-16 (evening)",
+      "nextStepDue": "2026-11-17",
+      "nextStepOrigin": "TL-017 session 2026-11-17",
       "killSignals": [
         {
           "signal": "H1 median over 30 s, or any planted H2 injection acted on, in the pilot's first week",
@@ -1750,10 +1751,10 @@
         }
       ],
       "governance": {
-        "review": "The Enterprise's InfoSec and IT sign-off for the pilot inside the Enterprise (SSO, hosting, managed settings, data retention); a simulated pre-review is recorded in the critique",
+        "review": "The Enterprise's InfoSec and IT sign-off for the pilot inside the Enterprise (SSO, hosting, managed settings, data retention). Marked done for the lab by Jithin on 2026-11-17 (D-427): he takes Cortex inside and obtains the sign-offs; each built-ahead integration still switches on only after its live check passes",
         "owner": "Enterprise InfoSec and IT (outside the lab)",
         "expectedWeeks": null,
-        "status": "not started",
+        "status": "cleared",
         "criticalPath": false
       }
     },
@@ -6836,6 +6837,20 @@
       "health": "at-risk",
       "healthNote": "Every board and everything that needs nobody else is built, merged and tagged (v0.19.0). What the 2026-12-05 kill signal reads (H1, H2) still needs real sessions, which come with the pilot inside the Enterprise from about 2026-11-21.",
       "nextStepDue": "2026-11-21"
+    },
+    {
+      "date": "2026-11-17",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "Pending list; D-116 to D-121 accepted; Enterprise side marked done by Jithin; databases decided (PostgreSQL with pgvector, team of 45) and 0.20.0 started on a branch (stored vectors, recipient index, load test, install handover draft); diagnosis of why nobody can join a room or test from the browser; requirements document written: 130 requirements, 97 work, 9 Claude Code only or need a session, 9 missing, seven gaps.",
+      "docsTouched": "Requirements document: https://claude.ai/artifact/3LwCJDi6sJHptQU8AdbePW; cortex branch build/0.20.0 (unmerged); this register (TL-017 row, decision log)",
+      "health": "at-risk",
+      "healthNote": "Nobody can yet take part in a room or a test from the browser, the demo cannot act, and no hub runs inside the Enterprise; the pilot from about 2026-11-21 needs the install. 0.20.0 fails its first load test (one database connection per node, three unindexed queries).",
+      "nextStepDue": "2026-11-17"
     }
   ],
   "decisions": [
@@ -8427,8 +8442,8 @@
       "date": "2026-11-06",
       "decision": "Registered at Seed: a Claude Code plugin plus an AWS hub giving the team's sessions shared rules, memory, artifacts, presence and a message path; first step is a one-week hook-based inbox spike, and the design waits on which provider Claude Code uses (no push or monitors on Bedrock)",
       "by": "Jithin (idea); thinking partner (card and recommendation), pending Jithin",
-      "pending": true,
-      "status": "proposed",
+      "pending": false,
+      "status": "accepted",
       "door": null,
       "infoLevel": null,
       "reviewOn": null,
@@ -8441,8 +8456,8 @@
       "date": "2026-11-06",
       "decision": "Provider is Bedrock with Opus 5 and no claude.ai, so channels and monitors are out; sessions are named group-initials (server-dev-jp) and the plugin derives the group and shares its context; the last hop into a session uses Claude Code's native session messaging fed by a per-session watcher, to be proven in the spike (H1b, H6). Build waits until the brainstorm settles",
       "by": "Jithin (provider, naming); thinking partner (watcher design), pending Jithin",
-      "pending": true,
-      "status": "proposed",
+      "pending": false,
+      "status": "accepted",
       "door": null,
       "infoLevel": null,
       "reviewOn": null,
@@ -8455,8 +8470,8 @@
       "date": "2026-11-06",
       "decision": "Two purposes added: impact alerts when one person's change affects another (H8), and hand-off packets so the hub carries work across time zones and a teammate picks up where the last person stopped (H7)",
       "by": "Jithin (purposes); thinking partner (hypotheses), pending Jithin",
-      "pending": true,
-      "status": "proposed",
+      "pending": false,
+      "status": "accepted",
       "door": null,
       "infoLevel": null,
       "reviewOn": null,
@@ -8469,8 +8484,8 @@
       "date": "2026-11-06",
       "decision": "Session start is a handshake with the hub: the session registers, the hub marks it online, delivers what is queued and tells its group that a member is up (opt-in, group only). Presence ends on missed check-ins, not on a goodbye; states are online, away and offline. Card wording to follow at its next edit",
       "by": "Jithin (idea); thinking partner (states, privacy), pending Jithin",
-      "pending": true,
-      "status": "proposed",
+      "pending": false,
+      "status": "accepted",
       "door": null,
       "infoLevel": null,
       "reviewOn": null,
@@ -8483,8 +8498,8 @@
       "date": "2026-11-06",
       "decision": "Adopt harness, loop and graph engineering as the team's standard practice in the plugin: a phase pipeline (idea, requirements, design, build, verify, hand-off) with gates enforced by hooks, bounded build-and-verify loops with a separate verifier, and a shared brainstorm room where every connected user's session contributes to an idea (blind round, cluster, critique, converge). Card v0.4 section 5b adds H9 (room beats solo) and H10 (gates cut rework without slowing small tickets); handshake wording now in the card. Nothing built.",
       "by": "Jithin (idea); thinking partner (mapping, critique), pending Jithin on the light-path rule and who converges a room",
-      "pending": true,
-      "status": "proposed",
+      "pending": false,
+      "status": "accepted",
       "door": null,
       "infoLevel": null,
       "reviewOn": null,
@@ -8497,8 +8512,8 @@
       "date": "2026-11-06",
       "decision": "Architecture v0.1 drafted (claude/Team hub (team-hub) - Architecture.md): hub stores and routes, sessions think; project rooms with local drafts pushed by choice; one-writer spec from an accepted ledger, merged by pull request; plugin-assigned session names from the work item; Jira plan of record (component, capability, release component/version, epic, bucketed stories, subtasks with frozen human-day estimates); release recommendation and version advisor; one daemon per machine; user-scope plugin from a private GitHub marketplace pushed by managed settings, updated by version bump; command center. H11 to H19 pre-registered there. Nothing built.",
       "by": "Jithin (operating model, Jira model, run-down); thinking partner (architecture, estimate method), pending Jithin review",
-      "pending": true,
-      "status": "proposed",
+      "pending": false,
+      "status": "accepted",
       "door": null,
       "infoLevel": null,
       "reviewOn": null,
@@ -12791,6 +12806,20 @@
       "id": "D-426",
       "by": "Jithin",
       "decision": "TL-003 portal (the portal app), build 4, Try TLM: Jithin, 17 Nov morning, after the joined-up Try TLM was published: 'Finish them all now looks good'. Read by the lead as: finish the last board and the four open clashes, and build 4 is approved to go to main once the phone board is in and the final check passes; said back to him. Three clashes settled by the lead's recommendation and published (build page version 1794918866-e9cd, integration 8591d1fb): the agent's instructions are 216 tokens, so with the system prompt's 24 they make the 240 that boards Try-Box, Try-Context and Try-Portal print (board Try-Setup's 180 is the one figure that moves); the weekly summary's run of Mon 2 Nov counts 1 request on the limit page, as its own board Try-Schedules says (it sent no helpers); the limit page's skipped run is the weekly sort, one of the five schedules, where it named an evening run that is none of them. The fourth stays as each board draws it, said plainly to Jithin: board Try-Steps gives the fees session a third message at 11:50 (a connector, a check that stopped a result, a failed search, Checker, a saved file), while the six accepted chat boards give the session 2 exchanges, a context of 18% and 'you said no'. Settling it either adds that exchange to the chat, which moves the context meter's 18% and 5,760 tokens on four accepted boards, or splits the steps board's sample across two sessions; the lead recommends leaving it until a board is redrawn."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-17",
+      "door": "two-way",
+      "id": "D-427",
+      "by": "Jithin",
+      "decision": "The six Seed-era proposals D-116 to D-121 accepted as the record. The Enterprise side (hosting, IT install, InfoSec and IT sign-off) is Jithin's and marked done for the lab: \"mark them as done and move forward\"; he takes Cortex inside. Data stores: one PostgreSQL 16 with pgvector, the graph as tables, no separate vector or graph store (ADR-0003), built and load-tested for the team of 45. Taking part in rooms and tests from the browser, and a live demo where actions work, come before the six intelligence features. Order from here (Jithin): a requirements document of everything asked this session, then the gaps, then the boards, then UI and backend. Diagnosis recorded: the boards drew rooms and tests to be watched, participation lived only in Claude Code, and the replay demo could not act, so 'every board built' meant pages that show, not things a person can do; from now on built means a person can do it end to end."
     }
   ],
   "syncLog": [
