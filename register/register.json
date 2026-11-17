@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-17T15:39:59-05:00",
+  "asOf": "2026-11-17T15:57:19-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 607,
+    "registerRev": 608,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1692,7 +1692,7 @@
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
       "lastTouched": "2026-11-17",
-      "nextStep": "Cortex 0.20.0 is merged (PR #51, 17 November); its v0.20.0 tag follows once CI runs on main, which waits for Jithin to fix the organisation's GitHub Actions billing (budget above $0 or payment). 0.21.0 (draft PR #52, now against main): rooms, votes, comments, tests and Needs you from the browser, people and knowledge reads, the live demo and the stream fix are in; left: the people, messages and knowledge screens, Needs you back under budget, the seat-change card and the room-file tidy-up, when the account's weekly usage limit resets (2026-11-23 11:00 Eastern) or is raised. 0.22.0 and 0.23.0 follow. The appetite ends 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it.",
+      "nextStep": "Cortex 0.20.0 is merged (PR #51) and tagged v0.20.0 (Jithin, by hand, 17 November); while the organisation's Actions billing keeps CI from running, Jithin makes each release tag by hand, and CI is trimmed to save minutes (D-440). 0.21.0 (draft PR #52, now against main): rooms, votes, comments, tests and Needs you from the browser, people and knowledge reads, the live demo and the stream fix are in; left: the people, messages and knowledge screens, Needs you back under budget, the seat-change card and the room-file tidy-up, when the account's weekly usage limit resets (2026-11-23 11:00 Eastern) or is raised. 0.22.0 and 0.23.0 follow. The appetite ends 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -6892,6 +6892,20 @@
       "docsTouched": "Cortex draft PRs #51 and #52; requirements document (Build plan); this register (TL-017 row)",
       "health": "at-risk",
       "healthNote": "Workers stopped at the account's weekly usage limit until 2026-11-23 (about 6 of the 18 days left before the appetite ends); CI blocked by GitHub billing; both are Jithin's to fix.",
+      "nextStepDue": "2026-11-23"
+    },
+    {
+      "date": "2026-11-17",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "v0.20.0 tagged by Jithin by hand at the merge commit. Cortex CI trimmed on build/0.21.0 (5de549f, 13ae2f5): superseded pull request runs cancel, the Postgres suite and browser checks run on pull requests only, release-tag keeps its rules; actionlint passes, 434 tests pass, the plugin validates. Skipping CI on the lab's own register-sync pushes is a lab-operations change, noted for a lab-operations chat.",
+      "docsTouched": "Cortex build/0.21.0 (ci.yml, CLAUDE.md, IT install guide, backlog); this register (TL-017 row)",
+      "health": "at-risk",
+      "healthNote": "Workers stay stopped at the account's weekly usage limit until 2026-11-23; CI cannot run until the organisation's Actions billing allows it, so tags are made by hand meanwhile.",
       "nextStepDue": "2026-11-23"
     }
   ],
@@ -13030,6 +13044,20 @@
       "id": "D-439",
       "by": "Jithin",
       "decision": "TL-003 portal (the portal app): Jithin, 17 Nov: 'bring any question you have for me right up and finish this off'. Four answers through the question prompt, all as recommended. (1) The four draft boards of D-438 are built as drawn, with the lead's recommendations: the loss mask moves to the training run's own Engineering view; ThinkLatent sets the privacy floor (200 calls from 20 advisers as the sample value); Models-Enough shows sample dollars; accepting a judge's recalibration plan is held, on the run's page and the pillar's; every Official TL Index run gets a page; 'Across the Enterprise' moves to Operations across the Enterprise. He can still change a board afterwards and the page follows. (2) When everything is built and the final check passes (every page at 1,440, on a phone and in dark, all tests), it goes to main without waiting for his look; what the lead settled is listed for him to overrule afterwards. (3) Two rows marked out on an implied reading are confirmed out: a single blended grade for a model on the TL Index (the Index reports pillars) and a text budget rule for pages (the boards decide the words). (4) After the UI is on main, the deployable work is built as the backend checklist of 16 Nov proposes: one Node backend service, one Postgres database, the Enterprise's sign-in by OpenID Connect, containers and a deploy guide. In hand: the page behaviours (three of four committed after two restarts), the four boards' screens; then the triage's 47 and the re-marking of the 207."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-17",
+      "door": "two-way",
+      "id": "D-440",
+      "by": "Jithin",
+      "decision": "TL-017 team-hub, Jithin's two calls on GitHub Actions minutes (17 November). (1) While the organisation's Actions billing keeps CI from running, he makes Cortex release tags by hand (his own offer); he made v0.20.0 at the 0.20.0 merge commit the same day. (2) Cortex CI is trimmed (the recommended option): a new push to a pull request cancels the run it supersedes; the Postgres suite and the browser checks run on pull requests only, so a merge to main bills about 12 minutes instead of 23; release-tag still tags only once every job that runs on main passes. The lead runs the full checks, Postgres and browser included, before every merge."
     }
   ],
   "syncLog": [
