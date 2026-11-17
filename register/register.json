@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-17T13:49:07-05:00",
+  "asOf": "2026-11-17T13:49:58-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 600,
+    "registerRev": 601,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1692,7 +1692,7 @@
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
       "lastTouched": "2026-11-17",
-      "nextStep": "Wave 1, Cortex 0.20.0: the fixes with the privacy leak first, the speed work, a connection pool and indexes with the load test passing. Four workers build in parallel, then the clean-up pass O-1 to O-10, integration, a re-recorded demo and a full click-check, then a PR for Jithin's merge. Then wave 2, 0.21.0: rooms and tests from the browser and the live demo. The appetite ends 2026-12-05 and is never extended; the order lands the privacy fix and browser collaboration first. V-1a runs when Jithin judges the time is right; no build work waits on it.",
+      "nextStep": "0.20.0 (draft PR #51): the speed pass is finishing; then a full click-through and PR #51 is marked ready for Jithin's merge. Fixes, privacy leak, database pool and indexes are in, and the load test passes every target. 0.21.0 (draft PR #52): rooms, votes, comments, tests and Needs you from the browser and the live demo are built; the room and people hub work is merging, then people, messages and knowledge screens. 0.22.0: the hub's record reads are built. GitHub Actions is blocked by the organisation's billing, which Jithin fixes; the same checks run locally meanwhile. The appetite ends 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -6864,6 +6864,20 @@
       "docsTouched": "Requirements document (Audit tab, Build plan): https://claude.ai/artifact/3LwCJDi6sJHptQU8AdbePW; cortex branches w1/hub, w1/scale, w1/console-a, w1/console-b (unmerged); this register (TL-017 row, decision log)",
       "health": "at-risk",
       "healthNote": "The appetite ends 2026-12-05 and the plan holds about 220 items; the privacy leak (B-S38-1) stays open until 0.20.0 merges; nobody can yet take part in a room or a test from the browser.",
+      "nextStepDue": "2026-11-18"
+    },
+    {
+      "date": "2026-11-17",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "Waves 1 and 2 built in parallel by up to eight workers. 0.20.0: privacy leak fixed, 33 board fixes and 9 click fixes, first-load CSS 202 to 54 KB, connection pool and indexes with the load test passing every pre-registered target (0 errors in 9,404 requests). 0.21.0: rooms (join, ideas, rounds, 3 dot votes, comment threads, spec on the page), tests and Needs you from the browser, and a live demo where Abhi and Bino answer. 0.22.0: record reads for every record kind. Jithin's calls in D-435.",
+      "docsTouched": "Cortex draft PRs #51 (0.20.0) and #52 (0.21.0); requirements document (Build plan): https://claude.ai/artifact/3LwCJDi6sJHptQU8AdbePW; this register (TL-017 row, decision log)",
+      "health": "on-track",
+      "healthNote": "Waves 1 and 2 are nearly integrated the same day as the plan; GitHub Actions is blocked by billing until Jithin fixes it, so checks run locally; no hub runs inside the Enterprise yet (Jithin's).",
       "nextStepDue": "2026-11-18"
     }
   ],
@@ -12932,6 +12946,20 @@
       "id": "D-434",
       "by": "Jithin",
       "decision": "TL-003 portal (the portal app), build 4, Try TLM, approved and on main: Jithin, 17 Nov, on the phone tabs on the build page: 'looks good to me'. With D-426 ('Finish them all now looks good') and D-428 (the phone screens accepted), build 4 is approved; the final check ran on the exact commit that goes to main, ec668a53 (build 4 complete with the phone tabs, the shared viewport change and the audit's reports): every repository check passes (633 scenario tests, 19 portal tests); 315 page loads over 105 addresses at 1,440, on a phone and in dark, 0 problems, 235 links followed (links from the organization and team pages to their people pages land on a page no build has made yet). main moves from 260b064d to ec668a53, and the shared branch with it. The build 4 check, v1.0 (artifacts/TL-003-portal/build-4-check-2026-11-17.md and the project doc): all 28 Try TLM boards built, 24 looked at by the lead beside their boards, the clashes settled and what differs. LibreChat in the ThinkLatent look stays on its own branch build-4-try-tlm (D-399). The board audit's fixes (D-430 to D-433) are not in this: they go to main together after their own final check and Jithin's look, with the second projects round and the four page behaviours (D-431) still being built."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-17",
+      "door": "two-way",
+      "id": "D-435",
+      "by": "Jithin",
+      "decision": "TL-017 team-hub, Jithin's calls while waves 1 and 2 were built (17 November), each the recommended option unless noted. (1) Detectors: a curator switches a detector for the whole team; a project owner switches it only for their own project, so creating a project no longer reaches a team-wide switch. (2) Epic notes: proposed notes are seen and accepted by the hub's curators and the owner of the epic's project. (3) Passing a decision on ('Not mine'): work (hand-offs, pick requests, tests) moves to the new person at once; a spec approval or an ADR seat moves only once the room's convener or the ADR's author taps OK. (4) Rooms need no call feature (Jithin's own answer, not an offered option): the call link, Join the call and the convener's link setting are removed from the hub, the console and the demo; the column stays unused so schema changes stay additive. Lead's calls recorded with them: the number of people who have voted shows during converge (never totals); a test's owner must be a curator; 'Not today' returns a request to its asker; three unused GET routes retire in 0.22.0."
     }
   ],
   "syncLog": [
