@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Schedules: the list, making one, what a run may do with nobody there, and a run in the inbox</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.tl{display:flex;flex-direction:column;margin-top:10px}
+.tl>span{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.tl>span:first-child{border-top:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.tl .acts{flex:none}
+.mn{margin-top:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.10);padding:6px;font-size:13px;line-height:1.4;display:flex;flex-direction:column}
+.mn .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 10px;border-radius:10px}
+.mn .it.on{background:rgba(26,26,26,.06)}
+.mn .it small{font-size:12px;color:rgba(26,26,26,.66)}
+.mn .cap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);padding:8px 10px 2px}
+.mn hr{border:0;border-top:1px solid rgba(26,26,26,.1);margin:4px 6px}
+.bx{margin-top:12px;border-radius:18px;box-shadow:0 0 0 1px rgba(26,26,26,.18);background:#fff;padding:12px 14px;display:flex;flex-direction:column;gap:10px;font-size:14px}
+.bx .ph{color:rgba(26,26,26,.6)}.bx .tx{color:#1A1A1A}
+.bx .row{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.bx.off{background:rgba(26,26,26,.04);box-shadow:inset 0 0 0 1px rgba(26,26,26,.12)}
+.fd{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.fd:first-child{margin-top:0}
+.fd label,.fd .lb{font-size:12px;font-weight:500;color:rgba(26,26,26,.7)}
+.fd small{font-size:12px;color:rgba(26,26,26,.64);line-height:1.45}
+.seg3{display:flex;gap:8px;flex-wrap:wrap}
+.inb{display:flex;flex-direction:column;margin-top:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:2px 14px}
+.inb>span{display:grid;grid-template-columns:118px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.inb>span:first-child{border-top:0}
+.inb small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.inb .k{font-size:11.5px;font-weight:500;letter-spacing:.03em;text-transform:uppercase;color:rgba(26,26,26,.62)}
+.mark{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:12px;color:rgba(26,26,26,.66)}
+.mark::before,.mark::after{content:"";flex:1;border-top:1px solid rgba(26,26,26,.16)}
+.b5{font-weight:500}
+.hold{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:500 13px Inter,system-ui,sans-serif;white-space:nowrap}
+.hold i{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.ls{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.95fr) 150px minmax(0,1.05fr) 132px 216px;font-size:13px;line-height:1.4;margin-top:10px;align-items:stretch}
+.ls>*{display:flex;flex-direction:column;justify-content:center;padding:10px 10px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ls>.acts{flex-direction:row;align-items:center;justify-content:flex-end;flex-wrap:nowrap;gap:6px;padding-right:0}
+.ls .h{font-size:11.5px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.ls small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.flt{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.find{display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);background:rgba(255,255,255,.7);flex:1;min-width:240px;font-size:13px}
+.find input{border:0;background:transparent;font:inherit;width:100%;outline:0}
+.bd2{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:24px;margin-top:12px;align-items:start}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:4px}
+.two h4{margin:8px 0 0;font-size:13px;font-weight:500}
+.two .tl{margin-top:2px}
+.when{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.when .kit-input{width:92px;height:34px}
+.lim{height:10px;border-radius:5px;background:rgba(26,26,26,.08);margin-top:10px;display:flex;overflow:hidden}
+.lim i{display:block;height:10px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3856px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Your schedules <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Your schedules</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Schedules</span><span class="kit-chip">11 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">A task sent to an agent or a model at set times: the list, the form, what a run may and may not do, a finished run in the inbox and as a session, what goes wrong, and how runs count · made-up funds and figures · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="false" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="true" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="Your schedules">
+        <div class="ix-h"><h3>1 · Your schedules</h3><span class="kit-small kit-muted">5 of 10 · only you see these · a schedule is kept until you remove it</span></div>
+        <p class="rule">A schedule sends one task to an agent or a model at set times, with nobody there. Each run is a session of its own, yours for 30 days like any other, and its result lands in your inbox in the portal.</p>
+        <div class="flt"><label class="find"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search your schedules" aria-label="Search your schedules"></label><span class="kit-seg" role="group" aria-label="Show"><button type="button" aria-pressed="true">All 5</button><button type="button" aria-pressed="false">On 4</button><button type="button" aria-pressed="false">Paused 1</button></span><button class="kit-btn " type="button">New schedule</button></div>
+        <div class="ls">
+          <span class="h">What runs</span><span class="h">On</span><span class="h">When · Eastern Time</span><span class="h">Last run</span><span class="h">Next run</span><span class="h"></span>
+          <span><a href="Try-Chat.dc.html" style="color: inherit; text-decoration: none" class="b5">Summarise what changed in the sample fund sheets</a><small>Result to your inbox · 4 runs so far</small></span><span>Research helper<small>Yours · Core 4.2 · 3 tools</small></span><span>Every Monday, 08:00</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Finished</span></span><small>Mon 2 Nov, 08:00 · 41 seconds</small></span><span>Mon 9 Nov, 08:00</span><span class="acts"><button class="kit-btn outline sm" type="button">Run now</button><button class="kit-btn outline sm" type="button">Pause</button><button class="kit-btn ghost sm" type="button" aria-label="More for the weekly summary">More</button></span>
+          <span><a href="Try-Chat.dc.html" style="color: inherit; text-decoration: none" class="b5">Refresh my first-week reading list</a><small>Folder: Onboarding notes · 12 runs so far</small></span><span>Distil 4.2<small>No agent · 1 tool</small></span><span>Every day, 08:30</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Finished</span></span><small>Today, 08:30 · 9 seconds</small></span><span>Fri 6 Nov, 08:30</span><span class="acts"><button class="kit-btn outline sm" type="button">Run now</button><button class="kit-btn outline sm" type="button">Pause</button><button class="kit-btn ghost sm" type="button" aria-label="More for the reading list">More</button></span>
+          <span><a href="Try-Chat.dc.html" style="color: inherit; text-decoration: none" class="b5">Check the glossary against the fee table</a><small>Result to your inbox · not run yet</small></span><span>Checker<small>Shared by Lena W. · Distil 4.2</small></span><span>Once, Fri 6 Nov, 09:00</span><span>Not run yet<small>It runs once, then the schedule ends</small></span><span>Fri 6 Nov, 09:00</span><span class="acts"><button class="kit-btn outline sm" type="button">Run now</button><button class="kit-btn outline sm" type="button">Pause</button><button class="kit-btn ghost sm" type="button" aria-label="More for the glossary check">More</button></span>
+          <span><a href="Try-Chat.dc.html" style="color: inherit; text-decoration: none" class="b5">Sort the week's made-up service requests</a><small>Result to your inbox · 5 runs so far</small></span><span>Research helper<small>Yours · Core 4.2 · 3 tools</small></span><span>Every Friday, 16:00</span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stopped by the client-data check</span></span><small>Fri 30 Oct, 16:00 · nothing was kept</small></span><span>Fri 6 Nov, 16:00</span><span class="acts"><button class="kit-btn outline sm" type="button">Run now</button><button class="kit-btn outline sm" type="button">Pause</button><button class="kit-btn ghost sm" type="button" aria-label="More for the weekly sort">More</button></span>
+          <span><a href="Try-Chat.dc.html" style="color: inherit; text-decoration: none" class="b5">Turn my notes into a plan with owners</a><small>Uses your saved prompt /plan · 2 runs so far</small></span><span>Core 4.2<small>No agent · no tools</small></span><span>Every Monday, 09:00</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Paused</span></span><small>Paused by you on 3 Nov</small></span><span><span class="kit-muted">None while paused</span></span><span class="acts"><button class="kit-btn sm" type="button">Switch on</button><button class="kit-btn ghost sm" type="button" aria-label="More for the weekly plan">More</button></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 12px"><span class="kit-small kit-muted">Times are in Eastern Time, from your device · while you are marked away in You, your schedules wait and say so</span><span class="acts"><a class="kit-btn ghost sm" href="Shell-Find.dc.html#inbox">Open the inbox</a><a class="kit-btn ghost sm" href="Shell-Settings.dc.html">Set when you are away</a></span></div>
+      </section>
+      <section class="kit-surface wide" aria-label="Make a schedule">
+        <div class="ix-h"><h3>2 · Make a schedule</h3><span class="kit-small kit-muted">"New schedule", open · the same form changes one</span></div>
+        <p class="rule">Five things: the task in words, when, who does it, what it may use, and where the result goes. The last is fixed: the portal's inbox, never mail or a message outside.</p>
+        <div class="bd2">
+          <div>
+            <div class="fd"><label for="sk">The task, in words</label><textarea id="sk" class="kit-input area" style="min-height: 74px">Summarise what changed in the sample fund sheets since last Monday. Three lines at most, then a table of the charges that moved.</textarea><small>Written as you would write a message. It is checked for client data when you save, and again at every run. A saved prompt can be used: type <span class="kit-kbd">/</span>.</small></div>
+            <div class="fd"><span class="lb">When</span><div class="when"><span class="kit-seg" role="group" aria-label="How often"><button type="button" aria-pressed="false">Once</button><button type="button" aria-pressed="false">Daily</button><button type="button" aria-pressed="true">Weekly</button></span><span class="seg3"><span class="kit-chip brand">Mon</span><span class="kit-chip outline">Tue</span><span class="kit-chip outline">Wed</span><span class="kit-chip outline">Thu</span><span class="kit-chip outline">Fri</span></span><span class="kit-small kit-muted">at</span><input class="kit-input" value="08:00" aria-label="Time of day"><span class="kit-small kit-muted">Eastern Time</span></div><small>Once, daily or weekly. Nothing runs more often than once a day, and nothing at the weekend.</small></div>
+            <div class="fd"><span class="lb">Who does it</span><span class="seg3"><span class="kit-chip brand">Research helper · Core 4.2</span><span class="kit-chip outline">Checker · shared by Lena W.</span><span class="kit-chip outline">Core 4.2, no agent</span><span class="kit-chip outline">Distil 4.2, no agent</span><span class="kit-chip outline">Domain-Advice v2, no agent</span></span><small>One agent or one model. A run uses the agent's newest version and says which under its answer.</small></div>
+            <div class="fd"><span class="lb">In a folder</span><span class="seg3"><span class="kit-chip brand">None</span><span class="kit-chip outline">Onboarding notes</span></span><small>In a folder, each run follows the folder's instructions and may search its files.</small></div>
+          </div>
+          <div>
+            <div class="fd"><span class="lb">What it may use</span>
+              <div class="tl" style="margin-top: 0">
+                <span><span>Fund documents search<small>Reads approved documents</small></span><span class="kit-switch on" role="switch" aria-checked="true"><i></i></span></span>
+                <span><span>Calculator</span><span class="kit-switch on" role="switch" aria-checked="true"><i></i></span></span>
+                <span><span>Code sandbox<small>Runs code inside the Enterprise, no network · the run's files stay with its session</small></span><span class="kit-switch on" role="switch" aria-checked="true"><i></i></span></span>
+                <span><span>Product sheets library<small>A connector · reads with your access · you allow it for scheduled runs until 3 Feb, then it asks again</small></span><span class="kit-switch on" role="switch" aria-checked="true"><i></i></span></span>
+                <span><span>Memory<small>Reads what Try TLM remembers about you · a run adds nothing to it</small></span><span class="kit-switch" role="switch" aria-checked="false"><i></i></span></span>
+                <span><span class="kit-muted">Save a file to your files<small>Not available to a schedule: it changes something, and nobody is there to say yes</small></span><span class="kit-switch" role="switch" aria-checked="false" aria-disabled="true" style="opacity:.45"><i></i></span></span>
+              </div></div>
+            <div class="fd"><span class="lb">Where the result goes</span><div class="soft" style="margin-top: 0"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Your inbox in the portal</span></span><br><span class="kit-muted">One line for each run, opening its session. Never by mail, and never as a message outside the portal.</span></div></div>
+          </div>
+        </div>
+        <div class="acts" style="margin-top: 16px"><button class="kit-btn sm" type="button">Save the schedule</button><button class="kit-btn outline sm" type="button">Try it once now</button><button class="kit-btn ghost sm" type="button">Cancel</button><span class="kit-small kit-muted">Runs every Monday at 08:00 Eastern Time · first run Mon 9 Nov · each run counts as one of your requests that day</span></div>
+      </section>
+      <section class="kit-surface" aria-label="What a run may do with nobody there">
+        <div class="ix-h"><h3>3 · What a run may do with nobody there</h3><span class="kit-small kit-muted">The same for every schedule</span></div>
+        <p class="rule">A run cannot be asked "allow this once", because nobody is there. So a tool that changes something is not available to a schedule at all. A run reads, works things out and writes its answer.</p>
+        <div class="two">
+          <div><h4>It may</h4><div class="tl">
+            <span><span>Read with the tools you switched on<small>Approved documents, your files, a connector that only reads</small></span></span>
+            <span><span>Calculate, and run code in the sandbox<small>Inside the Enterprise, no network</small></span></span>
+            <span><span>Send up to 2 helpers<small>Each counts as one more request</small></span></span>
+            <span><span>Make an artifact or a file<small>Kept with the run's session for 30 days</small></span></span>
+          </div></div>
+          <div><h4>It may not</h4><div class="tl">
+            <span><span>Use a tool that changes something<small>Saving, sending, writing to a system: left out of every run</small></span></span>
+            <span><span>Ask you a question and wait<small>It ends there; the inbox line carries the question</small></span></span>
+            <span><span>Send its result anywhere but your inbox</span></span>
+            <span><span>Take in client data, or reach outside the Enterprise<small>The same check and the same rule as when you are there</small></span></span>
+          </div></div>
+        </div>
+        <p class="rule">A run stops after 25 steps or 10 minutes, whichever comes first, and says where it got to. Both are sample values that ThinkLatent sets.</p>
+      </section>
+      <section class="kit-surface" aria-label="A finished run, in your inbox">
+        <div class="ix-h"><h3>4 · A finished run, in your inbox</h3><span class="kit-small kit-muted">One line a run</span></div>
+        <p class="rule">The line says what ran, who did it and how it went, and opens the run's session. Whether it also adds to the count on the bell is your choice in You, under "Runs and editions you follow".</p>
+        <div class="inb" role="list" aria-label="Inbox lines from schedules">
+          <span role="listitem"><span class="k">Schedule · done</span><span><span class="b5">Summarise what changed in the sample fund sheets</span><small>Research helper · 41 seconds · 5 steps, 2 tools · 2 charges moved</small></span><span class="acts"><span class="kit-small kit-muted">Mon 08:00</span><a class="kit-btn outline sm" href="Try-Chat.dc.html">Open</a></span></span>
+          <span role="listitem"><span class="k">Schedule · done</span><span><span class="b5">Refresh my first-week reading list</span><small>Distil 4.2 · 9 seconds · 2 steps, 1 tool · nothing new since yesterday</small></span><span class="acts"><span class="kit-small kit-muted">08:30</span><a class="kit-btn outline sm" href="Try-Chat.dc.html">Open</a></span></span>
+        </div>
+        <p class="rule">The last words of each line are the run's own one-line summary. No text of the answer is shown in the inbox beyond that line.</p>
+      </section>
+      <section class="kit-surface" aria-label="The run, opened as a session">
+        <div class="ix-h"><h3>5 · The run, opened as a session</h3><span class="kit-small kit-muted">It is a session like any other</span></div>
+        <p class="rule">A run sits in your sessions with a mark that a schedule started it. Writing in it makes it an ordinary session with you there: from then on a tool that changes something asks you, as always.</p>
+        <div class="mark">Started by your schedule · Mon 2 Nov, 08:00 ET · nobody was there</div>
+        <div class="m me">Summarise what changed in the sample fund sheets since last Monday. Three lines at most, then a table of the charges that moved.</div>
+        <div class="step"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Read 3 sheets</span></span></span><small>Tool: Product sheets library · with your access</small></div>
+        <div class="step"><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Left out: save the summary to your files</span></span></span><small>It changes something · not available to a schedule</small></div>
+        <div class="m it">Two charges moved. Sample fund B went from 0.45% to 0.42% a year, and Sample fund C from 0.80% to 0.78%. Sample fund A is unchanged at 0.12%.</div>
+        <div class="meta"><span>Research helper, version 3 · Core 4.2 · 41 seconds · 5 steps, 2 tools · counted as 1 request · a sample answer, not advice</span></div>
+        <div class="acts" style="margin-top: 10px"><button class="kit-btn outline sm" type="button">Save the summary to my files now</button><button class="kit-btn ghost sm" type="button">Carry on in this session</button></div>
+      </section>
+      <section class="kit-surface" aria-label="A run that failed, or was stopped">
+        <div class="ix-h"><h3>6 · A run that failed, or was stopped</h3><span class="kit-small kit-muted">Said in the list, in the inbox and in the session</span></div>
+        <p class="rule">A stopped or failed run says what happened and what to do next. Three failed runs in a row pause the schedule, so it does not keep failing unseen.</p>
+        <div class="ring"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stopped by the client-data check · Fri 30 Oct, 16:00</span></span><br>What a tool brought back looked like a client's name with an account number. The run ended there. That text was not passed to the model and nothing of it was kept.<div class="acts" style="margin-top: 8px"><button class="kit-btn sm" type="button">See the steps before it</button><a class="kit-btn outline sm" href="Help-Page.dc.html">Why</a></div></div>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>The model did not answer · the run was not counted</span></span><br>Core 4.2's shared endpoint was busy. The run was tried twice more, ten minutes apart, then given up. The next one is on its usual day.<div class="acts" style="margin-top: 8px"><button class="kit-btn outline sm" type="button">Run it now</button><a class="kit-btn ghost sm" href="Help-Page.dc.html">Is it down?</a></div></div>
+        <div class="soft"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Paused after 3 failed runs in a row</span></span><br>Nothing more runs until you switch the schedule on again.<div class="acts" style="margin-top: 8px"><button class="kit-btn outline sm" type="button">See the 3 runs</button><button class="kit-btn ghost sm" type="button">Switch on</button></div></div>
+      </section>
+      <section class="kit-surface" aria-label="Pause, run now, change, remove">
+        <div class="ix-h"><h3>7 · Pause, run now, change, remove</h3><span class="kit-small kit-muted">"More", open</span></div>
+        <p class="rule">Pausing keeps the schedule and skips its runs; none is made up afterwards. Removing can be undone for ten seconds. Past runs stay in your sessions for their own 30 days either way.</p>
+        <div class="mn" role="menu" aria-label="More for this schedule" style="max-width: 360px">
+          <span class="it" role="menuitem"><span>Run now</span><small>counts as one request today</small></span>
+          <span class="it" role="menuitem"><span>Pause</span><small>until you switch it on</small></span>
+          <span class="it" role="menuitem"><span>Change</span><small>the form above</small></span>
+          <span class="it" role="menuitem">Make a copy</span>
+          <span class="it" role="menuitem"><span>See its runs</span><small>4 so far</small></span>
+          <hr>
+          <span class="it" role="menuitem"><span>Remove</span><small>with Undo</small></span>
+        </div>
+        <div class="soft" style="display: flex; justify-content: space-between; gap: 12px; align-items: center"><span>Schedule removed · its 4 runs stay in your sessions</span><button class="kit-btn outline sm" type="button">Undo</button></div>
+      </section>
+      <section class="kit-surface" aria-label="One schedule's runs">
+        <div class="ix-h"><h3>8 · One schedule's runs</h3><span class="kit-small kit-muted">"See its runs", open</span></div>
+        <p class="rule">Every run of a schedule, newest first, with how it went. A run is a session, so it is removed 30 days after its last message; the line stays and says so.</p>
+        <div class="tl">
+          <span><span>Mon 2 Nov, 08:00<small>41 seconds · 5 steps, 2 tools · removed on 2 Dec</small></span><span class="acts"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Finished</span></span><a class="kit-btn outline sm" href="Try-Chat.dc.html">Open</a></span></span>
+          <span><span>Mon 26 Oct, 08:00<small>38 seconds · 5 steps, 2 tools · removed on 25 Nov</small></span><span class="acts"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Finished</span></span><a class="kit-btn outline sm" href="Try-Chat.dc.html">Open</a></span></span>
+          <span><span>Mon 19 Oct, 08:00<small>You were marked away · not counted</small></span><span class="acts"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Skipped</span></span></span></span>
+          <span><span>Mon 12 Oct, 08:00<small>44 seconds · its session goes on 11 Nov, in 6 days</small></span><span class="acts"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Finished</span></span><a class="kit-btn outline sm" href="Try-Chat.dc.html">Open</a></span></span>
+          <span><span>Mon 5 Oct, 08:00<small>Its session was removed on 4 Nov</small></span><span class="acts"><span class="kit-small kit-muted">Finished · gone</span></span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="How runs count against your limit">
+        <div class="ix-h"><h3>9 · How runs count against your limit</h3><span class="kit-small kit-muted">The same 60 a day</span></div>
+        <p class="rule">A run counts as one request on the day it runs, and each helper it sends counts as one more. A run that is due when the day's requests are used is skipped, not saved up, and your inbox says so.</p>
+        <div class="soft"><span style="display: flex; justify-content: space-between; gap: 12px"><span class="b5">23 of 60 requests used today</span><span class="kit-small kit-muted">Starts again at midnight ET</span></span>
+          <div class="lim" role="img" aria-label="23 of 60 used: 22 by you, 1 by a schedule"><i style="width: 36.7%; background: rgba(26,26,26,.55)"></i><i style="width: 1.7%; background: var(--companion)"></i></div>
+          <dl class="kv" style="margin-top: 10px; grid-template-columns: 124px minmax(0,1fr)"><dt>By you</dt><dd>22 requests</dd><dt>By schedules</dt><dd>1 · the reading list at 08:30</dd><dt>Still due today</dt><dd>None</dd><dt>Due tomorrow</dt><dd>3 runs · 08:30, 09:00 and 16:00 · so 57 are left for you</dd></dl>
+        </div>
+        <p class="rule">On a day when the limit is reached first, the inbox line reads:</p>
+        <div class="soft" style="margin-top: 8px"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Skipped: the day's 60 requests were used</span></span><br>"Sort the week's made-up service requests" was due at 16:00 and did not run. It runs next on its usual day.<div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Start-Project.dc.html">Start a project for an endpoint of your own</a></div></div>
+      </section>
+      <section class="kit-surface" aria-label="When a schedule cannot run">
+        <div class="ix-h"><h3>10 · When a schedule cannot run</h3><span class="kit-small kit-muted">It waits, and says why</span></div>
+        <p class="rule">A schedule that cannot run is not removed. It waits, shows the reason in the list, and puts one line in your inbox the first time.</p>
+        <div class="tl">
+          <span><span>You are marked away, 20 to 24 Nov<small>Runs in those days are skipped unless you untick "wait while I am away" on the schedule</small></span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waits</span></span></span>
+          <span><span>Checker is no longer shared with you<small>Lena W. stopped sharing it · pick another agent or a model</small></span><button class="kit-btn outline sm" type="button">Change</button></span>
+          <span><span>Product sheets library needs your yes again<small>You allowed it for scheduled runs until 3 Feb</small></span><button class="kit-btn outline sm" type="button">Allow for 90 days</button></span>
+          <span><span>The agent was removed<small>Research helper no longer exists</small></span><button class="kit-btn outline sm" type="button">Change</button></span>
+          <span><span>The folder was removed<small>The schedule ran inside "Onboarding notes"</small></span><button class="kit-btn outline sm" type="button">Change</button></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="None yet, and at the most">
+        <div class="ix-h"><h3>11 · None yet, and at the most</h3><span class="kit-small kit-muted">Two more states</span></div>
+        <p class="rule">Each person may keep ten schedules, a sample value that ThinkLatent sets. At ten, "New schedule" says so and points to the list.</p>
+        <div class="kit-empty" style="margin-top: 12px"><b style="font-weight: 500; color: #1A1A1A">You have no schedules yet</b><span class="kit-small">Give an agent or a model a task to do at set times. The result lands in your inbox.</span><button class="kit-btn sm" type="button">New schedule</button></div>
+        <div class="soft"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>You have 10 schedules, the most a person can keep</span></span><br>Remove or change one to make room.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3856}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

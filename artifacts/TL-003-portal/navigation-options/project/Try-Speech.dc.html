@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Chat: speaking a message, an answer read aloud, and what is kept</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.tl{display:flex;flex-direction:column;margin-top:10px}
+.tl>span{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.tl>span:first-child{border-top:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.tl .acts{flex:none}
+.mn{margin-top:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.10);padding:6px;font-size:13px;line-height:1.4;display:flex;flex-direction:column}
+.mn .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 10px;border-radius:10px}
+.mn .it.on{background:rgba(26,26,26,.06)}
+.mn .it small{font-size:12px;color:rgba(26,26,26,.66)}
+.mn .cap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);padding:8px 10px 2px}
+.mn hr{border:0;border-top:1px solid rgba(26,26,26,.1);margin:4px 6px}
+.bx{margin-top:12px;border-radius:18px;box-shadow:0 0 0 1px rgba(26,26,26,.18);background:#fff;padding:12px 14px;display:flex;flex-direction:column;gap:10px;font-size:14px}
+.bx .ph{color:rgba(26,26,26,.6)}.bx .tx{color:#1A1A1A}
+.bx .row{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.bx.off{background:rgba(26,26,26,.04);box-shadow:inset 0 0 0 1px rgba(26,26,26,.12)}
+.fd{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.fd:first-child{margin-top:0}
+.fd label,.fd .lb{font-size:12px;font-weight:500;color:rgba(26,26,26,.7)}
+.fd small{font-size:12px;color:rgba(26,26,26,.64);line-height:1.45}
+.seg3{display:flex;gap:8px;flex-wrap:wrap}
+.inb{display:flex;flex-direction:column;margin-top:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:2px 14px}
+.inb>span{display:grid;grid-template-columns:118px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.inb>span:first-child{border-top:0}
+.inb small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.inb .k{font-size:11.5px;font-weight:500;letter-spacing:.03em;text-transform:uppercase;color:rgba(26,26,26,.62)}
+.mark{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:12px;color:rgba(26,26,26,.66)}
+.mark::before,.mark::after{content:"";flex:1;border-top:1px solid rgba(26,26,26,.16)}
+.b5{font-weight:500}
+.hold{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:500 13px Inter,system-ui,sans-serif;white-space:nowrap}
+.hold i{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:6px}
+.tri h4{margin:8px 0 0;font-size:14px;font-weight:500}
+.tri .cap{font-size:12px;color:rgba(26,26,26,.66);line-height:1.45;margin:4px 0 0;min-height:35px}
+.tri .bx{margin-top:10px}
+.lv{display:inline-flex;align-items:flex-end;gap:2px;height:16px}
+.lv i{display:block;width:3px;border-radius:2px;background:var(--companion)}
+.dim{color:rgba(26,26,26,.45)}
+.pl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);background:#fff;padding:8px 12px;font-size:12.5px}
+.pl .rb{display:inline-flex;width:30px;height:30px;border-radius:50%;border:0;background:var(--brand-800);color:#fff;align-items:center;justify-content:center;flex:none}
+.pl .tr{flex:1;min-width:120px;height:6px;border-radius:3px;background:rgba(26,26,26,.1);position:relative}
+.pl .tr i{position:absolute;left:0;top:0;height:6px;border-radius:3px;background:var(--companion)}
+.pl .kit-seg button{height:24px;padding:0 9px;font-size:12px}
+.hl{background:rgba(62,154,92,.2);border-radius:4px;padding:1px 2px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2524px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Fees, explained to a new adviser <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Speaking and listening</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Chat</span><span class="kit-chip">9 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">Speaking a message, hearing an answer, the settings in short, which models do it, what is kept, the check on spoken words, and when the browser does not allow a microphone · made-up funds and figures · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="true" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="Speak a message">
+        <div class="ix-h"><h3>1 · Speak a message</h3><span class="kit-small kit-muted">Listening, the words in the box, stop, send</span></div>
+        <p class="rule">What you say is written into the box as you say it. Nothing is sent until you press Send, so every word can be changed first. A spoken message is kept as its words and looks like any other message.</p>
+        <div class="tri">
+          <div><h4>Listening</h4><p class="cap">"Speak" becomes "Stop listening". The words arrive a moment behind your voice; the newest are grey until they settle.</p>
+        <div class="bx "><span class="tx">Compare the three sample funds and say <span class="dim">which is cheap</span></span><div class="row"><span class="acts"><button class="kit-btn sm" type="button"><svg aria-hidden="true" viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg> Stop listening</button><span class="lv" role="img" aria-label="It hears you"><i style="height: 5px"></i><i style="height: 11px"></i><i style="height: 16px"></i><i style="height: 8px"></i><i style="height: 13px"></i><i style="height: 6px"></i><i style="height: 10px"></i></span><span class="kit-small kit-muted">0:07</span></span><span class="acts"><span class="kit-small kit-muted"></span><button class="kit-btn sm" type="button" disabled style="opacity:.45">Send</button></span></div></div>
+          </div>
+          <div><h4>Stopped</h4><p class="cap">It stops when you press Stop, or after 5 seconds of silence. The words are yours to change. "Speak" again adds to them.</p>
+        <div class="bx "><span class="tx">Compare the three sample funds and say which is cheapest over ten years</span><div class="row"><span class="acts"><button class="kit-btn outline sm" type="button">Attach</button><button class="kit-btn outline sm" type="button">Tools</button><button class="kit-btn outline sm" type="button"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg> Speak</button></span><span class="acts"><span class="kit-small kit-muted"></span><button class="kit-btn sm" type="button">Send</button></span></div></div>
+          </div>
+          <div><h4>Sent</h4><p class="cap">Sent like a typed message, after the same check for client data. No sound was kept.</p>
+            <div class="m me" style="margin-left: 40px; margin-top: 10px">Compare the three sample funds and say which is cheapest over ten years</div>
+            <div class="meta" style="justify-content: flex-end"><span>11:52 · counted as 1 request</span></div>
+          </div>
+        </div>
+        <p class="rule" style="margin-top: 12px">You can speak while an answer is being written: the words wait in the box, as typed words do. One spoken message can run for 2 minutes, a sample value.</p>
+      </section>
+      <section class="kit-surface" aria-label="An answer, read aloud">
+        <div class="ix-h"><h3>2 · An answer, read aloud</h3><span class="kit-small kit-muted">Play, pause, speed</span></div>
+        <p class="rule">"Read aloud" is on every answer. It reads the answer's words and marks the sentence it is on. It says what a table or a piece of code is, without reading it out cell by cell.</p>
+        <div class="m it">The three funds charge 0.12%, 0.45% and 0.80% a year. <span class="hl">On 10,000 invested for ten years at the same growth, the dearest costs about seven times what the cheapest does.</span> I have put the comparison in a table beside this chat.</div>
+        <div class="pl" role="group" aria-label="Reading this answer aloud">
+          <button class="rb" type="button" aria-label="Pause"><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg></button>
+          <span class="kit-num">0:09</span><span class="tr" role="img" aria-label="9 of 21 seconds read"><i style="width: 43%"></i></span><span class="kit-num kit-muted">0:21</span>
+          <span class="kit-seg" role="group" aria-label="Speed"><button type="button" aria-pressed="false">0.75×</button><button type="button" aria-pressed="true">1×</button><button type="button" aria-pressed="false">1.25×</button><button type="button" aria-pressed="false">1.5×</button></span>
+          <button class="kit-btn ghost sm" type="button">Stop</button>
+        </div>
+        <div class="acts" style="margin-top: 10px"><button class="kit-btn outline sm" type="button">Good</button><button class="kit-btn outline sm" type="button">Not good</button><button class="kit-btn outline sm" type="button">Copy</button><button class="kit-btn outline sm" type="button" aria-pressed="true"><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M7 4.5v15l12-7.5z"></path></svg> Read aloud</button></div>
+        <p class="rule">Only one answer is read at a time. Starting another stops the first. Leaving the page stops the reading.</p>
+      </section>
+      <section class="kit-surface" aria-label="The settings, in short">
+        <div class="ix-h"><h3>3 · The settings, in short</h3><span class="kit-small kit-muted">All of them are in Try TLM's settings</span></div>
+        <p class="rule">Four things can be set. They are yours alone and follow you to every session.</p>
+        <div class="tl">
+          <span><span>Show "Speak" in the writing box</span><span class="kit-switch on" role="switch" aria-checked="true"><i></i></span></span>
+          <span><span>Stop listening after silence<small>3, 5 or 10 seconds</small></span><span class="kit-seg" role="group" aria-label="Seconds of silence"><button type="button" aria-pressed="false">3</button><button type="button" aria-pressed="true">5</button><button type="button" aria-pressed="false">10</button></span></span>
+          <span><span>Read each new answer aloud by itself<small>Off at the start: an answer is read only when you press "Read aloud"</small></span><span class="kit-switch" role="switch" aria-checked="false"><i></i></span></span>
+          <span><span>Speed it starts at</span><span class="kit-num">1×</span></span>
+          <span><span class="kit-muted">Voice · language<small>One voice, in English, for now. ThinkLatent sets which exist</small></span><span class="kit-small kit-muted">Shown, not set</span></span>
+        </div>
+        <div class="acts" style="margin-top: 10px"><a class="kit-btn outline sm" href="Try-Settings.dc.html">Try TLM's settings</a></div>
+      </section>
+      <section class="kit-surface" aria-label="Which models listen and speak">
+        <div class="ix-h"><h3>4 · Which models listen and speak</h3><span class="kit-small kit-muted">ThinkLatent's own, inside the Enterprise</span></div>
+        <p class="rule">Your voice is turned into words, and words into a voice, by ThinkLatent's own models on the Enterprise's machines. Nothing you say and nothing that is read to you goes anywhere else.</p>
+        <dl class="kv" style="margin-top: 12px; grid-template-columns: 124px minmax(0,1fr)"><dt>Writes it down</dt><dd>Speech recognition v6 · ThinkLatent · <a href="Model-Catalogue.dc.html">its page</a></dd><dt>Speaks</dt><dd>Voice v1 · ThinkLatent · <a href="Model-Catalogue.dc.html">its page</a></dd><dt>Answers</dt><dd>Core 4.2, as for typed words: one model at a time</dd><dt>Where</dt><dd>Inside the Enterprise, for both</dd></dl>
+        <div class="tl" style="margin-top: 12px">
+          <span><span class="kit-muted">The browser's own listening and voices<small>Not used: some browsers send the sound to their maker</small></span><span class="kit-small kit-muted">Not offered</span></span>
+          <span><span class="kit-muted">Voices from outside the Enterprise<small>Switched off for everyone by ThinkLatent</small></span><span class="kit-small kit-muted">Not offered</span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What is kept">
+        <div class="ix-h"><h3>5 · What is kept</h3><span class="kit-small kit-muted">The words, never the sound</span></div>
+        <p class="rule">Speaking changes nothing about what is kept. The words are part of the session, as if typed. The sound is used to make them and then dropped.</p>
+        <dl class="kv" style="margin-top: 12px; grid-template-columns: 124px minmax(0,1fr)"><dt>Your words</dt><dd>Kept as the message, with the session, for its 30 days</dd><dt>Your voice</dt><dd>Not kept. Dropped as soon as the words are written</dd><dt>The reading</dt><dd>Made when you press play. Not kept</dd><dt>Training</dt><dd>Never used, words or sound</dd><dt>What is counted</dt><dd>The seconds listened to and read, for the model's usage. Never the words</dd><dt>Your limit</dt><dd>Speaking and reading aloud are not requests. Only the message you send counts</dd></dl>
+      </section>
+      <section class="kit-surface" aria-label="The check on spoken words">
+        <div class="ix-h"><h3>6 · The check on spoken words</h3><span class="kit-small kit-muted">The same check, at the same moment</span></div>
+        <p class="rule">Spoken words are checked for client data when you send, exactly as typed words are. A stopped message reaches no model and nothing of it is kept.</p>
+        <div class="bx "><span class="tx">Compare the charges for [a client's name], account [a number]</span><div class="row"><span class="acts"><button class="kit-btn outline sm" type="button">Attach</button><button class="kit-btn outline sm" type="button">Tools</button><button class="kit-btn outline sm" type="button"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg> Speak</button></span><span class="acts"><span class="kit-small kit-muted"></span><button class="kit-btn sm" type="button">Send</button></span></div></div>
+        <div class="ring"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stopped before it was sent</span></span><br>What you said looks like a client's name with an account number. Nothing was sent to the model and nothing was kept.<div class="acts" style="margin-top: 8px"><button class="kit-btn sm" type="button">Remove it and send</button><a class="kit-btn outline sm" href="Help-Page.dc.html">Why</a></div></div>
+        <p class="rule">While you speak, the sound goes to ThinkLatent's speech model inside the Enterprise and is dropped once written. If you clear the box, nothing remains.</p>
+      </section>
+      <section class="kit-surface" aria-label="When the microphone is not allowed">
+        <div class="ix-h"><h3>7 · When the microphone is not allowed</h3><span class="kit-small kit-muted">Typing always works</span></div>
+        <p class="rule">The browser decides whether a page may use the microphone. The page says plainly where it stands and how to change it. It listens only while "Listening" shows.</p>
+        <div class="soft"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Your browser will ask to use the microphone</span></span><br>Say yes to speak. It is used only while "Listening" shows, and you can take the yes back in the browser at any time.<div class="acts" style="margin-top: 8px"><button class="kit-btn sm" type="button">Carry on</button><button class="kit-btn ghost sm" type="button">Not now</button></div></div>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>The browser has blocked the microphone for the portal</span></span><br>"Speak" is off. To allow it, open the padlock beside the address, set Microphone to Allow, then press "Speak" again.<div class="acts" style="margin-top: 8px"><button class="kit-btn outline sm" type="button">Try again</button><a class="kit-btn ghost sm" href="Help-Page.dc.html">Show me where</a></div></div>
+        <div class="bx "><span class="ph">Ask, attach a file, or give the agent a task · no client's details</span><div class="row"><span class="acts"><button class="kit-btn outline sm" type="button">Attach</button><button class="kit-btn outline sm" type="button">Tools</button><button class="kit-btn outline sm" type="button" disabled style="opacity:.45" aria-label="Speak, off: the microphone is blocked"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg> Speak</button></span><span class="acts"><span class="kit-small kit-muted">Microphone blocked</span><button class="kit-btn sm" type="button">Send</button></span></div></div>
+      </section>
+      <section class="kit-surface" aria-label="When speech does not work">
+        <div class="ix-h"><h3>8 · When speech does not work</h3><span class="kit-small kit-muted">Nothing is lost, nothing is sent</span></div>
+        <p class="rule">A failure leaves the box as it was. Whatever was already written down stays in it.</p>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>No microphone was found</span></span><br>Plug one in or choose one in your computer's sound settings, then press "Speak" again.</div>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>That could not be written down</span></span><br>ThinkLatent's speech model did not answer. The words up to that point are in the box. Type the rest, or try again.<div class="acts" style="margin-top: 8px"><button class="kit-btn outline sm" type="button">Speak again</button><a class="kit-btn ghost sm" href="Help-Page.dc.html">Is it down?</a></div></div>
+        <div class="soft"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Nothing was heard</span></span><br>It stopped listening after 5 seconds of silence.</div>
+        <div class="soft"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>This answer cannot be read aloud just now</span></span><br>The voice model did not answer. The answer's text is unchanged.<div class="acts" style="margin-top: 8px"><button class="kit-btn outline sm" type="button">Try again</button></div></div>
+      </section>
+      <section class="kit-surface" aria-label="Not offered">
+        <div class="ix-h"><h3>9 · Not offered</h3><span class="kit-small kit-muted">And why</span></div>
+        <p class="rule">Each of these exists in tools of this kind and is left out here on purpose.</p>
+        <div class="tl">
+          <span><span>Sending by itself when you stop speaking<small>Nothing is sent until you send it, so a misheard word never goes out</small></span></span>
+          <span><span>Talking back and forth, hands free<small>It needs sending by itself. It can come later as a setting of its own</small></span></span>
+          <span><span>Keeping a recording<small>No sound is kept, so there is none to play back or download</small></span></span>
+          <span><span>Other languages<small>English only for now. Try TLM is in one language</small></span></span>
+          <span><span>Speaking on a schedule<small>A schedule's result is text in your inbox</small></span></span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2524}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

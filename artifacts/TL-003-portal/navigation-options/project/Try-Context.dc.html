@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Chat: what fills the context, making it smaller, and summarising</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.tl{display:flex;flex-direction:column;margin-top:10px}
+.tl>span{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.tl>span:first-child{border-top:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.tl .acts{flex:none}
+.mn{margin-top:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.10);padding:6px;font-size:13px;line-height:1.4;display:flex;flex-direction:column}
+.mn .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 10px;border-radius:10px}
+.mn .it.on{background:rgba(26,26,26,.06)}
+.mn .it small{font-size:12px;color:rgba(26,26,26,.66)}
+.mn .cap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);padding:8px 10px 2px}
+.mn hr{border:0;border-top:1px solid rgba(26,26,26,.1);margin:4px 6px}
+.bx{margin-top:12px;border-radius:18px;box-shadow:0 0 0 1px rgba(26,26,26,.18);background:#fff;padding:12px 14px;display:flex;flex-direction:column;gap:10px;font-size:14px}
+.bx .ph{color:rgba(26,26,26,.6)}.bx .tx{color:#1A1A1A}
+.bx .row{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.bx.off{background:rgba(26,26,26,.04);box-shadow:inset 0 0 0 1px rgba(26,26,26,.12)}
+.fd{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.fd:first-child{margin-top:0}
+.fd label,.fd .lb{font-size:12px;font-weight:500;color:rgba(26,26,26,.7)}
+.fd small{font-size:12px;color:rgba(26,26,26,.64);line-height:1.45}
+.seg3{display:flex;gap:8px;flex-wrap:wrap}
+.inb{display:flex;flex-direction:column;margin-top:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:2px 14px}
+.inb>span{display:grid;grid-template-columns:118px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.inb>span:first-child{border-top:0}
+.inb small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.inb .k{font-size:11.5px;font-weight:500;letter-spacing:.03em;text-transform:uppercase;color:rgba(26,26,26,.62)}
+.mark{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:12px;color:rgba(26,26,26,.66)}
+.mark::before,.mark::after{content:"";flex:1;border-top:1px solid rgba(26,26,26,.16)}
+.b5{font-weight:500}
+.hold{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:500 13px Inter,system-ui,sans-serif;white-space:nowrap}
+.hold i{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.bar{height:12px;border-radius:6px;background:rgba(26,26,26,.08);display:flex;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:12px}
+.cx{display:grid;grid-template-columns:150px 110px minmax(0,1.5fr) minmax(0,1fr) 230px;font-size:13px;line-height:1.4;margin-top:10px;align-items:stretch}
+.cx>*{display:flex;flex-direction:column;justify-content:center;padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.cx>.acts{flex-direction:row;align-items:center;justify-content:flex-end;padding-right:0}
+.cx .h{font-size:11.5px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.cx small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.cx .sw{display:flex;flex-direction:row;align-items:center;gap:8px;justify-content:flex-start}
+.cx .sw i{width:10px;height:10px;border-radius:3px;flex:none}
+.sp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:24px;margin-top:10px;align-items:start}
+.sp h4{margin:8px 0 0;font-size:13px;font-weight:500}
+.ba{display:grid;grid-template-columns:64px minmax(0,1fr) 150px;gap:6px 12px;align-items:center;font-size:12.5px;margin-top:10px}
+.ba .bar{margin-top:0}
+.mt{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.rm{display:grid;grid-template-columns:150px minmax(0,1fr) 150px;gap:0;font-size:13px;line-height:1.4;margin-top:10px;align-items:stretch}
+.rm>*{display:flex;flex-direction:column;justify-content:center;padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.rm>*:nth-child(-n+3){border-top:0}
+.rm small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.rm .bar{margin-top:0;height:10px}.rm .bar i{height:10px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2954px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Fees, explained to a new adviser <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">What fills the context, and summarising</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Chat</span><span class="kit-chip">8 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">The meter opened, each kind of thing that takes room and how to make it smaller, a summary shown before it is used, what happens when the context is full, long files, and how each model's room differs · made-up funds and figures · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="true" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="What fills the context">
+        <div class="ix-h"><h3>1 · What fills the context</h3><span class="kit-small kit-muted">The meter in the writing box, opened · this session · Core 4.2</span></div>
+        <p class="rule">The context is what the model can hold at once: everything it is sent with each message. The meter shows how much is used and by what, and each kind has one way to make it smaller. The figure is counted before you send.</p>
+        <div class="soft" style="background: #fff"><span style="display: flex; justify-content: space-between; gap: 12px; align-items: baseline"><span class="b5" style="font-size: 15px">18% used</span><span class="kit-small kit-muted">5,760 of 32,000 tokens · 26,240 free · a token is about three quarters of a word</span></span>
+          <div class="bar" role="img" aria-label="Messages 2,940 tokens, files 1,900, tools 500, system prompt 240, memory 180"><i style="width: 9.2%; background: var(--companion)"></i><i style="width: 5.9%; background: rgba(26,26,26,.55)"></i><i style="width: 1.6%; background: rgba(26,26,26,.38)"></i><i style="width: 0.8%; background: rgba(26,26,26,.26)"></i><i style="width: 0.6%; background: rgba(26,26,26,.16)"></i></div>
+          <div class="cx">
+            <span class="h">What</span><span class="h">Tokens</span><span class="h">What it is</span><span class="h">To make it smaller</span><span class="h"></span>
+            <span class="sw"><i style="background: var(--companion)"></i>Messages</span><span class="kit-num">2,940<small>9.2%</small></span><span>2 exchanges<small>What you wrote and what was answered, steps included</small></span><span class="kit-muted" style="font-size: 12.5px">Shorten the earlier exchanges into a summary</span><span class="acts"><button class="kit-btn outline sm" type="button">Summarise the session so far</button></span>
+            <span class="sw"><i style="background: rgba(26,26,26,.55)"></i>Files</span><span class="kit-num">1,900<small>5.9%</small></span><span>sample-funds.csv<small>3 rows · short, so it is sent whole with every message</small></span><span class="kit-muted" style="font-size: 12.5px">Take a file out of this session</span><span class="acts"><button class="kit-btn outline sm" type="button">Remove the file</button></span>
+            <span class="sw"><i style="background: rgba(26,26,26,.38)"></i>Tools</span><span class="kit-num">500<small>1.6%</small></span><span>What 3 tools sent back<small>Fund documents search · Calculator · Code sandbox</small></span><span class="kit-muted" style="font-size: 12.5px">Stop a tool adding more</span><span class="acts"><button class="kit-btn outline sm" type="button">Switch a tool off</button></span>
+            <span class="sw"><i style="background: rgba(26,26,26,.26)"></i>System prompt</span><span class="kit-num">240<small>0.8%</small></span><span>Yours for this session, and Research helper's own<small>The agent's part is changed in the agent, not here</small></span><span class="kit-muted" style="font-size: 12.5px">Say the same in fewer words</span><span class="acts"><button class="kit-btn outline sm" type="button">Shorten it</button></span>
+            <span class="sw"><i style="background: rgba(26,26,26,.16)"></i>Memory</span><span class="kit-num">180<small>0.6%</small></span><span>4 things remembered<small>What Try TLM remembers about how you work</small></span><span class="kit-muted" style="font-size: 12.5px">Forget a line, or leave memory out of this session</span><span class="acts"><a class="kit-btn outline sm" href="Playground-More.dc.html">Forget a memory</a></span>
+          </div>
+          <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 12px"><span class="kit-small kit-muted">What a full context costs is not shown: no price is set for Try TLM.</span><span class="acts"><button class="kit-btn ghost sm" type="button">New session from here</button><button class="kit-btn ghost sm" type="button">Close</button></span></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="One kind, made smaller">
+        <div class="ix-h"><h3>2 · One kind, made smaller</h3><span class="kit-small kit-muted">After "Remove the file"</span></div>
+        <p class="rule">Each change shows what it freed and can be undone. Removing a file takes its content out of what the model is sent from now on; the answers already given with it stay as they are.</p>
+        <div class="soft" style="background: #fff"><span style="display: flex; justify-content: space-between; gap: 12px"><span class="b5">12% used</span><span class="kit-small kit-muted">3,860 of 32,000 tokens · 1,900 freed</span></span>
+          <div class="bar" role="img" aria-label="Messages 2,940 tokens, files none, tools 500, system prompt 240, memory 180"><i style="width: 9.2%; background: var(--companion)"></i><i style="width: 0%; background: rgba(26,26,26,.55)"></i><i style="width: 1.6%; background: rgba(26,26,26,.38)"></i><i style="width: 0.8%; background: rgba(26,26,26,.26)"></i><i style="width: 0.6%; background: rgba(26,26,26,.16)"></i></div>
+          <div style="display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-top: 10px"><span>sample-funds.csv is out of this session</span><button class="kit-btn outline sm" type="button">Undo</button></div></div>
+        <div class="tl">
+          <span><span>Switch a tool off<small>It adds nothing more. What it already sent back stays until you summarise</small></span><span class="kit-small kit-muted">frees 0 now</span></span>
+          <span><span>Shorten the system prompt<small>Opens it with its count beside it as you type</small></span><span class="kit-small kit-muted">your part only</span></span>
+          <span><span>Forget a memory<small>Gone from every session, not only this one</small></span><span class="kit-small kit-muted">about 45 a line</span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What does not count">
+        <div class="ix-h"><h3>3 · What does not count</h3><span class="kit-small kit-muted">Kept out of the context on purpose</span></div>
+        <p class="rule">Only what the model is sent takes room. These are in the session, and readable, without filling the context.</p>
+        <div class="tl">
+          <span><span>A helper's own work<small>A helper has a context of its own. Only what it sends back counts here</small></span></span>
+          <span><span>The pages of a long file that were not needed<small>A long file is searched; only the passages found are sent</small></span></span>
+          <span><span>Earlier versions of an artifact<small>The model is sent the newest one</small></span></span>
+          <span><span>The answer you did not keep from a second model<small>It stays in the session, folded</small></span></span>
+          <span><span>Messages above a summary<small>Readable in the session; the model is sent the summary instead</small></span></span>
+          <span><span>Your other sessions<small>Never. A session knows only itself, its folder and your memory</small></span></span>
+        </div>
+      </section>
+      <section class="kit-surface wide" aria-label="Summarise the session so far">
+        <div class="ix-h"><h3>4 · Summarise the session so far</h3><span class="kit-small kit-muted">The same session later, at 16 exchanges and 92% · shown before it is used</span></div>
+        <p class="rule">A summary replaces the earlier exchanges in what the model is sent. It is written by the model in use and shown to you first, with what it keeps and what it drops. You can change its words, have it written again, or cancel. It counts as one request.</p>
+        <div class="sp">
+          <div>
+            <h4>Kept as they are</h4>
+            <div class="tl" style="margin-top: 2px">
+              <span><span>The last 2 exchanges<small>3,220 tokens · word for word</small></span></span>
+              <span><span>Files, tools, the system prompt and memory<small>2,820 tokens · untouched</small></span></span>
+            </div>
+            <h4>Shortened</h4>
+            <div class="tl" style="margin-top: 2px">
+              <span><span>The 14 earlier exchanges<small>23,400 tokens become about 620: what was asked, what was settled, what is still open</small></span></span>
+            </div>
+            <h4>Dropped from what the model is sent</h4>
+            <div class="tl" style="margin-top: 2px">
+              <span><span>The exact wording and the steps of those 14 exchanges<small>They stay readable in the session, above the summary</small></span></span>
+            </div>
+            <div class="ba"><span class="kit-muted">Now</span><div class="bar" role="img" aria-label="92 percent used"><i style="width: 83.2%; background: var(--companion)"></i><i style="width: 5.9%; background: rgba(26,26,26,.55)"></i><i style="width: 1.6%; background: rgba(26,26,26,.38)"></i><i style="width: 0.8%; background: rgba(26,26,26,.26)"></i><i style="width: 0.6%; background: rgba(26,26,26,.16)"></i></div><span class="kit-num">92% · 29,440 tokens</span><span class="kit-muted">After</span><div class="bar" role="img" aria-label="21 percent used"><i style="width: 12%; background: var(--companion)"></i><i style="width: 5.9%; background: rgba(26,26,26,.55)"></i><i style="width: 1.6%; background: rgba(26,26,26,.38)"></i><i style="width: 0.8%; background: rgba(26,26,26,.26)"></i><i style="width: 0.6%; background: rgba(26,26,26,.16)"></i></div><span class="kit-num">21% · 6,660 tokens</span></div>
+          </div>
+          <div>
+            <div class="fd"><label for="sm">The summary the model will be sent · 620 tokens · written by Core 4.2</label><textarea id="sm" class="kit-input area" style="min-height: 190px; font-size: 13px; line-height: 1.55">You asked for the ongoing charges of three sample funds to be compared for a new adviser, from the sheet you attached.
+
+Settled so far: the charges are 0.12%, 0.45% and 0.80% a year. The note is five lines, in plain words, with the dearest fund first. Share classes are left out. The comparison is the artifact "Fee comparison", now at version 2.
+
+Still open: a three-line version for clients.</textarea><small>Read it before you use it. Anything missing here is something the model will no longer know. You can add it back in your own words.</small></div>
+            <div class="acts" style="margin-top: 12px"><button class="kit-btn sm" type="button">Use this summary</button><button class="kit-btn outline sm" type="button">Write it again</button><button class="kit-btn ghost sm" type="button">Cancel</button><span class="kit-small kit-muted">Nothing changes until you use it</span></div>
+          </div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="The summary, in the session">
+        <div class="ix-h"><h3>5 · The summary, in the session</h3><span class="kit-small kit-muted">A marked message</span></div>
+        <p class="rule">The summary sits in the session where it was made, marked as a summary. Everything above it stays readable. To undo it, go back to before it: the session carries on from there as it was, and what followed the summary is kept as a branch.</p>
+        <div class="m it" style="opacity: .6">…with the dearest fund first, the table now runs C, B, A. That is version 2 of the document.</div>
+        <div class="mark">Summarised here · 11:52 · the model is no longer sent what is above this line</div>
+        <div class="soft" style="background: #fff"><span style="display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap"><span><span class="kit-chip">Summary</span> <span class="kit-small kit-muted">of 14 exchanges · 620 tokens · by Core 4.2 · you changed 1 line</span></span><span class="acts"><button class="kit-btn outline sm" type="button">Read</button><button class="kit-btn outline sm" type="button">Go back to before it</button></span></span>
+          <span style="display: block; margin-top: 8px" class="kit-muted">You asked for the ongoing charges of three sample funds to be compared for a new adviser… Still open: a three-line version for clients.</span></div>
+        <div class="m me">And a version for clients, in three lines</div>
+        <p class="rule">A session can be summarised more than once. Each summary is its own marked message.</p>
+      </section>
+      <section class="kit-surface" aria-label="As it fills, and when it is full">
+        <div class="ix-h"><h3>6 · As it fills, and when it is full</h3><span class="kit-small kit-muted">The meter's four states</span></div>
+        <p class="rule">The page warns before anything is left out and never cuts in silence. When the context is full, the earliest exchanges stop being sent, one at a time, and a line in the session shows where.</p>
+        <div class="mt"><span class="kit-chip outline">Context 18% used</span><span class="kit-chip outline">Context 78% used</span><span class="kit-chip" style="background: rgba(185,116,47,.16); color: #7A4A17">Context 92% used · nearly full</span><span class="kit-chip decision">Context full</span></div>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Context 92% used</span></span><br>The earliest messages will soon be left out. Summarise the session so far to make room, or start a new one from here.<div class="acts" style="margin-top: 8px"><button class="kit-btn sm" type="button">Summarise and carry on</button><button class="kit-btn outline sm" type="button">New session from here</button></div></div>
+        <div class="mark">The context is full · the model is no longer sent the 3 exchanges above this line</div>
+        <div class="ring"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Too long to send</span></span><br>This message alone does not fit in what is left. Nothing was sent.<div class="acts" style="margin-top: 8px"><button class="kit-btn sm" type="button">Summarise the session first</button><button class="kit-btn outline sm" type="button">Shorten it</button></div></div>
+      </section>
+      <section class="kit-surface" aria-label="A long file is searched, not sent whole">
+        <div class="ix-h"><h3>7 · A long file is searched, not sent whole</h3><span class="kit-small kit-muted">Two files, handled two ways</span></div>
+        <p class="rule">A short file is sent whole with every message. A long one is searched for each message, and only the passages that bear on it are sent, so a long document does not fill the context.</p>
+        <div class="tl">
+          <span><span>sample-funds.csv<small>3 rows · 1,900 tokens · under the 4,000 at which a file is searched</small></span><span class="kit-chip outline">Sent whole</span></span>
+          <span><span>fee-glossary.pdf<small>12 pages · about 9,600 tokens if sent whole · 3 passages sent with this message: 410 tokens</small></span><span class="kit-chip brand">Searched</span></span>
+        </div>
+        <div class="open"><span class="b5">The 3 passages sent with "What is an ongoing charge?"</span>
+          <dl class="kv"><dt>Page 2</dt><dd>"Ongoing charge: what a fund takes each year to cover its running costs…"</dd><dt>Page 3</dt><dd>"…shown as a percentage of what is invested…"</dd><dt>Page 9</dt><dd>"See also: entry charge, exit charge."</dd></dl></div>
+        <div class="acts" style="margin-top: 10px"><button class="kit-btn outline sm" type="button">Send the whole file with this message · 30% of the context</button></div>
+        <p class="rule">The 4,000 is a sample value that ThinkLatent sets. The answer names the pages it used, as a source.</p>
+      </section>
+      <section class="kit-surface" aria-label="Each model has its own room">
+        <div class="ix-h"><h3>8 · Each model has its own room</h3><span class="kit-small kit-muted">The same session on each</span></div>
+        <p class="rule">The room differs by model, so the same session fills each differently. Changing model recounts the meter. If the session does not fit the new model, the page offers to summarise first.</p>
+        <div class="rm">
+          <span>Core 4.2<small>In use</small></span><span><div class="bar" role="img" aria-label="18 percent"><i style="width: 18%; background: var(--companion)"></i></div></span><span class="kit-num">18% of 32,000</span>
+          <span>Distil 4.2<small>Faster</small></span><span><div class="bar" role="img" aria-label="36 percent"><i style="width: 36%; background: var(--companion)"></i></div></span><span class="kit-num">36% of 16,000</span>
+          <span>Domain-Advice v2<small>As released</small></span><span><div class="bar" role="img" aria-label="72 percent"><i style="width: 72%; background: var(--companion)"></i></div></span><span class="kit-num">72% of 8,000</span>
+        </div>
+        <p class="rule" style="margin-top: 10px">The room shown is the length at which each model still answers well, as its own page says. The three figures are sample values.</p>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>This session does not fit Domain-Advice v2</span></span><br>It holds 8,000 tokens and the session has grown to 9,100. Summarise first, or start a new session on that model.<div class="acts" style="margin-top: 8px"><button class="kit-btn sm" type="button">Summarise, then switch</button><button class="kit-btn outline sm" type="button">Stay on Core 4.2</button></div></div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2954}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

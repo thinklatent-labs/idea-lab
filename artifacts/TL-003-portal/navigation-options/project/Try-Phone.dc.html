@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Chat: on a phone, in six screens</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.pp{position:relative;z-index:2;display:flex;flex-direction:column;gap:20px;padding:36px 60px 24px}
+.pp-note{border-radius:20px;background:rgba(255,255,255,.72);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:14px 18px;font-size:13.5px;line-height:1.5}
+.pp-grid{display:grid;grid-template-columns:repeat(3,406px);justify-content:space-between;gap:36px 0;margin-top:6px}
+.pp-cell{display:flex;flex-direction:column;gap:14px;width:406px}
+.pp-cap{margin:0;font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);padding:0 8px}
+.pp-cap b{display:block;font-size:15px;font-weight:500;color:#1A1A1A;margin-bottom:2px}
+.ph{width:390px;height:844px;margin:8px;border-radius:46px;background:#ECECEA;box-shadow:0 0 0 8px #1A1A1A,0 24px 60px rgba(26,26,26,.18);overflow:hidden;position:relative;display:flex;flex-direction:column;font-size:14px;line-height:1.5}
+.ph-st{display:flex;justify-content:space-between;align-items:center;padding:12px 28px 4px;font-size:13px;font-weight:600;flex:none}
+.ph-st i{display:inline-block;width:22px;height:11px;border-radius:3px;box-shadow:inset 0 0 0 1.5px rgba(26,26,26,.7);position:relative}
+.ph-st i::after{content:"";position:absolute;left:2.5px;top:2.5px;bottom:2.5px;width:11px;border-radius:1px;background:rgba(26,26,26,.7)}
+.ph-top{display:flex;align-items:center;gap:8px;padding:8px 12px 6px;flex:none}
+.ph-ib{display:inline-flex;width:40px;height:40px;border-radius:14px;border:1px solid rgba(26,26,26,.12);background:rgba(255,255,255,.6);align-items:center;justify-content:center;color:#1A1A1A;flex:none;position:relative;padding:0}
+.ph-ib .n{position:absolute;right:-3px;top:-3px;height:16px;min-width:16px;border-radius:999px;background:#1A1A1A;color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.ph-ib.go{background:var(--brand-800);color:#fff;border-color:transparent;border-radius:50%}
+.ph-ib.sm{width:34px;height:34px;border-radius:50%}
+.ph-tt{flex:1;min-width:0;display:flex;flex-direction:column;border:0;background:transparent;text-align:left;font:inherit;color:inherit;padding:0 2px}
+.ph-tt b{font-weight:500;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph-tt small{font-size:12px;color:rgba(26,26,26,.66);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:2px}
+.ph-body{flex:1;min-height:0;overflow:hidden;padding:4px 14px 0;display:flex;flex-direction:column;gap:10px}
+.ph-me{align-self:flex-end;max-width:86%;border-radius:18px;background:rgba(26,26,26,.06);padding:11px 14px}
+.ph-it{border-radius:18px;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:11px 14px}
+.ph-chip{display:inline-flex;margin-top:8px;height:24px;align-items:center;padding:0 9px;border-radius:999px;background:rgba(26,26,26,.07);font-size:11.5px;font-weight:500;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph-step{display:flex;justify-content:space-between;align-items:center;gap:10px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;font-size:13px;line-height:1.35}
+.ph-step small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.ph-steps{display:flex;flex-direction:column;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);background:rgba(255,255,255,.5)}
+.ph-steps>div{padding:9px 12px;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.35}
+.ph-steps>div:first-child{border-top:0}
+.ph-steps small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.ph-steps .hd{display:flex;justify-content:space-between;align-items:center;font-weight:500}
+.ph-kv{display:grid;grid-template-columns:76px minmax(0,1fr);gap:4px 8px;font-size:12.5px;line-height:1.4;margin-top:8px;padding-top:8px;border-top:1px dashed rgba(26,26,26,.16)}
+.ph-kv dt{color:rgba(26,26,26,.62)}.ph-kv dd{margin:0}
+.ph-art{display:flex;justify-content:space-between;align-items:center;gap:10px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:9px 12px;margin-top:10px;font-size:13px;line-height:1.35}
+.ph-art small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.ph-meta{font-size:12px;color:rgba(26,26,26,.66)}
+.ph-acts{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.ph-box{flex:none;margin:10px 12px 8px;border-radius:20px;box-shadow:0 0 0 1px rgba(26,26,26,.18);background:#fff;padding:11px 12px 10px;display:flex;flex-direction:column;gap:9px}
+.ph-box .t{font-size:15px}.ph-box .t.p{color:rgba(26,26,26,.6)}
+.ph-box .r{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ph-box .r>span{display:flex;align-items:center;gap:6px}
+.ph-sh{display:flex;align-items:center;gap:8px;padding:6px 12px 0;flex:none}
+.ph-sh .mk{display:inline-flex;height:42px;padding:0 11px;align-items:center;border-radius:14px;background:linear-gradient(135deg,#0C3F09,#3E9A5C);color:#fff;font-size:12px;font-weight:600;flex:none}
+.ph-sh .fd{display:flex;align-items:center;gap:8px;height:42px;flex:1;min-width:0;padding:0 12px;border-radius:999px;border:1px solid rgba(26,26,26,.15);background:rgba(255,255,255,.7);color:rgba(26,26,26,.6);font-size:14px;white-space:nowrap;overflow:hidden}
+.ph-sh .fd svg{flex:none}
+.ph-sh .kit-btn{height:42px;padding:0 13px;font-weight:600;flex:none}
+.ph-sh .bl{display:inline-flex;align-items:center;gap:6px;height:42px;padding:0 12px;border-radius:999px;border:1px solid rgba(26,26,26,.15);background:rgba(255,255,255,.5);color:#1A1A1A;font-size:14px;font-weight:500;text-decoration:none;flex:none}
+.ph-nav{flex:none;display:flex;align-items:center;justify-content:space-between;margin:8px 12px 0;padding:5px;border-radius:20px;background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.75);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 6px 20px rgba(26,26,26,.07)}
+.ph-nav a{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:36px;height:40px;border-radius:13px;color:#1A1A1A;text-decoration:none;font-size:12.5px;font-weight:500;flex:none}
+.ph-nav a[aria-current="page"]{width:auto;padding:0 11px;background:var(--brand);color:var(--brand-fg);box-shadow:0 0 0 1px rgba(108,183,105,.45)}
+.ph-hi{flex:none;height:22px;display:flex;align-items:center;justify-content:center}
+.ph-hi.kb{background:#D5D6DA}
+.ph-hi i{width:128px;height:5px;border-radius:3px;background:#1A1A1A;opacity:.85}
+.ph-scrim{position:absolute;inset:0;background:rgba(26,26,26,.38);z-index:5}
+.ph-drawer{position:absolute;left:0;top:0;bottom:0;width:326px;z-index:6;background:#F4F4F2;border-radius:0 28px 28px 0;box-shadow:12px 0 40px rgba(26,26,26,.18);display:flex;flex-direction:column;padding:44px 16px 14px;overflow:hidden}
+.ph-drawer h3{margin:0;font-size:18px;font-weight:500}
+.ph-find{display:flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);background:rgba(255,255,255,.7);margin-top:10px;font-size:13px;color:rgba(26,26,26,.6);flex:none}
+.ph-cap{font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);margin:12px 0 0}
+.ph-s{display:flex;flex-direction:column}
+.ph-s a{display:flex;flex-direction:column;gap:1px;padding:8px 0;border-top:1px solid rgba(26,26,26,.1);color:inherit;text-decoration:none;font-size:13.5px;line-height:1.35}
+.ph-s a:first-child{border-top:0}
+.ph-s a.on{font-weight:500}
+.ph-s small{font-size:12px;color:rgba(26,26,26,.65);font-weight:400}
+.ph-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:8px}
+.ph-tabs a{display:flex;flex-direction:column;justify-content:center;height:40px;padding:0 10px;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);font-size:13px;line-height:1.25;color:inherit;text-decoration:none}
+.ph-tabs small{font-size:10.5px;color:rgba(26,26,26,.62)}
+.ph-sheet{position:absolute;left:0;right:0;bottom:0;z-index:6;background:#F4F4F2;border-radius:28px 28px 0 0;box-shadow:0 -12px 40px rgba(26,26,26,.18);padding:8px 16px 0;display:flex;flex-direction:column}
+.ph-grab{width:40px;height:5px;border-radius:3px;background:rgba(26,26,26,.25);align-self:center;margin-bottom:10px;flex:none}
+.ph-sheet h3{margin:0;font-size:17px;font-weight:500}
+.ph-rows{display:flex;flex-direction:column;margin-top:6px}
+.ph-rows>a,.ph-rows>span{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13.5px;line-height:1.35;color:inherit;text-decoration:none}
+.ph-rows>:first-child{border-top:0}
+.ph-rows small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.ph-rows .lb{color:rgba(26,26,26,.62);font-size:12px;display:block}
+.ph-m{height:8px;border-radius:4px;background:rgba(26,26,26,.08);margin-top:6px}
+.ph-m i{display:block;height:8px;border-radius:4px;background:rgba(26,26,26,.55)}
+.ph-tb{display:grid;grid-template-columns:minmax(0,1fr) 56px 128px;font-size:13px;line-height:1.4;margin-top:10px;align-items:center}
+.ph-tb>*{padding:9px 6px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ph-tb .h{font-size:11px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.ph-bx{display:flex;align-items:center;gap:6px}
+.ph-bx i{display:block;height:9px;border-radius:5px;background:var(--companion);flex:none}
+.ph-bx em{font-style:normal;font-size:11.5px;color:rgba(26,26,26,.66);white-space:nowrap}
+.ph-page{flex:1;min-height:0;margin:4px 12px 0;border-radius:20px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:16px 16px 0;overflow:hidden}
+.ph-page h4{margin:0 0 2px;font-size:20px;font-weight:500}
+.ph-foot{flex:none;display:flex;gap:8px;align-items:center;justify-content:space-between;padding:10px 12px 6px}
+.ph-menu{flex:none;margin:0 12px;border-radius:18px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.12);padding:6px;display:flex;flex-direction:column;font-size:13.5px;line-height:1.35}
+.ph-menu span{display:block;padding:9px 10px;border-radius:12px}
+.ph-menu span.on{background:rgba(26,26,26,.06)}
+.ph-menu small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.ph-kb{flex:none;background:#D5D6DA;padding:8px 4px 4px;display:flex;flex-direction:column;gap:9px}
+.ph-kb div{display:flex;justify-content:center;gap:5px}
+.ph-kb span{display:flex;align-items:center;justify-content:center;width:33px;height:42px;border-radius:6px;background:#fff;box-shadow:0 1px 0 rgba(26,26,26,.3);font-size:17px}
+.ph-kb span.w{width:44px;background:#B4B8C1;font-size:13px}
+.ph-kb span.sp{width:182px;font-size:13px}
+.ph-kb span.ret{width:88px;background:#B4B8C1;font-size:13px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2338px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <main class="pp">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">On a phone <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 900px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Try TLM on a phone</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Chat</span><span class="kit-chip">6 screens</span><span class="kit-chip">Each 390 wide</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">The Chat tab at the width of a phone: the same session, the same rules and the same words as on a desktop, in one column · made-up funds and figures · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">The chat on a desktop</a></div>
+    </div>
+
+    <div class="pp-note"><b style="font-weight: 500">Not offered on a phone:</b> building or changing an agent, a connector or a schedule. Their forms need a desktop's room. On a phone they can be read and used, and a schedule can be paused.</div>
+
+    <div class="pp-grid">
+    <div class="pp-cell">
+      <div class="ph" role="img" aria-label="The chat on a phone">
+        <div class="ph-st" aria-hidden="true"><span>11:58</span><i></i></div>
+        <div class="ph-sh"><span class="mk">ThinkLatent</span><span class="fd"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Find, go…</span><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="bl" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a></div>
+        <nav class="ph-nav" aria-label="Primary"><a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a><a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a><a href="Try-Chat.dc.html" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg>Try TLM</a><a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a><a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a><a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a><a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a></nav>
+        <div class="ph-top"><button class="ph-ib" type="button" aria-label="Your sessions"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"></path></svg></button><button class="ph-tt" type="button" aria-expanded="false" aria-label="This session's set-up"><b>Fees, explained to a new adviser</b><small>Core 4.2 · Research helper · 3 tools <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></small></button></div>
+        <div class="ph-body">
+          <div class="ph-me">Compare the ongoing charges of the three sample funds in this sheet and draft a five-line note for a new adviser.<br><span class="ph-chip">sample-funds.csv · 3 rows · checked</span></div>
+          <div class="ph-step"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>4 steps, 2 tools</span></span></span><span class="kit-small kit-muted" style="display: inline-flex; align-items: center; gap: 2px">asked you once <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></div>
+          <div class="ph-it">The three funds charge 0.12%, 0.45% and 0.80% a year. On 10,000 invested for ten years at the same growth, the dearest costs about seven times what the cheapest does.
+            <div class="ph-art"><span><b style="font-weight: 500">Fee comparison</b><small>A table, a chart and a note · version 2</small></span><a class="kit-btn outline sm" href="#">Open</a></div></div>
+          <span class="ph-meta">6.2 seconds · a sample answer, not advice</span>
+          <div class="ph-acts"><button class="kit-btn outline sm" type="button">Good</button><button class="kit-btn outline sm" type="button">Not good</button><button class="kit-btn outline sm" type="button">Copy</button><button class="kit-btn outline sm" type="button" aria-label="More for this answer">More <span aria-hidden="true">▾</span></button></div>
+        </div>
+        <div class="ph-box"><span class="t p">Ask, attach a file, or give a task</span><div class="r"><span><button class="ph-ib sm" type="button" aria-label="Attach" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></button><button class="kit-btn outline sm" type="button">Tools</button><button class="ph-ib sm" type="button" aria-label="Speak"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg></button></span><span><span class="kit-small kit-muted">Context 18%</span><button class="ph-ib sm go" type="button" aria-label="Send"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></button></span></div></div>
+        <div class="ph-hi" aria-hidden="true"><i></i></div>
+      </div>
+      <p class="pp-cap"><b>1 · The chat</b>One column. The portal's two rows stay at the top, as on every page on a phone, with Try TLM lit. Under them the session's name with its set-up. The steps fold into one line, and an artifact is a card that opens full screen. Only the writing box sits at the foot.</p>
+    </div>
+    <div class="pp-cell">
+      <div class="ph" role="img" aria-label="Your sessions, opened as a drawer over the chat">
+        <div class="ph-st" aria-hidden="true"><span>11:58</span><i></i></div>
+        <div class="ph-sh"><span class="mk">ThinkLatent</span><span class="fd"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Find, go…</span><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="bl" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a></div>
+        <nav class="ph-nav" aria-label="Primary"><a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a><a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a><a href="Try-Chat.dc.html" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg>Try TLM</a><a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a><a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a><a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a><a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a></nav>
+        <div class="ph-top"><button class="ph-ib" type="button" aria-label="Your sessions"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"></path></svg></button><button class="ph-tt" type="button" aria-expanded="false" aria-label="This session's set-up"><b>Fees, explained to a new adviser</b><small>Core 4.2 · Research helper · 3 tools <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></small></button></div>
+        <div class="ph-body">
+          <div class="ph-me">Compare the ongoing charges of the three sample funds in this sheet and draft a five-line note for a new adviser.<br><span class="ph-chip">sample-funds.csv · 3 rows · checked</span></div>
+          <div class="ph-step"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>4 steps, 2 tools</span></span></span><span class="kit-small kit-muted" style="display: inline-flex; align-items: center; gap: 2px">asked you once <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></div>
+          <div class="ph-it">The three funds charge 0.12%, 0.45% and 0.80% a year. On 10,000 invested for ten years at the same growth, the dearest costs about seven times what the cheapest does.
+            <div class="ph-art"><span><b style="font-weight: 500">Fee comparison</b><small>A table, a chart and a note · version 2</small></span><a class="kit-btn outline sm" href="#">Open</a></div></div>
+          <span class="ph-meta">6.2 seconds · a sample answer, not advice</span>
+          <div class="ph-acts"><button class="kit-btn outline sm" type="button">Good</button><button class="kit-btn outline sm" type="button">Not good</button><button class="kit-btn outline sm" type="button">Copy</button><button class="kit-btn outline sm" type="button" aria-label="More for this answer">More <span aria-hidden="true">▾</span></button></div>
+        </div>
+        <div class="ph-box"><span class="t p">Ask, attach a file, or give a task</span><div class="r"><span><button class="ph-ib sm" type="button" aria-label="Attach" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></button><button class="kit-btn outline sm" type="button">Tools</button><button class="ph-ib sm" type="button" aria-label="Speak"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg></button></span><span><span class="kit-small kit-muted">Context 18%</span><button class="ph-ib sm go" type="button" aria-label="Send"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></button></span></div></div>
+        <div class="ph-hi" aria-hidden="true"><i></i></div>
+        <div class="ph-scrim"></div>
+        <aside class="ph-drawer" aria-label="Your sessions">
+          <div style="display: flex; justify-content: space-between; align-items: center"><h3>Your sessions</h3><a class="kit-btn sm" href="Try-Chat.dc.html">New</a></div>
+          <span class="kit-small kit-muted" style="margin-top: 2px">Only you see these · each is removed after 30 days</span>
+          <div class="ph-find"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Search your sessions</div>
+          <p class="ph-cap">Pinned</p>
+          <div class="ph-s"><a href="#">Plain-language rewrite of a policy line<small>Core 4.2 · 29 Oct · removed 28 Nov</small></a></div>
+          <p class="ph-cap">Today</p>
+          <div class="ph-s"><a class="on" href="#">Fees, explained to a new adviser<small>Core 4.2 · Research helper · 2 exchanges</small></a></div>
+          <p class="ph-cap">Earlier</p>
+          <div class="ph-s"><a href="#">Turning notes into a checklist<small>Distil 4.2 · 3 Nov · removed 3 Dec</small></a><a href="#">Sorting made-up service requests<small>Distil 4.2 · 21 Oct · removed 20 Nov</small></a></div>
+          <p class="ph-cap">In a folder</p>
+          <div class="ph-s"><a href="#">Onboarding notes<small>Folder · 3 sessions · 2 files</small></a></div>
+          <div style="display: flex; justify-content: space-between; margin-top: 6px"><a class="kit-btn ghost sm" href="Try-Sessions.dc.html" style="padding-left: 0">All 14</a><a class="kit-btn ghost sm" href="#">Archived · 3</a></div>
+          <p class="ph-cap">Also in Try TLM</p>
+          <div class="ph-tabs"><a href="#">Agents<small>use, not build</small></a><a href="#">Prompts</a><a href="#">Folders</a><a href="#">Skills</a><a href="#">Schedules<small>read and pause</small></a><a href="#">Memory</a><a href="#">Connectors<small>read only</small></a><a href="#">Files</a></div>
+        </aside>
+      </div>
+      <p class="pp-cap"><b>2 · Your sessions, as a drawer</b>The left column of the desktop page slides in over the chat. Try TLM's other tabs sit at its foot, each marked with what a phone allows there.</p>
+    </div>
+    <div class="pp-cell">
+      <div class="ph" role="img" aria-label="The set-up, opened as a sheet from the bottom">
+        <div class="ph-st" aria-hidden="true"><span>11:58</span><i></i></div>
+        <div class="ph-sh"><span class="mk">ThinkLatent</span><span class="fd"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Find, go…</span><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="bl" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a></div>
+        <nav class="ph-nav" aria-label="Primary"><a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a><a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a><a href="Try-Chat.dc.html" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg>Try TLM</a><a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a><a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a><a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a><a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a></nav>
+        <div class="ph-top"><button class="ph-ib" type="button" aria-label="Your sessions"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"></path></svg></button><button class="ph-tt" type="button" aria-expanded="true" aria-label="This session's set-up"><b>Fees, explained to a new adviser</b><small>Core 4.2 · Research helper · 3 tools <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></small></button></div>
+        <div class="ph-body">
+          <div class="ph-me">Compare the ongoing charges of the three sample funds in this sheet and draft a five-line note for a new adviser.<br><span class="ph-chip">sample-funds.csv · 3 rows · checked</span></div>
+          <div class="ph-step"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>4 steps, 2 tools</span></span></span><span class="kit-small kit-muted" style="display: inline-flex; align-items: center; gap: 2px">asked you once <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></div>
+          <div class="ph-it">The three funds charge 0.12%, 0.45% and 0.80% a year. On 10,000 invested for ten years at the same growth, the dearest costs about seven times what the cheapest does.
+            <div class="ph-art"><span><b style="font-weight: 500">Fee comparison</b><small>A table, a chart and a note · version 2</small></span><a class="kit-btn outline sm" href="#">Open</a></div></div>
+          <span class="ph-meta">6.2 seconds · a sample answer, not advice</span>
+          <div class="ph-acts"><button class="kit-btn outline sm" type="button">Good</button><button class="kit-btn outline sm" type="button">Not good</button><button class="kit-btn outline sm" type="button">Copy</button><button class="kit-btn outline sm" type="button" aria-label="More for this answer">More <span aria-hidden="true">▾</span></button></div>
+        </div>
+        <div class="ph-box"><span class="t p">Ask, attach a file, or give a task</span><div class="r"><span><button class="ph-ib sm" type="button" aria-label="Attach" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></button><button class="kit-btn outline sm" type="button">Tools</button><button class="ph-ib sm" type="button" aria-label="Speak"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg></button></span><span><span class="kit-small kit-muted">Context 18%</span><button class="ph-ib sm go" type="button" aria-label="Send"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></button></span></div></div>
+        <div class="ph-hi" aria-hidden="true"><i></i></div>
+        <div class="ph-scrim"></div>
+        <div class="ph-sheet" role="dialog" aria-label="This session's set-up">
+          <span class="ph-grab" aria-hidden="true"></span>
+          <div style="display: flex; justify-content: space-between; align-items: center"><h3>This session's set-up</h3><button class="kit-btn ghost sm" type="button">Done</button></div>
+          <div class="ph-rows">
+            <a href="#"><span><span class="lb">Model</span>Core 4.2<small>Large · TL Index 81 ± 1</small></span><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></a>
+            <a href="#"><span><span class="lb">Agent</span>Research helper<small>Yours · asks before it changes anything</small></span><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></a>
+            <a href="#"><span><span class="lb">Tools · 3 on</span>Fund documents search · Calculator · Code sandbox</span><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></a>
+            <a href="#"><span><span class="lb">System prompt</span>Answer for a new adviser. Use short sentences…</span><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></a>
+            <a href="#"><span><span class="lb">Saved settings</span>Explaining to new advisers</span><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></a>
+            <span><span style="flex: 1"><span class="lb">Context</span>18% used · 5,760 of 32,000 tokens<div class="ph-m"><i style="width: 18%"></i></div></span></span>
+            <span><span style="flex: 1"><span class="lb">Your limit today</span>23 of 60 requests · starts again at midnight ET<div class="ph-m"><i style="width: 38%"></i></div></span></span>
+          </div>
+          <div class="ph-acts" style="padding: 6px 0 12px"><button class="kit-btn outline sm" type="button">Share</button><button class="kit-btn outline sm" type="button">Download</button><button class="kit-btn ghost sm" type="button">More <span aria-hidden="true">▾</span></button><span class="kit-small kit-muted">Applies from the next message</span></div>
+          <div class="ph-hi" aria-hidden="true" style="background: transparent"><i></i></div>
+        </div>
+      </div>
+      <p class="pp-cap"><b>3 · The set-up, as a sheet from the bottom</b>A tap on the set-up line under the session's name. It holds the desktop's set-up bar and the right panel's context and limit. Each row opens its own list, one level down.</p>
+    </div>
+    <div class="pp-cell">
+      <div class="ph" role="img" aria-label="A message with its steps opened">
+        <div class="ph-st" aria-hidden="true"><span>11:58</span><i></i></div>
+        <div class="ph-sh"><span class="mk">ThinkLatent</span><span class="fd"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Find, go…</span><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="bl" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a></div>
+        <nav class="ph-nav" aria-label="Primary"><a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a><a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a><a href="Try-Chat.dc.html" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg>Try TLM</a><a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a><a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a><a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a><a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a></nav>
+        <div class="ph-top"><button class="ph-ib" type="button" aria-label="Your sessions"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"></path></svg></button><button class="ph-tt" type="button" aria-expanded="false" aria-label="This session's set-up"><b>Fees, explained to a new adviser</b><small>Core 4.2 · Research helper · 3 tools <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></small></button></div>
+        <div class="ph-body">
+          <div class="ph-me">Compare the ongoing charges of the three sample funds in this sheet and draft a five-line note for a new adviser.</div>
+          <div class="ph-steps" role="group" aria-label="What the agent did">
+            <div class="hd"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>4 steps, 2 tools</span></span></span><span class="kit-small kit-muted" style="font-weight: 400">Fold</span></div>
+            <div>Read the file<small>3 funds, 4 columns</small></div>
+            <div>Searched approved documents<small>Fund documents search · 0.8 seconds · 2 passages used</small>
+              <dl class="ph-kv"><dt>Asked</dt><dd>"ongoing charges sample fund A B C"</dd><dt>Came back</dt><dd>Fact sheets B and C, page 2 of each</dd><dt>Access</dt><dd>ThinkLatent's tool, open to everyone</dd></dl></div>
+            <div>Ran a calculation<small>Code sandbox · 0.4 seconds</small></div>
+            <div>Asked before acting<small>"Save the note to your files?" · you said no</small></div>
+          </div>
+          <div class="ph-it">The three funds charge 0.12%, 0.45% and…</div>
+        </div>
+        <div class="ph-box"><span class="t p">Ask, attach a file, or give a task</span><div class="r"><span><button class="ph-ib sm" type="button" aria-label="Attach" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></button><button class="kit-btn outline sm" type="button">Tools</button><button class="ph-ib sm" type="button" aria-label="Speak"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg></button></span><span><span class="kit-small kit-muted">Context 18%</span><button class="ph-ib sm go" type="button" aria-label="Send"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></button></span></div></div>
+        <div class="ph-hi" aria-hidden="true"><i></i></div>
+      </div>
+      <p class="pp-cap"><b>4 · A message's steps, opened</b>The folded line opens in place. A tap on a step shows what was asked, what came back and whose access it used. An approval or a question from the agent can be answered here as on a desktop.</p>
+    </div>
+    <div class="pp-cell">
+      <div class="ph" role="img" aria-label="An artifact shown full screen, with a way back to the chat">
+        <div class="ph-st" aria-hidden="true"><span>11:58</span><i></i></div>
+        <div class="ph-top"><a class="kit-btn outline sm" href="#" style="padding: 0 12px 0 8px; height: 40px; gap: 4px"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"></path></svg>Chat</a><span class="ph-tt"><b>Fee comparison</b><small>Version 2 of 2</small></span><span class="kit-seg" role="group" aria-label="How to see it"><button type="button" aria-pressed="true">Preview</button><button type="button" aria-pressed="false">Code</button></span></div>
+        <div class="ph-page">
+          <h4>Fee comparison</h4><span class="kit-small kit-muted">Made-up figures · made by Research helper</span>
+          <div class="ph-tb"><span class="h">Fund</span><span class="h">A year</span><span class="h">Ten years on 10,000</span>
+            <span>Sample fund C</span><span>0.80%</span><span class="ph-bx"><i style="width: 56px"></i><em>about 1,010</em></span>
+            <span>Sample fund B</span><span>0.45%</span><span class="ph-bx"><i style="width: 32px"></i><em>about 570</em></span>
+            <span>Sample fund A</span><span>0.12%</span><span class="ph-bx"><i style="width: 9px"></i><em>about 150</em></span></div>
+          <p style="margin: 16px 0 0; font-size: 14.5px; line-height: 1.6"><b style="font-weight: 500">For a new adviser, in five lines.</b> Every fund takes a charge each year. It looks small as a percentage. Over ten years it adds up. Here the dearest costs about seven times the cheapest. Ask what a client gets for the difference.</p>
+          <p class="kit-small kit-muted" style="margin: 14px 0 0">Illustrative figures on made-up funds.</p>
+        </div>
+        <div class="ph-foot"><span class="ph-acts"><button class="ph-ib sm" type="button" aria-label="The version before"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"></path></svg></button><span class="kit-small kit-muted">2 of 2</span><button class="ph-ib sm" type="button" aria-label="The version after" disabled style="opacity: .4"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></button></span><span class="ph-acts"><button class="kit-btn outline sm" type="button">Download <span aria-hidden="true">▾</span></button><a class="kit-btn sm" href="#">Ask for a change</a></span></div>
+        <div class="ph-hi" aria-hidden="true" style="background: transparent"><i></i></div>
+      </div>
+      <p class="pp-cap"><b>5 · An artifact, full screen</b>A phone has no room for a pane beside the chat, so the artifact takes the screen. "Chat" at the top left goes back to where you were; "Ask for a change" goes back with the box ready.</p>
+    </div>
+    <div class="pp-cell">
+      <div class="ph" role="img" aria-label="The writing box with the keyboard up and the attach menu open">
+        <div class="ph-st" aria-hidden="true"><span>11:58</span><i></i></div>
+        <div class="ph-sh"><span class="mk">ThinkLatent</span><span class="fd"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Find, go…</span><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="bl" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a></div>
+        <nav class="ph-nav" aria-label="Primary"><a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a><a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a><a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a><a href="Try-Chat.dc.html" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg>Try TLM</a><a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a><a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a><a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a><a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a></nav>
+        <div class="ph-top"><button class="ph-ib" type="button" aria-label="Your sessions"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"></path></svg></button><button class="ph-tt" type="button" aria-expanded="false" aria-label="This session's set-up"><b>Fees, explained to a new adviser</b><small>Core 4.2 · Research helper · 3 tools <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></small></button></div>
+        <div class="ph-body" style="justify-content: flex-end; padding-bottom: 10px">
+          <div class="ph-it" style="opacity: .6">…the dearest costs about seven times what the cheapest does.</div>
+        </div>
+        <div class="ph-menu" role="menu" aria-label="Attach">
+          <span class="on" role="menuitem">From this phone<small>Documents, sheets and pictures · checked for client data before they are read</small></span>
+          <span role="menuitem">From your files<small>What you saved in Try TLM · 6 files</small></span>
+          <span role="menuitem">From a folder<small>Onboarding notes · 2 files</small></span>
+        </div>
+        <div class="ph-box"><span class="t">Compare the charges in</span><div class="r"><span><button class="ph-ib sm" type="button" aria-label="Attach" aria-expanded="true" style="background: #1A1A1A; color: #fff"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></button><button class="kit-btn outline sm" type="button">Tools</button><button class="ph-ib sm" type="button" aria-label="Speak"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg></button></span><span><span class="kit-small kit-muted">Context 18%</span><button class="ph-ib sm go" type="button" aria-label="Send"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></button></span></div></div>
+        <div class="ph-kb" aria-hidden="true"><div><span>q</span><span>w</span><span>e</span><span>r</span><span>t</span><span>y</span><span>u</span><span>i</span><span>o</span><span>p</span></div><div><span>a</span><span>s</span><span>d</span><span>f</span><span>g</span><span>h</span><span>j</span><span>k</span><span>l</span></div><div><span class="w">shift</span><span>z</span><span>x</span><span>c</span><span>v</span><span>b</span><span>n</span><span>m</span><span class="w">del</span></div><div><span class="w">123</span><span class="sp">space</span><span class="ret">return</span></div></div>
+        <div class="ph-hi kb" aria-hidden="true"><i></i></div>
+      </div>
+      <p class="pp-cap"><b>6 · The box, with the keyboard up</b>The box rides on the keyboard, and the attach menu opens upwards from the plus. The portal's navigation stays at the top of the page; with the keyboard up it scrolls away with the page as you read back. Tools and Speak are as on a desktop.</p>
+    </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2338}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

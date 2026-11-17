@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Chat: what can leave a session: download, hand to a project, copy, and what never leaves</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.tl{display:flex;flex-direction:column;margin-top:10px}
+.tl>span{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.tl>span:first-child{border-top:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.tl .acts{flex:none}
+.mn{margin-top:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.10);padding:6px;font-size:13px;line-height:1.4;display:flex;flex-direction:column}
+.mn .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 10px;border-radius:10px}
+.mn .it.on{background:rgba(26,26,26,.06)}
+.mn .it small{font-size:12px;color:rgba(26,26,26,.66)}
+.mn .cap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);padding:8px 10px 2px}
+.mn hr{border:0;border-top:1px solid rgba(26,26,26,.1);margin:4px 6px}
+.bx{margin-top:12px;border-radius:18px;box-shadow:0 0 0 1px rgba(26,26,26,.18);background:#fff;padding:12px 14px;display:flex;flex-direction:column;gap:10px;font-size:14px}
+.bx .ph{color:rgba(26,26,26,.6)}.bx .tx{color:#1A1A1A}
+.bx .row{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.bx.off{background:rgba(26,26,26,.04);box-shadow:inset 0 0 0 1px rgba(26,26,26,.12)}
+.fd{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.fd:first-child{margin-top:0}
+.fd label,.fd .lb{font-size:12px;font-weight:500;color:rgba(26,26,26,.7)}
+.fd small{font-size:12px;color:rgba(26,26,26,.64);line-height:1.45}
+.seg3{display:flex;gap:8px;flex-wrap:wrap}
+.inb{display:flex;flex-direction:column;margin-top:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:2px 14px}
+.inb>span{display:grid;grid-template-columns:118px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.inb>span:first-child{border-top:0}
+.inb small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.inb .k{font-size:11.5px;font-weight:500;letter-spacing:.03em;text-transform:uppercase;color:rgba(26,26,26,.62)}
+.mark{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:12px;color:rgba(26,26,26,.66)}
+.mark::before,.mark::after{content:"";flex:1;border-top:1px solid rgba(26,26,26,.16)}
+.b5{font-weight:500}
+.hold{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:500 13px Inter,system-ui,sans-serif;white-space:nowrap}
+.hold i{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.ck{display:flex;flex-direction:column;margin-top:4px}
+.ck label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.ck label:first-child{border-top:0}
+.ck input{margin-top:2px;flex:none}
+.ck small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.txt{margin:10px 0 0;padding:12px 14px;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.65;white-space:pre-wrap;word-break:break-word;color:#1A1A1A}
+.txt i{font-style:normal;color:rgba(26,26,26,.55)}
+.bd2{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:24px;margin-top:10px;align-items:start}
+.bd2 h4{margin:8px 0 0;font-size:13px;font-weight:500}
+.bd2>div>h4:first-child{margin-top:0}
+.nx{display:flex;flex-direction:column;gap:8px;margin-top:8px;font-size:13px;line-height:1.45}
+.nx>span{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px}
+.nx b{display:inline-flex;width:22px;height:22px;border-radius:50%;background:rgba(26,26,26,.08);align-items:center;justify-content:center;font-size:11.5px;font-weight:500}
+.nx small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.lk2{display:flex;align-items:center;gap:8px;margin-top:10px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);background:#fff;padding:6px 6px 6px 12px;font-size:12.5px}
+.lk2 span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:rgba(26,26,26,.7)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3223px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Fees, explained to a new adviser <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">What can leave a session</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Chat</span><span class="kit-chip">9 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">Downloading a session, handing it to a project as a request, copying an answer, and the ways out that are not offered · made-up funds and figures · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="true" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface" aria-label="Download a session">
+        <div class="ix-h"><h3>1 · Download a session</h3><span class="kit-small kit-muted">"Download", open · from the session's More menu</span></div>
+        <p class="rule">A session of yours can be downloaded as text or as a page, with or without its steps and files. It is your copy from then on: the session itself still goes after its 30 days.</p>
+        <div class="soft" style="background: #fff"><span class="b5">Fees, explained to a new adviser</span> <span class="kit-small kit-muted">· 2 exchanges · 1 file · 1 artifact</span>
+          <div class="fd"><span class="lb">As</span><span class="kit-seg" role="group" aria-label="Download as" style="align-self: flex-start"><button type="button" aria-pressed="true">Text</button><button type="button" aria-pressed="false">A page</button></span><small>Text is one plain file. A page is one file that opens in a browser, laid out like the session, with nothing fetched from outside.</small></div>
+          <div class="fd"><span class="lb">With</span><div class="ck">
+            <label><input type="checkbox" checked><span>The steps<small>What the agent did and what each tool was asked and sent back</small></span></label>
+            <label><input type="checkbox"><span>The files<small>sample-funds.csv, and the artifact "Fee comparison" as a document · they come beside the text, in one zip file</small></span></label>
+            <label><input type="checkbox"><span>The model's reasoning<small>Where the model gave it</small></span></label>
+            <label><input type="checkbox"><span>Earlier versions of your messages, and branches<small>Without this, only the exchange you see now</small></span></label>
+          </div></div>
+          <div class="acts" style="margin-top: 12px"><button class="kit-btn sm" type="button">Download</button><button class="kit-btn ghost sm" type="button">Cancel</button><span class="kit-small kit-muted">fees-explained-to-a-new-adviser.txt · about 4 KB</span></div>
+        </div>
+        <p class="rule">Recorded: that you downloaded it, when, and in what form. Never its text.</p>
+      </section>
+      <section class="kit-surface" aria-label="What you get">
+        <div class="ix-h"><h3>2 · What you get</h3><span class="kit-small kit-muted">The text, with the steps</span></div>
+        <p class="rule">The download says at its top what it is, who took it and when, and that the answers are samples on made-up funds. Nothing in it points back into the portal.</p>
+        <pre class="txt"><i>Fees, explained to a new adviser
+Try TLM · Core 4.2 · Research helper, version 3
+5 Nov, 11:42 to 11:44 ET · downloaded by you, 5 Nov 11:58
+Sample answers on made-up funds. Not advice.</i>
+
+You · 11:42
+Compare the ongoing charges of the three sample funds in
+this sheet and draft a five-line note for a new adviser.
+<i>  file: sample-funds.csv · 3 rows</i>
+
+Research helper · 11:42 · 6.2 seconds
+<i>  step: Read the file · 3 funds, 4 columns
+  step: Searched approved documents · 2 passages used
+  step: Ran a calculation · 0.4 seconds
+  step: Asked before acting · you said no</i>
+The three funds charge 0.12%, 0.45% and 0.80% a year. On
+10,000 invested for ten years at the same growth, the
+dearest costs about seven times what the cheapest does.
+<i>  artifact: Fee comparison · version 2 · not included</i></pre>
+        <p class="rule">Engineers can also take the session as data: that choice shows with the Engineering switch on.</p>
+      </section>
+      <section class="kit-surface wide" aria-label="Hand a session to a project">
+        <div class="ix-h"><h3>3 · Hand a session to a project</h3><span class="kit-small kit-muted">"Hand this session to a project", open · it becomes a request</span></div>
+        <p class="rule">When something works, it can start a prompt in a project. You choose what goes. A copy goes, your session stays yours. The project's owner must accept it, and from then on the copy lives under that project's rules.</p>
+        <div class="bd2">
+          <div>
+            <div class="fd"><span class="lb">To which project</span><span class="seg3"><span class="kit-chip brand">Advisor desktop · Advice Tech</span><a class="kit-chip outline" href="Start-Project.dc.html" style="color: inherit">Start a project</a></span><small>Only projects you are a member of. Its owners decide: Priya N. and Arjun K.</small></div>
+            <div class="fd"><label for="pn">Name of the prompt there</label><input id="pn" class="kit-input" value="Fees, explained to a new adviser"></div>
+            <h4 style="margin-top: 14px">What goes</h4>
+            <div class="ck">
+              <label><input type="checkbox" checked disabled><span>The system prompt, as version 1 of a prompt there<small>Yours for this session and Research helper's own instructions · 240 tokens</small></span></label>
+              <label><input type="checkbox" checked><span>The set-up<small>Core 4.2 · how it answers · the names of the 3 tools. The project connects its own tools; your access does not travel</small></span></label>
+              <label><input type="checkbox" checked><span>Exchange 1 as an example · "Compare the ongoing charges…"<small>Your message and the answer, without the steps</small></span></label>
+              <label><input type="checkbox"><span>Exchange 2 as an example · "Put the dearest fund first"<small>Your message and the answer</small></span></label>
+              <label><input type="checkbox"><span>The file sample-funds.csv<small>Checked again for client data as it goes</small></span></label>
+              <label><input type="checkbox"><span>The artifact "Fee comparison", version 2<small>As a document</small></span></label>
+            </div>
+            <div class="fd"><label for="pw">A line for the owners</label><input id="pw" class="kit-input" value="This explains fund charges well for new advisers. Worth trying on Call summary."></div>
+            <div class="acts" style="margin-top: 14px"><button class="kit-btn sm" type="button">Send the request</button><button class="kit-btn ghost sm" type="button">Cancel</button><span class="kit-small kit-muted">The system prompt, the set-up and 1 example · you can withdraw it until it is accepted</span></div>
+          </div>
+          <div>
+            <h4>What does not go</h4>
+            <div class="tl" style="margin-top: 2px">
+              <span><span>Your memory<small>It is about you, not about the prompt</small></span></span>
+              <span><span>Your other sessions, and the rest of this one<small>Only the exchanges you ticked</small></span></span>
+              <span><span>The agent itself, your connectors and your access<small>Research helper stays yours. Offer it to the Agents library to share it</small></span></span>
+              <span><span>Your ratings, and who you shared the session with</span></span>
+            </div>
+            <h4 style="margin-top: 14px">What happens next</h4>
+            <div class="nx">
+              <span><b>1</b><span>It becomes a request to Advisor desktop's owners<small>Listed under Requests, raised by you. They get a line in their inbox</small></span></span>
+              <span><b>2</b><span>An owner reads exactly what would come, and accepts or sends it back<small>Accepting is held, because it cannot be taken back</small></span></span>
+              <span><b>3</b><span>Accepted, it is version 1 of a prompt in the project<small>Seen by the project's members, kept under the project's rules, no longer under Try TLM's 30 days</small></span></span>
+            </div>
+            <div class="soft"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Your session does not change</span></span><br>It stays private to you and is removed 30 days after its last message, whatever the owners decide.</div>
+          </div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="The request, as you see it">
+        <div class="ix-h"><h3>4 · The request, as you see it</h3><span class="kit-small kit-muted">Three states</span></div>
+        <p class="rule">A hand-over is a request like any other in the portal. It says where it stands and who it waits on, and it can be withdrawn until an owner accepts it.</p>
+        <div class="soft"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waiting on Advisor desktop's owners · since 11:58</span></span><br>The system prompt, the set-up and 1 example from "Fees, explained to a new adviser".<div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Requests-Status.dc.html">Open the request</a><button class="kit-btn ghost sm" type="button">Withdraw</button></div></div>
+        <div class="soft"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Accepted by Priya N. · 6 Nov</span></span><br>It is version 1 of the prompt "Fees, explained to a new adviser" in Advisor desktop. What happens to it now is the project's to decide.<div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Feature-Prompts.dc.html">See it in the project</a></div></div>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Sent back by Arjun K. · 6 Nov</span></span><br>"We already have a prompt for this. Add your example to it instead." Nothing was copied.<div class="acts" style="margin-top: 8px"><button class="kit-btn outline sm" type="button">Change it and send again</button></div></div>
+      </section>
+      <section class="kit-surface" aria-label="The request, as a project's owner sees it">
+        <div class="ix-h"><h3>5 · The request, as a project's owner sees it</h3><span class="kit-small kit-muted">Accepting is one-way, so it is held</span></div>
+        <p class="rule">An owner sees everything that would come before deciding. Once accepted, the copy is the project's and the person who sent it can no longer withdraw it. So accept and send back are each "hold to".</p>
+        <div class="soft" style="background: #fff"><span class="b5">A session is offered to Advisor desktop</span> <span class="kit-small kit-muted">· from a member of the project, shown by name · 5 Nov, 11:58</span>
+          <span style="display: block; margin-top: 6px">"This explains fund charges well for new advisers. Worth trying on Call summary."</span>
+          <dl class="kv" style="margin-top: 10px; grid-template-columns: 124px minmax(0,1fr)"><dt>A prompt</dt><dd>"Fees, explained to a new adviser" · 240 tokens · would be version 1</dd><dt>A set-up</dt><dd>Core 4.2 · variety 0.2 · 3 tools named, none connected</dd><dt>Examples</dt><dd>1 exchange · checked, no client data</dd><dt>Not included</dt><dd>Files, the artifact, memory, the rest of the session</dd></dl>
+          <div class="acts" style="margin-top: 12px"><button class="kit-btn outline sm" type="button">Read all of it</button><button class="hold" type="button"><i aria-hidden="true"></i>Hold to accept</button><button class="hold" type="button"><i aria-hidden="true"></i>Hold to send back</button></div>
+          <span class="kit-small kit-muted" style="display: block; margin-top: 8px">Sending back asks for a reason, which the sender sees.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="Copy an answer">
+        <div class="ix-h"><h3>6 · Copy an answer</h3><span class="kit-small kit-muted">"Copy", under every answer</span></div>
+        <p class="rule">Copy takes the words of one answer and nothing else: no steps, no files, no session. Where you paste them is yours to judge, and the Enterprise's rules on what may leave still hold.</p>
+        <div class="m it">The three funds charge 0.12%, 0.45% and 0.80% a year. On 10,000 invested for ten years at the same growth, the dearest costs about seven times what the cheapest does.</div>
+        <div class="acts" style="margin-top: 10px"><button class="kit-btn outline sm" type="button">Good</button><button class="kit-btn outline sm" type="button">Not good</button><button class="kit-btn sm" type="button" aria-expanded="true">Copy <span aria-hidden="true">▾</span></button></div>
+        <div class="mn" role="menu" aria-label="Copy" style="max-width: 340px">
+          <span class="it on" role="menuitem"><span>As it is written</span><small>with its headings and tables</small></span>
+          <span class="it" role="menuitem"><span>As plain words</span><small>no formatting</small></span>
+          <span class="it" role="menuitem"><span>With its sources</span><small>2 listed under it</small></span>
+        </div>
+        <div class="soft" style="display: flex; justify-content: space-between; gap: 12px; align-items: center"><span>Copied · 30 words · "a sample answer, not advice" goes with it</span><span class="kit-small kit-muted">Not recorded</span></div>
+      </section>
+      <section class="kit-surface" aria-label="Download everything">
+        <div class="ix-h"><h3>7 · Download everything</h3><span class="kit-small kit-muted">It is on You, not here</span></div>
+        <p class="rule">One session is downloaded from the session. Everything Try TLM holds for you is downloaded from You, with the rest of what the portal keeps about you.</p>
+        <div class="tl">
+          <span><span>All your sessions<small>14, with their steps · as text</small></span></span>
+          <span><span>What Try TLM remembers, your agents, skills, folders, saved prompts and schedules</span></span>
+          <span><span>Your files<small>6 files</small></span></span>
+        </div>
+        <div class="acts" style="margin-top: 10px"><a class="kit-btn outline sm" href="Shell-Settings.dc.html">Download it from You</a><span class="kit-small kit-muted">Made ready as one file · the link is for you alone and expires in 7 days</span></div>
+        <p class="rule">Your downloads so far are listed there too:</p>
+        <div class="tl" style="margin-top: 4px">
+          <span><span>Fees, explained to a new adviser<small>Text, with the steps, without the files</small></span><span class="kit-small kit-muted">Today 11:58</span></span>
+          <span><span>Plain-language rewrite of a policy line<small>A page, without the steps</small></span><span class="kit-small kit-muted">29 Oct</span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="A shared session's link">
+        <div class="ix-h"><h3>8 · A shared session's link</h3><span class="kit-small kit-muted">It opens only for the people named</span></div>
+        <p class="rule">Sharing a session does not send it anywhere. The link is an address inside the portal. It opens for the people you named, signed in at the Enterprise, and for nobody else.</p>
+        <div class="lk2"><span>[the portal's address]/try/shared/fees-explained…</span><button class="kit-btn outline sm" type="button">Copy the link</button></div>
+        <p class="rule">Shared with Dev R. until 5 Dec · Dev can read it, and cannot change it or share it further.</p>
+        <div class="kit-empty" style="margin-top: 12px"><b style="font-weight: 500; color: #1A1A1A">This session has not been shared with you</b><span class="kit-small">What anyone else at the Enterprise sees on opening the link. Outside the Enterprise, the portal's sign-in is all that shows.</span><button class="kit-btn outline sm" type="button">Ask its owner</button></div>
+      </section>
+      <section class="kit-surface" aria-label="What never leaves">
+        <div class="ix-h"><h3>9 · What never leaves</h3><span class="kit-small kit-muted">Not offered, by design</span></div>
+        <p class="rule">Nothing in Try TLM is sent outside the Enterprise, by you or by an agent. These are the ways out that tools of this kind usually have. None of them is here.</p>
+        <div class="tl">
+          <span><span>A link anyone can open, or a code to scan<small>Sharing is with named people at the Enterprise only</small></span><span class="kit-small kit-muted">Not offered</span></span>
+          <span><span>Sending a session or an answer by mail<small>Results and notices stay in the portal's inbox</small></span><span class="kit-small kit-muted">Not offered</span></span>
+          <span><span>Answering in a chat channel outside the portal</span><span class="kit-small kit-muted">Not offered</span></span>
+          <span><span>Saving to storage outside the Enterprise<small>A download goes to your own computer and nowhere else</small></span><span class="kit-small kit-muted">Not offered</span></span>
+          <span><span>Bringing in sessions from another assistant<small>Nothing comes in that way either</small></span><span class="kit-small kit-muted">Not offered</span></span>
+          <span><span>A session as a picture<small>Text or a page only, so what leaves can be read and searched</small></span><span class="kit-small kit-muted">Not offered</span></span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3223}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
