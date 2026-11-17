@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Operations · the engineering view of one endpoint: first token by size, error budget, cache, throughput, routing by task, and a training run's loss mask (ThinkLatent only, first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.dr-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.dr-h h3{margin:0;font-size:18px;font-weight:500}
+.dr-q{display:flex;gap:8px;align-items:center;font-size:12.5px;color:rgba(26,26,26,.65);margin-bottom:8px}
+.dr-q b{display:inline-flex;flex:none;width:20px;height:20px;border-radius:50%;align-items:center;justify-content:center;font-size:11.5px;font-weight:500;background:#1A1A1A;color:#fff}
+.dr-n{margin-top:12px;font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.65)}
+.dr-t{display:grid;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.dr-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.dr-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.dr-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.dr-t .n{font-variant-numeric:tabular-nums}
+.dr-t b{font-weight:500}
+.dr-k{display:grid;gap:12px}
+.dr-k>*{display:flex;flex-direction:column;gap:6px;padding:18px;color:inherit;text-decoration:none}
+.dr-ag{border-radius:18px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 16px;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.45;margin-top:12px}
+.dr-ag .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dr-kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin:10px 0 0}
+.dr-kv>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.dr-kv dt{color:rgba(26,26,26,.65);padding-right:14px}.dr-kv dd{margin:0;font-variant-numeric:tabular-nums;text-align:right}
+.dr-kv small{display:block;font-size:12px;color:rgba(26,26,26,.6)}
+.hold{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:500 13px Inter,system-ui,sans-serif;white-space:nowrap}
+.hold i{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.ev-ft{display:grid;grid-template-columns:104px minmax(0,1fr) 250px;gap:0 14px;align-items:center;margin-top:12px;font-size:13px}
+.ev-ft .h{font-size:11.5px;color:rgba(26,26,26,.6);padding-bottom:4px}
+.ev-ft .lab{height:44px;display:flex;flex-direction:column;justify-content:center;border-top:1px solid rgba(26,26,26,.1);line-height:1.3}
+.ev-ft .lab small{font-size:11.5px;color:rgba(26,26,26,.6)}
+.ev-ft .tr{position:relative;height:44px;border-top:1px solid rgba(26,26,26,.1)}
+.ev-ft .tr i{position:absolute;top:13px;height:18px;display:block}
+.ev-ft .tr .q{background:repeating-linear-gradient(135deg,rgba(26,26,26,.55) 0 2px,rgba(26,26,26,.12) 2px 5px);border-radius:4px 0 0 4px}
+.ev-ft .tr .p{background:var(--companion)}
+.ev-ft .tr .x{background:#fff;box-shadow:inset 0 0 0 1.5px rgba(26,26,26,.7);border-radius:0 4px 4px 0}
+.ev-ft .tr u{position:absolute;top:4px;bottom:4px;left:62.5%;border-left:1.5px dashed #1A1A1A}
+.ev-ft .vd{height:44px;display:flex;flex-direction:column;justify-content:center;border-top:1px solid rgba(26,26,26,.1);font-variant-numeric:tabular-nums;line-height:1.3}
+.ev-ft .vd small{font-size:11.5px;color:rgba(26,26,26,.6)}
+.ev-ax{position:relative;height:16px;font-size:11px;color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums}
+.ev-ax span{position:absolute;transform:translateX(-50%)}
+.ev-lg{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:rgba(26,26,26,.7);margin-top:10px;align-items:center}
+.ev-lg i{display:inline-block;width:22px;height:10px;vertical-align:-1px;margin-right:6px}
+.ev-lg .q{background:repeating-linear-gradient(135deg,rgba(26,26,26,.55) 0 2px,rgba(26,26,26,.12) 2px 5px)}
+.ev-lg .p{background:var(--companion)}
+.ev-lg .x{background:#fff;box-shadow:inset 0 0 0 1.5px rgba(26,26,26,.7)}
+.ev-lg .d{width:0;height:12px;border-left:1.5px dashed #1A1A1A;margin-right:8px}
+.ev-cb{display:grid;grid-template-columns:104px minmax(0,1fr) 44px;gap:9px 10px;align-items:center;font-size:13px;margin-top:12px}
+.ev-cb .tr{height:14px;border-radius:5px;background:rgba(26,26,26,.07)}
+.ev-cb .tr i{display:block;height:14px;border-radius:5px;background:var(--companion)}
+.ev-cb .n{font-variant-numeric:tabular-nums;text-align:right;font-weight:500}
+.ev-st{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px 10px;margin-top:12px;font-size:13px;line-height:1.45}
+.ev-st .k{display:inline-flex;width:22px;height:22px;border-radius:50%;align-items:center;justify-content:center;font-size:12px;font-weight:500;background:#1A1A1A;color:#fff}
+.ev-st .k.o{background:transparent;box-shadow:inset 0 0 0 1.5px rgba(26,26,26,.45);color:#1A1A1A}
+.ev-st b{font-weight:500}
+.ev-st small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.ev-lm{margin:12px 0 0;padding:16px 18px;border-radius:14px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.1);font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.9;white-space:pre-wrap;word-break:break-word}
+.ev-lm .m{color:rgba(26,26,26,.5)}
+.ev-lm .c{background:rgba(47,122,109,.16);border-bottom:2px solid var(--companion);font-weight:500;padding:1px 0}
+.ev-lm .tk{box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);border-radius:4px;padding:0 4px}
+.ev-ck{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin-top:10px}
+.ev-ck>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.ev-ck small{display:block;font-size:12px;color:rgba(26,26,26,.6)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 4240px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn" type="button" aria-pressed="true">Engineering · on</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Organization-Page.dc.html">Retail Business <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Team-Page.dc.html">Advice Tech <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Project-Page.dc.html">Advisor desktop <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">advisor-desktop-prod <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Operations · engineering view</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Engineering on</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>ThinkLatent only · D-291</span><span class="kit-chip">Domain-Advice v2 · 3 replicas · vLLM 0.26.0</span><span class="kit-chip">6 parts</span><span class="kit-chip">First draft · for review</span></div>
+        <span class="kit-small kit-muted">What the engine itself reports for one endpoint, for ThinkLatent's AI engineering: here as Arjun K. sees it. A member of the project keeps the Operations page as it is, and for them the switch shows only the engine's settings. Part 6 is the same switch on a training run · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Project-Operations.dc.html">← Operations</a><a class="kit-btn outline" href="Enterprise-Operations.dc.html">Every endpoint</a><a class="kit-btn outline" href="Agents-AtWork.dc.html">Ask the SRE agent</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <a role="tab" aria-selected="false" href="Project-Page.dc.html">Overview</a><a role="tab" aria-selected="false" href="Project-Plan.dc.html">Plan</a><a role="tab" aria-selected="false" href="Project-Features.dc.html">Features</a><a role="tab" aria-selected="false" href="Project-Connect.dc.html">Connect</a><a role="tab" aria-selected="false" href="Project-Traces.dc.html">Traces</a><a role="tab" aria-selected="true" href="Project-Operations.dc.html">Operations</a><a role="tab" aria-selected="false" href="Project-Quality.dc.html">Quality</a><a role="tab" aria-selected="false" href="Project-SelfHealing.dc.html">Self-healing and training</a><a role="tab" aria-selected="false" href="Project-Increments.dc.html">Increments</a><a role="tab" aria-selected="false" href="Project-Members.dc.html">Members</a>
+    </div>
+
+    <section class="kit-surface raised" aria-label="First token, by size of request">
+      <div class="dr-q"><b>1</b><span>The engineer asks: where does the wait for the first word go, and does it grow with the size of the request?</span></div>
+      <div class="dr-h"><h3>First token, by size of request</h3><span class="kit-small kit-muted">Typical times today, in milliseconds · queue, then reading the request (prefill), then the way back to the application (transfer)</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: start">
+        <div>
+          <div class="ev-ft" role="table" aria-label="First token by tokens in: under 1k 125 ms, 1k to 4k 190 ms, 4k to 16k 260 ms, over 16k 700 ms against the agreed 500 ms">
+            <span class="h">Tokens in</span><span class="h ev-ax"><span style="left: 0; transform: none">0</span><span style="left: 25%">200</span><span style="left: 50%">400</span><span style="left: 75%">600</span><span style="left: 100%; transform: translateX(-100%); white-space: nowrap">800 ms</span></span><span class="h">First token · queue + prefill + transfer</span>
+            <span class="lab">Under 1k<small>12% of requests</small></span><span class="tr"><i class="q" style="left: 0; width: 5%"></i><i class="p" style="left: 5%; width: 5.6%"></i><i class="x" style="left: 10.6%; width: 5%"></i><u></u></span><span class="vd"><b style="font-weight: 500">0.13 s</b><small>40 + 45 + 40</small></span>
+            <span class="lab">1k to 4k<small>53%</small></span><span class="tr"><i class="q" style="left: 0; width: 5%"></i><i class="p" style="left: 5%; width: 13.75%"></i><i class="x" style="left: 18.75%; width: 5%"></i><u></u></span><span class="vd"><b style="font-weight: 500">0.19 s</b><small>40 + 110 + 40</small></span>
+            <span class="lab">4k to 16k<small>33%</small></span><span class="tr"><i class="q" style="left: 0; width: 5%"></i><i class="p" style="left: 5%; width: 22.5%"></i><i class="x" style="left: 27.5%; width: 5%"></i><u></u></span><span class="vd"><b style="font-weight: 500">0.26 s</b><small>40 + 180 + 40 · the size of a usual call</small></span>
+            <span class="lab">Over 16k<small>1.5%</small></span><span class="tr"><i class="q" style="left: 0; width: 5.6%"></i><i class="p" style="left: 5.6%; width: 76.25%"></i><i class="x" style="left: 81.85%; width: 5.6%"></i><u></u></span><span class="vd"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>0.70 s · over the agreed 0.5 s</span></span><small>45 + 610 + 45</small></span>
+          </div>
+          <div class="ev-lg"><span><i class="q"></i>Queue</span><span><i class="p"></i>Prefill</span><span><i class="x"></i>Transfer</span><span><i class="d"></i>Agreed: first words within 0.5 s</span></div>
+        </div>
+        <div>
+          <div class="kit-label" style="margin-top: 14px">Once the answer has started</div>
+          <div class="dr-t" style="grid-template-columns: minmax(0, 1fr) 104px 104px 110px">
+            <span class="h">Tokens in</span><span class="h">Between two tokens (ITL)</span><span class="h">A token out, on average (TPOT)</span><span class="h">Answers that stalled</span>
+            <span>Under 1k</span><span class="n">4.3 ms</span><span class="n">4.5 ms</span><span class="n">0.1%</span>
+            <span>1k to 4k</span><span class="n">4.4 ms</span><span class="n">4.6 ms</span><span class="n">0.1%</span>
+            <span>4k to 16k</span><span class="n">4.6 ms</span><span class="n">4.9 ms<small>205 tokens a second</small></span><span class="n">0.3%</span>
+            <span>Over 16k</span><span class="n">5.4 ms</span><span class="n">7.8 ms</span><span class="n"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>3.6%</span></span></span>
+          </div>
+          <div class="dr-n" style="margin-top: 8px">A stall is a gap of more than 0.25 s between two tokens. The typical gap barely moves with size; the average does, because of stalls.</div>
+        </div>
+      </div>
+      <div class="dr-ag"><span class="top"><a class="kit-chip brand" href="Agents-AtWork.dc.html" style="text-decoration: none">SRE agent</a><span class="kit-caption">Size and time · since Tuesday</span></span><span>Over 16k tokens in, the first word takes 0.70 s, and reading the request is 610 ms of it. These are 1.5% of requests, so the agreed level is still met on the day. It is the same flag as on Operations: summaries of very long calls take three times as long.</span><span class="kit-small kit-muted">Rests on 312 traces in that size bucket and the engine's own timings · sure: high · <a href="Project-Traces.dc.html">Open the 312 traces</a> · it proposes, people decide</span></div>
+      <div class="dr-n">Between 10 and 11 the queue share is ten times larger for every size: 0.40 s against 0.04 s. One request's own queue, prefill and decode are on its trace; this is the same timing over every request of a size.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="Error budget and room">
+        <div class="dr-q"><b>2</b><span>The engineer asks: how much of what was agreed is used up, how fast is it going, and when does the room run out?</span></div>
+        <div class="dr-h"><h3>Error budget and room</h3><span class="kit-small kit-muted">Agreed: at most 0.5% of requests fail · 30 days</span></div>
+        <div class="dr-k" style="grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 12px">
+          <div class="kit-surface raised"><span class="kit-caption">Good requests today</span><span class="kit-display" style="font-size: 32px">97.6%</span><span class="kit-small kit-muted">Answered, within 2.5 s, first words within 0.5 s · of 31,104</span></div>
+          <div class="kit-surface raised"><span class="kit-caption">Error budget left, 30 days</span><span class="kit-display" style="font-size: 32px">70%</span><span class="kit-small kit-muted">0.15% failed, of the 0.5% agreed</span></div>
+          <div class="kit-surface raised"><span class="kit-caption">Room at the peak runs out</span><span class="kit-display" style="font-size: 32px; white-space: nowrap">10 Nov</span><span class="kit-small kit-muted">About then, if Next best action goes to everyone with nothing decided · otherwise in about 70 days, at 4% more requests a month</span></div>
+        </div>
+        <div class="dr-t" style="grid-template-columns: minmax(0, 1fr) 84px 110px 150px minmax(0, 1fr)">
+          <span class="h">Window</span><span class="h">Failed</span><span class="h">Burn rate</span><span class="h">On-call is paged at</span><span class="h">Where it stands</span>
+          <span>The last hour</span><span class="n">0.10%</span><span class="n">0.2 times</span><span class="n">14 times</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Quiet</span></span></span>
+          <span>The last 6 hours<small>Holds the 10 to 11 peak</small></span><span class="n">0.14%</span><span class="n">0.3 times</span><span class="n">6 times</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Quiet</span></span></span>
+          <span>The last 3 days</span><span class="n">0.13%</span><span class="n">0.3 times</span><span class="n">1 time · a ticket, nobody paged</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Quiet</span></span></span>
+          <span>30 days</span><span class="n">0.15%</span><span class="n">0.3 times</span><span class="n">—</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>70% of the budget left</span></span></span>
+        </div>
+        <div class="dr-n">A burn rate of 1 uses the whole budget in exactly 30 days. Two windows must both be over their line before anyone is paged, so a short spike does not wake on-call. Up and answering has its own budget: 99.93% against 99.5%, 14% of it used.</div>
+      </section>
+
+      <section class="kit-surface" aria-label="The error budget over 30 days">
+        <div class="dr-h"><h3>The budget, day by day</h3><span class="kit-small kit-muted">Share of the 30-day error budget left</span></div>
+        <svg role="img" aria-label="The error budget left falls slowly from 100 percent on 7 October to 91 percent on 19 October, drops 12 points on 20 October with incident INC-20417, then falls slowly to 70 percent on 5 November. At this rate it would not run out inside the window." viewBox="0 0 520 250" style="width: 100%; height: auto; margin-top: 10px; font-family: Inter, system-ui, sans-serif">
+          <g stroke="rgba(26,26,26,.08)"><line x1="44" x2="500" y1="30" y2="30"></line><line x1="44" x2="500" y1="75" y2="75"></line><line x1="44" x2="500" y1="120" y2="120"></line><line x1="44" x2="500" y1="165" y2="165"></line></g>
+          <line x1="44" x2="500" y1="210" y2="210" stroke="rgba(26,26,26,.75)" stroke-dasharray="5 4"></line>
+          <g font-size="11.5" fill="rgba(26,26,26,.6)"><text x="38" y="34" text-anchor="end">100%</text><text x="38" y="79" text-anchor="end">75%</text><text x="38" y="124" text-anchor="end">50%</text><text x="38" y="169" text-anchor="end">25%</text><text x="38" y="214" text-anchor="end">0</text><text x="44" y="232">7 Oct</text><text x="228" y="232" text-anchor="middle">20 Oct</text><text x="500" y="232" text-anchor="end">5 Nov</text></g>
+          <polyline points="44,30 91,35 138,39 186,43 233,46 233,68 280,71 327,74 374,77 421,80 468,82 500,84" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linejoin="round"></polyline>
+          <circle cx="233" cy="68" r="4.5" fill="#fff" stroke="#1A1A1A" stroke-width="2"></circle>
+          <circle cx="500" cy="84" r="4.5" fill="#1A1A1A"></circle>
+          <g font-size="12" fill="#1A1A1A"><text x="243" y="98">20 Oct · INC-20417 · 11 minutes</text><text x="243" y="115" fill="rgba(26,26,26,.65)">took 12 points of the budget</text><text x="500" y="106" text-anchor="end">70% left</text><text x="50" y="204" fill="rgba(26,26,26,.65)">Budget used up</text></g>
+        </svg>
+        <div class="dr-n">One event is most of what was spent. <a href="Project-Incident.dc.html">Open the incident</a> · <a href="#">See this as a table</a></div>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="The prefix cache">
+      <div class="dr-q"><b>3</b><span>The engineer asks: is the cache earning the memory it holds, and where do turns miss it?</span></div>
+      <div class="dr-h"><h3>The prefix cache</h3><span class="kit-small kit-muted">What a session has already sent is kept, so a later turn is not read again from the start · today</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.15fr); gap: 28px; align-items: start; margin-top: 4px">
+        <div>
+          <div class="kit-label" style="margin-top: 10px">Read from the cache, by turn of the session</div>
+          <div class="ev-cb" role="table" aria-label="Share of request tokens read from the cache by turn: 7, 48, 61 and 66 percent">
+            <span>Turn 1</span><span class="tr"><i style="width: 7%"></i></span><span class="n">7%</span>
+            <span>Turn 2</span><span class="tr"><i style="width: 48%"></i></span><span class="n">48%</span>
+            <span>Turn 3</span><span class="tr"><i style="width: 61%"></i></span><span class="n">61%</span>
+            <span>Turn 4 and later</span><span class="tr"><i style="width: 66%"></i></span><span class="n">66%</span>
+          </div>
+          <div class="dr-n">Share of the tokens in. Turn 1 can reuse only the system prompt, 310 tokens. A session has 3.3 turns, typically.</div>
+        </div>
+        <div>
+          <dl class="dr-kv">
+            <dt>First token when the prefix is found</dt><dd>0.19 s</dd>
+            <dt>First token when it is not</dt><dd>0.31 s</dd>
+            <dt>Turns that reach the replica holding their session<small>Stickiness · the rest are read again from the start</small></dt><dd>83%</dd>
+            <dt>GPU time saved today</dt><dd>2,900 s<small>About 0.8 GPU-hours</small></dd>
+            <dt>Cache memory in use<small>Replicas 1, 2, 3</small></dt><dd>62% · 58% · 66%</dd>
+          </dl>
+        </div>
+        <div>
+          <div class="kit-label" style="margin-top: 10px">Gap between two turns, against how long a prefix is kept</div>
+          <svg role="img" aria-label="Turns by the gap since the turn before, in minutes. Most gaps are between 2 and 6 minutes; the typical gap is 4 minutes. At the 10 to 11 peak a prefix is kept about 5 minutes, and the rest of the day about 9. At the peak 44 percent of turns arrive after their prefix has gone, against 12 percent the rest of the day." viewBox="0 0 440 190" style="width: 100%; height: auto; margin-top: 8px; font-family: Inter, system-ui, sans-serif">
+            <g fill="var(--companion)" opacity=".45"><rect x="30" y="130" width="30" height="20" rx="4"></rect><rect x="64" y="106" width="30" height="44" rx="4"></rect><rect x="98" y="80" width="30" height="70" rx="4"></rect><rect x="132" y="58" width="30" height="92" rx="4"></rect><rect x="166" y="50" width="30" height="100" rx="4"></rect><rect x="200" y="76" width="30" height="74" rx="4"></rect><rect x="234" y="98" width="30" height="52" rx="4"></rect><rect x="268" y="114" width="30" height="36" rx="4"></rect><rect x="302" y="126" width="30" height="24" rx="4"></rect><rect x="336" y="124" width="30" height="26" rx="4"></rect><rect x="370" y="106" width="30" height="44" rx="4"></rect></g>
+            <line x1="30" x2="404" y1="150" y2="150" stroke="rgba(26,26,26,.3)"></line>
+            <line x1="198" x2="198" y1="22" y2="150" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="5 4"></line>
+            <line x1="334" x2="334" y1="40" y2="150" stroke="rgba(26,26,26,.6)" stroke-width="1.5" stroke-dasharray="2 4"></line>
+            <g font-size="11.5" fill="rgba(26,26,26,.6)"><text x="30" y="166">0</text><text x="98" y="166">2</text><text x="166" y="166">4</text><text x="234" y="166">6</text><text x="302" y="166">8</text><text x="370" y="166">10+</text><text x="404" y="182" text-anchor="end">Minutes since the turn before</text></g>
+            <g font-size="12" fill="#1A1A1A"><text x="204" y="20">Kept 5 min at the peak</text><text x="340" y="38" fill="rgba(26,26,26,.75)">9 min otherwise</text></g>
+          </svg>
+          <div class="dr-n" style="margin-top: 6px">The typical gap is 4 minutes. At the 10 to 11 peak, 44% of turns arrive after their prefix has gone; the rest of the day, 12%.</div>
+        </div>
+      </div>
+      <div class="dr-ag"><span class="top"><a class="kit-chip brand" href="Agents-AtWork.dc.html" style="text-decoration: none">SRE agent</a><span class="kit-caption">Cache · weekday mornings</span></span><span><b style="font-weight: 500">It suggests:</b> send a session's next turn to the replica that holds it before the least busy one. At the peak that would find the prefix for about half of the turns that miss it now.</span><span class="kit-small kit-muted">Rests on 9,480 sessions today and the gateway's routing log · sure: medium, one day of data · <a href="#">View sources</a> · it proposes, people decide</span></div>
+    </section>
+
+    <section class="kit-surface" aria-label="Throughput against speed for each request">
+      <div class="dr-q"><b>4</b><span>The engineer asks: how many requests can one replica carry at once before each answer gets too slow?</span></div>
+      <div class="dr-h"><h3>Throughput against speed for each request</h3><span class="kit-small kit-muted">One replica, one GPU · from the load test of 24 Oct, when the third replica was added · the marked points are today</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; align-items: start">
+        <svg role="img" aria-label="Tokens a second from one replica against tokens a second each request gets, for 1 to 32 requests at once. Throughput rises from 262 at one request to 2,368 at 32 while each request slows from 262 to 74 tokens a second. An answer of 312 tokens within the agreed 2.5 seconds needs 139 tokens a second, which holds up to 16 at once. Today's typical point is 8 at once; the 10 to 11 peak is about 14 at once." viewBox="0 0 700 330" style="width: 100%; height: auto; margin-top: 12px; font-family: Inter, system-ui, sans-serif">
+          <g stroke="rgba(26,26,26,.08)"><line x1="64" x2="670" y1="40" y2="40"></line><line x1="64" x2="670" y1="100" y2="100"></line><line x1="64" x2="670" y1="160" y2="160"></line><line x1="64" x2="670" y1="220" y2="220"></line></g>
+          <line x1="64" x2="670" y1="280" y2="280" stroke="rgba(26,26,26,.3)"></line>
+          <g font-size="11.5" fill="rgba(26,26,26,.6)"><text x="56" y="44" text-anchor="end">2,400</text><text x="56" y="104" text-anchor="end">1,800</text><text x="56" y="164" text-anchor="end">1,200</text><text x="56" y="224" text-anchor="end">600</text><text x="56" y="284" text-anchor="end">0</text>
+            <text x="64" y="298">50</text><text x="185" y="298" text-anchor="middle">100</text><text x="306" y="298" text-anchor="middle">150</text><text x="427" y="298" text-anchor="middle">200</text><text x="548" y="298" text-anchor="middle">250</text><text x="670" y="298" text-anchor="end">300</text>
+            <text x="64" y="22">Tokens a second, the whole replica</text><text x="670" y="320" text-anchor="end">Tokens a second each request gets → faster for the person waiting</text></g>
+          <rect x="64" y="30" width="215.5" height="250" fill="rgba(26,26,26,.05)"></rect>
+          <line x1="279.5" x2="279.5" y1="30" y2="280" stroke="#1A1A1A" stroke-width="1.5" stroke-dasharray="5 4"></line>
+          <text x="287" y="250" font-size="12" fill="#1A1A1A">Needed for the agreed 2.5 s: 139 a second</text>
+          <text x="72" y="268" font-size="11.5" fill="rgba(26,26,26,.65)">Too slow for what was agreed</text>
+          <polyline points="122,43.2 180,44.8 284.2,54.4 359.3,73.6 439.2,116 514.2,185.6 550.6,229.8 577.2,253.8" fill="none" stroke="var(--companion)" stroke-width="2" stroke-linejoin="round"></polyline>
+          <g fill="#fff" stroke="var(--companion)" stroke-width="2"><circle cx="122" cy="43.2" r="4"></circle><circle cx="180" cy="44.8" r="4"></circle><circle cx="284.2" cy="54.4" r="4"></circle><circle cx="359.3" cy="73.6" r="4"></circle><circle cx="514.2" cy="185.6" r="4"></circle><circle cx="550.6" cy="229.8" r="4"></circle><circle cx="577.2" cy="253.8" r="4"></circle></g>
+          <circle cx="439.2" cy="116" r="7" fill="#1A1A1A"></circle>
+          <rect x="314.5" y="57.5" width="13" height="13" fill="#fff" stroke="#1A1A1A" stroke-width="2" transform="rotate(45 321 64)"></rect>
+          <g font-size="11.5" fill="rgba(26,26,26,.7)"><text x="122" y="62" text-anchor="middle">32</text><text x="180" y="64" text-anchor="middle">24</text><text x="272" y="74" text-anchor="end">16 at once</text><text x="359.3" y="94" text-anchor="middle">12</text><text x="528" y="190">4</text><text x="564" y="234">2</text><text x="591" y="258">1</text></g>
+          <g font-size="12" fill="#1A1A1A"><text x="452" y="112">Today, typical: 8 at once</text><text x="452" y="128" fill="rgba(26,26,26,.65)">205 each · 1,640 the replica</text><text x="334" y="50">The 10 to 11 peak: about 14 at once</text></g>
+        </svg>
+        <div>
+          <div class="dr-t" style="grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.3fr)">
+            <span class="h">At once</span><span class="h">Each request</span><span class="h">The replica</span><span class="h">An answer of 312 tokens</span>
+            <span class="n">1</span><span class="n">262</span><span class="n">262</span><span class="n">1.45 s</span>
+            <span class="n">4</span><span class="n">236</span><span class="n">944</span><span class="n">1.58 s</span>
+            <span class="n"><b>8</b><small>today</small></span><span class="n">205</span><span class="n">1,640</span><span class="n">1.78 s</span>
+            <span class="n">12</span><span class="n">172</span><span class="n">2,064</span><span class="n">2.07 s</span>
+            <span class="n"><b>16</b><small>the most</small></span><span class="n">141</span><span class="n">2,256</span><span class="n">2.47 s<small>Just inside the agreed 2.5 s</small></span>
+            <span class="n">24</span><span class="n">98</span><span class="n">2,352</span><span class="n"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>3.44 s</span></span></span>
+            <span class="n">32</span><span class="n">74</span><span class="n">2,368</span><span class="n"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>4.48 s</span></span></span>
+          </div>
+          <div class="dr-n">Tokens a second. Past 16 at once the replica gives almost nothing more and every answer is late. The peak sits at about 14 of 16: that is the 9% of room on Operations. 2 at once is on the chart only.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="Routing by task">
+      <div class="dr-q"><b>5</b><span>The engineer asks: which model answers which task, and how is a change to that tried before anyone depends on it?</span></div>
+      <div class="dr-h"><h3>Routing by task</h3><span class="kit-small kit-muted">The gateway's rules for this project · the application calls one endpoint and names the task · a rule changes only by a change request</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px; align-items: start">
+        <div>
+          <div class="dr-t" style="grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr) minmax(0, 1fr) 76px 76px">
+            <span class="h">Task, as the gateway names it</span><span class="h">Goes to</span><span class="h">If that cannot answer</span><span class="h">Today</span><span class="h">Since</span>
+            <span><span class="kit-mono">summarise</span><small>Call summary</small></span><span>Domain-Advice v2, 95% · v3, 5%<small>v3 is on trial · <a href="Increment-Rollout.dc.html">increment 6</a></small></span><span>Core 4.2<small>Used 14 times in 30 days, all on 21 Oct</small></span><span class="n">26k</span><span class="n">3 Nov</span>
+            <span><span class="kit-mono">nba.find</span><small>Next best action · find similar cases</small></span><span>Embedding v2</span><span>The next step runs without cases</span><span class="n">5k</span><span class="n">28 Oct</span>
+            <span><span class="kit-mono">nba.pick</span><small>Next best action · pick the action</small></span><span>Decision adapter v1<small>On the small Core</small></span><span>Nothing is suggested</span><span class="n">5k</span><span class="n">28 Oct</span>
+            <span><span class="kit-mono">nba.word</span><small>Next best action · word the suggestion</small></span><span>Domain-Advice v2<small><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Shadowed by the small Core</span></span></small></span><span>Nothing is suggested</span><span class="n">5k</span><span class="n">28 Oct</span>
+            <span><span class="kit-mono">check</span><small>Every summary, in the background</small></span><span>Guardrail v2</span><span>The summary is held for review</span><span class="n">26k</span><span class="n">5 Oct</span>
+          </div>
+          <div class="kit-label" style="margin-top: 18px">The serving configuration · read only</div>
+          <pre class="kit-code" style="margin-top: 8px"># advisor-desktop-prod · changed only by a change request · last change 24 Oct: replicas 2 → 3
+endpoint: advisor-desktop-prod
+engine: vllm 0.26.0
+replicas: 3                      # one GPU each, always on
+weights: w-3c9e…a41
+routes:
+  - task: summarise
+    to:
+      - { model: domain-advice@v2, share: 95 }
+      - { model: domain-advice@v3, share: 5 }     # increment 6, on trial
+    fallback: core-4.2
+  - task: nba.word
+    to:
+      - { model: domain-advice@v2, share: 100 }
+    shadow: core-4.2-small       # answers a copy; its answer is never returned
+agreed:
+  answer_within_s: 2.5           # for 95 in 100
+  first_token_within_s: 0.5</pre>
+        </div>
+        <div>
+          <div class="kit-label" style="margin-top: 10px">A rule change, tried in the shadow first</div>
+          <div class="dr-ag" style="margin-top: 8px"><span class="top"><a class="kit-chip brand" href="Agents-AtWork.dc.html" style="text-decoration: none">Index agent</a><span class="kit-caption">Offered to the project 4 Nov</span></span><span style="font-size: 16px; font-weight: 500">Send <span class="kit-mono" style="font-size: 14px">nba.word</span> to the small Core</span><span>It words a suggestion as well on the project's own cases, in 0.61 s against 0.92 s, and leaves this endpoint its 9% of room.</span><span class="kit-small kit-muted">Rests on the project's 300 Pilot cases run again on 4 Nov, the TL Index edition 2026-11 and 7 days of traces · sure: 0.74 · <a href="Project-SmallerModel.dc.html">Open the offer</a></span></div>
+          <div class="ev-st">
+            <span class="k">1</span><span><b>Proposed</b><small>4 Nov, by the Index agent. An engineer can propose one too: the task, where it should go, and why.</small></span>
+            <span class="k">2</span><span><b>In the shadow · now</b><small>Since 4 Nov the small Core answers a copy of every request for this task. Only today's model's answer goes back to the advisor.</small></span>
+            <span class="k o">3</span><span><b>The project decides</b><small>Waits for Priya N.: take the offer, or not now and why.</small></span>
+            <span class="k o">4</span><span><b>A change request, then the rollout</b><small>Approved outside the portal · a silent day, then 5% of advisors.</small></span>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; align-items: center"><a class="kit-btn outline sm" href="#">Propose a rule change</a><a class="kit-btn outline sm" href="#">Stop the shadow</a><button class="hold" type="button" aria-disabled="true" style="opacity: .45"><i aria-hidden="true"></i>Hold to send the change request</button></div>
+          <div class="dr-n">Sending is greyed until the project has decided. Stopping the shadow changes nothing an advisor sees.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="Loss mask on a training run">
+      <div class="dr-q"><b>6</b><span>The foundation engineer asks: is this run learning from the right tokens, and only from those?</span></div>
+      <div class="dr-h"><h3>On a training run · the loss mask on a made-up sample</h3><span style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Foundation team only · D-312</span><span class="kit-chip">Run core-shaping20-20261103-a · stage 3 · Distil back</span></span></div>
+      <div class="kit-small kit-muted" style="margin-top: 6px">The same Engineering switch, on <a href="Training-Run.dc.html">a run's page</a>. One sample exactly as the run sees it after the chat template is applied. Marked tokens count toward the loss; grey ones are read but not learned from.</div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px; align-items: start">
+        <div>
+          <div class="ev-lm" role="img" aria-label="A made-up sample of 148 tokens. The user's turn of 96 tokens is masked. The model's turn of 52 tokens, with its end-of-turn token, counts toward the loss."><span class="m"><span class="tk">&lt;bos&gt;</span><span class="tk">&lt;start_of_turn&gt;</span>user
+Write the summary of this advice call for the advisor's record. List what was agreed at the end.
+
+Advisor: You wanted to look at income for when you retire. Client: Yes, from spring 2029. I hold a balanced fund and I read about a bond fund. Advisor: There are two ways to draw from it, and they are taxed differently. I will send you the bond fund's sheet.<span class="tk">&lt;end_of_turn&gt;</span>
+<span class="tk">&lt;start_of_turn&gt;</span>model
+</span><span class="c">The client plans to retire in spring 2029 and asked how to draw income from a balanced fund. The advisor explained two ways to withdraw and how each is taxed.
+Follow-up: send the bond fund's sheet.</span><span class="c"><span class="tk">&lt;end_of_turn&gt;</span></span></div>
+          <div class="ev-lg"><span><span class="ev-lm c" style="display: inline; padding: 1px 6px; margin: 0; box-shadow: none; border-radius: 0; font-size: 12px">Abc</span>&nbsp; Counts toward the loss</span><span><span style="color: rgba(26,26,26,.5); font-family: ui-monospace, Menlo, monospace">Abc</span>&nbsp; Masked: read, not learned from</span><span>Sample 1 of 200 drawn at random · <a href="#">Next sample</a></span></div>
+        </div>
+        <div>
+          <dl class="dr-kv" style="margin-top: 12px">
+            <dt>Tokens in the sample</dt><dd>148</dd>
+            <dt>Count toward the loss</dt><dd>52 · 35%</dd>
+            <dt>Masked</dt><dd>96 · 65%</dd>
+          </dl>
+          <div class="kit-label" style="margin-top: 16px">Checked on the 200 samples</div>
+          <div class="ev-ck">
+            <span>Only the model's turn counts<small>Nothing from the user's turn or the template</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>200 of 200</span></span></span>
+            <span>The end-of-turn token counts<small>So the model learns where to stop</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>200 of 200</span></span></span>
+            <span>Padding is masked</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>200 of 200</span></span></span>
+            <span>The sample is made up<small>Made here, with its teacher recorded · no client data</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>200 of 200</span></span></span>
+          </div>
+          <div class="dr-n">The sample comes from the run's own mix; which set it was cut from is on <a href="Training-Files.dc.html">its files</a>. A check that fails here stops the stage before it starts.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4240}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

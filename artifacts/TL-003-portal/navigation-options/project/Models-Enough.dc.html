@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TL Index · which model is enough: choose pillars, thresholds and request size, and see the models that meet them, cheapest first (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.dr-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.dr-h h3{margin:0;font-size:18px;font-weight:500}
+.dr-q{display:flex;gap:8px;align-items:center;font-size:12.5px;color:rgba(26,26,26,.65);margin-bottom:8px}
+.dr-q b{display:inline-flex;flex:none;width:20px;height:20px;border-radius:50%;align-items:center;justify-content:center;font-size:11.5px;font-weight:500;background:#1A1A1A;color:#fff}
+.dr-n{margin-top:12px;font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.65)}
+.dr-t{display:grid;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.dr-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.dr-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.dr-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.dr-t .n{font-variant-numeric:tabular-nums}
+.dr-t b{font-weight:500}
+.dr-k{display:grid;gap:12px}
+.dr-k>*{display:flex;flex-direction:column;gap:6px;padding:18px;color:inherit;text-decoration:none}
+.dr-ag{border-radius:18px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 16px;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.45;margin-top:12px}
+.dr-ag .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dr-kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin:10px 0 0}
+.dr-kv>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.dr-kv dt{color:rgba(26,26,26,.65);padding-right:14px}.dr-kv dd{margin:0;font-variant-numeric:tabular-nums;text-align:right}
+.dr-kv small{display:block;font-size:12px;color:rgba(26,26,26,.6)}
+.hold{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:500 13px Inter,system-ui,sans-serif;white-space:nowrap}
+.hold i{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.en-f{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) minmax(0,1.1fr);gap:32px;align-items:start;margin-top:6px}
+.en-pl{display:grid;grid-template-columns:minmax(0,1fr) 108px;gap:0;font-size:13px;line-height:1.4;margin-top:8px}
+.en-pl>*{padding:8px 0;border-top:1px solid rgba(26,26,26,.1);display:flex;align-items:center;gap:10px;min-width:0}
+.en-pl .off{color:rgba(26,26,26,.5)}
+.en-pl small{font-size:12px;color:rgba(26,26,26,.6)}
+.en-in{display:inline-flex;align-items:center;justify-content:space-between;width:100px;height:32px;padding:0 10px;border-radius:10px;border:1px solid rgba(26,26,26,.2);background:#fff;font-variant-numeric:tabular-nums;font-size:13px}
+.en-in.off{background:transparent;border-style:dashed;color:rgba(26,26,26,.5)}
+.en-in small{color:rgba(26,26,26,.55)}
+.en-sz{display:grid;grid-template-columns:96px repeat(4,minmax(0,1fr));gap:5px;margin-top:10px;font-size:12px}
+.en-sz .h{color:rgba(26,26,26,.6);padding:4px 2px;line-height:1.25}
+.en-sz .c{border-radius:10px;height:34px;display:flex;align-items:center;justify-content:center;gap:5px;background:rgba(26,26,26,.05);font-variant-numeric:tabular-nums;color:rgba(26,26,26,.7)}
+.en-sz .c.on{background:#1A1A1A;color:#fff;font-weight:500}
+.en-sz .c.on svg{width:13px;height:13px}
+.en-sz .c.e{background:transparent;box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);color:rgba(26,26,26,.4)}
+.en-rec{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:center}
+.en-t{grid-template-columns:minmax(0,1.4fr) 92px 66px 84px repeat(4,minmax(0,1fr)) minmax(0,1.35fr);align-items:stretch}
+.en-t>*{display:flex;flex-direction:column;justify-content:center;gap:2px}
+.en-t .sep{grid-column:1/-1;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,26,26,.6);padding-top:18px;border-top:1.5px solid rgba(26,26,26,.55);flex-direction:row;justify-content:space-between;align-items:baseline;gap:12px}
+.en-t .sep span{text-transform:none;letter-spacing:0;font-size:12px}
+.en-t .sel{background:color-mix(in oklab,var(--companion) 9%,white)}
+.en-t .n b{font-weight:500}
+.en-t .kit-status{font-size:11.5px}
+.en-g{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px 9px;margin-top:10px;font-size:13px;line-height:1.45}
+.en-g svg{width:16px;height:16px;margin-top:2px}
+.en-g b{font-weight:500}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2506px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-current="page" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Index-Language.dc.html">← TL Index · Language</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Which model is enough <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Which model is enough</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Edition 2026-11 · 9 models scored</span><span class="kit-chip" style="box-shadow: 0 0 0 1.5px #1A1A1A">2 meet every threshold</span><span class="kit-chip">Open to everyone</span><span class="kit-chip">3 parts</span><span class="kit-chip">First draft · for review</span></div>
+        <span class="kit-small kit-muted">Say what a job needs: the pillars that matter, the threshold on each, and the size of a request. The page lists the models that meet all of it, cheapest first, and names the one that is enough. It reads the TL Index and nothing else, and it decides nothing: a feature's own evaluation set has the last word · As of 11:58 ET · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Index-Language.dc.html">The leaderboard</a><a class="kit-btn outline" href="Index-Queue.dc.html">Ask for a model to be scored</a><a class="kit-btn outline" href="Jarvis-Ask.dc.html">Ask Jarvis which model fits a task</a></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="What the job needs">
+      <div class="dr-q"><b>1</b><span>The reader says: this is what the job needs. Which pillars, held to what, for requests of what size?</span></div>
+      <div class="dr-h"><h3>What the job needs</h3><span class="kit-small kit-muted">Every change redraws the list below · nothing here changes a record</span></div>
+      <div class="en-f">
+        <div>
+          <div class="kit-label" style="margin-top: 10px">Thresholds from</div>
+          <div class="kit-seg" role="group" aria-label="Thresholds from" style="margin-top: 8px"><button type="button" aria-pressed="false">The TL Index's</button><button type="button" aria-pressed="true">A feature's record</button><button type="button" aria-pressed="false">My own</button></div>
+          <div style="margin-top: 12px"><button class="kit-btn outline" type="button">Claims triage · Claims intake <span aria-hidden="true">▾</span></button></div>
+          <div class="dr-n">Its record names three pillars and holds each to the Index's threshold. In use for it today: Distil 4.2, which has the open finding F-0425. Change a number and this reads "My own"; the feature's record is changed only on the feature's page.</div>
+        </div>
+        <div>
+          <div class="kit-label" style="margin-top: 10px">Pillars and thresholds</div>
+          <div class="en-pl">
+            <span><span class="kit-switch on"><i></i></span><span>Financial data processing</span></span><span><span class="en-in">80<small>at least</small></span></span>
+            <span><span class="kit-switch on"><i></i></span><span>Compliance and regulatory</span></span><span><span class="en-in">78<small>at least</small></span></span>
+            <span><span class="kit-switch on"><i></i></span><span>Entity recognition</span></span><span><span class="en-in">80<small>at least</small></span></span>
+            <span class="off"><span class="kit-switch"><i></i></span><span>Client care<small> · not on its record</small></span></span><span><span class="en-in off">80<small>at least</small></span></span>
+            <span class="off"><span class="kit-switch"><i></i></span><span>Safety and grounding<small> · not on its record</small></span></span><span><span class="en-in off">72<small>at least</small></span></span>
+            <span><span class="kit-switch on"><i></i></span><span>Made-up answers<small> · on for every job</small></span></span><span><span class="en-in">3%<small>at most</small></span></span>
+          </div>
+        </div>
+        <div>
+          <div class="kit-label" style="margin-top: 10px">Size of a request</div>
+          <div class="en-sz" role="group" aria-label="Size of a request, by tokens in and tokens out">
+            <span class="h">Tokens in ↓ · out →</span><span class="h">Under 256</span><span class="h">256 to 1k</span><span class="h">1k to 4k</span><span class="h">Over 4k</span>
+            <span class="h">Under 1k</span><span class="c"></span><span class="c"></span><span class="c e">—</span><span class="c e">—</span>
+            <span class="h">1k to 4k</span><span class="c"></span><span class="c on"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 12 4 4 8-9"></path></svg>Chosen</span><span class="c"></span><span class="c e">—</span>
+            <span class="h">4k to 16k</span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c e">—</span>
+            <span class="h">Over 16k</span><span class="c e">—</span><span class="c"></span><span class="c"></span><span class="c"></span>
+          </div>
+          <div class="dr-n">Cost and time below are for this size, which is the Index's usual task. Pick another cell and both are worked out again for it; a dash is a size no model was timed on.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="The models that meet it">
+      <div class="dr-q"><b>2</b><span>The reader asks: which models meet all of that, what does each cost, and which is the least I can use?</span></div>
+      <div class="en-rec">
+        <div>
+          <span class="kit-caption">Enough for this job</span>
+          <div style="font-size: 40px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.15; margin-top: 4px">Core 4.2</div>
+          <div style="font-size: 15px; line-height: 1.5; margin-top: 8px; max-width: 640px">The cheapest model that meets every threshold chosen: $0.018 a task, 2.0 s a task. Nothing cheaper or smaller meets them. Distil 4.2, in use today, is under on Compliance and regulatory.</div>
+          <div class="kit-small kit-muted" style="margin-top: 8px">Worked out from the leaderboard by a fixed rule; no agent and no judgement. "Smallest" is cheapest a task, then the smaller model where cost ties.</div>
+        </div>
+        <div>
+          <div class="dr-ag" style="margin-top: 0"><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>One thing to weigh</span></span></span><span>Core 4.2 holds the made-up threshold by 0.1 of a point, and its range reaches over. Domain-Advice v2 is clear of every threshold with its whole range, for $0.001 more a task.</span></div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px"><a class="kit-btn" href="Model-Catalogue.dc.html">Open Core 4.2</a><a class="kit-btn outline" href="Index-Queue.dc.html">Try it on Claims triage's own questions</a><a class="kit-btn outline" href="My-Work.dc.html">Send this to the feature's owners</a></div>
+        </div>
+      </div>
+
+      <div class="dr-t en-t" style="margin-top: 20px">
+        <span class="h">Model</span><span class="h">Cost a task ▴</span><span class="h">Time a task</span><span class="h">Size</span><span class="h">Financial data · 80</span><span class="h">Compliance · 78</span><span class="h">Entities · 80</span><span class="h">Made-up answers · 3% at most</span><span class="h">For this job</span>
+
+        <span class="sep">Meet every threshold · 2<span>Cheapest first</span></span>
+        <span class="sel"><b>Core 4.2</b><small>ThinkLatent · TLM4 · Core</small></span><span class="sel n">$0.018</span><span class="sel n">2.0 s</span><span class="sel n">27B</span><span class="sel n"><b>85 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="sel n"><b>80 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="sel n"><b>84 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="sel n"><b>2.9% ± 0.4</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span><small>Its range reaches over 3%</small></span><span class="sel"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Enough</span></span><small>The cheapest that meets every threshold</small></span>
+        <span><b>Domain-Advice v2</b><small>ThinkLatent · TLM4 · Domain</small></span><span class="n">$0.019</span><span class="n">2.1 s</span><span class="n">27B</span><span class="n"><b>86 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="n"><b>83 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="n"><b>88 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="n"><b>1.8% ± 0.3</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets every threshold</span></span><small>Clear with its whole range · $0.001 more a task</small></span>
+
+        <span class="sep">Cannot tell yet · 3<span>A pillar has too few scored questions</span></span>
+        <span><b>Open model · 70B</b><small>Outside · open, as it comes</small></span><span class="n">$0.034</span><span class="n">4.4 s</span><span class="n">70B</span><span class="n"><b>82 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="n"><b>77 ± 2</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Too close to call</span></span></span><span class="n"><b>—</b><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Too few questions</span></span></span><span class="n"><b>3.4% ± 0.5</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Too close to call</span></span></span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Cannot tell</span></span><small>Under 100 scored questions on Entity recognition</small></span>
+        <span><b>Vendor B · large</b><small>Outside · vendor</small></span><span class="n">$0.054</span><span class="n">3.4 s</span><span class="n">Not stated</span><span class="n"><b>87 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="n"><b>—</b><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Too few questions</span></span></span><span class="n"><b>86 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="n"><b>2.6% ± 0.4</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span></span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Cannot tell</span></span><small>Too few Compliance questions may leave the Enterprise</small></span>
+        <span><b>Vendor A · large</b><small>Outside · vendor</small></span><span class="n">$0.061</span><span class="n">2.9 s</span><span class="n">Not stated</span><span class="n"><b>88 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="n"><b>—</b><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Too few questions</span></span></span><span class="n"><b>87 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="n"><b>2.1% ± 0.4</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Holds</span></span></span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Cannot tell</span></span><small>The same reason</small></span>
+
+        <span class="sep">Do not meet them · 4<span>Cheapest first</span></span>
+        <span><b>Distil 4.2</b><small>ThinkLatent · TLM4 · Distil · <b>in use for Claims triage today</b></small></span><span class="n">$0.004</span><span class="n">0.6 s</span><span class="n">Small</span><span class="n"><b>78 ± 2</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Too close to call</span></span></span><span class="n"><b>69 ± 2</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Under</span></span></span><span class="n"><b>78 ± 2</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Too close to call</span></span></span><span class="n"><b>3.3% ± 0.5</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Too close to call</span></span></span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Not enough</span></span><small>Under on Compliance, by 9</small></span>
+        <span><b>Vendor A · small</b><small>Outside · vendor</small></span><span class="n">$0.009</span><span class="n">1.1 s</span><span class="n">Not stated</span><span class="n"><b>82 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="n"><b>76 ± 2</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Too close to call</span></span></span><span class="n"><b>81 ± 2</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Meets</span></span></span><span class="n"><b>3.8% ± 0.5</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Over</span></span></span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Not enough</span></span><small>Over on made-up answers</small></span>
+        <span><b>Core 3.4</b><small>ThinkLatent · TLM3 · retiring</small></span><span class="n">$0.011</span><span class="n">3.1 s</span><span class="n">About 25B</span><span class="n"><b>70 ± 2</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Under</span></span></span><span class="n"><b>64 ± 2</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Under</span></span></span><span class="n"><b>70 ± 2</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Under</span></span></span><span class="n"><b>6.0% ± 0.6</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Over</span></span></span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Not enough</span></span><small>Under on all three</small></span>
+        <span><b>Open model · 30B</b><small>Outside · open, as it comes</small></span><span class="n">$0.015</span><span class="n">1.9 s</span><span class="n">30B</span><span class="n"><b>76 ± 2</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Under</span></span></span><span class="n"><b>70 ± 2</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Under</span></span></span><span class="n"><b>77 ± 2</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Under</span></span></span><span class="n"><b>5.1% ± 0.6</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Over</span></span></span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Not enough</span></span><small>Under on all three</small></span>
+      </div>
+      <div class="dr-n">Being scored now: Open model · 34B, run IX-0432, asked for by Claims intake with this question in mind. It joins the list when the run ends, in about 3 h 40. The small Core and TLM5 have no run on this edition. Cost a task is a sample figure: outside models at their published prices, ThinkLatent's at what a task costs to serve.</div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="On the feature's own questions">
+        <div class="dr-q"><b>3</b><span>The reader asks: the pillars say it is enough. Does it hold on this feature's own work?</span></div>
+        <div class="dr-h"><h3>On Claims triage's own questions</h3><span class="kit-small kit-muted">Real Enterprise · 300 questions from this use · edition 2026-11</span></div>
+        <div class="dr-t" style="grid-template-columns: minmax(0, 1.2fr) 110px minmax(0, 1.6fr)">
+          <span class="h">Model</span><span class="h">Score</span><span class="h">Where it stands</span>
+          <span><b>Distil 4.2</b><small>In use today, as it comes</small></span><span class="n">71 ± 5</span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Under what the project expects</span></span><small>74% ± 4 in production against 80% · F-0425, for 16 days</small></span>
+          <span><b>The best outside model</b></span><span class="n">82 ± 5</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Ahead of Distil 4.2</span></span></span>
+          <span><b>Core 4.2</b><small>Enough, by the pillars</small></span><span class="n">—</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Not run on these questions yet</span></span><small>A Practice run waits for free machines</small></span>
+          <span><b>Domain-Advice v2</b></span><span class="n">—</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Not run on these questions yet</span></span></span>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; align-items: center"><a class="kit-btn sm" href="Index-Queue.dc.html">Ask for a Practice run of Core 4.2 on the 300</a><span class="kit-small kit-muted">ThinkLatent's Index team accepts each ask within a working day</span></div>
+        <div class="dr-n">The pillars are a first sift. A switch of model is still the project's decision, made on its Increments tab with its own checks, as with <a href="Project-SmallerModel.dc.html">an offer of a smaller model</a>.</div>
+      </section>
+
+      <section class="kit-surface" aria-label="How to read the list">
+        <div class="dr-h"><h3>How to read the list</h3></div>
+        <div class="en-g">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--companion)" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span><b>Meets, or holds</b><br>The score is at or over the threshold. Where its range reaches the other side, the row says so.</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--info)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span><b>Too close to call</b><br>The score is on the wrong side, and its range reaches the threshold. Such a model is never named as enough.</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--decision)" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span><b>Under, or over</b><br>The whole range is on the wrong side.</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="rgba(26,26,26,.5)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span><b>Too few questions</b><br>Under 100 scored questions on that pillar, so there is no score to hold to a threshold.</span>
+        </div>
+        <div class="dr-n">Not on this page: speed when the endpoint is busy, how long a request a model can take, and whether a model is approved for your data. Those are on each model's card. The preference rating from people's votes is never a threshold.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2506}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

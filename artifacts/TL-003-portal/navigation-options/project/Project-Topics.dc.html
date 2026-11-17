@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Quality · what a feature's requests are about: topic clusters with a privacy floor, coverage against the evaluation set, and what the Enterprise asks most (first draft)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.dr-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.dr-h h3{margin:0;font-size:18px;font-weight:500}
+.dr-q{display:flex;gap:8px;align-items:center;font-size:12.5px;color:rgba(26,26,26,.65);margin-bottom:8px}
+.dr-q b{display:inline-flex;flex:none;width:20px;height:20px;border-radius:50%;align-items:center;justify-content:center;font-size:11.5px;font-weight:500;background:#1A1A1A;color:#fff}
+.dr-n{margin-top:12px;font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.65)}
+.dr-t{display:grid;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.dr-t>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.dr-t .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.dr-t small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.dr-t .n{font-variant-numeric:tabular-nums}
+.dr-t b{font-weight:500}
+.dr-k{display:grid;gap:12px}
+.dr-k>*{display:flex;flex-direction:column;gap:6px;padding:18px;color:inherit;text-decoration:none}
+.dr-ag{border-radius:18px;background:rgba(255,255,255,.62);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:12px 16px;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.45;margin-top:12px}
+.dr-ag .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dr-kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0;font-size:13px;line-height:1.45;margin:10px 0 0}
+.dr-kv>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.dr-kv dt{color:rgba(26,26,26,.65);padding-right:14px}.dr-kv dd{margin:0;font-variant-numeric:tabular-nums;text-align:right}
+.dr-kv small{display:block;font-size:12px;color:rgba(26,26,26,.6)}
+.hold{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:500 13px Inter,system-ui,sans-serif;white-space:nowrap}
+.hold i{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.tp-seg{display:inline-flex;border-radius:10px;box-shadow:0 0 0 1px rgba(26,26,26,.14);overflow:hidden;font-size:12.5px}
+.tp-seg span{padding:5px 11px}.tp-seg span.on{background:#1A1A1A;color:#fff}
+.tp-t{grid-template-columns:minmax(0,1.5fr) 210px 170px 150px 86px minmax(0,1.35fr);align-items:stretch}
+.tp-t>*{display:flex;flex-direction:column;justify-content:center}
+.tp-t .hi{background:color-mix(in oklab,var(--info) 8%,white)}
+.tp-t .fl{grid-column:1/-1;display:flex;flex-direction:row;gap:12px;align-items:center;justify-content:flex-start;color:rgba(26,26,26,.75);border-top:1.5px dashed rgba(26,26,26,.4)}
+.tp-t .fl svg{width:16px;height:16px;flex:none}
+.tp-b{display:grid!important;grid-template-columns:64px minmax(0,1fr);gap:2px 8px;align-items:center}
+.tp-b .tr,.tp-p .tr{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.07)}
+.tp-b .tr i,.tp-p .tr i{display:block;height:10px;border-radius:5px;background:var(--companion)}
+.tp-b .tr i.nw{background:transparent;box-shadow:inset 0 0 0 1.5px var(--info)}
+.tp-p .tr i.st{background:repeating-linear-gradient(135deg,rgba(26,26,26,.6) 0 2px,rgba(26,26,26,.15) 2px 5px)}
+.tp-s{flex-direction:row!important;align-items:center;gap:8px;justify-content:flex-start!important}
+.tp-p{display:grid!important;grid-template-columns:48px minmax(0,1fr);gap:4px 8px;align-items:center}
+.tp-w3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:14px}
+.tp-w3>div{font-size:13px;line-height:1.45;border-top:1px solid rgba(26,26,26,.1);padding-top:10px}
+.tp-w3 b{font-weight:500;font-size:14px;display:block}
+.tp-near{display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:0;font-size:13px;line-height:1.45;margin-top:8px}
+.tp-near>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.tp-near small{display:block;font-size:12px;color:rgba(26,26,26,.6)}
+.tp-en{display:grid;grid-template-columns:150px minmax(0,1fr) 44px;gap:8px 10px;align-items:center;font-size:13px;margin-top:10px}
+.tp-en .tr{height:10px;border-radius:5px;background:rgba(26,26,26,.07)}
+.tp-en .tr i{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.5)}
+.tp-en .n{text-align:right;font-variant-numeric:tabular-nums}
+.tp-lg{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:rgba(26,26,26,.7);margin-top:10px;align-items:center}
+.tp-lg i{display:inline-block;width:22px;height:10px;border-radius:5px;vertical-align:-1px;margin-right:6px;background:var(--companion)}
+.tp-lg i.st{background:repeating-linear-gradient(135deg,rgba(26,26,26,.6) 0 2px,rgba(26,26,26,.15) 2px 5px)}
+.tp-c>*{display:flex;flex-direction:column;justify-content:center}
+.tp-p{align-content:center}
+.tp-un{color:rgba(26,26,26,.55)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3868px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Playground.dc.html">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-current="page" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Organization-Page.dc.html">Retail Business <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Team-Page.dc.html">Advice Tech <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <a class="kit-btn outline" href="Project-Page.dc.html">Advisor desktop <span aria-hidden="true">▾</span></a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Call summary <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 860px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Quality · what requests are about</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Call summary</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No call or summary is shown here · D-324</span><span class="kit-chip">Floor: 200 calls, 20 advisers</span><span class="kit-chip">4 parts</span><span class="kit-chip">First draft · for review</span></div>
+        <span class="kit-small kit-muted">What the calls sent to a feature are about, how the feature does on each topic, and whether its evaluation set covers them. Topics are counted, never read: this page holds names and numbers only · As of 11:58 ET · sample data</span>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><span class="tp-seg" role="group" aria-label="Time window"><span>Today</span><span>7 days</span><span class="on">30 days</span><span>Quarter</span></span><span class="kit-small kit-muted">The same switch as Home · a new topic shows today's share until it has 30 days of its own</span></div>
+      </div>
+      <div class="kit-actions"><a class="kit-btn" href="Project-Quality.dc.html">← The scores</a><a class="kit-btn outline" href="Project-QualityLoop.dc.html">Review, judge and drift</a><a class="kit-btn outline" href="Feature-EvalBuild.dc.html">Build the next set</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Project pages">
+      <a role="tab" aria-selected="false" href="Project-Page.dc.html">Overview</a><a role="tab" aria-selected="false" href="Project-Plan.dc.html">Plan</a><a role="tab" aria-selected="false" href="Project-Features.dc.html">Features</a><a role="tab" aria-selected="false" href="Project-Connect.dc.html">Connect</a><a role="tab" aria-selected="false" href="Project-Traces.dc.html">Traces</a><a role="tab" aria-selected="false" href="Project-Operations.dc.html">Operations</a><a role="tab" aria-selected="true" href="Project-Quality.dc.html">Quality</a><a role="tab" aria-selected="false" href="Project-SelfHealing.dc.html">Self-healing and training</a><a role="tab" aria-selected="false" href="Project-Increments.dc.html">Increments</a><a role="tab" aria-selected="false" href="Project-Members.dc.html">Members</a>
+    </div>
+
+    <div class="dr-k" style="grid-template-columns: repeat(5, minmax(0, 1fr))">
+      <div class="kit-surface"><span class="kit-caption">Topics shown</span><span class="kit-display" style="font-size: 36px">11</span><span class="kit-small kit-muted">Together 96.4% of calls in 30 days</span></div>
+      <div class="kit-surface"><span class="kit-caption">Under the floor, not shown</span><span class="kit-display" style="font-size: 36px">7</span><span class="kit-small kit-muted">Clusters · together 1.4% of calls</span></div>
+      <div class="kit-surface"><span class="kit-caption">Not sorted</span><span class="kit-display" style="font-size: 36px">2.2%</span><span class="kit-small kit-muted">The topic step was not sure enough to say</span></div>
+      <a class="kit-surface" href="Project-QualityLoop.dc.html"><span class="kit-caption">Topics of the calls coming in</span><span class="kit-display" style="font-size: 36px">Steady</span><span class="kit-small kit-muted">Population stability 0.04 · warns at 0.10 · on Drift</span></a>
+      <div class="kit-surface" style="box-shadow: 0 0 0 1.5px var(--decision)"><span class="kit-caption">Topics with nothing in the set</span><span class="kit-display" style="font-size: 36px">2</span><span class="kit-small kit-muted">A change of beneficiary · estate planning · 1 more left out with a reason</span></div>
+    </div>
+
+    <section class="kit-surface raised" aria-label="What the calls are about">
+      <div class="dr-q"><b>1</b><span>The owner asks: what are advisers' calls about, how does the feature do on each, and is anything new?</span></div>
+      <div class="dr-h"><h3>What the calls are about</h3><span class="kit-small kit-muted">Topic clusters inside this feature's one task, summarise · 30 days, largest first · a row opens the topic</span></div>
+      <div class="dr-t tp-t">
+        <span class="h">Topic</span><span class="h">Share of calls, 30 days</span><span class="h">Today, hour by hour from 7</span><span class="h">Completeness, by the judge · expects 0.80</span><span class="h">In evaluation set v3</span><span class="h">Where it stands</span>
+            <span><b>Retirement income</b><small>Drawing an income, when to retire</small></span><span class="tp-b"><span class="n">24%</span><span class="tr"><i style="width: 100%"></i></span></span><span class="tp-s"><svg aria-hidden="true" viewBox="0 0 100 30" style="width: 100px; height: 30px; flex: none"><polyline points="6.0,11.9 23.6,10.4 41.2,11.9 58.8,10.0 76.4,12.0 94.0,10.3" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"></polyline><circle cx="94" cy="10.3" r="2.5" fill="#1A1A1A"></circle></svg><span class="n">25%<small>last hour</small></span></span><span class="n">0.88 ± 0.01</span><span class="n">92</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+            <span><b>Portfolio review</b><small>How the holdings did, rebalancing</small></span><span class="tp-b"><span class="n">21%</span><span class="tr"><i style="width: 88%"></i></span></span><span class="tp-s"><svg aria-hidden="true" viewBox="0 0 100 30" style="width: 100px; height: 30px; flex: none"><polyline points="6.0,10.7 23.6,11.9 41.2,10.0 58.8,11.9 76.4,10.6 94.0,11.7" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"></polyline><circle cx="94" cy="11.7" r="2.5" fill="#1A1A1A"></circle></svg><span class="n">20%<small>last hour</small></span></span><span class="n">0.87 ± 0.01</span><span class="n">74</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+            <span><b>Contributions and withdrawals</b><small>Paying in, taking out</small></span><span class="tp-b"><span class="n">15%</span><span class="tr"><i style="width: 62%"></i></span></span><span class="tp-s"><svg aria-hidden="true" viewBox="0 0 100 30" style="width: 100px; height: 30px; flex: none"><polyline points="6.0,10.1 23.6,10.9 41.2,10.0 58.8,11.7 76.4,12.1 94.0,10.8" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"></polyline><circle cx="94" cy="10.8" r="2.5" fill="#1A1A1A"></circle></svg><span class="n">15%<small>last hour</small></span></span><span class="n">0.86 ± 0.01</span><span class="n">58</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+            <span><b>Rollovers and transfers</b><small>Moving an account in or out</small></span><span class="tp-b"><span class="n">11%</span><span class="tr"><i style="width: 46%"></i></span></span><span class="tp-s"><svg aria-hidden="true" viewBox="0 0 100 30" style="width: 100px; height: 30px; flex: none"><polyline points="6.0,11.8 23.6,10.0 41.2,10.2 58.8,11.2 76.4,12.4 94.0,11.2" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"></polyline><circle cx="94" cy="11.2" r="2.5" fill="#1A1A1A"></circle></svg><span class="n">11%<small>last hour</small></span></span><span class="n">0.84 ± 0.02</span><span class="n">41</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+            <span><b>Tax on withdrawals</b></span><span class="tp-b"><span class="n">8%</span><span class="tr"><i style="width: 33%"></i></span></span><span class="tp-s"><svg aria-hidden="true" viewBox="0 0 100 30" style="width: 100px; height: 30px; flex: none"><polyline points="6.0,11.0 23.6,10.0 41.2,11.3 58.8,10.3 76.4,11.5 94.0,11.2" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"></polyline><circle cx="94" cy="11.2" r="2.5" fill="#1A1A1A"></circle></svg><span class="n">8%<small>last hour</small></span></span><span class="n">0.83 ± 0.02</span><span class="n">29</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+            <span><b>Questions about the new fee schedule</b><small>Thumbs down are common here · F-0398, accepted</small></span><span class="tp-b"><span class="n">6%</span><span class="tr"><i style="width: 25%"></i></span></span><span class="tp-s"><svg aria-hidden="true" viewBox="0 0 100 30" style="width: 100px; height: 30px; flex: none"><polyline points="6.0,12.3 23.6,12.2 41.2,11.1 58.8,13.4 76.4,11.2 94.0,10.0" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"></polyline><circle cx="94" cy="10.0" r="2.5" fill="#1A1A1A"></circle></svg><span class="n">7%<small>last hour</small></span></span><span class="n">0.81 ± 0.02</span><span class="n">4</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Thin</span></span><small>All 4 from before the change · 20 added for v4 on 3 Nov</small></span>
+            <span><b>Account upkeep</b><small>Address, statements, access</small></span><span class="tp-b"><span class="n">4%</span><span class="tr"><i style="width: 17%"></i></span></span><span class="tp-s"><svg aria-hidden="true" viewBox="0 0 100 30" style="width: 100px; height: 30px; flex: none"><polyline points="6.0,11.0 23.6,10.4 41.2,10.0 58.8,11.2 76.4,12.3 94.0,11.1" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"></polyline><circle cx="94" cy="11.1" r="2.5" fill="#1A1A1A"></circle></svg><span class="n">4%<small>last hour</small></span></span><span class="n">0.90 ± 0.02</span><span class="n">26</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+            <span class="hi"><b>Estate planning</b><small>Wills and trusts · not seen in the training data</small></span><span class="tp-b hi"><span class="n">4% today</span><span class="tr"><i class="nw" style="width: 17%"></i></span><small style="grid-column: 1 / -1">Under 1% of 30 days: it is new</small></span><span class="tp-s hi"><svg aria-hidden="true" viewBox="0 0 100 30" style="width: 100px; height: 30px; flex: none"><polyline points="6.0,25.4 23.6,24.1 41.2,20.2 58.8,15.1 76.4,11.3 94.0,10.0" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"></polyline><circle cx="94" cy="10.0" r="2.5" fill="#1A1A1A"></circle></svg><span class="n">5%<small>last hour</small></span></span><span class="n hi">0.71 ± 0.04<small>0.86 for the rest</small></span><span class="n hi">0</span><span class="hi"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>New today · flagged</span></span><small>By the SRE agent · <a href="#one">opened below</a></small></span>
+            <span><b>A change of beneficiary</b></span><span class="tp-b"><span class="n">3%</span><span class="tr"><i style="width: 12%"></i></span></span><span class="tp-s"><svg aria-hidden="true" viewBox="0 0 100 30" style="width: 100px; height: 30px; flex: none"><polyline points="6.0,11.0 23.6,10.6 41.2,10.0 58.8,11.9 76.4,11.6 94.0,10.9" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"></polyline><circle cx="94" cy="10.9" r="2.5" fill="#1A1A1A"></circle></svg><span class="n">3%<small>last hour</small></span></span><span class="n">0.79 ± 0.03</span><span class="n">0</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Nothing in the set</span></span><small>The owner decides: add, write edge cases, or leave out</small></span>
+            <span><b>College savings</b></span><span class="tp-b"><span class="n">3%</span><span class="tr"><i style="width: 12%"></i></span></span><span class="tp-s"><svg aria-hidden="true" viewBox="0 0 100 30" style="width: 100px; height: 30px; flex: none"><polyline points="6.0,10.4 23.6,12.5 41.2,11.0 58.8,10.5 76.4,10.0 94.0,11.3" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"></polyline><circle cx="94" cy="11.3" r="2.5" fill="#1A1A1A"></circle></svg><span class="n">3%<small>last hour</small></span></span><span class="n">0.85 ± 0.03</span><span class="n">6</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+            <span><b>Calls that are mostly small talk</b></span><span class="tp-b"><span class="n">1%</span><span class="tr"><i style="width: 4%"></i></span></span><span class="tp-s"><svg aria-hidden="true" viewBox="0 0 100 30" style="width: 100px; height: 30px; flex: none"><polyline points="6.0,11.9 23.6,10.0 41.2,11.4 58.8,11.8 76.4,10.9 94.0,10.6" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round"></polyline><circle cx="94" cy="10.6" r="2.5" fill="#1A1A1A"></circle></svg><span class="n">1%<small>last hour</small></span></span><span class="n">— Nothing to summarise</span><span class="n">0</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Left out</span></span><small>1 Nov, by an owner: 'nothing to summarise'</small></span>
+        <span class="fl"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span><b>7 clusters under the floor</b> · together 1.4% of calls · — not shown: each has fewer than 200 calls or fewer than 20 advisers in the window. They cannot be opened, here or from a trace.</span></span>
+        <span class="fl" style="border-top: 1px solid rgba(26,26,26,.1)"><span style="width: 16px"></span><span><b>Not sorted</b> · 2.2% of calls · the topic step was under 0.60 sure, so it gave no topic. A trace still shows its own topic and how sure the step was.</span></span>
+      </div>
+      <div class="tp-w3">
+        <div><b>The floor</b>A topic is shown only when at least 200 calls from at least 20 advisers fall in it within the window. Under that, a topic could point at a person or a client, so it is counted and not named. The floor is ThinkLatent's to set, not the project's.</div>
+        <div><b>How a topic gets its name</b>The topic step on each trace names what the call is about after personal details are removed, and says how sure it is. The watch agent groups those into clusters and proposes a name; a person at ThinkLatent checks a name before it is first shown.</div>
+        <div><b>What is never here</b>No call, no summary, no quote and no example. Text stays sealed on the trace, and reading it is asked for in the Enterprise's access management, not in the portal (D-293, D-324).</div>
+      </div>
+      <div class="dr-ag"><span class="top"><a class="kit-chip brand" href="Agents-AtWork.dc.html" style="text-decoration: none">Watch agent</a><span class="kit-caption">Grouped and named these topics</span></span><span class="kit-small kit-muted">Rests on the topic step of every trace in 30 days, after redaction · sure: high for the ten steady topics, medium for the new one · <a href="#">View sources</a> · it proposes a name, a person accepts it</span></div>
+    </section>
+
+    <div id="one" style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; align-items: start">
+      <section class="kit-surface" aria-label="One topic opened">
+        <div class="dr-q"><b>2</b><span>The owner asks: what is this new topic, how badly does it go, and what should be done about it?</span></div>
+        <div class="dr-h"><h3>One topic opened · Estate planning</h3><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>New today · flagged</span></span></span></div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start">
+          <dl class="dr-kv">
+            <dt>Calls today</dt><dd>1,040 · 4%</dd>
+            <dt>Advisers</dt><dd>212<small>Over the floor of 20</small></dd>
+            <dt>Seen in the training data</dt><dd>No</dd>
+            <dt>In evaluation set v3</dt><dd>Nothing</dd>
+            <dt>Completeness, by the judge</dt><dd>0.71 ± 0.04<small>0.86 for the rest · expects 0.80</small></dd>
+            <dt>Thumbs down</dt><dd>Twice as common</dd>
+          </dl>
+          <div>
+            <div class="kit-label" style="margin-top: 12px">Kinds of thing named in these calls</div>
+            <div class="tp-en" role="table" aria-label="Kinds of thing named in estate planning calls, by share of calls">
+              <span>A will or a trust</span><span class="tr"><i style="width: 81%"></i></span><span class="n">81%</span>
+              <span>A beneficiary</span><span class="tr"><i style="width: 64%"></i></span><span class="n">64%</span>
+              <span>A kind of account</span><span class="tr"><i style="width: 58%"></i></span><span class="n">58%</span>
+              <span>A date</span><span class="tr"><i style="width: 44%"></i></span><span class="n">44%</span>
+              <span>An amount</span><span class="tr"><i style="width: 39%"></i></span><span class="n">39%</span>
+            </div>
+            <div class="dr-n" style="margin-top: 8px">From the entity step on each trace. The kind is counted; the name, date or amount itself is never shown.</div>
+          </div>
+        </div>
+        <div class="dr-ag"><span class="top"><a class="kit-chip brand" href="Agents-AtWork.dc.html" style="text-decoration: none">SRE agent</a><span class="kit-caption">What requests are about · today</span></span><span><b style="font-weight: 500">It suggests:</b> add 50 of them to the evaluation set, and to the next training set after review.</span><span class="kit-small kit-muted">Rests on 1,040 traces in a new cluster · sure: medium, the check is new · <a href="#">View sources</a> · it proposes, the owners decide</span><span style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px"><a class="kit-btn sm" href="Feature-EvalBuild.dc.html">Add 50 to the next set</a><a class="kit-btn outline sm" href="Project-Traces.dc.html">Open its traces · text sealed</a><a class="kit-btn outline sm" href="Project-SelfHealing.dc.html">Tell self-healing</a></span></div>
+      </section>
+
+      <section class="kit-surface" aria-label="What else looks like this">
+        <div class="dr-h"><h3>What else looks like this</h3><span class="kit-small kit-muted">The topics nearest in meaning, among those shown</span></div>
+        <div class="tp-near">
+          <span><b style="font-weight: 500">A change of beneficiary</b><small>3% of calls · nothing in the set either · completeness 0.79 ± 0.03</small></span><span>Very close</span>
+          <span><b style="font-weight: 500">Retirement income</b><small>24% of calls · 92 items in the set · completeness 0.88 ± 0.01</small></span><span>Close</span>
+          <span><b style="font-weight: 500">Account upkeep</b><small>4% of calls · 26 items in the set</small></span><span>Some way off</span>
+          <span class="tp-un">2 clusters under the floor are near it<small>— not shown, and not counted in the 1,040</small></span><span class="tp-un">—</span>
+        </div>
+        <div class="dr-n">Nearness is by the meaning of what comes in, the same measure Drift watches. Two near topics with nothing in the set are best decided together: <a href="Feature-EvalBuild.dc.html">the owner decides each</a>.</div>
+        <div class="kit-label" style="margin-top: 16px">Since it appeared</div>
+        <dl class="dr-kv" style="margin-top: 4px">
+          <dt>The last hour</dt><dd>5% of calls</dd>
+          <dt>Today</dt><dd>4%</dd>
+          <dt>The 7 days before</dt><dd>— under the floor, not shown</dd>
+        </dl>
+      </section>
+    </div>
+
+    <section class="kit-surface" aria-label="Coverage by topic group">
+      <div class="dr-q"><b>3</b><span>The owner asks: does the evaluation set test what advisers actually send, and what is the biggest thing it misses?</span></div>
+      <div class="dr-h"><h3>Coverage by topic group</h3><span class="kit-small kit-muted">Share of calls in 30 days against share of evaluation set v3, 330 items · largest group first</span></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 28px; align-items: start">
+        <div>
+          <div class="dr-t tp-c" style="grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.2fr) 60px minmax(0, 1fr)">
+            <span class="h">Topic group</span><span class="h">Calls, then the set</span><span class="h">Items</span><span class="h">Where it stands</span>
+          <span><b>Income and retirement</b><small>Retirement income · tax on withdrawals</small></span><span class="tp-p"><span class="n">32%</span><span class="tr"><i style="width: 80.0%"></i></span><span class="n">36.7%</span><span class="tr"><i class="st" style="width: 91.8%"></i></span></span><span class="n">121</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+          <span><b>Money in and out</b><small>Contributions and withdrawals · rollovers and transfers</small></span><span class="tp-p"><span class="n">26%</span><span class="tr"><i style="width: 65.0%"></i></span><span class="n">30%</span><span class="tr"><i class="st" style="width: 75.0%"></i></span></span><span class="n">99</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+          <span><b>Investments</b><small>Portfolio review</small></span><span class="tp-p"><span class="n">21%</span><span class="tr"><i style="width: 52.5%"></i></span><span class="n">22.4%</span><span class="tr"><i class="st" style="width: 56.0%"></i></span></span><span class="n">74</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span></span>
+          <span><b>Family and estate</b><small>A change of beneficiary · college savings · estate planning</small></span><span class="tp-p"><span class="n">6.4%</span><span class="tr"><i style="width: 16.0%"></i></span><span class="n">1.8%</span><span class="tr"><i class="st" style="width: 4.5%"></i></span></span><span class="n">6</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>A gap</span></span><small>Two of its three topics have nothing in the set</small></span>
+          <span><b>Fees</b><small>The new fee schedule</small></span><span class="tp-p"><span class="n">6%</span><span class="tr"><i style="width: 15.0%"></i></span><span class="n">1.2%</span><span class="tr"><i class="st" style="width: 3.0%"></i></span></span><span class="n">4</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Thin</span></span><small>All 4 items are from before the change</small></span>
+          <span><b>Account upkeep</b><small>Address, statements, access</small></span><span class="tp-p"><span class="n">4%</span><span class="tr"><i style="width: 10.0%"></i></span><span class="n">7.9%</span><span class="tr"><i class="st" style="width: 19.8%"></i></span></span><span class="n">26</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Covered</span></span><small>More than its share</small></span>
+          <span><b>Other</b><small>Small talk · under the floor · not sorted</small></span><span class="tp-p"><span class="n">4.6%</span><span class="tr"><i style="width: 11.5%"></i></span><span class="n">—</span><span class="tr"><i class="st" style="width: 0.0%"></i></span></span><span class="n">0</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Not counted</span></span><small>Left out with a reason, or not shown</small></span>
+          </div>
+          <div class="tp-lg"><span><i></i>Share of calls</span><span><i class="st"></i>Share of the evaluation set</span><span>Both on the same scale, 0 to 40%</span></div>
+        </div>
+        <div>
+          <div class="dr-ag" style="margin-top: 10px"><span class="top"><a class="kit-chip brand" href="Agents-AtWork.dc.html" style="text-decoration: none">Quality agent</a><span class="kit-caption">The biggest topic the set misses</span></span><span style="font-size: 17px; font-weight: 500">A change of beneficiary: 3% of calls, nothing in the set</span><span>Estate planning is next, and growing: 4% of today. Fees is covered only by items from before the fee change.</span><span class="kit-small kit-muted">Rests on v3's 330 items against 30 days of calls by topic · fairly sure · <a href="#">View sources</a></span></div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px"><a class="kit-btn" href="My-Work.dc.html">Send the 3 gaps to the owners</a><a class="kit-btn outline" href="Feature-EvalBuild.dc.html">Open the next set</a></div>
+          <div class="dr-n">Each gap goes to Priya N. and Dev R. as one item. An owner adds the topic, has edge cases written, or leaves it out with a reason that is kept. A topic past 5% of calls with nothing in the set opens a finding by itself.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kit-surface" aria-label="Across the Enterprise">
+      <div class="dr-q"><b>4</b><span>Anyone asks: what does the Enterprise ask its models most, and are those the things the models are tested on and good at?</span></div>
+      <div class="dr-h"><h3>Across the Enterprise · what is asked most</h3><span style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip">The same for everyone</span><span class="kit-chip">58k live requests today</span></span></div>
+      <div class="dr-t" style="grid-template-columns: minmax(0, 1.25fr) 120px minmax(0, 1fr) 110px 96px minmax(0, 1fr) 96px minmax(0, 1.1fr)">
+        <span class="h">Kind of question · where it is asked</span><span class="h">Requests today</span><span class="h">Model in use</span><span class="h">Questions on it in Real Enterprise</span><span class="h">As it comes</span><span class="h">After training for it</span><span class="h">Best outside</span><span class="h">Where it stands</span>
+        <span><b>Summarise a call</b><small>Call summary · Advisor desktop</small></span><span class="n">26k · 45%</span><span>Domain-Advice v2</span><span class="n">400</span><span class="n">80 ± 5</span><span class="n"><b>86 ± 5</b></span><span class="n">81 ± 5</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Tested and trained for</span></span></span>
+        <span><b>Sort a claim</b><small>Claims triage · Claims intake</small></span><span class="n">19k · 33%</span><span>Distil 4.2</span><span class="n">300</span><span class="n">71 ± 5</span><span class="n tp-un">— Not trained for it yet</span><span class="n">82 ± 5</span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>Under its threshold</span></span><small>F-0425, for 16 days</small></span>
+        <span><b>Answer a client's question</b><small>Chat answers · Service chat assist</small></span><span class="n">8k · 14%</span><span>Core 4.2</span><span class="n">250</span><span class="n">76 ± 5</span><span class="n tp-un">— Not trained for it yet</span><span class="n">80 ± 5</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>In Pilot</span></span></span>
+        <span><b>Suggest the next step</b><small>Next best action · Advisor desktop</small></span><span class="n">5k · 9%</span><span>Decision adapter v1, then Domain-Advice v2</span><span class="n tp-un">— None yet</span><span class="n tp-un">—</span><span class="n tp-un">—</span><span class="n tp-un">—</span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"></circle></svg><span>Not in the Index yet</span></span><small>In Pilot, scored on its own 300 cases</small></span>
+      </div>
+      <div class="dr-n">A kind of question here is a feature's task. The 154k background requests (writing down calls, removing personal details, sorting calls by reason) are scored on their own measures, on <a href="Index-Leaderboards.dc.html">Leaderboards by kind</a>. Scores are from <a href="Index-Language.dc.html">Real Enterprise</a>, edition 2026-11.</div>
+
+      <div class="dr-h" style="margin-top: 22px"><h3>The weakest domains, by TL Index pillar</h3><span class="kit-small kit-muted">The three models that answer live requests · furthest under a threshold first</span></div>
+      <div class="dr-t" style="grid-template-columns: minmax(0, 1.2fr) 90px minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.3fr)">
+        <span class="h">Pillar</span><span class="h">Threshold</span><span class="h">Domain-Advice v2 · 31k requests</span><span class="h">Distil 4.2 · 19k</span><span class="h">Core 4.2 · 8k</span><span class="h">Where it stands</span>
+        <span><b>Safety and grounding</b></span><span class="n">72</span><span class="n">78 ± 2</span><span class="n"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>63 ± 2 · under</span></span></span><span class="n">76 ± 2</span><span>The lowest score of all three<small>Distil 4.2 is 9 under</small></span>
+        <span><b>Compliance and regulatory</b></span><span class="n">78</span><span class="n">83 ± 2</span><span class="n"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>69 ± 2 · under</span></span></span><span class="n">80 ± 2</span><span>Distil 4.2 is 9 under</span>
+        <span><b>Client care</b></span><span class="n">80</span><span class="n">87 ± 2</span><span class="n"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 6 6M15 9l-6 6"></path></svg><span>74 ± 2 · under</span></span></span><span class="n">82 ± 2</span><span>Distil 4.2 is 6 under</span>
+        <span><b>Financial data processing</b></span><span class="n">80</span><span class="n">86 ± 2</span><span class="n"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>78 ± 2 · too close to call</span></span></span><span class="n">85 ± 2</span><span>The range of Distil 4.2 reaches the threshold</span>
+        <span><b>Entity recognition</b></span><span class="n">80</span><span class="n">88 ± 2</span><span class="n"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>78 ± 2 · too close to call</span></span></span><span class="n">84 ± 2</span><span>The range of Distil 4.2 reaches the threshold</span>
+      </div>
+      <div class="dr-n">One model, Distil 4.2, is under on three pillars and answers a third of live requests: sorting claims. Claims triage also has the open finding F-0425, and Claims intake has asked for another model to be scored · <a href="Index-Queue.dc.html">the evaluation queue</a> · <a href="Models-Enough.dc.html">which model is enough</a></div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3868}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
