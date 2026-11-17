@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Connectors: ThinkLatent's list, connecting one, your own by address, and a connector's tools</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.ls{display:grid;grid-template-columns:minmax(0,1.5fr) 100px 190px minmax(0,1.3fr) 170px;font-size:13px;line-height:1.4;margin-top:10px;align-items:stretch}
+.ls>*{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ls>.acts{flex-direction:row;align-items:center;justify-content:flex-end;padding-right:0}
+.ls .h{font-size:11.5px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.ls .g{grid-column:1 / -1;font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);padding:14px 0 6px;border-top:1px solid rgba(26,26,26,.1)}
+.ls .g+*,.ls .g+*+*,.ls .g+*+*+*,.ls .g+*+*+*+*,.ls .g+*+*+*+*+*{border-top:0}
+.ls small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.flt{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:10px}
+.tl{display:flex;flex-direction:column;margin-top:8px}
+.tl>span{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.tl>span:first-child{border-top:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.64)}
+.fd{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.fd:first-child{margin-top:0}
+.fd label,.fd .lb{font-size:12px;font-weight:500;color:rgba(26,26,26,.7)}
+.fd small{font-size:12px;color:rgba(26,26,26,.64);line-height:1.45}
+.hd{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.hd b{font-weight:500}
+.sg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px}
+.sg>div{display:flex;flex-direction:column}
+.sg h4{margin:0;font-size:14px;font-weight:500}
+.sg .cap{font-size:12px;color:rgba(26,26,26,.65);line-height:1.45;margin:4px 0 0;min-height:35px}
+.sg .mini{margin-top:10px;border-radius:16px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);padding:14px;font-size:13px;line-height:1.5;display:flex;flex-direction:column;gap:8px;min-height:118px;flex:1}
+.sg .mini.bad{box-shadow:0 0 0 1.5px var(--decision)}
+.sg .mini small{font-size:12px;color:rgba(26,26,26,.66)}
+.rw{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;font-size:11.5px;font-weight:500;box-shadow:inset 0 0 0 1px rgba(26,26,26,.22);white-space:nowrap}
+.rw.ch{box-shadow:inset 0 0 0 1px var(--decision);color:var(--decision)}
+.tk{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.45}
+.tk i{flex:none;width:16px;height:16px;border-radius:4px;background:#1B5128;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.tk i svg{width:12px;height:12px;color:#fff}
+.ring small,.soft small{font-size:12px;color:rgba(26,26,26,.66)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3330px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Connectors <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Connectors</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Connectors</span><span class="kit-chip">10 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">ThinkLatent's list and where each stands for you, connecting one with your own access, every state it can be in, its tools with read or change marked, adding your own inside the Enterprise, and asking for an outside one · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="false" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="true" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="Connectors">
+        <div class="ix-h"><h3>1 · Connectors</h3><span class="kit-small kit-muted">4 in ThinkLatent's list · 1 connected · none of your own</span></div>
+        <p class="rule">A connector lets a model or an agent reach a system for you. ThinkLatent keeps the list; you connect one for yourself, with your own access, and nobody else is connected by it. What ThinkLatent sets is shown here, not edited.</p>
+        <div class="flt"><span class="kit-seg" role="group" aria-label="Show"><button type="button" aria-pressed="true">All 4</button><button type="button" aria-pressed="false">Connected 1</button><button type="button" aria-pressed="false">Not connected 2</button><button type="button" aria-pressed="false">Not offered 1</button></span><button class="kit-btn " type="button">Add your own, by address</button></div>
+        <div class="ls">
+          <span class="h">Connector · what it reaches</span><span class="h">Where</span><span class="h">What it can do</span><span class="h">Where it stands for you</span><span class="h"></span>
+          <span class="g">ThinkLatent's list · 4</span>
+          <span><b style="font-weight: 500">Product sheets library</b><small>Fund and product sheets: what you can already open there</small></span><span><span class="kit-chip outline">Inside</span></span><span>4 tools<small>3 read · 1 changes</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Connected, with your access</span></span><small>Since 2 Nov · used by your agent Fee explainer</small></span><span class="acts"><button class="kit-btn outline sm" type="button">Open</button><button class="kit-btn ghost sm" type="button" aria-label="More for Product sheets library">More</button></span>
+          <span><b style="font-weight: 500">Policy library</b><small>Policies and procedures</small></span><span><span class="kit-chip outline">Inside</span></span><span>3 tools<small>All read</small></span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3v5M15 3v5M7 8h10v4a5 5 0 0 1-10 0zM12 17v4"></path></svg><span>Not connected</span></span><small>Takes your Enterprise sign-in: one press</small></span><span class="acts"><button class="kit-btn outline sm" type="button">Connect</button></span>
+          <span><b style="font-weight: 500">Team wiki</b><small>Your teams' pages</small></span><span><span class="kit-chip outline">Inside</span></span><span>5 tools<small>3 read · 2 change</small></span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3v5M15 3v5M7 8h10v4a5 5 0 0 1-10 0zM12 17v4"></path></svg><span>Not connected</span></span><small>Asks you to sign in to it, and which space</small></span><span class="acts"><button class="kit-btn outline sm" type="button">Connect</button></span>
+          <span><b style="font-weight: 500"><span class="kit-muted">Web search</span></b><small>The public web</small></span><span><span class="kit-chip">Outside</span></span><span><span class="kit-muted">1 tool</span><small>Reads</small></span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Not offered</span></span><small>Off for everyone until ThinkLatent allows it</small></span><span class="acts"><span class="kit-small kit-muted">Set by ThinkLatent</span></span>
+          <span class="g">Your own, by address · 0</span>
+          <span style="grid-column: 1 / 5"><span class="kit-muted">None added.</span><small>You may add a connector of your own when its address is inside the Enterprise. Only you can use it.</small></span><span class="acts"><button class="kit-btn outline sm" type="button">Add your own</button></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Connecting one">
+        <div class="ix-h"><h3>2 · Connecting one</h3><span class="kit-small kit-muted">"Connect", open on Team wiki</span></div>
+        <p class="rule">You connect as yourself. Most connectors inside the Enterprise take your Enterprise sign-in at one press; a few, like this one, ask you to sign in to them in a small window of their own.</p>
+        <div class="soft"><div class="hd"><b>Connect Team wiki</b><span class="kit-chip outline">Inside</span></div>
+          <dl class="kv" style="margin-top: 10px"><dt>Reaches</dt><dd>Your teams' pages: what you can already open there, and no more</dd><dt>Can do</dt><dd>5 tools: 3 read, 2 change. A change asks you every time</dd><dt>Signs in</dt><dd>As you, in Team wiki's own window. Try TLM never sees your password</dd><dt>Keeps</dt><dd>A pass that works only as you, until you disconnect or Team wiki ends it</dd></dl>
+          <div class="acts" style="margin-top: 10px"><button class="kit-btn sm" type="button">Sign in to Team wiki</button><button class="kit-btn ghost sm" type="button">Cancel</button></div>
+        </div>
+        <p class="rule" style="margin-top: 12px">The small window ends in one of two ways, in plain words:</p>
+        <div class="step"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>You are connected to Team wiki</span></span><small>You can close this window</small></div>
+        <div class="step"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Team wiki did not let you in</span></span><small>Nothing was connected · try again, or close</small></div>
+      </section>
+      <section class="kit-surface" aria-label="What you must supply">
+        <div class="ix-h"><h3>3 · What you must supply</h3><span class="kit-small kit-muted">Asked once, after signing in</span></div>
+        <p class="rule">Some connectors need something from you before they work. What you supply is kept for you alone, is never passed to the model, and can be changed or cleared at any time.</p>
+        <div class="soft"><b style="font-weight: 500">Team wiki asks for two things</b>
+          <div class="fd"><label for="c1">Which space</label><input id="c1" class="kit-input" value="Advice Tech onboarding"><small>Only pages in this space are reached.</small></div>
+          <div class="fd"><label for="c2">Your reading key, if your space asks for one</label><input id="c2" class="kit-input" type="password" value="madeupkey0000" aria-describedby="c2h"><small id="c2h">Kept sealed. It is not shown again, and only this connector uses it.</small></div>
+          <div class="acts" style="margin-top: 12px"><button class="kit-btn sm" type="button">Save and connect</button><button class="kit-btn ghost sm" type="button">Clear what I supplied</button></div>
+        </div>
+        <p class="rule" style="margin-top: 12px">A connector that needs nothing skips this step. If what you supplied stops working, the connector reads "Needs signing in again" and asks for it again.</p>
+      </section>
+      <section class="kit-surface wide" aria-label="The states a connector can be in">
+        <div class="ix-h"><h3>4 · The states a connector can be in</h3><span class="kit-small kit-muted">The same connector, Team wiki, drawn once in each · the same words in the list, in the Tools menu and in an agent</span></div>
+        <p class="rule">Each state says what happened and what to do next. A connector that is not connected holds nothing of yours.</p>
+        <div class="sg">
+          <div><h4>Not connected</h4><p class="cap">In the list, never used by you, or disconnected.</p>
+            <div class="mini"><div class="hd"><b>Team wiki</b><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3v5M15 3v5M7 8h10v4a5 5 0 0 1-10 0zM12 17v4"></path></svg><span>Not connected</span></span></div><small>Nothing of yours is held.</small><div class="acts"><button class="kit-btn outline sm" type="button">Connect</button></div></div></div>
+          <div><h4>Connecting</h4><p class="cap">While you sign in, or while the connector starts.</p>
+            <div class="mini"><div class="hd"><b>Team wiki</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Connecting…</span></span></div><small>Waiting for you to finish signing in, in its own window.</small><div class="acts"><button class="kit-btn ghost sm" type="button">Cancel</button></div></div></div>
+          <div><h4>Connected</h4><p class="cap">Ready to use in a session or an agent, with your access.</p>
+            <div class="mini"><div class="hd"><b>Team wiki</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Connected, with your access</span></span></div><small>Since today 11:52 · 5 tools, 3 switched on · space "Advice Tech onboarding".</small><div class="acts"><button class="kit-btn outline sm" type="button">Open</button></div></div></div>
+          <div><h4>Needs signing in again</h4><p class="cap">Your pass ended, or what you supplied stopped working.</p>
+            <div class="mini"><div class="hd"><b>Team wiki</b><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Needs signing in again</span></span></div><small>Your pass ended on 4 Nov. A session says so when it next needs Team wiki; agents that use it carry on without it.</small><div class="acts"><button class="kit-btn sm" type="button">Sign in again</button></div></div></div>
+          <div><h4>Failed: it did not answer</h4><p class="cap">The fault is on the connector's side. Nothing of yours was sent.</p>
+            <div class="mini bad"><div class="hd"><b>Team wiki</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Did not answer</span></span></div><small>Tried 3 times, last at 11:51. Its service may be down.</small><div class="acts"><button class="kit-btn sm" type="button">Try again</button><a class="kit-btn ghost sm" href="Help-Page.dc.html">Is it down?</a></div></div></div>
+          <div><h4>Failed: you have no access</h4><p class="cap">You signed in, and the system itself said no. Try TLM cannot grant access.</p>
+            <div class="mini bad"><div class="hd"><b>Team wiki</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Did not let you in</span></span></div><small>You have no access to the space "Advice Tech onboarding". Ask its owners, or pick a space you can open.</small><div class="acts"><button class="kit-btn outline sm" type="button">Change the space</button></div></div></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What a connector can do: its tools">
+        <div class="ix-h"><h3>5 · What a connector can do: its tools</h3><span class="kit-small kit-muted">"Open", on Product sheets library</span></div>
+        <p class="rule">Each thing a connector can do is a tool, marked as one that reads or one that changes. A tool that changes asks you every time. A tool you switch off is not offered to the model in any session or agent of yours.</p>
+        <div class="tl">
+          <span><span>Find a product sheet<small>By fund name or share class</small></span><span class="acts"><span class="rw">Reads</span><span class="kit-switch on" role="switch" aria-checked="true"><i></i></span></span></span>
+          <span><span>Read a product sheet<small>The sheet's text and its table of charges</small></span><span class="acts"><span class="rw">Reads</span><span class="kit-switch on" role="switch" aria-checked="true"><i></i></span></span></span>
+          <span><span>List a fund's charges<small>The figures only</small></span><span class="acts"><span class="rw">Reads</span><span class="kit-switch on" role="switch" aria-checked="true"><i></i></span></span></span>
+          <span><span>Add a note to a sheet<small>Asks every time · switched off by you on 2 Nov</small></span><span class="acts"><span class="rw ch">Changes</span><span class="kit-switch" role="switch" aria-checked="false"><i></i></span></span></span>
+          <span><span class="kit-muted">Remove a sheet<small>Switched off for everyone by ThinkLatent</small></span><span class="acts"><span class="rw ch">Changes</span><span class="kit-small kit-muted">Not offered</span></span></span>
+        </div>
+        <div class="acts" style="margin-top: 10px"><button class="kit-btn outline sm" type="button">Switch all the changing tools off</button><span class="kit-small kit-muted">3 of 4 on · applies from your next message</span></div>
+      </section>
+      <section class="kit-surface" aria-label="Adding your own, by address">
+        <div class="ix-h"><h3>6 · Adding your own, by address</h3><span class="kit-small kit-muted">"Add your own", open</span></div>
+        <p class="rule">Inside the Enterprise only. A connector you add is yours alone, works with your access, and has not been checked by ThinkLatent: it says so wherever it is listed.</p>
+        <div class="soft">
+          <div class="fd"><label for="n1">Name</label><input id="n1" class="kit-input" value="Team reading list"></div>
+          <div class="fd"><label for="n2">Address</label><input id="n2" class="kit-input" value="https://[an address inside the Enterprise]/tools"><small><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Inside the Enterprise · it answered · 2 tools found, both read</span></span></small></div>
+          <div class="fd"><span class="lb">How it knows who you are</span><span class="kit-seg" role="group" aria-label="How it knows who you are" style="align-self: flex-start"><button type="button" aria-pressed="true">My Enterprise sign-in</button><button type="button" aria-pressed="false">Its own sign-in</button><button type="button" aria-pressed="false">A key I supply</button></span></div>
+          <div class="fd"><span class="tk"><i><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"></path></svg></i><span>I know who runs this service. ThinkLatent has not checked it.</span></span></div>
+          <div class="acts" style="margin-top: 12px"><button class="kit-btn sm" type="button">Add it</button><button class="kit-btn ghost sm" type="button">Cancel</button></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="An outside address is refused">
+        <div class="ix-h"><h3>7 · An outside address is refused</h3><span class="kit-small kit-muted">And can be asked for</span></div>
+        <p class="rule">An address outside the Enterprise is never added, and nothing is sent to it. You can ask ThinkLatent for it: the ask is a request you follow on Requests, and an outside tool that is allowed is offered to everyone.</p>
+        <div class="fd"><label for="x1">Address</label><input id="x1" class="kit-input" value="https://[an address outside the Enterprise]/tools"></div>
+        <div class="ring"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>This address is outside the Enterprise</span></span><br>It was not added. ThinkLatent decides which outside tools are allowed, one at a time.
+          <div class="fd"><label for="x2">What it is, and why you need it</label><input id="x2" class="kit-input" value="A public list of fund prices, to check a figure against"></div>
+          <div class="acts" style="margin-top: 10px"><button class="kit-btn sm" type="button">Ask ThinkLatent for it</button><button class="kit-btn ghost sm" type="button">Leave it</button></div>
+          <small style="display: block; margin-top: 8px">It becomes an ask on <a href="Requests-Status.dc.html">Requests</a>, with a first answer within 3 days and a reason either way.</small>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Disconnecting, and removing your own">
+        <div class="ix-h"><h3>8 · Disconnecting, and removing your own</h3><span class="kit-small kit-muted">Both can be undone</span></div>
+        <p class="rule">Disconnecting throws your pass away and leaves the connector in the list. Removing one of your own takes its address and what you supplied. Either can be undone for 10 seconds; steps already listed in your sessions stay.</p>
+        <div class="tl">
+          <span><span>Product sheets library<small>One of ThinkLatent's · connected since 2 Nov</small></span><button class="kit-btn outline sm" type="button">Disconnect</button></span>
+          <span><span>Team reading list<small>Your own · not checked by ThinkLatent</small></span><button class="kit-btn outline sm" type="button">Remove</button></span>
+        </div>
+        <div class="step"><span>Product sheets library disconnected</span><span class="acts"><small>10 seconds, or <span class="kit-kbd">⌘Z</span></small><button class="kit-btn outline sm" type="button">Undo</button></span></div>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>1 agent of yours uses it</span></span><br>Fee explainer carries on without Product sheets library and says so in its answers, until you connect again.</div>
+      </section>
+      <section class="kit-surface" aria-label="Where a connected connector shows up">
+        <div class="ix-h"><h3>9 · Where a connected connector shows up</h3><span class="kit-small kit-muted">Four places</span></div>
+        <p class="rule">Connecting does not switch a connector on anywhere. You choose it where you want it used.</p>
+        <div class="tl">
+          <span><span>In a session<small>Under "Your connectors" in the Tools menu, switched on one session at a time</small></span><a class="kit-btn ghost sm" href="Try-Box.dc.html">The Tools menu</a></span>
+          <span><span>In an agent<small>Under "What it may use" · it works with the access of whoever uses the agent, never the maker's</small></span><a class="kit-btn ghost sm" href="Try-Agent.dc.html">Build an agent</a></span>
+          <span><span>In the steps<small>Every call is listed with what was asked, what came back and whose access</small></span><a class="kit-btn ghost sm" href="Try-Steps.dc.html">What the tools did</a></span>
+          <span><span>In a schedule<small>Named when you make the schedule · a run uses it with your access, and waits if it needs signing in again</small></span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What a connector can never do">
+        <div class="ix-h"><h3>10 · What a connector can never do</h3><span class="kit-small kit-muted">The same for every connector</span></div>
+        <p class="rule">These hold for ThinkLatent's connectors and for your own.</p>
+        <div class="tl">
+          <span><span>See more than you can<small>It signs in as you: what you cannot open, it cannot reach</small></span></span>
+          <span><span>Bring client data into a session<small>What it brings back is checked; a stopped result reaches nothing and keeps nothing</small></span></span>
+          <span><span>Change something without asking<small>Every time, with no "always allow"</small></span></span>
+          <span><span>Reach outside the Enterprise<small>Unless ThinkLatent has allowed that one tool for everyone</small></span></span>
+          <span><span>Work unseen<small>Every call is listed in the session it was made in</small></span></span>
+          <span><span>Be handed to someone else<small>Each person connects for themselves; a connector is not shared</small></span></span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3330}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

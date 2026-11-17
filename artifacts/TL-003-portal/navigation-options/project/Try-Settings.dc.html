@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · settings: how the chat behaves, speaking and listening, memory, and what is set elsewhere</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.tl{display:flex;flex-direction:column;margin-top:8px}
+.tl>span{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:10px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.45}
+.tl>span:first-child{border-top:0}
+.tl>span>span:first-child{min-width:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.tl .r{flex:none;display:flex;gap:8px;align-items:center}
+.cap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);margin:14px 0 0}
+.hold{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:inherit;font-size:13px;font-weight:500;white-space:nowrap}
+.hold i{width:15px;height:15px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.hold.red{background:var(--decision)}
+.toast{display:flex;justify-content:space-between;gap:16px;align-items:center;border-radius:12px;background:#1A1A1A;color:#fff;padding:10px 14px;font-size:13px;margin-top:12px}
+.toast a{color:#fff;font-weight:500}
+.mn{margin-top:8px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.10);padding:6px;font-size:13px;line-height:1.4;display:flex;flex-direction:column}
+.mn .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 10px;border-radius:10px}
+.mn .it.on{background:rgba(26,26,26,.06)}
+.mn .it small{font-size:12px;color:rgba(26,26,26,.66)}
+.mn .mcap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);padding:8px 10px 2px}
+.mn hr{border:0;border-top:1px solid rgba(26,26,26,.1);margin:4px 6px}
+.only{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:500;background:#1A1A1A;color:#fff;white-space:nowrap}
+.only svg{width:13px;height:13px}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:6px;align-items:start}
+.cols h4{margin:14px 0 0;font-size:14px;font-weight:500}
+.sr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;align-items:start;padding:12px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.45}
+.cols h4+.sr{border-top:0}
+.sr b{font-weight:500}
+.sr small{display:block;font-size:12px;color:rgba(26,26,26,.66);margin-top:2px}
+.sr .c{display:flex;gap:8px;align-items:center;justify-content:flex-end;padding-top:1px}
+.sr .s{grid-column:1 / -1;font-size:12px;color:rgba(26,26,26,.62);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sr .s .kit-chip{height:22px;font-size:11.5px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:4px}
+.two>div{min-width:0}
+.two .lab{font-size:12px;font-weight:500;color:rgba(26,26,26,.7);margin-top:8px;display:block}
+.wh{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr) 150px;font-size:13px;line-height:1.45;margin-top:8px;align-items:stretch}
+.wh>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.wh .h{font-size:11.5px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.wh small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3607px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Settings <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Try TLM's settings</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Settings</span><span class="kit-chip">10 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">What is about the chat and yours to choose, each with its meaning and its starting value; then what is shown but not set, and where everything else lives · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="true" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="Try TLM's settings">
+        <div class="ix-h"><h3>1 · Try TLM's settings</h3><span class="kit-small kit-muted">Yours only · saved as you change them · the same on every device</span></div>
+        <p class="rule">Only what is about the chat and is yours to choose. Each line says in plain words what it does and what it starts as; a line you have changed says so. There is no Save button.</p>
+        <div class="cols">
+          <div>
+            <h4>How the chat behaves</h4>
+            <div class="sr"><span><b>Send with Enter</b><small>Enter sends; Shift and Enter starts a new line. Off: Enter starts a new line, and <span class="kit-kbd">Ctrl</span> or <span class="kit-kbd">⌘</span> with Enter sends.</small></span><span class="c"><span class="kit-switch on" role="switch" aria-checked="true" aria-label="Send with Enter"><i></i></span></span><span class="s">Starts as: on</span></div>
+            <div class="sr"><span><b>Show the model's reasoning</b><small>A folded "Thought for 4 seconds" line above an answer, for models that give it. This is what a new session starts with; a session's own set-up can differ.</small></span><span class="c"><span class="kit-switch on" role="switch" aria-checked="true" aria-label="Show the model's reasoning"><i></i></span></span><span class="s">Starts as: on</span></div>
+            <div class="sr"><span><b>Steps</b><small>What an agent did, one line a step. Opened shows what was asked of each tool and what came back, without a click.</small></span><span class="c"><span class="kit-seg" role="group" aria-label="Steps"><button type="button" aria-pressed="true">Folded</button><button type="button" aria-pressed="false">Opened</button></span></span><span class="s">Starts as: folded</span></div>
+            <div class="sr"><span><b>Artifacts open beside the chat by themselves</b><small>A larger piece of work opens in its pane as it is made. Off: the answer carries its card and you open it.</small></span><span class="c"><span class="kit-switch on" role="switch" aria-checked="true" aria-label="Artifacts open by themselves"><i></i></span></span><span class="s">Starts as: on</span></div>
+            <div class="sr"><span><b>Start new sessions on</b><small>The model, or one of your saved settings, that a new session begins with. You can still change it in the session.</small></span><span class="c"><button class="kit-btn outline sm" type="button" aria-haspopup="listbox">Core 4.2 <span aria-hidden="true">▾</span></button></span><span class="s">Starts as: Core 4.2, no saved setting</span></div>
+          </div>
+          <div>
+            <h4>Speaking and listening</h4>
+            <div class="sr"><span><b>Voice</b><small>The voice that reads an answer aloud. ThinkLatent's own voices, made inside the Enterprise.</small></span><span class="c"><button class="kit-btn outline sm" type="button" aria-haspopup="listbox">Calm <span aria-hidden="true">▾</span></button><button class="kit-btn ghost sm" type="button">Hear it</button></span><span class="s">Starts as: Calm</span></div>
+            <div class="sr"><span><b>Speed</b><small>How fast an answer is read.</small></span><span class="c"><span class="kit-seg" role="group" aria-label="Speed"><button type="button" aria-pressed="false">Slower</button><button type="button" aria-pressed="false">Normal</button><button type="button" aria-pressed="true">Faster</button></span></span><span class="s">Starts as: normal<span class="kit-chip outline">Changed by you</span></span></div>
+            <div class="sr"><span><b>Read answers aloud by themselves</b><small>Each answer is read as it ends. Off: only when you press "Read aloud" under an answer.</small></span><span class="c"><span class="kit-switch" role="switch" aria-checked="false" aria-label="Read answers aloud by themselves"><i></i></span></span><span class="s">Starts as: off</span></div>
+            <div class="sr"><span><b>Listening language</b><small>What you say is written into the box by ThinkLatent's speech model. It listens for English.</small></span><span class="c"><span class="kit-chip">English</span></span><span class="s">Starts as: English · not a choice yet</span></div>
+            <p class="rule" style="margin-top: 8px">What you say is never sent by itself: it lands in the box and you send it. The sound is not kept.</p>
+          </div>
+          <div>
+            <h4>Memory</h4>
+            <div class="sr"><span><b>Remember how I work</b><small>Try TLM keeps a few things about how you work and uses them in new sessions. 4 things remembered · <a href="Playground-More.dc.html">see and edit them</a></small></span><span class="c"><span class="kit-switch on" role="switch" aria-checked="true" aria-label="Memory"><i></i></span></span><span class="s">Starts as: on</span></div>
+            <h4 style="margin-top: 18px">The client-data check</h4>
+            <div class="sr"><span><b>Checks what you send</b><small>On what you send, on files, and on what a tool brings back. It is not a setting and cannot be switched off. <a href="#check">What it looks for</a></small></span><span class="c"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Always on</span></span></span></div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 14px"><span class="acts"><button class="kit-btn outline sm" type="button">Back to the starting values</button><span class="kit-small kit-muted">Saved 11:52 · 1 line changed by you</span></span><span class="kit-small kit-muted">Look, sign-in, notifications, limits and tools are not here: part 8 says where each is set</span></div>
+      </section>
+      <section class="kit-surface" aria-label="Where it opens from">
+        <div class="ix-h"><h3>2 · Where it opens from</h3><span class="kit-small kit-muted">Two doors, one page</span></div>
+        <p class="rule">From "More" above a session, and from You. It is a page of Try TLM with its own address, so Find reaches it too. "Back to the chat" returns to the session you left, untouched.</p>
+        <div class="two">
+          <div><span class="lab">"More", above a session</span>
+            <div class="mn" role="menu" aria-label="More for this session">
+              <span class="it" role="menuitem">Rename</span>
+              <span class="it" role="menuitem">Pin to the top</span>
+              <span class="it" role="menuitem"><span>Move to a folder</span><small>▸</small></span>
+              <span class="it" role="menuitem">Download</span>
+              <span class="it" role="menuitem">Archive</span>
+              <hr>
+              <a class="it on" role="menuitem" href="Try-Settings.dc.html" style="color: inherit; text-decoration: none"><span>Try TLM's settings<br><small>How the chat behaves, speaking, memory</small></span></a>
+            </div></div>
+          <div><span class="lab">On You, in the Try TLM card</span>
+            <div class="soft"><b style="font-weight: 500">Try TLM's settings</b><br><span class="kit-muted">How the chat behaves, speaking and listening, memory on or off</span><div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Try-Settings.dc.html">Open</a></div></div>
+            <p class="rule" style="margin-top: 10px">You holds one line that opens this page. It does not repeat the settings.</p></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label=""Start new sessions on", open">
+        <div class="ix-h"><h3>3 · "Start new sessions on", open</h3><span class="kit-small kit-muted">One pick</span></div>
+        <p class="rule">A model by itself, or a saved setting, which brings its model, agent, tools and system prompt with it. If the model you picked is withdrawn, new sessions start on Core 4.2 and this line says so.</p>
+        <div class="mn" role="listbox" aria-label="Start new sessions on">
+          <span class="mcap">A model</span>
+          <span class="it on" role="option" aria-selected="true"><span>Core 4.2<br><small>Large · the general model · TL Index 81 ± 1</small></span><small>chosen</small></span>
+          <span class="it" role="option" aria-selected="false"><span>Distil 4.2<br><small>Faster · short tasks</small></span></span>
+          <span class="it" role="option" aria-selected="false"><span>Domain-Advice v2<br><small>Advice conversations · as released</small></span></span>
+          <span class="mcap">One of your saved settings</span>
+          <span class="it" role="option" aria-selected="false"><span>Explaining to new advisers<br><small>Core 4.2 · Research helper · 3 tools · your system prompt</small></span></span>
+          <span class="it" role="option" aria-selected="false"><span>Quick rewrites<br><small>Distil 4.2 · no agent · no tools</small></span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Steps, folded and opened">
+        <div class="ix-h"><h3>4 · Steps, folded and opened</h3><span class="kit-small kit-muted">The same answer, both ways</span></div>
+        <p class="rule">Folded, each step is one line and opens on a click. Opened, every step arrives already open. Either way the steps are all there; the setting only decides how much you see at first.</p>
+        <span class="cap" style="display: block">Folded · the starting value</span>
+        <div class="step"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Searched approved documents</span></span></span><small>Fund documents search · 2 passages used</small></div>
+        <div class="step"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ran a calculation</span></span></span><small>Code sandbox · 0.4 seconds</small></div>
+        <span class="cap" style="display: block">Opened</span>
+        <div class="open"><span style="display: flex; justify-content: space-between; gap: 12px"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Searched approved documents</span></span><span class="kit-small kit-muted">Fund documents search · 0.8 seconds</span></span>
+          <dl class="kv"><dt>Asked</dt><dd>"ongoing charges sample fund A B C"</dd><dt>Came back</dt><dd>2 passages: Sample fund B fact sheet, page 2 · Sample fund C fact sheet, page 2</dd></dl></div>
+      </section>
+      <section class="kit-surface" aria-label="Speaking and listening">
+        <div class="ix-h"><h3>5 · Speaking and listening</h3><span class="kit-small kit-muted">The voice list, open, and one thing that can stop it</span></div>
+        <p class="rule">The voices are ThinkLatent's own and run inside the Enterprise, so nothing spoken or read aloud leaves it. "Hear it" plays one made-up line. The sound is never kept; the words are part of the session.</p>
+        <div class="mn" role="listbox" aria-label="Voice">
+          <span class="it on" role="option" aria-selected="true"><span>Calm<br><small>Even and unhurried</small></span><span class="acts"><small>chosen</small><button class="kit-btn ghost sm" type="button">Hear it</button></span></span>
+          <span class="it" role="option" aria-selected="false"><span>Bright<br><small>Lighter and a little quicker</small></span><button class="kit-btn ghost sm" type="button">Hear it</button></span>
+          <span class="it" role="option" aria-selected="false"><span>Low<br><small>Deeper, for a quiet room</small></span><button class="kit-btn ghost sm" type="button">Hear it</button></span>
+        </div>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>The browser is not letting this page use the microphone</span></span><br>"Speak" stays switched off in the writing box until you allow it in the browser's own settings for this page. Reading aloud needs nothing from you.<div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Help-Page.dc.html">How to allow it</a></div></div>
+      </section>
+      <section class="kit-surface" aria-label="Memory, on and off">
+        <div class="ix-h"><h3>6 · Memory, on and off</h3><span class="kit-small kit-muted">One switch for every session</span></div>
+        <p class="rule">Off means two things at once: nothing new is remembered, and nothing already remembered is used. What is there stays until you forget it on the Memory tab. A single session can leave memory out from its Tools menu.</p>
+        <div class="soft"><span style="display: flex; justify-content: space-between; gap: 12px; align-items: center"><b style="font-weight: 500">Remember how I work</b><span class="kit-switch on" role="switch" aria-checked="true" aria-label="Memory, on"><i></i></span></span><span class="kit-muted">On · 4 things remembered, used in new sessions · kept until you forget them · never used for training</span><div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Playground-More.dc.html">See and edit them on the Memory tab</a></div></div>
+        <div class="soft"><span style="display: flex; justify-content: space-between; gap: 12px; align-items: center"><b style="font-weight: 500">Remember how I work</b><span class="kit-switch" role="switch" aria-checked="false" aria-label="Memory, off"><i></i></span></span><span class="kit-muted">Off since 11:52 · nothing new is remembered and the 4 things kept are not used. They are still yours to read, edit or forget.</span><div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Playground-More.dc.html">See them on the Memory tab</a><a class="kit-btn ghost sm" href="Try-You.dc.html">Remove everything, on You</a></div></div>
+      </section>
+      <section class="kit-surface" aria-label="The client-data check" id="check">
+        <div class="ix-h"><h3>7 · The client-data check</h3><span class="kit-small kit-muted">Shown, not set</span></div>
+        <p class="rule">It is drawn among the settings so that nobody looks for a switch. There is none: Try TLM is not a place for a client's details, for anyone.</p>
+        <div class="soft"><span style="display: flex; justify-content: space-between; gap: 12px; align-items: center"><b style="font-weight: 500">Checks what you send</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Always on</span></span></span>
+          <span class="cap" style="display: block; margin-top: 10px">What it looks for</span>
+          <div class="tl" style="margin-top: 2px">
+            <span><span>A person's name beside an account or policy number</span></span>
+            <span><span>Account, card and national identity numbers by themselves</span></span>
+            <span><span>A named person's holdings, balance or transactions</span></span>
+            <span><span>A named person's home address, date of birth, phone or own email</span></span>
+          </div>
+          <span class="cap" style="display: block">Where it runs</span>
+          <span>What you send · each file you attach · what a tool or connector brings back · each thing memory would keep</span>
+        </div>
+        <p class="rule" style="margin-top: 10px">A stopped message reaches nothing, keeps nothing and does not count against your limit. Made-up people and sample funds pass. <a href="Try-Admin.dc.html">What ThinkLatent sets</a> has the full list.</p>
+      </section>
+      <section class="kit-surface wide" aria-label="What you cannot set here">
+        <div class="ix-h"><h3>8 · What you cannot set here</h3><span class="kit-small kit-muted">And where each is set instead</span></div>
+        <p class="rule">Nothing is offered in two places. What is yours everywhere in the portal is on You or in the top bar; what is the same for everyone is ThinkLatent's, and shown.</p>
+        <div class="wh">
+          <span class="h">This</span><span class="h">Is set</span><span class="h"></span>
+          <span>Light or dark, and density</span><span>In the portal's top bar, and under Look on You<small>Try TLM has one look: the portal's</small></span><span><a class="kit-btn outline sm" href="Shell-Settings.dc.html">You</a></span>
+          <span>Sign-in and your profile</span><span>By the Enterprise's access management<small>Shown on You, not edited</small></span><span><a class="kit-btn outline sm" href="Shell-Settings.dc.html">You</a></span>
+          <span>Notifications</span><span>On You, inside the portal only<small>Try TLM makes no sound and no pop-up of its own</small></span><span><a class="kit-btn outline sm" href="Shell-Settings.dc.html">You</a></span>
+          <span>What is kept about you, taking it with you, removing it</span><span>On You<small>One download and one removal for all of it</small></span><span><a class="kit-btn outline sm" href="Try-You.dc.html">On You</a></span>
+          <span>Your limit today</span><span>By ThinkLatent, the same for everyone</span><span><a class="kit-btn outline sm" href="Try-Limit.dc.html">The limit</a></span>
+          <span>Which models, tools and connectors exist</span><span>By ThinkLatent<small>You switch a tool on or off in a session</small></span><span><a class="kit-btn outline sm" href="Try-Admin.dc.html">What is set</a></span>
+          <span>Language</span><span>English, for everyone<small>Other languages are not offered</small></span><span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Not settings: one way for everyone">
+        <div class="ix-h"><h3>9 · Not settings: one way for everyone</h3><span class="kit-small kit-muted">Left out on purpose</span></div>
+        <p class="rule">Things other assistants make a switch of. Here each has one behaviour, so a session looks the same to you and to anyone you share it with.</p>
+        <div class="tl">
+          <span><span>Speech lands in the box<small>It is never sent by itself, and the box never listens unless you press Speak</small></span></span>
+          <span><span>The page follows an answer as it is written<small>Until you scroll up; a "Latest" button brings you back</small></span></span>
+          <span><span>@ and / always work<small>@ picks a model or an agent, / a saved prompt</small></span></span>
+          <span><span>A long paste stays text<small>To send a file, attach one</small></span></span>
+          <span><span>Text size<small>Follows the browser's own zoom; density is the portal's</small></span></span>
+          <span><span>Dates and times<small>In the time zone on You, in the portal's one format</small></span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="A change, and going back">
+        <div class="ix-h"><h3>10 · A change, and going back</h3><span class="kit-small kit-muted">No hold anywhere on this page</span></div>
+        <p class="rule">A change takes effect at once, in the session you have open too, and can be undone for 10 seconds. Every choice here can be taken back, so nothing is held.</p>
+        <div class="toast"><span>Speed: faster</span><a href="#">Undo</a></div>
+        <div class="toast"><span>All 9 settings are back to their starting values</span><a href="#">Undo</a></div>
+        <p class="rule" style="margin-top: 10px">The starting values are ThinkLatent's. If one changes, a line you never touched follows it; a line you changed stays as you set it.</p>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3607}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

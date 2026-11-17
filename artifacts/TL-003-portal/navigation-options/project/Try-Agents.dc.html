@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Agents: your agents, and offering one to the Agents library</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.ls{display:grid;grid-template-columns:minmax(0,1.5fr) 170px minmax(0,1.25fr) 120px 170px;font-size:13px;line-height:1.4;margin-top:10px;align-items:stretch}
+.ls>*{display:flex;flex-direction:column;justify-content:center;padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ls>.acts{flex-direction:row;align-items:center;justify-content:flex-end;padding-right:0}
+.ls .h{font-size:11.5px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.ls .g{grid-column:1 / -1;font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);padding:14px 0 6px;border-top:1px solid rgba(26,26,26,.1);flex-direction:row;justify-content:space-between;align-items:baseline}
+.ls .g a{text-transform:none;letter-spacing:0;font-size:12.5px;font-weight:400}
+.ls .g+*,.ls .g+*+*,.ls .g+*+*+*,.ls .g+*+*+*+*,.ls .g+*+*+*+*+*{border-top:0}
+.ls small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.ls .kit-status{white-space:normal;align-items:flex-start}
+.flt{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.find{display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);background:rgba(255,255,255,.7);flex:1;min-width:220px;font-size:13px}
+.find input{border:0;background:transparent;font:inherit;width:100%;outline:0}
+.mn{margin-top:12px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.10);padding:6px;font-size:13px;line-height:1.4;display:flex;flex-direction:column;max-width:420px}
+.mn .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 10px;border-radius:10px}
+.mn .it small{font-size:12px;color:rgba(26,26,26,.66)}
+.mn hr{border:0;border-top:1px solid rgba(26,26,26,.1);margin:4px 6px}
+.tl{display:flex;flex-direction:column;margin-top:8px}
+.tl>span{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.tl>span:first-child{border-top:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.64)}
+.sts>span{display:grid;grid-template-columns:150px minmax(0,1fr);justify-content:start;align-items:start}
+.bd2{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:24px;margin-top:12px;align-items:start}
+.fd{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.fd:first-child{margin-top:0}
+.fd label,.fd .lb{font-size:12px;font-weight:500;color:rgba(26,26,26,.7)}
+.fd small{font-size:12px;color:rgba(26,26,26,.64);line-height:1.45}
+.sp{display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 12px;font-size:13px;line-height:1.5}
+.sp>i{font-style:normal;width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;margin-top:8px}
+.sp>div{padding:8px 0 10px;border-top:1px solid rgba(26,26,26,.1)}
+.sp>i:first-child+div{border-top:0}
+.sp b{font-weight:500}
+.sp ul{margin:4px 0 0;padding-left:18px;color:rgba(26,26,26,.74)}
+.sp small,.ring small{font-size:12px;color:rgba(26,26,26,.66)}
+.ring ul{margin:6px 0 0;padding-left:18px}
+.hd{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.hd b{font-weight:500}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3660px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Your agents <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Your agents</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Agents</span><span class="kit-chip">10 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">The list of every agent you can use, what can be done to one, offering one to the Agents library step by step, and what comes back: waiting, sent back or accepted · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Agents-Library.dc.html">The Agents library</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="false" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="true" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="Your agents">
+        <div class="ix-h"><h3>1 · Your agents</h3><span class="kit-small kit-muted">6 of your own · 1 shared with you · 1 from the Agents library · kept until you remove them</span></div>
+        <p class="rule">Every agent you can use in Try TLM, with the model it is on and where it stands. Yours are private until you share one with people you name or offer it to the Agents library. A row opens the agent.</p>
+        <div class="flt"><label class="find"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search your agents" aria-label="Search your agents"></label><span class="kit-seg" role="group" aria-label="Show"><button type="button" aria-pressed="true">All 8</button><button type="button" aria-pressed="false">Yours 6</button><button type="button" aria-pressed="false">Shared with you 1</button><button type="button" aria-pressed="false">From the library 1</button></span><a class="kit-btn" href="Try-Agent.dc.html">Build an agent</a></div>
+        <div class="ls">
+          <span class="h">Agent</span><span class="h">On</span><span class="h">Where it stands</span><span class="h">Last saved</span><span class="h"></span>
+          <span class="g"><span>Yours · 6</span></span>
+          <span><a href="Try-Agent.dc.html" style="color: inherit; text-decoration: none; font-weight: 500">Research helper</a><small>Reads a file, looks things up in approved documents and drafts a short note</small></span><span>Core 4.2<small>3 tools</small></span><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Private</span></span><small>Only you can use it</small></span><span>Today 11:20<small>version 4</small></span><span class="acts"><a class="kit-btn outline sm" href="Try-Chat.dc.html">Use</a><button class="kit-btn ghost sm" type="button" aria-label="More for Research helper">More</button></span>
+          <span><a href="Try-Agent.dc.html" style="color: inherit; text-decoration: none; font-weight: 500">Fee explainer</a><small>Explains a fund's fees in plain words from its product sheet</small></span><span>Core 4.2<small>3 tools · 2 files</small></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"></path><path d="m13.5 6.5 4 4"></path></svg><span>Being built</span></span><small>Private · not yet tried by you</small></span><span>Today 11:40<small>version 3</small></span><span class="acts"><a class="kit-btn outline sm" href="Try-Agent.dc.html">Open</a><button class="kit-btn ghost sm" type="button" aria-label="More for Fee explainer">More</button></span>
+          <span><a href="Try-Agent.dc.html" style="color: inherit; text-decoration: none; font-weight: 500">Glossary finder</a><small>Finds the house meaning of a fund term and says where it is written</small></span><span>Distil 4.2<small>1 tool · 1 file</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"></path><path d="M18.5 14.2A6.5 6.5 0 0 1 21.5 20"></path></svg><span>Shared</span></span><small>With Priya N. and Arjun K. · they can use it</small></span><span>28 Oct<small>version 2</small></span><span class="acts"><a class="kit-btn outline sm" href="Try-Chat.dc.html">Use</a><button class="kit-btn ghost sm" type="button" aria-label="More for Glossary finder">More</button></span>
+          <span><a href="Try-Agent.dc.html" style="color: inherit; text-decoration: none; font-weight: 500">Call notes tidy</a><small>Turns rough notes into points, decisions and who does what</small></span><span>Distil 4.2<small>No tools</small></span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Offered</span></span><small>3 Nov · with ThinkLatent for 2 days · <a href="Requests-Status.dc.html">AS-0105</a></small></span><span>3 Nov<small>version 2</small></span><span class="acts"><a class="kit-btn outline sm" href="Try-Chat.dc.html">Use</a><button class="kit-btn ghost sm" type="button" aria-label="More for Call notes tidy">More</button></span>
+          <span><a href="Try-Agent.dc.html" style="color: inherit; text-decoration: none; font-weight: 500">Reading list maker</a><small>Builds a first-week reading list for a new member of a team</small></span><span>Core 4.2<small>1 tool</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>In the Agents library</span></span><small>Accepted 27 Oct · used by 12 people · your copy stays private</small></span><span>24 Oct<small>version 2</small></span><span class="acts"><a class="kit-btn outline sm" href="Try-Chat.dc.html">Use</a><button class="kit-btn ghost sm" type="button" aria-label="More for Reading list maker">More</button></span>
+          <span><a href="Try-Agent.dc.html" style="color: inherit; text-decoration: none; font-weight: 500">Welcome note drafter</a><small>Drafts a welcome note for someone joining a team</small></span><span>Distil 4.2<small>No tools</small></span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Sent back</span></span><small>30 Oct · its instructions name a real team · private again</small></span><span>29 Oct<small>version 2</small></span><span class="acts"><a class="kit-btn outline sm" href="Try-Agent.dc.html">Open</a><button class="kit-btn ghost sm" type="button" aria-label="More for Welcome note drafter">More</button></span>
+          <span class="g"><span>Shared with you · 1</span></span>
+          <span><a href="#" style="color: inherit; text-decoration: none; font-weight: 500">Checker</a><small>Checks a draft's figures against where they came from</small></span><span>Distil 4.2<small>Reads, never writes</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"></path><path d="M18.5 14.2A6.5 6.5 0 0 1 21.5 20"></path></svg><span>Shared by Lena W.</span></span><small>You can use it and copy it, not change it</small></span><span>2 Nov<small>version 5</small></span><span class="acts"><a class="kit-btn outline sm" href="Try-Chat.dc.html">Use</a><button class="kit-btn ghost sm" type="button" aria-label="More for Checker">More</button></span>
+          <span class="g"><span>From the Agents library · 1</span><a href="Agents-Library.dc.html">Find another in the Agents library</a></span>
+          <span><a href="Agents-Library.dc.html" style="color: inherit; text-decoration: none; font-weight: 500">Meeting notes to actions</a><small>Turns the notes of a meeting into actions, each with an owner</small></span><span>Core 4.2<small>As accepted</small></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Accepted by ThinkLatent</span></span><small>Used by 41 people · you added it on 30 Oct</small></span><span>As accepted<small>version 2</small></span><span class="acts"><a class="kit-btn outline sm" href="Try-Chat.dc.html">Use</a><button class="kit-btn ghost sm" type="button" aria-label="More for Meeting notes to actions">More</button></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="One agent's menu">
+        <div class="ix-h"><h3>2 · One agent's menu</h3><span class="kit-small kit-muted">"More", open on Research helper</span></div>
+        <p class="rule">Everything that can be done to an agent of yours. Removing is the one thing that cannot be taken back, so it is held.</p>
+        <div class="mn" role="menu" aria-label="More for Research helper">
+          <span class="it" role="menuitem"><span>Open</span><small>the builder, with its versions</small></span>
+          <span class="it" role="menuitem"><span>Start a session with it</span></span>
+          <span class="it" role="menuitem"><span>Make a copy</span><small>yours, private, version 1</small></span>
+          <span class="it" role="menuitem"><span>Share with people you name</span><small>to use, or use and change</small></span>
+          <span class="it" role="menuitem"><span>Offer it to the Agents library</span><small>becomes a request</small></span>
+          <span class="it" role="menuitem"><span>Pin to the top of your lists</span></span>
+          <hr>
+          <span class="it" role="menuitem"><span style="color: var(--decision)">Hold to remove</span><small>cannot be undone</small></span>
+        </div>
+        <p class="rule" style="margin-top: 12px">Removing an agent removes its files and versions, and the people it was shared with lose it at once. Sessions it answered keep their answers until their own 30 days end. A version accepted into the Agents library stays there.</p>
+      </section>
+      <section class="kit-surface" aria-label="Where an agent can stand">
+        <div class="ix-h"><h3>3 · Where an agent can stand</h3><span class="kit-small kit-muted">Six states, one at a time</span></div>
+        <p class="rule">The same words everywhere an agent is listed. Only you move an agent of yours from one to the next, except the answer to an offer, which is ThinkLatent's.</p>
+        <div class="tl sts">
+          <span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"></path><path d="m13.5 6.5 4 4"></path></svg><span>Being built</span></span><span>Saved as you go, every save a version<small>Private. Shown until you first press "Try it"</small></span></span>
+          <span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Private</span></span><span>Only you can use it<small>The state every agent starts in and comes back to</small></span></span>
+          <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"></path><path d="M18.5 14.2A6.5 6.5 0 0 1 21.5 20"></path></svg><span>Shared</span></span><span>With people you name, at the Enterprise<small>Each to use, or to use and change · stopped at any time</small></span></span>
+          <span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Offered</span></span><span>With ThinkLatent, as a request<small>Your copy stays private and usable while you wait</small></span></span>
+          <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>In the Agents library</span></span><span>Accepted: everyone can find it there<small>ThinkLatent keeps the library's copy · you are named as its maker</small></span></span>
+          <span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Sent back</span></span><span>Not accepted, with the reason<small>Private again · change it and offer again, or leave it</small></span></span>
+        </div>
+      </section>
+      <section class="kit-surface wide" aria-label="Offering an agent to the Agents library">
+        <div class="ix-h"><h3>4 · Offering one to the Agents library</h3><span class="kit-small kit-muted">"Offer it to the Agents library", open on Research helper · step by step</span></div>
+        <p class="rule">The only way an agent reaches everyone. You offer one version; ThinkLatent checks it and accepts it or sends it back with a reason. There is no switch that opens an agent to everyone.</p>
+        <div class="bd2">
+          <div>
+            <div class="fd"><span class="lb">What you are offering</span><div class="soft" style="margin-top: 0"><b style="font-weight: 500">Research helper</b> <span class="kit-small kit-muted">· version 4 · saved today 11:20 · Core 4.2</span><br><span class="kit-muted">Later saves are not part of this offer.</span></div></div>
+            <div class="fd"><label for="o1">What it is for</label><input id="o1" class="kit-input" value="Reads a file, looks things up in approved documents and drafts a short note"></div>
+            <div class="fd"><label for="o2">Who should use it</label><input id="o2" class="kit-input" value="Anyone who writes a short note from a sheet of figures"></div>
+            <div class="fd"><label for="o3">What it must not be used for</label><input id="o3" class="kit-input" value="Advice to a client. Its answers are samples, not advice"></div>
+            <div class="fd"><span class="lb">What goes with it</span>
+              <div class="tl" style="margin-top: 0">
+                <span><span>Its instructions, starter questions and settings</span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Goes</span></span></span>
+                <span><span>The tools it may use<small>Fund documents search · Calculator · Code sandbox · all three are ThinkLatent's</small></span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Goes</span></span></span>
+                <span><span>Your sessions, your memory, your sign-ins to connectors</span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Never goes</span></span></span>
+              </div></div>
+            <div class="acts" style="margin-top: 14px"><button class="kit-btn sm" type="button">Offer version 4</button><button class="kit-btn ghost sm" type="button">Cancel</button><span class="kit-small kit-muted">You can withdraw the offer until ThinkLatent answers.</span></div>
+          </div>
+          <div>
+            <div class="sp">
+              <i>1</i><div><b>You offer one version</b><br>You say what it is for, who should use it and what it must not be used for. What you wrote is shown to whoever checks it.</div>
+              <i>2</i><div><b>ThinkLatent checks it</b><ul><li>It does what it says, on ThinkLatent's own test tasks</li><li>No client data and no real names in its instructions, files or starter questions</li><li>Every tool it uses is one everyone may use; a connector works with each user's own access</li><li>It asks before it changes anything</li><li>Nothing that does the same is already in the library</li></ul></div>
+              <i>3</i><div><b>It becomes a request you can follow</b><br>Listed on <a href="Requests-Status.dc.html">Requests</a> under "Asks to ThinkLatent", with a first answer within 3 days. The agent shows "Offered" here until then.</div>
+              <i>4</i><div><b>Accepted, or sent back</b><br>Accepted: it appears in the <a href="Agents-Library.dc.html">Agents library</a> with you named as its maker. Sent back: the reason comes with it, and you can change the agent and offer it again.</div>
+            </div>
+            <div class="soft"><b style="font-weight: 500">Your own copy</b><br>Stays yours and private the whole time. You can keep using and changing it; your changes are not part of the offer. To change what the library holds, offer a newer version.</div>
+          </div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="An offer, waiting">
+        <div class="ix-h"><h3>5 · An offer, waiting</h3><span class="kit-small kit-muted">Call notes tidy · offered 3 Nov</span></div>
+        <p class="rule">While ThinkLatent has it, the offer is a request like any other: it has a number, a place it stands and a date by which you hear. The agent still works for you.</p>
+        <div class="soft"><div class="hd"><b>Call notes tidy</b><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>With ThinkLatent for 2 days</span></span></div>
+          <dl class="kv" style="margin-top: 10px"><dt>Offered</dt><dd>3 Nov · version 2</dd><dt>Request</dt><dd><a href="Requests-Status.dc.html">AS-0105</a> · an ask to ThinkLatent</dd><dt>Stands at</dt><dd>Being checked on ThinkLatent's test tasks</dd><dt>You hear</dt><dd>By 6 Nov: a first answer within 3 days</dd><dt>Your copy</dt><dd>Private, and yours to use as before</dd></dl>
+          <div class="acts" style="margin-top: 10px"><a class="kit-btn outline sm" href="Requests-Status.dc.html">Follow it on Requests</a><button class="kit-btn outline sm" type="button">Withdraw the offer</button></div>
+        </div>
+        <p class="rule" style="margin-top: 10px">Withdrawing closes the request and the agent reads "Private" again. It can be undone for 10 seconds.</p>
+      </section>
+      <section class="kit-surface" aria-label="Sent back, with the reason">
+        <div class="ix-h"><h3>6 · Sent back, with the reason</h3><span class="kit-small kit-muted">Welcome note drafter · 30 Oct</span></div>
+        <p class="rule">A sent-back agent is yours and private again. The reason is written by the person who checked it, in plain words, and says what would change the answer. Nothing is removed.</p>
+        <div class="ring"><div class="hd"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Sent back by ThinkLatent · 30 Oct</span></span><small>Version 2 · request <a href="Requests-Status.dc.html">AS-0098</a></small></div>
+          <ul><li>Its instructions name a real team and give a phone number. Take them out, or make them blanks the user fills.</li><li>Two of five test notes promised things the Enterprise does not offer a new member of staff.</li></ul>
+          <div class="acts" style="margin-top: 10px"><a class="kit-btn sm" href="Try-Agent.dc.html">Open it to change</a><button class="kit-btn outline sm" type="button" disabled>Offer it again</button><a class="kit-btn ghost sm" href="Requests-Status.dc.html">Ask about the reason</a></div>
+          <small style="display: block; margin-top: 8px">"Offer it again" opens once a newer version is saved. Or leave it: it works for you as it did before.</small>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Accepted into the Agents library">
+        <div class="ix-h"><h3>7 · Accepted into the Agents library</h3><span class="kit-small kit-muted">Reading list maker · 27 Oct</span></div>
+        <p class="rule">Once accepted, the library holds its own copy of the version you offered. Your copy stays private and yours to change; the two no longer move together.</p>
+        <div class="soft"><div class="hd"><b>Reading list maker</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>In the Agents library</span></span></div>
+          <dl class="kv" style="margin-top: 10px"><dt>In the library</dt><dd>Version 2 · kept by ThinkLatent · you are named as its maker</dd><dt>Used by</dt><dd>12 people · counted, never what they typed</dd><dt>Your copy</dt><dd>Private · version 2, unchanged since</dd><dt>To change it</dt><dd>Save a newer version here and offer that one</dd><dt>To take it out</dt><dd>Ask ThinkLatent; it is a request</dd></dl>
+          <div class="acts" style="margin-top: 10px"><a class="kit-btn outline sm" href="Agents-Library.dc.html">Its page in the Agents library</a><a class="kit-btn ghost sm" href="Requests-Status.dc.html">Ask to take it out</a></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="An agent shared with you">
+        <div class="ix-h"><h3>8 · An agent shared with you</h3><span class="kit-small kit-muted">Checker · by Lena W.</span></div>
+        <p class="rule">Someone who shares an agent with you by name chooses whether you may use it, or use and change it. Either way it runs with your access, never theirs.</p>
+        <div class="soft"><div class="hd"><b>Checker</b><span class="kit-small kit-muted">By Lena W. · on Distil 4.2 · version 5</span></div><span class="kit-muted">Checks a draft's figures against where they came from</span>
+          <dl class="kv" style="margin-top: 10px"><dt>You can</dt><dd>Use it, read how it is set up, make a copy of your own</dd><dt>You cannot</dt><dd>Change it, share it on, offer it or remove it</dd><dt>Access</dt><dd>Yours. Its tools reach only what you can open</dd><dt>Changes</dt><dd>Lena W. may save a newer version; your sessions say which version answered</dd></dl>
+          <div class="acts" style="margin-top: 10px"><a class="kit-btn sm" href="Try-Chat.dc.html">Start a session with it</a><button class="kit-btn outline sm" type="button">Make a copy</button><button class="kit-btn ghost sm" type="button">Take it off my list</button></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Using an agent from the Agents library">
+        <div class="ix-h"><h3>9 · Using an agent from the Agents library</h3><span class="kit-small kit-muted">Meeting notes to actions</span></div>
+        <p class="rule">The Agents library is the one shelf of accepted agents; it is not drawn again here. "Use in Try TLM" on an agent's page there puts it in your list, to use as it was accepted.</p>
+        <div class="soft"><div class="hd"><b>Meeting notes to actions</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Accepted by ThinkLatent</span></span></div><span class="kit-muted">Turns the notes of a meeting into actions, each with an owner</span>
+          <dl class="kv" style="margin-top: 10px"><dt>Runs</dt><dd>As accepted: version 2 on Core 4.2. You cannot change it</dd><dt>To change it</dt><dd>Make a copy: the copy is yours, private, and no longer the library's</dd><dt>Counts</dt><dd>Against your own limit today, like any session</dd><dt>Its page</dt><dd>Who made it, what it scored and who to ask are in the library</dd></dl>
+          <div class="acts" style="margin-top: 10px"><a class="kit-btn sm" href="Try-Chat.dc.html">Start a session with it</a><a class="kit-btn outline sm" href="Agents-Library.dc.html">Its page in the Agents library</a><button class="kit-btn outline sm" type="button">Make a copy</button><button class="kit-btn ghost sm" type="button">Take it off my list</button></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Nothing yet, and what is not offered">
+        <div class="ix-h"><h3>10 · Nothing yet, and what is not offered</h3><span class="kit-small kit-muted">The empty list · four things left out</span></div>
+        <p class="rule">An empty list says what fills it. What other chat tools offer for agents and Try TLM does not is said plainly, with what to do instead.</p>
+        <div class="kit-empty"><b style="font-weight: 500; color: #1A1A1A">You have no agents yet</b><span class="kit-small">An agent is a model with instructions, files and tools of its own. Build one, or use one ThinkLatent has accepted.</span><span class="acts" style="justify-content: center"><a class="kit-btn sm" href="Try-Agent.dc.html">Build an agent</a><a class="kit-btn outline sm" href="Agents-Library.dc.html">Open the Agents library</a></span></div>
+        <div class="tl" style="margin-top: 12px">
+          <span><span class="kit-muted">A switch that opens an agent to everyone<small>Not offered · offer it to the Agents library</small></span></span>
+          <span><span class="kit-muted">A link to an agent, or sharing with a group<small>Not offered · share it with people you name</small></span></span>
+          <span><span class="kit-muted">A key so a program can call your agent<small>Not offered · a project gets an endpoint of its own</small></span></span>
+          <span><span class="kit-muted">A marketplace with categories inside Try TLM<small>Not offered · the Agents library is the one shelf</small></span></span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3660}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

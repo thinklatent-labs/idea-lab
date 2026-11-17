@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Chat: what the tools did, every step of a session</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.sl{display:grid;grid-template-columns:30px minmax(0,1.25fr) minmax(0,1.15fr) minmax(0,1.3fr) 62px minmax(0,1fr) minmax(0,.95fr) 64px;font-size:12.5px;line-height:1.4;margin-top:12px;align-items:stretch}
+.sl>*{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.sl>.h{font-size:11.5px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.sl>.g{grid-column:1 / -1;flex-direction:row;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0 6px;font-size:12.5px}
+.sl>.g b{font-weight:500}
+.sl>.g span:last-child{color:rgba(26,26,26,.66);white-space:nowrap}
+.sl>.g+*,.sl>.g+*+*,.sl>.g+*+*+*,.sl>.g+*+*+*+*,.sl>.g+*+*+*+*+*,.sl>.g+*+*+*+*+*+*,.sl>.g+*+*+*+*+*+*+*,.sl>.g+*+*+*+*+*+*+*+*{border-top:0}
+.sl small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.sl .n{color:rgba(26,26,26,.6);font-variant-numeric:tabular-nums}
+.sl .kit-status{white-space:normal;align-items:flex-start}
+.sl .kit-status svg{margin-top:1px}
+.sl>.e{align-items:flex-end;padding-right:0}
+.flt{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.find{display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);background:rgba(255,255,255,.7);flex:1;min-width:220px;font-size:13px}
+.find input{border:0;background:transparent;font:inherit;width:100%;outline:0}
+.mn{margin-top:10px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.10);padding:6px;font-size:13px;line-height:1.4;display:flex;flex-direction:column;max-width:340px}
+.mn .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:7px 10px;border-radius:10px}
+.mn .it.on{background:rgba(26,26,26,.06)}
+.mn .it small{font-size:12px;color:rgba(26,26,26,.66)}
+.tl{display:flex;flex-direction:column;margin-top:8px}
+.tl>span{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.tl>span:first-child{border-top:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.64)}
+.sub{margin:6px 0 0 22px;padding-left:14px;border-left:2px solid rgba(26,26,26,.14)}
+.sub .step{margin-top:6px}
+.bar{height:10px;border-radius:5px;background:rgba(26,26,26,.08);display:flex;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:10px}
+.key{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:7px}
+.ring .kv,.open .kv{grid-template-columns:104px minmax(0,1fr)}
+.open .kv{margin:0}
+.ring small,.soft small{font-size:12px;color:rgba(26,26,26,.66)}
+.tk{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.45;margin-top:10px}
+.tk i{flex:none;width:16px;height:16px;border-radius:4px;box-shadow:inset 0 0 0 1.5px rgba(26,26,26,.4);margin-top:2px}
+.pk{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.pk label{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.4}
+.pk small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3520px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Fees, explained to a new adviser <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">What the tools did</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Chat</span><span class="kit-chip">11 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">Every step of one session in order, with which tool or agent, what was asked, what came back, how long, whose access and whether it asked first; then the filters, a failed step, a stopped step, another agent's steps and the download · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="true" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="Every step of this session">
+        <div class="ix-h"><h3>1 · Every step of this session</h3><span class="kit-small kit-muted">10 steps across 3 messages · 2 asked you first · 1 failed · 1 stopped by the client-data check</span></div>
+        <p class="rule">Everything a tool, a connector or another agent did in this session, in the order it happened, under the message that caused it. Opened from "What the tools did" in the session's More menu, or from the count of steps under any answer. Only you see it, and anyone you share the session with by name.</p>
+        <div class="flt"><label class="find"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find in the steps" aria-label="Find in the steps"></label><button class="kit-btn outline" type="button">Tool: any <span aria-hidden="true">▾</span></button><button class="kit-btn outline" type="button" aria-pressed="false">Only changes · 2</button><button class="kit-btn outline" type="button" aria-pressed="false">Only failures · 2</button><button class="kit-btn outline" type="button">Download the list <span aria-hidden="true">▾</span></button></div>
+        <div class="sl">
+          <span class="h">#</span><span class="h">Step · tool or agent</span><span class="h">What was asked</span><span class="h">What came back</span><span class="h">Took</span><span class="h">Whose access</span><span class="h">Asked you first</span><span class="h"></span>
+          <span class="g"><span><b>Your message · 11:42</b> · "Compare the ongoing charges of the three sample funds in this sheet…"</span><span>Research helper on Core 4.2 · 6.2 seconds · 4 steps, 2 tools</span></span>
+          <span class="n">1</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Read the file</span></span><small>Files · sample-funds.csv</small></span><span>The whole sheet</span><span>3 funds, 4 columns</span><span class="kit-num">0.3 s</span><span>Yours<small>A file you attached</small></span><span>No<small>It only reads</small></span><span class="e"><button class="kit-btn ghost sm" type="button" aria-expanded="false" aria-label="Open step 1">Open</button></span>
+          <span class="n">2</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Searched approved documents</span></span><small>Fund documents search</small></span><span>"ongoing charges sample fund A B C"</span><span>2 passages<small>Sample fund B and C fact sheets, page 2</small></span><span class="kit-num">0.8 s</span><span>ThinkLatent's tool<small>Open to everyone</small></span><span>No<small>It only reads</small></span><span class="e"><button class="kit-btn ghost sm" type="button" aria-expanded="false" aria-label="Open step 2">Open</button></span>
+          <span class="n">3</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ran a calculation</span></span><small>Code sandbox</small></span><span>3 lines of Python on the three charges</span><span>Three figures: about 150, 570 and 1,010</span><span class="kit-num">0.4 s</span><span>ThinkLatent's sandbox<small>No network</small></span><span>No<small>Changes nothing outside the session</small></span><span class="e"><button class="kit-btn ghost sm" type="button" aria-expanded="false" aria-label="Open step 3">Open</button></span>
+          <span class="n">4</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Asked before acting</span></span><small>Files · save to your files</small></span><span>Save "fee-note.docx" to your files</span><span>Not done<small>Nothing was saved</small></span><span class="kit-num">—</span><span>Yours</span><span>Yes · you said no<small>11:42, after 5 seconds</small></span><span class="e"><button class="kit-btn ghost sm" type="button" aria-expanded="false" aria-label="Open step 4">Open</button></span>
+          <span class="g"><span><b>Your message · 11:44</b> · "Put the dearest fund first."</span><span>Research helper on Core 4.2 · 2.1 seconds · 1 step, no tools</span></span>
+          <span class="n">5</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Changed the artifact</span></span><small>Research helper · no tool</small></span><span>Put the dearest fund first in "Fee comparison"</span><span>Version 2<small>Version 1 is kept</small></span><span class="kit-num">1.1 s</span><span>None needed</span><span>No<small>You asked for it, in this session</small></span><span class="e"><button class="kit-btn ghost sm" type="button" aria-expanded="false" aria-label="Open step 5">Open</button></span>
+          <span class="g"><span><b>Your message · 11:50</b> · "Check the three charges against the funds' product sheets, then save the note."</span><span>Research helper on Core 4.2, with Product sheets library on · 40.4 seconds · 5 steps</span></span>
+          <span class="n">6</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Read 2 product sheets</span></span><small>Product sheets library · a connector</small></span><span>Sample fund B and Sample fund C: the charges</span><span>2 sheets<small>0.45% and 0.80% a year, as in your file</small></span><span class="kit-num">1.2 s</span><span>Yours<small>The connector signed in as you</small></span><span>No<small>It only reads</small></span><span class="e"><button class="kit-btn ghost sm" type="button" aria-expanded="false" aria-label="Open step 6">Open</button></span>
+          <span class="n">7</span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Read a third product sheet</span></span><small>Product sheets library · a connector</small></span><span>Sample fund A: the charges</span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stopped by the client-data check</span></span><small>Not passed to the model, not kept</small></span><span class="kit-num">0.9 s</span><span>Yours<small>The connector signed in as you</small></span><span>No<small>It only reads</small></span><span class="e"><button class="kit-btn ghost sm" type="button" aria-expanded="false" aria-label="Open step 7">Open</button></span>
+          <span class="n">8</span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Searched approved documents</span></span><small>Fund documents search</small></span><span>"Sample fund A ongoing charge"</span><span><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Failed: it did not answer</span></span><small>Tried twice · the agent carried on</small></span><span class="kit-num">20.0 s</span><span>ThinkLatent's tool<small>Open to everyone</small></span><span>No<small>It only reads</small></span><span class="e"><button class="kit-btn ghost sm" type="button" aria-expanded="false" aria-label="Open step 8">Open</button></span>
+          <span class="n">9</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg><span>Handed to Checker</span></span><small>Checker · an agent, by Lena W.</small></span><span>"The note is drafted; check the figures"</span><span>3 steps of its own<small>Found nothing wrong</small></span><span class="kit-num">12.0 s</span><span>Yours<small>Never Lena W.'s</small></span><span>No<small>None of its steps changed anything</small></span><span class="e"><button class="kit-btn ghost sm" type="button" aria-expanded="false" aria-label="Open step 9">Open</button></span>
+          <span class="n">10</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Saved a file</span></span><small>Files · save to your files</small></span><span>Save "fee-note.docx" to your files</span><span>Saved · 18 KB<small>Kept until you remove it</small></span><span class="kit-num">0.2 s</span><span>Yours</span><span>Yes · you allowed it once<small>11:51, after 3 seconds</small></span><span class="e"><button class="kit-btn ghost sm" type="button" aria-expanded="false" aria-label="Open step 10">Open</button></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="One step, in full">
+        <div class="ix-h"><h3>2 · One step, in full</h3><span class="kit-small kit-muted">"Open", on step 6</span></div>
+        <p class="rule">A row opens in place, under itself. It shows what the row shows, in full, and what the step added to the context. What a tool brought back is kept with the session and goes when the session goes.</p>
+        <div class="step"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Read 2 product sheets</span></span><small>Step 6 of 10 · 11:50 · 1.2 seconds</small></div>
+        <div class="open">
+          <dl class="kv">
+            <dt>Tool</dt><dd>Product sheets library · "Read a product sheet" · a connector, inside the Enterprise</dd>
+            <dt>Asked</dt><dd>Fund: Sample fund B, Sample fund C · part: the table of charges</dd>
+            <dt>Came back</dt><dd>2 sheets, the table of charges from each · 1,140 tokens added to the context</dd>
+            <dt>Access</dt><dd>Yours. The connector signed in as you and could open only what you can open</dd>
+            <dt>Asked first</dt><dd>No. This tool only reads</dd>
+            <dt>Kept</dt><dd>With this session, until it is removed on 5 Dec</dd>
+          </dl>
+          <div class="acts"><button class="kit-btn outline sm" type="button">Show what came back, in full</button><a class="kit-btn ghost sm" href="Try-Chat.dc.html">Go to the message</a><button class="kit-btn ghost sm" type="button">Copy</button></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="The filters">
+        <div class="ix-h"><h3>3 · The filters</h3><span class="kit-small kit-muted">"Tool", open · and each of the two switches, on</span></div>
+        <p class="rule">Filters narrow the list and never renumber it, so a filtered step still says where in the session it was. "Only changes" shows every step that wanted to change something, whatever you answered. "Only failures" shows steps that failed and steps the check stopped.</p>
+        <div style="display: grid; grid-template-columns: 250px minmax(0,1fr); gap: 16px; align-items: start">
+        <div class="mn" role="listbox" aria-label="Tool">
+          <span class="it on" role="option" aria-selected="true"><span>Any tool</span><small>10</small></span>
+          <span class="it" role="option" aria-selected="false"><span>Files</span><small>3</small></span>
+          <span class="it" role="option" aria-selected="false"><span>Fund documents search</span><small>2</small></span>
+          <span class="it" role="option" aria-selected="false"><span>Product sheets library</span><small>2</small></span>
+          <span class="it" role="option" aria-selected="false"><span>Code sandbox</span><small>1</small></span>
+          <span class="it" role="option" aria-selected="false"><span>Checker, an agent</span><small>1</small></span>
+          <span class="it" role="option" aria-selected="false"><span>No tool</span><small>1</small></span>
+        </div>
+        <div><div class="flt"><button class="kit-btn sm" type="button" aria-pressed="true">Only changes · 2</button><span class="kit-small kit-muted">2 of 10 shown</span></div>
+          <div class="step"><span><span class="kit-muted">4 · </span>Asked before acting</span><small>You said no</small></div>
+          <div class="step"><span><span class="kit-muted">10 · </span>Saved a file</span><small>Allowed once</small></div>
+          <div class="flt" style="margin-top: 14px"><button class="kit-btn sm" type="button" aria-pressed="true">Only failures · 2</button><span class="kit-small kit-muted">2 of 10 shown</span></div>
+          <div class="step"><span><span class="kit-muted">7 · </span>Read a third product sheet</span><small>Stopped</small></div>
+          <div class="step"><span><span class="kit-muted">8 · </span>Searched approved documents</span><small>Failed</small></div></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="A step that asked you first">
+        <div class="ix-h"><h3>4 · A step that asked you first</h3><span class="kit-small kit-muted">Steps 4 and 10, opened</span></div>
+        <p class="rule">A step that would change something lists what it wanted to do, what you answered and when, and what then happened. There is no "always allow", so every change in the list has an answer of yours beside it.</p>
+        <div class="open">
+          <span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Step 4 · Research helper wanted to save a file</span></span></span>
+          <dl class="kv"><dt>Wanted to</dt><dd>Save "fee-note.docx" to your files, where it stays until you remove it</dd><dt>You answered</dt><dd>"Do not allow" · 11:42, after 5 seconds</dd><dt>So</dt><dd>Nothing was saved. The file stayed with the session</dd></dl>
+        </div>
+        <div class="open">
+          <span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Step 10 · Research helper saved a file</span></span></span>
+          <dl class="kv"><dt>Wanted to</dt><dd>Save "fee-note.docx" to your files, where it stays until you remove it</dd><dt>You answered</dt><dd>"Allow this once" · 11:51, after 3 seconds</dd><dt>So</dt><dd>Saved, 18 KB. It is in your files now</dd></dl>
+          <div class="acts"><a class="kit-btn outline sm" href="#">See it in your files</a><span class="kit-small kit-muted">Removing it there takes this change back.</span></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="A step that failed">
+        <div class="ix-h"><h3>5 · A step that failed</h3><span class="kit-small kit-muted">Step 8, opened</span></div>
+        <p class="rule">A failed step says which tool, what it was asked, what went wrong in plain words and what the agent did next. Trying it again asks the model to finish the answer with it, and counts as one request.</p>
+        <div class="step"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Searched approved documents · failed</span></span><small>Step 8 of 10 · 11:50 · 20.0 seconds</small></div>
+        <div class="open">
+          <dl class="kv">
+            <dt>Tool</dt><dd>Fund documents search · ThinkLatent's tool, open to everyone</dd>
+            <dt>Asked</dt><dd>"Sample fund A ongoing charge"</dd>
+            <dt>Went wrong</dt><dd>It did not answer within 10 seconds. Tried twice</dd>
+            <dt>So</dt><dd>Research helper carried on without it, and its answer says the charge for Sample fund A was not checked</dd>
+            <dt>Changed</dt><dd>Nothing. A search only reads</dd>
+          </dl>
+          <div class="acts"><button class="kit-btn sm" type="button">Try that step again</button><a class="kit-btn ghost sm" href="Help-Page.dc.html">Is it down?</a></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="A step stopped by the client-data check">
+        <div class="ix-h"><h3>6 · A step stopped by the client-data check</h3><span class="kit-small kit-muted">Step 7, opened</span></div>
+        <p class="rule">The check runs on what a tool brings back, as it does on what you send. A stopped result reaches nothing and keeps nothing. The step stays in the list so you know it happened, with the kind of thing that was seen and never the thing itself.</p>
+        <div class="ring"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Stopped: what came back looked like client data</span></span>
+          <dl class="kv" style="margin-top: 10px">
+            <dt>Tool</dt><dd>Product sheets library · "Read a product sheet" · with your access</dd>
+            <dt>Asked</dt><dd>Fund: Sample fund A · part: the table of charges</dd>
+            <dt>Came back</dt><dd>Not shown. It was not passed to the model and not kept</dd>
+            <dt>Looked like</dt><dd>A person's name with an account number, in a note on the sheet</dd>
+            <dt>So</dt><dd>Research helper carried on with the other two sheets, and its answer says so</dd>
+          </dl>
+          <div class="acts" style="margin-top: 10px"><a class="kit-btn outline sm" href="Help-Page.dc.html">Why it was stopped</a><button class="kit-btn ghost sm" type="button">The check got this wrong</button></div>
+          <small style="display: block; margin-top: 8px">"The check got this wrong" tells ThinkLatent the tool and the kind of thing seen. What came back cannot be sent: it is gone.</small>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Another agent's steps">
+        <div class="ix-h"><h3>7 · Another agent's steps</h3><span class="kit-small kit-muted">Step 9, unfolded</span></div>
+        <p class="rule">A hand-over to another agent, or a helper sent off, is one numbered step that opens into its own, numbered under it. They run with your access, whoever made the agent.</p>
+        <div class="step"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg><span>Research helper handed this to Checker</span></span><small>"The note is drafted; check the figures"</small></div>
+        <div class="sub">
+          <div class="step"><span><span class="kit-muted">9.1 · </span>Read the artifact</span><small>"Fee comparison", version 2 · 0.2 seconds</small></div>
+          <div class="step"><span><span class="kit-muted">9.2 · </span>Ran a calculation</span><small>Code sandbox · 0.5 seconds</small></div>
+          <div class="step"><span><span class="kit-muted">9.3 · </span>Compared the figures with the two sheets</span><small>No tool · found nothing wrong</small></div>
+        </div>
+        <div class="open">
+          <dl class="kv"><dt>Agent</dt><dd>Checker, version 5 · on Distil 4.2 · shared with you by Lena W.</dd><dt>Access</dt><dd>Yours. An agent never uses its maker's access</dd><dt>Took</dt><dd>12.0 seconds: 0.7 in tools, the rest the model reading and writing</dd><dt>Then</dt><dd>It handed the work back to Research helper</dd></dl>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Where the time went">
+        <div class="ix-h"><h3>8 · Where the time went</h3><span class="kit-small kit-muted">For one message · 11:50</span></div>
+        <p class="rule">For each message, how long the answer took and what the time went on. Waiting for your yes or no is shown apart and is not counted: that is your time, not the model's. What a message cost shows only once ThinkLatent has set a price.</p>
+        <div class="soft"><span style="display: flex; justify-content: space-between; gap: 12px"><b style="font-weight: 500">40.4 seconds</b><span class="kit-small kit-muted">5 steps · 1 request of the 23 you have used today</span></span>
+          <div class="bar" role="img" aria-label="Tools 22.3 seconds, Checker 12.0, the model 6.1"><i style="width: 55.2%; background: var(--companion)"></i><i style="width: 29.7%; background: rgba(26,26,26,.55)"></i><i style="width: 15.1%; background: rgba(26,26,26,.28)"></i></div>
+          <dl class="kv" style="margin-top: 10px; grid-template-columns: 150px minmax(0,1fr)">
+            <dt><i class="key" style="background: var(--companion)"></i>Tools</dt><dd>22.3 seconds · 20.0 of it waiting on the search that failed</dd>
+            <dt><i class="key" style="background: rgba(26,26,26,.55)"></i>Checker</dt><dd>12.0 seconds · another agent, 3 steps</dd>
+            <dt><i class="key" style="background: rgba(26,26,26,.28)"></i>The model</dt><dd>6.1 seconds · reading and writing the answer</dd>
+            <dt>Waiting for you</dt><dd>3.4 seconds more · your answer to "save this file?"</dd>
+            <dt>Cost</dt><dd>Not set for Try TLM</dd>
+          </dl>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Downloading the list">
+        <div class="ix-h"><h3>9 · Downloading the list</h3><span class="kit-small kit-muted">"Download the list", open</span></div>
+        <p class="rule">The list can leave as a sheet or as text. It holds what this page holds. A download is recorded, like every export, and what the check stopped is never in it: it was not kept.</p>
+        <div class="soft"><b style="font-weight: 500">Download the steps of "Fees, explained to a new adviser"</b>
+          <div class="pk" role="radiogroup" aria-label="As">
+            <label><input type="radio" name="as" checked> <span>As a sheet<small>One row a step, with the columns of this list · .csv</small></span></label>
+            <label><input type="radio" name="as"> <span>As text<small>In order, under each message, for reading · .txt</small></span></label>
+          </div>
+          <div class="tk"><i></i><span>Include what each tool brought back, in full<br><small style="font-size: 12px; color: rgba(26,26,26,.66)">Off: the short line only, as in the list</small></span></div>
+          <div class="acts" style="margin-top: 12px"><button class="kit-btn sm" type="button">Download 10 steps</button><button class="kit-btn ghost sm" type="button">Cancel</button><span class="kit-small kit-muted">With a filter on, only the steps shown.</span></div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="A session with no steps">
+        <div class="ix-h"><h3>10 · A session with no steps</h3><span class="kit-small kit-muted">And a session still answering</span></div>
+        <p class="rule">The list says plainly when there is nothing in it. While an answer is being written, its steps arrive here one by one, as they do in the chat.</p>
+        <div class="kit-empty"><b style="font-weight: 500; color: #1A1A1A">No tool was used in this session</b><span class="kit-small">The model answered from what you wrote. Steps appear here when a tool, a connector or another agent does something.</span><a class="kit-btn outline sm" href="Try-Box.dc.html">What tools there are</a></div>
+        <div class="step"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Searching approved documents…</span></span><small>Step 11 · started 11:58 · not finished</small></div>
+      </section>
+      <section class="kit-surface" aria-label="What is kept, and who sees it">
+        <div class="ix-h"><h3>11 · What is kept, and who sees it</h3><span class="kit-small kit-muted">The same as the session</span></div>
+        <p class="rule">The steps are part of the session. They are kept, shared and removed with it.</p>
+        <div class="tl">
+          <span><span>Who sees them<small>You, and anyone you share the session with by name: they see this list, read only</small></span><a class="kit-btn ghost sm" href="Try-Share.dc.html">Sharing</a></span>
+          <span><span>How long<small>With the session: removed 30 days after its last message</small></span></span>
+          <span><span>Their text<small>Kept where only you can read it. ThinkLatent sees how many steps and which tools, not what was asked or came back</small></span></span>
+          <span><span>Training<small>Never used</small></span></span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3520}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

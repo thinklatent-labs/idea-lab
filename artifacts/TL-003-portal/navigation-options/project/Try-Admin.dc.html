@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · what ThinkLatent sets: models, tools, what is off and why, the limit, what is kept, the check</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.tl{display:flex;flex-direction:column;margin-top:8px}
+.tl>span{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:10px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.45}
+.tl>span:first-child{border-top:0}
+.tl>span>span:first-child{min-width:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.tl .r{flex:none;display:flex;gap:8px;align-items:center}
+.cap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);margin:14px 0 0}
+.hold{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:inherit;font-size:13px;font-weight:500;white-space:nowrap}
+.hold i{width:15px;height:15px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.hold.red{background:var(--decision)}
+.toast{display:flex;justify-content:space-between;gap:16px;align-items:center;border-radius:12px;background:#1A1A1A;color:#fff;padding:10px 14px;font-size:13px;margin-top:12px}
+.toast a{color:#fff;font-weight:500}
+.mn{margin-top:8px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.10);padding:6px;font-size:13px;line-height:1.4;display:flex;flex-direction:column}
+.mn .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 10px;border-radius:10px}
+.mn .it.on{background:rgba(26,26,26,.06)}
+.mn .it small{font-size:12px;color:rgba(26,26,26,.66)}
+.mn .mcap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);padding:8px 10px 2px}
+.mn hr{border:0;border-top:1px solid rgba(26,26,26,.1);margin:4px 6px}
+.only{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:500;background:#1A1A1A;color:#fff;white-space:nowrap}
+.only svg{width:13px;height:13px}
+.tb{display:grid;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.tb>*{padding:10px 14px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.tb .h{font-size:11.5px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.tb small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.tb b{font-weight:500}
+.t4{grid-template-columns:minmax(0,3fr) minmax(0,4fr) minmax(0,6fr) 110px}
+.t3{grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,5fr)}
+.t5{grid-template-columns:minmax(0,3fr) minmax(0,4fr) minmax(0,5fr) minmax(0,4fr)}
+.tlo{box-shadow:0 0 0 1.5px #1A1A1A!important}
+.off{color:rgba(26,26,26,.7)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 4362px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">What ThinkLatent sets <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">What ThinkLatent sets for Try TLM</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · what ThinkLatent sets</span><span class="kit-chip">11 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">A read-only page for everyone at the Enterprise, then the same page as ThinkLatent's own people see it, with where each value is changed · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="true" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="What is set, at a glance">
+        <div class="ix-h"><h3>1 · What is set, at a glance</h3><span class="kit-small kit-muted">The same for everyone · shown, not edited · as of 11:58 ET</span></div>
+        <p class="rule">Everyone at the Enterprise has the same Try TLM. Nobody you work with is an administrator of it, so nobody can change these for you or see more than this page shows. To ask for a change, raise a request (part 10).</p>
+        <div class="tb t4">
+          <span class="h">What</span><span class="h">Now</span><span class="h">Why, in a line</span><span class="h"></span>
+          <span><b>Models offered</b></span><span>3 · Core 4.2, Distil 4.2, Domain-Advice v2</span><span>Every released ThinkLatent chat model, and no other</span><span><a href="#p2">Part 2</a></span>
+          <span><b>Tools and connectors</b></span><span>5 tools · 3 connectors on the list</span><span>All of them stay inside the Enterprise</span><span><a href="#p3">Part 3</a></span>
+          <span><b>Switched off for everyone</b></span><span>6 things</span><span>Each would let text leave, or let someone unnamed read it</span><span><a href="#p4">Part 4</a></span>
+          <span><b>Daily limit</b></span><span><span><span class="kit-num">60</span> requests a person · a sample value</span></span><span>So the shared endpoints stay quick for everyone</span><span><a href="#p5">Part 5</a></span>
+          <span><b>How long things are kept</b></span><span>Sessions 30 days · the rest until you remove it</span><span>A session is a try-out; what you build is yours to keep</span><span><a href="#p6">Part 6</a></span>
+          <span><b>The client-data check</b></span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Always on</span></span></span><span>Try TLM is not a place for a client's details</span><span><a href="#p7">Part 7</a></span>
+        </div>
+      </section>
+      <section class="kit-surface" id="p2" aria-label="Which models are offered">
+        <div class="ix-h"><h3>2 · Which models are offered</h3><span class="kit-small kit-muted">And why not others</span></div>
+        <p class="rule">A released ThinkLatent chat model is here from the day it is released, as it was released. The list is made from the Catalogue, not typed, so the two cannot disagree.</p>
+        <div class="tl">
+          <span><span>Core 4.2<small>Large · the general model · TL Index 81 ± 1</small></span><span class="r"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Offered</span></span></span></span>
+          <span><span>Distil 4.2<small>Faster · short tasks</small></span><span class="r"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Offered</span></span></span></span>
+          <span><span>Domain-Advice v2<small>Advice conversations · as released</small></span><span class="r"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Offered</span></span></span></span>
+        </div>
+        <span class="cap" style="display: block">Not offered, and why</span>
+        <div class="tl" style="margin-top: 2px">
+          <span><span><span class="off">A project's own version of a model</span><small>It belongs to its project and is tried there, under that project's rules</small></span></span>
+          <span><span><span class="off">A model not yet released</span><small>Nobody outside the foundation team sees it until release; then it appears here by itself</small></span></span>
+          <span><span><span class="off">Speech, embedding, redaction and guardrail models</span><small>Not chat models. Two work behind this page: one writes what you say, one does the check</small></span></span>
+          <span><span><span class="off">Models from outside the Enterprise</span><small>None is allowed. Pictures made by a model wait until one outside model is chosen</small></span></span>
+        </div>
+        <div class="acts" style="margin-top: 10px"><a class="kit-btn outline sm" href="Model-Catalogue.dc.html">What each model is for</a></div>
+      </section>
+      <section class="kit-surface" id="p3" aria-label="Which tools and connectors exist">
+        <div class="ix-h"><h3>3 · Which tools and connectors exist</h3><span class="kit-small kit-muted">You decide which are on</span></div>
+        <p class="rule">Every tool and connector here stays inside the Enterprise. A connector works with the access of whoever uses it and never sees more than they can. A tool that changes something asks every time.</p>
+        <span class="cap" style="display: block; margin-top: 10px">Tools · 5</span>
+        <div class="tl" style="margin-top: 2px">
+          <span><span>Fund documents search<small>Approved documents only</small></span></span>
+          <span><span>Calculator</span></span>
+          <span><span>Code sandbox<small>Inside the Enterprise, with no network</small></span></span>
+          <span><span>Search in your files<small>The files you attached or saved</small></span></span>
+          <span><span>Memory<small>What Try TLM remembers about how you work</small></span></span>
+        </div>
+        <span class="cap" style="display: block">Connectors on the list · 3</span>
+        <div class="tl" style="margin-top: 2px">
+          <span><span>Product sheets library<small>Fund and product sheets</small></span></span>
+          <span><span>Policy library<small>Policies and procedures</small></span></span>
+          <span><span>Team wiki<small>Your teams' pages</small></span></span>
+          <span><span>Your own, by address<small>Taken only when the address is inside the Enterprise</small></span></span>
+        </div>
+      </section>
+      <section class="kit-surface wide" id="p4" aria-label="Switched off for everyone, and why">
+        <div class="ix-h"><h3>4 · Switched off for everyone, and why</h3><span class="kit-small kit-muted">Six things other assistants offer · not offered here</span></div>
+        <p class="rule">None of these is a switch you or anyone at the Enterprise holds. Each is off for a reason that can be said in a line, and each has something to use instead.</p>
+        <div class="tb t3">
+          <span class="h">Not offered</span><span class="h">Why</span><span class="h">Use instead</span>
+          <span><b>Tools that reach outside the Enterprise</b><small>Web search, picture tools and the like</small></span><span>What you type to them would leave the Enterprise</span><span>Fund documents search and the connectors. One outside tool can be allowed for everyone: ask (part 10)</span>
+          <span><b>Open share links</b></span><span>A link opens for whoever holds it</span><span>Share a session with people you name; it ends with the session</span>
+          <span><b>Sharing with groups</b></span><span>A group changes without you knowing who now reads</span><span>Name the people. To reach everyone, offer the agent or prompt to its library</span>
+          <span><b>Keys for programs</b></span><span>The portal issues no keys; a program is registered as an application and signs in</span><span><span><a href="Start-Project.dc.html">Start a project</a> and call its endpoint</span></span>
+          <span><b>Other languages</b></span><span>The words on the screen are English, like the rest of the portal</span><span>You can still write to a model in another language; listening is English</span>
+          <span><b>Temporary sessions</b></span><span>Every session already ends 30 days after its last message; a second kind would only add a second rule</span><span>"Hold to remove now" on a session's menu</span>
+        </div>
+        <p class="rule" style="margin-top: 10px">Also off: bringing sessions in from other assistants, answering in a chat channel, and sounds or pop-ups outside the portal.</p>
+      </section>
+      <section class="kit-surface" id="p5" aria-label="The daily limit, and how it is set">
+        <div class="ix-h"><h3>5 · The daily limit, and how it is set</h3><span class="kit-small kit-muted">One number for everyone</span></div>
+        <p class="rule">The limit protects the shared endpoints, which everyone at the Enterprise uses at once. It is never raised for one person. It is counted by the gateway, so it holds however a request arrives.</p>
+        <dl class="kv" style="grid-template-columns: 130px minmax(0,1fr); margin-top: 10px">
+          <dt>Now</dt><dd><span class="kit-num">60</span> requests a person a day · a sample value</dd>
+          <dt>Starts again</dt><dd>At midnight ET, for everyone</dd>
+          <dt>How it is set</dt><dd>From the room on the shared endpoints: ThinkLatent aims to keep 15% free at the busiest hour, and sets the number so that holds</dd>
+          <dt>Looked at again</dt><dd>When a model is released, and when machines are added or moved</dd>
+          <dt>For more</dt><dd>A project gets an endpoint of its own, with no limit of this kind</dd>
+        </dl>
+        <div class="acts" style="margin-top: 10px"><a class="kit-btn outline sm" href="Try-Limit.dc.html">Your limit today, in full</a><a class="kit-btn ghost sm" href="Start-Project.dc.html">Start a project</a></div>
+      </section>
+      <section class="kit-surface" id="p6" aria-label="How long things are kept">
+        <div class="ix-h"><h3>6 · How long things are kept</h3><span class="kit-small kit-muted">And who can read them</span></div>
+        <p class="rule">A session is a try-out and ends by itself. What you build is kept until you remove it. Nothing is used for training, and the text of a session is kept where only you can read it.</p>
+        <dl class="kv" style="grid-template-columns: 170px minmax(0,1fr); margin-top: 10px">
+          <dt>A session</dt><dd>30 days after its last message, with its artifacts, its files and any share of it</dd>
+          <dt>Memory</dt><dd>Until you forget it</dd>
+          <dt>Agents, skills, folders, saved prompts, files</dt><dd>Until you remove them</dd>
+          <dt>What you say aloud</dt><dd>The sound is not kept; the words are part of the session</dd>
+          <dt>A stopped message</dt><dd>Nothing is kept</dd>
+          <dt>A file you download</dt><dd>Its link ends after 7 days</dd>
+        </dl>
+        <div class="acts" style="margin-top: 10px"><a class="kit-btn outline sm" href="Try-You.dc.html">What Try TLM keeps about you, on You</a></div>
+      </section>
+      <section class="kit-surface" id="p7" aria-label="What is checked for client data">
+        <div class="ix-h"><h3>7 · What is checked for client data</h3><span class="kit-small kit-muted">Always on · the same for everyone</span></div>
+        <p class="rule">ThinkLatent's guardrail model reads what is about to go to a model, inside the Enterprise. If it finds a client's details, that message, file or tool result goes no further and is not kept. Made-up people and sample funds pass.</p>
+        <span class="cap" style="display: block; margin-top: 10px">Where it runs</span>
+        <div class="tl" style="margin-top: 2px">
+          <span><span>What you send<small>When you press Send, not while you type</small></span></span>
+          <span><span>Each file<small>When it is attached, saved or given to an agent or a folder</small></span></span>
+          <span><span>What a tool or connector brings back<small>Before the model reads it</small></span></span>
+          <span><span>What memory would keep, and what you save<small>A memory line, a saved prompt, an agent's instructions</small></span></span>
+        </div>
+        <span class="cap" style="display: block">What it looks for</span>
+        <div class="tl" style="margin-top: 2px">
+          <span><span>A person's name beside an account or policy number</span></span>
+          <span><span>Account, card and national identity numbers by themselves</span></span>
+          <span><span>A named person's holdings, balance or transactions</span></span>
+          <span><span>A named person's home address, date of birth, phone or own email</span></span>
+        </div>
+        <p class="rule" style="margin-top: 10px">A stop does not count against your limit. If the check stops something that is not a client's details, say so with "Why" on the notice: that becomes a request, without the text.</p>
+      </section>
+      <section class="kit-surface" id="p8" aria-label="What ThinkLatent can see of your use">
+        <div class="ix-h"><h3>8 · What ThinkLatent can see of your use</h3><span class="kit-small kit-muted">Counts, not text</span></div>
+        <p class="rule">ThinkLatent runs Try TLM and still cannot read what you type. What it can see is how much Try TLM is used, so that it can set the limit and plan the machines.</p>
+        <div class="tl">
+          <span><span>The text of your sessions, memory and files<small>Kept where only you can read it</small></span><span class="r"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><path d="M4 4l16 16"></path></svg><span>Cannot see</span></span></span></span>
+          <span><span>That you used Try TLM, and how much<small>Requests by day and by model</small></span><span class="r"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="2.5"></circle></svg><span>Can see</span></span></span></span>
+          <span><span>Your ratings<small>Good or not good, and the reason. An answer's text only if you ticked to send it</small></span><span class="r"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="2.5"></circle></svg><span>Can see</span></span></span></span>
+          <span><span>What the check stopped<small>How often and which kind. Never what was stopped</small></span><span class="r"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="2.5"></circle></svg><span>Counts only</span></span></span></span>
+          <span><span>An agent, skill or prompt of yours<small>Only from the moment you offer it to a library</small></span><span class="r"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><path d="M4 4l16 16"></path></svg><span>Cannot see</span></span></span></span>
+        </div>
+      </section>
+      <section class="kit-surface" id="p9" aria-label="What changed lately">
+        <div class="ix-h"><h3>9 · What changed lately</h3><span class="kit-small kit-muted">Everyone sees every change</span></div>
+        <p class="rule">When ThinkLatent changes anything on this page, the change is listed here with its date and its reason. A change never arrives unannounced in the middle of a session: it applies from your next session.</p>
+        <div class="tl">
+          <span><span>3 Nov · Team wiki added to the connectors<small>Asked for by 3 teams</small></span></span>
+          <span><span>30 Oct · The check also looks for policy numbers<small>After a stop that should have happened did not</small></span></span>
+          <span><span>28 Oct · Calculator added to the tools<small>So that sums are worked, not guessed</small></span></span>
+        </div>
+        <div class="acts" style="margin-top: 10px"><a class="kit-btn ghost sm" href="Help-Page.dc.html">Everything that changed</a></div>
+      </section>
+      <section class="kit-surface" id="p10" aria-label="Asking ThinkLatent">
+        <div class="ix-h"><h3>10 · Asking ThinkLatent</h3><span class="kit-small kit-muted">A request, not a message</span></div>
+        <p class="rule">Anything on this page can be asked about. An ask is a request: it is raised here, shows on Requests where everyone can see where it stands, and is answered by the ThinkLatent team with a first answer within 3 days.</p>
+        <div class="tl">
+          <span><span>Allow an outside tool for everyone<small>Also goes to the Enterprise's Risk and IT security</small></span><span class="r"><button class="kit-btn outline sm" type="button">Ask</button></span></span>
+          <span><span>Add a connector to the list<small>For a system inside the Enterprise</small></span><span class="r"><button class="kit-btn outline sm" type="button">Ask</button></span></span>
+          <span><span>The check stopped something it should not have<small>Sent without the text</small></span><span class="r"><button class="kit-btn outline sm" type="button">Say so</button></span></span>
+          <span><span>The limit is too low for most people<small>It changes for everyone or not at all</small></span><span class="r"><button class="kit-btn outline sm" type="button">Ask</button></span></span>
+        </div>
+        <div class="soft"><b style="font-weight: 500">Asked already</b><br>An outside model for pictures · <span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waiting on the Enterprise's Risk and IT security</span></span><br><span class="kit-muted">Nothing changes until they answer. You can add your name to an ask instead of raising it again.</span><div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Requests-Status.dc.html">Requests and their status</a></div></div>
+      </section>
+      <section class="kit-surface wide tlo" id="p11" aria-label="The same page, as ThinkLatent's own people see it">
+        <div class="ix-h"><h3>11 · The same page, as ThinkLatent's own people see it</h3><span class="kit-small kit-muted"><span class="only"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>ThinkLatent only</span> <span class="kit-small kit-muted">· two more columns · still nothing to edit</span></span></div>
+        <p class="rule">There is no settings screen. Every value lives in the repository's configuration and changes only by a change that a second person at ThinkLatent reviews; it takes effect with the next release of Try TLM, never live. The review is the record of who changed what, and why.</p>
+        <div class="tb t5">
+          <span class="h">What</span><span class="h">Now</span><span class="h">Where it is changed</span><span class="h">Last changed</span>
+          <span><b>Models offered</b></span><span>3 chat models</span><span>Nowhere by hand: the list is made from the Catalogue at each release</span><span>Follows the Catalogue</span>
+          <span><b>Tools</b></span><span>5 · none reaches outside</span><span>Try TLM's configuration, in the repository</span><span>28 Oct · Arjun K. · reviewed<small>Calculator added</small></span>
+          <span><b>Connector list</b></span><span>3 · inside addresses only</span><span>Try TLM's configuration, in the repository</span><span>3 Nov · Arjun K. · reviewed<small>Team wiki added</small></span>
+          <span><b>Switched off for everyone</b></span><span>6 things</span><span>Try TLM's configuration, in the repository<small>An outside tool also needs Risk and IT security</small></span><span>Not since it was first set</span>
+          <span><b>Daily limit</b></span><span><span><span class="kit-num">60</span> requests a person · midnight ET</span></span><span>The gateway's configuration, in the repository<small>Not in the chat: the chat only shows the count</small></span><span>Not since it was first set</span>
+          <span><b>How long things are kept</b></span><span>Sessions 30 days after the last message</span><span>Try TLM's configuration, in the repository</span><span>Not since it was first set</span>
+          <span><b>The client-data check</b></span><span>4 kinds of detail · 4 places it runs</span><span>The guardrail model's rules, in the repository</span><span>30 Oct · Arjun K. · reviewed<small>Policy numbers added</small></span>
+          <span><b>Starting values of a person's settings</b></span><span>As on Try TLM's settings page</span><span>Try TLM's configuration, in the repository</span><span>Not since it was first set</span>
+          <span><b>Who counts as ThinkLatent here</b></span><span>A group in the Enterprise's access management</span><span>In access management, not in Try TLM<small>Nobody is made an administrator by hand</small></span><span>Kept there</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 4px">
+          <div class="soft"><b style="font-weight: 500">Waiting to be changed</b><br>Nothing is waiting for review. 1 ask is open: an outside model for pictures, with the Enterprise's Risk and IT security.<div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Requests-Status.dc.html">Open the ask</a><button class="kit-btn ghost sm" type="button">How to propose a change</button></div></div>
+          <div class="soft"><b style="font-weight: 500">What ThinkLatent's people cannot do here either</b><br><span class="kit-muted">Read a session, a memory or a file. Change a value for one person. Change anything live. Add or remove people: they come from the Enterprise's access management.</span></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4362}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

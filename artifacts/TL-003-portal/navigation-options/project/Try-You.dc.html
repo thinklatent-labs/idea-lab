@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · what it adds to You: what it keeps, shared sessions, one download, one removal</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.tl{display:flex;flex-direction:column;margin-top:8px}
+.tl>span{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:10px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.45}
+.tl>span:first-child{border-top:0}
+.tl>span>span:first-child{min-width:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.tl .r{flex:none;display:flex;gap:8px;align-items:center}
+.cap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);margin:14px 0 0}
+.hold{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:inherit;font-size:13px;font-weight:500;white-space:nowrap}
+.hold i{width:15px;height:15px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.hold.red{background:var(--decision)}
+.toast{display:flex;justify-content:space-between;gap:16px;align-items:center;border-radius:12px;background:#1A1A1A;color:#fff;padding:10px 14px;font-size:13px;margin-top:12px}
+.toast a{color:#fff;font-weight:500}
+.mn{margin-top:8px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.10);padding:6px;font-size:13px;line-height:1.4;display:flex;flex-direction:column}
+.mn .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 10px;border-radius:10px}
+.mn .it.on{background:rgba(26,26,26,.06)}
+.mn .it small{font-size:12px;color:rgba(26,26,26,.66)}
+.mn .mcap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);padding:8px 10px 2px}
+.mn hr{border:0;border-top:1px solid rgba(26,26,26,.1);margin:4px 6px}
+.only{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:500;background:#1A1A1A;color:#fff;white-space:nowrap}
+.only svg{width:13px;height:13px}
+.where{display:flex;gap:8px;align-items:flex-start;margin-top:12px;padding:9px 12px;border-radius:12px;background:rgba(27,81,40,.07);font-size:12.5px;line-height:1.45}
+.where svg{width:15px;height:15px;flex:none;margin-top:2px;color:#1B5128}
+.where b{font-weight:500}
+.map{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.15fr);gap:14px;margin-top:12px;align-items:start}
+.map .col{display:flex;flex-direction:column;gap:8px}
+.mb{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;background:rgba(255,255,255,.5)}
+.mb small{display:block;font-size:12px;color:rgba(26,26,26,.64)}
+.mb.new{box-shadow:0 0 0 2px var(--brand-500);background:#fff}
+.mb.chg{box-shadow:inset 0 0 0 1.5px rgba(26,26,26,.5);background:#fff}
+.mb .tag{float:right;margin-left:8px}
+.card{border-radius:18px;background:rgba(255,255,255,.72);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:14px 16px;margin-top:12px}
+.card .ch{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.card .ch b{font-size:15px;font-weight:500}
+.gs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:10px}
+.gs h4{margin:0 0 2px;font-size:13px;font-weight:500}
+.gs ul{margin:6px 0 0;padding:0;list-style:none;font-size:13px;line-height:1.45}
+.gs li{padding:7px 0;border-top:1px solid rgba(26,26,26,.1)}
+.gs li:first-child{border-top:0}
+.gs li small{display:block;font-size:12px;color:rgba(26,26,26,.64)}
+.pick label{align-items:flex-start;line-height:1.4}
+.pick label small{display:block;font-size:12px;color:rgba(26,26,26,.64)}
+.pick input{margin-top:3px}
+del{color:rgba(26,26,26,.55)}
+.hl{background:rgba(62,154,92,.14);border-radius:10px;padding-left:10px!important;padding-right:10px!important}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3644px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">What Try TLM adds to You <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">What Try TLM adds to You</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · on You</span><span class="kit-chip">9 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">Only the additions to the portal's You page, each drawn as the card it would be there, with where it goes · made-up names and counts · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Shell-Settings.dc.html">Open You</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="true" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="Where the additions sit on You">
+        <div class="ix-h"><h3>1 · Where the additions sit on You</h3><span class="kit-small kit-muted">The portal's You page, drawn small · what Try TLM adds is ringed</span></div>
+        <p class="rule">Try TLM adds one card to You, changes one line and gives one button a choice. Everything else on You already covers Try TLM and is not repeated there or here.</p>
+        <div class="map" role="img" aria-label="The You page in two columns. Left: Look, Notifications, Quiet hours and away. Right: Saved views, Profile, What the portal keeps about you (changed), Try TLM (new).">
+          <div class="col"><span class="kit-small kit-muted">Left column of You</span>
+            <div class="mb">Look<small>Light or dark, density, the Engineering view</small></div>
+            <div class="mb">Notifications<small>Inside the portal only</small></div>
+            <div class="mb">Quiet hours and away<small>Time zone, quiet hours, a stand-in</small></div>
+          </div>
+          <div class="col"><span class="kit-small kit-muted">Right column of You</span>
+            <div class="mb">Saved views</div>
+            <div class="mb">Profile<small>From the Enterprise's access management</small></div>
+            <div class="mb chg"><span class="kit-chip outline tag">Changed</span>What the portal keeps about you<small>The Try TLM line is rewritten and one is added · part 8<br>"Download as a file" asks what to put in · parts 4 and 5</small></div>
+            <div class="mb new"><span class="kit-chip brand tag">New</span>Try TLM<small>A line to its settings · what it keeps, with counts · your shared sessions · remove everything · parts 2, 3, 6 and 7</small></div>
+          </div>
+          <div class="col"><span class="kit-small kit-muted">What that comes to</span>
+            <div class="tl" style="margin-top: 0">
+              <span><span>One new card, "Try TLM"<small>Last in the right column, so nothing above it moves</small></span></span>
+              <span><span>One download, not two<small>The button You already has gains a choice of what goes in</small></span></span>
+              <span><span>One removal, held<small>The only thing here that cannot be taken back</small></span></span>
+              <span><span>No second look, profile or notification switch<small>Part 9 lists what You already covers</small></span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What Try TLM keeps about you">
+        <div class="ix-h"><h3>2 · What Try TLM keeps about you</h3><span class="kit-small kit-muted">The new card, as it stands on You</span></div>
+        <p class="rule">Every kind of thing Try TLM keeps, with how many and how long, and a way to each. Sessions end by themselves; everything else stays until you remove it. All of it is yours alone and none of it is used for training.</p>
+        <div class="card" role="region" aria-label="Try TLM, on You">
+          <div class="ch"><b>Try TLM</b><span class="kit-small kit-muted">Yours alone · never used for training</span></div>
+          <div class="tl">
+          <span><span>Try TLM's settings<small>How the chat behaves, speaking and listening, memory on or off</small></span><span class="r"><a class="kit-btn ghost sm" href="Try-Settings.dc.html">Open</a></span></span>
+          <span><span>Sessions · <span class="kit-num">14</span>, and <span class="kit-num">3</span> archived<small>Each is removed 30 days after its last message · the next goes on 19 Nov</small></span><span class="r"><a class="kit-btn ghost sm" href="Try-Sessions.dc.html">Open</a></span></span>
+          <span><span>Memory · <span class="kit-num">4</span> things remembered<small>On · kept until you forget them</small></span><span class="r"><a class="kit-btn ghost sm" href="Playground-More.dc.html">Open</a></span></span>
+          <span><span>Agents · <span class="kit-num">3</span><small>1 of them offered to the Agents library on 3 Nov · kept until you remove them</small></span><span class="r"><a class="kit-btn ghost sm" href="Playground-Build.dc.html">Open</a></span></span>
+          <span><span>Skills · <span class="kit-num">2</span><small>Kept until you remove them</small></span><span class="r"><a class="kit-btn ghost sm" href="Playground-More.dc.html">Open</a></span></span>
+          <span><span>Folders · <span class="kit-num">1</span><small>Onboarding notes: its instructions and 2 files are kept; its 3 sessions still end after 30 days</small></span><span class="r"><a class="kit-btn ghost sm" href="Playground-More.dc.html">Open</a></span></span>
+          <span><span>Saved prompts · <span class="kit-num">2</span><small>/plain and /plan</small></span><span class="r"><a class="kit-btn ghost sm" href="Prompt-Library.dc.html">Open</a></span></span>
+          <span><span>Files · <span class="kit-num">6</span><small>What you saved; a file left in a session goes with the session</small></span><span class="r"><a class="kit-btn ghost sm" href="Try-Box.dc.html">Open</a></span></span>
+          <span><span>Also kept<small>2 saved settings · 1 schedule · 1 connector signed in to (Product sheets library)</small></span></span>
+          </div>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>Where it goes on You.</b> A new card named "Try TLM", last in the right column, under "What the portal keeps about you". Its first line opens Try TLM's settings.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="Shared by you, and with you">
+        <div class="ix-h"><h3>3 · Shared by you, and with you</h3><span class="kit-small kit-muted">Inside the Try TLM card</span></div>
+        <p class="rule">Sharing is with named people at the Enterprise, never a link. A share ends when its session is removed, or sooner if you stop it. Stopping happens at once and can be undone for 10 seconds.</p>
+        <div class="card">
+          <span class="cap" style="display: block; margin-top: 0">Shared by you · 1</span>
+          <div class="tl" style="margin-top: 2px">
+          <span><span><a href="Try-Chat.dc.html">Fees, explained to a new adviser</a><small>With Dev R. · reads it, and can start a session of their own from any turn · until 5 Dec, when the session is removed</small></span><span class="r"><button class="kit-btn outline sm" type="button">Stop sharing</button></span></span>
+          </div>
+          <span class="cap" style="display: block">Shared with you · 2</span>
+          <div class="tl" style="margin-top: 2px">
+          <span><span>Practice questions for a mock client call<small>A session · by Lena W. · you can read it · until 28 Nov</small></span><span class="r"><button class="kit-btn outline sm" type="button">Open</button><button class="kit-btn ghost sm" type="button">Take it off my list</button></span></span>
+          <span><span>Checker<small>An agent · by Lena W. · on Distil 4.2 · you can use it, not change it</small></span><span class="r"><button class="kit-btn outline sm" type="button">Open</button><button class="kit-btn ghost sm" type="button">Take it off my list</button></span></span>
+          </div>
+        </div>
+        <div class="toast"><span>Dev R. can no longer open "Fees, explained to a new adviser"</span><a href="#">Undo</a></div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>Where it goes on You.</b> The second block of the "Try TLM" card. The share dialog already says a shared session is listed on You; this is that list.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="One download for everything">
+        <div class="ix-h"><h3>4 · One download for everything</h3><span class="kit-small kit-muted">"Download as a file", open</span></div>
+        <p class="rule">You already has this button. It now asks what to put in, so there is one download and not two. "Download all my sessions" in Try TLM opens this with only the sessions ticked.</p>
+        <div class="card">
+          <div class="ch"><b>What goes in the file</b><span class="acts"><button class="kit-btn ghost sm" type="button">Everything</button><button class="kit-btn ghost sm" type="button">Only Try TLM</button></span></div>
+          <span class="cap" style="display: block; margin-top: 8px">From the portal</span>
+          <div class="pick">
+            <label><input type="checkbox" checked> <span>Decisions you made, and requests you sent</span></label>
+            <label><input type="checkbox" checked> <span>Your threads, comments and saved views</span></label>
+          </div>
+          <span class="cap" style="display: block">From Try TLM</span>
+          <div class="pick">
+            <label><input type="checkbox" checked> <span>Sessions<small>14 and 3 archived, with their text, steps, artifacts and the files in them</small></span></label>
+            <label><input type="checkbox" checked> <span>Memory<small>4 things remembered</small></span></label>
+            <label><input type="checkbox" checked> <span>What you made<small>3 agents with their versions, 2 skills, 2 saved prompts, 2 saved settings</small></span></label>
+            <label><input type="checkbox" checked> <span>Folders and files<small>1 folder with its instructions and 2 files, and your 6 saved files</small></span></label>
+          </div>
+          <div class="acts" style="margin-top: 12px"><button class="kit-btn sm" type="button">Prepare the file</button><button class="kit-btn ghost sm" type="button">Cancel</button></div>
+        </div>
+        <p class="rule" style="margin-top: 10px">Not in the file: what others shared with you, which is theirs, and sealed production text. A download is recorded, like every export: that it happened, not what was in it.</p>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>Where it goes on You.</b> No new button. "Download as a file" in "What the portal keeps about you" opens this. The Try TLM card links to it with "Only Try TLM" chosen.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="Prepared, then in your inbox">
+        <div class="ix-h"><h3>5 · Prepared, then in your inbox</h3><span class="kit-small kit-muted">Three states</span></div>
+        <p class="rule">The file is made in the background and arrives in the inbox as one file. It holds your session text in the open, so from then on keeping it safe is yours to do. The link works for you alone, for 7 days.</p>
+        <div class="soft"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Being prepared · asked for today 11:58</span></span><br>You can leave this page. It will be in your inbox when it is ready, usually within a few minutes.<div class="acts" style="margin-top: 8px"><button class="kit-btn ghost sm" type="button">Cancel it</button></div></div>
+        <div class="soft" style="background: #fff"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Your file is ready</span></span> <span class="kit-small kit-muted">· in the inbox · today 12:03</span><br><b style="font-weight: 500">everything-kept-about-you-5-nov.zip</b><br><span class="kit-muted">One file: pages you can read in a browser, and the same as data for a program · the link ends on 12 Nov</span><div class="acts" style="margin-top: 8px"><button class="kit-btn sm" type="button">Download</button><button class="kit-btn ghost sm" type="button">Remove the file now</button></div></div>
+        <div class="soft"><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>The link ended on 12 Nov</span></span><br>The file was removed. Nothing else changed; ask for a new one at any time.<div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Shell-Settings.dc.html">Prepare a new file</a></div></div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>Where it goes on You.</b> Nowhere new: the wait shows beside the button, and the file arrives in the portal's inbox, which follows the notification choices You already has.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="Remove everything Try TLM keeps about you">
+        <div class="ix-h"><h3>6 · Remove everything Try TLM keeps about you</h3><span class="kit-small kit-muted">Held · cannot be undone</span></div>
+        <p class="rule">The one thing Try TLM adds to You that cannot be taken back, so it is held. It takes effect at once. To remove one kind of thing, use its own tab; this is for all of it.</p>
+        <div class="card">
+          <div class="gs">
+            <div><h4>What goes</h4>
+              <ul>
+                <li>14 sessions and 3 archived<small>With their artifacts and the files in them</small></li>
+                <li>4 things remembered</li>
+                <li>3 agents, 2 skills, 2 saved prompts, 2 saved settings<small>The offer of Call notes tidy is withdrawn</small></li>
+                <li>1 folder and your 6 saved files</li>
+                <li>1 schedule, which stops<small>And your sign-in to 1 connector</small></li>
+                <li>Every share you made<small>Dev R. can no longer open your session</small></li>
+                <li>Your Try TLM settings<small>Back to their starting values</small></li>
+              </ul></div>
+            <div><h4>What stays</h4>
+              <ul>
+                <li>An agent already accepted into the Agents library<small>It is the library's now, with your name as who offered it</small></li>
+                <li>A session you handed to a project<small>It became a prompt there, under the project's rules</small></li>
+                <li>A session someone started from one you shared<small>It is theirs</small></li>
+                <li>Ratings you gave<small>Counted for the model; an answer's text only where you ticked to send it</small></li>
+                <li>That you used Try TLM, and how much<small>Counts, never text</small></li>
+                <li>The rest of what the portal keeps<small>Decisions, requests, threads, saved views</small></li>
+              </ul></div>
+          </div>
+          <div class="acts" style="margin-top: 14px"><button class="hold red" type="button"><i></i>Hold to remove everything</button><a class="kit-btn outline sm" href="Shell-Settings.dc.html">Download it first</a></div>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>Where it goes on You.</b> At the foot of the "Try TLM" card, under a line of its own, apart from the download. It is the card's only held button.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="After it is removed">
+        <div class="ix-h"><h3>7 · After it is removed</h3><span class="kit-small kit-muted">The card, emptied</span></div>
+        <p class="rule">The card says what happened and when, and Try TLM opens as it does on a first visit. The removal is recorded as one line: that it happened, never what was removed.</p>
+        <div class="card">
+          <div class="ch"><b>Try TLM</b><span class="kit-small kit-muted">Yours alone · never used for training</span></div>
+          <div class="kit-empty" style="margin-top: 10px"><b style="font-weight: 500; color: #1A1A1A">Try TLM keeps nothing about you</b><span class="kit-small">You removed everything today at 11:58. Whatever you do next in Try TLM is kept under the same rules as before.</span><a class="kit-btn outline sm" href="Try-Chat.dc.html">Start a session</a></div>
+        </div>
+        <div class="soft"><b style="font-weight: 500">What Dev R. sees</b><br><span class="kit-muted">"Fees, explained to a new adviser" is no longer shared with you: its owner removed it.</span></div>
+        <div class="soft"><b style="font-weight: 500">What ThinkLatent sees</b><br><span class="kit-muted">One request closed as withdrawn: the offer of Call notes tidy to the Agents library. Nothing about what was removed.</span></div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>Where it goes on You.</b> The same card, in its empty state. The line under "What the portal keeps about you" stays, since it states the rule and not a count.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="The lines in "What the portal keeps about you"">
+        <div class="ix-h"><h3>8 · The lines in "What the portal keeps about you"</h3><span class="kit-small kit-muted">One rewritten, one added</span></div>
+        <p class="rule">The card already names Try TLM in one line. That line now says where the text is kept, and a second line covers what does not end after 30 days.</p>
+        <div class="card">
+          <div class="ch"><b>What the portal keeps about you</b><span class="kit-small kit-muted">Read it, or take it with you</span></div>
+          <div class="tl">
+          <span><span>Decisions you made, and requests you sent<small>Open to everyone at the Enterprise, like every decision</small></span></span>
+          <span><span>Sealed production text you opened<small>Seen by the project's members, ThinkLatent and auditors only</small></span></span>
+          <span><span>Your threads, comments and saved views<small>Seen by whoever can open the page they are on</small></span></span>
+          <span class="hl"><span>Your Try TLM sessions<small>Their text is kept where only you can read it. Each is removed 30 days after its last message, and none is ever used for training. A person you share one with by name can read that one.</small></span><span class="r"><span class="kit-chip outline">Rewritten</span></span></span>
+          <span class="hl" style="margin-top: 4px"><span>What Try TLM remembers, and what you made there<small>Memory, agents, skills, folders, saved prompts and files: yours alone, kept until you remove them · counted in the Try TLM card below</small></span><span class="r"><span class="kit-chip brand">Added</span></span></span>
+          </div>
+          <div class="acts" style="margin-top: 12px"><button class="kit-btn sm" type="button">Download as a file</button><span class="kit-small kit-muted">Asks what to put in · the link ends after 7 days</span></div>
+        </div>
+        <p class="rule" style="margin-top: 10px">It replaces: <del>Private to you, kept 30 days, never trained on</del>. ThinkLatent can count that you used Try TLM and how much. It cannot read what you typed.</p>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>Where it goes on You.</b> In place, in the card of that name: the fourth line is rewritten and a fifth is added. The card's order and its button stay.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="What You already covers">
+        <div class="ix-h"><h3>9 · What You already covers</h3><span class="kit-small kit-muted">Not repeated for Try TLM</span></div>
+        <p class="rule">Nothing is offered in two places. These parts of You hold for Try TLM as they stand, and Try TLM has no control of its own for any of them.</p>
+        <div class="tl">
+          <span><span>Look<small>Try TLM has the portal's one look and follows its density; it has no theme of its own</small></span></span>
+          <span><span>Notifications<small>A finished scheduled run, an agent waiting for your yes and a ready download arrive in the inbox under the kinds You already lists. No sound, no pop-up, no new switch</small></span></span>
+          <span><span>Quiet hours and away<small>A schedule stops while you are away unless you said otherwise when you made it. A stand-in never sees your sessions</small></span></span>
+          <span><span>Profile<small>From the Enterprise's access management. Try TLM has no profile, picture, password or second sign-in</small></span></span>
+          <span><span>Saved views<small>A saved setting in Try TLM is not a saved view; it is counted in the Try TLM card</small></span></span>
+        </div>
+        <div class="acts" style="margin-top: 10px"><a class="kit-btn outline sm" href="Shell-Settings.dc.html">Open You</a><a class="kit-btn ghost sm" href="Try-Settings.dc.html">Try TLM's settings</a></div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3644}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

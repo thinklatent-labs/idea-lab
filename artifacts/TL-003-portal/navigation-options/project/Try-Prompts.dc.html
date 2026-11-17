@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Prompts: your saved prompts, one open with its blanks, making, trying, versions, sharing and offering one, and the way to the prompt library</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.ls{display:grid;grid-template-columns:90px minmax(0,1.7fr) 90px 220px 110px 150px;font-size:13px;line-height:1.4;margin-top:10px;align-items:stretch}
+.ls>*{display:flex;flex-direction:column;justify-content:center;padding:10px 10px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ls>.acts{flex-direction:row;align-items:center;justify-content:flex-end;padding-right:0}
+.ls .h{font-size:11.5px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.ls small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.cmd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;font-weight:500}
+.flt{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.find{display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);background:rgba(255,255,255,.7);flex:1;min-width:240px;font-size:13px}
+.find input{border:0;background:transparent;font:inherit;width:100%;outline:0}
+.across{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;border-radius:16px;background:rgba(27,81,40,.07);padding:12px 16px;font-size:13px;line-height:1.5;margin-top:14px}
+.across>span{flex:1;min-width:320px}
+.hd2{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.hd2 b{font-weight:500;font-size:15px}
+.told{border-radius:12px;background:rgba(26,26,26,.04);padding:10px 14px;font-size:13px;line-height:1.6;margin-top:8px}
+.told p{margin:0}.told p+p{margin-top:8px}
+.bl{background:rgba(62,154,92,.22);border-radius:4px;padding:1px 5px;white-space:nowrap}
+.cap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);margin-top:14px}
+.tl{display:flex;flex-direction:column;margin-top:6px}
+.tl>span{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.tl>span:first-child{border-top:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.fd{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.fd:first-child{margin-top:0}
+.fd label,.fd .lb{font-size:12px;font-weight:500;color:rgba(26,26,26,.7)}
+.fd small{font-size:12px;color:rgba(26,26,26,.64);line-height:1.45}
+.fd .kit-seg{align-self:flex-start}
+.r2{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:10px}
+.fl{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 12px;align-items:center;font-size:13px;margin-top:8px}
+.fl label{color:rgba(26,26,26,.66)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.toast{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:#1A1A1A;color:#fff;font-size:13px;line-height:1.4;margin-top:12px}
+.toast button{border:0;background:transparent;color:#fff;font:inherit;font-weight:500;text-decoration:underline;padding:0;white-space:nowrap}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.two>div{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:10px 12px;font-size:13px;line-height:1.45}
+.two small{display:block;font-size:12px;color:rgba(26,26,26,.66);margin-top:2px}
+.nx{display:flex;flex-direction:column;gap:6px;margin-top:10px;font-size:13px;line-height:1.45}
+.nx>span{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px}
+.nx i{font-style:normal;width:22px;height:22px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);display:flex;align-items:center;justify-content:center;font-size:12px}
+.kv.w{grid-template-columns:118px minmax(0,1fr)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3113px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Saved prompts <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Your saved prompts</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Prompts</span><span class="kit-chip">11 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">Your own saved prompts and their commands, one opened, then making, trying, sharing and offering one. The portal's prompt library is a different thing and is one link away · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="false" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Try-Agent.dc.html">Agents</a><a role="tab" aria-selected="true" href="Try-Prompts.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Try-Folders.dc.html">Folders</a><a role="tab" aria-selected="false" href="Try-Skills.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Try-Memory.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Try-Files.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="Your saved prompts">
+        <div class="ix-h"><h3>1 · Your saved prompts</h3><span class="kit-small kit-muted">3 · 2 yours, 1 shared with you · kept until you remove them</span></div>
+        <p class="rule">Words you send often, saved once and called by a command: type <span class="kit-kbd">/</span> and its name in the writing box. A saved prompt is yours and private until you share it with people you name.</p>
+        <div class="flt"><label class="find"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search your saved prompts" aria-label="Search your saved prompts"></label><span class="kit-seg" role="group" aria-label="Whose"><button type="button" aria-pressed="true">All 3</button><button type="button" aria-pressed="false">Yours 2</button><button type="button" aria-pressed="false">Shared with you 1</button></span><button class="kit-btn " type="button">New prompt</button></div>
+        <div class="ls">
+          <span class="h">Command</span><span class="h">Prompt</span><span class="h">Blanks</span><span class="h">Whose</span><span class="h">Version</span><span class="h"></span>
+          <span class="cmd">/plain</span><span><a href="Try-Prompts.dc.html" style="color: inherit; text-decoration: none" style="font-weight: 500">Rewrite in plain language</a><small>Rewrites a passage for a reader you name, keeping every figure</small></span><span>2</span><span>Yours<small>Shared with 1 person</small></span><span>Version 3<small>4 Nov</small></span><span class="acts"><button class="kit-btn outline sm" type="button" aria-label="Use /plain">Use</button><button class="kit-btn ghost sm" type="button" aria-label="Open /plain">Open</button></span>
+          <span class="cmd">/plan</span><span><a href="Try-Prompts.dc.html" style="color: inherit; text-decoration: none">Turn notes into a plan</a><small>Turns rough notes into a plan with owners and dates</small></span><span>None</span><span>Yours<small>Private · offered to the library</small></span><span>Version 1<small>27 Oct</small></span><span class="acts"><button class="kit-btn outline sm" type="button" aria-label="Use /plan">Use</button><button class="kit-btn ghost sm" type="button" aria-label="Open /plan">Open</button></span>
+          <span class="cmd">/recap</span><span><a href="Try-Prompts.dc.html" style="color: inherit; text-decoration: none">Sum up a meeting in five lines</a><small>What was decided, who does what, and by when</small></span><span>1</span><span>Priya N.'s<small>Shared with you · read only</small></span><span>Version 2<small>2 Nov</small></span><span class="acts"><button class="kit-btn outline sm" type="button" aria-label="Use /recap">Use</button><button class="kit-btn ghost sm" type="button" aria-label="Copy /recap">Copy</button></span>
+        </div>
+        <div class="across"><span><b style="font-weight: 500">Looking for a prompt to build a feature on? That is the portal's prompt library.</b><br>Saved prompts are your own shortcuts for your sessions in Try TLM. The prompt library holds templates that ThinkLatent has checked and scored, for a project to start a feature from.</span><a class="kit-btn outline" href="Prompt-Library.dc.html">Open the prompt library · 14 templates</a></div>
+      </section>
+      <section class="kit-surface" aria-label="One saved prompt, open">
+        <div class="ix-h"><h3>2 · One saved prompt, open</h3><span class="kit-small kit-muted">Its text, its blanks and their defaults</span></div>
+        <p class="rule">The text is shown with its blanks marked. Each blank has a label and may have a default; a blank with no default is asked for every time.</p>
+        <div class="hd2"><span><b><span class="cmd">/plain</span> · Rewrite in plain language</b><br><span class="kit-small kit-muted">Yours · version 3 · saved 4 Nov · shared with Dev R.</span></span><span class="acts"><button class="kit-btn sm" type="button">Use it</button><button class="kit-btn outline sm" type="button">Edit</button><button class="kit-btn ghost sm" type="button" aria-label="More for this prompt: try it, share, versions, offer, copy, remove">More <span aria-hidden="true">▾</span></button></span></div>
+        <div class="told"><p>Rewrite the text below in plain language for <span class="bl">{{the reader}}</span>. Keep every figure and every date exactly as it is. Use short sentences and no jargon. If something cannot be said more simply, leave it and say why.</p><p><span class="bl">{{the text}}</span></p></div>
+        <div class="cap">Blanks · 2</div>
+        <div class="tl">
+          <span><span>The reader<small>Any words · default: "a new adviser"</small></span><button class="kit-btn ghost sm" type="button">Change</button></span>
+          <span><span>The text<small>Any words · no default, asked for every time</small></span><button class="kit-btn ghost sm" type="button">Change</button></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Make one, or edit one">
+        <div class="ix-h"><h3>3 · Make one, or edit one</h3><span class="kit-small kit-muted">"New prompt", open</span></div>
+        <p class="rule">A saved prompt has a name, a command of one word and its text. Two of your prompts cannot have the same command. The check for client data runs when you save.</p>
+        <div class="open"><div class="r2"><div class="fd"><label for="pn">Name</label><input id="pn" class="kit-input" value="Turn notes into a plan"></div><div class="fd" style="margin-top: 0"><label for="pc">Command</label><input id="pc" class="kit-input cmd" value="/plan"></div></div>
+          <div class="fd"><label for="pw">What it does</label><input id="pw" class="kit-input" value="Turns rough notes into a plan with owners and dates"><small>Shown beside the command in the / menu.</small></div>
+          <div class="fd"><label for="pt">The text</label><textarea id="pt" class="kit-input area" style="min-height: 76px">Turn my notes into a plan. One line for each step, with who does it and by when. List anything the notes leave open.</textarea><small>It works on what is in the box or attached when you call it.</small></div>
+          <div class="acts"><button class="kit-btn sm" type="button">Save</button><button class="kit-btn outline sm" type="button">Add a blank</button><button class="kit-btn outline sm" type="button">Try it</button><button class="kit-btn ghost sm" type="button">Cancel</button></div></div>
+      </section>
+      <section class="kit-surface" aria-label="A blank, and its default">
+        <div class="ix-h"><h3>4 · A blank, and its default</h3><span class="kit-small kit-muted">"Add a blank", open</span></div>
+        <p class="rule">A blank is a place in the text you fill in each time. It can take any words or one of a list you set, and can start from a default. Today's date and your name can be put in without being asked for.</p>
+        <div class="open"><div class="fd"><label for="bn">Label</label><input id="bn" class="kit-input" value="The reader"><small>Shown in the form that asks for it, and in the text as <span class="bl">{{the reader}}</span>.</small></div>
+          <div class="fd"><span class="lb">It takes</span><span class="kit-seg" role="group" aria-label="What the blank takes"><button type="button" aria-pressed="false">Any words</button><button type="button" aria-pressed="true">One of a list</button></span></div>
+          <div class="fd"><span class="lb">The list</span><span class="chips"><span class="kit-chip brand">a new adviser · default</span><span class="kit-chip outline">a client</span><span class="kit-chip outline">a colleague in another team</span><button class="kit-btn ghost sm" type="button">Add one</button></span></div>
+          <div class="acts"><button class="kit-btn sm" type="button">Save the blank</button><button class="kit-btn ghost sm" type="button">Remove it</button></div></div>
+        <div class="tl" style="margin-top: 10px"><span><span>Filled without asking<small>Today's date · your name</small></span><span class="chips"><span class="bl">{{today}}</span><span class="bl">{{your name}}</span></span></span></div>
+      </section>
+      <section class="kit-surface" aria-label="Try it">
+        <div class="ix-h"><h3>5 · Try it</h3><span class="kit-small kit-muted">Before you rely on it</span></div>
+        <p class="rule">"Try it" asks for the blanks, then opens a new session on the Chat tab with the finished prompt in the box, for you to read before sending. Sending it counts against your limit today like any message.</p>
+        <div class="soft"><b style="font-weight: 500"><span class="cmd">/plain</span> · Rewrite in plain language</b> <span class="kit-small kit-muted">· version 3</span>
+          <div class="fl"><label for="t1">The reader</label><input id="t1" class="kit-input" value="a new adviser"><label for="t2">The text</label><input id="t2" class="kit-input" value="The ongoing charge is taken from the fund each year."><label>Model</label><span class="chips"><span class="kit-chip brand">Core 4.2</span><span class="kit-chip outline">Distil 4.2</span></span></div>
+          <div class="acts" style="margin-top: 10px"><a class="kit-btn sm" href="Try-Chat.dc.html">Open a session with it</a><button class="kit-btn ghost sm" type="button">Cancel</button><span class="kit-small kit-muted">23 of 60 requests used today</span></div></div>
+        <p class="rule">A saved prompt is never sent the moment it is picked: it always lands in the box first.</p>
+      </section>
+      <section class="kit-surface" aria-label="Its versions">
+        <div class="ix-h"><h3>6 · Its versions</h3><span class="kit-small kit-muted">Every save is kept</span></div>
+        <p class="rule">Each save is a version with what changed. The / menu uses the one marked "in use"; bringing back an earlier one makes it the one in use. People you shared it with get the same one.</p>
+        <div class="tl" style="margin-top: 10px">
+          <span><span>Version 3 · told to keep every figure and date<small>4 Nov · you</small></span><span class="kit-chip brand">In use</span></span>
+          <span><span>Version 2 · the reader made a blank<small>30 Oct · you</small></span><span class="acts"><button class="kit-btn outline sm" type="button">Read</button><button class="kit-btn outline sm" type="button">Compare</button><button class="kit-btn outline sm" type="button">Bring back</button></span></span>
+          <span><span>Version 1 · first saved<small>29 Oct · you</small></span><span class="acts"><button class="kit-btn outline sm" type="button">Read</button><button class="kit-btn outline sm" type="button">Compare</button><button class="kit-btn outline sm" type="button">Bring back</button></span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Share with people you name">
+        <div class="ix-h"><h3>7 · Share with people you name</h3><span class="kit-small kit-muted">"Share", open</span></div>
+        <p class="rule">A person you share with finds the prompt in their own / menu, under "Shared with you". They can use it and copy it; only you can change it. Sharing can be stopped at any time.</p>
+        <div class="open"><div class="fd"><label for="sp">Add a person at the Enterprise</label><input id="sp" class="kit-input" value="Le"></div>
+          <div class="tl">
+            <span><span>Lena W.<small>Advice Tech</small></span><button class="kit-btn sm" type="button">Share with Lena W.</button></span>
+            <span><span>Dev R.<small>Can use and copy · since 4 Nov</small></span><button class="kit-btn ghost sm" type="button">Stop sharing</button></span>
+          </div></div>
+        <div class="tl" style="margin-top: 10px"><span><span class="kit-muted">Not offered<small>Sharing with a group or with everyone, and sharing by a link</small></span></span></div>
+      </section>
+      <section class="kit-surface" aria-label="Offer one to the prompt library">
+        <div class="ix-h"><h3>8 · Offer one to the prompt library</h3><span class="kit-small kit-muted">It becomes a request</span></div>
+        <p class="rule">To reach everyone, a prompt is offered to ThinkLatent. Offering does not publish it: it becomes a request you can follow. Your saved prompt stays yours whatever is decided.</p>
+        <div class="soft"><b style="font-weight: 500">Offer "<span class="cmd">/plan</span> · Turn notes into a plan"</b> <span class="kit-small kit-muted">· version 1</span>
+          <div class="nx">
+            <span><i>1</i><span>You say what it is for and which model it was written for.</span></span>
+            <span><i>2</i><span>ThinkLatent takes out anything particular to you, runs its checks and scores it.</span></span>
+            <span><i>3</i><span>It joins the library as a template with your name on it, or comes back with the reason.</span></span>
+          </div>
+          <div class="acts" style="margin-top: 10px"><button class="kit-btn sm" type="button">Offer it</button><button class="kit-btn ghost sm" type="button">Cancel</button></div></div>
+        <div class="step"><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Offered 5 Nov · with ThinkLatent</span></span><br><small>"Turn notes into a plan" · you can take the offer back until it is decided</small></span><a class="kit-btn outline sm" href="Requests-Status.dc.html">See the request</a></div>
+      </section>
+      <section class="kit-surface" aria-label="Two libraries, each shown as what it is">
+        <div class="ix-h"><h3>9 · Two libraries, each shown as what it is</h3><span class="kit-small kit-muted">And the ways between them</span></div>
+        <p class="rule">Both are called prompts, and they are different things. Neither is folded into the other; each names the other where a person might look for it.</p>
+        <div class="two">
+          <div><b style="font-weight: 500">Your saved prompts</b><small>This tab. Yours, private or shared by name. Shortcuts for your own sessions. Not checked or scored by anyone.</small></div>
+          <div><b style="font-weight: 500">The prompt library</b><small>Under Models and agents. Open to everyone. Templates checked and scored by ThinkLatent, for a project's feature. · <a href="Prompt-Library.dc.html">Open it</a></small></div>
+        </div>
+        <div class="tl" style="margin-top: 10px">
+          <span><span>Both show when you type /<small>Your saved prompts first, then templates from the library, under their own heading</small></span><a class="kit-btn outline sm" href="Try-Box.dc.html">The / menu</a></span>
+          <span><span>From the library to here<small>"Save a copy as a saved prompt" on a template. The copy is yours to change</small></span></span>
+          <span><span>From here to the library<small>"Offer it", which becomes a request</small></span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What it cannot hold, and removing one">
+        <div class="ix-h"><h3>10 · What it cannot hold, and removing one</h3><span class="kit-small kit-muted">Checked on every save</span></div>
+        <p class="rule">A prompt whose text looks like client data is not saved. Removing a prompt happens at once, with Undo; one that is shared says who loses it first.</p>
+        <div class="ring"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Not saved</span></span><br>The text looks like it holds a client's name with an account number. Take it out and save again; a blank can stand where the detail was.<div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Help-Page.dc.html">Why</a></div></div>
+        <div class="toast" role="status"><span>Removed: "/plain · Rewrite in plain language". Dev R. no longer has it</span><button type="button">Undo</button></div>
+      </section>
+      <section class="kit-surface" aria-label="No saved prompts yet, and nothing found">
+        <div class="ix-h"><h3>11 · No saved prompts yet, and nothing found</h3><span class="kit-small kit-muted">Two empty states</span></div>
+        <p class="rule">Said plainly, with the next thing to do. The first also points to the prompt library, so nobody takes this tab for it.</p>
+        <div class="kit-empty" style="margin-top: 12px"><b style="font-weight: 500; color: #1A1A1A">You have no saved prompts yet</b><span class="kit-small">Save words you send often and call them with / in any session. For templates to build a feature on, see the prompt library.</span><span class="acts"><button class="kit-btn sm" type="button">New prompt</button><a class="kit-btn outline sm" href="Prompt-Library.dc.html">The prompt library</a></span></div>
+        <div class="kit-empty" style="margin-top: 12px"><b style="font-weight: 500; color: #1A1A1A">No saved prompt of yours matches "minutes"</b><span class="kit-small">The prompt library has 1 template that does.</span><span class="acts"><button class="kit-btn outline sm" type="button">Clear the search</button><a class="kit-btn ghost sm" href="Prompt-Library.dc.html">See it there</a></span></div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3113}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · Memory: what Try TLM remembers, editing and forgetting it, switching it off, and what is never kept</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.ls{display:grid;grid-template-columns:minmax(0,1.5fr) 110px minmax(0,1.2fr) 170px;font-size:13px;line-height:1.4;margin-top:12px;align-items:stretch}
+.ls>*{display:flex;flex-direction:column;justify-content:center;padding:10px 10px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.ls>.acts{flex-direction:row;align-items:center;justify-content:flex-end;padding-right:0}
+.ls .h{font-size:11.5px;color:rgba(26,26,26,.62);border-top:0;padding-top:0}
+.ls small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.ls .gone{color:rgba(26,26,26,.5);text-decoration:line-through}
+.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.tl{display:flex;flex-direction:column;margin-top:10px}
+.tl>span{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.4}
+.tl>span:first-child{border-top:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.fd{display:flex;flex-direction:column;gap:6px}
+.fd label{font-size:12px;font-weight:500;color:rgba(26,26,26,.7)}
+.fd small{font-size:12px;color:rgba(26,26,26,.64);line-height:1.45}
+.toast{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:#1A1A1A;color:#fff;font-size:13px;line-height:1.4;margin-top:12px}
+.toast button{border:0;background:transparent;color:#fff;font:inherit;font-weight:500;text-decoration:underline;padding:0;white-space:nowrap}
+.hold{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font-size:13px;font-weight:500;white-space:nowrap}
+.hold svg{width:14px;height:14px;flex:none}
+.bar{height:10px;border-radius:5px;background:rgba(26,26,26,.08);display:flex;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:10px;background:var(--companion)}
+.kv.w{grid-template-columns:128px minmax(0,1fr)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 2853px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Memory <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">What Try TLM remembers</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · Memory</span><span class="kit-chip">11 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">The list of what is remembered about how you work, then each thing you can do to it, what is never kept, how a session shows memory at work and how much room it takes · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="false" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Try-Agent.dc.html">Agents</a><a role="tab" aria-selected="false" href="Try-Prompts.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Try-Folders.dc.html">Folders</a><a role="tab" aria-selected="false" href="Try-Skills.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="true" href="Try-Memory.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Try-Files.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="What Try TLM remembers about how you work">
+        <div class="ix-h"><h3>1 · What Try TLM remembers about how you work</h3><span class="kit-small kit-muted">4 things · yours alone · kept until you forget them</span></div>
+        <p class="rule">Every line Try TLM has learned or you have added, with when and where it came from. Nothing is remembered that is not on this list. A line outlives the session it came from: sessions end after 30 days, memory does not.</p>
+        <div class="top"><span class="acts"><span class="kit-switch on" role="switch" aria-checked="true" aria-label="Memory"><i></i></span><b style="font-weight: 500; font-size: 14px">Memory is on</b><span class="kit-small kit-muted">Used in your sessions, and added to as you work</span></span><span class="acts"><button class="kit-btn sm" type="button">Add something</button><button class="hold" type="button"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="9" opacity=".35"></circle><path d="M12 3a9 9 0 0 1 9 9"></path></svg>Hold to forget everything</button></span></div>
+        <div class="ls">
+          <span class="h">What is remembered</span><span class="h">Learned</span><span class="h">From</span><span class="h"></span>
+          <span>Explains things to new advisers, in plain words</span><span>Today 11:42</span><span>The session <a href="Try-Chat.dc.html">Fees, explained to a new adviser</a></span><span class="acts"><button class="kit-btn outline sm" type="button" aria-label="Edit: Explains things to new advisers, in plain words">Edit</button><button class="kit-btn ghost sm" type="button" aria-label="Forget: Explains things to new advisers, in plain words">Forget</button></span>
+          <span>Prefers a table before a paragraph</span><span>3 Nov</span><span>The session <a href="Try-Chat.dc.html">Turning notes into a checklist</a></span><span class="acts"><button class="kit-btn outline sm" type="button" aria-label="Edit: Prefers a table before a paragraph">Edit</button><button class="kit-btn ghost sm" type="button" aria-label="Forget: Prefers a table before a paragraph">Forget</button></span>
+          <span>Writes in British spelling<small>Edited by you on 30 Oct</small></span><span>29 Oct</span><span>The session <a href="Try-Chat.dc.html">Plain-language rewrite of a policy line</a></span><span class="acts"><button class="kit-btn outline sm" type="button" aria-label="Edit: Writes in British spelling">Edit</button><button class="kit-btn ghost sm" type="button" aria-label="Forget: Writes in British spelling">Forget</button></span>
+          <span>Works in Eastern Time</span><span>29 Oct</span><span>You added this</span><span class="acts"><button class="kit-btn outline sm" type="button" aria-label="Edit: Works in Eastern Time">Edit</button><button class="kit-btn ghost sm" type="button" aria-label="Forget: Works in Eastern Time">Forget</button></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 12px"><span class="kit-small kit-muted">4 things · 180 of the 2,000 tokens memory may hold · never used for training</span><span class="acts"><a class="kit-btn ghost sm" href="Shell-Settings.dc.html">Download what is remembered</a></span></div>
+      </section>
+      <section class="kit-surface" aria-label="Edit one">
+        <div class="ix-h"><h3>2 · Edit one</h3><span class="kit-small kit-muted">"Edit", open</span></div>
+        <p class="rule">You can correct anything Try TLM learned. The line keeps where it came from and is marked as edited by you. The check for client data runs when you save.</p>
+        <div class="open"><div class="fd"><label for="me">What is remembered</label><textarea id="me" class="kit-input area" style="min-height: 64px">Prefers a table before a paragraph, then two lines on what the table shows</textarea><small>Learned 3 Nov from the session "Turning notes into a checklist".</small></div>
+          <div class="acts"><button class="kit-btn sm" type="button">Save</button><button class="kit-btn ghost sm" type="button">Cancel</button></div></div>
+      </section>
+      <section class="kit-surface" aria-label="Add something yourself">
+        <div class="ix-h"><h3>3 · Add something yourself</h3><span class="kit-small kit-muted">"Add something", open</span></div>
+        <p class="rule">A line you write is used like one Try TLM learned. Write how you work or how you like answers, not anything about a client or a case.</p>
+        <div class="open"><div class="fd"><label for="ma">Something about how you work</label><input id="ma" class="kit-input" value="Wants every figure shown with its year"><small>One thing a line. It is used from your next message.</small></div>
+          <div class="acts"><button class="kit-btn sm" type="button">Add</button><button class="kit-btn ghost sm" type="button">Cancel</button></div></div>
+      </section>
+      <section class="kit-surface" aria-label="Forget one">
+        <div class="ix-h"><h3>4 · Forget one</h3><span class="kit-small kit-muted">With Undo</span></div>
+        <p class="rule">Forgetting one line happens at once and can be undone for 10 seconds. After that it is gone, and later answers no longer draw on it. Answers already written stay as they are.</p>
+        <div class="ls" style="grid-template-columns: minmax(0,1fr) 90px">
+          <span class="gone">Prefers a table before a paragraph</span><span class="kit-small kit-muted" style="align-items: flex-end">Forgotten</span>
+          <span>Writes in British spelling<small>29 Oct · edited by you</small></span><span class="acts"><button class="kit-btn ghost sm" type="button">Forget</button></span>
+        </div>
+        <div class="toast" role="status"><span>Forgotten: "Prefers a table before a paragraph"</span><button type="button">Undo</button></div>
+      </section>
+      <section class="kit-surface" aria-label="Forget everything">
+        <div class="ix-h"><h3>5 · Forget everything</h3><span class="kit-small kit-muted">Held, because it cannot be taken back</span></div>
+        <p class="rule">The one thing on this page that cannot be undone, so it is held. Every line goes. Memory stays on and starts again from nothing, unless you also switch it off.</p>
+        <div class="soft"><b style="font-weight: 500">Forget all 4 things</b>
+          <dl class="kv w" style="margin-top: 8px"><dt>What goes</dt><dd>Every line remembered, for good</dd><dt>What stays</dt><dd>Your sessions, folders, agents, skills, saved prompts and files</dd><dt>Afterwards</dt><dd>Memory is still on and learns again as you work</dd></dl>
+          <div class="acts" style="margin-top: 10px"><button class="hold" type="button"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="9" opacity=".35"></circle><path d="M12 3a9 9 0 0 1 9 9"></path></svg>Hold to forget everything</button><button class="kit-btn ghost sm" type="button">Cancel</button></div>
+          <span class="kit-small kit-muted" style="display: block; margin-top: 8px">Hold for 2 seconds. Letting go cancels. From the keyboard, hold Space.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="Memory, switched off">
+        <div class="ix-h"><h3>6 · Memory, switched off</h3><span class="kit-small kit-muted">The same page, off</span></div>
+        <p class="rule">Off means nothing remembered is used and nothing new is learned, in any session. What was remembered is kept, greyed, until you forget it or switch memory on again.</p>
+        <div class="soft"><span class="acts"><span class="kit-switch" role="switch" aria-checked="false" aria-label="Memory"><i></i></span><b style="font-weight: 500">Memory is off</b><span class="kit-small kit-muted">since today 11:50</span></span>
+          <div style="margin-top: 8px; color: rgba(26,26,26,.5)">4 things kept, not in use</div></div>
+        <div class="tl">
+          <span><span>For one session only<small>The Memory switch in that session's Tools menu</small></span><a class="kit-btn outline sm" href="Try-Box.dc.html">The Tools menu</a></span>
+          <span><span>For an agent<small>An agent uses your memory only if Memory is switched on for it. It keeps none of its own</small></span><a class="kit-btn outline sm" href="Try-Agent.dc.html">The agent builder</a></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What is never remembered">
+        <div class="ix-h"><h3>7 · What is never remembered</h3><span class="kit-small kit-muted">Whatever is said in a session</span></div>
+        <p class="rule">These are never kept, with memory on or off. When a line is refused, Try TLM says so; it does not drop it unseen.</p>
+        <div class="tl">
+          <span><span>Client data<small>A line that looks like client data is not kept</small></span></span>
+          <span><span>Anything from a session marked "Do not remember"<small>Marking a session later also forgets what it had already taught, with Undo</small></span></span>
+          <span><span>What is in a file, and what a tool brought back<small>Memory is learned from what you write, not from documents</small></span></span>
+          <span><span>A session someone else shared with you<small>Reading it teaches nothing about you</small></span></span>
+        </div>
+        <div class="ring"><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Not remembered</span></span><br>A line from the session "Sorting made-up service requests" looked like a client's name with an account number. It was not kept.<div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Help-Page.dc.html">Why</a></div></div>
+        <div class="step"><span>Do not remember this session<br><small>In a session's "More" menu · the session is still yours for its 30 days</small></span><span class="kit-switch on" role="switch" aria-checked="true" aria-label="Do not remember this session"><i></i></span></div>
+      </section>
+      <section class="kit-surface" aria-label="In a session: memory used, and added to">
+        <div class="ix-h"><h3>8 · In a session: memory used, and added to</h3><span class="kit-small kit-muted">On the Chat tab</span></div>
+        <p class="rule">An answer that drew on memory says so and lists the lines. When a session teaches Try TLM something new, the session says what was added at that moment, with Undo.</p>
+        <div class="m it">Here are the three charges as a table first, then two lines in plain words for a new adviser.
+          <div class="meta"><span>Core 4.2 · 6.2 seconds · used memory: 2 things</span><span class="acts"><button class="kit-btn ghost sm" type="button" aria-expanded="true">Hide</button></span></div>
+          <div class="open" style="background: rgba(255,255,255,.6)"><span class="kit-small kit-muted">Used in this answer</span><span>Prefers a table before a paragraph</span><span>Explains things to new advisers, in plain words</span><span class="acts"><a class="kit-btn ghost sm" href="Try-Memory.dc.html">See all 4</a></span></div></div>
+        <div class="step"><span>Added to memory<br><small>"Explains things to new advisers, in plain words"</small></span><span class="acts"><button class="kit-btn outline sm" type="button">Edit</button><button class="kit-btn ghost sm" type="button">Undo</button></span></div>
+      </section>
+      <section class="kit-surface" aria-label="How much of the context memory takes">
+        <div class="ix-h"><h3>9 · How much of the context memory takes</h3><span class="kit-small kit-muted">From the context meter</span></div>
+        <p class="rule">While memory is on, every line is sent with each message, so it takes room. ThinkLatent sets how much memory may hold. When it is full, nothing is dropped unseen: Try TLM asks what to forget.</p>
+        <div class="soft"><span style="display: flex; justify-content: space-between; gap: 12px"><b style="font-weight: 500">180 tokens · 4 things</b><span class="kit-small kit-muted">9% of what memory may hold</span></span>
+          <div class="bar" role="img" aria-label="Memory holds 180 of 2,000 tokens"><i style="width: 9%"></i></div>
+          <dl class="kv w" style="margin-top: 10px"><dt>In a session</dt><dd>180 of 32,000 tokens, under 1% of the context · <a href="Try-Box.dc.html">what fills it</a></dd><dt>Memory may hold</dt><dd>2,000 tokens · set by ThinkLatent · a sample value</dd></dl></div>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Memory is full</span></span><br>A new line was not added. Forget something to make room, or leave memory as it is.<div class="acts" style="margin-top: 8px"><button class="kit-btn outline sm" type="button">Choose what to forget</button><button class="kit-btn ghost sm" type="button">Leave it</button></div></div>
+      </section>
+      <section class="kit-surface" aria-label="What is kept, and who sees it">
+        <div class="ix-h"><h3>10 · What is kept, and who sees it</h3><span class="kit-small kit-muted">The same for everyone</span></div>
+        <p class="rule">Memory follows the rules for everything of yours in Try TLM, with one difference from sessions: it has no 30 days.</p>
+        <dl class="kv w" style="margin-top: 10px"><dt>Who sees it</dt><dd>You alone. Not ThinkLatent, not the maker of an agent you use, not the people you share a session with</dd><dt>How long</dt><dd>Until you forget it. The 30 days cover sessions, not memory</dd><dt>Its text</dt><dd>Kept where only you can read it</dd><dt>Training</dt><dd>Never used</dd><dt>Take it with you</dt><dd>Listed under "What the portal keeps about you" · <a href="Shell-Settings.dc.html">download it there</a></dd></dl>
+      </section>
+      <section class="kit-surface" aria-label="Nothing remembered yet">
+        <div class="ix-h"><h3>11 · Nothing remembered yet</h3><span class="kit-small kit-muted">The first visit</span></div>
+        <p class="rule">Said plainly, with what fills it. An empty list with memory on is not a fault.</p>
+        <div class="kit-empty" style="margin-top: 12px"><b style="font-weight: 500; color: #1A1A1A">Nothing remembered yet</b><span class="kit-small">As you work, Try TLM notes how you like things done. Each line appears here with the session it came from, and you can edit or forget it.</span><button class="kit-btn sm" type="button">Add something</button></div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2853}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · your limit today: the card in its states, what counts, the day so far, and what happens at the limit</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:rgba(26,26,26,.06);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.tl{display:flex;flex-direction:column;margin-top:8px}
+.tl>span{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:10px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.45}
+.tl>span:first-child{border-top:0}
+.tl>span>span:first-child{min-width:0}
+.tl small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.tl .r{flex:none;display:flex;gap:8px;align-items:center}
+.cap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);margin:14px 0 0}
+.hold{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:inherit;font-size:13px;font-weight:500;white-space:nowrap}
+.hold i{width:15px;height:15px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.hold.red{background:var(--decision)}
+.toast{display:flex;justify-content:space-between;gap:16px;align-items:center;border-radius:12px;background:#1A1A1A;color:#fff;padding:10px 14px;font-size:13px;margin-top:12px}
+.toast a{color:#fff;font-weight:500}
+.mn{margin-top:8px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px rgba(26,26,26,.14),0 12px 28px rgba(26,26,26,.10);padding:6px;font-size:13px;line-height:1.4;display:flex;flex-direction:column}
+.mn .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 10px;border-radius:10px}
+.mn .it.on{background:rgba(26,26,26,.06)}
+.mn .it small{font-size:12px;color:rgba(26,26,26,.66)}
+.mn .mcap{font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);padding:8px 10px 2px}
+.mn hr{border:0;border-top:1px solid rgba(26,26,26,.1);margin:4px 6px}
+.only{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:500;background:#1A1A1A;color:#fff;white-space:nowrap}
+.only svg{width:13px;height:13px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:12px;align-items:start}
+.three .lab{font-size:12px;font-weight:500;color:rgba(26,26,26,.7);display:block;margin-bottom:6px}
+.lc{border-radius:18px;background:rgba(255,255,255,.78);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:14px 16px;font-size:13px;line-height:1.5}
+.lc .hd{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.lc .hd b{font-size:15px;font-weight:500}
+.mt{height:10px;border-radius:5px;background:rgba(26,26,26,.08);margin-top:10px}
+.mt i{display:block;height:10px;border-radius:5px;background:rgba(26,26,26,.55)}
+.mt.near i{background:var(--warning)}.mt.full i{background:var(--decision)}
+.lc .big{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-top:8px}
+.lc .big b{font-weight:500;font-size:14px}
+.cnt{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:24px;padding:0 8px;border-radius:999px;background:rgba(26,26,26,.07);font-size:12px;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cnt.z{background:transparent;box-shadow:inset 0 0 0 1px rgba(26,26,26,.2);color:rgba(26,26,26,.7)}
+.lday{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:28px;margin-top:12px;align-items:start}
+.ch{display:grid;grid-template-columns:repeat(24,minmax(0,1fr));gap:4px;align-items:end;height:190px;border-bottom:1px solid rgba(26,26,26,.25);position:relative;margin-top:26px}
+.ch span{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:11.5px;color:rgba(26,26,26,.75);gap:3px}
+.ch i{display:block;width:100%;border-radius:4px 4px 0 0;background:var(--companion)}
+.ch .now{position:absolute;left:49.9%;top:-22px;bottom:0;width:0;border-left:1.5px dashed rgba(26,26,26,.5)}
+.ch .now em{position:absolute;top:0;left:6px;font-style:normal;font-size:11.5px;white-space:nowrap;color:rgba(26,26,26,.75)}
+.ax{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));font-size:11.5px;color:rgba(26,26,26,.62);margin-top:4px}
+.ax span:last-child{display:flex;justify-content:space-between}
+.tot{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid rgba(26,26,26,.25);font-size:13px;font-weight:500}
+.bx{margin-top:12px;border-radius:18px;box-shadow:0 0 0 1px rgba(26,26,26,.18);background:#fff;padding:12px 14px;display:flex;flex-direction:column;gap:10px;font-size:14px}
+.bx .tx{color:#1A1A1A}
+.bx .row{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.step{margin-top:8px}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 3066px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">Your limit today <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">Your limit today</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · your limit</span><span class="kit-chip">10 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">The limit card grown into a page: its three states, what counts as a request and what does not, the day so far, and what happens to agents and schedules at the limit · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Back to the chat</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="true" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="The limit card, in its three states">
+        <div class="ix-h"><h3>1 · The limit card, in its three states</h3><span class="kit-small kit-muted">In the chat's right panel on every session · 60 is a sample value</span></div>
+        <p class="rule">One number for the day, the same for everyone. The card says how many are used and how many are left, turns to a warning at 48 of 60, and at 60 says when it starts again. Each state is said in words, not by colour alone.</p>
+        <div class="three">
+          <div><span class="lab">Well under · up to 47 of 60</span>
+            <div class="lc" role="region" aria-label="Your limit today: 23 of 60 requests used today">
+              <div class="hd"><b>Your limit today</b><span class="kit-small kit-muted">Shared endpoint</span></div>
+              <div class="mt " role="img" aria-label="23 of 60 requests used today"><i style="width: 38%"></i></div>
+              <div class="big"><b>23 of 60 requests</b><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>37 left</span></span></div>
+              <span class="kit-small kit-muted" style="display: block; margin-top: 4px">Starts again at midnight ET. For more, start a project and get an endpoint of its own.</span><div class="acts" style="margin-top: 10px"><a class="kit-btn ghost sm" href="#counts">What counts</a></div>
+            </div></div>
+          <div><span class="lab">Near · from 48 of 60</span>
+            <div class="lc" role="region" aria-label="Your limit today: 52 of 60 requests used today, 8 left">
+              <div class="hd"><b>Your limit today</b><span class="kit-small kit-muted">Shared endpoint</span></div>
+              <div class="mt near" role="img" aria-label="52 of 60 requests used today, 8 left"><i style="width: 87%"></i></div>
+              <div class="big"><b>52 of 60 requests</b><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>8 left today</span></span></div>
+              <span class="kit-small kit-muted" style="display: block; margin-top: 4px">A second model takes 2 and each helper takes 1, so the page says what a message will take before you send it.</span><div class="acts" style="margin-top: 10px"><a class="kit-btn ghost sm" href="#counts">What counts</a></div>
+            </div></div>
+          <div><span class="lab">Reached · 60 of 60</span>
+            <div class="lc" role="region" aria-label="Your limit today: 60 of 60 requests used today">
+              <div class="hd"><b>Your limit today</b><span class="kit-small kit-muted">Shared endpoint</span></div>
+              <div class="mt full" role="img" aria-label="60 of 60 requests used today"><i style="width: 100%"></i></div>
+              <div class="big"><b>60 of 60 requests</b><span class="kit-status critical"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>None left today</span></span></div>
+              <span class="kit-small kit-muted" style="display: block; margin-top: 4px">It starts again at midnight ET. Your sessions stay as they are and can be read, searched, shared and downloaded.</span><div class="acts" style="margin-top: 10px"><button class="kit-btn outline sm" type="button">Tell me at midnight</button><a class="kit-btn ghost sm" href="Start-Project.dc.html">Start a project</a></div>
+            </div></div>
+        </div>
+      </section>
+      <section class="kit-surface" id="counts" aria-label="What counts as a request">
+        <div class="ix-h"><h3>2 · What counts as a request</h3><span class="kit-small kit-muted">One ask of a model</span></div>
+        <p class="rule">A request is counted when a model starts to answer. It counts the same on every model, whether the answer is one line or a long piece of agent work with many steps.</p>
+        <div class="tl">
+          <span><span>A message you send<small>With everything the model does to answer it: its reasoning, every step, every tool call</small></span><span class="r"><span class="cnt">1</span></span></span>
+          <span><span>"Try again", "Carry on", an edited message<small>Each asks the model anew</small></span><span class="r"><span class="cnt">1</span></span></span>
+          <span><span>A message asked of two models<small>Each model answers; you keep one</small></span><span class="r"><span class="cnt">2</span></span></span>
+          <span><span>A helper an agent sends<small>A helper is a model working on a part of its own. A hand-over is not: the same answer carries on</small></span><span class="r"><span class="cnt">1 each</span></span></span>
+          <span><span>A scheduled run<small>And each helper it sends</small></span><span class="r"><span class="cnt">1</span></span></span>
+          <span><span>Summarising a session to make room</span><span class="r"><span class="cnt">1</span></span></span>
+          <span><span>An answer you stop<small>It had begun</small></span><span class="r"><span class="cnt">1</span></span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="What does not count">
+        <div class="ix-h"><h3>3 · What does not count</h3><span class="kit-small kit-muted">Nothing a model did not answer</span></div>
+        <p class="rule">If no model answered, nothing is counted. Nor is anything Try TLM does around the chat, or anything you do that is not asking a model.</p>
+        <div class="tl">
+          <span><span>A request the model did not answer<small>"Core 4.2 did not answer": try again freely</small></span><span class="r"><span class="cnt z">0</span></span></span>
+          <span><span>A message or file stopped by the check<small>Nothing reached a model</small></span><span class="r"><span class="cnt z">0</span></span></span>
+          <span><span>A message too long to send<small>Nothing was sent</small></span><span class="r"><span class="cnt z">0</span></span></span>
+          <span><span>Your answer to an agent's question, and "Allow this once"<small>The same request, carrying on</small></span><span class="r"><span class="cnt z">0</span></span></span>
+          <span><span>What Try TLM does around the chat<small>Naming a session, remembering, writing what you say, reading aloud, search</small></span><span class="r"><span class="cnt z">0</span></span></span>
+          <span><span>Everything that is not asking a model<small>Reading, downloading, sharing, building an agent, settings</small></span><span class="r"><span class="cnt z">0</span></span></span>
+        </div>
+      </section>
+      <section class="kit-surface wide" aria-label="Today so far">
+        <div class="ix-h"><h3>4 · Today so far</h3><span class="kit-small kit-muted">The card, opened · as of 11:58 ET</span></div>
+        <p class="rule">The same 23, hour by hour and kind by kind, so the number can be checked. It shows counts and times only: what was asked is in your sessions, where only you can read it.</p>
+        <div class="lday">
+          <div>
+            <span class="kit-small kit-muted">Requests in each hour, in Eastern Time</span>
+            <div class="ch" role="img" aria-label="Requests by hour today: 3 at 08, 7 at 09, 5 at 10, 8 at 11; none before 08:00; 23 in all by 11:58"><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span>3<i style="height: 57px"></i></span><span>7<i style="height: 133px"></i></span><span>5<i style="height: 95px"></i></span><span>8<i style="height: 152px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span><i style="height: 0px"></i></span><span class="now" style="display: block; height: auto"><em>Now · 11:58 · 23 used</em></span></div>
+            <div class="ax"><span>00:00</span><span>06:00</span><span>12:00</span><span><span>18:00</span><span>midnight · starts again</span></span></div>
+            <p class="rule" style="margin-top: 12px">No request before 08:00. The busiest hour so far is 11:00, with 8. Hours still to come stay empty until they happen: the page does not guess.</p>
+          </div>
+          <div>
+            <div class="tl" style="margin-top: 0">
+          <span><span>17 messages, each answered by one model</span><span class="r"><span class="cnt">17</span></span></span>
+          <span><span>2 answers tried again</span><span class="r"><span class="cnt">2</span></span></span>
+          <span><span>1 message asked of two models<small>Core 4.2 and Distil 4.2 · 11:42</small></span><span class="r"><span class="cnt">2</span></span></span>
+          <span><span>2 helpers sent by Research helper<small>Read the three sheets · check the arithmetic</small></span><span class="r"><span class="cnt">2</span></span></span>
+            </div>
+            <div class="tot"><span>Counted today</span><span>23 of 60</span></div>
+            <div class="tl" style="margin-top: 0">
+          <span><span>10:12 · Core 4.2 did not answer<small>Not counted</small></span><span class="r"><span class="cnt z">0</span></span></span>
+          <span><span>11:45 · stopped before it was sent<small>Not counted</small></span><span class="r"><span class="cnt z">0</span></span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="An agent's task that reaches the limit halfway">
+        <div class="ix-h"><h3>5 · An agent's task that reaches the limit halfway</h3><span class="kit-small kit-muted">Finished, never cut off</span></div>
+        <p class="rule">An answer that has begun is always finished: its steps and tool calls belong to one request. What cannot start at the limit is a new request, so a helper is not sent. The agent does that part itself, or says what is left.</p>
+        <div class="step"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Read the file</span></span></span><small>3 funds, 4 columns</small></div>
+        <div class="step"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Sent a helper: read the three sheets</span></span></span><small>Request 60 of 60</small></div>
+        <div class="step"><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>A second helper was not sent</span></span></span><small>Today's requests are used</small></div>
+        <div class="step"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Checked the arithmetic itself</span></span></span><small>Code sandbox · 0.6 seconds</small></div>
+        <div class="m it" style="margin-top: 10px">The three funds charge 0.12%, 0.45% and 0.80% a year. I checked the sums myself, because a second helper could not be sent: today's requests are used.</div>
+        <div class="meta"><span>Finished · 1 helper of 2 · counted as requests 59 and 60</span></div>
+        <p class="rule" style="margin-top: 8px">If the agent stops to ask you something, your answer still goes through: it is the same request. Nothing half-done is lost.</p>
+      </section>
+      <section class="kit-surface" aria-label="Schedules and the limit">
+        <div class="ix-h"><h3>6 · Schedules and the limit</h3><span class="kit-small kit-muted">A run is a request like any other</span></div>
+        <p class="rule">A scheduled run takes one request, and one for each helper it sends, from the day it runs. If the day is used up when a run comes due, the run is skipped and says so. It is not queued, so a missed run cannot use up tomorrow.</p>
+        <div class="tl">
+          <span><span>Research helper · every Monday 08:00 ET<small>Last run Mon 2 Nov · counted 3: the run and 2 helpers</small></span><span class="r"><span class="cnt">3</span></span></span>
+          <span><span>Next run · Mon 9 Nov 08:00<small>Comes out of that day's 60, before you have started</small></span><span class="r"><span class="cnt z">up to 3</span></span></span>
+        </div>
+        <div class="soft" style="background: #fff"><span class="kit-small kit-muted">In the inbox, if a run comes due at the limit</span><br><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Did not run · today's requests were used</span></span><br>An evening run of Research helper was skipped at 17:00. It will not run by itself later.<div class="acts" style="margin-top: 8px"><button class="kit-btn outline sm" type="button" disabled>Run it now</button><span class="kit-small kit-muted">From midnight ET</span></div></div>
+      </section>
+      <section class="kit-surface" aria-label="Before you send, near the limit">
+        <div class="ix-h"><h3>7 · Before you send, near the limit</h3><span class="kit-small kit-muted">From 48 of 60</span></div>
+        <p class="rule">Near the limit the writing box says how many are left, and anything that takes more than one request says how many before you choose it. What needs more than you have left is not offered.</p>
+        <div class="bx"><span class="tx">And a version for clients, in three lines</span><div class="row"><span class="acts"><button class="kit-btn outline sm" type="button">Attach</button><button class="kit-btn outline sm" type="button">Tools</button><button class="kit-btn outline sm" type="button">Speak</button></span><span class="acts"><span class="kit-small kit-muted">8 left today · Context 18% used</span><button class="kit-btn sm" type="button">Send</button></span></div></div>
+        <div class="tl">
+          <span><span>Ask a second model the same thing<small>Takes 2 of your 8</small></span><span class="r"><button class="kit-btn outline sm" type="button">Ask both</button></span></span>
+          <span><span>Research helper may send up to 2 helpers<small>This message can take up to 3 of your 8</small></span></span>
+          <span><span><span class="kit-muted">Ask a second model the same thing</span><small>Not offered with 1 left: it needs 2</small></span><span class="r"><span class="cnt z">needs 2</span></span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="When it starts again">
+        <div class="ix-h"><h3>8 · When it starts again</h3><span class="kit-small kit-muted">Midnight ET, for everyone</span></div>
+        <p class="rule">The day is the same day for everyone at the Enterprise: it turns at midnight Eastern Time. It is not 24 hours from your first request, and what you did not use is not carried over.</p>
+        <dl class="kv" style="grid-template-columns: 130px minmax(0,1fr); margin-top: 10px">
+          <dt>Starts again</dt><dd>Every day at midnight ET, back to 60 of 60</dd>
+          <dt>In your time</dt><dd>Shown in the time zone on You as well, when that is not Eastern</dd>
+          <dt>Not used today</dt><dd>Not carried over</dd>
+          <dt>"Tell me at midnight"</dt><dd>One line in your inbox. The header count waits for your quiet hours to end</dd>
+        </dl>
+        <div class="soft" style="background: #fff"><span class="kit-small kit-muted">In the inbox · Fri 6 Nov, 00:00</span><br><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Your 60 requests are back</span></span><br>"Fees, explained to a new adviser" is where you left it.<div class="acts" style="margin-top: 8px"><a class="kit-btn outline sm" href="Try-Chat.dc.html">Open the session</a></div></div>
+      </section>
+      <section class="kit-surface" aria-label="Asking for more">
+        <div class="ix-h"><h3>9 · Asking for more</h3><span class="kit-small kit-muted">The limit is the same for everyone</span></div>
+        <p class="rule">The limit is not raised for a person, a team or a deadline. More comes with a project: an endpoint of its own, where what counts is the room on its machines and not a number for the day.</p>
+        <div class="tl">
+          <span><span>Start a project<small>For what you have found works. It gets an endpoint of its own; hand it this session as its first prompt</small></span><span class="r"><a class="kit-btn sm" href="Start-Project.dc.html">Start a project</a></span></span>
+          <span><span>Tell ThinkLatent the limit is too low for most people<small>A request. If it changes, it changes for everyone</small></span><span class="r"><a class="kit-btn outline sm" href="Try-Admin.dc.html">Ask</a></span></span>
+          <span><span><span class="kit-muted">A higher limit for you alone</span><small>The number is the same for everyone</small></span><span class="r"><span class="cnt z">Not offered</span></span></span>
+        </div>
+      </section>
+      <section class="kit-surface" aria-label="Where the limit lives">
+        <div class="ix-h"><h3>10 · Where the limit lives</h3><span class="kit-small kit-muted">In the gateway, not in the chat</span></div>
+        <p class="rule">Every request to a model passes the gateway, and the gateway keeps the count. So a message, a second model, a helper and a scheduled run are counted in one place, across your devices and tabs. The chat shows the number and cannot change it.</p>
+        <dl class="kv" style="grid-template-columns: 130px minmax(0,1fr); margin-top: 10px">
+          <dt>Kept by</dt><dd>The gateway in front of every shared endpoint</dd>
+          <dt>Shown by</dt><dd>The limit card and the writing box, with the time it was read</dd>
+          <dt>Set by</dt><dd>ThinkLatent, for everyone · <a href="Try-Admin.dc.html">how it is set</a></dd>
+          <dt>Applies to</dt><dd>Shared endpoints only. A project's own endpoint has no limit of this kind</dd>
+        </dl>
+        <div class="soft"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>The count cannot be shown just now</span></span><br>The gateway did not answer when asked for it. Your requests still go through and are still counted.<div class="acts" style="margin-top: 8px"><span class="kit-small kit-muted">Tried at 11:58</span><button class="kit-btn outline sm" type="button">Try again</button></div></div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3066}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
