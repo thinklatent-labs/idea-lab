@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-16
 sensitivity: none
 critique_recorded: true
-next_step: "Pilot inside the Enterprise on Cortex v0.17.0 from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. Everything that needs nobody else is built (D-398); Jithin merged cortex PR 47 (0.17.0) and PR 48 (the console smoke test, D-401) on 2026-11-16, and CI tagged v0.17.0 on 4f53c9f by itself. V-1a runs when Jithin judges the time is right; no build work waits on it."
+next_step: "Jithin merges cortex PR 49 (0.18.0, the Projects boards), then PR 50 (0.19.0, This week, My session, Evidence, Knowledge, Operations and Help); CI tags v0.18.0 and v0.19.0. Every board is built (D-417). Then the pilot inside the Enterprise on the newest tag from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it."
 next_step_due: "2026-11-21"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-11-21"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Pilot inside the Enterprise on Cortex v0.17.0 from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. Everything that needs nobody else is built (D-398); Jithin merged cortex PR 47 (0.17.0) and PR 48 (the console smoke test, D-401) on 2026-11-16, and CI tagged v0.17.0 on 4f53c9f by itself. V-1a runs when Jithin judges the time is right; no build work waits on it. (due 2026-11-21)
+Next step: Jithin merges cortex PR 49 (0.18.0, the Projects boards), then PR 50 (0.19.0, This week, My session, Evidence, Knowledge, Operations and Help); CI tags v0.18.0 and v0.19.0. Every board is built (D-417). Then the pilot inside the Enterprise on the newest tag from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it. (due 2026-11-21)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -64,6 +64,7 @@ _None recorded._
 | --- | --- | --- | --- | --- |
 | Team hub (team-hub) - Critique pass, 2026-11-07 (second pass) | doc | [artifacts/TL-017-team-hub/critique-2026-11-07.md](../artifacts/TL-017-team-hub/critique-2026-11-07.md) |  | 2026-11-07 |
 | Team hub (team-hub) - Console build 5 (Cortex 0.17.0), 2026-11-16 | doc | [artifacts/TL-017-team-hub/console-build-5-2026-11-16.md](../artifacts/TL-017-team-hub/console-build-5-2026-11-16.md) |  | 2026-11-16 |
+| Team hub (team-hub) - Console build 6 (Cortex 0.18.0 and 0.19.0), 2026-11-16 | doc | [artifacts/TL-017-team-hub/console-build-6-2026-11-16.md](../artifacts/TL-017-team-hub/console-build-6-2026-11-16.md) |  | 2026-11-16 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -89,6 +90,7 @@ _None recorded._
 | D-166 | 2026-11-07 | 0.9 is pilot hardening and readiness under a feature freeze (C-14 to C-29; no pilot while C-22 to C-25 are open), and the first pilot inside the Enterprise is 3 to 5 volunteers before any wider group. Rooms, specs, co-editing, gates, loops, detectors, forecasts and ask stay built but off in the pilot scope | Jithin (on the thinking partner's recommendation) | accepted |
 | D-398 | 2026-11-16 | V-1a (the live Claude Code session test) is no dependency for any build work: Jithin runs it when he judges the time is right, and Claude neither asks about it nor runs it. Everything that needs nobody else is built out, including P-11 to P-15, which the console register had left for later: Cortex 0.17.0 in cortex PR 47 (search from the Cmd-K palette, Needs you from the keyboard, answers from your session with tables and charts, the epic's pull requests, checks, test runs and commits, the training-data counts), with away status (cortex out) and notifications read one at a time. The browser check for it found and fixed two console faults shipped since 0.14.0: the account and scope menus stopped the console when opened, and below 1,536 px the header hid the account menu and theme switch. Release tags come from CI's release-tag job (cortex PR 45), since Claude Code cloud sessions cannot push tags. | Jithin | accepted |
 | D-401 | 2026-11-16 | A browser smoke test runs in CI on every pull request (cortex PR 48), as recommended: headless Chrome opens every page, menu and sheet of the replay demo and fails on an uncaught page error, a blank page, a page in its error state, a menu or sheet that does not open, or a header wider than the window. It catches the 0.16.2 menu fault when that is put back. Playwright is installed in CI only and is not a dependency of Cortex. | Jithin | accepted |
+| D-417 | 2026-11-16 | Everything drawn on the boards is built now, not kept for later ("you have lot of things in board what are you waiting on are you not going to build them into the build"). Built as two releases: Cortex 0.18.0 (cortex PR 49) for the Projects boards S-14 to S-33, and 0.19.0 (PR 50, stacked on 49) for This week, My session, Evidence, Knowledge, Operations and Help (S-06, S-10, S-34 to S-49). Each page asks its board's numbered questions in order; the page from before stays one switch away (?view=). V-1a stays no dependency (D-398). | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
@@ -132,3 +134,27 @@ _Session notes and the idea card's prose live here; the register row and the gen
   - Build log: `claude/Team hub (team-hub) - Console build 5 2026-11-16.md`, mirrored in `artifacts/TL-017-team-hub/`.
   - The feature register is at v0.5.
   - Board S-05 is redrawn with six numbers.
+
+### 2026-11-16 (evening) · Build (0.18.0 and 0.19.0)
+
+- **Jithin's call (D-417).** Everything drawn on the boards is built now, not kept for later.
+- **Cortex 0.18.0 (cortex PR 49, all six CI jobs green, waiting for his merge)** builds the Projects boards, S-14 to S-33:
+  - Flows; Roadmap, with the blocked-by map and its critical path; Requirements; Decisions, with the why chain and bets against their lines; Jira gaps by epic.
+  - An epic's landing, relay, drafted hand-off, requirements, decisions and numbers.
+  - The release, room, requirement and flow records.
+- **Cortex 0.19.0 (PR 50, stacked on 49)** builds the rest: This week, My session (no sample left), Evidence, Knowledge, Operations and Help (S-06, S-10, S-34 to S-49). New in the hub:
+  - the sixteen pre-registered tests, read from the record and read once by a curator;
+  - hook time against the 300 ms budget, with breaker openings, from the laptops;
+  - plugin versions in use;
+  - the detector card log;
+  - the learning funnel;
+  - memory recalls, and who may accept a proposed entry;
+  - the memory tree from subtask notes;
+  - what each readiness blocker holds;
+  - what is coming, with the backlog's blocked list.
+- **Copies checked against their sources.** Help's command list, skills and blocked list are copies of the CLI, the plugin and the backlog, and a test fails when one drifts.
+- **Results.** 319 tests pass on SQLite and Postgres. First load is 248 KB of 250. The smoke test covers 55 pages and 78 steps, clean. The demo is republished.
+- **Records:**
+  - Build log: `claude/Team hub (team-hub) - Console build 6 2026-11-16.md`, mirrored in `artifacts/TL-017-team-hub/`.
+  - The feature register is at v0.6.
+- **Watch.** Two releases wait on one merge order: PR 49, then PR 50. The kill signal still needs real sessions from the pilot.

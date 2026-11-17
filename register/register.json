@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-16T20:09:00-05:00",
+  "asOf": "2026-11-16T20:30:00-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 581,
+    "registerRev": 582,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1692,7 +1692,7 @@
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
       "lastTouched": "2026-11-16",
-      "nextStep": "Pilot inside the Enterprise on Cortex v0.17.0 from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. Everything that needs nobody else is built (D-398); Jithin merged cortex PR 47 (0.17.0) and PR 48 (the console smoke test, D-401) on 2026-11-16, and CI tagged v0.17.0 on 4f53c9f by itself. V-1a runs when Jithin judges the time is right; no build work waits on it.",
+      "nextStep": "Jithin merges cortex PR 49 (0.18.0, the Projects boards), then PR 50 (0.19.0, This week, My session, Evidence, Knowledge, Operations and Help); CI tags v0.18.0 and v0.19.0. Every board is built (D-417). Then the pilot inside the Enterprise on the newest tag from about 2026-11-21: 3 to 5 volunteers, H1 and H2 read by 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -1722,7 +1722,7 @@
         "startedOn": "2026-11-07"
       },
       "nextStepDue": "2026-11-21",
-      "nextStepOrigin": "TL-017 session 2026-11-16",
+      "nextStepOrigin": "TL-017 session 2026-11-16 (evening)",
       "killSignals": [
         {
           "signal": "H1 median over 30 s, or any planted H2 injection acted on, in the pilot's first week",
@@ -6821,6 +6821,20 @@
       "docsTouched": "register (TL-017 row, D-398, this row); the live register (TL-017 row, links, decision log, sessions log); claude/Team hub (team-hub) - Console build 5 2026-11-16.md (new); claude/Team hub (team-hub) - Console feature and screen register.md (v0.5); Cortex console: boards canvas (S-05); Cortex command center (demo); cortex PR 47 (docs/design.md, docs/backlog.md); cortex issue #15; ideas/TL-017-team-hub.md (Notes); artifacts/TL-017-team-hub/console-build-5-2026-11-16.md (new); cortex PR 48 (scripts/console_smoke.py, CI, CLAUDE.md, docs)",
       "health": "at-risk",
       "healthNote": "Everything buildable is built and green. What the 2026-12-05 kill signal reads (H1, H2) needs real sessions, which come with the pilot inside the Enterprise from about 2026-11-21. This mirror holds TL-017's decisions only to D-166 and now D-398; those of 8 to 16 November are in the live register's decision log.",
+      "nextStepDue": "2026-11-21"
+    },
+    {
+      "date": "2026-11-16",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "On Jithin's call to build everything on the boards (D-417): Cortex 0.18.0 in cortex PR 49 builds the Projects boards (Flows, Roadmap with the blocked-by map and critical path, Requirements, Decisions with the why chain and bets against their lines, Jira gaps by epic, an epic's landing, relay, drafted hand-off, requirements, decisions and numbers, and the release, room, requirement and flow records); all six CI jobs green. Cortex 0.19.0 in PR 50 builds This week, My session (no sample left), Metrics by family, Experiments (sixteen pre-registered tests read from the record, read once by a curator), Feedback (personal rules), Detectors (card log), Memory (tree from subtask notes with sources that open, curators, recalls), Learnings (draft to reuse), Catalogue, Project map, Pilot readiness (what each blocker holds), Health (hook time against 300 ms and breakers from the laptops, plugin versions), Settings, Live checks, Commands (52 commands and 25 skills, vocabulary), What Cortex shows about you (circles) and What is coming (lanes and the backlog's blocked list, checked against it by a test). 319 tests pass on SQLite and Postgres; plugin validates; first load 248 KB of 250; smoke test 55 pages and 78 steps clean; demo republished (1794878527-dd2b).",
+      "docsTouched": "register (TL-017 row, D-417, this row); the live register (TL-017 row, decision log, sessions log); claude/Team hub (team-hub) - Console build 6 2026-11-16.md (new); claude/Team hub (team-hub) - Console feature and screen register.md (v0.6); Cortex command center (demo); cortex PR 49 and PR 50 (docs/design.md 9g and 9h, docs/backlog.md, docs/enterprise/it-install.md, server/schema/postgres.sql); ideas/TL-017-team-hub.md (Notes); artifacts/TL-017-team-hub/console-build-6-2026-11-16.md (new)",
+      "health": "at-risk",
+      "healthNote": "Every board and everything that needs nobody else is built and green. What the 2026-12-05 kill signal reads (H1, H2) still needs real sessions, which come with the pilot inside the Enterprise from about 2026-11-21; two releases now wait on Jithin's merge.",
       "nextStepDue": "2026-11-21"
     }
   ],
@@ -12637,6 +12651,20 @@
       "id": "D-416",
       "by": "Jithin",
       "decision": "TL-003 portal (the portal app), build 4, Try TLM: Jithin, 16 Nov evening, after the 28 boards were presented: 'And then continue the build'. Read by the lead as the go-ahead to build the 22 boards beyond the chat as kit pages, and said back to him; a board he changes later is changed on its page. (1) The six chat boards are built, checked by the lead beside their boards at 1,440 and published: Try-Chat, Try-Message, Try-Box, Try-Setup, Try-Sessions (at /try/sessions) and Try-Artifact, each state reached by using the page or by a sample session; a person's own message is white with a green outline (form A, D-415), in light and dark. Build page version 1794877737-fb2b, integration 0c770e4c; 762 features, Partly 269, Built 73. (2) The rest is built on four tracks at once: the chat track continues with the eight boards that are parts of the chat (Try-Steps, Try-Share, Try-Limit, Try-Context, Try-Speech, Try-Helpers, Try-Workspace, Try-Leave); three new tracks build the pages with an address of their own: G (Try-Agents, Try-Agent, Try-Connectors), H (Try-Memory, Try-Folders, Try-Skills, Try-Prompts, Try-Files), I (Try-Schedules, Try-Settings, Try-Admin). Try-You, Try-Phone and Try-Portal's pieces on other pages stay with the lead, after these. Calls by the lead on the chat pages, for Jithin to overrule: a message's Edit, Copy and Branch show on hover or focus (always on a phone); answer settings sit under Saved settings; each Attach choice adds one sample file; typing @ offers the three chat models; with the artifact pane open the right panel's three cards sit under the two columns; the top-bar button is to start a new session, as its label says (not yet changed). Clashes kept as the sample world has them: the library agent shown is 'Meeting notes agent · used in 3 projects' (board: 'Meeting notes to actions · 41 people'); the template is 'Say it in plain words' (board: 'Plain-language rewrite'). Made up beyond the boards: nine of the 14 sessions and their words, and the limit of 23 of 60, which only Try TLM's facts hold. Asks for the design kit (TL-013) noted in the track's report: slots in the message view, tool-call rows, numbered sources, a flow graph, and a defect where the composer's Stop turns into Send in place."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-16",
+      "door": "two-way",
+      "id": "D-417",
+      "by": "Jithin",
+      "decision": "Everything drawn on the boards is built now, not kept for later (\"you have lot of things in board what are you waiting on are you not going to build them into the build\"). Built as two releases: Cortex 0.18.0 (cortex PR 49) for the Projects boards S-14 to S-33, and 0.19.0 (PR 50, stacked on 49) for This week, My session, Evidence, Knowledge, Operations and Help (S-06, S-10, S-34 to S-49). Each page asks its board's numbered questions in order; the page from before stays one switch away (?view=). V-1a stays no dependency (D-398)."
     }
   ],
   "syncLog": [
