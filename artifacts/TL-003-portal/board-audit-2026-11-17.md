@@ -8,7 +8,7 @@ Lab session · TL-003 portal · Building. Jithin, 17 Nov: "check in parallel if 
 - **173 smaller gaps:** 78 broken, 48 partly there, 47 missing; 144 small, 28 medium, 1 large.
 - **The main cause:** builds 1 and 2 (Home, Find, the inbox, Jarvis, Requests, Help, the model pages) were made before the pages they point at existed, so many links still go to All projects, the Catalogue or Requests in general. Those pages exist now.
 - **The rest:** buttons that say something happened when nothing did; two pages that state one fact differently; states a board draws that no visit can reach; a few things the boards mention in words but never draw.
-- **Being fixed now,** on eight tracks at once (below). Four groups of things no board draws need Jithin's call.
+- **Being fixed now,** on eight tracks at once (below). Four groups of things no board draws were put to Jithin; he chose to build them all (D-431).
 
 ## By group
 
@@ -49,14 +49,14 @@ Lab session · TL-003 portal · Building. Jithin, 17 Nov: "check in parallel if 
 - **Sharing in Try TLM:** the link opens only for the people named, so the two boards' words agree.
 - **States no visit reaches** (the context meter full, speech and workspace failures, a helper stopped by the check) are reached by a sample session, or behind a switch marked as a sample.
 
-## Needs Jithin
+## Decided by Jithin (D-431)
 
-Four groups of things the boards mention but no board draws. The lead recommends building each from the nearest drawn board, marked where it is made up.
+Four groups of things the boards mention but no board draws. Jithin chose the recommended answer on each, 17 Nov:
 
-1. **Engineering views:** a project's engine settings on Operations, and the engine's counters on Operations across the Enterprise, with Engineering on.
-2. **Behaviours the settings board promises on every page:** the section bar on long pages, hover cards, a wide row opening in place, a thread on its own page.
-3. **Project actions:** adding a feature to an existing project; pausing or retiring a feature and removing a member; a feature's four tabs that say "Not built yet"; an organization's five layers of value.
-4. **Help and production text:** Help's three Try TLM guides and "All 63, by topic"; Self-healing's "Show me more" (a line that the rest is sealed, asked for in the Enterprise's access management) and "Start the hand scoring" (to data review); and whether an increment may ask for Production while a line of its service is under its threshold.
+1. **Built from the nearest drawn board, marked where made up:** a project's engine settings on Operations and the engine's counters on Operations across the Enterprise, with Engineering on; adding a feature to an existing project; pausing or retiring a feature and removing a member; a feature's four tabs that say "Not built yet"; an organization's five layers of value; Help's three Try TLM guides and "All 63, by topic".
+2. **The four behaviours the settings board promises, across the portal:** the section bar on long pages, hover cards, a wide row opening in place, a thread on its own page as well as in the inbox.
+3. **Self-healing:** "Show me more" says the rest is sealed and is asked for in the Enterprise's access management; "Start the hand scoring" sends the gap's examples to data review.
+4. **An increment may ask for Production** while a line of its service is under its threshold; that line is shown under its threshold to whoever approves.
 
 ## Not checked
 
