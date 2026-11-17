@@ -20,8 +20,8 @@ standard: "pre-v1"
 last_touched: 2026-11-17
 sensitivity: none
 critique_recorded: true
-next_step: "0.20.0 (draft PR #51): the speed pass is finishing; then a full click-through and PR #51 is marked ready for Jithin's merge. Fixes, privacy leak, database pool and indexes are in, and the load test passes every target. 0.21.0 (draft PR #52): rooms, votes, comments, tests and Needs you from the browser and the live demo are built; the room and people hub work is merging, then people, messages and knowledge screens. 0.22.0: the hub's record reads are built. GitHub Actions is blocked by the organisation's billing, which Jithin fixes; the same checks run locally meanwhile. The appetite ends 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it."
-next_step_due: "2026-11-18"
+next_step: "Jithin: fix GitHub Actions billing for thinklatent-labs (CI cannot start), and raise or wait out the account's weekly usage limit (workers stopped; resets 2026-11-23 11:00 Eastern). 0.20.0 (draft PR #51): built and checked here (tests on SQLite and PostgreSQL, smoke, budgets); the independent click check resumes after the limit, then PR #51 goes to Jithin to merge. 0.21.0 (draft PR #52): rooms, votes, comments, tests and Needs you from the browser, people and knowledge reads, the live demo (22 of 22 live checks) and the stream fix are merged and pass 434 tests; left: the people, messages and knowledge screens, Needs you back under budget, the seat-change card and the room-file tidy-up. 0.22.0 and 0.23.0: hub record reads built; record pages and wave 4 hub reads paused. The appetite ends 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it."
+next_step_due: "2026-11-23"
 ---
 
 # Team hub: a Claude Code plugin plus an AWS service giving the team's sessions shared rules, memory, artifacts, presence and a message path
@@ -33,7 +33,7 @@ next_step_due: "2026-11-18"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: 0.20.0 (draft PR #51): the speed pass is finishing; then a full click-through and PR #51 is marked ready for Jithin's merge. Fixes, privacy leak, database pool and indexes are in, and the load test passes every target. 0.21.0 (draft PR #52): rooms, votes, comments, tests and Needs you from the browser and the live demo are built; the room and people hub work is merging, then people, messages and knowledge screens. 0.22.0: the hub's record reads are built. GitHub Actions is blocked by the organisation's billing, which Jithin fixes; the same checks run locally meanwhile. The appetite ends 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it. (due 2026-11-18)
+Next step: Jithin: fix GitHub Actions billing for thinklatent-labs (CI cannot start), and raise or wait out the account's weekly usage limit (workers stopped; resets 2026-11-23 11:00 Eastern). 0.20.0 (draft PR #51): built and checked here (tests on SQLite and PostgreSQL, smoke, budgets); the independent click check resumes after the limit, then PR #51 goes to Jithin to merge. 0.21.0 (draft PR #52): rooms, votes, comments, tests and Needs you from the browser, people and knowledge reads, the live demo (22 of 22 live checks) and the stream fix are merged and pass 434 tests; left: the people, messages and knowledge screens, Needs you back under budget, the seat-change card and the room-file tidy-up. 0.22.0 and 0.23.0: hub record reads built; record pages and wave 4 hub reads paused. The appetite ends 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it. (due 2026-11-23)
 
 Production surface: not named (reads as an H3 experiment).
 

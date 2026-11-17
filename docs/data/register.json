@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-17T15:13:53-05:00",
+  "asOf": "2026-11-17T15:28:47-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 604,
+    "registerRev": 605,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1692,7 +1692,7 @@
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
       "lastTouched": "2026-11-17",
-      "nextStep": "0.20.0 (draft PR #51): the speed pass is finishing; then a full click-through and PR #51 is marked ready for Jithin's merge. Fixes, privacy leak, database pool and indexes are in, and the load test passes every target. 0.21.0 (draft PR #52): rooms, votes, comments, tests and Needs you from the browser and the live demo are built; the room and people hub work is merging, then people, messages and knowledge screens. 0.22.0: the hub's record reads are built. GitHub Actions is blocked by the organisation's billing, which Jithin fixes; the same checks run locally meanwhile. The appetite ends 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it.",
+      "nextStep": "Jithin: fix GitHub Actions billing for thinklatent-labs (CI cannot start), and raise or wait out the account's weekly usage limit (workers stopped; resets 2026-11-23 11:00 Eastern). 0.20.0 (draft PR #51): built and checked here (tests on SQLite and PostgreSQL, smoke, budgets); the independent click check resumes after the limit, then PR #51 goes to Jithin to merge. 0.21.0 (draft PR #52): rooms, votes, comments, tests and Needs you from the browser, people and knowledge reads, the live demo (22 of 22 live checks) and the stream fix are merged and pass 434 tests; left: the people, messages and knowledge screens, Needs you back under budget, the seat-change card and the room-file tidy-up. 0.22.0 and 0.23.0: hub record reads built; record pages and wave 4 hub reads paused. The appetite ends 2026-12-05. V-1a runs when Jithin judges the time is right; no build work waits on it.",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -1722,7 +1722,7 @@
         "startedOn": "2026-11-07",
         "reviewSlot": "Mondays 30 min (D-165)"
       },
-      "nextStepDue": "2026-11-18",
+      "nextStepDue": "2026-11-23",
       "nextStepOrigin": "TL-017 session 2026-11-17",
       "killSignals": [
         {
@@ -6879,6 +6879,20 @@
       "health": "on-track",
       "healthNote": "Waves 1 and 2 are nearly integrated the same day as the plan; GitHub Actions is blocked by billing until Jithin fixes it, so checks run locally; no hub runs inside the Enterprise yet (Jithin's).",
       "nextStepDue": "2026-11-18"
+    },
+    {
+      "date": "2026-11-17",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "0.20.0 integrated (speed pass: first-load JavaScript 249 to 189 KB, Home's first visit 720 to 447 KB; database pool; fixes) and verified here. 0.21.0 integrated: room hub (join, 3 dot votes with a voted count, comment threads, closed-room changes, reuse), people and knowledge reads with three privacy fixes, the pass-on rule, no calls, the live demo (22 of 22), toasts moved off the header, and live streams that never skip an event across nodes (load test still passes, 0 errors in 9,413). Six workers stopped at the account's weekly usage limit; GitHub Actions blocked by billing.",
+      "docsTouched": "Cortex draft PRs #51 and #52; requirements document (Build plan); this register (TL-017 row)",
+      "health": "at-risk",
+      "healthNote": "Workers stopped at the account's weekly usage limit until 2026-11-23 (about 6 of the 18 days left before the appetite ends); CI blocked by GitHub billing; both are Jithin's to fix.",
+      "nextStepDue": "2026-11-23"
     }
   ],
   "decisions": [
