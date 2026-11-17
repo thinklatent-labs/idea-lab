@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Try TLM · in the portal: what changes on the portal's other pages because Try TLM is part of it</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./kit.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#ECECEA;color:#1A1A1A}
+a{color:#1B5128}a:hover{color:#0C3F09}
+.kit-status svg{width:15px;height:15px;flex:none}
+.lk svg{width:14px;height:14px;flex:none;vertical-align:-2px}
+.ix-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ix-h h3{margin:0;font-size:18px;font-weight:500}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mg .rule{font-size:12.5px;line-height:1.5;color:rgba(26,26,26,.66);margin:4px 0 0}
+.m{border-radius:18px;padding:14px 16px;font-size:14px;line-height:1.55;margin-top:12px}
+.m.me{background:#fff;box-shadow:0 0 0 1.5px rgba(27,81,40,.34),0 8px 20px -14px rgba(27,81,40,.45);margin-left:96px}
+.m.it{background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(26,26,26,.08)}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:12.5px;color:rgba(26,26,26,.66)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.step{border-radius:12px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;line-height:1.35;margin-top:10px}
+.step small{font-size:12px;color:rgba(26,26,26,.66)}
+.open{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.12);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.kv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;font-size:13px;line-height:1.45}
+.kv>*{padding:7px 10px 7px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv>*:nth-child(-n+2){border-top:0;padding-top:0}
+.kv dt{color:rgba(26,26,26,.62)}.kv dd{margin:0}
+.ring{border-radius:16px;box-shadow:0 0 0 1.5px var(--decision);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.soft{border-radius:16px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:12px 14px;font-size:13px;line-height:1.5;margin-top:12px}
+.think{font-size:13px;line-height:1.55;color:rgba(26,26,26,.72);border-left:2px solid rgba(26,26,26,.18);padding:2px 0 2px 12px;margin-top:8px}
+.sup{font-size:11px;font-weight:600;color:#1B5128;vertical-align:super;line-height:0}
+.dg{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px 10px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(26,26,26,.1);margin-top:10px;font-size:12.5px}
+.dg span{border-radius:10px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.3);padding:8px 12px;background:#fff}
+.dg i{font-style:normal;color:rgba(26,26,26,.6)}
+.file{display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:10px 14px;font-size:13px;line-height:1.4;margin-top:10px}
+.file small{font-size:12px;color:rgba(26,26,26,.66)}
+.pick{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pick label{display:flex;gap:8px;align-items:center;font-size:13px}
+.wide{grid-column:1 / -1}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:12px;align-items:start}
+.g2.a{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+.g2.b{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+.cap{display:block;font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:rgba(26,26,26,.62);margin:14px 0 0}
+.cap:first-child{margin-top:0}
+.where{display:flex;gap:8px;align-items:flex-start;margin-top:12px;padding:9px 12px;border-radius:12px;background:rgba(27,81,40,.07);font-size:12.5px;line-height:1.45}
+.where svg{width:15px;height:15px;flex:none;margin-top:2px;color:#1B5128}
+.where b{font-weight:500}
+.tag{margin-left:6px;vertical-align:1px;height:20px!important;padding:0 7px!important;font-size:11px!important}
+.li{display:flex;flex-direction:column;margin-top:8px}
+.li>span{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:9px 0;border-top:1px solid rgba(26,26,26,.1);font-size:13px;line-height:1.45}
+.li>span:first-child{border-top:0}
+.li>span>span:first-child{min-width:0}
+.li small{display:block;font-size:12px;color:rgba(26,26,26,.66)}
+.li .r{flex:none;display:flex;gap:8px;align-items:center}
+.card{border-radius:18px;background:rgba(255,255,255,.72);box-shadow:0 0 0 1px rgba(26,26,26,.12);padding:14px 16px;margin-top:12px}
+.card .ch{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.card .ch b{font-size:15px;font-weight:500}
+.hold{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:0;background:#1A1A1A;color:#fff;font:500 13px Inter,system-ui,sans-serif;white-space:nowrap}
+.hold i{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;flex:none}
+.toast{display:flex;justify-content:space-between;gap:16px;align-items:center;border-radius:12px;background:#1A1A1A;color:#fff;padding:10px 14px;font-size:13px;margin-top:12px}
+.toast a{color:#fff;font-weight:500}
+kbd{font:500 11.5px/1 Inter,system-ui,sans-serif;padding:3px 6px;border-radius:6px;background:rgba(26,26,26,.07);color:rgba(26,26,26,.75)}
+/* part 1: the navigation, drawn small */
+.nv{display:grid;grid-template-columns:230px minmax(0,1.1fr) minmax(0,1fr);gap:0 22px;margin-top:12px;align-items:start}
+.nv .dkc{grid-row:1 / span 2}
+.nv .where{grid-column:2 / -1;align-self:end}
+.dk{display:flex;flex-direction:column;gap:2px;padding:8px;border-radius:20px;background:rgba(255,255,255,.72);box-shadow:0 0 0 1px rgba(26,26,26,.1)}
+.dk span{display:flex;align-items:center;gap:10px;height:31px;padding:0 6px;border-radius:12px;font-size:13px;color:rgba(26,26,26,.72)}
+.dk span i{display:inline-flex;width:28px;height:28px;border-radius:10px;align-items:center;justify-content:center;flex:none}
+.dk svg{width:17px;height:17px}
+.dk span.on{color:#1A1A1A;font-weight:500}
+.dk span.on i{background:var(--brand);color:var(--brand-fg);box-shadow:0 0 0 1px rgba(108,183,105,.45),0 6px 16px rgba(108,183,105,.4)}
+.tb{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:16px;background:rgba(255,255,255,.72);box-shadow:0 0 0 1px rgba(26,26,26,.08);flex-wrap:wrap}
+.tb .fx{display:flex;align-items:center;gap:8px;flex:1;min-width:150px;padding:8px 12px;border-radius:12px;background:rgba(26,26,26,.05);font-size:13px;color:rgba(26,26,26,.62)}
+.tb .fx kbd{margin-left:auto}
+.tb svg{width:16px;height:16px;flex:none}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.two>div{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(26,26,26,.14);padding:11px 14px;font-size:13px;line-height:1.45;background:rgba(255,255,255,.5)}
+.two b{display:block;font-weight:500;font-size:14px;margin-bottom:2px}
+/* part 2: inbox lines, in Shell-Find's form */
+.sf-f{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 6px}
+.ib{border-radius:18px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.1);padding:12px 10px 8px}
+.ib .sf-f{padding:0 4px}
+.sf-i{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 12px;padding:10px 12px;border-radius:14px;font-size:13px;line-height:1.45;color:inherit;text-decoration:none}
+.sf-i.on{background:rgba(27,81,40,.08);box-shadow:inset 3px 0 0 #1B5128}
+.sf-i small{grid-column:1/-1;font-size:12px;color:rgba(26,26,26,.65)}
+.sf-i .t{font-size:11.5px;color:rgba(26,26,26,.55);white-space:nowrap}
+.sf-i b{font-weight:500}
+.nt{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.2fr) minmax(0,.9fr);font-size:13px;line-height:1.4;margin-top:8px}
+.nt>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.nt .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.nt small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+/* part 3: the Find box, in Shell-Find's form */
+.sf-k{margin-top:12px;border-radius:18px;background:rgba(255,255,255,.88);box-shadow:0 0 0 1px rgba(26,26,26,.1),0 14px 34px rgba(26,26,26,.08);overflow:hidden}
+.sf-in{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid rgba(26,26,26,.1);font-size:16px}
+.sf-in svg{width:16px;height:16px;flex:none}
+.sf-in .kit-muted{margin-left:auto;font-size:12px}
+.sf-g{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 16px 4px;font-size:11.5px;color:rgba(26,26,26,.6)}
+.sf-r{display:flex;align-items:center;gap:10px;padding:7px 16px;font-size:13.5px;line-height:1.4;color:inherit;text-decoration:none}
+.sf-r>span:first-child{flex:1;min-width:0}
+.sf-r small{display:block;font-size:12px;color:rgba(26,26,26,.62)}
+.sf-r.on{background:rgba(27,81,40,.08)}
+.sf-r .mk{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:rgba(26,26,26,.62);white-space:nowrap}
+.sf-r .mk svg{width:12px;height:12px}
+.sf-ft{padding:9px 16px;border-top:1px solid rgba(26,26,26,.1);font-size:12px;color:rgba(26,26,26,.6);margin-top:4px}
+/* parts 5 to 9: rows and tables in each page's own form */
+.ag-cols{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 224px 92px 208px;gap:14px;align-items:center}
+.ag-in{font-size:12.5px;line-height:1.45;color:rgba(26,26,26,.75)}
+.ag-mark{position:relative;display:block;width:86px;height:18px;flex:none}
+.ag-mark .ln{position:absolute;left:0;right:0;top:8px;height:1px;background:rgba(26,26,26,.2)}
+.ag-mark .iv{position:absolute;top:6px;height:6px;border-radius:999px;background:var(--companion);opacity:.4}
+.ag-mark .pt{position:absolute;top:5px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--companion)}
+.ag-mark .th{position:absolute;top:0;bottom:0;border-left:1px dashed rgba(26,26,26,.7)}
+.ag-score{display:flex;align-items:center;gap:10px}
+.end{display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;align-items:center}
+.sub2{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin:16px 0 8px}
+.sub2 b{font-size:15px;font-weight:500}
+.ph{border-radius:16px;background:rgba(26,26,26,.04);padding:14px 16px;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.ph .nm{font-size:24px;font-weight:400;letter-spacing:-.01em}
+.ph .cs{display:flex;gap:6px;flex-wrap:wrap}
+.pt7{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.5fr) minmax(0,.95fr) minmax(0,1fr) 76px minmax(0,.8fr) 92px;font-size:13px;line-height:1.45;margin-top:10px;align-items:stretch}
+.pt7>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.pt7 .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.pt7 b{font-weight:500;font-size:14px}
+.pt7 small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.pt7 .nw{background:rgba(62,154,92,.1)}
+.pt7 .nw:first-of-type{padding-left:10px;border-radius:10px 0 0 10px}
+.rq-cols{display:grid;grid-template-columns:minmax(0,1.55fr) 104px minmax(0,1fr) minmax(0,1.15fr) 178px;gap:14px;align-items:center}
+.rq-cols>.kit-chip{justify-self:start}
+.fv{display:grid;grid-template-columns:120px minmax(0,1.15fr) minmax(0,1.25fr) minmax(0,1.1fr) 92px minmax(0,.9fr) minmax(0,.8fr);font-size:13px;line-height:1.45;margin-top:8px;align-items:stretch}
+.fv>*{padding:10px 12px 10px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.fv .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.fv b{font-weight:500;font-size:14px}
+.fv small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.jv{display:flex;gap:10px;font-size:13.5px;line-height:1.5;margin-top:10px}
+.jv .av{width:28px;height:28px;border-radius:50%;background:#1A1A1A;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:600;flex:none}
+.jv div{border-radius:16px;background:rgba(255,255,255,.75);box-shadow:0 0 0 1px rgba(26,26,26,.08);padding:10px 14px}
+.kv2{display:grid;grid-template-columns:132px minmax(0,1fr);font-size:13px;line-height:1.45;margin:8px 0 0}
+.kv2>*{padding:8px 10px 8px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.kv2>*:nth-child(-n+2){border-top:0}
+.kv2 dt{color:rgba(26,26,26,.62)}.kv2 dd{margin:0}
+.kv2 small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.kv2 .nw{background:rgba(62,154,92,.1)}
+.kv2 dt.nw{padding-left:10px;border-radius:10px 0 0 10px}.kv2 dd.nw{border-radius:0 10px 10px 0}
+.cat{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.25fr) minmax(0,.8fr);font-size:13px;line-height:1.4;margin-top:8px;align-items:stretch}
+.cat>*{padding:9px 12px 9px 0;border-top:1px solid rgba(26,26,26,.1);min-width:0}
+.cat .kit-chip{margin-top:4px}
+.cat .h{font-size:11.5px;color:rgba(26,26,26,.6);border-top:0;padding-top:0}
+.cat small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.tile{border-radius:22px;background:rgba(255,255,255,.72);box-shadow:0 0 0 1px rgba(26,26,26,.1);padding:16px 18px;display:flex;flex-direction:column;gap:5px}
+.tl2{display:grid;grid-template-columns:300px minmax(0,1fr);gap:16px;margin-top:8px;align-items:center}
+.tl2 .rule{margin:0}
+.tile .v{font-size:40px;font-weight:300;letter-spacing:-.02em;line-height:1.05}
+.tile .nw{border-radius:10px;background:rgba(62,154,92,.12);padding:6px 10px;font-size:12.5px;line-height:1.4;margin-top:4px}
+.mw-row{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+.kit-row.nw{box-shadow:0 0 0 1.5px var(--brand-500)}
+.hp-box{border-radius:18px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(26,26,26,.1);padding:12px 16px;margin-top:10px}
+.hp-box h4{margin:0 0 2px;font-size:14px;font-weight:500}
+.hp-l{display:grid;grid-template-columns:minmax(0,1fr) auto;font-size:13px;line-height:1.45;align-items:stretch}
+.hp-l>a{display:flex;align-items:center;padding-left:14px!important}
+.hp-l>*{padding:9px 0;border-top:1px solid rgba(26,26,26,.1)}
+.hp-l>*:nth-child(-n+2){border-top:0}
+.hp-l small{display:block;font-size:12px;color:rgba(26,26,26,.65)}
+.hp-ex{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.hp-ex span{border-radius:999px;background:rgba(26,26,26,.05);padding:6px 12px;font-size:13px}
+.hp-ex span.nw{box-shadow:0 0 0 1.5px var(--brand-500);background:#fff}
+.no{color:rgba(26,26,26,.62)}
+</style>
+</helmet>
+<div class="kit-app" style="display: flex; flex-direction: column; min-height: 9385px">
+  <div class="kit-fields" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="kit-top">
+    <div class="kit-top-left">
+      <span class="kit-mark">ThinkLatent</span>
+      <label class="kit-search"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Find, go or ask" aria-label="Find, go or ask"><kbd>⌘K</kbd></label>
+    </div>
+    <div class="kit-meet" role="group" aria-label="Today's meetings"><span class="day">Thu 5 Nov</span><span class="kit-chip">09:30 · Index review</span><span class="kit-chip brand">11:00 · Governance sync</span><span class="kit-chip">14:00 · TLM4 release</span></div>
+    <div class="kit-top-right"><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><a class="kit-btn outline" href="Shell-Find.dc.html#inbox" aria-label="Inbox, 4 waiting for you" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 16px; height: 16px"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</a><button class="kit-btn outline" type="button">Comfortable</button><button class="kit-btn outline" type="button" aria-pressed="false">Engineering · off</button></div>
+  </header>
+
+  <nav class="kit-dock" aria-label="Primary">
+    <a href="Home-Cockpit.dc.html" aria-label="Home"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></a>
+    <a href="Project-Page.dc.html" aria-label="Projects"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+    <a href="Model-Catalogue.dc.html" aria-label="Models and agents"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></a>
+    <a href="Try-Chat.dc.html" aria-current="page" aria-label="Try TLM"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></a>
+    <a href="Index-Language.dc.html" aria-label="TL Index"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></a>
+    <a href="Requests-Status.dc.html" aria-label="Requests and their status"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></a>
+    <a href="My-Work.dc.html" aria-label="My work"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+    <a href="Help-Page.dc.html" aria-label="Help"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></a>
+    <a href="Shell-Settings.dc.html" aria-label="You: settings, profile and what the portal keeps"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></a>
+  </nav>
+
+  <main class="kit-main">
+    <nav aria-label="Scope" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+      <a class="kit-btn outline" href="Try-Chat.dc.html">Try TLM</a><span class="kit-muted" aria-hidden="true">›</span>
+      <button class="kit-btn" type="button">In the portal <span aria-hidden="true">▾</span></button>
+    </nav>
+
+    <div class="kit-page-head">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 840px">
+        <h1 style="margin: 0; font-size: 40px; font-weight: 400; letter-spacing: -0.02em">What changes in the rest of the portal</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="kit-chip brand">Try TLM · in the portal</span><span class="kit-chip">12 parts</span><span class="kit-chip lk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>No client data</span></div>
+        <span class="kit-small kit-muted">One part for each page Try TLM touches: the piece that is added or changed, drawn as it would stand on that page, with the board it belongs to and where on it the piece goes · made-up names and counts · sample data</span>
+      </div>
+      <div class="kit-actions"><a class="kit-btn outline" href="Try-Chat.dc.html">Open Try TLM</a></div>
+    </div>
+
+    <div class="kit-tabs" role="tablist" aria-label="Try TLM pages">
+      <a role="tab" aria-selected="true" href="Try-Chat.dc.html">Chat</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Agents</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Prompts</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Folders</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Skills</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Schedules</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Memory</a><a role="tab" aria-selected="false" href="Playground-Build.dc.html">Connectors</a><a role="tab" aria-selected="false" href="Playground-More.dc.html">Files</a>
+    </div>
+
+    <div class="mg">
+      <section class="kit-surface wide" aria-label="The navigation">
+        <div class="ix-h"><h3>1 · The navigation</h3><span class="kit-small kit-muted">On every page · the icon is new, the green button stays</span></div>
+        <p class="rule">Try TLM has two ways in, and they do different things. The icon takes you back to what you were doing. The button starts something new without leaving your place in mind. Neither carries a count: the bell is the one count of what needs you.</p>
+        <div class="nv">
+          <div class="dkc"><span class="cap">The navigation, with its names shown</span>
+            <div class="dk" role="img" aria-label="The portal's navigation: Home, Projects, Models and agents, Try TLM (new, fourth), TL Index, Requests, My work, Help, You" style="margin-top: 8px"><span class=""><i><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></i>Home</span><span class=""><i><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></i>Projects</span><span class=""><i><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></i>Models and agents</span><span class="on"><i><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"></path><path d="M9 11h6M9 14.5h3.5"></path></svg></i>Try TLM<span class="kit-chip brand tag">New</span></span><span class=""><i><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M12 20V4M19 20v-7"></path></svg></i>TL Index</span><span class=""><i><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></i>Requests</span><span class=""><i><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></i>My work</span><span class=""><i><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"></path></svg></i>Help</span><span class=""><i><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.6 18.4a6 6 0 0 1 10.8 0"></path></svg></i>You</span></div>
+          </div>
+          <div><span class="cap">The top bar</span>
+            <div class="tb" style="margin-top: 8px"><span class="fx"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>Find, go or ask<kbd>⌘K</kbd></span><a class="kit-btn" href="Try-Chat.dc.html" aria-label="Try TLM: start a new session">Try TLM</a><span class="kit-btn outline" style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>4</span></div>
+            <div class="two">
+              <div><b>The icon</b>Opens Try TLM where you left it: the tab and the session you last had open, on this device or another. On a first visit it opens a new session.</div>
+              <div><b>The green button</b>Starts a new session from any page, on the model the page is about when there is one, otherwise on the model you used last.</div>
+            </div>
+            <div class="two" style="grid-template-columns: 1fr; margin-top: 10px"><div>Both lead to the same Try TLM. A new session never replaces the one you left: that one stays in your sessions, where the icon finds it.</div></div>
+          </div>
+          <div><span class="cap">What goes with them</span>
+        <div class="li" style="margin-top: 2px">
+          <span><span><kbd>T</kbd> starts a new session<small>The key the shortcut sheet already has; it does what the button does</small></span></span>
+          <span><span><kbd>G</kbd> <kbd>T</kbd> goes to Try TLM<span class="kit-chip brand tag">New</span><small>Like the other "go" keys; it does what the icon does</small></span></span>
+          <span><span>No number and no dot on the icon<small>A session that waits for you is counted on the bell, with everything else that waits</small></span></span>
+          <span><span>In Find<small>"New session in Try TLM" is an action in ⌘K, and "Try Core 4.2 in Try TLM" stays as it is</small></span></span>
+          <span><span>On a phone<small>The same two, in the two rows at the top, as the board Try-Phone draws them</small></span></span>
+        </div>
+          </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>On the board <a href="Shell-Find.dc.html">Shell-Find</a>.</b> In "The header on every page": the button stays where it is and its line reads as above. The icon is fourth in the navigation on every board, between Models and agents and TL Index. "Keyboard shortcuts" gains G T.</span></div>
+        </div>
+      </section>
+      <section class="kit-surface wide" aria-label="The inbox">
+        <div class="ix-h"><h3>2 · The inbox</h3><span class="kit-small kit-muted">The lines Try TLM sends, each drawn as a line of the portal's one inbox</span></div>
+        <p class="rule">Try TLM has no notices of its own: what needs you, or happened while you were away, is a line in the portal's inbox, and the line opens Try TLM at that point. Notifications stay inside the portal.</p>
+        <div class="g2 a">
+          <div>
+            <div class="ib" role="region" aria-label="The inbox, showing the lines Try TLM sends">
+              <div class="sf-f"><span class="kit-chip">Needs you</span><span class="kit-chip">Agents</span><span class="kit-chip">Standing in</span><span class="kit-chip brand">Try TLM · 9</span><span class="kit-chip">All</span></div>
+          <a class="sf-i on" href="Try-Chat.dc.html"><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Decide</span></span> Research helper wants to save a file</span><span class="t">11:49</span><small>Try TLM · in "Fees, explained to a new adviser" · the yes or no is given in the session, where the steps show · ends without an answer at 11:49 tomorrow</small></a>
+          <a class="sf-i" href="Try-Chat.dc.html"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Done</span></span> Summarise what changed in the sample fund sheets</span><span class="t">Mon 08:00</span><small>A scheduled run · Research helper · 41 seconds · 5 steps, 2 tools · 2 charges moved</small></a>
+          <a class="sf-i" href="Try-Chat.dc.html"><span><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Did not run</span></span> Sort the week's made-up service requests</span><span class="t">Fri 23 Oct</span><small>A scheduled run · the day's 60 requests were used by 16:00 · it is not saved up, and runs next on its usual day</small></a>
+          <a class="sf-i" href="Try-Chat.dc.html"><span><b>Shared with you</b> · Plain words for a charges table, by Lena W.</span><span class="t">4 Nov</span><small>A session, to read, until 28 Nov · it opens in Try TLM, read only</small></a>
+          <a class="sf-i" href="Try-Chat.dc.html"><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Removed in 3 days</span></span> Who to ask about what</span><span class="t">8 Nov</span><small>A session of yours, 30 days after its last message · a new message starts the 30 days again · or download it, or hand it to a project</small></a>
+          <a class="sf-i" href="Try-Chat.dc.html"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Ready</span></span> Your download of what Try TLM keeps</span><span class="t">12:03</span><small>everything-kept-about-you-5-nov.zip · the link is for you alone and ends on 12 Nov</small></a>
+          <a class="sf-i" href="Try-Chat.dc.html"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Accepted</span></span> Reading list maker is in the Agents library</span><span class="t">27 Oct</span><small>Your offer of an agent · AS-0093 · you are named as its maker</small></a>
+          <a class="sf-i" href="Try-Chat.dc.html"><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>Sent back</span></span> Welcome note drafter, with the reason</span><span class="t">30 Oct</span><small>Your offer of an agent · AS-0098 · private again; change it and offer it again, or leave it</small></a>
+          <a class="sf-i" href="Try-Chat.dc.html"><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Back</span></span> Your 60 requests are back</span><span class="t">Fri 00:00</span><small>Only because you pressed "Tell me at midnight" · "Fees, explained to a new adviser" is where you left it</small></a>
+            </div>
+            <p class="rule" style="margin-top: 10px">A line names the thing and says what happened. It never carries the words of an answer: a run's line ends with the run's own one-line summary and no more. An offered prompt is answered with the same two lines as an offered agent.</p>
+          </div>
+          <div>
+            <span class="cap">Which choice on You each line follows · no new switch</span>
+            <div class="nt">
+              <span class="h">Line</span><span class="h">In the inbox</span><span class="h">On the header count</span>
+              <span>Something waits for your yes or no</span><span>Always</span><span>Always<small>It waits for you alone</small></span>
+              <span>A scheduled run finished, or did not run</span><span>With "Runs and editions you follow"</span><span>Off, unless you switch it on</span>
+              <span>A session was shared with you<br>ThinkLatent answered your offer<br>A download is ready</span><span>With "Requests and reviews for you"</span><span>On, unless you switch it off</span>
+              <span>A session of yours is removed in 3 days</span><span>Always</span><span>Never</span>
+              <span>Your requests are back</span><span>Once, and only if you asked</span><span>After your quiet hours end</span>
+            </div>
+            <span class="cap">Never in the inbox</span>
+        <div class="li" style="margin-top: 2px">
+          <span><span>A session that finished while you were on it<small>You saw it finish</small></span></span>
+          <span><span>That someone stopped sharing with you, or started a session of their own from yours<small>Neither side is told</small></span></span>
+          <span><span>A message the client-data check stopped<small>It kept nothing, so there is nothing to point to</small></span></span>
+          <span><span>Anything of yours, for a stand-in<small>A stand-in takes your requests and reviews, never a line from Try TLM</small></span></span>
+          <span><span>Anything outside the portal<small>No mail, no message in a chat channel, no sound and no pop-up</small></span></span>
+        </div>
+          </div>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>On the boards <a href="Shell-Find.dc.html">Shell-Find</a> and <a href="Shell-Settings.dc.html">Shell-Settings</a>.</b> In "Inbox" on Shell-Find: the lines join the one list in the kinds it already has (Decide, Moved on) or a plain word, and one filter, "Try TLM", is added after "Standing in". In "Notifications" on Shell-Settings: no new row.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="Find">
+        <div class="ix-h"><h3>3 · Find</h3><span class="kit-small kit-muted">⌘K, open · typed: notes</span></div>
+        <p class="rule">Find reaches your own things in Try TLM by their names, never by what is written in them, and never anyone else's. Each result says what kind of thing it is and carries a lock, because only you get it.</p>
+        <div class="sf-k" role="dialog" aria-label="Find, go or ask">
+          <div class="sf-in"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>notes<span class="kit-muted">↵ opens · ⌘↵ asks Jarvis</span></div>
+          <div class="sf-g"><span>Models, systems and agents</span></div>
+          <a class="sf-r" href="Agent-Page.dc.html"><span>Meeting notes agent<small>Agent · ready to adopt · built by ThinkLatent</small></span></a>
+          <div class="sf-g"><span>Try TLM · yours<span class="kit-chip brand tag">New</span></span><span>Names and titles only</span></div>
+          <a class="sf-r on" href="Try-Chat.dc.html"><span>Turning notes into a checklist<small>Session · Distil 4.2 · 3 Nov · removed 3 Dec</small></span><span class="mk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Only you</span><kbd>↵</kbd></a>
+          <a class="sf-r" href="Try-Chat.dc.html"><span>Call notes tidy<small>Your agent · Distil 4.2 · offered to the Agents library 3 Nov</small></span><span class="mk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Only you</span></a>
+          <a class="sf-r" href="Try-Chat.dc.html"><span>/plan · Turn notes into a plan<small>Saved prompt · version 1 · offered to the prompt library</small></span><span class="mk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Only you</span></a>
+          <a class="sf-r" href="Try-Chat.dc.html"><span>Onboarding notes<small>Folder · 3 sessions · 2 files</small></span><span class="mk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Only you</span></a>
+          <a class="sf-r" href="Try-Chat.dc.html"><span>first-week-notes.docx<small>File · saved 2 Nov · in the folder Onboarding notes</small></span><span class="mk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Only you</span></a>
+          <a class="sf-r" href="Try-Chat.dc.html"><span>Meeting notes to actions<small>Agent from the Agents library · in your list since 30 Oct</small></span><span class="mk">In your list</span></a>
+          <div class="sf-g"><span>Actions</span></div>
+          <a class="sf-r" href="Try-Chat.dc.html"><span>New session in Try TLM</span><kbd>T</kbd></a>
+          <div class="sf-ft">↑ ↓ move · ↵ open · ⌘↵ ask Jarvis · Esc close</div>
+        </div>
+        <span class="cap">One line more in "What it finds"</span>
+        <div class="li" style="margin-top: 2px">
+          <span><span>Your own things in Try TLM<span class="kit-chip brand tag">New</span><small>Sessions by title · agents, saved prompts and folders by name · files by name · what is shared with you by name, by its title</small></span></span>
+        </div>
+        <span class="cap">Three more in "What it never shows"</span>
+        <div class="li" style="margin-top: 2px">
+          <span><span>The words of a Try TLM session, yours or anyone's<small>To search inside your own sessions, use "Search your sessions" in Try TLM</small></span></span>
+          <span><span>Anyone else's session, agent, saved prompt, folder or file<small>Unless they shared it with you by name</small></span></span>
+          <span><span>An answer from Jarvis that rests on a session<small>Asked from this box or anywhere, Jarvis never reads one</small></span></span>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>On the board <a href="Shell-Find.dc.html">Shell-Find</a>.</b> In "⌘K, open": one group, "Try TLM · yours", after "Projects and features", and one action. The two lists beside it gain the lines above.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="You">
+        <div class="ix-h"><h3>4 · You</h3><span class="kit-small kit-muted">One card, drawn small</span></div>
+        <p class="rule">Everything Try TLM adds to You is drawn in full on the board Try-You: one new card, one line rewritten and one added, one download that asks what to put in, and one removal that is held. It is not drawn again here.</p>
+        <div class="card" role="region" aria-label="Try TLM, on You, drawn small">
+          <div class="ch"><b>Try TLM<span class="kit-chip brand tag">New</span></b><span class="kit-small kit-muted">Yours alone · never used for training</span></div>
+        <div class="li" style="margin-top: 6px">
+          <span><span>Try TLM's settings<small>How the chat behaves, speaking and listening, memory on or off</small></span><span class="r"><a class="kit-btn ghost sm" href="Try-Settings.dc.html">Open</a></span></span>
+          <span><span>Sessions · <span class="kit-num">14</span>, and <span class="kit-num">3</span> archived<small>Each is removed 30 days after its last message</small></span><span class="r"><a class="kit-btn ghost sm" href="Try-Sessions.dc.html">Open</a></span></span>
+          <span><span>Kept until you remove it<small>Memory 4 · agents 3 · skills 2 · folders 1 · saved prompts 2 · files 6</small></span></span>
+          <span><span>Shared by you · <span class="kit-num">1</span> · with you · <span class="kit-num">2</span><small>With people named, never a link</small></span></span>
+        </div>
+          <div class="acts" style="margin-top: 10px"><button class="kit-btn outline sm" type="button">Download as a file</button><button class="hold" type="button"><i aria-hidden="true"></i>Hold to remove everything</button></div>
+        </div>
+        <div class="acts" style="margin-top: 12px"><a class="kit-btn outline sm" href="Try-You.dc.html">See all of it on Try-You</a><span class="kit-small kit-muted">9 parts · the card, the download, the removal and what You already covers</span></div>
+        <span class="cap">The two lines in "What the portal keeps about you"</span>
+        <div class="li" style="margin-top: 2px">
+          <span><span>Your Try TLM sessions<span class="kit-chip outline tag">Changed</span><small>Their text is kept where only you can read it. Each is removed 30 days after its last message, and none is ever used for training</small></span></span>
+          <span><span>What Try TLM remembers, and what you made there<span class="kit-chip brand tag">New</span><small>Memory, agents, skills, folders, saved prompts and files: yours alone, kept until you remove them</small></span></span>
+        </div>
+        <span class="cap">What that means on the other parts of You</span>
+        <div class="li" style="margin-top: 2px">
+          <span><span>Look, profile, quiet hours and away<small>Hold for Try TLM as they stand; it has no control of its own for any of them</small></span></span>
+          <span><span>Notifications<small>No new row: part 2 says which row each Try TLM line follows</small></span></span>
+          <span><span>Saved views<small>A saved setting in Try TLM is not a saved view; it is counted in the Try TLM card</small></span></span>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>On the board <a href="Shell-Settings.dc.html">Shell-Settings</a>.</b> The new card is last in the right column, under "What the portal keeps about you", whose Try TLM line is rewritten as Try-You shows.</span></div>
+      </section>
+      <section class="kit-surface wide" aria-label="The Agents library">
+        <div class="ix-h"><h3>5 · The Agents library</h3><span class="kit-small kit-muted">The shelf, an agent's page, and what ThinkLatent's reviewer sees of an offer</span></div>
+        <p class="rule">An agent accepted into the Agents library can be used in Try TLM by anyone. One made in Try TLM reaches the shelf only as an offer that ThinkLatent accepts, and it stands apart from the agents a project can adopt: it has passed a check, it has no score on a measure of its own, and it has no endpoint.</p>
+        <div class="sub2"><b>Ready to adopt</b><span class="kit-small kit-muted">As the shelf has it today · one row shown · one button is reworded</span></div>
+        <div class="ag-cols kit-label" style="padding: 12px 14px 8px"><span>Agent</span><span>What works inside it</span><span>Score on its own measure</span><span>Used in</span><span></span></div>
+        <div class="kit-rows">
+          <div class="kit-row ag-cols">
+            <div><div class="t">Policy Q&amp;A agent</div><div class="s">Answers staff questions from policy, with its sources. Says so when the policy is silent</div><div class="s" style="margin-top: 4px">Built by ThinkLatent · version 3</div></div>
+            <div class="ag-in">Embedding v2 finds the passages → Core 4.2 answers → Guardrail v2 checks each statement</div>
+            <div><div class="ag-score"><span class="kit-num">91% ± 2</span><span class="ag-mark" role="img" aria-label="91 percent, interval 89 to 93, over its threshold of 88 percent"><span class="ln"></span><span class="iv" style="left: 45%; width: 20%"></span><span class="pt" style="left: 55%"></span><span class="th" style="left: 40%"></span></span></div><div class="s">Right answer with the right source · threshold 88%</div></div>
+            <div class="kit-small">2 projects</div>
+            <div class="end"><a class="kit-btn outline sm" href="Try-Chat.dc.html">Use in Try TLM</a><a class="kit-btn sm" href="Agent-Page.dc.html">Open</a></div>
+          </div>
+        </div>
+        <p class="rule" style="margin-top: 8px">"Try it" on an agent now reads "Use in Try TLM"<span class="kit-chip outline tag">Changed</span> It puts the agent in your list in Try TLM, under "From the Agents library", and opens a session with it. It runs as accepted and cannot be changed; to change it, make a copy there.</p>
+        <div class="sub2"><b>Made in Try TLM<span class="kit-chip brand tag">New</span></b><span class="kit-small kit-muted">A new section of the shelf, after "Offered by a team, being scored" · accepted by ThinkLatent after its check · for use in Try TLM</span></div>
+        <div class="ag-cols kit-label" style="padding: 12px 14px 8px"><span>Agent</span><span>What works inside it</span><span>ThinkLatent's check</span><span>Used by</span><span></span></div>
+        <div class="kit-rows">
+          <div class="kit-row ag-cols">
+            <div><div class="t">Reading list maker</div><div class="s">Builds a first-week reading list for a new member of a team</div><div class="s" style="margin-top: 4px">Made by you · accepted 27 Oct · version 2</div></div>
+            <div class="ag-in">Core 4.2 · 1 tool: Fund documents search</div>
+            <div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span><div class="s">5 test tasks · no score on a measure of its own</div></div>
+            <div class="kit-small">12 people</div>
+            <div class="end"><a class="kit-btn outline sm" href="Try-Chat.dc.html">Use in Try TLM</a><a class="kit-btn sm" href="Agent-Page.dc.html">Open</a></div>
+          </div>
+          <div class="kit-row ag-cols">
+            <div><div class="t">Meeting notes to actions</div><div class="s">Turns the notes of a meeting into actions, each with an owner</div><div class="s" style="margin-top: 4px">Made by Lena W. · accepted 21 Oct · version 2</div></div>
+            <div class="ag-in">Core 4.2 · no tools</div>
+            <div><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span><div class="s">5 test tasks · no score on a measure of its own</div></div>
+            <div class="kit-small">41 people</div>
+            <div class="end"><span class="kit-small kit-muted">In your list since 30 Oct</span><a class="kit-btn sm" href="Agent-Page.dc.html">Open</a></div>
+          </div>
+          <div class="kit-row ag-cols">
+            <div><div class="t">Call notes tidy</div><div class="s">Turns rough notes into points, decisions and who does what</div><div class="s" style="margin-top: 4px">Offered by you · 3 Nov · version 2</div></div>
+            <div class="ag-in">Distil 4.2 · no tools</div>
+            <div><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Being checked</span></span><div class="s">AS-0105 · you hear by 6 Nov</div></div>
+            <div class="kit-small kit-muted">Nobody yet</div>
+            <div class="end"><a class="kit-btn outline sm" href="Requests-Status.dc.html">Follow it on Requests</a></div>
+          </div>
+        </div>
+        <p class="rule" style="margin-top: 8px">While an offer waits, its row shows to its maker and to ThinkLatent only, and nobody else can use it. Once accepted it shows to everyone, with its maker named. Sent back, the row goes and the reason comes to the maker.</p>
+        <div class="g2">
+          <div>
+            <div class="sub2" style="margin-top: 4px"><b>An agent's page</b><span class="kit-small kit-muted">Reading list maker, as everyone sees it</span></div>
+            <div class="ph">
+              <span class="nm">Reading list maker</span>
+              <span class="cs"><span class="kit-chip">Agent</span><span class="kit-chip brand">For use in Try TLM</span><span class="kit-chip">Made by you</span><span class="kit-chip outline">Accepted by ThinkLatent · 27 Oct</span></span>
+              <span class="kit-small kit-muted">Builds a first-week reading list for a new member of a team. Runs as accepted: version 2 on Core 4.2, with Fund documents search.</span>
+              <span class="acts"><a class="kit-btn sm" href="Try-Chat.dc.html">Use in Try TLM</a><button class="kit-btn outline sm" type="button">Follow</button></span>
+            </div>
+            <dl class="kv2">
+              <dt>Used by</dt><dd>12 people in the last 30 days<small>Counted, never what they typed</small></dd>
+              <dt>Checked</dt><dd>On 5 of ThinkLatent's test tasks, 27 Oct<small>Not scored on a measure of its own, so no score and no threshold show</small></dd>
+              <dt>In a project</dt><dd>Not adoptable as it stands: it has no endpoint<small>To use it in a feature, start a project; it is built and scored there</small></dd>
+              <dt>Its maker</dt><dd>Named. Can offer a newer version, or ask to take it out<small>Both are requests</small></dd>
+              <dt>When you use it</dt><dd>It works with your access and counts against your own limit today<small>Never the maker's access</small></dd>
+            </dl>
+            <p class="rule" style="margin-top: 8px">On the page of an agent a project can adopt, the three buttons read "Use it in a project", "Use in Try TLM" and "Follow".</p>
+          </div>
+          <div>
+            <div class="sub2" style="margin-top: 4px"><b>What ThinkLatent's reviewer sees of an offer</b><span class="kit-small kit-muted">ThinkLatent only · the request, opened</span></div>
+            <div class="card" style="margin-top: 8px">
+              <div class="ch"><b>An agent is offered to the Agents library</b><span class="kit-small kit-muted">AS-0105 · 3 Nov</span></div>
+              <dl class="kv2">
+                <dt>The agent</dt><dd>Call notes tidy · version 2 · Distil 4.2 · no tools<small>By its maker, shown by name</small></dd>
+                <dt>What it is for</dt><dd>Turns rough notes into points, decisions and who does what</dd>
+                <dt>Not to be used for</dt><dd>A record of advice given to a client</dd>
+                <dt>What came</dt><dd>Its instructions, starter questions and settings <button class="kit-btn ghost sm" type="button">Read all of it</button></dd>
+                <dt>Never shown</dt><dd>The maker's sessions, memory, other files and sign-ins, or how much they use Try TLM</dd>
+              </dl>
+              <span class="cap">The five checks</span>
+        <div class="li" style="margin-top: 2px">
+          <span><span>It does what it says, on ThinkLatent's test tasks</span><span class="r"><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>3 of 5 run</span></span></span></span>
+          <span><span>No client data and no real names</span><span class="r"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></span></span>
+          <span><span>Every tool is one everyone may use · it asks before it changes anything</span><span class="r"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>Passed</span></span></span></span>
+          <span><span>Nothing that does the same is already in the library<small>Meeting notes to actions is close</small></span><span class="r"><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>To decide</span></span></span></span>
+        </div>
+              <div class="acts" style="margin-top: 12px"><button class="hold" type="button"><i aria-hidden="true"></i>Hold to accept</button><button class="hold" type="button"><i aria-hidden="true"></i>Hold to send back</button><span class="kit-small kit-muted">Sending back asks for a reason, which the maker sees</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>On the boards <a href="Agents-Library.dc.html">Agents-Library</a> and <a href="Agent-Page.dc.html">Agent-Page</a>.</b> On Agents-Library: the button on each row of "Ready to adopt", and the new section. On Agent-Page: the second button in the page head, and the page of an agent made in Try TLM, which has the head and four lines above and none of the project parts. The reviewer's view opens from the request on Requests-Status.</span></div>
+      </section>
+      <section class="kit-surface wide" aria-label="The prompt library">
+        <div class="ix-h"><h3>6 · The prompt library</h3><span class="kit-small kit-muted">A saved prompt offered from Try TLM, and a template copied to it</span></div>
+        <p class="rule">Anyone may offer a saved prompt to the prompt library; the offer is a request, and nothing joins until ThinkLatent has run its eight checks and scored it. The other way, any template can be copied into your saved prompts, where the copy is yours to change.</p>
+        <div class="soft" style="margin-top: 12px; display: flex; justify-content: space-between; gap: 14px; align-items: center; flex-wrap: wrap"><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Your offer is with ThinkLatent</span></span> <span class="kit-small kit-muted">· only you see this line</span><br><b style="font-weight: 500">Turn notes into a plan</b> · from your saved prompt /plan, version 1 · offered today · AS-0108 · the eight checks are not run yet<br><span class="kit-muted">It is not among the templates until it joins. Your saved prompt stays yours whatever is decided.</span></span><span class="acts"><a class="kit-btn outline sm" href="Requests-Status.dc.html">See the request</a><button class="kit-btn ghost sm" type="button">Take it back</button></span></div>
+        <div class="pt7">
+          <span class="h">Template</span><span class="h">What it is for</span><span class="h">Written for</span><span class="h">TL Index pillar</span><span class="h">Features on it</span><span class="h">Checks</span><span class="h">Version</span>
+          <span><b>Pick one approved action, or none</b><small>Offered by Advice Tech · reviewed by ThinkLatent 28 Oct</small></span><span>One step from an approved list, and silence when it is not sure</span><span>The decision adapter</span><span>Client care</span><span class="kit-num">1</span><span><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 passed</span></span></span><span class="kit-num">1<small>28 Oct</small></span>
+          <span class="nw"><b>Turn notes into a plan</b><span class="kit-chip brand tag">New</span><small>Offered by you, from Try TLM · reviewed by ThinkLatent 9 Nov</small></span><span class="nw">Turns rough notes into a plan with owners and dates</span><span class="nw">Core · Distil</span><span class="nw kit-muted">None: scored on its own measure</span><span class="nw kit-num">0</span><span class="nw"><span class="kit-status good"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg><span>8 passed</span></span></span><span class="nw kit-num">1<small>9 Nov</small></span>
+        </div>
+        <p class="rule" style="margin-top: 8px">Once it has joined, it is a row like any other, with the person named where a team would be. The first row is one of today's, shown for the form. The count in the page head then reads "15 templates · 9 by ThinkLatent, 5 offered by teams, 1 by a person".</p>
+        <div class="g2">
+          <div>
+            <div class="sub2" style="margin-top: 4px"><b>Under one template</b><span class="kit-small kit-muted">Call and meeting summary, with follow-ups · one button more, ringed</span></div>
+            <div class="acts"><a class="kit-btn sm" href="#">Copy the template</a><button class="kit-btn outline sm" type="button">How to register your copy</button><button class="kit-btn outline sm" type="button">Try it</button><button class="kit-btn outline sm" type="button" style="box-shadow: 0 0 0 1.5px var(--brand-500)">Save a copy as a saved prompt</button></div>
+            <div class="toast"><span>Copied to your saved prompts as /summary · yours to change</span><a href="Try-Prompts.dc.html">Open it</a></div>
+        <div class="li">
+          <span><span>Save a copy as a saved prompt<small>The copy is a saved prompt in Try TLM: private, with the highlighted parts as its blanks. It no longer follows the template, and the template is not changed</small></span></span>
+          <span><span>Try it<small>Opens a new session in Try TLM with the template in the writing box, to read before sending</small></span></span>
+          <span><span>Copy the template<small>As today: for an application's code, to register as a version of a feature's prompt</small></span></span>
+        </div>
+          </div>
+          <div>
+            <div class="sub2" style="margin-top: 4px"><b>"How the library works" · Offering one<span class="kit-chip outline tag">Changed</span></b><span class="kit-small kit-muted">The paragraph, rewritten</span></div>
+            <div class="soft" style="margin-top: 0">Anyone offers a prompt that has worked: a project's owner from a feature, or any person from a saved prompt in Try TLM. Either way it is a request. ThinkLatent strips anything particular to the project or the person, runs the eight checks and scores it on its pillar. Then it joins, with the team or the person named.</div>
+            <p class="rule" style="margin-top: 8px">It replaces: "A project owner offers a prompt that has worked." The button "Offer a template" in the page head then asks which: from a feature of a project you own, or from your saved prompts.</p>
+          </div>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>On the board <a href="Prompt-Library.dc.html">Prompt-Library</a>.</b> The line about your offer sits above "The templates" and shows to you alone. The new row is in that table. The fourth button is under the open template. The paragraph is the third in "How the library works".</span></div>
+      </section>
+      <section class="kit-surface wide" aria-label="Requests">
+        <div class="ix-h"><h3>7 · Requests</h3><span class="kit-small kit-muted">The kinds of request Try TLM raises, each as a row of the table</span></div>
+        <p class="rule">Whatever Try TLM cannot decide by itself becomes a request, raised from where the need arose and followed here like any other. Six are asks to ThinkLatent or problems, kinds the page already has. One is new: a session handed to a project, which that project's owners decide.</p>
+        <div class="rq-cols kit-label" style="padding: 14px 14px 8px"><span>Request</span><span>Kind</span><span>Where it is decided</span><span>Where it stands</span><span style="text-align: right">Next step</span></div>
+        <div class="kit-rows">
+          <div class="kit-row rq-cols"><div><div class="t">Call notes tidy, offered to the Agents library</div><div class="s">AS-0105 · an agent made in Try TLM · raised 3 Nov by you</div></div><span class="kit-chip">Ask</span><div class="kit-small">ThinkLatent · the Agents library</div><div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waiting on others</span></span><div class="s">Being checked on ThinkLatent's test tasks · you hear by 6 Nov</div></div><div class="end"><a class="kit-btn outline sm" href="#">Open</a><button class="kit-btn ghost sm" type="button">Withdraw</button></div></div>
+          <div class="kit-row rq-cols"><div><div class="t">Turn notes into a plan, offered to the prompt library</div><div class="s">AS-0108 · a saved prompt in Try TLM · raised today by you</div></div><span class="kit-chip">Ask</span><div class="kit-small">ThinkLatent · the prompt library</div><div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waiting on others</span></span><div class="s">With ThinkLatent since today · a first answer within 3 days</div></div><div class="end"><a class="kit-btn outline sm" href="#">Open</a><button class="kit-btn ghost sm" type="button">Withdraw</button></div></div>
+          <div class="kit-row rq-cols"><div><div class="t">A public list of fund prices, as a tool for everyone</div><div class="s">AS-0109 · an address outside the Enterprise, for Try TLM · raised today by you</div></div><span class="kit-chip">Ask</span><div class="kit-small">ThinkLatent, then the Enterprise's Risk and IT security</div><div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waiting on others</span></span><div class="s">With ThinkLatent · a reason either way · if allowed, it is offered to everyone</div></div><div class="end"><a class="kit-btn outline sm" href="#">Open</a></div></div>
+          <div class="kit-row rq-cols"><div><div class="t">Team wiki needs a key to read your space</div><div class="s">AS-0110 · a connector in Try TLM · raised today by you</div></div><span class="kit-chip">Ask</span><div class="kit-small">ThinkLatent · the list of connectors</div><div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waiting on others</span></span><div class="s">ThinkLatent arranges it to work through the Enterprise's sign-in. No key is typed into Try TLM</div></div><div class="end"><a class="kit-btn outline sm" href="#">Open</a></div></div>
+          <div class="kit-row rq-cols"><div><div class="t">A session offered to Advisor desktop as a prompt</div><div class="s">HO-0007 · "Fees, explained to a new adviser" · the system prompt, the set-up and 1 example · raised today 11:58 by you</div></div><span class="kit-chip">Hand-over</span><div class="kit-small">Here, by the project's owners: Priya N. and Arjun K.</div><div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waiting on others</span></span><div class="s">With the owners since 11:58 · accepting is held, and cannot be taken back</div></div><div class="end"><a class="kit-btn outline sm" href="#">Open</a><button class="kit-btn ghost sm" type="button">Withdraw</button></div></div>
+          <div class="kit-row rq-cols"><div><div class="t">The daily limit in Try TLM is too low for most people</div><div class="s">AS-0104 · raised 2 Nov by Dev R. · 6 people have added their name</div></div><span class="kit-chip">Ask</span><div class="kit-small">ThinkLatent · it changes for everyone or not at all</div><div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waiting on others</span></span><div class="s">Looked at when machines are next added or moved</div></div><div class="end"><button class="kit-btn outline sm" type="button">Add my name</button></div></div>
+          <div class="kit-row rq-cols"><div><div class="t">The client-data check stopped something it should not have</div><div class="s">PR-0083 · issue · Try TLM · raised today by you · sent without the text that was stopped</div></div><span class="kit-chip">Problem</span><div class="kit-small">Ticket TLP-902 · the guardrail model's rules</div><div><span class="kit-status neutral"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Waiting on others</span></span><div class="s">Being looked at by ThinkLatent</div></div><div class="end"><a class="kit-btn outline sm" href="#">Open the ticket</a></div></div>
+        </div>
+        <div class="g2" style="margin-top: 14px">
+        <div class="li" style="margin-top: 0">
+          <span><span>What a row never holds<small>The words of a session, a prompt or an agent's instructions. A row names the thing; what came with it shows to whoever decides, on the request itself</small></span></span>
+          <span><span>The hand-over, as an owner of the project sees it<small>The same row reads "Needs you · You are an owner of this project", with "Read what would come" as its next step. Accepting and sending back are held, on the request</small></span></span>
+        </div>
+        <div class="li" style="margin-top: 0">
+          <span><span>Also raised the same way, as asks<small>A skill offered · a connector asked for the list · an accepted agent or prompt its maker wants taken out</small></span></span>
+          <span><span>The four kinds above the table<small>"Asks to ThinkLatent" gains the words "or something for Try TLM". A hand-over has no card of its own: it is found under "Raised by me" and "About my projects"</small></span></span>
+        </div>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>On the board <a href="Requests-Status.dc.html">Requests-Status</a>.</b> In "Open requests", as rows of the same table. The kind chips are the page's own, with "Hand-over" the one new word. Each row is raised from Try TLM and never from here.</span></div>
+      </section>
+      <section class="kit-surface wide" aria-label="A model's page and the catalogue">
+        <div class="ix-h"><h3>8 · A model's page and the catalogue</h3><span class="kit-small kit-muted">"Try it", and what stands in its place when a model is not a chat model</span></div>
+        <p class="rule">Try TLM offers every released ThinkLatent chat model and no other, and its list is made from the catalogue, so the two cannot disagree. On a chat model, "Try it" opens Try TLM on that model. Anywhere else the page says in a line where the model can be tried, or that it cannot.</p>
+        <div class="g2">
+          <div>
+            <span class="cap">A chat model's page</span>
+            <div class="ph">
+              <span class="nm">TLM4 Domain-Advice v2</span>
+              <span class="cs"><span class="kit-chip">TLM4</span><span class="kit-chip outline">Language</span><span class="kit-chip brand">Live</span><span class="kit-chip">Built on Core 4.2</span></span>
+              <span class="acts"><a class="kit-btn" href="Try-Chat.dc.html">Try it</a><a class="kit-btn outline" href="Start-Project.dc.html">Use it in a project</a></span>
+              <span class="kit-small kit-muted">"Try it" opens a new session in Try TLM on Domain-Advice v2, as released. What you send counts against your own limit today.</span>
+            </div>
+            <span class="cap">Where "Try it" would be, on a model Try TLM does not offer</span>
+        <div class="li" style="margin-top: 2px">
+          <span><span>Core 4.3 · Domain-Advice v3<small>Not released yet. Each appears in Try TLM by itself on the day it is released</small></span><span class="r"><span class="kit-small kit-muted">From 9 and 21 Nov</span></span></span>
+          <span><span>Core 3.4, retiring<small>Not offered in Try TLM. The model that follows it is</small></span><span class="r"><a class="kit-btn outline sm" href="Try-Chat.dc.html">Try Core 4.2</a></span></span>
+          <span><span>A project's own version of a model<small>Tried in its project, under that project's rules</small></span><span class="r"><span class="kit-small kit-muted">Not here</span></span></span>
+          <span><span>Outside models<small>Scored for comparison only. No model from outside the Enterprise is offered in Try TLM</small></span><span class="r"><span class="kit-small kit-muted">Not offered</span></span></span>
+        </div>
+          </div>
+          <div>
+            <span class="cap">Where "Try it" would be, on a model that is not a chat model</span>
+        <div class="li" style="margin-top: 2px">
+          <span><span>Speech recognition v6<small>In Try TLM it writes down what you say</small></span><span class="r"><a class="kit-btn outline sm" href="Try-Speech.dc.html">Speak in Try TLM</a></span></span>
+          <span><span>Guardrail v2<small>It does the client-data check in Try TLM and cannot be tried by itself</small></span><span class="r"><a class="kit-btn ghost sm" href="Help-Page.dc.html">What it looks for</a></span></span>
+          <span><span>Decision adapter v1 · Embedding v2 · Redaction v4 · Call classification v3<small>They cannot be tried in Try TLM. A project tries one in its Try stage, on its own data</small></span><span class="r"><a class="kit-btn outline sm" href="Start-Project.dc.html">Use it in a project</a></span></span>
+        </div>
+            <span class="cap">On the catalogue</span>
+            <div class="acts" style="margin-top: 8px"><span class="kit-small kit-muted">Show</span><span class="kit-chip">All 10</span><span class="kit-chip">Live 8</span><span class="kit-chip">In Pilot 2</span><span class="kit-chip outline">In Try TLM 3<span class="kit-chip brand tag">New</span></span></div>
+            <div class="cat">
+              <span class="h">Model</span><span class="h">Version and state</span><span class="h">Score on its own measure</span>
+              <span>Core<small>Two sizes, 27B and 7B</small></span><span>Live · version 4.2<br><span class="kit-chip brand">In Try TLM</span></span><span class="kit-num">81 ± 1</span>
+              <span>Domain-Advice<small>Advice calls · built on Core 4.2</small></span><span>Live · version 2<br><span class="kit-chip brand">In Try TLM</span></span><span class="kit-num">84 ± 1</span>
+              <span>Decision adapter<small>Returns a choice, not text</small></span><span>Pilot · version 1<small>No mark: not a chat model</small></span><span class="kit-num">94%</span>
+            </div>
+            <p class="rule" style="margin-top: 8px">A row keeps its columns, three of them shown here; the mark sits under the version, on Core, Distil and Domain-Advice. The "Try TLM" button in the catalogue's head stays and starts a session on the model you used last.</p>
+          </div>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>On the boards <a href="Model-Page.dc.html">Model-Page</a> and <a href="Model-Catalogue.dc.html">Model-Catalogue</a>.</b> On Model-Page: the first button of the page head, or the one line in its place. On Model-Catalogue: one mark in a row's "Version and state" and one more choice under "Show".</span></div>
+      </section>
+      <section class="kit-surface wide" aria-label="Starting a project, and a feature's prompts">
+        <div class="ix-h"><h3>9 · Starting a project, and a feature's prompts</h3><span class="kit-small kit-muted">A session handed over arrives as version 1 of a prompt</span></div>
+        <p class="rule">A copy of what you chose goes; your session stays yours and is still removed after its 30 days. The copy lives under the project's rules from the moment it is accepted. It carries no traffic until the project's application registers it, like any version.</p>
+        <div class="sub2" style="margin-top: 12px"><b>In a project that exists</b><span class="kit-small kit-muted">Call summary's Prompts page in Advisor desktop · a second prompt, under "The versions"</span></div>
+        <div class="fv">
+          <span class="h">Version</span><span class="h">Registered</span><span class="h">What changed, in its author's words</span><span class="h">Where it stands</span><span class="h">Today's calls</span><span class="h">Summary quality</span><span class="h">Checks</span>
+          <span><b>1</b><span class="kit-chip brand tag">New</span><small>Prompt "fees-explained"</small></span><span>Not by an application<small>Handed over from Try TLM by a member, named · accepted 6 Nov by Priya N.</small></span><span>"This explains fund charges well for new advisers. Worth trying on Call summary."</span><span><span class="kit-status info"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Handed over</span></span><small>Not practised · in no increment</small></span><span class="kit-num">0%</span><span class="no">Not measured: it has answered no evaluation call</span><span><span class="kit-status warning"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg><span>7 passed, 1 warning</span></span><small>Run on arrival</small></span>
+        </div>
+        <div class="g2">
+          <div>
+            <span class="cap">What came with it</span>
+            <dl class="kv2">
+              <dt>The prompt</dt><dd>The session's system prompt and the agent's own instructions · 240 tokens</dd>
+              <dt>The set-up</dt><dd>Core 4.2 · how it answers · 3 tools named, none connected<small>The project connects its own tools; the sender's access does not travel</small></dd>
+              <dt>Examples</dt><dd>1 exchange, checked again for client data as it came</dd>
+              <dt>Did not come</dt><dd>The file, the artifact, memory, the rest of the session, the agent itself</dd>
+              <dt>Who accepts</dt><dd>An owner of the project, by holding, on the request<small>The owner says which feature it is filed under. Until then nothing is copied</small></dd>
+              <dt>What it needs next</dt><dd>The application registers it as a version; then practice, then an increment</dd>
+            </dl>
+          </div>
+          <div>
+            <span class="cap">In a project you are starting</span>
+            <div class="jv"><span class="av">J</span><div>You came from a session in Try TLM and chose what to bring: its system prompt, its set-up and 1 example. I have read those and nothing else of yours. So tell me who will use it.</div></div>
+            <dl class="kv2">
+              <dt>Name</dt><dd>Fees, explained to a new adviser</dd>
+              <dt>First feature</dt><dd>Fee questions<small>Core 4.2, the model the session ran on</small></dd>
+              <dt class="nw">Comes with it<span class="kit-chip brand tag">New</span></dt><dd class="nw">From Try TLM: the system prompt, the set-up and 1 example<small>It becomes version 1 of the first feature's prompt when the project opens</small><span class="acts" style="margin-top: 6px"><button class="kit-btn outline sm" type="button">Change what comes</button><button class="kit-btn ghost sm" type="button">Leave it out</button></span></dd>
+              <dt>Who accepts</dt><dd>Nobody else: you are the new project's owner, so opening the project accepts it</dd>
+            </dl>
+            <p class="rule" style="margin-top: 8px">Jarvis reads only what you chose to bring, never the session. Under his suggested models, the link reads "Try them in Try TLM".</p>
+          </div>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>On the boards <a href="Feature-Prompts.dc.html">Feature-Prompts</a> and <a href="Start-Project.dc.html">Start-Project</a>.</b> On Feature-Prompts: a second prompt in "The versions", in the table's own columns, with what came listed under it. On Start-Project: one line in "Your project so far", and Jarvis's first words when you arrive from Try TLM.</span></div>
+      </section>
+      <section class="kit-surface wide" aria-label="Home and My work">
+        <div class="ix-h"><h3>10 · Home and My work</h3><span class="kit-small kit-muted">Little is added, on purpose</span></div>
+        <p class="rule">Home is the same for everyone and shows totals only, so it gains one count and nothing about anyone's sessions. My work is yours alone and gathers what waits for you, so it gains the Try TLM things that wait and nothing else.</p>
+        <div class="g2">
+          <div>
+            <span class="cap">Home · added</span>
+            <div class="tl2"><div class="tile"><span class="kit-small kit-muted">Requests today</span><span class="v">212k</span><span class="kit-small kit-muted">Live 58k · background 154k</span><span class="kit-small kit-muted">Tokens: 2.3B in · 208M out</span><span class="nw">Try TLM, counted apart: <span class="kit-num">1.9k</span> requests by <span class="kit-num">148</span> people<span class="kit-chip brand tag">New</span></span></div>
+            <p class="rule">One line in the tile that already counts use. It is counted apart because the 212k is what features in projects asked for; a try-out is not a feature's traffic. It follows the page's time window like every other number.</p></div>
+            <span class="cap">Home · not added, and why</span>
+        <div class="li" style="margin-top: 2px">
+          <span><span>Your sessions, or "pick up where you left off"<small>Home is the same for everyone; the Try TLM icon already opens where you left it</small></span></span>
+          <span><span>Who uses Try TLM, or a team's share of it<small>Try TLM is a person's own. The team table counts projects, and a session belongs to none</small></span></span>
+          <span><span>What people ask, or the most used agents and prompts<small>ThinkLatent can count use. It cannot read what was typed, so nothing is drawn from it</small></span></span>
+          <span><span>Anything in the day's brief, or from Jarvis<small>The agents never read a session</small></span></span>
+          <span><span>Spend or cost avoided for Try TLM<small>Not set. A try-out avoids no spend until it is a feature in a project</small></span></span>
+        </div>
+          </div>
+          <div>
+            <span class="cap">My work · added to "Requests"</span>
+            <div class="kit-label" style="padding: 10px 14px 6px">Need you</div>
+            <div class="kit-rows">
+              <div class="kit-row mw-row nw"><div><div class="t">Research helper wants to save a file</div><div class="s">Try TLM · in "Fees, explained to a new adviser" · waiting since 11:49</div></div><a class="kit-btn" href="Try-Chat.dc.html">Open to answer</a></div>
+              <div class="kit-row mw-row nw"><div><div class="t">Welcome note drafter was sent back</div><div class="s">Ask · ThinkLatent answered on 30 Oct, with the reason</div></div><a class="kit-btn" href="Try-Agents.dc.html">Read the reason</a></div>
+            </div>
+            <div class="kit-label" style="padding: 12px 14px 6px">Waiting on others</div>
+            <div class="kit-rows">
+              <div class="kit-row mw-row nw"><div><div class="t">Call notes tidy, offered to the Agents library</div><div class="s">Ask · with ThinkLatent for 2 days</div></div><a class="kit-btn outline" href="Requests-Status.dc.html">Open</a></div>
+              <div class="kit-row mw-row nw"><div><div class="t">A session offered to Advisor desktop as a prompt</div><div class="s">Hand-over · with the project's owners since 11:58</div></div><a class="kit-btn outline" href="Requests-Status.dc.html">Open</a></div>
+            </div>
+            <p class="rule" style="margin-top: 8px">The page head then reads "4 need you". An answered offer stays under "Need you" until you have opened it once.</p>
+            <span class="cap">My work · not added, and why</span>
+        <div class="li" style="margin-top: 2px">
+          <span><span>Your sessions, agents, saved prompts, folders and schedules<small>They live in Try TLM and are counted on You. Nothing lives only on My work</small></span></span>
+          <span><span>Sessions in "Recently opened"<small>The Try TLM icon does that. A session about to be removed is a line in the inbox</small></span></span>
+          <span><span>Your limit today<small>It is shown where it is used, beside the chat</small></span></span>
+          <span><span>Anything in "Since you were last here"<small>Jarvis writes it from your projects and requests, and does not read a session</small></span></span>
+        </div>
+          </div>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>On the boards <a href="Home-Cockpit.dc.html">Home-Cockpit</a> and <a href="My-Work.dc.html">My-Work</a>.</b> On Home-Cockpit: one line at the foot of the "Requests today" tile, in "What is running today". On My-Work: rows in "Requests", under the two headings it has; the same rows show under the "Needs me" tab.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="Help">
+        <div class="ix-h"><h3>11 · Help</h3><span class="kit-small kit-muted">Three guides and one more example question</span></div>
+        <p class="rule">Help gains the three pages Try TLM points to, so each has one home and Find reaches it. They are guides written by ThinkLatent, not answers from one expert.</p>
+        <div class="hp-box"><h4>Guides</h4>
+          <div class="hp-l">
+            <span>What each model is for<span class="kit-chip brand tag">New</span><small>Core 4.2, Distil 4.2 and Domain-Advice v2, and why no other model is in Try TLM · opened from Try TLM's head and its model menu</small></span><a href="#">Open</a>
+            <span>Why was my message stopped?<span class="kit-chip brand tag">New</span><small>What the client-data check looks for, the four places it runs, and how to say it got one wrong · opened from "Why" on every stop</small></span><a href="#">Open</a>
+            <span>What Try TLM keeps<span class="kit-chip brand tag">New</span><small>Sessions for 30 days, the rest until you remove it, who can read it, and that none of it is used for training · opened from You and from Try TLM's settings</small></span><a href="#">Open</a>
+            <span class="no">Your first project, start to Production<small>And the three other guides Help has today</small></span><a href="Start-Project.dc.html">Open</a>
+          </div></div>
+        <span class="cap">Under "Ask"</span>
+        <div class="hp-ex"><span>Which model should I use to summarise claims?</span><span class="nw">Why was my message stopped?</span><span>What is a dedicated endpoint?</span></div>
+        <div class="li">
+          <span><span>Jarvis answers from the guide, not from your session<small>He never reads one, and a stopped message kept nothing to look at. So the answer is the general one, with how to report a wrong stop</small></span></span>
+          <span><span>A wrong stop you report<small>Shows in "Problems, logged in the open" as an issue about Guardrail v2, without the text that was stopped</small></span></span>
+        </div>
+        <div class="where"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><span><b>On the board <a href="Help-Page.dc.html">Help-Page</a>.</b> The first three lines of "Guides", above the four it has, and one more example under "Ask". "Answered before" gains nothing until someone asks.</span></div>
+      </section>
+      <section class="kit-surface" aria-label="What does not change">
+        <div class="ix-h"><h3>12 · What does not change</h3><span class="kit-small kit-muted">Pages Try TLM adds nothing to</span></div>
+        <p class="rule">Everywhere else the portal stays as its boards have it. A session is a person's try-out: it is not a project's traffic, it is not scored, and it is never training data.</p>
+        <div class="li" style="margin-top: 10px">
+          <span><span>The TL Index<small>Try TLM shows a model's published score and adds nothing to it. No session is scored, and no question from the Index reaches Try TLM</small></span></span>
+          <span><span>A project's pages, other than a feature's Prompts<small>Overview, traces, quality, increments, members and settings show the project's own traffic. A session shows in none of them</small></span></span>
+          <span><span>Data and training<small>Nothing typed in Try TLM is training data, and self-healing reads a feature's use in production, never a session</small></span></span>
+          <span><span>Operations<small>The shared endpoints Try TLM calls are already there as endpoints. "Is it down?" in Try TLM opens that page; nothing about a person is added</small></span></span>
+          <span><span>Sign-in and access<small>Try TLM has no sign-in, roles or list of people of its own. You are who the Enterprise's access management says you are</small></span></span>
+          <span><span>Jarvis<small>Answers from the portal's records as before. He reads no session and can start none for you</small></span></span>
+          <span><span>Leaderboards, outside models, retired models, new and coming<small>As they are</small></span></span>
+          <span><span>Value and cost avoided<small>Nothing is set for Try TLM, so it is in no figure there</small></span></span>
+        </div>
+        <div class="soft"><b style="font-weight: 500">Drawn on boards of their own, not here.</b> What Try TLM adds to You is on Try-You. What ThinkLatent sets for everyone is on Try-Admin. The limit is on Try-Limit.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":9385}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
