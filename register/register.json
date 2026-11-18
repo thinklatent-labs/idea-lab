@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-17T23:08:00-05:00",
+  "asOf": "2026-11-18T04:24:00-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 620,
+    "registerRev": 621,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1691,8 +1691,8 @@
       "docUrl": null,
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
-      "lastTouched": "2026-11-17",
-      "nextStep": "Cortex 0.21.0 (#53), 0.22.0 (#54), 0.23.0 (#55) and 0.24.0 (#56) are ready: Jithin merges them in that order and makes each tag by hand (v0.21.0 to v0.24.0) at its merge commit while the organisation's Actions billing keeps CI from running. All five waves of the 17 November audit are built; the lead fixes whatever a merge or a review turns up",
+      "lastTouched": "2026-11-18",
+      "nextStep": "Jithin makes the tags v0.21.0, v0.22.0, v0.23.0 and v0.24.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a): all five waves are merged into main (0.24.0). The lead fixes whatever a review or the first use turns up",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -6962,6 +6962,20 @@
       "docsTouched": "Cortex PR #56 (build/0.24.0); docs/api.md; docs/backlog.md; docs/design.md; docs/enterprise/it-install.md; requirements document (K-08 to K-15, Where to watch it, Where it stands); this register (TL-017 row)",
       "health": "on-track",
       "healthNote": "All five waves are built on 17 November with 18 days of appetite left (to 5 December); four pull requests wait on Jithin's merges and hand-made tags while CI cannot run (billing), so every check runs locally.",
+      "nextStepDue": "2026-11-20"
+    },
+    {
+      "date": "2026-11-18",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "Jithin merged #53 to #56 in order; main is at 0.24.0 with all five waves of the audit. The red CI on those pull requests was GitHub never starting the jobs (the organisation's Actions billing), said once on #54; the register, the requirements document and its mirror now match GitHub.",
+      "docsTouched": "requirements document (Where to watch it, Where it stands); this register (TL-017 row)",
+      "health": "on-track",
+      "healthNote": "All five waves merged on 18 November with 17 days of appetite left (to 5 December); only the hand-made tags remain.",
       "nextStepDue": "2026-11-20"
     }
   ],
@@ -13296,6 +13310,20 @@
       "id": "D-453",
       "by": "Claude (lead)",
       "decision": "TL-017 team-hub: Cortex 0.24.0 (wave 5 of D-429, the intelligence features K-10 to K-15) is built and ready on #56, which targets main after #53, #54 and #55. Rules and stored vectors on the hub, never a model there: the start context ranked for the session's subtask with why each entry was chosen (K-11); a usefulness vote on every start-context item, alert and answer, counts only (K-15); a card when someone in another epic works on the same thing (K-12); who knows a topic or a path from shared records, no score (K-13); memory hygiene for curators with retire and keep (K-14); and the session digest, drafted by the person's own Claude at one deliberate Stop hold and private until approved, when it becomes the hand-off and proposes memory and decisions (K-10; CORTEX_DIGEST=0 turns it off). Checked locally: 497 tests on SQLite and on Postgres, plugin validate, budgets, smoke 61 pages and 277 steps with no dead click, live demo 49 of 49. All five waves of the audit are built."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-18",
+      "door": "two-way",
+      "id": "D-454",
+      "by": "Jithin (sponsor)",
+      "decision": "TL-017 team-hub: Jithin merged Cortex #53 (0.21.0), #54 (0.22.0), #55 (0.23.0) and #56 (0.24.0) into main on 18 November, in that order; all five waves of the 17 November audit (D-429) are in, and main is at 0.24.0. The tags v0.21.0 to v0.24.0 are his to make by hand at the merge commits 5410ae4, 79ae838, 3023fc7 and 4f6917a, while CI cannot run (the organisation's Actions billing)."
     }
   ],
   "syncLog": [
