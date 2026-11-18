@@ -1,0 +1,182 @@
+{
+ "subject": "Home (route /) and its shell, branch home-trial",
+ "reviewed": "2026-11-18",
+ "method": "Playwright on apps/portal/dist/index.html at 1440x900 and 390x844, light and dark, folds closed and open; pixel-sampled contrast",
+ "failures": [
+  {
+   "defect": "contrast",
+   "severity": "critical",
+   "where": "Hero button label ('Get an answer'), light and dark",
+   "evidence": "The rotating stroke and blurred glow (::before/::after, z-index -1/-2 inside isolation:isolate) paint over the button's own fill, under the label. Sampled through one turn in 14 steps: light worst pixel 3.63:1, median 4.19-4.34:1 at 206-257 degrees, up to 54% of the label area under 4.5:1; dark worst 3.01:1, median 3.73-4.40:1 at 0-103 degrees, up to 59% under 4.5:1. Label is 15px/500, so 4.5:1 applies. On the flat fill it would be about 9.3:1 light and about 5:1 dark.",
+   "fix": "Keep the stroke and glow outside the fill: put them on a wrapper behind the button (or mask the blurred layer to the area outside the box) so the label sits on flat --primary. Re-measure through a full turn."
+  },
+  {
+   "defect": "focus",
+   "severity": "major",
+   "where": "Hero button, keyboard focus, both modes",
+   "evidence": "Focused box-shadow is only the lift and glow: .portal-hero's box-shadow replaces the kit's ring, outline is 'none'. The only change on focus is the plane icon's one flight. Pixel change at the edge 3.02:1 light, 2.77:1 dark, not a ring.",
+   "fix": "Add .portal-hero:focus-visible { outline: 2px solid var(--ring); outline-offset: 5px } (outside the stroke)."
+  },
+  {
+   "defect": "focus",
+   "severity": "major",
+   "where": "Find widget, the 12 dock places, the composer box, text links (Claims triage, Next best action, table names), light mode",
+   "evidence": "Ring still drawn at half strength: Find 2.52:1, dock 2.54:1, composer box 2.58:1, text links 2.49:1 (need 3:1). Dark passes (3.4 to 4.5:1). 44 other stops measure 6.6 to 9.3:1 light, 10 to 14.7:1 dark.",
+   "fix": "Make the outline/ring colour solid var(--ring) for these too (the kit's ring-ring/50 and 'outline: auto' at 50% are not covered by the --tw-ring-color override)."
+  },
+  {
+   "defect": "outline",
+   "severity": "major",
+   "where": "Composer box and 'Who answers' select, dark mode",
+   "evidence": "Border against its ground: composer 1.75:1, select 1.73:1 (need 3:1). Light passes: 3.46:1 and 3.10:1. The --input fix was made for light only.",
+   "fix": "Set --input in .dark to a token that gives 3:1 on the dark card (about rgb 110 on rgb 28)."
+  },
+  {
+   "defect": "clipped",
+   "severity": "major",
+   "where": "Fold 'Is it getting better from use?', self-healing table, 1,440 wide",
+   "evidence": "Table is 1,329 px in a 1,272 px box: the last column ('What it means today') is cut by 57 px at 1,440 and by 217 px at 1,280, with no scroll bar or cue. It fits only from 1,536 wide. The region is keyboard-scrollable.",
+   "fix": "Drop the fixed minimum widths (180/220 px) or let the last column wrap narrower so the table fits at 1,280; keep sideways scroll for phone only."
+  },
+  {
+   "defect": "glass",
+   "severity": "major",
+   "where": "Page content, both modes",
+   "evidence": "backdrop-filter is 'none' on every surface in main, including the Ask panel (a framing panel): all eight surfaces are opaque rgb(255,255,255) / rgb(28,28,28). Glass exists only on the six top-bar pills and the dock, and the dock has plain canvas behind it (the one green field is 760x230 px at top right), so its blur shows nothing.",
+   "fix": "Put the Ask panel on the kit's glass/frame surface with a token colour field behind it; keep the number tiles, brief, finding and tables opaque. Give the dock something to show through, or accept it as plain."
+  },
+  {
+   "defect": "tokens",
+   "severity": "major",
+   "where": "pages/Home.tsx, pages/home/*.tsx, styles.css",
+   "evidence": "55 hand-typed pixel values in Home's files: text-[15px] x9, text-[13px] x9, text-[56/76/96px], text-[28px], rounded-[28px]/[22px]/[20px] (kit has --kit-radius-*), top-[30px]/right-[22px]/top-[26px]/right-[46px], min-h-[168/150/300/60px], p-[22px_22px_20px], min-w-[156/180/220/280px]. styles.css: font-size 10px and 10.5px, and offsets 19px/15px/7px typed for the dock. Colours are all tokens except one literal, --background: #F7F7F5 (from 17 Nov, already an ask of the kit).",
+   "fix": "Use the kit's type and radius steps and the spacing scale; raise the missing steps (13/15 px text, display sizes, tile inset) as asks of TL-013; move #F7F7F5 into the kit."
+  },
+  {
+   "defect": "trap",
+   "severity": "major",
+   "where": "Find dialog (the K shortcut or the widget)",
+   "evidence": "With Find open, Tab leaves the dialog: focus went to the page body, then 'Skip to content' behind it; the dialog has no aria-modal. Escape closes and focus returns to the widget when opened by click.",
+   "fix": "Trap focus in the dialog and mark it modal (the kit Dialog's modal mode), or make the page behind inert while it is open."
+  },
+  {
+   "defect": "targets",
+   "severity": "major",
+   "where": "Phone (390 wide, touch)",
+   "evidence": "66 controls are under 44 px: every button in the page is 32 px high (window choices, starters, outline buttons, fold filters), select 36, Yes/No 28, 'View sources' 24, info tips 24, feature and table links 16-17, dock icons 42 wide. The ask box text is 15 px, so iOS zooms the page on focus.",
+   "fix": "At touch widths give controls 44 px height (the shell's buttons already do with h-11 md:h-9) and 16 px text in the ask box."
+  },
+  {
+   "defect": "stacked",
+   "severity": "minor",
+   "where": "Phone, the five numbers",
+   "evidence": "One column of five tiles at 168+ px each: the fifth number ends about 1,100 px below the headline; the brief starts after 1,220 px.",
+   "fix": "Two columns on a phone with a shorter tile, or a compact list of five rows."
+  },
+  {
+   "defect": "targets",
+   "severity": "minor",
+   "where": "Desktop: 'Claims triage', 'Next best action' in the warning tile; project and organization names in the two tables",
+   "evidence": "7 link targets are 16-17 px high (rule: 24 px).",
+   "fix": "Add vertical padding (py-1, negative margin) so each is 24 px."
+  },
+  {
+   "defect": "focus-loss",
+   "severity": "minor",
+   "where": "Brief 'Helpful? Yes / No'; closing the first-visit line",
+   "evidence": "After pressing, the buttons are removed and focus falls to the page body; the thank-you line has no role=status, so it is not announced.",
+   "fix": "Move focus to the thank-you line (tabindex -1) or keep a focusable element; add role=status. Same for the first-visit close: send focus to the ask box."
+  },
+  {
+   "defect": "headings",
+   "severity": "minor",
+   "where": "Page outline",
+   "evidence": "h1 is the greeting; the next headings are the four fold names at h3 (no h2). The headline, the five numbers, the brief and the finding have no heading.",
+   "fix": "Make the fold names h2, and give the brief and finding an h2 (visually as now)."
+  },
+  {
+   "defect": "states",
+   "severity": "minor",
+   "where": "?state=empty, error, denied",
+   "evidence": "The state parts carry no role=status or role=alert (0 found; loading has 4). A failed or empty part is about 90 px high where the tiles are 205 px, so the page jumps when the answer arrives.",
+   "fix": "Add role=alert to failed and status to empty; keep the part's min-height in every state."
+  },
+  {
+   "defect": "motion",
+   "severity": "minor",
+   "where": "Folds, under reduced motion",
+   "evidence": "Opening a fold still runs 100 ms and 150 ms transitions with prefers-reduced-motion: reduce. The hero stroke, glow and plane do stop (animation none), and the tile lift does not move.",
+   "fix": "Set the accordion content's transition to none under reduced motion."
+  },
+  {
+   "defect": "affordance",
+   "severity": "minor",
+   "where": "The 'opens' arrow on tiles",
+   "evidence": "Drawn at 40% opacity: 2.51:1 on the light tile, 3.4:1 dark (need 3:1 for a glyph that carries meaning).",
+   "fix": "Use the muted text token at full opacity."
+  },
+  {
+   "defect": "ranking",
+   "severity": "minor",
+   "where": "Find results",
+   "evidence": "Typing a page's own name does not always put the page first: 'try tlm' lists the Try TLM page 7th, 'you' 6th, 'models' 4th, 'coverage' and 'requests' 2nd. Every dock page is in the empty list and can be reached.",
+   "fix": "Rank an exact or prefix match on a page's name first."
+  },
+  {
+   "defect": "dock",
+   "severity": "minor",
+   "where": "Dock",
+   "evidence": "Words are 10.5 px and group labels 10 px (smallest text on the page; contrast passes at 6.5:1 and above). Group labels are CSS generated content, so they are not groups to a screen reader, and the focus ring wraps the label as well as the place. Places went from 9 to 12. At a window under about 745 px high the last place is below the window until the page scrolls.",
+   "fix": "12 px words; render groups as labelled lists; draw the ring on the place only."
+  },
+  {
+   "defect": "inconsistent",
+   "severity": "minor",
+   "where": "Tile 4, 'Under its threshold'",
+   "evidence": "Its change against the baseline sits beside the numeral where the other four have it under; it has no 'opens' arrow and the tile itself is not a link (its two features are). The reasons (finding F-0425; answers within 2 seconds, in Pilot) that were visible before are now only in the tip and in the links' accessible names.",
+   "fix": "Put the baseline in the caption line like the others and the features on a second line; consider showing the reason as the link's title text."
+  },
+  {
+   "defect": "empty",
+   "severity": "minor",
+   "where": "Finding card, causes closed",
+   "evidence": "About 80 px of blank space between 'Why...' and the note at 1,440 (more at 1,920), because the card is stretched to the brief's height.",
+   "fix": "Open the causes by default when the card has room, or let the card be its own height."
+  },
+  {
+   "defect": "address",
+   "severity": "minor",
+   "where": "?gen= with an unknown value; Back button",
+   "evidence": "?gen=TLM9 shows 'No TLM9 model is live yet' with no choice pressed (window, open and compare fall back correctly). View-state changes replace the history entry (history length unchanged after two changes), so Back leaves Home and does not undo a fold or window.",
+   "fix": "Fall back to 'Most adopted' on an unknown generation. Decide whether Back should step through view state."
+  },
+  {
+   "defect": "empty-send",
+   "severity": "minor",
+   "where": "Hero button with an empty box",
+   "evidence": "Pressing 'Get an answer' with nothing typed goes to /ask with no question.",
+   "fix": "Focus the box and say what to type, or relabel the empty case ('Open Jarvis')."
+  },
+  {
+   "defect": "competing",
+   "severity": "minor",
+   "where": "Fold 'Models' open, dark mode",
+   "evidence": "The 'All models and agents' tile is a bright green gradient, brighter and far larger than the hero button on the same screen.",
+   "fix": "Use the neutral framing surface for that tile in dark."
+  },
+  {
+   "defect": "names",
+   "severity": "minor",
+   "where": "Model tiles in the 'Models' fold",
+   "evidence": "Each link's accessible name is its whole text run together ('... 154kcalls today Tokens: 1.9B in ...'); the five number tiles have clean names.",
+   "fix": "Give each model tile an aria-label like the number tiles."
+  },
+  {
+   "defect": "outline",
+   "severity": "minor",
+   "where": "Outline buttons and the Find widget",
+   "evidence": "Their edges are 1.2-1.5:1 against the ground in both modes (Find 1.34:1 light, 1.32:1 dark). Their labels carry them, so this is advisory, but Find reads as an input.",
+   "fix": "Use the --input border on the Find widget."
+  }
+ ]
+}
