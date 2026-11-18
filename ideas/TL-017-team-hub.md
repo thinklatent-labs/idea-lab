@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-18
 sensitivity: none
 critique_recorded: true
-next_step: "Jithin makes the tags v0.21.0 to v0.25.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75). The lead compares boards S-34 to S-51 with the demo and fixes what differs, with the known gaps on S-07, S-08, S-10 and S-24"
+next_step: "Jithin merges #58 (0.26.0) and makes the tags v0.21.0 to v0.26.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, then #58's). The lead closes the last board gaps: S-37 part 1 bullet bars and the S-50 focus room layout, with the known gaps on S-07, S-08, S-10 and S-24"
 next_step_due: "2026-11-20"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-11-20"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Jithin makes the tags v0.21.0 to v0.25.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75). The lead compares boards S-34 to S-51 with the demo and fixes what differs, with the known gaps on S-07, S-08, S-10 and S-24 (due 2026-11-20)
+Next step: Jithin merges #58 (0.26.0) and makes the tags v0.21.0 to v0.26.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, then #58's). The lead closes the last board gaps: S-37 part 1 bullet bars and the S-50 focus room layout, with the known gaps on S-07, S-08, S-10 and S-24 (due 2026-11-20)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -103,6 +103,7 @@ _None recorded._
 | D-454 | 2026-11-18 | TL-017 team-hub: Jithin merged Cortex #53 (0.21.0), #54 (0.22.0), #55 (0.23.0) and #56 (0.24.0) into main on 18 November, in that order; all five waves of the 17 November audit (D-429) are in, and main is at 0.24.0. The tags v0.21.0 to v0.24.0 are his to make by hand at the merge commits 5410ae4, 79ae838, 3023fc7 and 4f6917a, while CI cannot run (the organisation's Actions billing). | Jithin (sponsor) | accepted |
 | D-455 | 2026-11-18 | TL-017 team-hub: on Jithin's ask (18 November: every board on the design canvas in the demo, looking like its board and working, before anything else), Cortex 0.25.0 is built on #57 and not merged: the demo hub holds the boards' world (six people in India, Canada and the US, four projects, the ten flows at their boards' stages), pages follow their boards' layouts (the Projects tabs under the numbers, Missing in Jira as the grid of epics in flight, Activity in plain sentences), and the published demo was replaced with this build. Checked: 499 tests, the plugin validates, the smoke test 61 pages in 131 steps, the live demo check 47 of 47. The tag v0.25.0 is Jithin's to make by hand after the merge. | Jithin (sponsor) | accepted |
 | D-456 | 2026-11-18 | TL-017 team-hub: Jithin merged Cortex #57 (0.25.0, the demo as the design canvas draws it) into main on 18 November at 09:30 New York time; main is at 0.25.0. The tags v0.21.0 to v0.25.0 are his to make by hand at their merge commits (v0.25.0 at 7282e75), while CI cannot run (the organisation's Actions billing). | Jithin (sponsor) | accepted |
+| D-460 | 2026-11-18 | TL-017 team-hub: Jithin, 18 Nov: 'get S-34 to S-51 done', then 'let's finish this up'. 0.26.0 is open as #58 (not merged): every flow graph is drawn as columns that fit the page, as the boards draw them, and the Feedback rule row no longer squeezes; the live check heartbeats his PORT-2 session first. S-37 part 1 (bullet bars) and S-50 (focus room layout) still differ from their boards. The published demo is this build; the tag v0.26.0 is his to make after the merge. | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
