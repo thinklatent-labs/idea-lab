@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-18
 sensitivity: none
 critique_recorded: true
-next_step: "Jithin merges #58 (0.26.0) and makes the tags v0.21.0 to v0.26.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, then #58's). The lead closes the last board gaps: S-37 part 1 bullet bars and the S-50 focus room layout, with the known gaps on S-07, S-08, S-10 and S-24"
+next_step: "Jithin makes the tags v0.21.0 to v0.26.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea). The lead closes the last board gaps: S-37 part 1 bullet bars and the S-50 focus room layout, with the known gaps on S-07, S-08, S-10 and S-24"
 next_step_due: "2026-11-20"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-11-20"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Jithin merges #58 (0.26.0) and makes the tags v0.21.0 to v0.26.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, then #58's). The lead closes the last board gaps: S-37 part 1 bullet bars and the S-50 focus room layout, with the known gaps on S-07, S-08, S-10 and S-24 (due 2026-11-20)
+Next step: Jithin makes the tags v0.21.0 to v0.26.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea). The lead closes the last board gaps: S-37 part 1 bullet bars and the S-50 focus room layout, with the known gaps on S-07, S-08, S-10 and S-24 (due 2026-11-20)
 
 Production surface: not named (reads as an H3 experiment).
 
