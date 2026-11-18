@@ -1,6 +1,6 @@
 # Cortex (TL-017): every requirement from the build session, and what is built
 
-Nov 17, 2026 · @Jithin Pradeep
+Nov 18, 2026 · @Jithin Pradeep
 
 ## How to read this
 
@@ -28,50 +28,49 @@ The chat itself has 246 turns, and its search cannot look inside this chat. If a
 | On a branch | Built on 17 November, not merged or finished |
 | Decided against | Jithin decided not to build it |
 
-**The demo.** The published demo replays recorded pages. Every action except snooze, focus, away, marking notifications read and the Remote steps answers "Demo copy: this change isn't saved here." Nothing marked Works can be tried there.
+**The demo.** The published demo, [Cortex command center (demo)](https://claude.ai/artifact/L9EwdSEy1UuTUXv62sLaj7), opens on a recording of the real hub, then starts the real hub inside the page, so every action works and the simulated teammates answer. It was republished with the 0.25.0 build on 18 November.
 
 ## Summary
 
-This session set 130 requirements. 97 work on invented data, but no person has used any of them on a running hub, and the demo can try none of them.
+This session set 130 requirements, and 118 of them work. Everything in the console can be tried in the live demo or on a hub run on a laptop; no team has used it yet on a shared running hub.
 
 | Area | Requirements | Works | Claude Code only, or needs your session | Missing | Other |
 | --- | --- | --- | --- | --- | --- |
-| Collaboration | 30 | 18 | 9 | 2 | 1 blocked |
+| Collaboration | 30 | 28 | 1 | 0 | 1 blocked |
 | Projects and planning | 20 | 20 | 0 | 0 | 0 |
-| Knowledge and intelligence | 17 | 9 | 0 | 5 | 1 on a branch, 1 partly, 1 blocked |
+| Knowledge and intelligence | 17 | 16 | 0 | 0 | 1 blocked |
 | Evidence and measures | 12 | 11 | 0 | 0 | 1 blocked |
 | Console and design | 17 | 14 | 0 | 0 | 3 standing rules |
 | Plugin, sessions and commands | 13 | 12 | 0 | 0 | 1 unproven |
-| Platform, data, scale and install | 9 | 3 | 0 | 1 | 3 on a branch, 1 blocked, 1 to record |
+| Platform, data, scale and install | 9 | 7 | 0 | 1 | 1 blocked |
 | Privacy, safety, operations and the pilot | 12 | 10 | 0 | 1 | 1 blocked |
-| **Total** | **130** | **97** | **9** | **9** | **15** |
+| **Total** | **130** | **118** | **1** | **2** | **9** |
 
-**The misses that matter**
+**What is left**
 
-- **Collaboration lives in Claude Code, and the browser can only watch.** Nine of the 30 collaboration requirements cannot be done in the console: opening, joining and running a room, and running and recording a test. Taking part from the browser (C-29) is missing.
-- **The demo cannot act.** A demo where actions work (C-30) is missing, so nothing collaborative has been tried by a person.
-- **No running hub exists** (X-09), so the pilot (V-10) cannot start.
-- **Today's work is unfinished.** The database work fails its first load test, and the six intelligence features (K-10 to K-15) are not built.
+- **A running hub for the team** (X-09), which the pilot (V-10) needs. The Enterprise side is Jithin's (X-07, D-427).
+- **Five rows wait on Enterprise systems or teams**, each built ahead against a stand-in: chat alerts (C-26), embeddings and summaries through Bedrock (K-17), token use against Bedrock's logs (E-09), the live checks (X-06) and Risk's review of remote approvals (V-11).
+- **Waking an idle session** (S-11) is built and unproven.
 
 **The audit, 17 November.** The boards, every click and the code were checked; the detail is on the Audit tab. The boards drew 639 items: 296 were built as drawn, 256 differently and 87 not at all. Of 1,430 clicks, 55 do nothing, 14 kinds of record have no page or drawer, and 219 of 272 number tiles link nowhere. The code holds 18 groups of duplicates and 31 dead items, and first-load script sits at 248 KB of its 250 KB budget. That adds 221 requirements: 176 from the boards (B-), 21 from the clicks (CL-) and 24 to consolidate and speed up the console (O-). The worst finding is a privacy leak: the hub returns the text of every proposed memory entry to anyone, though the page promises nobody sees it until a curator accepts it (B-S38-1).
 
 ## Collaboration
 
-The problem is here. Taking part in a room or a test needs a Claude Code session, the console mostly watches, and the demo can do none of it.
+Rooms and tests work from the browser as well as from Claude Code (0.21.0), and the live demo does all of it. Only alerts in Teams or Slack wait, on the platform allowing chat (C-26).
 
 | ID | What a person can do | Asked | Where you do it | Status | Gap |
 | --- | --- | --- | --- | --- | --- |
-| C-01 | Open a brainstorm room for a project and invite its people | 6 Nov (N-05) | `cortex room`, `/cortex:room` | Claude Code only | No "open a room" in the console |
-| C-02 | Join a room and add ideas | 6 Nov: "others join from their Claude Code" | `cortex join <room>`; your Claude adds items | Claude Code only; the console is view only | No join, add or vote in the browser |
-| C-03 | Blind round, then reveal, critique, converge, close | 6 Nov (architecture v0.1) | `/cortex:room` as convener | Claude Code only; the console shows the rounds | The convener cannot move rounds in the console |
-| C-04 | Accept or reject items into the decision record, each with a reason | 6 Nov | `/cortex:room` as convener | Claude Code only | No accept or reject in the console |
+| C-01 | Open a brainstorm room for a project and invite its people | 6 Nov (N-05) | `cortex room`, `/cortex:room`; in the console: Projects › Decisions › Rooms › Open a room | Works (0.21.0) |  |
+| C-02 | Join a room and add ideas | 6 Nov: "others join from their Claude Code" | `cortex join <room>`; your Claude adds items; in the console: Join and Add on the room's page | Works (0.21.0) |  |
+| C-03 | Blind round, then reveal, critique, converge, close | 6 Nov (architecture v0.1) | `/cortex:room` as convener; in the console: the round buttons on the room's page | Works (0.21.0) |  |
+| C-04 | Accept or reject items into the decision record, each with a reason | 6 Nov | `/cortex:room` as convener; in the console: Accept or Reject, each with a reason, several at once | Works (0.21.0) |  |
 | C-05 | Join the room's or epic's call | 16 Nov | Room page, Focus room | Works |  |
 | C-06 | Write the spec from the decision record, one writer | 6 Nov | `/cortex:spec` | Claude Code only, by design |  |
 | C-07 | Co-edit the spec draft and room notes with live cursors | 6 Nov (N-06) | Room page, co-edit tab | Works on a running hub with the co-editing service | Not in the demo |
 | C-08 | Approve the spec; the pull request opens once all approve | 6 Nov | Needs you card, `/cortex:spec` | Works |  |
-| C-09 | Ask the room to test a commit ("one session tests while another builds") | 9 Nov (N-19); 16 Nov: a room request | Focus room, `/cortex:test` | Needs your session | Button hidden without a live session |
-| C-10 | Take a test someone else asked for, or give it back | 16 Nov | Focus room "Take the test", `cortex test take` | Needs your session | As C-09 |
-| C-11 | Run the test and record pass or fail per requirement, with a short log | 9 Nov (C-42) | The tester's Claude Code | Claude Code only | No browser view of the commit and its requirements, and no form for the result |
+| C-09 | Ask the room to test a commit ("one session tests while another builds") | 9 Nov (N-19); 16 Nov: a room request | Focus room, `/cortex:test`; in the console: Ask for a test, to a person, an epic's room or a brainstorm room | Works (0.21.0) |  |
+| C-10 | Take a test someone else asked for, or give it back | 16 Nov | Focus room "Take the test", `cortex test take`; in the console: Take the test or Give it back, on Today, Needs you and the focus room | Works (0.21.0) |  |
+| C-11 | Run the test and record pass or fail per requirement, with a short log | 9 Nov (C-42) | The tester's Claude Code; in the console: Record the result, pass or fail per requirement, with the command and the log | Works (0.21.0) |  |
 | C-12 | A test nobody finishes goes back to the room after 24 hours; asker and tester are told | 16 Nov | Hub | Works |  |
 | C-13 | Room test rotation | 16 Nov | Focus room | Works |  |
 | C-14 | Pick up a subtask: mark it mine, the owner or deputy approves, Jira shows it | 16 Nov | Focus room, `cortex` | Works | Jira itself waits on V-2 |
@@ -80,7 +79,7 @@ The problem is here. Taking part in a room or a test needs a Claude Code session
 | C-17 | Ask someone to pair | 16 Nov | Focus room | Works |  |
 | C-18 | Message a person, session, group or room | 6 Nov | `/cortex:send`; console "Post to a group" | Works |  |
 | C-19 | A message reaches the other person's session | 6 Nov (H1) | Hooks | Works at the next prompt or tool call | Waking an idle session (H1b) unproven |
-| C-20 | Hand off to the next person, drafted from commits and checks at stop | 6 and 10 Nov | `/cortex:handoff`, `cortex handoff --draft` | Claude Code only to write |  |
+| C-20 | Hand off to the next person, drafted from commits and checks at stop | 6 and 10 Nov | `/cortex:handoff`, `cortex handoff --draft`; in the console: Hand off on My session or the epic; from 0.24.0 your Claude drafts it at a stop, as the session digest, for you to approve | Works |  |
 | C-21 | Accept a hand-off, or ask the sender | 7 Nov | Needs you card | Works |  |
 | C-22 | Claim files; "change in your claim" alerts | 6 Nov | Hooks, `/cortex:claim`, My session | Works |  |
 | C-23 | Overlap warnings when parallel subtasks touch the same files | 16 Nov | Focus room | Works |  |
@@ -89,8 +88,8 @@ The problem is here. Taking part in a room or a test needs a Claude Code session
 | C-26 | Alerts in Teams or Slack | 16 Nov | Personal webhook | Blocked: the platform allowing chat |  |
 | C-27 | See and steer your own session from the console (Remote) | 7 Nov (N-12) | My work › Remote | Works |  |
 | C-28 | Allow or deny a permission prompt from the console | 7 Nov (N-13) | Remote | Works | Risk reviews it before it is switched on |
-| C-29 | Take part in rooms and tests from the browser, without Claude Code | 17 Nov |  | Missing | All of C-01 to C-04, C-09 to C-11 |
-| C-30 | A demo where every action works | 17 Nov |  | Missing | A live mode (the real hub in the page) exists in the repo; never published |
+| C-29 | Take part in rooms and tests from the browser, without Claude Code | 17 Nov | The console: rooms on Projects › Decisions › Rooms; tests on Today, Needs you and the focus room | Works (0.21.0) |  |
+| C-30 | A demo where every action works | 17 Nov | [Cortex command center (demo)](https://claude.ai/artifact/L9EwdSEy1UuTUXv62sLaj7), on claude.ai | Works (published 18 Nov at 0.24.0) |  |
 
 ## Projects and planning
 
@@ -121,12 +120,12 @@ Planning works end to end on the built-in Jira mock. The real Jira waits on the 
 
 ## Knowledge and intelligence
 
-The team's knowledge works. The intelligence asked for today is not built yet, by Jithin's order: collaboration first.
+The team's knowledge and the six intelligence features work (K-10 to K-15, 0.24.0). Embeddings and summaries through Bedrock wait on V-7.
 
 | ID | What a person can do | Asked | Where you do it | Status | Gap |
 | --- | --- | --- | --- | --- | --- |
 | K-01 | Propose shared memory; curators accept it; it reaches sessions framed as data | 6 Nov | `/cortex:remember`, `/cortex:recall`, Knowledge › Memory | Works |  |
-| K-02 | Find a memory entry by meaning across all of memory, not only the newest 500 | 17 Nov | `/cortex:recall`, Memory search | On a branch (0.20.0) | Not merged; its load test does not pass yet |
+| K-02 | Find a memory entry by meaning across all of memory, not only the newest 500 | 17 Nov | `/cortex:recall`, Memory search | Works (0.20.0) |  |
 | K-03 | The memory tree: subtask notes rolled up to epic, release and component, citing sources | 8 Nov (N-17) | `/cortex:rollup`, Knowledge › Memory | Works |  |
 | K-04 | Learnings drafted when a failed command later passes; confirmed, vouched, reused | 8 Nov (N-17) | `/cortex:learned`, Knowledge › Learnings | Works |  |
 | K-05 | Ask the log ("why did we drop X?"), with citations and "not found" rather than a guess | 7 Nov | `/cortex:ask`, Decisions, Assistant | Works |  |
@@ -164,13 +163,13 @@ Every measure works on invented data. Two depend on Enterprise sign-offs or logs
 
 ## Console and design
 
-Every screen is built as drawn. The boards themselves drew rooms and tests to be watched, not taken part in, and the demo cannot act.
+Every screen is built as drawn, taking part in rooms and tests included, and the published demo acts.
 
 | ID | What a person can do | Asked | Where you do it | Status | Gap |
 | --- | --- | --- | --- | --- | --- |
 | D-01 | Use one command centre where the team's work and every person's input come together | 6 Nov (N-01) | Console | Works |  |
 | D-02 | See it visually and live: a graph of sessions, projects and features; screens react as events happen | 6 Nov (N-02) | Home, Graph, live stream | Works |  |
-| D-03 | Review the whole console as an artifact, built on the kit's newer components, with workflows as screens that help developers | 7 Nov (this session's first ask) | Published demo | Works as a replay | The demo cannot act (C-30) |
+| D-03 | Review the whole console as an artifact, built on the kit's newer components, with workflows as screens that help developers | 7 Nov (this session's first ask) | Published demo | Works: the published demo acts (C-30) |  |
 | D-04 | A console made only of design-kit components and tokens | 6 Nov | Console | Works | Cortex's card proposals wait upstream in the kit (TL-013) |
 | D-05 | Use what is meaningful from kit v0.9.0 | 14 Nov (N-27) | Console | Works |  |
 | D-06 | A phone view that works; the desktop stays the spec | 10 and 14 Nov (N-26) | Console | Works |  |
@@ -180,7 +179,7 @@ Every screen is built as drawn. The boards themselves drew rooms and tests to be
 | D-10 | Information structured as graphs and flows | 16 Nov (R-14) | Every board | Works |  |
 | D-11 | Three views of each main exhibit, as a switch, on eleven pages | 16 Nov | Console | Works |  |
 | D-12 | Records as full pages | 16 Nov | Console | Works |  |
-| D-13 | Everything drawn on the boards built now, not kept for later | 16 Nov (D-417) | Cortex 0.18.0 and 0.19.0 | Works as pages | Participation was never drawn (C-29) |
+| D-13 | Everything drawn on the boards built now, not kept for later | 16 Nov (D-417) | Cortex 0.18.0 to 0.24.0 | Works, taking part included (C-29) |  |
 | D-14 | Three options for each design component, in the question pop-up with the recommendation marked | 16 Nov | Every question | Standing rule |  |
 | D-15 | Readable updates: faces and names, sentences rather than log lines, day groups, rows that open in place | 15 and 16 Nov | Console | Works |  |
 | D-16 | Additive only: nothing already built is taken away | 10 Nov (N-22) | Every release | Standing rule |  |
@@ -208,17 +207,17 @@ The plugin is complete for the pilot. Its behaviour inside a real Claude Code se
 
 ## Platform, data, scale and install
 
-No running hub exists for anyone to use yet. Today's database and install work is on a branch and is not finished.
+The database work is merged and passes the load test for 45 people, and the install handover is written. No running hub exists for the team yet (X-09).
 
 | ID | What a person can do | Asked | Where you do it | Status | Gap |
 | --- | --- | --- | --- | --- | --- |
 | X-01 | Run the hub on PostgreSQL with two nodes; any node serves any request | 8 Nov | Hub | Works | The whole suite runs on PostgreSQL 16 in CI |
-| X-02 | One PostgreSQL 16 database with pgvector: the graph as tables, no separate vector or graph store | 17 Nov (Jithin's choice) | Hub | On a branch (0.20.0) | Not merged |
-| X-03 | Built and load-tested for the team of 45 | 17 Nov | `scripts/load_test.py` | On a branch | First run failed: one database connection per node, and three queries without indexes (file touches by path, sessions by group, presence) |
-| X-04 | An install and integration handover, with what Cortex is built for, that a Claude Code session inside the Enterprise can follow | 17 Nov | `docs/enterprise/install-and-integrate.md` | Draft on a branch | Final after X-02, X-03 and the collaboration build |
+| X-02 | One PostgreSQL 16 database with pgvector: the graph as tables, no separate vector or graph store | 17 Nov (Jithin's choice) | Hub | Works (0.20.0) |  |
+| X-03 | Built and load-tested for the team of 45 | 17 Nov | `scripts/load_test.py`; results in `docs/scale.md` | Works: passes for 45 people (0.20.0) |  |
+| X-04 | An install and integration handover, with what Cortex is built for, that a Claude Code session inside the Enterprise can follow | 17 Nov | `docs/enterprise/install-and-integrate.md` | Works (written for v0.20.0 and later) |  |
 | X-05 | A go-live preflight that says GO or NO-GO | 8 Nov | `python -m cortex_server preflight` | Works |  |
 | X-06 | Every Enterprise integration built now and checked live later: SSO, hosting, Jira, Bedrock, logs, telemetry | 8 Nov (N-18) | Hub | Blocked (V-2 to V-7) |  |
-| X-07 | The Enterprise side handled by Jithin and not tracked as a lab blocker | 17 Nov | Register | To record at this session's close |  |
+| X-07 | The Enterprise side handled by Jithin and not tracked as a lab blocker | 17 Nov | Register | Works: recorded in D-427 |  |
 | X-08 | Mocks keep working when real providers are added | 6 Nov | Providers | Works |  |
 | X-09 | A running hub the team can use | 17 Nov: "I take this into the actual environment and start using it" | Inside the Enterprise | Missing | Phases 1 to 4 of the handover |
 
@@ -243,7 +242,7 @@ The safety and privacy rules work on invented data. The pilot cannot start until
 
 ## Build plan
 
-Proposed on 17 November after the audit, for Jithin's call; nothing in it is built yet. Each wave is a release, and a wave is done only when a person can do every action in it, end to end, in the live demo. The clean-up items (O-) go into the wave that touches the same code, so nothing new is built on the duplicates.
+Proposed on 17 November after the audit, for Jithin's call; waves 1 to 5 are built and merged. Each wave is a release, and a wave is done only when a person can do every action in it, end to end, in the live demo. The clean-up items (O-) go into the wave that touches the same code, so nothing new is built on the duplicates.
 
 **Jithin's calls, 17 November.** The order below, fixes first. In a room's converge round each person spreads 3 votes across the ideas, and the totals show when the round ends; the convener still accepts or rejects each idea with a reason. Comments are reply threads on each idea, spec and test result, with @name to notify, closed during the blind round and seen by Claude Code too. The published demo opens on the recording and switches to the real hub running in the page once it has loaded, so every action works. The 19 old pages: each one's unique part moves onto its board and the old address opens the board, which lifts the additive-only rule for those pages. Wave 1 started the same day.
 
@@ -253,7 +252,9 @@ Proposed on 17 November after the audit, for Jithin's call; nothing in it is bui
 
 **Where to watch it.** Each wave landed as commits on its pull request, with a checklist of what is done: wave 1 is [#51](https://github.com/thinklatent-labs/cortex/pull/51), wave 2 is [#52](https://github.com/thinklatent-labs/cortex/pull/52) and [#53](https://github.com/thinklatent-labs/cortex/pull/53), which finishes it, wave 3 is [#54](https://github.com/thinklatent-labs/cortex/pull/54), wave 4 is [#55](https://github.com/thinklatent-labs/cortex/pull/55), and wave 5 is [#56](https://github.com/thinklatent-labs/cortex/pull/56). All of them are merged.
 
-**Where it stands, 18 November, early morning.** All five waves are merged. 0.20.0 was merged and tagged v0.20.0 (Jithin made the tag by hand). On 18 November Jithin merged [#53](https://github.com/thinklatent-labs/cortex/pull/53) (0.21.0, taking part from the browser), [#54](https://github.com/thinklatent-labs/cortex/pull/54) (0.22.0, every click opens its record), [#55](https://github.com/thinklatent-labs/cortex/pull/55) (0.23.0, the rest of the boards) and [#56](https://github.com/thinklatent-labs/cortex/pull/56) (0.24.0, the intelligence features), in that order, so main is at 0.24.0. The tags v0.21.0 to v0.24.0 are his to make by hand at the four merge commits (5410ae4, 79ae838, 3023fc7 and 4f6917a), because CI cannot run while the organisation's Actions billing is blocked. With 0.24.0, a session starts with memory ranked for its subtask, each entry saying why; every start-context item, alert and answer takes a usefulness vote; a card says when someone in another epic works on the same thing; who knows a topic comes from shared records, with no score; curators retire or keep memory that may be stale, duplicated or in conflict; and the session digest, drafted by your own Claude at a stop, becomes the hand-off when you approve it. Every release was checked locally before its merge; for 0.24.0: 497 tests on SQLite and on Postgres, the plugin validates, every budget holds (first load 182 KB of 200), the smoke test opens 61 pages in 277 steps with no dead click, and the live demo check passes 49 of 49.
+**Where it stands, 18 November, early morning.** All five waves are merged. 0.20.0 was merged and tagged v0.20.0 (Jithin made the tag by hand). On 18 November Jithin merged [#53](https://github.com/thinklatent-labs/cortex/pull/53) (0.21.0, taking part from the browser), [#54](https://github.com/thinklatent-labs/cortex/pull/54) (0.22.0, every click opens its record), [#55](https://github.com/thinklatent-labs/cortex/pull/55) (0.23.0, the rest of the boards) and [#56](https://github.com/thinklatent-labs/cortex/pull/56) (0.24.0, the intelligence features), in that order, so main is at 0.24.0. The tags v0.21.0 to v0.24.0 are his to make by hand at the four merge commits (5410ae4, 79ae838, 3023fc7 and 4f6917a), because CI cannot run while the organisation's Actions billing is blocked. With 0.24.0, a session starts with memory ranked for its subtask, each entry saying why; every start-context item, alert and answer takes a usefulness vote; a card says when someone in another epic works on the same thing; who knows a topic comes from shared records, with no score; curators retire or keep memory that may be stale, duplicated or in conflict; and the session digest, drafted by your own Claude at a stop, becomes the hand-off when you approve it. Every release was checked locally before its merge; for 0.24.0: 497 tests on SQLite and on Postgres, the plugin validates, every budget holds (first load 182 KB of 200), the smoke test opens 61 pages in 277 steps with no dead click, and the live demo check passes 49 of 49. The published demo was replaced with this build on 18 November; against it, the smoke test opened 61 pages in 277 steps and the live demo check passed 47 of 47.
+
+**Where it stands, 18 November, morning.** 0.25.0 is built and waits for Jithin's merge as [#57](https://github.com/thinklatent-labs/cortex/pull/57): the demo as the design canvas draws it. The demo hub now holds the boards' world: six people in India, Canada and the US, four projects, and the ten flows at their boards' stages. Pages follow their boards: one row of numbers, parts paired as drawn, and the Projects tabs under the numbers. Missing in Jira is the grid of epics in flight, and Activity reads in plain sentences. Checked before the push: 499 tests pass, the plugin validates, the smoke test opens 61 pages in 131 steps with no failure, and the live demo check passes 47 of 47. The published demo was replaced with this build. The tag v0.25.0 is Jithin's to make by hand after the merge.
 
 1. **Wave 1, 0.20.0: fixes, speed and scale.** The privacy leak first (B-S38-1), then the other 32 board fixes and nine click fixes (CL-03, CL-06, CL-07, CL-12, CL-13, CL-16 to CL-19). The bundle work (O-1 to O-10) takes first-load script from 248 KB to 188 KB and styles from 202 KB to 52 KB. The database work already on the branch is finished: a pool of connections per node, three indexes, and the load test passing (X-02, X-03, K-02).
 2. **Wave 2, 0.21.0: take part from the browser** (C-29, C-30 and the 47 board rows marked Collaboration). In a room: open, join, add ideas, move the rounds, react and vote, comment, accept or reject with a reason, join the call, read the spec on the page. In a test: request one without a session, see its commit and requirements, take it, record pass or fail per requirement. Message someone from their card. The live demo runs the real hub in the page, and simulated teammates answer. Built on one people helper, one data hook with one action helper, and one sheet and form (O-12, O-13, O-16).

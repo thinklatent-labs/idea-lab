@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-18
 sensitivity: none
 critique_recorded: true
-next_step: "Jithin makes the tags v0.21.0, v0.22.0, v0.23.0 and v0.24.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a): all five waves are merged into main (0.24.0). The lead fixes whatever a review or the first use turns up"
+next_step: "Jithin merges #57 (0.25.0, the demo as the design canvas draws it) and makes the tags v0.21.0 to v0.25.0 by hand at their merge commits (v0.21.0 to v0.24.0 at 5410ae4, 79ae838, 3023fc7, 4f6917a). The lead fixes whatever a review of the demo against the boards turns up"
 next_step_due: "2026-11-20"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-11-20"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Jithin makes the tags v0.21.0, v0.22.0, v0.23.0 and v0.24.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a): all five waves are merged into main (0.24.0). The lead fixes whatever a review or the first use turns up (due 2026-11-20)
+Next step: Jithin merges #57 (0.25.0, the demo as the design canvas draws it) and makes the tags v0.21.0 to v0.25.0 by hand at their merge commits (v0.21.0 to v0.24.0 at 5410ae4, 79ae838, 3023fc7, 4f6917a). The lead fixes whatever a review of the demo against the boards turns up (due 2026-11-20)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -101,6 +101,7 @@ _None recorded._
 | D-452 | 2026-11-17 | TL-017 team-hub: Cortex 0.23.0 (wave 4 of D-429, the rest of the boards) is built and ready on #55, which now targets main after #53 and #54 so it cannot land on a stale branch. Runs and Remote at three depths; releases at a glance with each one's range, call and hold; calibration verdicts; Feedback in your own words with a training-export opt-out; a recall box on Memory; planned links on the map; the newest version's roll-out, sign-in, retention and hub nodes on Health; Settings in groups; the approved vocabulary, with one meaning for gate. One row layout per record type and one StageGrid (O-20), plurals through one helper (O-11); the first-load budget tightened from 250 to 200 KB (182 KB now). Checked locally: 471 tests on SQLite and on Postgres, plugin validate, budgets, smoke 61 pages and 277 steps with no dead click, live demo 43 of 43. | Claude (lead) | accepted |
 | D-453 | 2026-11-17 | TL-017 team-hub: Cortex 0.24.0 (wave 5 of D-429, the intelligence features K-10 to K-15) is built and ready on #56, which targets main after #53, #54 and #55. Rules and stored vectors on the hub, never a model there: the start context ranked for the session's subtask with why each entry was chosen (K-11); a usefulness vote on every start-context item, alert and answer, counts only (K-15); a card when someone in another epic works on the same thing (K-12); who knows a topic or a path from shared records, no score (K-13); memory hygiene for curators with retire and keep (K-14); and the session digest, drafted by the person's own Claude at one deliberate Stop hold and private until approved, when it becomes the hand-off and proposes memory and decisions (K-10; CORTEX_DIGEST=0 turns it off). Checked locally: 497 tests on SQLite and on Postgres, plugin validate, budgets, smoke 61 pages and 277 steps with no dead click, live demo 49 of 49. All five waves of the audit are built. | Claude (lead) | accepted |
 | D-454 | 2026-11-18 | TL-017 team-hub: Jithin merged Cortex #53 (0.21.0), #54 (0.22.0), #55 (0.23.0) and #56 (0.24.0) into main on 18 November, in that order; all five waves of the 17 November audit (D-429) are in, and main is at 0.24.0. The tags v0.21.0 to v0.24.0 are his to make by hand at the merge commits 5410ae4, 79ae838, 3023fc7 and 4f6917a, while CI cannot run (the organisation's Actions billing). | Jithin (sponsor) | accepted |
+| D-455 | 2026-11-18 | TL-017 team-hub: on Jithin's ask (18 November: every board on the design canvas in the demo, looking like its board and working, before anything else), Cortex 0.25.0 is built on #57 and not merged: the demo hub holds the boards' world (six people in India, Canada and the US, four projects, the ten flows at their boards' stages), pages follow their boards' layouts (the Projects tabs under the numbers, Missing in Jira as the grid of epics in flight, Activity in plain sentences), and the published demo was replaced with this build. Checked: 499 tests, the plugin validates, the smoke test 61 pages in 131 steps, the live demo check 47 of 47. The tag v0.25.0 is Jithin's to make by hand after the merge. | Jithin (sponsor) | accepted |
 <!-- generated:end -->
 
 ## Notes
