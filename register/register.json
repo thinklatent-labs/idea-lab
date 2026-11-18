@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-17T21:36:00-05:00",
+  "asOf": "2026-11-17T23:08:00-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 619,
+    "registerRev": 620,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1692,7 +1692,7 @@
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
       "lastTouched": "2026-11-17",
-      "nextStep": "Cortex 0.21.0 (#53), 0.22.0 (#54) and 0.23.0 (#55) are ready: Jithin merges them in that order and makes each tag by hand (v0.21.0, v0.22.0, v0.23.0) at its merge commit while the organisation's Actions billing keeps CI from running; the lead goes on to wave 5 (0.24.0): the intelligence features",
+      "nextStep": "Cortex 0.21.0 (#53), 0.22.0 (#54), 0.23.0 (#55) and 0.24.0 (#56) are ready: Jithin merges them in that order and makes each tag by hand (v0.21.0 to v0.24.0) at its merge commit while the organisation's Actions billing keeps CI from running. All five waves of the 17 November audit are built; the lead fixes whatever a merge or a review turns up",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -6948,6 +6948,20 @@
       "docsTouched": "Cortex PR #55 (build/0.23.0); docs/api.md; docs/backlog.md; docs/enterprise/it-install.md; requirements document (Where to watch it, Where it stands); this register (TL-017 row)",
       "health": "on-track",
       "healthNote": "Waves 1 to 4 are built by 17 November with 18 days of appetite left (to 5 December) for wave 5; CI still cannot run (billing), so every check runs locally and Jithin makes each tag by hand.",
+      "nextStepDue": "2026-11-20"
+    },
+    {
+      "date": "2026-11-17",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "Wave 5 built as Cortex 0.24.0 on PR #56 (ready, version 0.24.0, targeting main): the hub's intelligence module (ranked start context, usefulness votes, intent overlap, who knows, memory hygiene, the session digest), the plugin (the start context's why, cortex useful, who-knows, memory hygiene, digest, the Stop hold, the digest skill), the console (My session's digest and start context, People and ⌘K who knows, Memory's hygiene, votes on notifications, Ask and the Assistant, Detectors' reads) and the demo with six new live-check steps. 497 tests on SQLite and Postgres, plugin validates, smoke 61 pages and 277 steps with no dead click, live demo 49 of 49.",
+      "docsTouched": "Cortex PR #56 (build/0.24.0); docs/api.md; docs/backlog.md; docs/design.md; docs/enterprise/it-install.md; requirements document (K-08 to K-15, Where to watch it, Where it stands); this register (TL-017 row)",
+      "health": "on-track",
+      "healthNote": "All five waves are built on 17 November with 18 days of appetite left (to 5 December); four pull requests wait on Jithin's merges and hand-made tags while CI cannot run (billing), so every check runs locally.",
       "nextStepDue": "2026-11-20"
     }
   ],
@@ -13268,6 +13282,20 @@
       "id": "D-452",
       "by": "Claude (lead)",
       "decision": "TL-017 team-hub: Cortex 0.23.0 (wave 4 of D-429, the rest of the boards) is built and ready on #55, which now targets main after #53 and #54 so it cannot land on a stale branch. Runs and Remote at three depths; releases at a glance with each one's range, call and hold; calibration verdicts; Feedback in your own words with a training-export opt-out; a recall box on Memory; planned links on the map; the newest version's roll-out, sign-in, retention and hub nodes on Health; Settings in groups; the approved vocabulary, with one meaning for gate. One row layout per record type and one StageGrid (O-20), plurals through one helper (O-11); the first-load budget tightened from 250 to 200 KB (182 KB now). Checked locally: 471 tests on SQLite and on Postgres, plugin validate, budgets, smoke 61 pages and 277 steps with no dead click, live demo 43 of 43."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-17",
+      "door": "two-way",
+      "id": "D-453",
+      "by": "Claude (lead)",
+      "decision": "TL-017 team-hub: Cortex 0.24.0 (wave 5 of D-429, the intelligence features K-10 to K-15) is built and ready on #56, which targets main after #53, #54 and #55. Rules and stored vectors on the hub, never a model there: the start context ranked for the session's subtask with why each entry was chosen (K-11); a usefulness vote on every start-context item, alert and answer, counts only (K-15); a card when someone in another epic works on the same thing (K-12); who knows a topic or a path from shared records, no score (K-13); memory hygiene for curators with retire and keep (K-14); and the session digest, drafted by the person's own Claude at one deliberate Stop hold and private until approved, when it becomes the hand-off and proposes memory and decisions (K-10; CORTEX_DIGEST=0 turns it off). Checked locally: 497 tests on SQLite and on Postgres, plugin validate, budgets, smoke 61 pages and 277 steps with no dead click, live demo 49 of 49. All five waves of the audit are built."
     }
   ],
   "syncLog": [

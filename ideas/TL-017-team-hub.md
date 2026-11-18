@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-17
 sensitivity: none
 critique_recorded: true
-next_step: "Cortex 0.21.0 (#53), 0.22.0 (#54) and 0.23.0 (#55) are ready: Jithin merges them in that order and makes each tag by hand (v0.21.0, v0.22.0, v0.23.0) at its merge commit while the organisation's Actions billing keeps CI from running; the lead goes on to wave 5 (0.24.0): the intelligence features"
+next_step: "Cortex 0.21.0 (#53), 0.22.0 (#54), 0.23.0 (#55) and 0.24.0 (#56) are ready: Jithin merges them in that order and makes each tag by hand (v0.21.0 to v0.24.0) at its merge commit while the organisation's Actions billing keeps CI from running. All five waves of the 17 November audit are built; the lead fixes whatever a merge or a review turns up"
 next_step_due: "2026-11-20"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-11-20"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Cortex 0.21.0 (#53), 0.22.0 (#54) and 0.23.0 (#55) are ready: Jithin merges them in that order and makes each tag by hand (v0.21.0, v0.22.0, v0.23.0) at its merge commit while the organisation's Actions billing keeps CI from running; the lead goes on to wave 5 (0.24.0): the intelligence features (due 2026-11-20)
+Next step: Cortex 0.21.0 (#53), 0.22.0 (#54), 0.23.0 (#55) and 0.24.0 (#56) are ready: Jithin merges them in that order and makes each tag by hand (v0.21.0 to v0.24.0) at its merge commit while the organisation's Actions billing keeps CI from running. All five waves of the 17 November audit are built; the lead fixes whatever a merge or a review turns up (due 2026-11-20)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -99,6 +99,7 @@ _None recorded._
 | D-442 | 2026-11-17 | TL-017 team-hub, Evidence › Metrics (B-S34-5): the metric families follow the board (the recommended option). Experience adds hand-offs between regions and people in context; Knowledge adds learnings confirmed and memory accepted; each tab keeps four charts or fewer, and Every measure keeps everything. Built in Cortex 0.21.0 (#53). | Jithin | accepted |
 | D-445 | 2026-11-17 | TL-017 team-hub: Cortex 0.22.0 (wave 3 of D-429, every click opens its record) is built and ready on #54, stacked on #53. Every record kind with no page has a read and opens in the drawer, commits included, with the actions its reader may take (release your claim); every board row marked Opens nothing opens; the routes the console did not call are shown, marked plugin-only or retired (GET /v1/rollups retired, the room ledger plugin-only). One row layout per record type (O-20) moves to 0.23.0, where the boards those lists sit on are rebuilt. Checked locally: 462 tests on SQLite and on Postgres, plugin validate, budgets, smoke 59 pages and 260 steps with no dead click, live demo 34 of 34. | Claude (lead) | accepted |
 | D-452 | 2026-11-17 | TL-017 team-hub: Cortex 0.23.0 (wave 4 of D-429, the rest of the boards) is built and ready on #55, which now targets main after #53 and #54 so it cannot land on a stale branch. Runs and Remote at three depths; releases at a glance with each one's range, call and hold; calibration verdicts; Feedback in your own words with a training-export opt-out; a recall box on Memory; planned links on the map; the newest version's roll-out, sign-in, retention and hub nodes on Health; Settings in groups; the approved vocabulary, with one meaning for gate. One row layout per record type and one StageGrid (O-20), plurals through one helper (O-11); the first-load budget tightened from 250 to 200 KB (182 KB now). Checked locally: 471 tests on SQLite and on Postgres, plugin validate, budgets, smoke 61 pages and 277 steps with no dead click, live demo 43 of 43. | Claude (lead) | accepted |
+| D-453 | 2026-11-17 | TL-017 team-hub: Cortex 0.24.0 (wave 5 of D-429, the intelligence features K-10 to K-15) is built and ready on #56, which targets main after #53, #54 and #55. Rules and stored vectors on the hub, never a model there: the start context ranked for the session's subtask with why each entry was chosen (K-11); a usefulness vote on every start-context item, alert and answer, counts only (K-15); a card when someone in another epic works on the same thing (K-12); who knows a topic or a path from shared records, no score (K-13); memory hygiene for curators with retire and keep (K-14); and the session digest, drafted by the person's own Claude at one deliberate Stop hold and private until approved, when it becomes the hand-off and proposes memory and decisions (K-10; CORTEX_DIGEST=0 turns it off). Checked locally: 497 tests on SQLite and on Postgres, plugin validate, budgets, smoke 61 pages and 277 steps with no dead click, live demo 49 of 49. All five waves of the audit are built. | Claude (lead) | accepted |
 <!-- generated:end -->
 
 ## Notes
@@ -186,3 +187,17 @@ _Session notes and the idea card's prose live here; the register row and the gen
 - **Words.** The approved vocabulary is in place. "Gate" now means only the condition that opens a flow's next stage; a release has a hold, and a session start checks what is missing in Jira.
 - **Checks, run locally while CI cannot run:** 471 tests on SQLite and on Postgres, the plugin validates, the budgets hold with first load cut to a 200 KB budget (182 KB), the smoke test opens 61 pages in 277 steps with no dead click, and the live demo check passes 43 of 43.
 - **For Jithin.** Merge #53, then #54, then #55, and tag each merge commit by hand. #55 now targets main, like #54, so it cannot land on a stale branch.
+
+### 2026-11-17 (nearly midnight) · Build (wave 5: Cortex 0.24.0, the intelligence features)
+
+- **K-10 to K-15 on #56, rules and stored vectors on the hub, never a model there.** The one piece of writing, the session digest, is done by the person's own Claude in their own session. Nobody is scored: every count is the team's, and who voted stays with the voter.
+- **What a person can do now:**
+  - start a session with memory ranked for its subtask (closeness in meaning, scope, votes, age), each entry saying why it was chosen (K-11);
+  - say whether a start-context item, an alert or an answer helped, from My session, Notifications, Ask, the Assistant or `cortex useful`; Detectors reads the votes by kind (K-15);
+  - get a card when someone in another epic works on a subtask about the same thing: close in meaning and sharing words few subtasks use (K-12);
+  - ask who knows a topic or a path, from People, ⌘K or `cortex who-knows`: shared records only, each person with the records, no score (K-13);
+  - as a curator, retire or keep memory that may be in conflict, duplicated or stale, from Memory, a card or `cortex memory hygiene` (K-14);
+  - approve the digest your Claude drafted at a stop (one deliberate Stop hold, at most every 4 hours after new edits): it becomes the hand-off and proposes memory and decisions, each through its usual gate; `CORTEX_DIGEST=0` turns it off (K-10).
+- **One behaviour change.** With the digest on, the Stop hook's quiet hand-off offer gives way to the digest's one hold.
+- **Checks, run locally while CI cannot run:** 497 tests on SQLite and on Postgres, the plugin validates, every budget holds (My session 233 of 240 KB: the new parts load after the page), the smoke test opens 61 pages in 277 steps with no dead click, and the live demo check passes 49 of 49, with six new steps.
+- **For Jithin.** Merge #53, #54, #55 and #56 in that order and tag each merge commit by hand. With that, all five waves of the 17 November audit are in.
