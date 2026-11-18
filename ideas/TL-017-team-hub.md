@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-17
 sensitivity: none
 critique_recorded: true
-next_step: "Cortex 0.21.0 on #53 and 0.22.0 on #54 are ready: Jithin merges #53, then #54, and makes each tag by hand (v0.21.0, v0.22.0) at its merge commit while the organisation's Actions billing keeps CI from running; the lead goes on to wave 4 (0.23.0): the rest of the boards, with one row layout per record type."
+next_step: "Cortex 0.21.0 (#53), 0.22.0 (#54) and 0.23.0 (#55) are ready: Jithin merges them in that order and makes each tag by hand (v0.21.0, v0.22.0, v0.23.0) at its merge commit while the organisation's Actions billing keeps CI from running; the lead goes on to wave 5 (0.24.0): the intelligence features"
 next_step_due: "2026-11-20"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-11-20"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Cortex 0.21.0 on #53 and 0.22.0 on #54 are ready: Jithin merges #53, then #54, and makes each tag by hand (v0.21.0, v0.22.0) at its merge commit while the organisation's Actions billing keeps CI from running; the lead goes on to wave 4 (0.23.0): the rest of the boards, with one row layout per record type. (due 2026-11-20)
+Next step: Cortex 0.21.0 (#53), 0.22.0 (#54) and 0.23.0 (#55) are ready: Jithin merges them in that order and makes each tag by hand (v0.21.0, v0.22.0, v0.23.0) at its merge commit while the organisation's Actions billing keeps CI from running; the lead goes on to wave 5 (0.24.0): the intelligence features (due 2026-11-20)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -65,6 +65,7 @@ _None recorded._
 | Team hub (team-hub) - Critique pass, 2026-11-07 (second pass) | doc | [artifacts/TL-017-team-hub/critique-2026-11-07.md](../artifacts/TL-017-team-hub/critique-2026-11-07.md) |  | 2026-11-07 |
 | Team hub (team-hub) - Console build 5 (Cortex 0.17.0), 2026-11-16 | doc | [artifacts/TL-017-team-hub/console-build-5-2026-11-16.md](../artifacts/TL-017-team-hub/console-build-5-2026-11-16.md) |  | 2026-11-16 |
 | Team hub (team-hub) - Console build 6 (Cortex 0.18.0 and 0.19.0), 2026-11-16 | doc | [artifacts/TL-017-team-hub/console-build-6-2026-11-16.md](../artifacts/TL-017-team-hub/console-build-6-2026-11-16.md) |  | 2026-11-16 |
+| Cortex (TL-017): every requirement from the build session, and what is built | doc | [artifacts/TL-017-team-hub/requirements-2026-11-17.md](../artifacts/TL-017-team-hub/requirements-2026-11-17.md) | [claude.ai](https://claude.ai/artifact/3LwCJDi6sJHptQU8AdbePW) | 2026-11-17 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -97,6 +98,7 @@ _None recorded._
 | D-440 | 2026-11-17 | TL-017 team-hub, Jithin's two calls on GitHub Actions minutes (17 November). (1) While the organisation's Actions billing keeps CI from running, he makes Cortex release tags by hand (his own offer); he made v0.20.0 at the 0.20.0 merge commit the same day. (2) Cortex CI is trimmed (the recommended option): a new push to a pull request cancels the run it supersedes; the Postgres suite and the browser checks run on pull requests only, so a merge to main bills about 12 minutes instead of 23; release-tag still tags only once every job that runs on main passes. The lead runs the full checks, Postgres and browser included, before every merge. | Jithin | accepted |
 | D-442 | 2026-11-17 | TL-017 team-hub, Evidence › Metrics (B-S34-5): the metric families follow the board (the recommended option). Experience adds hand-offs between regions and people in context; Knowledge adds learnings confirmed and memory accepted; each tab keeps four charts or fewer, and Every measure keeps everything. Built in Cortex 0.21.0 (#53). | Jithin | accepted |
 | D-445 | 2026-11-17 | TL-017 team-hub: Cortex 0.22.0 (wave 3 of D-429, every click opens its record) is built and ready on #54, stacked on #53. Every record kind with no page has a read and opens in the drawer, commits included, with the actions its reader may take (release your claim); every board row marked Opens nothing opens; the routes the console did not call are shown, marked plugin-only or retired (GET /v1/rollups retired, the room ledger plugin-only). One row layout per record type (O-20) moves to 0.23.0, where the boards those lists sit on are rebuilt. Checked locally: 462 tests on SQLite and on Postgres, plugin validate, budgets, smoke 59 pages and 260 steps with no dead click, live demo 34 of 34. | Claude (lead) | accepted |
+| D-452 | 2026-11-17 | TL-017 team-hub: Cortex 0.23.0 (wave 4 of D-429, the rest of the boards) is built and ready on #55, which now targets main after #53 and #54 so it cannot land on a stale branch. Runs and Remote at three depths; releases at a glance with each one's range, call and hold; calibration verdicts; Feedback in your own words with a training-export opt-out; a recall box on Memory; planned links on the map; the newest version's roll-out, sign-in, retention and hub nodes on Health; Settings in groups; the approved vocabulary, with one meaning for gate. One row layout per record type and one StageGrid (O-20), plurals through one helper (O-11); the first-load budget tightened from 250 to 200 KB (182 KB now). Checked locally: 471 tests on SQLite and on Postgres, plugin validate, budgets, smoke 61 pages and 277 steps with no dead click, live demo 43 of 43. | Claude (lead) | accepted |
 <!-- generated:end -->
 
 ## Notes
@@ -172,3 +174,15 @@ _Session notes and the idea card's prose live here; the register row and the gen
 - **Requirements document:** [Cortex (TL-017): every requirement from the build session, and what is built](https://claude.ai/artifact/3LwCJDi6sJHptQU8AdbePW). 130 requirements: 97 work on invented data, 9 are Claude Code only or need a session, 9 are missing, 15 are on a branch, blocked, unproven or standing rules. Seven gaps, collaboration first.
 - **Jithin's calls today:** D-116 to D-121 accepted; the Enterprise side is his and marked done for the lab; one PostgreSQL 16 with pgvector (ADR-0003) for the team of 45; collaboration in the browser and a live demo before the intelligence features; the order from here is requirements, gaps, boards, then UI and backend.
 - **On the branch `build/0.20.0` (unmerged):** stored vectors, the recipient index, the load test and the install handover draft. The first load test failed: one database connection per node and three unindexed queries.
+
+### 2026-11-17 (night) · Build (waves 1 to 4: Cortex 0.20.0 to 0.23.0)
+
+- **Jithin's order (D-429), built in waves.** Fixes, speed and scale (0.20.0, merged and tagged by hand); taking part from the browser with a live demo (0.21.0, #52 merged, #53 ready); every click opening its record (0.22.0, #54 ready); the rest of the boards (0.23.0, #55 ready). Wave 5, the intelligence features, is 0.24.0.
+- **0.23.0 in four groups on #55:**
+  - the shell, Assistant, drawer, Home, Activity, Runs, Remote and Start here: a process read as Map, Timeline and Record, a list beside every graph, Ask the record, Ask my session and Tell my session;
+  - the Projects boards: releases at a glance (each one's range, call against its target and hold), pace with its range, a plan applied to Jira from its room, tests by suite;
+  - Evidence, Knowledge and Operations: calibration verdicts, Feedback in your own words with a training-export opt-out, a recall box on Memory, planned links on the map, the newest version's roll-out against 48 hours, sign-in, retention and hub nodes on Health, Settings in groups;
+  - one row layout per record type and one StageGrid, plurals through one helper, the version, and wave 4 steps in the live demo check.
+- **Words.** The approved vocabulary is in place. "Gate" now means only the condition that opens a flow's next stage; a release has a hold, and a session start checks what is missing in Jira.
+- **Checks, run locally while CI cannot run:** 471 tests on SQLite and on Postgres, the plugin validates, the budgets hold with first load cut to a 200 KB budget (182 KB), the smoke test opens 61 pages in 277 steps with no dead click, and the live demo check passes 43 of 43.
+- **For Jithin.** Merge #53, then #54, then #55, and tag each merge commit by hand. #55 now targets main, like #54, so it cannot land on a stale branch.

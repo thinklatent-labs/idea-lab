@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-17T20:10:07-05:00",
+  "asOf": "2026-11-17T21:36:00-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 618,
+    "registerRev": 619,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1692,7 +1692,7 @@
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
       "lastTouched": "2026-11-17",
-      "nextStep": "Cortex 0.21.0 on #53 and 0.22.0 on #54 are ready: Jithin merges #53, then #54, and makes each tag by hand (v0.21.0, v0.22.0) at its merge commit while the organisation's Actions billing keeps CI from running; the lead goes on to wave 4 (0.23.0): the rest of the boards, with one row layout per record type.",
+      "nextStep": "Cortex 0.21.0 (#53), 0.22.0 (#54) and 0.23.0 (#55) are ready: Jithin merges them in that order and makes each tag by hand (v0.21.0, v0.22.0, v0.23.0) at its merge commit while the organisation's Actions billing keeps CI from running; the lead goes on to wave 5 (0.24.0): the intelligence features",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -6934,6 +6934,20 @@
       "docsTouched": "Cortex PR #54 (build/0.22.0); docs/api.md; requirements document (Where to watch it, Where it stands); this register (TL-017 row)",
       "health": "on-track",
       "healthNote": "Waves 1 to 3 are built by 17 November with 18 days of appetite left for waves 4 and 5; CI still cannot run (billing), so every check runs locally and Jithin makes each tag by hand.",
+      "nextStepDue": "2026-11-20"
+    },
+    {
+      "date": "2026-11-17",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "Wave 4 built as Cortex 0.23.0 on PR #55 (ready, version 0.23.0, targeting main): the shell, Assistant, drawer, Home, Activity, Runs, Remote and Start here (group A); the Projects boards and record pages with releases at a glance and pace (group B); Evidence, Knowledge, Operations and the words (group C); one row per record type, one StageGrid, plurals, the version, and wave 4 steps in the live demo check (group D). 471 tests on SQLite and Postgres, plugin validates, smoke 61 pages and 277 steps with no dead click, live demo 43 of 43.",
+      "docsTouched": "Cortex PR #55 (build/0.23.0); docs/api.md; docs/backlog.md; docs/enterprise/it-install.md; requirements document (Where to watch it, Where it stands); this register (TL-017 row)",
+      "health": "on-track",
+      "healthNote": "Waves 1 to 4 are built by 17 November with 18 days of appetite left (to 5 December) for wave 5; CI still cannot run (billing), so every check runs locally and Jithin makes each tag by hand.",
       "nextStepDue": "2026-11-20"
     }
   ],
@@ -13240,6 +13254,20 @@
       "id": "D-451",
       "by": "Jithin",
       "decision": "TL-003 portal (the portal app): Jithin, 17 Nov: use the remaining capacity to build the backend the whole portal needs, now. In: the service, the databases and schemas (Postgres and Amazon DocumentDB) behind every screen, so that projects, people, requests, models, training, data and chat are recorded and replayed, not only displayed; easy to install in the Enterprise's environment; thought through as a staff engineer would (paging, load time, speed). Out: model calls in the playground and anything that only works in the real environment with its real interfaces. He asked for a plan of what is built in what order and which screens each part serves. The lead's plan (backend-plan-2026-11-17.md, v0.1): one Node service with one typed contract; Postgres as the system of record with a schema per area; DocumentDB for Try TLM; rollup tables for every volume figure; every outside system a seam with a stand-in; ten builds B0 to B9 (foundation; people and structure; work; catalogue; delivery; TL Index; data and training; numbers; Try TLM; wiring with no change to how any screen looks). Built on branches from the locked build; main is not touched. Limits said to him: DocumentDB cannot be run in the workspace, so B8 is written to its rules and must be proven on a test cluster in region; Postgres 16 is real here."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-17",
+      "door": "two-way",
+      "id": "D-452",
+      "by": "Claude (lead)",
+      "decision": "TL-017 team-hub: Cortex 0.23.0 (wave 4 of D-429, the rest of the boards) is built and ready on #55, which now targets main after #53 and #54 so it cannot land on a stale branch. Runs and Remote at three depths; releases at a glance with each one's range, call and hold; calibration verdicts; Feedback in your own words with a training-export opt-out; a recall box on Memory; planned links on the map; the newest version's roll-out, sign-in, retention and hub nodes on Health; Settings in groups; the approved vocabulary, with one meaning for gate. One row layout per record type and one StageGrid (O-20), plurals through one helper (O-11); the first-load budget tightened from 250 to 200 KB (182 KB now). Checked locally: 471 tests on SQLite and on Postgres, plugin validate, budgets, smoke 61 pages and 277 steps with no dead click, live demo 43 of 43."
     }
   ],
   "syncLog": [
