@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home · redesign draft</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{text-underline-offset:3px}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="font-family: Inter, system-ui, sans-serif; background: {{t.page}}; color: {{t.ink}}; min-height: 2240px; padding: 14px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; font-size: 14px">
+
+<div style="flex: 0 0 76px; position: relative; min-height: 880px; z-index: 5">
+<nav aria-label="Main" onMouseEnter="{{navEnter}}" onMouseLeave="{{navLeave}}" onFocus="{{navEnter}}" onBlur="{{navLeave}}" style="position: absolute; top: 0; left: 0; width: {{navW}}; height: 880px; box-sizing: border-box; border-radius: 28px; padding: 16px 12px; background: {{t.glass}}; border: 1px solid {{t.glassEdge}}; backdrop-filter: blur(22px); box-shadow: {{t.shadow}}; display: flex; flex-direction: column; gap: 2px; overflow: hidden; transition: width .18s ease">
+<div style="display: flex; align-items: center; gap: 10px; padding: 2px 8px 12px"><span aria-hidden="true" style="flex: 0 0 34px; height: 34px; border-radius: 11px; background: linear-gradient(135deg, #13FC4A 0%, #00C02E 18%, #1F5E4E 45%, #0C2822 72%, #000 100%)"></span><sc-if value="{{navOpen}}" hint-placeholder-val="{{ false }}"><span style="font-weight: 600; font-size: 15px; white-space: nowrap">ThinkLatent</span></sc-if></div>
+<sc-for list="{{menu}}" as="g" hint-placeholder-count="6">
+<div style="display: flex; flex-direction: column; gap: 2px; padding-top: 6px; margin-top: 4px; border-top: 1px solid {{t.hairline}}">
+<sc-if value="{{g.showLabel}}" hint-placeholder-val="{{ false }}"><div style="font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: {{t.muted}}; padding: 4px 10px 2px; white-space: nowrap">{{g.label}}</div></sc-if>
+<sc-for list="{{g.items}}" as="it" hint-placeholder-count="3">
+<a href="#" aria-label="{{it.label}}" style="{{it.style}}"><span style="position: relative; display: grid; place-items: center; flex: 0 0 28px; height: 28px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{it.icon}}"></path></svg><sc-if value="{{it.dot}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: -2px; right: -4px; min-width: 15px; height: 15px; border-radius: 99px; background: {{t.badge}}; color: {{t.badgeFg}}; font-size: 10px; font-weight: 600; display: grid; place-items: center">{{it.badge}}</span></sc-if></span><sc-if value="{{navOpen}}" hint-placeholder-val="{{ false }}"><span style="flex: 1; white-space: nowrap">{{it.label}}</span></sc-if></a>
+<sc-for list="{{it.kids}}" as="c" hint-placeholder-count="0">
+<a href="#" style="margin-left: 24px; padding: 5px 10px; border-left: 1px solid {{t.hairline}}; color: {{t.secondary}}; text-decoration: none; font-size: 13px; white-space: nowrap">{{c}}</a>
+</sc-for>
+</sc-for>
+</div>
+</sc-for>
+<div style="flex: 1"></div>
+<a href="#" aria-label="Start a project" style="{{startStyle}}"><span aria-hidden="true" style="flex: 0 0 40px; height: 40px; border-radius: 99px; background: {{t.action}}; color: {{t.actionFg}}; display: grid; place-items: center; box-shadow: 0 8px 22px {{t.actionGlow}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span><sc-if value="{{navOpen}}" hint-placeholder-val="{{ false }}"><span style="font-weight: 600; white-space: nowrap">Start a project</span></sc-if></a>
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px 6px 0"><span aria-hidden="true" style="flex: 0 0 34px; height: 34px; border-radius: 99px; background: {{t.raised}}; display: grid; place-items: center; font-weight: 600; font-size: 13px">{{who.initial}}</span><sc-if value="{{navOpen}}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-direction: column; white-space: nowrap"><span style="font-weight: 500">{{who.name}}</span><span style="font-size: 12px; color: {{t.muted}}">{{who.role}}</span></span></sc-if></div>
+</nav>
+</div>
+
+<main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 22px; padding: 6px 10px 40px">
+
+<header style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
+<button style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 11px; border-radius: 99px; background: {{t.card}}; border: 1px solid {{t.hairline}}; color: {{t.ink}}; font-weight: 500"><span aria-hidden="true" style="width: 9px; height: 9px; border-radius: 3px; background: {{t.red}}"></span>The Enterprise ▾</button>
+<span aria-hidden="true" style="color: {{t.muted}}">›</span>
+<button style="{{s.bO}}">Choose an organization ▾</button>
+<span style="flex: 1"></span>
+<div role="group" aria-label="Time window" style="display: inline-flex; gap: 2px; padding: 3px; border-radius: 99px; background: {{t.raised}}; font-size: 12.5px"><button aria-pressed="true" style="{{s.segOn}}">Today</button><button aria-pressed="false" style="{{s.segOff}}">7 days</button><button aria-pressed="false" style="{{s.segOff}}">30 days</button><button aria-pressed="false" style="{{s.segOff}}">Quarter</button></div>
+<button style="width: 220px; display: flex; align-items: center; gap: 10px; padding: 9px 14px; border-radius: 99px; background: {{t.card}}; border: 1px solid {{t.hairline}}; color: {{t.muted}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><span style="flex: 1; text-align: left">Find</span><span style="font-size: 12px; border: 1px solid {{t.hairline}}; border-radius: 6px; padding: 1px 6px">⌘K</span></button>
+</header>
+
+<section aria-label="How much is ThinkLatent running today" style="display: flex; align-items: flex-end; gap: 28px; flex-wrap: wrap">
+<div style="flex: 1 1 420px"><h1 style="margin: 0; font-size: 30px; font-weight: 400; letter-spacing: -.01em">Good morning, {{who.first}}</h1><p style="margin: 4px 0 0; color: {{t.secondary}}">What ThinkLatent is running across the Enterprise today · as of 11:58 ET</p></div>
+<a href="#" style="display: flex; align-items: baseline; gap: 18px; color: {{t.ink}}; text-decoration: none; flex-wrap: wrap">
+<span><span style="font-size: 54px; font-weight: 300; letter-spacing: -.03em">2.3B</span> <span style="color: {{t.muted}}">tokens in</span></span>
+<span><span style="font-size: 54px; font-weight: 300; letter-spacing: -.03em">208M</span> <span style="color: {{t.muted}}">out</span></span>
+<span><span style="font-size: 54px; font-weight: 300; letter-spacing: -.03em">212k</span> <span style="color: {{t.muted}}">requests · 6% more than yesterday</span></span>
+</a>
+</section>
+
+<section aria-labelledby="start" style="border-radius: 26px; padding: 20px 22px; background: {{t.heroCard}}; border: 1px solid {{t.glassEdge}}; box-shadow: {{t.shadow}}; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+<h2 id="start" style="margin: 0; font-size: 16px; font-weight: 600; flex: 0 0 auto">Start here</h2>
+<button style="{{s.bP}}">Start a project →</button>
+<button style="{{s.bO}}">Try a model</button>
+<button style="{{s.bO}}">Find a model for a task</button>
+<button style="{{s.bO}}">Where is my request</button>
+<button style="{{s.bO}}">What the agents did</button>
+</div>
+<label style="display: flex; align-items: center; gap: 10px"><span style="font-size: 12.5px; color: {{t.secondary}}; flex: 0 0 auto">Or ask Jarvis</span><input placeholder="Ask about a model, a project or a number" style="flex: 1; min-width: 0; font: inherit; padding: 11px 16px; border-radius: 99px; border: 1px solid {{t.strongEdge}}; background: {{t.card}}; color: {{t.ink}}"><button aria-label="Ask" style="width: 44px; height: 44px; border-radius: 99px; border: 1px solid {{t.strongEdge}}; background: {{t.card}}; color: {{t.ink}}; display: grid; place-items: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></label>
+</section>
+
+<sc-if value="{{isOwner}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Yours" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+<div style="{{s.card}}">
+<div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px"><h2 style="margin: 0; font-size: 16px; font-weight: 600">Needs you</h2><span style="font-size: 12.5px; color: {{t.muted}}">3</span><span style="flex: 1"></span><a href="#" style="color: {{t.link}}; font-size: 13px">Inbox</a></div>
+<sc-for list="{{needs}}" as="n" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid {{t.hairline}}"><span style="flex: 1; min-width: 0"><span style="display: block; font-size: 12px; font-weight: 600; color: {{n.toneColor}}">{{n.glyph}} {{n.kind}}</span><span style="display: block; font-weight: 500">{{n.title}}</span><span style="display: block; font-size: 12.5px; color: {{t.muted}}">{{n.note}}</span></span><button style="{{s.bS}}">{{n.action}}</button></div>
+</sc-for>
+</div>
+<div style="{{s.card}}">
+<div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px"><h2 style="margin: 0; font-size: 16px; font-weight: 600">Your projects</h2><span style="flex: 1"></span><a href="#" style="color: {{t.link}}; font-size: 13px">My work</a></div>
+<sc-for list="{{mine}}" as="p" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid {{t.hairline}}"><span style="flex: 1; min-width: 0"><a href="#" style="font-weight: 600; color: {{t.ink}}">{{p.name}}</a> <span style="font-size: 12px; padding: 2px 8px; border-radius: 8px; background: {{t.raised}}; color: {{t.secondary}}">{{p.stage}}</span><span style="display: block; font-size: 12.5px; font-weight: 600; color: {{p.healthColor}}">{{p.health}}</span><span style="display: block; font-size: 12.5px; color: {{t.muted}}">{{p.next}}</span></span><button style="{{s.bS}}">{{p.action}}</button></div>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isSponsor}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Yours" style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px">
+<div style="{{s.card}}">
+<h2 style="margin: 0 0 8px; font-size: 16px; font-weight: 600">Token economics · last 30 days</h2>
+<div style="display: flex; align-items: flex-end; gap: 28px; flex-wrap: wrap">
+<span style="display: flex; flex-direction: column"><span style="font-size: 54px; font-weight: 300; letter-spacing: -.03em; line-height: 1.1">$657k</span><span style="font-size: 12.5px; color: {{t.secondary}}">cost avoided</span></span>
+<span style="display: flex; flex-direction: column"><span style="font-size: 36px; font-weight: 300; line-height: 1.1">$271k</span><span style="font-size: 12.5px; color: {{t.secondary}}">spent on the models</span></span>
+<span style="display: flex; flex-direction: column"><span style="font-size: 36px; font-weight: 300; line-height: 1.1">—</span><span style="font-size: 12.5px; color: {{t.secondary}}">cost per million tokens · needs a 30-day token total</span></span>
+</div>
+<div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap"><button style="{{s.bP}}">See the value by project →</button><button style="{{s.bO}}">Spend by model</button></div>
+</div>
+<div style="{{s.card}}">
+<div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px"><h2 style="margin: 0; font-size: 16px; font-weight: 600">Needs a decision</h2><span style="font-size: 12.5px; color: {{t.muted}}">3</span></div>
+<sc-for list="{{needs}}" as="n" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 12px; padding: 9px 0; border-top: 1px solid {{t.hairline}}"><span style="flex: 1; min-width: 0"><span style="display: block; font-size: 12px; font-weight: 600; color: {{n.toneColor}}">{{n.glyph}} {{n.kind}}</span><span style="display: block; font-weight: 500">{{n.title}}</span></span><button style="{{s.bS}}">{{n.action}}</button></div>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+<section aria-labelledby="changed" style="border-radius: 22px; padding: 20px 22px; background: {{t.card}}; border: 1px solid {{t.hairline}}; display: grid; grid-template-columns: 1.25fr 1fr; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><h2 id="changed" style="margin: 0; font-size: 16px; font-weight: 600">What changed today</h2><span style="font-size: 11.5px; padding: 2px 8px; border-radius: 8px; background: {{t.raised}}; color: {{t.secondary}}">Agents · the day's brief · fairly sure</span></div>
+<p style="margin: 0; line-height: 1.5">A steady day. Every live model answered within its usual time and requests are 6% up on yesterday. Two features are under a threshold. Run IX-0430 finished on Core 4.2.</p>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px"><button style="{{s.bS}}">Operations across the Enterprise</button><button style="{{s.bS}}">View sources</button></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; border-left: 1px solid {{t.hairline}}; padding-left: 22px">
+<span style="font-size: 12px; font-weight: 600; color: {{t.warning}}">▲ Finding F-0425 · under its threshold for 16 days</span>
+<span style="font-weight: 500">Claims triage scores 74% ± 4 against an expected 80%</span>
+<button aria-expanded="{{whyOpen}}" onClick="{{toggleWhy}}" style="align-self: flex-start; background: transparent; border: 0; padding: 0; color: {{t.link}}; font-weight: 500; text-decoration: underline">{{whyLabel}}</button>
+<sc-if value="{{whyOpen}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{causes}}" as="c" hint-placeholder-count="3"><div style="display: flex; flex-direction: column; gap: 3px"><span style="display: flex; gap: 8px; font-size: 12.5px"><span style="flex: 1">{{c.text}}</span><span style="color: {{t.muted}}">{{c.share}}</span></span><span aria-hidden="true" style="height: 6px; border-radius: 99px; background: {{t.raised}}"><span style="display: block; height: 6px; width: {{c.w}}; border-radius: 99px; background: {{t.barOff}}"></span></span></div></sc-for>
+</div>
+</sc-if>
+<div><button style="{{s.bS}}">Open Claims intake</button></div>
+</div>
+</section>
+
+<section aria-labelledby="running" style="display: flex; flex-direction: column; gap: 10px">
+<h2 id="running" style="margin: 0; font-size: 16px; font-weight: 600">Running now</h2>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="5">
+<a href="#" style="border-radius: 20px; padding: 16px 18px; background: {{t.card}}; border: 1px solid {{t.hairline}}; color: {{t.ink}}; text-decoration: none; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12.5px; color: {{t.secondary}}">{{k.label}}</span><span style="font-size: 38px; font-weight: 300; letter-spacing: -.02em">{{k.value}}</span><span style="font-size: 12px; color: {{k.subColor}}">{{k.sub}}</span><span style="margin-top: 8px; font-size: 12.5px; color: {{t.link}}; text-decoration: underline">{{k.open}} →</span></a>
+</sc-for>
+</div>
+</section>
+
+<section aria-labelledby="models" style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap"><h2 id="models" style="margin: 0; font-size: 16px; font-weight: 600">Models</h2>
+<div role="group" aria-label="Generation" style="display: inline-flex; gap: 2px; padding: 3px; border-radius: 99px; background: {{t.raised}}; font-size: 12.5px"><sc-for list="{{gens}}" as="g" hint-placeholder-count="5"><button aria-pressed="{{g.on}}" onClick="{{g.pick}}" style="{{g.style}}">{{g.label}}</button></sc-for></div>
+<span style="flex: 1"></span><button style="{{s.bO}}">Open the catalogue →</button></div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{models}}" as="m" hint-placeholder-count="5">
+<a href="#" style="border-radius: 18px; padding: 14px 16px; background: {{t.card}}; border: 1px solid {{t.hairline}}; color: {{t.ink}}; text-decoration: none; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11.5px; color: {{t.muted}}">{{m.gen}} · {{m.kind}}</span><span style="font-weight: 600">{{m.name}}</span><span style="font-size: 24px; font-weight: 300">{{m.calls}}</span><span style="font-size: 12px; color: {{t.muted}}">{{m.sub}}</span></a>
+</sc-for>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center"><span style="font-size: 12.5px; color: {{t.secondary}}">New and coming</span><sc-for list="{{coming}}" as="c" hint-placeholder-count="4"><a href="#" style="font-size: 12.5px; padding: 6px 12px; border-radius: 99px; border: 1px solid {{t.hairline}}; background: {{t.card}}; color: {{t.ink}}; text-decoration: none"><b style="font-weight: 600">{{c.state}}</b> · {{c.name}}</a></sc-for></div>
+</section>
+
+<section aria-label="Projects and teams" style="display: grid; grid-template-columns: 1fr 1.35fr; gap: 14px; align-items: start">
+<div style="{{s.card}}">
+<div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px"><h2 style="margin: 0; font-size: 16px; font-weight: 600">Top projects by today's usage</h2><span style="flex: 1"></span><a href="#" style="color: {{t.link}}; font-size: 13px">All 7 projects</a></div>
+<sc-for list="{{top}}" as="p" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid {{t.hairline}}"><span style="flex: 0 0 18px; color: {{t.muted}}; font-size: 13px">{{p.rank}}</span><span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span><a href="#" style="font-weight: 600; color: {{t.ink}}">{{p.name}}</a> <span style="font-size: 12px; color: {{t.muted}}">{{p.team}} · {{p.stage}}</span></span><span aria-hidden="true" style="height: 8px; border-radius: 99px; background: {{t.raised}}"><span style="display: block; height: 8px; width: {{p.w}}; border-radius: 99px; background: {{p.bg}}; box-shadow: inset 0 1px 0 rgba(255,255,255,.4)"></span></span></span><span style="flex: 0 0 96px; text-align: right"><span style="font-size: 20px; font-weight: 300">{{p.req}}</span><span style="display: block; font-size: 11.5px; color: {{t.muted}}">requests</span></span><button style="{{s.bS}}">Open</button></div>
+</sc-for>
+<p style="margin: 8px 0 0; font-size: 12.5px; color: {{t.muted}}">3 more are not live yet: 2 in Build, 1 being set up.</p>
+</div>
+<div style="{{s.card}}">
+<div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px"><h2 style="margin: 0; font-size: 16px; font-weight: 600">Teams</h2><span style="font-size: 12.5px; color: {{t.muted}}">ranked by adoption</span></div>
+<div style="display: grid; grid-template-columns: 1.6fr .7fr .6fr .8fr .8fr .8fr; gap: 8px; font-size: 11.5px; color: {{t.muted}}; padding: 6px 0"><span>Team</span><span>Live</span><span style="text-align: right">Models</span><span style="text-align: right">Requests today</span><span style="text-align: right">Spent, 30 days</span><span style="text-align: right">Avoided, 30 days</span></div>
+<sc-for list="{{teams}}" as="tm" hint-placeholder-count="4">
+<div style="border-top: 1px solid {{t.hairline}}">
+<div style="display: grid; grid-template-columns: 1.6fr .7fr .6fr .8fr .8fr .8fr; gap: 8px; align-items: center; padding: 8px 0"><button aria-expanded="{{tm.open}}" onClick="{{tm.toggle}}" style="display: flex; align-items: center; gap: 8px; background: transparent; border: 0; padding: 4px 0; color: {{t.ink}}; text-align: left; min-height: 36px"><span aria-hidden="true" style="color: {{t.muted}}">{{tm.chev}}</span><span><span style="display: block; font-weight: 600">{{tm.name}}</span><span style="display: block; font-size: 12px; color: {{t.muted}}">{{tm.org}}</span></span></button><span>{{tm.live}}</span><span style="text-align: right">{{tm.models}}</span><span style="text-align: right">{{tm.req}}</span><span style="text-align: right">{{tm.spend}}</span><span style="text-align: right">{{tm.avoided}}</span></div>
+<sc-if value="{{tm.open}}" hint-placeholder-val="{{ false }}">
+<sc-for list="{{tm.projects}}" as="p" hint-placeholder-count="2"><div style="display: grid; grid-template-columns: 1.6fr .7fr .6fr .8fr .8fr .8fr; gap: 8px; padding: 6px 0 8px; font-size: 13px; color: {{t.secondary}}"><span style="padding-left: 22px"><a href="#" style="color: {{t.link}}">{{p.name}}</a><span style="display: block; font-size: 12px; color: {{t.muted}}">{{p.note}}</span></span><span>{{p.stage}}</span><span style="text-align: right">{{p.models}}</span><span style="text-align: right">{{p.req}}</span><span style="text-align: right">{{p.spend}}</span><span style="text-align: right">{{p.avoided}}</span></div></sc-for>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section aria-label="Value and improvement" style="{{s.card}}">
+<div role="tablist" aria-label="Value and improvement" style="display: inline-flex; gap: 2px; padding: 3px; border-radius: 99px; background: {{t.raised}}; margin-bottom: 14px"><button role="tab" aria-selected="{{tabValue}}" onClick="{{pickValue}}" style="{{tabValueStyle}}">Is it paying off?</button><button role="tab" aria-selected="{{tabBetter}}" onClick="{{pickBetter}}" style="{{tabBetterStyle}}">Is it getting better from use?</button></div>
+<sc-if value="{{tabValue}}" hint-placeholder-val="{{ true }}">
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+<a href="#" style="border-radius: 18px; padding: 16px 18px; background: {{t.raised}}; color: {{t.ink}}; text-decoration: none; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12.5px; color: {{t.secondary}}">Spend this month</span><span style="font-size: 38px; font-weight: 300">$44k</span><span style="font-size: 12px; color: {{t.muted}}">Serving, training and outside models · $271k over 30 days</span></a>
+<a href="#" style="border-radius: 18px; padding: 16px 18px; background: {{t.raised}}; color: {{t.ink}}; text-decoration: none; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12.5px; color: {{t.secondary}}">Cost avoided this month</span><span style="font-size: 38px; font-weight: 300">$108k</span><span style="font-size: 12px; color: {{t.muted}}">In five layers · $657k over 30 days</span></a>
+<div style="border-radius: 18px; padding: 16px 18px; background: {{t.raised}}; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12.5px; color: {{t.secondary}}">Improved from feedback</span><span style="font-size: 38px; font-weight: 300">2</span><span style="font-size: 12px; color: {{t.muted}}">Model versions retrained this month from use</span></div>
+</div>
+<div style="margin-top: 12px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><button style="{{s.bS}}">Value by project</button><span style="font-size: 12px; color: {{t.muted}}">This month so far, 1 to 5 Nov. Money is sample data.</span></div>
+</sc-if>
+<sc-if value="{{tabBetter}}" hint-placeholder-val="{{ false }}">
+<div style="overflow-x: auto"><table style="width: 100%; border-collapse: collapse; font-size: 13px"><caption style="text-align: left; font-size: 12.5px; color: {{t.muted}}; padding-bottom: 8px">Self-healing by organization: features at each of the six steps</caption>
+<thead><tr style="color: {{t.muted}}; font-size: 11.5px; text-align: left"><th style="font-weight: 500; padding: 6px 8px 6px 0">Organization</th><th style="font-weight: 500; padding: 6px 8px">Features</th><th style="font-weight: 500; padding: 6px 8px">1 Says</th><th style="font-weight: 500; padding: 6px 8px">2 Confirmed</th><th style="font-weight: 500; padding: 6px 8px">3 Scored</th><th style="font-weight: 500; padding: 6px 8px">4 Gaps</th><th style="font-weight: 500; padding: 6px 8px">5 Enough</th><th style="font-weight: 500; padding: 6px 8px">6 Increment</th><th style="font-weight: 500; padding: 6px 0 6px 8px">What it means</th></tr></thead>
+<tbody><sc-for list="{{heal}}" as="r" hint-placeholder-count="3"><tr style="border-top: 1px solid {{t.hairline}}"><td style="padding: 10px 8px 10px 0"><a href="#" style="font-weight: 600; color: {{t.link}}">{{r.org}}</a><span style="display: block; font-size: 12px; color: {{t.muted}}">{{r.teams}}</span></td><td style="padding: 10px 8px">{{r.features}}</td><td style="padding: 10px 8px">{{r.a}}</td><td style="padding: 10px 8px">{{r.b}}</td><td style="padding: 10px 8px">{{r.c}}</td><td style="padding: 10px 8px">{{r.d}}</td><td style="padding: 10px 8px">{{r.e}}</td><td style="padding: 10px 8px">{{r.f}}</td><td style="padding: 10px 0 10px 8px; color: {{t.secondary}}">{{r.means}}</td></tr></sc-for></tbody></table></div>
+</sc-if>
+</section>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["light","dark"],"default":"light"},"persona":{"editor":"enum","options":["owner","sponsor"],"default":"owner"},"menu":{"editor":"enum","options":["collapsed","expanded"],"default":"collapsed"},"$preview":{"width":1440,"height":2240}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const dark = (this.props.mode ?? 'light') === 'dark';
+    const sponsor = (this.props.persona ?? 'owner') === 'sponsor';
+    const navOpen = (this.props.menu ?? 'collapsed') === 'expanded' || !!st.nav;
+    const t = dark ? {
+      page: 'radial-gradient(50% 30% at 92% -6%, rgba(46,117,98,.45), transparent 70%), radial-gradient(34% 20% at 70% -8%, rgba(19,252,74,.10), transparent 70%), #000000',
+      card: '#1A1E1B', raised: '#242A26', glass: 'rgba(26,30,27,.86)', glassEdge: 'rgba(255,255,255,.12)', shadow: '0 24px 60px rgba(0,0,0,.5)', heroCard: 'linear-gradient(160deg, rgba(31,94,78,.55), rgba(26,30,27,.9) 60%)',
+      ink: '#F2F5F3', secondary: '#A9B3AD', muted: '#8A948E', hairline: '#343C37', strongEdge: '#59625C',
+      action: '#34B370', actionFg: '#0B0F0C', actionGlow: 'rgba(52,179,112,.30)', link: '#7FD3A4', selected: '#F2F5F3', selectedFg: '#0B0F0C',
+      red: '#C93441', warning: '#EBC35E', good: '#6FE3A8', bad: '#FF6B2C', info: '#62A8E6', badge: '#F2F5F3', badgeFg: '#0B0F0C', barOn: '#13FC4A', barOff: '#2E7562' } : {
+      page: 'radial-gradient(48% 28% at 92% -8%, rgba(46,117,98,.20), transparent 70%), radial-gradient(36% 20% at 70% -10%, rgba(19,252,74,.08), transparent 70%), #F7F8F7',
+      card: '#FFFFFF', raised: '#EFF2F0', glass: 'rgba(255,255,255,.86)', glassEdge: 'rgba(255,255,255,.95)', shadow: '0 24px 60px rgba(20,30,24,.08), inset 0 1px 0 rgba(255,255,255,.95)', heroCard: 'linear-gradient(160deg, rgba(234,246,238,.95), rgba(255,255,255,.9) 60%)',
+      ink: '#0B0F0C', secondary: '#4A524D', muted: '#68716B', hairline: '#E3E7E4', strongEdge: '#A3ABA6',
+      action: '#0B5F33', actionFg: '#FFFFFF', actionGlow: 'rgba(11,95,51,.22)', link: '#0B5F33', selected: '#1A1E1B', selectedFg: '#FFFFFF',
+      red: '#B2242F', warning: '#6E4510', good: '#16754F', bad: '#D04408', info: '#2E5E8C', badge: '#1A1E1B', badgeFg: '#FFFFFF', barOn: '#18493D', barOff: '#7FB5A2' };
+    const pill = 'border-radius:99px;font-weight:500;white-space:nowrap;';
+    const s = {
+      card: `border-radius:22px;padding:18px 20px;background:${t.card};border:1px solid ${t.hairline}`,
+      bP: `${pill}padding:11px 20px;border:0;background:${t.action};color:${t.actionFg};font-weight:600;box-shadow:0 10px 26px ${t.actionGlow}`,
+      bO: `${pill}padding:10px 16px;background:${t.card};border:1px solid ${t.strongEdge};color:${t.ink}`,
+      bS: `${pill}padding:8px 14px;min-height:36px;background:transparent;border:1px solid ${t.strongEdge};color:${t.ink};font-size:13px`,
+      segOn: `padding:6px 12px;border-radius:99px;border:0;background:${t.selected};color:${t.selectedFg}`,
+      segOff: `padding:6px 12px;border-radius:99px;border:0;background:transparent;color:${t.secondary}`
+    };
+    const I = { home: 'M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z', work: 'M4 7h16v12H4zM9 7V5h6v2', inbox: 'M3 13l3-8h12l3 8v6H3zM3 13h5l1 3h6l1-3h5', req: 'M8 4h8l3 3v13H5V4zM9 11h6M9 15h6', proj: 'M3 6h7l2 2h9v11H3z', model: 'M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12L4 7.5', index: 'M5 20V10M12 20V4M19 20v-7', data: 'M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3', chat: 'M4 5h16v11H9l-5 4z', ent: 'M4 20V8l8-4 8 4v12M9 20v-6h6v6', help: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5M12 17h.01' };
+    const base = `display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:14px;text-decoration:none;min-height:44px;box-sizing:border-box;`;
+    const item = (label, icon, o = {}) => ({ label, icon: I[icon], badge: o.badge || '', dot: !!o.badge, kids: navOpen ? (o.kids || []) : [], style: base + (o.on ? `font-weight:600;color:${t.selectedFg};background:${t.selected}` : `color:${t.ink}`) });
+    const grp = (label, items) => ({ label, items, showLabel: navOpen && !!label });
+    const menu = [
+      grp('', [item('Home', 'home', { on: true })]),
+      grp('Your work', [item('My work', 'work', { badge: '3' }), item('Requests', 'req'), item('Inbox', 'inbox', { badge: '5' })]),
+      grp('Projects', [item('Projects', 'proj', { kids: ['Advisor desktop', 'Wealth management portfolio assist', 'All projects'] })]),
+      grp('Build', [item('Models', 'model'), item('TL Index', 'index'), item('Data and training', 'data'), item('Try TLM', 'chat')]),
+      grp('The Enterprise', [item('Operations and value', 'ent')]),
+      grp('', [item('Help', 'help')])
+    ];
+    const tone = (k) => ({ decide: [t.warning, '▲'], start: [t.info, '◆'], under: [t.bad, '■'] })[k];
+    const needs = (sponsor ? [
+      { kind: 'Under its threshold', k: 'under', title: 'Claims triage · 74% ± 4, expects 80%', action: 'See why' },
+      { kind: 'Under its threshold', k: 'under', title: 'Next best action answers too slowly in Pilot', action: 'See why' },
+      { kind: 'Decide', k: 'decide', title: 'Domain-Advice version 3 is offered from 21 Nov', action: 'See the offer' }
+    ] : [
+      { kind: 'Decide', k: 'decide', title: 'Domain-Advice version 3 is offered to Advisor desktop', note: 'From 21 Nov', action: 'Decide' },
+      { kind: 'Start', k: 'start', title: 'Increment 6 of Call summary waits for you to start it', note: 'A retrained model from self-healing', action: 'Start it' },
+      { kind: 'Under its threshold', k: 'under', title: 'Next best action answers too slowly in Pilot', note: 'Advisor desktop', action: 'See why' }
+    ]).map((n) => ({ ...n, toneColor: tone(n.k)[0], glyph: tone(n.k)[1] }));
+    const mine = [
+      { name: 'Advisor desktop', stage: 'Production', health: '▲ 1 feature close to its threshold', hc: 'warning', next: 'Increment 5 · Speech to text · 2 of 5 pieces of evidence ready', action: 'Prepare the evidence' },
+      { name: 'Wealth management portfolio assist', stage: 'Build', health: '● On track', hc: 'good', next: 'Increment 1 · Portfolio questions', action: 'Say how it is scored' }
+    ].map((p) => ({ ...p, healthColor: t[p.hc] }));
+    const kpis = [
+      { label: 'Models live', value: '8', sub: 'TLM1 4 · TLM3 1 · TLM4 3', open: 'Models' },
+      { label: 'Projects by stage', value: '7', sub: 'Production 2 · Pilot 2 · Build 2 · Set up 1', open: 'Projects' },
+      { label: 'Requests, today', value: '212k', sub: 'Live 58k · background 154k', open: 'Operations' },
+      { label: 'Under its threshold', value: '2', sub: '■ Claims triage · Next best action', open: 'See why', bad: true },
+      { label: 'Requests in flight, outside', value: '4', sub: 'Deployment change requests', open: 'Requests' }
+    ].map((k) => ({ ...k, subColor: k.bad ? t.bad : t.muted }));
+    const gen = st.gen || 'All';
+    const gens = [['All', 'Most adopted'], ['TLM1', 'TLM1'], ['TLM3', 'TLM3'], ['TLM4', 'TLM4'], ['TLM5', 'TLM5']].map(([id, label]) => ({ label, on: gen === id, style: gen === id ? s.segOn : s.segOff, pick: () => this.setState({ gen: id }) }));
+    const allModels = [
+      { gen: 'TLM1', kind: 'Speech', name: 'Speech recognition', calls: '154k', sub: 'calls today · 2 projects' },
+      { gen: 'TLM1', kind: 'Classifier', name: 'Redaction', calls: '154k', sub: 'calls today · 1 project' },
+      { gen: 'TLM4', kind: 'Language', name: 'Domain-Advice v2', calls: '31k', sub: 'calls today · 2 projects' },
+      { gen: 'TLM4', kind: 'Language', name: 'Distil 4.2', calls: '19k', sub: 'calls today · 2 projects' },
+      { gen: 'TLM4', kind: 'Language', name: 'Core 4.2', calls: '8k', sub: 'calls today · 2 projects' },
+      { gen: 'TLM1', kind: 'Embedding', name: 'Embedding', calls: '—', sub: 'In Pilot · not live' },
+      { gen: 'TLM1', kind: 'Guardrail', name: 'Guardrail', calls: '—', sub: 'Runs in the background' }
+    ];
+    const models = (gen === 'All' ? allModels : allModels.filter((m) => m.gen === gen)).slice(0, 5);
+    const coming = [{ state: 'Coming', name: 'Domain-Advice v3 · 21 Nov' }, { state: 'Pilot', name: 'Decision adapter' }, { state: 'New', name: 'TL Index edition 2026-11' }, { state: 'Later', name: 'TLM5' }];
+    const top = [['Enterprise call platform', 'Platform', 'Production', 154], ['Advisor desktop', 'Advice Tech', 'Production', 31], ['Claims intake', 'Claims Ops Tech', 'Pilot', 19], ['Service chat assist', 'Client Service Tech', 'Pilot', 8]].map(([name, team, stage, n], i) => ({ rank: String(i + 1), name, team, stage, req: n + 'k', w: Math.max(4, Math.round(n / 154 * 100)) + '%', bg: i === 0 ? t.barOn : t.barOff }));
+    const openTeam = st.team === undefined ? 'Advice Tech' : st.team;
+    const k = (n) => (n == null ? '—' : '$' + n + 'k');
+    const r = (n) => (n == null ? 'Not live' : n + 'k');
+    const teams = [
+      { name: 'Advice Tech', org: 'Retail Business · 1 feature under its threshold', live: '1 of 2', models: '5', req: 31, spend: 86, avoided: 214, projects: [['Advisor desktop', '3 features · 2 increments in flight', 'Production', 5, 31, 78, 214], ['Wealth management portfolio assist', '1 feature', 'Build', 2, null, 8, null]] },
+      { name: 'Platform', org: 'Enterprise services', live: '1 of 1', models: '3', req: 154, spend: 142, avoided: 391, projects: [['Enterprise call platform', '1 feature · call processing for every call', 'Production', 3, 154, 142, 391]] },
+      { name: 'Claims Ops Tech', org: 'Institutional Ops · 1 feature under its threshold', live: '0 of 2', models: '2', req: 19, spend: 31, avoided: 52, projects: [['Claims intake', '1 feature · under its threshold', 'Pilot', 2, 19, 27, 52], ['Claims correspondence', 'Being set up', 'Set up', 0, null, 4, null]] },
+      { name: 'Client Service Tech', org: 'Retail Business', live: '0 of 2', models: '2', req: 8, spend: 12, avoided: null, projects: [['Service chat assist', '1 feature', 'Pilot', 1, 8, 10, null], ['Email triage', '2 features', 'Build', 2, null, 2, null]] }
+    ].map((x) => ({ ...x, open: openTeam === x.name, chev: openTeam === x.name ? '▾' : '▸', toggle: () => this.setState({ team: openTeam === x.name ? null : x.name }), req: r(x.req), spend: k(x.spend), avoided: k(x.avoided), projects: x.projects.map(([name, note, stage, m, q, sp, av]) => ({ name, note, stage, models: String(m), req: r(q), spend: k(sp), avoided: k(av) })) }));
+    const heal = [
+      ['Enterprise services', 'Call processing for the whole Enterprise', '3', [0, 0, 0, 1, 0, 2], '2 retrained from use this month · 1 gap being filled'],
+      ['Retail Business', 'Advice Tech · Client Service Tech', '3 of 7', [0, 1, 0, 0, 1, 0], '1 has enough to train · 2 things wait for the project owner'],
+      ['Institutional Ops', 'Claims Ops Tech', '2', [0, 0, 1, 1, 0, 0], 'The feature under what is expected has a confirmed gap, being filled']
+    ].map(([org, tms, features, at, means]) => ({ org, teams: tms, features, a: String(at[0]), b: String(at[1]), c: String(at[2]), d: String(at[3]), e: String(at[4]), f: String(at[5]), means }));
+    const whyOpen = st.why === undefined ? true : st.why;
+    const tab = st.tab || 'value';
+    return {
+      t, s, menu, needs, mine, kpis, gens, models, coming, top, teams, heal, navOpen,
+      navW: navOpen ? '264px' : '76px',
+      navEnter: () => this.setState({ nav: true }), navLeave: () => this.setState({ nav: false }),
+      startStyle: `margin:8px 0;display:flex;align-items:center;gap:10px;text-decoration:none;color:${t.ink};padding:6px;border-radius:99px;` + (navOpen ? `border:1px dashed ${t.strongEdge}` : 'border:1px dashed transparent'),
+      isOwner: !sponsor, isSponsor: sponsor,
+      who: sponsor ? { name: '[Sponsor name]', first: '[sponsor]', initial: 'S', role: 'Sponsor · Retail Business' } : { name: 'Priya N.', first: 'Priya', initial: 'P', role: 'Owner · 2 projects' },
+      whyOpen, whyLabel: whyOpen ? 'Hide the 3 causes ▴' : 'Why · 3 causes ▾', toggleWhy: () => this.setState({ why: !whyOpen }),
+      causes: [['Claims with more than one injury, which Distil 4.2 routes poorly', 'About half', '52%'], ['A new claim form since 20 Oct', 'A third', '33%'], ['Not explained', 'The rest', '15%']].map(([text, share, w]) => ({ text, share, w })),
+      tabValue: tab === 'value', tabBetter: tab === 'better', pickValue: () => this.setState({ tab: 'value' }), pickBetter: () => this.setState({ tab: 'better' }),
+      tabValueStyle: tab === 'value' ? s.segOn : s.segOff, tabBetterStyle: tab === 'better' ? s.segOn : s.segOff
+    };
+  }
+}
+</script>
+</body>
+</html>

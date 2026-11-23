@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home · assistant open</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0} a{color:#0B5F33;text-underline-offset:3px} button{font:inherit;cursor:pointer}</style>
+</helmet>
+<div style="position: relative; width: 100%; height: 1000px; overflow: hidden; font-family: Inter, system-ui, sans-serif; color: #0B0F0C; font-size: 14px">
+<div aria-hidden="true" style="position: absolute; inset: 0"><dc-import name="Main" mode="light" persona="owner" hint-size="100%,2240px"></dc-import></div>
+<div style="position: absolute; inset: 0; background: rgba(247,248,247,.45); backdrop-filter: blur(10px)"></div>
+
+<section aria-label="Draft on the canvas" style="position: absolute; top: 28px; bottom: 28px; left: 290px; right: 500px; display: flex; flex-direction: column; gap: 14px; padding: 8px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #68716B">Draft · not saved</span><span style="flex: 1"></span><span style="font-size: 12px; padding: 3px 9px; border-radius: 8px; background: #EFF2F0; color: #4A524D">Example conversation</span></div>
+<div style="border-radius: 24px; background: #FFFFFF; border: 1px solid #E3E7E4; box-shadow: 0 24px 60px rgba(20,30,24,.10); padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div><span style="font-size: 12px; color: #68716B">New project</span><h2 style="margin: 4px 0 0; font-size: 26px; font-weight: 400">Fund fee questions for advisors</h2></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; color: #4A524D">Organization<input value="Retail Business" style="font: inherit; font-size: 14px; color: #0B0F0C; padding: 10px 12px; border-radius: 12px; border: 1px solid #A3ABA6; background: #FFFFFF"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; color: #4A524D">Team<input value="Advice Tech" style="font: inherit; font-size: 14px; color: #0B0F0C; padding: 10px 12px; border-radius: 12px; border: 1px solid #A3ABA6; background: #FFFFFF"></label>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; color: #4A524D">What it should do<textarea rows="2" style="font: inherit; font-size: 14px; color: #0B0F0C; padding: 10px 12px; border-radius: 12px; border: 1px solid #A3ABA6; resize: none">Answer an advisor's question about a fund's fees, with the source document it came from.</textarea></label>
+<div style="border-radius: 16px; background: #F7F8F7; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12.5px; font-weight: 600">First feature</span>
+<span>Fee questions · scored on whether the answer matches the fund document</span>
+<span style="font-size: 12.5px; color: #68716B">Threshold: [set with you] · evaluation set: [you bring 50 questions]</span>
+</div>
+<div style="border-radius: 16px; background: #F7F8F7; padding: 14px 16px; display: flex; align-items: center; gap: 12px">
+<span style="display: flex; flex-direction: column; gap: 4px; flex: 1"><span style="font-size: 12.5px; font-weight: 600">Model to start with</span><span>Domain-Advice v2 · version 3 is offered from 21 Nov</span></span>
+<a href="#" style="font-size: 13px; font-weight: 500">Compare on the TL Index</a>
+</div>
+<div style="display: flex; gap: 10px; align-items: center; padding-top: 4px"><button style="padding: 11px 20px; border-radius: 99px; border: 0; background: #0B5F33; color: #FFFFFF; font-weight: 600; box-shadow: 0 10px 26px rgba(11,95,51,.22)">Create the project</button><button style="padding: 11px 18px; border-radius: 99px; background: transparent; border: 1px solid #A3ABA6; color: #0B0F0C; font-weight: 500">Keep as draft</button><span style="font-size: 12.5px; color: #68716B">You confirm; the assistant only proposes.</span></div>
+</div>
+</section>
+
+<aside aria-label="Assistant" style="position: absolute; top: 14px; right: 14px; bottom: 14px; width: 460px; box-sizing: border-box; border-radius: 28px; background: rgba(255,255,255,.82); border: 1px solid rgba(255,255,255,.95); backdrop-filter: blur(24px); box-shadow: 0 30px 80px rgba(20,30,24,.16); display: flex; flex-direction: column">
+<div style="display: flex; align-items: center; gap: 10px; padding: 18px 20px; border-bottom: 1px solid #E3E7E4"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 9px; background: linear-gradient(135deg, #13FC4A 0%, #1F5E4E 45%, #000 100%)"></span><span style="font-weight: 600; flex: 1">Assistant · Start a project</span><button aria-label="Close the assistant" style="width: 32px; height: 32px; border-radius: 99px; border: 1px solid #E3E7E4; background: #FFFFFF; display: grid; place-items: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+<div style="flex: 1; overflow: auto; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="align-self: flex-start; max-width: 85%; padding: 12px 14px; border-radius: 16px 16px 16px 4px; background: #EFF2F0">What should the project help people do?</div>
+<div style="align-self: flex-end; max-width: 85%; padding: 12px 14px; border-radius: 16px 16px 4px 16px; background: #0B5F33; color: #FFFFFF">Advisors keep asking about fund fees. I want it to answer with the document.</div>
+<div style="align-self: flex-start; max-width: 85%; padding: 12px 14px; border-radius: 16px 16px 16px 4px; background: #EFF2F0">I drafted it on the left: Retail Business, Advice Tech, one feature. Two things only you can set: the threshold, and the 50 questions it is scored on.</div>
+<div style="align-self: flex-start; display: flex; gap: 8px; flex-wrap: wrap"><button style="padding: 8px 14px; border-radius: 99px; background: #FFFFFF; border: 1px solid #A3ABA6; font-size: 13px">Set the threshold</button><button style="padding: 8px 14px; border-radius: 99px; background: #FFFFFF; border: 1px solid #A3ABA6; font-size: 13px">Bring the questions</button><button style="padding: 8px 14px; border-radius: 99px; background: #FFFFFF; border: 1px solid #A3ABA6; font-size: 13px">Change the team</button></div>
+</div>
+<div style="padding: 14px 16px 16px; border-top: 1px solid #E3E7E4"><label style="display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; color: #4A524D">Reply to the assistant<span style="display: flex; gap: 8px"><input placeholder="Type, or pick one above" style="flex: 1; font: inherit; font-size: 14px; padding: 11px 14px; border-radius: 99px; border: 1px solid #A3ABA6; background: #FFFFFF"><button aria-label="Send" style="width: 44px; height: 44px; border-radius: 99px; border: 0; background: #0B5F33; color: #FFFFFF; display: grid; place-items: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></span></label></div>
+</aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+</body>
+</html>

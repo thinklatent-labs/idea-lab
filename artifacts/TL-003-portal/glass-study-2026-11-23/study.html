@@ -1,0 +1,372 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Glass study</title><style>*{box-sizing:border-box;margin:0}
+body{font-family:Inter,system-ui,sans-serif;background:#fff;width:1320px;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+
+/* ---------- theme: every value a candidate token ---------- */
+.dark{background:#000;color:#F2F5F3;
+ --ink:#F2F5F3;--ink2:#B7C0BB;--ink3:#98A29C;--ink2-tint:#C8D1CC;--ink3-tint:#B3BDB7;--ink2-frost:#D4DBD7;--fade2:#8FA79A;--hair:rgba(255,255,255,.16);
+ --rim:linear-gradient(140deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.10) 30%,rgba(255,255,255,.05) 62%,rgba(255,255,255,.18) 100%);
+ --rim-strong:linear-gradient(150deg,rgba(255,255,255,.64) 0%,rgba(255,255,255,.16) 36%,rgba(255,255,255,.10) 64%,rgba(255,255,255,.28) 100%);
+ --sweep:linear-gradient(118deg,transparent 34%,rgba(255,255,255,.05) 50%,transparent 66%);
+ --card-shadow:inset 0 1px 0 rgba(255,255,255,.10);--inset-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 18px 40px -20px rgba(0,0,0,.6);--grain:.10;
+ --b-deep:radial-gradient(70% 46% at 10% 0%,rgba(44,78,64,.42),transparent 70%),linear-gradient(165deg,#141B18 0%,#0E1412 55%,#090D0C 100%);
+ --b-neutral:linear-gradient(176deg,#27322D 0%,#242E2A 48%,#101514 100%);
+ --b-frost:radial-gradient(80% 50% at 85% 8%,rgba(120,150,138,.30),transparent 70%),linear-gradient(170deg,#3E4943 0%,#39453F 52%,#1C2321 100%);
+ --b-green:radial-gradient(95% 55% at 0% 50%,rgba(66,128,98,.72),transparent 72%),radial-gradient(70% 45% at 100% 100%,rgba(38,98,100,.50),transparent 72%),linear-gradient(180deg,#1C2B24 0%,#203A2E 48%,#193029 100%);
+ --b-teal:radial-gradient(95% 55% at 0% 50%,rgba(60,122,124,.66),transparent 72%),linear-gradient(180deg,#1B2C2C 0%,#1F3A3A 48%,#182E2E 100%);
+ --b-slate:radial-gradient(95% 55% at 0% 50%,rgba(84,112,136,.70),transparent 72%),linear-gradient(180deg,#1A2329 0%,#22303B 48%,#1A252D 100%);
+ --panel:radial-gradient(62% 55% at 40% 62%,rgba(96,140,116,.38),transparent 72%),linear-gradient(180deg,#393C3B 0%,#3B4741 100%);
+ --row:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.014));--row-rim:linear-gradient(180deg,rgba(255,255,255,.36),rgba(255,255,255,.08));--row-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+ --row-on:linear-gradient(180deg,rgba(176,226,200,.30),rgba(112,180,146,.17));--row-on-rim:linear-gradient(180deg,rgba(255,255,255,.70),rgba(255,255,255,.16));--row-on-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 14px 30px -14px rgba(0,0,0,.6);--on-sub:#E6F1EA;
+ --mini:rgba(10,34,25,.62);--mini-fg:#F2F5F3;--inset:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.045));
+ --chip:rgba(255,255,255,.11);--chip-warn:rgba(235,195,94,.17);--warn:#EBC35E;--wire:rgba(255,255,255,.55);
+ --ck:#BFE8D2;--ck-fg:#0E3D2B;--ck-halo:rgba(191,232,210,.10);
+ --btn:#F2F5F3;--btn-fg:#0B0F0C;--btn-shadow:0 10px 30px -10px rgba(242,245,243,.30);
+ --line:#F2F5F3;--area0:rgba(190,230,208,.30);--dot:#13FC4A;--pt-ring:#0B0F0C;--note:rgba(26,38,32,.80);--note-shadow:0 10px 24px -10px rgba(0,0,0,.7);
+ --tile-ink:#F2F5F3;--tile-sub:#DCE4DF;
+ --t1a:rgba(170,202,182,.78);--t1b:rgba(88,134,108,.55);--t1:linear-gradient(135deg,#17211C,#1D3027);
+ --t2a:rgba(176,208,200,.80);--t2b:rgba(84,128,126,.55);--t2:linear-gradient(225deg,#213333,#2A4242);
+ --t3a:rgba(120,158,138,.62);--t3b:rgba(60,100,80,.45);--t3:linear-gradient(45deg,#121A16,#18271F);
+ --t4a:rgba(150,172,190,.78);--t4b:rgba(74,98,118,.60);--t4:linear-gradient(315deg,#1B242A,#243340);
+ --medal:radial-gradient(circle at 30% 25%,rgba(255,255,255,.34),rgba(255,255,255,.08) 62%),#2A3A33;--medal-in:linear-gradient(160deg,#5A7065,#30423A);--medal-fg:#F2F5F3;--medal-shadow:0 0 0 7px #0C1210,0 12px 30px rgba(0,0,0,.6)}
+
+.light{background:#F7F8F7;color:#0B0F0C;
+ --ink:#0B0F0C;--ink2:#3E4741;--ink3:#59625C;--ink2-tint:#36403A;--ink3-tint:#465049;--ink2-frost:#3A433D;--fade2:#5E8573;--hair:rgba(12,40,34,.14);
+ --rim:linear-gradient(140deg,#FFFFFF 0%,rgba(255,255,255,.90) 40%,rgba(255,255,255,.60) 100%);
+ --rim-strong:linear-gradient(150deg,#FFFFFF,rgba(255,255,255,.85));
+ --sweep:linear-gradient(118deg,transparent 32%,rgba(255,255,255,.55) 50%,transparent 68%);
+ --card-shadow:0 0 0 1px rgba(12,40,34,.07),inset 0 1px 0 #fff,inset 0 -16px 28px -20px rgba(24,73,61,.22),0 30px 60px -32px rgba(24,73,61,.40),0 3px 10px rgba(12,40,34,.05);--inset-shadow:0 0 0 1px rgba(12,40,34,.06),inset 0 1px 0 #fff,0 16px 34px -20px rgba(24,73,61,.42);--grain:.07;
+ --b-deep:radial-gradient(70% 46% at 10% 0%,rgba(176,209,196,.42),transparent 70%),linear-gradient(165deg,#FFFFFF 0%,#F5F8F6 55%,#EDF2EF 100%);
+ --b-neutral:linear-gradient(176deg,#FFFFFF 0%,#F4F7F5 55%,#E8EEEA 100%);
+ --b-frost:radial-gradient(80% 50% at 85% 8%,rgba(255,255,255,.90),transparent 70%),linear-gradient(170deg,#E3EAE6 0%,#ECF1EE 52%,#D9E2DD 100%);
+ --b-green:radial-gradient(95% 55% at 0% 50%,rgba(112,196,156,.60),transparent 72%),radial-gradient(70% 45% at 100% 100%,rgba(104,186,184,.50),transparent 72%),linear-gradient(180deg,#EAF5EF 0%,#DCEEE5 48%,#E6F2EC 100%);
+ --b-teal:radial-gradient(95% 55% at 0% 50%,rgba(104,190,188,.55),transparent 72%),linear-gradient(180deg,#E8F4F3 0%,#DAEDEC 48%,#E5F2F1 100%);
+ --b-slate:radial-gradient(95% 55% at 0% 50%,rgba(130,160,188,.50),transparent 72%),linear-gradient(180deg,#EAF0F4 0%,#DCE6EE 48%,#E7EEF3 100%);
+ --panel:radial-gradient(62% 55% at 40% 62%,rgba(120,196,160,.42),transparent 72%),linear-gradient(180deg,rgba(255,255,255,.94),rgba(242,248,245,.84));
+ --row:linear-gradient(180deg,rgba(255,255,255,.66),rgba(255,255,255,.36));--row-rim:linear-gradient(180deg,#FFFFFF,rgba(255,255,255,.55));--row-shadow:0 0 0 1px rgba(12,40,34,.05),0 1px 2px rgba(12,40,34,.05);
+ --row-on:linear-gradient(180deg,#FFFFFF,#F2FAF6);--row-on-rim:linear-gradient(180deg,#FFFFFF,#FFFFFF);--row-on-shadow:0 0 0 1px rgba(12,40,34,.06),0 14px 28px -12px rgba(24,73,61,.45);--on-sub:#3E4741;
+ --mini:#0B0F0C;--mini-fg:#FFFFFF;--inset:linear-gradient(160deg,rgba(255,255,255,.90),rgba(255,255,255,.55));
+ --chip:rgba(12,40,34,.07);--chip-warn:rgba(110,69,16,.12);--warn:#6E4510;--wire:rgba(12,40,34,.45);
+ --ck:#0B5F33;--ck-fg:#FFFFFF;--ck-halo:rgba(11,95,51,.10);
+ --btn:#0B0F0C;--btn-fg:#FFFFFF;--btn-shadow:0 12px 26px -10px rgba(11,15,12,.50);
+ --line:#12382F;--area0:rgba(46,117,98,.24);--dot:#18493D;--pt-ring:#FFFFFF;--note:#FFFFFF;--note-shadow:0 0 0 1px rgba(12,40,34,.06),0 10px 22px -10px rgba(24,73,61,.45);
+ --tile-ink:#0B0F0C;--tile-sub:#36403A;
+ --t1a:rgba(255,255,255,.96);--t1b:rgba(255,255,255,.50);--t1:linear-gradient(135deg,#BFE0CF,#D6ECE1);
+ --t2a:rgba(255,255,255,.96);--t2b:rgba(255,255,255,.50);--t2:linear-gradient(225deg,#BDDDDB,#D6EBEA);
+ --t3a:rgba(255,255,255,.92);--t3b:rgba(255,255,255,.42);--t3:linear-gradient(45deg,#A9CFBC,#C6E2D4);
+ --t4a:rgba(255,255,255,.96);--t4b:rgba(255,255,255,.50);--t4:linear-gradient(315deg,#BFCFDC,#D9E4EB);
+ --medal:linear-gradient(160deg,#FFFFFF,#E9F0ED);--medal-in:linear-gradient(160deg,#18493D,#0C2822);--medal-fg:#FFFFFF;--medal-shadow:0 0 0 7px #F5F8F6,0 14px 30px -8px rgba(24,73,61,.45)}
+
+/* ---------- page ---------- */
+.page{width:1320px;padding:26px 28px 36px;overflow:hidden}
+.modecap{font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--ink3);margin-bottom:26px}
+.head{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end;margin-bottom:28px}
+.tag{position:relative;display:inline-flex;align-items:center;gap:12px;height:38px;padding:0 16px;border-radius:999px;background:var(--row);--rim:var(--row-rim);box-shadow:var(--row-shadow);font-size:13.5px}
+.tag b{font-weight:600}.tag i{width:1px;height:16px;background:var(--hair)}.tag span{color:var(--ink2)}
+h1{font-size:60px;line-height:1.06;font-weight:400;letter-spacing:-.035em;margin-top:18px}
+.fade{background:linear-gradient(90deg,var(--ink) 0%,var(--fade2) 88%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead p{font-size:16px;line-height:1.5;color:var(--ink2);max-width:430px}
+.btns{display:flex;gap:10px;margin-top:20px}
+.btn{position:relative;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 24px;border-radius:999px;font-size:15px;font-weight:500;white-space:nowrap}
+.btn.sm{height:42px;padding:0 20px;font-size:14px}
+.pri{background:var(--btn);color:var(--btn-fg);box-shadow:var(--btn-shadow)}
+.sec{background:var(--row);color:var(--ink);--rim:var(--row-rim);box-shadow:var(--row-shadow)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.wide{grid-column:span 2}
+
+/* ---------- the glass card: body, one light, sweep, lit rim, grain ---------- */
+.g{position:relative;isolation:isolate;border-radius:30px;padding:26px 30px 30px;overflow:hidden;background:var(--sweep),var(--body);box-shadow:var(--card-shadow);color:var(--ink);min-height:560px;display:flex;flex-direction:column}
+.g.deep{--body:var(--b-deep)}.g.neutral{--body:var(--b-neutral)}.g.teal{--body:var(--b-teal);--ink2:var(--ink2-tint)}.g.slate{--body:var(--b-slate);--ink2:var(--ink2-tint)}
+.g.frost{--body:var(--b-frost);--ink2:var(--ink2-frost);--ink3:var(--ink2-frost)}
+.g.green{--body:var(--b-green);--ink2:var(--ink2-tint);--ink3:var(--ink3-tint)}
+.ring{position:relative}
+.g::before,.ring::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:var(--rim);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:1}
+.g::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;opacity:var(--grain);mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>")}
+.no{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--ink3);margin-bottom:16px}
+h2{font-size:27px;line-height:1.14;font-weight:400;letter-spacing:-.022em}
+.b{font-size:14.5px;line-height:1.45;color:var(--ink2);margin-top:12px;max-width:340px}
+
+/* 1 rows */
+.rows{margin-top:auto;display:flex;flex-direction:column;gap:9px}
+.row{display:flex;align-items:center;gap:14px;height:56px;padding:0 15px 0 18px;border-radius:999px;background:var(--row);--rim:var(--row-rim);box-shadow:var(--row-shadow)}
+.row.on{background:var(--row-on);--rim:var(--row-on-rim);box-shadow:var(--row-on-shadow);padding:0 10px 0 15px}
+.ri{display:grid;place-items:center;width:26px;color:var(--ink)}
+.rt{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.rt b{font-size:14.5px;font-weight:500}.rt span{font-size:12.5px;color:var(--ink2)}.rt em{font-style:normal;font-weight:600;color:var(--ink)}
+.row.on .rt span{color:var(--on-sub)}
+.mini{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:999px;background:var(--mini);color:var(--mini-fg);font-size:13px;font-weight:500}
+.ck{flex:0 0 26px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--ck);color:var(--ck-fg);box-shadow:0 0 0 5px var(--ck-halo)}
+.ck.hollow{background:transparent;border:1.5px solid var(--tile-sub);box-shadow:none}
+
+/* 2 map */
+.map{margin-top:auto}
+.cols{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink2);margin-bottom:12px}
+.cols i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:8px;vertical-align:1px}.d0{background:var(--ink3)}.d1{background:var(--ink)}
+.mapgrid{display:grid;grid-template-columns:46px 1fr;align-items:center}
+.wires{width:46px;height:194px;overflow:visible}.wires path{fill:none;stroke:var(--wire);stroke-width:1.3}.wires circle{fill:var(--ink)}
+.dst{display:flex;flex-direction:column;gap:16px}
+.node{height:54px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 9px 0 18px;border-radius:999px;background:var(--row);--rim:var(--row-rim);box-shadow:var(--row-shadow);font-size:13.5px;white-space:nowrap}
+.chip{height:34px;padding:0 13px;border-radius:999px;background:var(--chip);display:inline-grid;place-items:center;font-size:12.5px;color:var(--ink)}
+.chip.warn{background:var(--chip-warn);color:var(--warn);font-weight:500}
+.foot{margin-top:22px;padding-top:16px;border-top:1px solid var(--hair);display:flex;justify-content:space-between;font-size:13px;color:var(--ink2);white-space:nowrap}
+.foot em{font-style:normal;font-weight:600;color:var(--ink)}
+.lnk{display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:500}
+
+/* 3 inset */
+.inset{margin-top:auto;border-radius:24px;padding:22px;background:var(--inset);--rim:var(--rim-strong);display:grid;grid-template-columns:1.2fr 1fr;gap:18px;box-shadow:var(--inset-shadow)}
+.nm{font-size:34px;line-height:1.05;font-weight:300;letter-spacing:-.03em}
+.meta{font-size:12.5px;line-height:1.5;color:var(--ink2);margin-top:12px}
+.of{margin-top:12px;display:flex;align-items:flex-start;gap:7px}.of b{font-size:40px;font-weight:300;line-height:1;letter-spacing:-.03em}.of sup{font-size:11.5px;color:var(--ink2);margin-top:4px}
+.ir{border-left:1px solid var(--hair);padding-left:18px;display:flex;flex-direction:column;justify-content:center;gap:16px;font-size:13px;color:var(--ink2)}
+.ir span{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.center{display:flex;justify-content:center;margin-top:20px}
+
+/* 4 number and chart panel */
+.g.wide{flex-direction:row;gap:30px}
+.left{flex:0 0 322px;display:flex;flex-direction:column}
+.hero{margin-top:auto;display:flex;align-items:flex-start;gap:10px}.hero b{font-size:124px;line-height:.9;font-weight:200;letter-spacing:-.05em}.hero span{font-size:30px;font-weight:300;color:var(--ink2);margin-top:4px;letter-spacing:-.02em}
+.cap1{font-size:14px;color:var(--ink2);margin-top:14px}
+.two{display:flex;gap:34px;margin-top:16px}.two b{display:block;font-size:26px;font-weight:300;letter-spacing:-.02em}.two span{font-size:12px;color:var(--ink3)}
+.tabs{display:flex;gap:10px;margin-top:22px}.tabs span{flex:1;border-top:1.5px solid var(--ink3);padding-top:9px;font-size:12.5px;font-weight:500}
+.panel{flex:1;align-self:flex-end;border-radius:26px;padding:20px 24px 20px;background:var(--panel);--rim:var(--rim-strong);--ink2:var(--ink2-frost);--ink3:var(--ink2-frost);box-shadow:var(--inset-shadow);display:flex;flex-direction:column;min-width:0}
+.ph{display:flex;justify-content:space-between;font-size:13.5px;padding-bottom:14px;border-bottom:1px solid var(--hair)}.ph b{font-weight:500}.ph span{color:var(--ink2)}
+.pl{font-size:12.5px;color:var(--ink2);margin-top:16px}
+.plot{position:relative;margin-top:12px;aspect-ratio:380/250;width:100%}
+.chart{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.chart text{font-size:11px;fill:var(--ink2);font-family:Inter,system-ui,sans-serif}
+.chart .grid{stroke:var(--hair);stroke-width:1}.chart .cap{stroke:var(--ink3);stroke-width:1;stroke-dasharray:3 4}
+.chart .line{fill:none;stroke:var(--line);stroke-width:2.4;stroke-linecap:round}.chart .plan{fill:none;stroke:var(--line);stroke-width:1.7;stroke-dasharray:1.5 5.5;stroke-linecap:round;opacity:.62}.chart .pt{fill:var(--dot);stroke:var(--pt-ring);stroke-width:1.5}
+.note{position:absolute;transform:translate(0,-50%);display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 14px;border-radius:999px;background:var(--note);--rim:var(--row-rim);font-size:12.5px;white-space:nowrap;box-shadow:var(--note-shadow);color:var(--ink)}
+.note b{font-weight:600;margin:0 -3px 0 -3px}
+.pf{display:flex;gap:18px;align-items:center;font-size:12px;color:var(--ink2);margin-top:14px}.pf .r{margin-left:auto}.pf b{color:var(--ink);font-weight:600}
+.l1,.l2{display:inline-block;width:18px;margin-right:8px;vertical-align:middle;border-top:2px solid var(--line)}.l2{border-top:2px dotted var(--line);opacity:.62}
+
+/* 5 tiles */
+.tiles{position:relative;margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{height:160px;border-radius:26px;overflow:hidden;--rim:var(--rim-strong);box-shadow:var(--inset-shadow);color:var(--tile-ink)}
+.tile>b{position:absolute;font-size:46px;font-weight:200;line-height:1;letter-spacing:-.03em}.tile .ck{position:absolute}
+.tl{position:absolute;display:flex;flex-direction:column;font-size:12px;color:var(--tile-sub);line-height:1.35}.tl strong{font-size:14.5px;font-weight:500;color:var(--tile-ink)}
+.t1{background:radial-gradient(120% 120% at 100% 100%,var(--t1a) 0%,var(--t1b) 30%,transparent 74%),var(--t1)}
+.t2{background:radial-gradient(120% 120% at 0% 100%,var(--t2a) 0%,var(--t2b) 30%,transparent 74%),var(--t2)}
+.t3{background:radial-gradient(120% 120% at 100% 0%,var(--t3a) 0%,var(--t3b) 30%,transparent 74%),var(--t3)}
+.t4{background:radial-gradient(120% 120% at 0% 0%,var(--t4a) 0%,var(--t4b) 30%,transparent 74%),var(--t4)}
+.t1>b{left:18px;top:14px}.t1 .ck{right:16px;top:16px}.t1 .tl{left:18px;bottom:15px}
+.t2>b{right:18px;top:14px}.t2 .ck{left:16px;top:16px}.t2 .tl{right:18px;bottom:15px;text-align:right}
+.t3>b{left:18px;bottom:14px}.t3 .ck{right:16px;bottom:16px}.t3 .tl{left:18px;top:15px}
+.t4>b{right:18px;bottom:14px}.t4 .ck{left:16px;bottom:16px}.t4 .tl{right:18px;top:15px;text-align:right}
+.medal{position:absolute;left:50%;top:50%;width:94px;height:94px;margin:-47px 0 0 -47px;border-radius:50%;background:var(--medal);--rim:var(--rim-strong);display:grid;place-items:center;box-shadow:var(--medal-shadow);z-index:3}
+.medal span{width:70px;height:70px;border-radius:50%;background:var(--medal-in);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11.5px;color:var(--medal-fg)}.medal em{font-style:normal;font-weight:500}
+
+/* ---------- palette sheet ---------- */
+.sheet{width:1320px;padding:44px 48px 52px;background:#fff;color:#0B0F0C}
+.sheet h1{font-size:40px;font-weight:300;letter-spacing:-.02em;margin:0;line-height:1.1}
+.sheet .sub{font-size:15px;color:#4A524D;margin-top:8px}
+.sheet h2{font-size:19px;font-weight:500;margin:36px 0 14px;letter-spacing:-.01em;line-height:1.3}
+.redrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.big{border-radius:24px;padding:22px;min-height:196px;color:#fff;display:flex;flex-direction:column;gap:4px}
+.big b{font-size:19px;font-weight:500}.big span{font-family:ui-monospace,monospace;font-size:14px}.big i{font-style:normal;font-size:13px;line-height:1.45;margin-top:auto}
+.scale{display:grid;grid-template-columns:repeat(11,1fr);gap:6px;margin-top:14px}
+.sw{border-radius:14px;height:66px;padding:9px;display:flex;flex-direction:column;justify-content:flex-end;font-size:11px;border:1px solid rgba(0,0,0,.06)}.sw b{font-size:12px}.sw span{font-family:ui-monospace,monospace;font-size:10.5px}
+.note2{font-size:13.5px;line-height:1.5;color:#4A524D;margin-top:12px;max-width:1120px}
+.tints{display:grid;gap:14px}
+.tcol,.bcol{border-radius:26px;padding:20px 22px 24px}.tcol.light,.bcol.light{box-shadow:inset 0 0 0 1px #E3E7E4}
+.th,.bh{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--ink3);margin-bottom:14px}
+.trow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.tsw.g{min-height:150px;padding:18px;border-radius:24px;justify-content:flex-end}.tsw b{font-size:16px;font-weight:500}.tsw span{font-size:12px;color:var(--ink2);margin-top:4px}
+.brow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bgrid{display:grid;grid-template-columns:1fr;gap:16px}
+.bcell{display:grid;grid-template-columns:170px 198px 1fr;gap:14px;align-items:center}
+.bcell small{font-size:12.5px;line-height:1.4;color:var(--ink2)}.bcell small b{display:block;color:var(--ink);font-weight:600;font-size:13px}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 22px;border-radius:999px;font-size:14.5px;font-weight:500;white-space:nowrap;justify-self:start}
+.gl.g{min-height:0;padding:12px 14px;border-radius:22px;display:inline-flex;justify-self:start}
+.bt.grad{background:linear-gradient(100deg,#13FC4A 0%,#00C02E 9%,#1F5E4E 24%,#0C2822 62%,#000 100%);color:#fff;padding-left:6px;box-shadow:var(--grad-shadow)}
+.bt.grad i{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:#04240F}
+.dark{--grad-shadow:inset 0 0 0 1px rgba(255,255,255,.24),0 10px 26px -10px rgba(19,252,74,.40)}.light{--grad-shadow:0 12px 26px -12px rgba(12,40,34,.60)}
+</style></head><body>
+<section id="dark" class="page dark"><div class="modecap">Dark · the canvas is #000000 and nothing else · the colour lives in the glass</div>
+<header class="head">
+ <div><span class="tag ring"><b>ThinkLatent</b><i></i><span>Portal</span></span>
+ <h1>Everything running<br><span class="fade">across the Enterprise.</span></h1></div>
+ <div class="lead"><p>8 models are live today on 212k requests, 6% more than yesterday. Two features are under their threshold.</p>
+ <div class="btns"><span class="btn pri">Start a project</span><span class="btn sec ring">Try a model <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+</header>
+<div class="grid">
+
+<article class="g green">
+ <span class="no">1 · Tinted glass, capsule rows</span>
+ <h2>The models carrying<br>today's work.</h2>
+ <p class="b">Calls today, by model. A row opens the model's page.</p>
+ <div class="rows">
+  <div class="row on ring"><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span><span class="rt"><b>8 models live</b><span>TLM1 4 · TLM3 1 · TLM4 3</span></span><span class="mini">Catalogue <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+  <div class="row ring"><span class="ri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 10v4"/></svg></span><span class="rt"><b>Speech recognition</b><span><em>154k</em> calls</span></span><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span></div><div class="row ring"><span class="ri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.500-7-10V6z"/></svg></span><span class="rt"><b>Redaction</b><span><em>154k</em> calls</span></span><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span></div><div class="row ring"><span class="ri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-5 4v-4H4z"/></svg></span><span class="rt"><b>Domain-Advice v2</b><span><em>31k</em> calls</span></span><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span></div><div class="row ring"><span class="ri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"/></svg></span><span class="rt"><b>Distil 4.2</b><span><em>19k</em> calls</span></span><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span></div>
+ </div>
+</article>
+
+<article class="g neutral">
+ <span class="no">2 · Quiet glass, pills and value chips</span>
+ <h2>Why Claims triage is<br>under its threshold.</h2>
+ <p class="b">Finding F-0425, as the Index agent reads it. Colour marks only the exception.</p>
+ <div class="map">
+  <div class="cols"><span><i class="d0"></i>Claims triage</span><span><i class="d1"></i>Causes, by share</span></div>
+  <div class="mapgrid">
+   <svg class="wires" viewBox="0 0 46 194" aria-hidden="true"><path d="M4,97 C26,97 22,27 44,27"/><path d="M4,97 L44,97"/><path d="M4,97 C26,97 22,167 44,167"/><circle cx="4" cy="97" r="3.4"/><circle cx="44" cy="27" r="2.4"/><circle cx="44" cy="97" r="2.4"/><circle cx="44" cy="167" r="2.4"/></svg>
+   <div class="dst"><div class="node ring"><span>More than one injury</span><span class="chip warn">▲ About half</span></div><div class="node ring"><span>New claim form, 20 Oct</span><span class="chip">A third</span></div><div class="node ring"><span>Not explained</span><span class="chip">The rest</span></div></div>
+  </div>
+ </div>
+ <div class="foot"><span><em>74% ± 4</em> · expects 80%</span><span class="lnk">Open Claims intake <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</article>
+
+<article class="g frost">
+ <span class="no">3 · Frost glass, a card inside a card</span>
+ <h2>Pick up where<br>you left off.</h2>
+ <p class="b">Increment 5 of your project is waiting on its evidence.</p>
+ <div class="inset ring">
+  <div class="il"><div class="nm">Advisor<br>desktop</div><div class="meta">Production<br>Advice Tech</div><div class="of"><b>2</b><sup>of 5 ready</sup></div></div>
+  <div class="ir"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg>3 features</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg>5 models</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg>2 increments</span></div>
+ </div>
+ <div class="center"><span class="btn pri sm">Prepare the evidence <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</article>
+
+<article class="g deep wide">
+ <div class="left">
+  <span class="no">4 · Deep glass, a number and a chart</span>
+  <h2>Running today.</h2>
+  <p class="b">Speech recognition carries most of it: 1.9B of the tokens in.</p>
+  <div class="hero"><b>2.3</b><span>Billion</span></div>
+  <div class="cap1">tokens in today</div>
+  <div class="two"><div><b>208M</b><span>tokens out</span></div><div><b>212k</b><span>requests</span></div></div>
+  <div class="tabs"><span>TLM1 · 4</span><span>TLM3 · 1</span><span>TLM4 · 3</span></div>
+ </div>
+ <div class="panel ring">
+  <div class="ph"><b>Speech recognition</b><span>Thu 5 Nov</span></div>
+  <div class="pl">Calls per hour</div>
+  <div class="plot"><svg viewBox="0 0 380 250" class="chart" role="img" aria-label="Speech recognition, calls per hour today: 10.4k at 7, rising to 40.7k between 10 and 11, 38.3k so far in the hour from 11; expected to fall to 4.5k by 18. Capacity 55k an hour.">
+<defs><linearGradient id="ar-d" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--area0)"/><stop offset="1" stop-color="var(--area0)" stop-opacity="0"/></linearGradient>
+<radialGradient id="halo-d"><stop offset="0" stop-color="var(--dot)" stop-opacity=".55"/><stop offset="1" stop-color="var(--dot)" stop-opacity="0"/></radialGradient></defs>
+<text x="376" y="216.0" text-anchor="end">0</text><line x1="6" x2="340" y1="212.0" y2="212.0" class="grid"/><text x="376" y="149.8" text-anchor="end">20k</text><line x1="6" x2="340" y1="145.8" y2="145.8" class="grid"/><text x="376" y="83.6" text-anchor="end">40k</text><line x1="6" x2="340" y1="79.6" y2="79.6" class="grid"/><line x1="6" x2="340" y1="30.0" y2="30.0" class="cap"/><text x="376" y="34.0" text-anchor="end">55k</text>
+<path d="M6.0,177.6 C10.8,168.0 25.4,134.6 35.1,120.0 C44.8,105.4 54.5,97.3 64.2,90.2 C73.9,83.1 83.6,78.1 93.3,77.3 C103.0,76.5 117.5,83.9 122.4,85.3 L122.4,212 L6.0,212 Z" fill="url(#ar-d)"/><path d="M122.4,85.3 C127.2,91.6 141.8,118.1 151.5,123.3 C161.2,128.6 170.8,120.0 180.5,116.7 C190.2,113.4 199.9,104.3 209.6,103.5 C219.3,102.6 229.0,107.0 238.7,111.7 C248.4,116.4 258.1,122.8 267.8,131.6 C277.5,140.4 287.2,153.4 296.9,164.3 C306.6,175.3 321.2,191.6 326.0,197.1" class="plan"/><path d="M6.0,177.6 C10.8,168.0 25.4,134.6 35.1,120.0 C44.8,105.4 54.5,97.3 64.2,90.2 C73.9,83.1 83.6,78.1 93.3,77.3 C103.0,76.5 117.5,83.9 122.4,85.3" class="line"/>
+<circle cx="122.4" cy="85.3" r="15" fill="url(#halo-d)"/><circle cx="122.4" cy="85.3" r="4.5" class="pt"/>
+<text x="6.0" y="238" text-anchor="middle">07</text><text x="64.2" y="238" text-anchor="middle">09</text><text x="122.4" y="238" text-anchor="middle">11</text><text x="180.5" y="238" text-anchor="middle">13</text><text x="238.7" y="238" text-anchor="middle">15</text><text x="296.9" y="238" text-anchor="middle">17</text></svg><span class="note ring" style="left:28.8%;top:20.6%">Busiest <b>40.7k</b> · 10 to 11</span></div>
+  <div class="pf"><span><i class="l1"></i>So far</span><span><i class="l2"></i>Expected</span><span class="r">Capacity <b>55k</b> / hr</span></div>
+ </div>
+</article>
+
+<article class="g deep">
+ <span class="no">5 · Tinted tiles around one light</span>
+ <h2>Four generations,<br>one catalogue.</h2>
+ <p class="b">8 models are live. TLM5 is in development.</p>
+ <div class="tiles">
+  <div class="tile t1 ring"><b>4</b><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span><span class="tl"><strong>TLM1</strong>live models</span></div>
+  <div class="tile t2 ring"><b>1</b><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span><span class="tl"><strong>TLM3</strong>live model</span></div>
+  <div class="tile t3 ring"><b>3</b><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span><span class="tl"><strong>TLM4</strong>live models</span></div>
+  <div class="tile t4 ring"><b>0</b><span class="ck hollow"></span><span class="tl"><strong>TLM5</strong>in development</span></div>
+  <div class="medal ring"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg><em>8 live</em></span></div>
+ </div>
+</article>
+</div></section>
+<section id="light" class="page light"><div class="modecap">Light · canvas #F7F8F7 · the same cards as frosted white with a green and teal light</div>
+<header class="head">
+ <div><span class="tag ring"><b>ThinkLatent</b><i></i><span>Portal</span></span>
+ <h1>Everything running<br><span class="fade">across the Enterprise.</span></h1></div>
+ <div class="lead"><p>8 models are live today on 212k requests, 6% more than yesterday. Two features are under their threshold.</p>
+ <div class="btns"><span class="btn pri">Start a project</span><span class="btn sec ring">Try a model <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
+</header>
+<div class="grid">
+
+<article class="g green">
+ <span class="no">1 · Tinted glass, capsule rows</span>
+ <h2>The models carrying<br>today's work.</h2>
+ <p class="b">Calls today, by model. A row opens the model's page.</p>
+ <div class="rows">
+  <div class="row on ring"><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span><span class="rt"><b>8 models live</b><span>TLM1 4 · TLM3 1 · TLM4 3</span></span><span class="mini">Catalogue <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+  <div class="row ring"><span class="ri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 10v4"/></svg></span><span class="rt"><b>Speech recognition</b><span><em>154k</em> calls</span></span><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span></div><div class="row ring"><span class="ri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.500-7-10V6z"/></svg></span><span class="rt"><b>Redaction</b><span><em>154k</em> calls</span></span><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span></div><div class="row ring"><span class="ri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-5 4v-4H4z"/></svg></span><span class="rt"><b>Domain-Advice v2</b><span><em>31k</em> calls</span></span><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span></div><div class="row ring"><span class="ri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"/></svg></span><span class="rt"><b>Distil 4.2</b><span><em>19k</em> calls</span></span><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span></div>
+ </div>
+</article>
+
+<article class="g neutral">
+ <span class="no">2 · Quiet glass, pills and value chips</span>
+ <h2>Why Claims triage is<br>under its threshold.</h2>
+ <p class="b">Finding F-0425, as the Index agent reads it. Colour marks only the exception.</p>
+ <div class="map">
+  <div class="cols"><span><i class="d0"></i>Claims triage</span><span><i class="d1"></i>Causes, by share</span></div>
+  <div class="mapgrid">
+   <svg class="wires" viewBox="0 0 46 194" aria-hidden="true"><path d="M4,97 C26,97 22,27 44,27"/><path d="M4,97 L44,97"/><path d="M4,97 C26,97 22,167 44,167"/><circle cx="4" cy="97" r="3.4"/><circle cx="44" cy="27" r="2.4"/><circle cx="44" cy="97" r="2.4"/><circle cx="44" cy="167" r="2.4"/></svg>
+   <div class="dst"><div class="node ring"><span>More than one injury</span><span class="chip warn">▲ About half</span></div><div class="node ring"><span>New claim form, 20 Oct</span><span class="chip">A third</span></div><div class="node ring"><span>Not explained</span><span class="chip">The rest</span></div></div>
+  </div>
+ </div>
+ <div class="foot"><span><em>74% ± 4</em> · expects 80%</span><span class="lnk">Open Claims intake <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</article>
+
+<article class="g frost">
+ <span class="no">3 · Frost glass, a card inside a card</span>
+ <h2>Pick up where<br>you left off.</h2>
+ <p class="b">Increment 5 of your project is waiting on its evidence.</p>
+ <div class="inset ring">
+  <div class="il"><div class="nm">Advisor<br>desktop</div><div class="meta">Production<br>Advice Tech</div><div class="of"><b>2</b><sup>of 5 ready</sup></div></div>
+  <div class="ir"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg>3 features</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg>5 models</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg>2 increments</span></div>
+ </div>
+ <div class="center"><span class="btn pri sm">Prepare the evidence <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</article>
+
+<article class="g deep wide">
+ <div class="left">
+  <span class="no">4 · Deep glass, a number and a chart</span>
+  <h2>Running today.</h2>
+  <p class="b">Speech recognition carries most of it: 1.9B of the tokens in.</p>
+  <div class="hero"><b>2.3</b><span>Billion</span></div>
+  <div class="cap1">tokens in today</div>
+  <div class="two"><div><b>208M</b><span>tokens out</span></div><div><b>212k</b><span>requests</span></div></div>
+  <div class="tabs"><span>TLM1 · 4</span><span>TLM3 · 1</span><span>TLM4 · 3</span></div>
+ </div>
+ <div class="panel ring">
+  <div class="ph"><b>Speech recognition</b><span>Thu 5 Nov</span></div>
+  <div class="pl">Calls per hour</div>
+  <div class="plot"><svg viewBox="0 0 380 250" class="chart" role="img" aria-label="Speech recognition, calls per hour today: 10.4k at 7, rising to 40.7k between 10 and 11, 38.3k so far in the hour from 11; expected to fall to 4.5k by 18. Capacity 55k an hour.">
+<defs><linearGradient id="ar-l" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--area0)"/><stop offset="1" stop-color="var(--area0)" stop-opacity="0"/></linearGradient>
+<radialGradient id="halo-l"><stop offset="0" stop-color="var(--dot)" stop-opacity=".55"/><stop offset="1" stop-color="var(--dot)" stop-opacity="0"/></radialGradient></defs>
+<text x="376" y="216.0" text-anchor="end">0</text><line x1="6" x2="340" y1="212.0" y2="212.0" class="grid"/><text x="376" y="149.8" text-anchor="end">20k</text><line x1="6" x2="340" y1="145.8" y2="145.8" class="grid"/><text x="376" y="83.6" text-anchor="end">40k</text><line x1="6" x2="340" y1="79.6" y2="79.6" class="grid"/><line x1="6" x2="340" y1="30.0" y2="30.0" class="cap"/><text x="376" y="34.0" text-anchor="end">55k</text>
+<path d="M6.0,177.6 C10.8,168.0 25.4,134.6 35.1,120.0 C44.8,105.4 54.5,97.3 64.2,90.2 C73.9,83.1 83.6,78.1 93.3,77.3 C103.0,76.5 117.5,83.9 122.4,85.3 L122.4,212 L6.0,212 Z" fill="url(#ar-l)"/><path d="M122.4,85.3 C127.2,91.6 141.8,118.1 151.5,123.3 C161.2,128.6 170.8,120.0 180.5,116.7 C190.2,113.4 199.9,104.3 209.6,103.5 C219.3,102.6 229.0,107.0 238.7,111.7 C248.4,116.4 258.1,122.8 267.8,131.6 C277.5,140.4 287.2,153.4 296.9,164.3 C306.6,175.3 321.2,191.6 326.0,197.1" class="plan"/><path d="M6.0,177.6 C10.8,168.0 25.4,134.6 35.1,120.0 C44.8,105.4 54.5,97.3 64.2,90.2 C73.9,83.1 83.6,78.1 93.3,77.3 C103.0,76.5 117.5,83.9 122.4,85.3" class="line"/>
+<circle cx="122.4" cy="85.3" r="15" fill="url(#halo-l)"/><circle cx="122.4" cy="85.3" r="4.5" class="pt"/>
+<text x="6.0" y="238" text-anchor="middle">07</text><text x="64.2" y="238" text-anchor="middle">09</text><text x="122.4" y="238" text-anchor="middle">11</text><text x="180.5" y="238" text-anchor="middle">13</text><text x="238.7" y="238" text-anchor="middle">15</text><text x="296.9" y="238" text-anchor="middle">17</text></svg><span class="note ring" style="left:28.8%;top:20.6%">Busiest <b>40.7k</b> · 10 to 11</span></div>
+  <div class="pf"><span><i class="l1"></i>So far</span><span><i class="l2"></i>Expected</span><span class="r">Capacity <b>55k</b> / hr</span></div>
+ </div>
+</article>
+
+<article class="g deep">
+ <span class="no">5 · Tinted tiles around one light</span>
+ <h2>Four generations,<br>one catalogue.</h2>
+ <p class="b">8 models are live. TLM5 is in development.</p>
+ <div class="tiles">
+  <div class="tile t1 ring"><b>4</b><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span><span class="tl"><strong>TLM1</strong>live models</span></div>
+  <div class="tile t2 ring"><b>1</b><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span><span class="tl"><strong>TLM3</strong>live model</span></div>
+  <div class="tile t3 ring"><b>3</b><span class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg></span><span class="tl"><strong>TLM4</strong>live models</span></div>
+  <div class="tile t4 ring"><b>0</b><span class="ck hollow"></span><span class="tl"><strong>TLM5</strong>in development</span></div>
+  <div class="medal ring"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.200 4.200L19 7"/></svg><em>8 live</em></span></div>
+ </div>
+</article>
+</div></section>
+<section id="palette" class="sheet">
+<h1>Colour v5, proposed</h1>
+<p class="sub">Three changes you asked for on 23 Nov, drawn before anything in the design kit changes.</p>
+
+<h2>1 · The Enterprise red</h2>
+<div class="redrow">
+ <div class="big" style="background:#B2242F"><b>In the kit today</b><span>#B2242F</span><i>The screenshot's stored numbers, read without converting its colour space. Duller and browner than your screen showed.</i></div>
+ <div class="big" style="background:#C20028"><b>The red you showed me</b><span>#C20028</span><i>The same pixels converted from the iPad's Display P3 to the web's sRGB. White text on it 6.3:1.</i></div>
+ <div class="big" style="background:#95141D"><b>The wordmark's ink</b><span>#95141D</span><i>The darker red of the name on the same page. Proposed as step 800.</i></div>
+</div>
+<div class="scale"><div class="sw" style="background:#FEF4F4;color:#0B0F0C"><b>50</b><span>#FEF4F4</span></div><div class="sw" style="background:#FCE6E4;color:#0B0F0C"><b>100</b><span>#FCE6E4</span></div><div class="sw" style="background:#F7C8C5;color:#0B0F0C"><b>200</b><span>#F7C8C5</span></div><div class="sw" style="background:#EEA29E;color:#0B0F0C"><b>300</b><span>#EEA29E</span></div><div class="sw" style="background:#E07370;color:#0B0F0C"><b>400</b><span>#E07370</span></div><div class="sw" style="background:#CF4147;color:#FFFFFF"><b>500</b><span>#CF4147</span></div><div class="sw" style="background:#C20028;color:#FFFFFF"><b>600</b><span>#C20028</span></div><div class="sw" style="background:#A90E22;color:#FFFFFF"><b>700</b><span>#A90E22</span></div><div class="sw" style="background:#95141D;color:#FFFFFF"><b>800</b><span>#95141D</span></div><div class="sw" style="background:#53070C;color:#FFFFFF"><b>900</b><span>#53070C</span></div><div class="sw" style="background:#230102;color:#FFFFFF"><b>950</b><span>#230102</span></div></div>
+<p class="note2">New scale built around the measured red: 600 is the site's red, 800 the wordmark's ink. On black the red fill reads at 3.3:1, enough for a mark or a button; red text on black needs step 400 (#E07370, 6.9:1).</p>
+
+<h2>2 · Dark canvas and the glass tints</h2>
+<div class="tints">
+ <div class="tcol dark"><div class="th">Dark · canvas #000000, nothing behind the cards</div><div class="trow">
+  <div class="tsw g green"><b>Green</b><span>#1C2B24 to #203A2E, lit from the left</span></div><div class="tsw g teal"><b>Teal</b><span>#1B2C2C to #1F3A3A</span></div><div class="tsw g slate"><b>Slate blue</b><span>#1A2329 to #22303B</span></div><div class="tsw g frost"><b>Frost</b><span>#3E4943 to #1C2321</span></div><div class="tsw g deep"><b>Deep</b><span>#141B18 to #090D0C</span></div></div></div>
+ <div class="tcol light"><div class="th">Light · canvas #F7F8F7</div><div class="trow">
+  <div class="tsw g green"><b>Green</b><span>#EAF5EF with a green light</span></div><div class="tsw g teal"><b>Teal</b><span>#E8F4F3 with a teal light</span></div><div class="tsw g slate"><b>Slate blue</b><span>#EAF0F4 with a slate light</span></div><div class="tsw g frost"><b>Frost</b><span>#E3EAE6 to #D9E2DD</span></div><div class="tsw g deep"><b>Deep</b><span>#FFFFFF to #EDF2EF</span></div></div></div>
+</div>
+<p class="note2">The greens and the blue are measured from your reference (green around #2A4C3C, teal #354949, blue #405364) and sit inside the kit's forest and slate families. Every card gets a lit rim, one soft light inside it and a fine grain. On black there is nothing to blur, so the colour lives inside the card.</p>
+
+<h2>3 · Buttons: the four you named</h2>
+<div class="brow"><div class="bcol light"><div class="bh">Light · on the canvas, then on green glass</div><div class="bgrid"><div class="bcell"><span class="bt" style="background:#0B0F0C;color:#FFFFFF">Start a project</span><span class="gl g green"><span class="bt" style="background:#0B0F0C;color:#FFFFFF">Start a project</span></span><small><b>Black</b>Label 19.3:1. The reference uses this one.</small></div><div class="bcell"><span class="bt" style="background:#C20028;color:#FFFFFF">Start a project</span><span class="gl g green"><span class="bt" style="background:#C20028;color:#FFFFFF">Start a project</span></span><small><b>The Enterprise red</b>Label 6.3:1. Reads as danger to many people.</small></div><div class="bcell"><span class="bt" style="background:#152330;color:#FFFFFF">Start a project</span><span class="gl g green"><span class="bt" style="background:#152330;color:#FFFFFF">Start a project</span></span><small><b>Navy</b>Label 16.0:1. Calm, close to black in light.</small></div><div class="bcell"><span class="bt grad"><i><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>Start a project</span><span class="gl g green"><span class="bt grad"><i><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>Start a project</span></span><small><b>Banner gradient</b>Label 7.6:1 on its dark part. For one hero action a page.</small></div></div></div><div class="bcol dark"><div class="bh">Dark · on the canvas, then on green glass</div><div class="bgrid"><div class="bcell"><span class="bt" style="background:#F2F5F3;color:#0B0F0C">Start a project</span><span class="gl g green"><span class="bt" style="background:#F2F5F3;color:#0B0F0C">Start a project</span></span><small><b>Black, which turns white</b>Label 17.6:1. The reference uses this one.</small></div><div class="bcell"><span class="bt" style="background:#C20028;color:#FFFFFF">Start a project</span><span class="gl g green"><span class="bt" style="background:#C20028;color:#FFFFFF">Start a project</span></span><small><b>The Enterprise red</b>Label 6.3:1. Reads as danger to many people.</small></div><div class="bcell"><span class="bt" style="background:#9DB0BB;color:#06131B">Start a project</span><span class="gl g green"><span class="bt" style="background:#9DB0BB;color:#06131B">Start a project</span></span><small><b>Navy, which turns pale slate</b>Label 8.4:1. Calm, close to black in light.</small></div><div class="bcell"><span class="bt grad"><i><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>Start a project</span><span class="gl g green"><span class="bt grad"><i><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>Start a project</span></span><small><b>Banner gradient</b>Label 7.6:1 on its dark part. For one hero action a page.</small></div></div></div></div>
+<p class="note2">Each is shown on the canvas and on green glass. Black cannot show on a black canvas and navy cannot either, so in dark they turn white and pale slate. The gradient's bright end fails with any label on it, so it carries the icon and the label sits on the dark part.</p>
+</section>
+</body></html>
