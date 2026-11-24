@@ -20,7 +20,7 @@ standard: "pre-v1"
 last_touched: 2026-11-23
 sensitivity: none
 critique_recorded: true
-next_step: "Jithin looks at the side menu and the new colours on the demo and merges #60 (0.28.0), then makes the tags v0.21.0 to v0.28.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea, 110ad54, then #60's). The tab groups in Projects (Overview, Plan or Build, Decide) are the lead's choice and are his to change"
+next_step: "Jithin makes the tags v0.21.0 to v0.28.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea, 110ad54, 5044c77). The tab groups in Projects (Overview, Plan or Build, Decide) are the lead's choice and are his to change"
 next_step_due: "2026-11-25"
 ---
 
@@ -33,7 +33,7 @@ next_step_due: "2026-11-25"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Jithin looks at the side menu and the new colours on the demo and merges #60 (0.28.0), then makes the tags v0.21.0 to v0.28.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea, 110ad54, then #60's). The tab groups in Projects (Overview, Plan or Build, Decide) are the lead's choice and are his to change (due 2026-11-25)
+Next step: Jithin makes the tags v0.21.0 to v0.28.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea, 110ad54, 5044c77). The tab groups in Projects (Overview, Plan or Build, Decide) are the lead's choice and are his to change (due 2026-11-25)
 
 Production surface: not named (reads as an H3 experiment).
 
