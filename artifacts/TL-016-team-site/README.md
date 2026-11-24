@@ -44,6 +44,7 @@ The ThinkLatent team site, designed in the Idea Lab and built by hand in the Ent
 | Path | What it is |
 | --- | --- |
 | `theme-pack/` | The materials SharePoint takes: colours, background images, the logo, pictures for posts, cards and heroes, Mandate drawings, lists, column format, custom.css |
+| `theme-pack/images/` | Every picture and logo file to reuse, full size and as light WebP, with a gallery GitHub shows as a page: [theme-pack/images/README.md](theme-pack/images/README.md) |
 | `docs/page-copy.md` | Every word of every page and template, in SharePoint section and web part order ([live doc](https://claude.ai/artifact/SYuzrTCs1uxD9f5b3H9Ru5)) |
 | `docs/sharepoint-build-guide.md` | The build in ten steps ([live doc](https://claude.ai/artifact/8aaC53w8XNkk4UVcoErQMr)) |
 | `docs/launch-brackets.md` | The 171 values only the Enterprise holds, grouped by the system they come from ([live doc](https://claude.ai/artifact/38RGiipB795FZiQZCkzwAu)) |

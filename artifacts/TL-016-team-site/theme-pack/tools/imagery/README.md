@@ -7,6 +7,7 @@ Draws every picture in `images/` (and, given the design kit's marks, the files i
 | `brand.py` | The kit's colours (colour v5) and the marks' shapes: lobes cut flat at a straight split, sparks with a dark body, emerald upper strokes and white lower strokes |
 | `imagery.py` | The 26 post thumbnails (1600 × 900) and the six product tiles (1600 × 1200), with their SVG sources in `images/src` |
 | `imagery2.py` | The three hero variants (2880 × 1200), the five patterns (240 px tiles and 2880 × 1200), and the logo files when `TL_KIT_MARKS` is set |
+| `web.py` | The lighter WebP renditions in `images/web`, from the PNGs |
 
 ## Run it
 
@@ -16,6 +17,7 @@ Needs Python 3 with numpy and Pillow, and `rsvg-convert` (librsvg: `brew install
 python3 imagery.py                   # thumbnails and tiles into ../../images
 python3 imagery2.py                  # heroes and patterns into ../../images
 TL_KIT_MARKS=<design-kit>/design/marks/out python3 imagery2.py   # also rebuilds ../../logo
+python3 web.py                       # the WebP renditions in ../../images/web, after the two above
 TL_IMAGERY_OUT=/tmp/try python3 imagery.py                       # write somewhere else to compare first
 ```
 
