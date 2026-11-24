@@ -1,6 +1,6 @@
 # The portal build
 
-Live: https://claude.ai/artifact/XxhCieUgDt6CCiMtxbs2Z9 (private), version 1795498543-1111. Source: thinklatent-labs/portal, `apps/portal`, branch `main`, commit 861151b3; `pnpm build` writes `apps/portal/dist/index.html`. To run it: Node 22 and pnpm, then `pnpm install` and `pnpm dev`.
+Live: https://claude.ai/artifact/XxhCieUgDt6CCiMtxbs2Z9 (private), version 1795500586-9d85. Source: thinklatent-labs/portal, `apps/portal`, branch `main`, commit e929cc02; `pnpm build` writes `apps/portal/dist/index.html`. To run it: Node 22 and pnpm, then `pnpm install` and `pnpm dev`.
 
 Build of 14 Nov (D-327, D-328): build 1 of nine began. The old prototype's pages and sample data were deleted. Built: the sample world of the approved boards (as of Thu 5 Nov, 11:58 ET), the shell (find, go or ask; meetings; Try TLM; the inbox bell; density; Engineering view; the dock ending with You; light or dark from the device) and Home. Every other page says which build makes it. The plan is `build-plan-2026-11-14.md` beside this file.
 
