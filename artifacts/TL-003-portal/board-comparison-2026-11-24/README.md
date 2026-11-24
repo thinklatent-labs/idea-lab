@@ -32,3 +32,21 @@ Each board's named sections (its aria-labels, 959 across 119 boards) looked for 
 
 Still not done: looking at each screen beside its board's picture. Neither pass can say that a layout matches.
 `sections.json` holds the result per board.
+
+## Third pass, by eye (started 23 Nov)
+
+All 119 boards are rendered beside their best-matching screen at 1,440 and published as a private page for Jithin:
+https://claude.ai/artifact/CSyz2hooe7w25etje1NxaU (slug 5cb53c98-05ef-474a-a360-25d8c5309eb9, from portal main 4236a98c).
+
+Looked at so far by Claude, at the level of sections and their order (13 of 119): Try-Chat, Try-Agents, Try-Files, Try-Memory,
+Try-Schedules, Try-Settings, Try-Admin, Try-Sessions, Try-Agent (Try-Skills, Try-Connectors, Try-Folders and Try-Prompts are rendered,
+not yet read), Home-Cockpit, Project-Page, Model-Page, Index-Language.
+
+Differences seen:
+1. Every tabbed page: the tab row shows the tabs of one group, not all of them (by decision, D-474).
+2. Try TLM boards draw each state as a numbered part down the page; the screens show the standing parts, and the states sit behind
+   their button, menu or address. Not a gap by itself, but each state has not been opened and compared.
+3. Project-Page: the screen puts 'Needs a decision' and the readiness summary above the tiles; the board starts with the tiles.
+4. Home-Cockpit: the screen has a 'Start here' strip the board does not, one dark tile in 'Running now' where the board's five are
+   alike, and money figures where the board prints placeholders.
+5. Try-Settings: no difference after all; the board's top card holds the same three columns.
