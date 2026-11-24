@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-23T19:11:45-05:00",
+  "asOf": "2026-11-23T19:18:12-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 640,
+    "registerRev": 641,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -13688,6 +13688,20 @@
       "id": "D-474",
       "by": "Jithin",
       "decision": "TL-003 portal (the portal app): Jithin, 23 Nov, approved the system-wide change and the proposed tab groups ('looks good, let's get things done end to end'). Done, on the portal's main (1b05ee8b): the two-level side menu, no section bar and the flat quiet glass on every page (D-473), and the tabs of four pages sorted into groups that the menu lists under the page's area, the page showing only the tabs of the group it is in. A project: Overview (Overview, Plan, Members), Build (Features, Connect, Increments), Run (Traces, Operations, Quality, Self-healing and training). A model: About (Overview, Card, Built from, Versions), In use (Usage, Adoption, Cost avoided), Quality (TL Index, Improvement, Training). A feature: Overview (Overview, Settings), Build (Models and flow, Prompts, Increments), Quality (Quality and thresholds, Evaluation set, Feedback). Try TLM: Chat (Chat, Folders, Files), Agents (Agents, Skills, Schedules, Connectors), Yours (Prompts, Memory). No tab is removed and every tab keeps its address. My work and Requests are left as they are. Green cards mark what needs the reader on two more pages (a project's 'Needs a decision' when it has rows; My work's 'Since you were last here'). Known gaps: with the menu closed a page does not say that other groups exist; the other pages have no green or teal card chosen yet; the features register (docs/features) is not yet updated for the section bar's removal; two backend tests (services/api work-rls) fail as before."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-003",
+      "date": "2026-11-23",
+      "door": "two-way",
+      "id": "D-475",
+      "by": "Claude",
+      "decision": "TL-003 portal (the portal app): a check of the build and the backlog, asked by Jithin on 23 Nov, on the portal's main (53c68a36). Working: 24 pages open with the menu and no error; all 19 tabs of a project and a model open by their address; the menu's groups switch a project's tabs; a tab inside a group switches; the menu opens on keyboard focus; a phone keeps its strip and now has the groups as a row of links (added in this check, since a phone has no side menu). The features register (762 rows, by pnpm coverage): Built 214, Partly 400, Out by decision 87, Later 40, Not a screen 9, Moved 7, Not built 3, Open decision 2. Of the Partly rows, by a keyword reading of their notes: about 283 lack a smaller piece, about 73 need the real environment or a live system, about 43 wait for a later build or an undrawn board. Still open from the 17 Nov triage: eight rows to build from the nearest board and three to draw first. Not re-done: the 87 boards were not compared with their screens again after today's changes, which depart from the boards on purpose in three ways (the side menu for the dock, no section bar, grouped tabs). Not done: the private build page on claude.ai is not republished. Two backend tests (services/api work-rls) fail as before."
     }
   ],
   "syncLog": [
