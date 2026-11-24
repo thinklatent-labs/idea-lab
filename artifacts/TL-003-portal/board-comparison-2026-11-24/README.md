@@ -33,20 +33,30 @@ Each board's named sections (its aria-labels, 959 across 119 boards) looked for 
 Still not done: looking at each screen beside its board's picture. Neither pass can say that a layout matches.
 `sections.json` holds the result per board.
 
-## Third pass, by eye (started 23 Nov)
+## Third pass, by eye (23 Nov, all 119 read)
 
 All 119 boards are rendered beside their best-matching screen at 1,440 and published as a private page for Jithin:
-https://claude.ai/artifact/CSyz2hooe7w25etje1NxaU (slug 5cb53c98-05ef-474a-a360-25d8c5309eb9, from portal main 4236a98c).
+https://claude.ai/artifact/CSyz2hooe7w25etje1NxaU (slug 5cb53c98-05ef-474a-a360-25d8c5309eb9; pictures from portal main 4236a98c).
+Claude read every pair at reduced size, at the level of sections and their order. Spacing, type and fine detail were not judged.
 
-Looked at so far by Claude, at the level of sections and their order (13 of 119): Try-Chat, Try-Agents, Try-Files, Try-Memory,
-Try-Schedules, Try-Settings, Try-Admin, Try-Sessions, Try-Agent (Try-Skills, Try-Connectors, Try-Folders and Try-Prompts are rendered,
-not yet read), Home-Cockpit, Project-Page, Model-Page, Index-Language.
+Result: no board has a section missing from its screen. Many screens carry more than their board (sections added by later decisions).
 
-Differences seen:
-1. Every tabbed page: the tab row shows the tabs of one group, not all of them (by decision, D-474).
-2. Try TLM boards draw each state as a numbered part down the page; the screens show the standing parts, and the states sit behind
-   their button, menu or address. Not a gap by itself, but each state has not been opened and compared.
-3. Project-Page: the screen puts 'Needs a decision' and the readiness summary above the tiles; the board starts with the tiles.
-4. Home-Cockpit: the screen has a 'Start here' strip the board does not, one dark tile in 'Running now' where the board's five are
-   alike, and money figures where the board prints placeholders.
-5. Try-Settings: no difference after all; the board's top card holds the same three columns.
+Found and fixed (portal main 89d3abf0):
+1. Tab groups (D-474) were not applied on the project pages built on two other page frames (Increments, Members, Quality, Traces,
+   Self-healing, Topics, a rollout): they showed all ten tabs. Now grouped everywhere.
+2. Home: the 'Under its threshold' tile was dark; now quiet like the other four.
+
+Differences left for Jithin to rule on:
+3. Bright green in charts and in one selected row (TL Index pillar bars, Ask Jarvis's chart, the Engineering view's first chart, a model's
+   calls by hour, the prompt library's selected row), where the boards draw dark green.
+4. Project page: 'Needs a decision' and the readiness summary sit above the tiles; the board starts with the tiles.
+5. Home: a 'Start here' strip the board does not have; money figures where the board prints placeholders.
+6. Figures that differ from the boards' printed ones: Value (uses that needed no new model 7 of 17 against 5 of 15; time given back 128k
+   against 134k hours) and All projects (features with real traffic, in Production, under their threshold).
+7. Phone: board Try-Phone draws the icon rows at the top; since D-485 the build has one Menu button there.
+
+Not comparable as one page:
+8. 18 boards draw states one after another (16 Try TLM boards, Shell-Find, Shell-Settings): the standing parts match; each state behind a
+   button, menu or address was not opened and compared one by one.
+9. The three first-draft Playground boards have no screen of their own; the Try TLM boards replaced them.
+10. Training-Live is paired with another run than the board's example; the sections are the same.
