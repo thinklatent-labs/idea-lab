@@ -17,11 +17,11 @@ score: null
 score_status: none
 doc_url: null
 standard: "pre-v1"
-last_touched: 2026-11-19
+last_touched: 2026-11-23
 sensitivity: none
 critique_recorded: true
-next_step: "Jithin makes the tags v0.21.0 to v0.27.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea, 110ad54). Every board matches in layout; what remains is demo data (PORT-2's subtask count, a running loop)"
-next_step_due: "2026-11-20"
+next_step: "Jithin looks at the side menu and the new colours on the demo and merges #60 (0.28.0), then makes the tags v0.21.0 to v0.28.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea, 110ad54, then #60's). The tab groups in Projects (Overview, Plan or Build, Decide) are the lead's choice and are his to change"
+next_step_due: "2026-11-25"
 ---
 
 # Team hub: a Claude Code plugin plus an AWS service giving the team's sessions shared rules, memory, artifacts, presence and a message path
@@ -33,7 +33,7 @@ next_step_due: "2026-11-20"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Jithin makes the tags v0.21.0 to v0.27.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea, 110ad54). Every board matches in layout; what remains is demo data (PORT-2's subtask count, a running loop) (due 2026-11-20)
+Next step: Jithin looks at the side menu and the new colours on the demo and merges #60 (0.28.0), then makes the tags v0.21.0 to v0.28.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea, 110ad54, then #60's). The tab groups in Projects (Overview, Plan or Build, Decide) are the lead's choice and are his to change (due 2026-11-25)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -65,7 +65,7 @@ _None recorded._
 | Team hub (team-hub) - Critique pass, 2026-11-07 (second pass) | doc | [artifacts/TL-017-team-hub/critique-2026-11-07.md](../artifacts/TL-017-team-hub/critique-2026-11-07.md) |  | 2026-11-07 |
 | Team hub (team-hub) - Console build 5 (Cortex 0.17.0), 2026-11-16 | doc | [artifacts/TL-017-team-hub/console-build-5-2026-11-16.md](../artifacts/TL-017-team-hub/console-build-5-2026-11-16.md) |  | 2026-11-16 |
 | Team hub (team-hub) - Console build 6 (Cortex 0.18.0 and 0.19.0), 2026-11-16 | doc | [artifacts/TL-017-team-hub/console-build-6-2026-11-16.md](../artifacts/TL-017-team-hub/console-build-6-2026-11-16.md) |  | 2026-11-16 |
-| Cortex (TL-017): every requirement from the build session, and what is built | doc | [artifacts/TL-017-team-hub/requirements-2026-11-17.md](../artifacts/TL-017-team-hub/requirements-2026-11-17.md) | [claude.ai](https://claude.ai/artifact/3LwCJDi6sJHptQU8AdbePW) | 2026-11-19 |
+| Cortex (TL-017): every requirement from the build session, and what is built | doc | [artifacts/TL-017-team-hub/requirements-2026-11-17.md](../artifacts/TL-017-team-hub/requirements-2026-11-17.md) | [claude.ai](https://claude.ai/artifact/3LwCJDi6sJHptQU8AdbePW) | 2026-11-23 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |
@@ -105,6 +105,7 @@ _None recorded._
 | D-456 | 2026-11-18 | TL-017 team-hub: Jithin merged Cortex #57 (0.25.0, the demo as the design canvas draws it) into main on 18 November at 09:30 New York time; main is at 0.25.0. The tags v0.21.0 to v0.25.0 are his to make by hand at their merge commits (v0.25.0 at 7282e75), while CI cannot run (the organisation's Actions billing). | Jithin (sponsor) | accepted |
 | D-460 | 2026-11-18 | TL-017 team-hub: Jithin, 18 Nov: 'get S-34 to S-51 done', then 'let's finish this up'. 0.26.0 is open as #58 (not merged): every flow graph is drawn as columns that fit the page, as the boards draw them, and the Feedback rule row no longer squeezes; the live check heartbeats his PORT-2 session first. S-37 part 1 (bullet bars) and S-50 (focus room layout) still differ from their boards. The published demo is this build; the tag v0.26.0 is his to make after the merge. | Jithin | accepted |
 | D-461 | 2026-11-19 | TL-017 team-hub: Jithin, 19 Nov: 'finish it'. 0.27.0 is open as #59 (not merged) and closes the last board gaps: S-37 bullet bars, S-50 focus room grid, S-07 graph around the epic you are on, S-08 rows and Focus 90 min, S-10 session map and subtask title, S-24 rows. What still differs is demo data (PORT-2 has 7 subtasks, not the board's 10; no loop running). The published demo is this build; the tag v0.27.0 is his to make after the merge. | Jithin | accepted |
+| D-480 | 2026-11-23 | TL-017 team-hub: Jithin, 23 Nov: 'take latest design changes from portal and design kit' into the Cortex build. 0.28.0 is open as #60 (not merged): the kit pin moves to 7ab768c (v0.11.3, the portal's), the portal's two-level side menu replaces the dock on every page, Projects tabs are sorted into three groups per level, the in-page section bar is removed, and green cards mark where a page starts. The published demo is this build; the tag v0.28.0 is his to make after the merge. | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes
