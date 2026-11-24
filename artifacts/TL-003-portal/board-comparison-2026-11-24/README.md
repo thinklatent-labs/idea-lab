@@ -60,3 +60,19 @@ Not comparable as one page:
    button, menu or address was not opened and compared one by one.
 9. The three first-draft Playground boards have no screen of their own; the Try TLM boards replaced them.
 10. Training-Live is paired with another run than the board's example; the sections are the same.
+
+## Fourth pass: the state boards, state by state (started 24 Nov)
+
+Each state a board draws is opened on the running build (portal main e929cc02) and looked at beside the board's part.
+
+### Try-Artifact (6 parts): all present and working
+1. The pane beside the chat: opens from 'Open wider'; Preview and Code, the version stepper, Change by hand, Download, Its own window, Close; the table, bars and five-line note as drawn.
+2. Its code: the code block with Copy.
+3. Its versions: version 2 'Showing', version 1 with Read and Make it the newest. Read shows version 1 (funds in A, B, C order); Make it the newest makes version 3.
+4. Take it with you: the four ways (as a document, its table as a sheet, save to your files, hand it to a project). Save answers 'Saved to your files'; Choose a project opens the hand-over.
+5. What can open beside the chat: the five kinds and 'Not here: images made by a model', in a small panel opened from the pane's foot (the board draws it as a section).
+6. Its own window: the card 'Open in its own window' with 'Close the window'. The preview that cannot be shown: on the session with the charge calculator, with 'See the code' and 'Ask for a version that needs nothing from outside'.
+Change by hand saves a new version. Close puts the artifact back as the small card. No page error in any step.
+Differences: the kinds are a panel, not a section; the tab row shows one group (D-474); 'its own window' says a prototype opens no window.
+
+17 state boards still to open: Try-Box, Try-Message, Try-Helpers, Try-Context, Try-Setup, Try-Steps, Try-Workspace, Try-Speech, Try-Share, Try-Leave, Try-Connectors, Try-Folders, Try-Prompts, Try-Portal, Try-Phone, Try-You, Shell-Find, Shell-Settings (and the gallery parts of Try-Agents, Try-Files, Try-Memory, Try-Schedules, Try-Skills, Try-Sessions).
