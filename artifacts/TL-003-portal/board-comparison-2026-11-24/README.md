@@ -16,3 +16,19 @@ layout matches.
 
 No drawn function was found missing. Not checked: the side-by-side look of each screen against its board.
 `coverage.json` holds the counts and the unmatched phrases per board.
+
+## Second pass, by named section (portal main 4236a98c)
+
+Each board's named sections (its aria-labels, 959 across 119 boards) looked for by name on the board's screen, in order.
+
+- 464 found on the board's own screen by the same name; 40 boards have every named section.
+- 477 not found by name. Read through: labels of buttons on the boards ("More for…", "Open step 1"), the spoken descriptions of
+  charts (which carry figures and are worded differently in the build), and the state galleries of the Try TLM boards, which draw
+  one state after another and are not one page. 34 section names that looked like real sections were checked by their words on the
+  screen's text: all present.
+- Order: three boards differed in the page's code order; by position on the page two are the same as the board (Index-Trends,
+  Try-Agent: side-by-side columns). One is left to look at by eye: Try-Settings, where 'Speaking and listening' and 'The client-data
+  check' sit in the top row on the screen and lower on the board.
+
+Still not done: looking at each screen beside its board's picture. Neither pass can say that a layout matches.
+`sections.json` holds the result per board.
