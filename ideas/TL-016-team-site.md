@@ -40,7 +40,7 @@ Production surface: not named (reads as an H3 experiment).
 Governance: not recorded.
 
 ### Decisions due
-- Which of the design kit's two candidate marks the site uses as its logo (the kit itself has not chosen) (quick call on the dashboard: Brain with two sparks (recommended: it alone has a white tonal version for the deep band and coloured tiles) / Two sparks)
+- Which of the design kit's two candidate marks the site uses as its logo. The kit has not chosen; the brain is recommended because only it has a white tonal version for the deep band and coloured tiles (quick call on the dashboard: Brain (recommended) / Two sparks)
 
 ### Hypotheses
 _None recorded._
