@@ -20,8 +20,8 @@ standard: "pre-v1"
 last_touched: 2026-11-23
 sensitivity: none
 critique_recorded: true
-next_step: "Jithin makes the tags v0.21.0 to v0.28.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea, 110ad54, 5044c77). The tab groups in Projects (Overview, Plan or Build, Decide) are the lead's choice and are his to change"
-next_step_due: "2026-11-25"
+next_step: "Jithin moves the misplaced tags if he wants them exact: v0.21.0 to 5410ae4, v0.22.0 to 79ae838, v0.23.0 to 3023fc7, v0.26.0 to 9e1cbea, v0.27.0 to 110ad54, and deletes v0.29.0 (main is 0.28.0). Nothing is left to build from the boards or the 23 November design change"
+next_step_due: "2026-11-27"
 ---
 
 # Team hub: a Claude Code plugin plus an AWS service giving the team's sessions shared rules, memory, artifacts, presence and a message path
@@ -33,7 +33,7 @@ next_step_due: "2026-11-25"
 
 Owner: Platform lead (Claude, building with Claude Code, as the S-D stream engineer); Head of ThinkLatent (Jithin), sponsor, decider and product lead. Appetite: 4 engineer-weeks, ends 2026-12-05. Score: not scored .
 
-Next step: Jithin makes the tags v0.21.0 to v0.28.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea, 110ad54, 5044c77). The tab groups in Projects (Overview, Plan or Build, Decide) are the lead's choice and are his to change (due 2026-11-25)
+Next step: Jithin moves the misplaced tags if he wants them exact: v0.21.0 to 5410ae4, v0.22.0 to 79ae838, v0.23.0 to 3023fc7, v0.26.0 to 9e1cbea, v0.27.0 to 110ad54, and deletes v0.29.0 (main is 0.28.0). Nothing is left to build from the boards or the 23 November design change (due 2026-11-27)
 
 Production surface: not named (reads as an H3 experiment).
 
@@ -106,6 +106,7 @@ _None recorded._
 | D-460 | 2026-11-18 | TL-017 team-hub: Jithin, 18 Nov: 'get S-34 to S-51 done', then 'let's finish this up'. 0.26.0 is open as #58 (not merged): every flow graph is drawn as columns that fit the page, as the boards draw them, and the Feedback rule row no longer squeezes; the live check heartbeats his PORT-2 session first. S-37 part 1 (bullet bars) and S-50 (focus room layout) still differ from their boards. The published demo is this build; the tag v0.26.0 is his to make after the merge. | Jithin | accepted |
 | D-461 | 2026-11-19 | TL-017 team-hub: Jithin, 19 Nov: 'finish it'. 0.27.0 is open as #59 (not merged) and closes the last board gaps: S-37 bullet bars, S-50 focus room grid, S-07 graph around the epic you are on, S-08 rows and Focus 90 min, S-10 session map and subtask title, S-24 rows. What still differs is demo data (PORT-2 has 7 subtasks, not the board's 10; no loop running). The published demo is this build; the tag v0.27.0 is his to make after the merge. | Jithin | accepted |
 | D-480 | 2026-11-23 | TL-017 team-hub: Jithin, 23 Nov: 'take latest design changes from portal and design kit' into the Cortex build. 0.28.0 is open as #60 (not merged): the kit pin moves to 7ab768c (v0.11.3, the portal's), the portal's two-level side menu replaces the dock on every page, Projects tabs are sorted into three groups per level, the in-page section bar is removed, and green cards mark where a page starts. The published demo is this build; the tag v0.28.0 is his to make after the merge. | Jithin | accepted |
+| D-486 | 2026-11-23 | TL-017 team-hub: Jithin, 23 Nov: the Projects tab groups in the console stand as built in 0.28.0 (Overview, Plan or Build, Decide at each level); CI billing is to be ignored. He made the tags himself; six of them sit on the wrong commit (v0.21.0 to v0.23.0 at 4f6917a, v0.26.0 to v0.28.0 and an extra v0.29.0 at 5044c77) and are his to move. | Jithin | accepted |
 <!-- generated:end -->
 
 ## Notes

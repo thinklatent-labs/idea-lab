@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.4",
-  "asOf": "2026-11-23T21:41:02-05:00",
+  "asOf": "2026-11-23T21:50:00-05:00",
   "generatedBy": "Portfolio session with Lab operations (2026-11-16, merges into TL-003 and TL-018, D-387 to D-393), register rev 557.",
   "source": {
     "registerUrl": "https://claude.ai/artifact/6WzPg7fvvAf2tn8Z9X2Q2h",
-    "registerRev": 650,
+    "registerRev": 651,
     "operatingModelUrl": "https://claude.ai/artifact/2aygX2eWF1ddnJS68nUntF"
   },
   "standardVersion": "v1",
@@ -1692,7 +1692,7 @@
       "docTitle": "Project knowledge: claude/Team hub (team-hub) - Idea card.md",
       "standardVersion": "pre-v1",
       "lastTouched": "2026-11-23",
-      "nextStep": "Jithin makes the tags v0.21.0 to v0.28.0 by hand at their merge commits (5410ae4, 79ae838, 3023fc7, 4f6917a, 7282e75, 9e1cbea, 110ad54, 5044c77). The tab groups in Projects (Overview, Plan or Build, Decide) are the lead's choice and are his to change",
+      "nextStep": "Jithin moves the misplaced tags if he wants them exact: v0.21.0 to 5410ae4, v0.22.0 to 79ae838, v0.23.0 to 3023fc7, v0.26.0 to 9e1cbea, v0.27.0 to 110ad54, and deletes v0.29.0 (main is 0.28.0). Nothing is left to build from the boards or the 23 November design change",
       "sensitivity": "none",
       "priority": null,
       "critiqueRecorded": true,
@@ -1722,7 +1722,7 @@
         "startedOn": "2026-11-07",
         "reviewSlot": "Mondays 30 min (D-165)"
       },
-      "nextStepDue": "2026-11-25",
+      "nextStepDue": "2026-11-27",
       "nextStepOrigin": "TL-017 session 2026-11-17",
       "killSignals": [
         {
@@ -7089,6 +7089,20 @@
       "health": "on-track",
       "healthNote": "0.28.0 merged with 12 days of appetite left (to 5 December); the hand-made tags remain.",
       "nextStepDue": "2026-11-25"
+    },
+    {
+      "date": "2026-11-23",
+      "scope": "TL-017 team-hub",
+      "ideaIds": [
+        "TL-017"
+      ],
+      "trackIds": [],
+      "mode": "Build",
+      "outcome": "Jithin settled the Projects tab groups as built and set CI billing aside; the tags he made were checked and six are on the wrong commit.",
+      "docsTouched": "this register (TL-017 row)",
+      "health": "on-track",
+      "healthNote": "Main is at 0.28.0 with nothing left to build and 12 days of appetite left (to 5 December); six tags point at the wrong commit.",
+      "nextStepDue": "2026-11-27"
     }
   ],
   "decisions": [
@@ -13870,6 +13884,20 @@
       "id": "D-485",
       "by": "Jithin",
       "decision": "TL-003 portal (Jithin, 23 Nov): People tabs of an organization and a team on main as built (contact tile quiet, 'Add an owner' outline). Jithin, looking at the build page in a narrow window, did not find the new menu: under 768 wide the build had kept the old icon bar. Decided: under 768 one 'Menu' button replaces the icon bar and opens the same two-level menu with the page's tab groups as a drawer; the row of group pills stays. On main cd58dfc9, build page republished. Item 5 (two backend tests): the cause is found, not a leak: the sample world has the reader away '20 to 24 Nov' with a stand-in and the rules read today's date, so on those days the stand-in rightly sees more than the test counts; the test fix is written, not yet run or committed."
+    },
+    {
+      "pending": false,
+      "status": "accepted",
+      "infoLevel": null,
+      "reviewOn": null,
+      "supersedes": null,
+      "type": "decision",
+      "ideaId": "TL-017",
+      "date": "2026-11-23",
+      "door": "two-way",
+      "id": "D-486",
+      "by": "Jithin",
+      "decision": "TL-017 team-hub: Jithin, 23 Nov: the Projects tab groups in the console stand as built in 0.28.0 (Overview, Plan or Build, Decide at each level); CI billing is to be ignored. He made the tags himself; six of them sit on the wrong commit (v0.21.0 to v0.23.0 at 4f6917a, v0.26.0 to v0.28.0 and an extra v0.29.0 at 5044c77) and are his to move."
     }
   ],
   "syncLog": [
