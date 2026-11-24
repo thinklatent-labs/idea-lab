@@ -1,43 +1,45 @@
 /*
-  ThinkLatent site · custom.css · v10 (2026-11-16)
+  ThinkLatent site · custom.css · v11 (2026-11-23, TL-016 D-490): design kit colour v5
   Tier 2: loaded by one SPFx application customizer (the single IT request).
 
   Read this first.
   SharePoint does not support CSS on its own markup. These rules target class names and
   automation ids that Microsoft can change without notice. Every rule is written so that,
-  if it stops matching, the page falls back to SharePoint's own look; nothing breaks.
+  if it stops matching, the page falls back to the theme's own look; nothing breaks.
   Test on the test site after each SharePoint update. Rules marked VERIFY need checking
   in the tenant before the site goes live.
+
+  Without this file the site already has the right colours: the theme makes every button
+  black, and the colour pairs or images give the backgrounds. This file adds what a theme
+  cannot: the type scale applied automatically, pill-shaped buttons, the red main action,
+  emerald links and the header stripe.
 
   Fonts: Inter must come from the Brand Center (brand managers upload it) or from files in
   this site's Site Assets. No call goes outside the Enterprise.
 */
 
 :root {
-  --tl-forest: #1B5128;
-  --tl-green-700: #2E6B3C;
-  --tl-green-500: #3E9A5C;
-  --tl-sage: #6CB769;
-  --tl-mint: #E9F3EC;
-  --tl-teal-deep: #1F4A44;
-  --tl-teal: #2F7A6D;
-  --tl-red: #C4262E;
-  --tl-red-dark: #9A1B22;
-  --tl-ink: #1A1A1A;
-  --tl-ink-2: #3A3A38;
-  --tl-muted: #5C5C5A;
-  --tl-canvas: #F7F7F5;
+  --tl-ink: #0B0F0C;          /* text and the everyday button */
+  --tl-ink-hover: #1A1E1B;    /* neutral 800 */
+  --tl-ink-2: #3A413C;        /* neutral 700 */
+  --tl-secondary: #4A524D;
+  --tl-hairline: #E3E7E4;
+  --tl-emerald: #0B5F33;      /* links, labels, focus */
+  --tl-forest-900: #0C2822;   /* the closing band; link hover */
+  --tl-red: #C20028;          /* the one main action and the stripe */
+  --tl-red-dark: #95141D;
   --tl-font: "Inter", "Segoe UI", system-ui, sans-serif;
 }
 
 /* 1. Typeface (needs Inter available, see above) */
 body, .ms-Fabric { font-family: var(--tl-font); }
 
-/* 2. The 4 px Decision Red stripe on the site header. VERIFY the automation id. */
+/* 2. The 4 px red stripe on the site header. VERIFY the automation id. */
 [data-automation-id="SiteHeader"] { border-top: 4px solid var(--tl-red); }
 
 /* 3. Type scale on page content. .ControlZone wraps each web part on a modern page.
-      Text web part: Heading 2 = section (48), Heading 3 = card (26), Heading 4 = lead (22). */
+      Text web part: Heading 2 = section (48), Heading 3 = card (26), Heading 4 = lead (22).
+      Without this file, type the same sizes by hand in the Text web part (8 to 250). */
 .ControlZone h2 { font-size: 48px; line-height: 1.06; font-weight: 500; letter-spacing: -0.032em; }
 .ControlZone h3 { font-size: 26px; line-height: 1.2; font-weight: 500; letter-spacing: -0.015em; }
 .ControlZone h4 { font-size: 22px; line-height: 1.5; font-weight: 400; color: var(--tl-ink-2); }
@@ -46,30 +48,47 @@ body, .ms-Fabric { font-family: var(--tl-font); }
 /* 4. Page title (the one H1 on a page). VERIFY the automation id on the test site. */
 [data-automation-id="pageHeader"] h1 { font-size: 72px; line-height: 1; font-weight: 500; letter-spacing: -0.04em; }
 
-/* 5. Primary buttons in page content (Button and Call to action web parts): red pills.
-      Scoped to page content so list and library commands keep the theme's green. */
-.ControlZone .ms-Button--primary {
-  background-color: var(--tl-red);
-  border-color: var(--tl-red);
-  border-radius: 999px;
-  min-height: 48px;
-  padding: 0 22px;
-  font-weight: 600;
-}
+/* 5. Buttons in page content. The theme already makes primary buttons black; this adds the
+      kit's pill shape. Scoped to page content, so list and library commands keep SharePoint's look. */
+.ControlZone .ms-Button { border-radius: 999px; min-height: 44px; padding: 0 20px; font-weight: 500; }
+.ControlZone .ms-Button--primary { background-color: var(--tl-ink); border-color: var(--tl-ink); color: #FFFFFF; }
 .ControlZone .ms-Button--primary:hover,
-.ControlZone .ms-Button--primary:focus { background-color: var(--tl-red-dark); border-color: var(--tl-red-dark); }
-.ControlZone .ms-Button--default { border-radius: 999px; min-height: 48px; padding: 0 22px; }
+.ControlZone .ms-Button--primary:focus { background-color: var(--tl-ink-hover); border-color: var(--tl-ink-hover); }
 
-/* 6. Large radii on cards (Quick links, News, Highlighted content). VERIFY on each layout. */
+/* 6. The one main action of a page is red. SharePoint has no way to mark it, so the author does:
+      add ?tl=main to that button's link (or &tl=main when the link already has a ?).
+      Use it on one button per screen: in practice "Start a use case" in the hero and the closing band.
+      VERIFY that the Button and Call to action web parts keep the link as typed. */
+.ControlZone a[href*="tl=main"] {
+  background-color: var(--tl-red) !important;
+  border-color: var(--tl-red) !important;
+  color: #FFFFFF !important;
+  border-radius: 999px;
+}
+.ControlZone a[href*="tl=main"]:hover,
+.ControlZone a[href*="tl=main"]:focus { background-color: var(--tl-red-dark) !important; border-color: var(--tl-red-dark) !important; }
+.ControlZone a[href*="tl=main"] * { color: #FFFFFF !important; }
+
+/* 7. Text links in emerald, buttons excluded. Keep text links out of the deep closing band,
+      where emerald does not read; the band carries a heading, one line and a button. VERIFY. */
+.ControlZone p a:not([class*="Button"]),
+.ControlZone li a:not([class*="Button"]) { color: var(--tl-emerald); text-decoration: underline; text-underline-offset: 3px; }
+.ControlZone p a:not([class*="Button"]):hover,
+.ControlZone li a:not([class*="Button"]):hover { color: var(--tl-forest-900); }
+
+/* 8. Large radii on cards (Quick links, News, Highlighted content). VERIFY on each layout. */
 .ControlZone .ms-DocumentCard { border-radius: 24px; overflow: hidden; }
 
-/* 7. Keyboard focus stays visible on every link and button. */
+/* 9. Keyboard focus stays visible on every link and button. */
 .ControlZone a:focus-visible,
-.ControlZone button:focus-visible { outline: 2px solid var(--tl-sage); outline-offset: 3px; }
+.ControlZone button:focus-visible { outline: 2px solid var(--tl-emerald); outline-offset: 2px; }
 
 /*
   Not done in CSS, on purpose:
-  - Gradients: each is an image set as a section, Hero or Call to action background (tier 1).
+  - Backgrounds: the three flat tints are the theme's colour pairs (or the flat images), and
+    Meadow, the white hero with its one field, is an image (tier 1).
+  - The white ring on the red button in the deep band: SharePoint gives CSS no reliable way to
+    tell that band apart, so the red button there has no ring.
   - Large light numerals: set in the Text web part at the largest heading; the light weight
     comes only with Inter from the Brand Center.
   - The Mandate's dotted spine: drawn into the chapter images, not added with CSS.

@@ -4,7 +4,7 @@ The ThinkLatent team site, designed in the Idea Lab and built by hand in the Ent
 
 ## See the design
 
-- **Live and editable:** [design canvas v10](https://claude.ai/artifact/4uZUcDCHWPTqtzMXZrLKQD) on claude.ai, 26 boards.
+- **Live and editable:** [design canvas v11](https://claude.ai/artifact/4uZUcDCHWPTqtzMXZrLKQD) on claude.ai, 26 boards, on the design kit's colour v5 (D-490, 23 Nov 2026): black buttons, red only on the one main action, emerald links, a white hero with one soft field, flat green and teal tints, a deep forest closing band.
 - **Here in GitHub:** an image of every board in `design-canvas/previews/` (they open in the browser), and the boards as HTML in `design-canvas/project/`, which open in Chrome or Edge after a `git pull`.
 
 ![The fourteen pages and the design system](design-canvas/previews/overview.jpg)
@@ -55,12 +55,12 @@ SharePoint cannot import a design, so the pack holds the parts it can take, each
 
 | From the design | In the pack | In SharePoint |
 | --- | --- | --- |
-| The palette | `thinklatent-theme.json`, `Add-ThinkLatentTheme.ps1` | The site theme (two colours with no admin, or the exact palette through one admin script) |
-| The gradients | `gradients/*.png` | Section background images |
+| The colours | `thinklatent-theme.json`, `Add-ThinkLatentTheme.ps1` | The site theme: black buttons everywhere, and three colour pairs page authors can put on a section |
+| The backgrounds | `gradients/*.png` | Meadow as the hero image; the flat three as images wherever a colour pair cannot be used |
 | The Mandate diagrams | `drawings/*.png` (SVG sources beside them) | Image web parts |
 | The lists | `lists/*.csv` | Lists created straight from the files |
 | The status glyphs | `stage-column-format.json` | Column formatting on the Process stage list |
-| Type sizes, red buttons, the stripe | `custom.css` | Applied by one IT customizer; until then, sizes are typed by hand |
+| Type sizes applied automatically, pill buttons, the red main action, emerald links, the stripe | `custom.css` | Applied by one IT customizer; until then, sizes are typed by hand and every button is black |
 
 The words come from the page copy, the order from the build guide.
 
@@ -69,16 +69,16 @@ The words come from the page copy, the order from the build guide.
 1. **Unzip the pack** on your laptop. Keep the [page copy](https://claude.ai/artifact/SYuzrTCs1uxD9f5b3H9Ru5) open beside SharePoint.
 2. **Create the test site.** SharePoint start page > + Create site > Communication site. Name it ThinkLatent, on a test address such as /sites/thinklatent-test.
 3. **Header, menu and footer.** Settings (gear) > Change the look > Header: Compact. Navigation: Horizontal, Mega menu. Footer: on.
-4. **Colours, no admin needed.** Settings > Site branding > Theme > + New theme > + Add color: #2E6B3C as primary and #2F7A6D as secondary. Name it ThinkLatent v10 and save. Then Settings > Change the look > Theme > ThinkLatent v10 > Save. For the exact palette instead, a SharePoint administrator runs `Add-ThinkLatentTheme.ps1` (it reads `thinklatent-theme.json`), and you pick ThinkLatent v10 in Change the look.
+4. **Colours, no admin needed.** Settings > Site branding > Theme > + New theme. With + Add color, add #0B0F0C as the primary colour and #FFFFFF, #0B5F33, #E6F2EC, #E3F0EF and #0C2822 as secondary colours. With + New combination, add three pairs: background #E6F2EC with accent #0B0F0C (Mint rise), background #E3F0EF with accent #0B0F0C (Lagoon), background #0C2822 with accent #FFFFFF (Canopy). Name it ThinkLatent v11 and save. Then Settings > Change the look > Theme > ThinkLatent v11 > Save. Every button on the site is now black. For the same theme across the tenant instead, a SharePoint administrator runs `theme-pack/Add-ThinkLatentTheme.ps1` and you pick ThinkLatent v11 in Change the look.
 5. **Font (optional).** Inter needs the brand center, which an administrator sets up. Then Settings > Site branding > Font packages > + New font package, Inter for both slots, and apply it in Change the look. Without it the site uses SharePoint's own font.
 6. **Images.** Settings > Site contents > Site Assets > + New > Folder, named ThinkLatent. Open it and upload the four PNGs from `theme-pack/gradients/` and the PNGs from `theme-pack/drawings/`.
 7. **Lists.** Site home > + New > List > From CSV > upload `theme-pack/lists/glossary.csv`, check the column types in the preview, name it Glossary, Create. Repeat for `publications.csv` (Publications), `wins.csv` (Wins; replace the sample row first), `process-stage.csv` (Process stage) and `citations.csv` (Citations). `launch-brackets.csv` is an optional tracker for the test site.
 8. **Status column.** In Process stage: Stage column > Column settings > Format this column > Advanced mode, paste the contents of `stage-column-format.json`, Save.
 9. **Page columns.** In Site Pages add Category, Owner, Second owner, Review by, Source, As of and Business line (build guide, step 4).
-10. **Build a page.** + New > Page > Blank. For each section in the page copy: add a section; Edit section > Background > Image > the gradient it names (Meadow, Canopy, Lagoon or Mint rise) from Site Assets > ThinkLatent, overlay as low as it goes; add the web parts listed; paste the text; set the style and type the size (Heading 1, 48, and so on).
+10. **Build a page.** + New > Page > Blank. For each section in the page copy: add a section and give it the background the copy names. Meadow: Edit section > Background > Image > `meadow-2880x1200.png` from Site Assets > ThinkLatent, overlay as low as it goes. Mint rise, Lagoon or Canopy: Edit section > pick the theme's colour pair with that background (#E6F2EC, #E3F0EF or #0C2822); if the pane offers no pairs, use the image of the same name instead. Leave every other section white. Add the web parts listed, paste the text, set the style and type the size (Heading 1, 48, and so on). On the page's one main action, add `?tl=main` to the end of its link (custom.css turns that button red).
 11. **Mandate drawings.** Image web parts with the PNGs from `theme-pack/drawings/`, alt text from the page copy.
 12. **Order.** Home, Wins and Products first, then the rest. Fill each bracket from the system it names as you go, and log the hours per page.
-13. **custom.css (IT).** Send the request in build guide step 9. Once IT switches the customizer on, upload `custom.css` to Site Assets > ThinkLatent: the sizes apply by themselves, buttons turn red and the header stripe appears. Until then everything works with typed sizes and green buttons.
+13. **custom.css (IT).** Send the request in build guide step 9. Once IT switches the customizer on, upload `custom.css` to Site Assets > ThinkLatent: the sizes apply by themselves, buttons become pills, the button marked `?tl=main` turns red, text links turn emerald and the header stripe appears. Until then everything works with typed sizes, black buttons and black links.
 14. **Before launch.** Run the checklist in build guide step 10.
 
 Everything here is private to thinklatent-labs. The live docs and canvas on claude.ai win over these mirrors.

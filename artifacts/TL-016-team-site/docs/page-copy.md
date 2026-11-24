@@ -4,7 +4,7 @@ Nov 16, 2026 · @Jithin Pradeep
 
 ## How to use this copy
 
-Every page of the ThinkLatent site in SharePoint's own terms: one heading per page, one table per section, top to bottom, with the words from design canvas v10 (D-381). Copy a cell, paste it into the web part named, and set the style shown on the left. The [build guide](https://claude.ai/artifact/8aaC53w8XNkk4UVcoErQMr) says how to make each page; this doc says what goes on it.
+Every page of the ThinkLatent site in SharePoint's own terms: one heading per page, one table per section, top to bottom, with the words from design canvas v10 (D-381), restyled as canvas v11 on 23 Nov 2026 (D-490, the design kit's colour v5; no word changed). Copy a cell, paste it into the web part named, and set the style shown on the left. The [build guide](https://claude.ai/artifact/8aaC53w8XNkk4UVcoErQMr) says how to make each page; this doc says what goes on it.
 
 **Styles.** In a Text web part, pick the style, then type the size in the font size box (it takes any size from 8 to 250). The sizes are the canvas's own; check the first Heading 1 at 48 against the canvas on the test site before doing the rest. Once custom.css is live, headings and body text take their sizes by themselves and the typing can stop.
 
@@ -16,14 +16,14 @@ Every page of the ThinkLatent site in SharePoint's own terms: one heading per pa
 | Lead · 22 | Normal text, size 22 |
 | Body | Normal text, size 17 |
 | Small | Normal text, size 15 |
-| Label | Normal text, size 14, bold, font colour #2E6B3C |
+| Label | Normal text, size 14, bold, font colour #0B5F33 |
 | Number · 80 | Normal text, size 80 |
 | Pull quote | The Pull quote style |
 | Bullet | A bulleted list |
 | Table header, Table row | A table inside the Text web part |
 | Caption | The caption of the Image web part above it |
 | Image | Image web part: the capture or picture named |
-| Button, Button (red) | Button web part: the label, then where it goes after the arrow. Red needs custom.css; until then it is the theme's green |
+| Button, Button (red) | Button web part: the label, then where it goes after the arrow. Button (red) is the page's main action: end its link with ?tl=main and custom.css turns it red; until then it is the theme's black, like every button |
 | Quick link, Link title | One item in a Quick links web part |
 | Link | A link inside the text, to where the arrow says |
 | Web part | Add this web part; nothing to type |
@@ -35,7 +35,7 @@ Every page of the ThinkLatent site in SharePoint's own terms: one heading per pa
 
 **Names.** The lab writes "the Enterprise" wherever the company's name goes and "the university" for the partner university. Put the names you want on the live site as you paste.
 
-**Backgrounds.** A section marked "background Meadow" (or Canopy, Lagoon, Mint rise) takes that image from Site Assets, folder ThinkLatent, as its section background (build guide, step 5). Unmarked sections have none.
+**Backgrounds.** A section marked "background Meadow" takes that image from Site Assets, folder ThinkLatent, as its section background. One marked Canopy, Lagoon or Mint rise takes the theme's colour pair with that background (#0C2822, #E3F0EF or #E6F2EC), or the flat image of the same name where no pair is offered (build guide, step 5). Unmarked sections stay white.
 
 ## Home
 

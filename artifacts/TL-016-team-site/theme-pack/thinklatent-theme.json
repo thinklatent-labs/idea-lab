@@ -1,34 +1,47 @@
 {
-  "name": "ThinkLatent v10",
-  "isInverted": false,
-  "note": "Fluent palette for SharePoint, from the ThinkLatent kit colour system v1.1. Values marked derived in README.md are interpolations between two kit tokens, because SharePoint needs nine theme shades and the kit names six greens.",
+  "name": "ThinkLatent v11",
+  "note": "Design kit colour v5 (design-kit v0.11.4), 23 Nov 2026, TL-016 D-490. Black is the theme's main colour, so every native SharePoint button is the kit's black everyday button. The colour pairs give page authors the three flat backgrounds; Meadow, the white hero with its one field, stays an image. Every value is a kit token.",
+  "colorPairs": {
+    "light": [
+      { "accentColor": "#0B0F0C", "backgroundColor": "#FFFFFF", "use": "Default: white sections, black buttons" },
+      { "accentColor": "#0B0F0C", "backgroundColor": "#E6F2EC", "use": "Mint rise: attention sections" },
+      { "accentColor": "#0B0F0C", "backgroundColor": "#E3F0EF", "use": "Lagoon: the three teal moments" },
+      { "accentColor": "#FFFFFF", "backgroundColor": "#0C2822", "use": "Canopy: the closing band" }
+    ]
+  },
+  "siteBrandingRoute": {
+    "primaryColor": "#0B0F0C",
+    "secondaryColors": ["#FFFFFF", "#0B5F33", "#E6F2EC", "#E3F0EF", "#0C2822"],
+    "combinations": [
+      { "background": "#E6F2EC", "accent": "#0B0F0C", "name": "Mint rise" },
+      { "background": "#E3F0EF", "accent": "#0B0F0C", "name": "Lagoon" },
+      { "background": "#0C2822", "accent": "#FFFFFF", "name": "Canopy" }
+    ],
+    "note": "For the site-owner route: Settings > Site branding > Theme > + New theme. Add the primary and the secondary colours with + Add color, then the three combinations with + New combination. Emerald #0B5F33 is added as a colour only, for labels in the Text web part; it is never a button colour, so it is in no combination."
+  },
   "palette": {
-    "themePrimary": "#2E6B3C",
-    "themeLighterAlt": "#F4FAF6",
-    "themeLighter": "#E9F3EC",
-    "themeLight": "#D6E9DB",
-    "themeTertiary": "#A8D5B4",
-    "themeSecondary": "#3E9A5C",
-    "themeDarkAlt": "#256035",
-    "themeDark": "#1B5128",
-    "themeDarker": "#0C3F09",
-    "neutralLighterAlt": "#F7F7F5",
-    "neutralLighter": "#F2F2EF",
-    "neutralLight": "#ECECEA",
-    "neutralQuaternaryAlt": "#E6E6E2",
-    "neutralQuaternary": "#DADAD8",
-    "neutralTertiaryAlt": "#C8C8C4",
-    "neutralTertiary": "#8A8A88",
-    "neutralSecondary": "#5C5C5A",
-    "neutralPrimaryAlt": "#3A3A38",
-    "neutralPrimary": "#1A1A1A",
-    "neutralDark": "#141414",
+    "themePrimary": "#0B0F0C",
+    "themeLighterAlt": "#F7F8F7",
+    "themeLighter": "#EFF2F0",
+    "themeLight": "#E3E7E4",
+    "themeTertiary": "#A3ABA6",
+    "themeSecondary": "#3A413C",
+    "themeDarkAlt": "#1A1E1B",
+    "themeDark": "#141814",
+    "themeDarker": "#000000",
+    "neutralLighterAlt": "#F7F8F7",
+    "neutralLighter": "#EFF2F0",
+    "neutralLight": "#E9EDEA",
+    "neutralQuaternaryAlt": "#E3E7E4",
+    "neutralQuaternary": "#D8DDD9",
+    "neutralTertiaryAlt": "#CDD3CF",
+    "neutralTertiary": "#68716B",
+    "neutralSecondary": "#4A524D",
+    "neutralPrimaryAlt": "#3A413C",
+    "neutralPrimary": "#0B0F0C",
+    "neutralDark": "#1A1E1B",
     "black": "#000000",
     "white": "#FFFFFF"
   },
-  "siteBrandingRoute": {
-    "primaryColor": "#2E6B3C",
-    "secondaryColor": "#2F7A6D",
-    "note": "For the no-admin route: Settings > Site branding > Theme > New theme, add these two colours. It builds its own shades, so the result is close to the palette above, not identical."
-  }
+  "paletteNote": "Legacy format, only for a tenant whose SharePoint Online Management Shell has no -ColorPairs: run the script with -Legacy. With this palette SharePoint's section backgrounds are None (white), Neutral (#EFF2F0), Soft (#F7F8F7) and Strong (themePrimary, black); do not use Strong, and set the tints as images."
 }
