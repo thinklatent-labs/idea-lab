@@ -75,4 +75,43 @@ Each state a board draws is opened on the running build (portal main e929cc02) a
 Change by hand saves a new version. Close puts the artifact back as the small card. No page error in any step.
 Differences: the kinds are a panel, not a section; the tab row shows one group (D-474); 'its own window' says a prototype opens no window.
 
-17 state boards still to open: Try-Box, Try-Message, Try-Helpers, Try-Context, Try-Setup, Try-Steps, Try-Workspace, Try-Speech, Try-Share, Try-Leave, Try-Connectors, Try-Folders, Try-Prompts, Try-Portal, Try-Phone, Try-You, Shell-Find, Shell-Settings (and the gallery parts of Try-Agents, Try-Files, Try-Memory, Try-Schedules, Try-Skills, Try-Sessions).
+### The rest of the state boards (24 Nov, portal main e929cc02): about 175 states opened, none missing
+
+Each state was reached on the running build by acting on the page (press, type, hold), at 1,440 wide and, for Try-Phone, at 390; the words the board gives that state were then looked for, and a sample of the pictures was read by eye. No page error in any step.
+
+| Board | States opened | Result |
+| --- | --- | --- |
+| Try-Box | 12 | All there. Speak first says the browser will ask (Carry on, Not now), then 'Stop listening' and 'Listening'; sample words go into the box. |
+| Try-Message | 13 | All there. |
+| Try-Setup | 7 | All there. The agent's own prompt reads 216 tokens where the board prints 180 (the lead's ruling of 17 Nov). |
+| Try-Context | 6 | All there: the dialog, remove the file (12%, 3,860), what does not count, summarise (92% to 21%), the summary used, nearly full. |
+| Try-Helpers | 8 | All there: six states of a helper, one opened, open all, stop all, an answer, a message added while it works, three helpers at work, the marks on the sessions list. |
+| Try-Steps | 10 | All there: the list, five kinds of step opened, the filters, the download, a session with no steps, the way in from an answer. |
+| Try-Share | 8 | All there: the dialog, picking a person, stopping with Undo, the list, the reader's page, start my own, no longer shared. |
+| Try-Limit | 2 | The page with its three card states, and a session at the limit. |
+| Try-Speech | 4 | Listening, an answer read aloud (Pause, four speeds, Stop), the dialog, the microphone blocked. |
+| Try-Workspace | 5 | All there: in the session, the pane, what changed, about the workspace, a failure shown as a sample. |
+| Try-Leave | 4 | The download dialog and what you get, the hand-over form, the request. The fees session now opens with a hand-over already waiting (HO-0007). |
+| Try-Agents | 8 | All there: the menu, offering, waiting, sent back, accepted, shared with you. |
+| Try-Agent | 4 | The builder, an inside service, an outside address refused, a new agent. |
+| Try-Connectors | 8 | All there: connecting, what you must supply, a state shown on Team wiki, its tools, add your own, an outside address refused, disconnecting with '1 agent of yours uses it'. |
+| Try-Memory | 8 | All there, with the hold to forget everything and the page that follows. |
+| Try-Folders | 6 | Make one, add a file (checking), after 30 days, remove with a hold. |
+| Try-Skills | 6 | Write one, upload refused, share, versions. |
+| Try-Prompts | 8 | Make one, a blank, try it, versions, share, offer, nothing found. |
+| Try-Files | 5 | The menu, a file opened, add a file (checking), nothing found. |
+| Try-Sessions | 6 | The list, the menu, search (3 matches in 2 sessions), nothing found, archived, before removal. |
+| Try-Schedules | 6 | The form, More, the runs, a run opened as a session, stopped by the check. |
+| Try-Settings, Try-Admin | 2 | Each page opens with its content. |
+| Shell-Find | 8 | The box, results for 'core 4', Try TLM's group for 'notes', the shortcuts sheet with what the box finds and never shows, the inbox, a Try TLM line opened. |
+| Shell-Settings, Try-You | 9 | You (Look, dark, the download in two states); the six states a page can be in and the patterns (side sheet, hold to sign) on Help's 'How pages behave'. |
+| Try-Portal | 5 | The Agents library, the prompt library, Requests, starting a project from Try TLM, a feature's prompts. |
+| Try-Phone | 7 | The six screens at 390 (chat, sessions drawer, set-up sheet, steps opened, artifact full screen, a message's More) and the Menu drawer; nothing scrolls sideways. |
+
+Not opened, and why:
+- Listed on the page but not reachable by acting, as the build records say: 'Context 78% used' and 'Context full' (no sample session); a schedule paused after 3 failed runs.
+- Not tried in this pass: the 'nothing yet' states that need everything removed first (agents, folders, skills, prompts, files, schedules, sessions; memory's was tried), 'You have 10 schedules', 'Memory is full', the ready and removed states of the download on You, and dark for each state.
+
+Figures that have moved since the build records of 16 to 18 Nov, none of them new: the inbox reads 'Try TLM · 10' and 'All · 22' (the records say 8 and 20); a session started by a schedule makes the list read 'All 15'.
+
+Scripts and pictures: /home/claude/work/states (h.py, b1 to b6, chat.py; folders chat, chatb, tabs, join, phone).
