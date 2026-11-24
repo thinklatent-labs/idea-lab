@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ThinkLatent · Imagery v11.1</title>
+<script src="./support.js"></script>
+</head>
+
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F7F9F8;font-family:Inter,system-ui,sans-serif;color:#0B0F0C;font-size:15px;line-height:1.55}
+a{color:#0B5F33}a:hover{color:#0C2822}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:500;letter-spacing:-.015em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.cap{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:#4A524D}
+.panel{background:#FFFFFF;border:1px solid #E3E7E4;box-shadow:0 1px 0 rgba(11,15,12,.03),0 10px 30px rgba(11,15,12,.05);border-radius:24px;padding:24px}
+.glass{background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.9);border-radius:24px;padding:22px;box-shadow:inset 0 1px 0 #FFFFFF,0 16px 48px rgba(11,15,12,.08)}
+.glass.g{background:rgba(24,73,61,.92);color:#FFFFFF;border-color:rgba(255,255,255,.35)}
+.glass.g .meta,.glass.g .cap,.glass.g p{color:#B0D1C4}
+.glass.g h3{color:#FFFFFF}
+.glass.g .tag{background:rgba(255,255,255,.18);color:#FFFFFF}
+.glass.g .thumb{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
+.glass.g .pill{background:rgba(255,255,255,.14);color:#FFFFFF;border-color:rgba(255,255,255,.45)}
+.glass.t{background:rgba(18,56,47,.92);color:#FFFFFF;border-color:rgba(255,255,255,.35)}
+.glass.t .meta,.glass.t .cap,.glass.t p{color:#B0D1C4}.glass.t h3{color:#FFFFFF}.glass.t .tag{background:rgba(255,255,255,.18);color:#FFFFFF}.glass.t .thumb{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}.glass.t .pill{background:rgba(255,255,255,.14);color:#FFFFFF;border-color:rgba(255,255,255,.45)}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(11,15,12,.16);font-size:14px;font-weight:500;color:#0B0F0C;text-decoration:none;background:#FFFFFF;font-family:inherit}
+.pill:hover{color:#0B0F0C;border-color:#0B0F0C}
+.pill.go{background:#C20028;color:#FFFFFF;border-color:#C20028}
+.pill.go:hover{background:#95141D;color:#FFFFFF}
+.pill.on{background:#18493D;color:#FFFFFF;border-color:#18493D}
+.pill.sm{min-height:38px;font-size:13px}
+.nav a{color:#3A413C;text-decoration:none;font-size:14px;font-weight:500;padding:0 12px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover{background:#EFF2F0;color:#0B0F0C}
+.nav a.on{background:#4F917C;color:#0C2822}
+.display{font-weight:300;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.tag{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:#E6F2EC;color:#0B5F33;font-size:12px;font-weight:600;white-space:nowrap}
+.tag.teal{background:#E3F0EF;color:#12382F}
+.tag.red{background:#FCE6E4;color:#95141D}
+.tag.grey{background:#EFF2F0;color:#3A413C}
+.tag.dark{background:#0B0F0C;color:#FFFFFF}
+.tag.steel{background:#E4EBF0;color:#445664}
+.tag.terra{background:#EDF1EE;color:#3A433D}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.meta{font-size:13px;color:#4A524D}
+.hero{background:#E6F2EC}
+.hero.teal{background:#2E7562;color:#FFFFFF}
+.hero.teal h1,.hero.teal h2,.hero.teal h3{color:#FFFFFF}.hero.teal p,.hero.teal .meta,.hero.teal .cap{color:#B0D1C4}.hero.teal .tag{background:rgba(255,255,255,.18);color:#FFFFFF}.hero.teal .pill{background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,.55)}.hero.teal .pill.go{background:#C20028;color:#FFFFFF;border-color:#C20028}
+.wave{background:#18493D;color:#FFFFFF}
+.wave .cap,.wave .meta{color:#B0D1C4}
+.wave .pill{color:#FFFFFF;border-color:rgba(255,255,255,.5);background:transparent}
+.wave .pill.go{background:#FFFFFF;color:#0C2822;border-color:#FFFFFF}
+.wave .panel{color:#0B0F0C}
+.wave .panel .cap{color:#4A524D}
+.band{background:#E6F2EC}
+.thumb{border-radius:16px;background:#E6F2EC;aspect-ratio:16/10;border:1px solid #E9EDEA}
+.thumb.net{background:#E6F2EC}.thumb.steel{background:#E4EBF0}.thumb.terra{background:#EDF1EE}.thumb.wave{background:#E3F0EF}.thumb.globe{background:#F2F5F7}
+.card{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#0B0F0C}
+.card:hover{color:#0B0F0C;border-color:#0B0F0C}
+.av{width:36px;height:36px;border-radius:50%;background:#EFF2F0;color:#3A413C;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex:none;border:2px solid #FFFFFF}
+.av.lg{width:48px;height:48px;font-size:12px}
+.faq{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #E9EDEA;font-size:17px;font-weight:500}
+.faq span:last-child{width:32px;height:32px;border-radius:50%;border:1px solid rgba(11,15,12,.2);display:inline-flex;align-items:center;justify-content:center;font-weight:400;color:#4A524D;flex:none}
+.sec{display:flex;flex-direction:column;gap:20px}
+.h2{font-size:36px;line-height:1.1;margin-top:6px;font-weight:400;letter-spacing:-.025em}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.fam{display:flex;flex-direction:column;gap:10px;padding:22px;border-radius:16px;border:1px solid #E3E7E4;background:#FFFFFF}
+.gen{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #E3E7E4;box-shadow:0 1px 0 rgba(11,15,12,.03),0 10px 30px rgba(11,15,12,.05);min-height:170px}
+.gen .g{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#4A524D}
+.mean{margin-top:auto;padding:14px 16px;border-radius:14px;background:#E6F2EC;color:#0C2822;font-size:14px;border:1px solid #B0D1C4}
+.mean b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#0B5F33;margin-bottom:2px}
+.proj{display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #E3E7E4;box-shadow:0 1px 0 rgba(11,15,12,.03),0 10px 30px rgba(11,15,12,.05)}
+.globe{background:#2E7562;color:#FFFFFF}
+.globe .cap,.globe .meta{color:#B0D1C4}.globe h2,.globe h3{color:#FFFFFF}.globe p{color:#B0D1C4}
+.globe .proj{color:#0B0F0C}.globe .proj .meta{color:#4A524D}.globe .proj h3{color:#0B0F0C}
+.globe .pill{color:#FFFFFF;border-color:rgba(255,255,255,.5);background:transparent}
+.green{background:linear-gradient(160deg,#0C2822 0%,#18493D 60%,#4F917C 100%);border-radius:20px;color:#FFFFFF}
+.n{font-weight:600;display:block;color:#0B0F0C}
+.person{display:flex;gap:12px;align-items:center;padding:14px 0;border-top:1px solid #E9EDEA}
+.step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:14px;background:#F7F9F8;border:1px solid #E9EDEA}
+.play{width:52px;height:52px;border-radius:50%;background:#18493D;border:1px solid #0B5F33;display:inline-flex;align-items:center;justify-content:center;color:#FFFFFF}
+.win{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#0B0F0C;min-height:260px}
+.row{display:grid;grid-template-columns:90px minmax(0,1fr) 150px 140px 70px;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid #E9EDEA}
+.row a.t{font-weight:600;color:#0B0F0C;text-decoration:none}
+.post{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#0B0F0C;padding:14px;background:#FFFFFF;border-radius:20px;border:1px solid #E3E7E4}
+.post .thumb{display:flex;align-items:flex-start;justify-content:space-between;padding:12px}
+.series{background:#E6F2EC;border:1px solid #E3E7E4;border-radius:20px;padding:32px}
+.paper{aspect-ratio:16/10;border-radius:12px;background:#F7F9F8;padding:14px 16px;display:flex;flex-direction:column;gap:6px;border:1px solid #E9EDEA}
+.paper .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.paper .top span{height:14px;width:54px;border-radius:999px}
+.paper b{display:block;height:10px;border-radius:3px;background:#0B0F0C;width:70%}
+.paper i{display:block;height:6px;border-radius:3px;background:#D8DDD9}
+.tpl{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#0B0F0C;padding:14px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:auto;padding:12px 0 0;border-top:1px solid #E9EDEA}
+.facts span{display:flex;flex-direction:column;font-size:13px;font-weight:500}
+.facts small{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#4A524D;font-weight:500}
+.door{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:#0B0F0C;padding:22px;border-radius:20px;background:#FFFFFF;border:1px solid #E3E7E4}
+.door:hover{border-color:#0B0F0C}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0;border:1px solid #E3E7E4;border-radius:20px;overflow:hidden;background:#FFFFFF}
+.ladder div{padding:22px;border-right:1px solid #E9EDEA;display:flex;flex-direction:column;gap:8px}
+.ladder div:last-child{border-right:0}
+.trend{display:flex;flex-direction:column;gap:6px}
+.trend svg{width:96px;height:28px}
+.stage{display:flex;flex-direction:column;gap:8px;padding:22px;border-radius:16px;background:#FFFFFF;border:1px solid #E3E7E4;position:relative}
+.stage .num{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#0B5F33}
+.feed{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid #E9EDEA}
+.feed:first-of-type{border-top:0}
+.jump{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.jump a{font-size:13px;color:#0B5F33;text-decoration:none;padding:6px 12px;border-radius:999px;background:#FFFFFF;border:1px solid #E3E7E4}
+.gl{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid #E9EDEA;font-size:15px}
+.gl b{font-weight:600}
+.note{font-size:13px;color:#4A524D;background:#EFF2F0;border-radius:12px;padding:10px 14px}
+.later{border-style:dashed;background:#F7F8F7}
+.comments{border-top:1px solid #E3E7E4;padding:28px 0 0;display:flex;flex-direction:column;gap:12px}
+.comments input{width:100%;min-height:44px;border-radius:12px;border:1px solid #E3E7E4;padding:0 14px;font-family:inherit;font-size:14px;background:#FFFFFF}
+.owners{font-size:12px;color:#4A524D;display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-top:1px solid #E9EDEA}
+.pline{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:14px 0;border-bottom:1px solid #E9EDEA;text-decoration:none;color:#0B0F0C}
+.pline:last-child{border-bottom:0}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#4A524D;font-weight:500;text-align:left;padding:10px 12px;border-bottom:1px solid #E3E7E4}
+.tbl td{padding:12px;border-bottom:1px solid #E9EDEA;vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+@media (max-width:760px){.wrap{padding:0 16px}.row{grid-template-columns:minmax(0,1fr)}.gl{grid-template-columns:minmax(0,1fr)}}
+
+/* v10 · one type scale and palette gradients (2026-11-16, D-381) */
+body{font-size:17px;line-height:1.6}
+.wrap{max-width:1280px}
+h1,h2,h3{font-weight:500}
+.cap{font-size:14px;letter-spacing:0;text-transform:none;font-weight:600;color:#0B5F33}
+.meta{font-size:15px;line-height:1.5}
+.h2{font-size:48px;line-height:1.06;font-weight:500;letter-spacing:-.032em}
+.tag{height:28px;padding:0 12px;font-size:13px}
+.nav a{font-size:15px}
+.pill{min-height:48px;padding:0 22px;font-size:15px}
+.pill.sm{min-height:40px;padding:0 16px;font-size:14px}
+.panel{border-radius:28px}
+.door{border-radius:24px;padding:26px}
+.display{font-weight:300;letter-spacing:-.045em}
+.jump a{font-size:14px;padding:8px 14px}
+.tbl{font-size:15px}
+.gl{font-size:17px}
+.hero{background:radial-gradient(1100px 560px at 92% -4%,rgba(46,117,98,.38),rgba(46,117,98,0) 62%),radial-gradient(900px 520px at -4% 104%,rgba(46,117,98,.22),rgba(46,117,98,0) 60%),linear-gradient(180deg,#F7F9F8 0%,#F7F8F7 50%,#EFF2F0 100%)}
+.hero.teal,.globe{background:radial-gradient(900px 520px at 90% -6%,rgba(46,117,98,.45),rgba(46,117,98,0) 60%),linear-gradient(140deg,#12382F 0%,#2E7562 100%)}
+.wave,.green{background:radial-gradient(820px 480px at 92% -8%,rgba(46,117,98,.42),rgba(46,117,98,0) 62%),linear-gradient(135deg,#0C2822 0%,#18493D 40%,#12382F 76%,#2E7562 100%)}
+.band{background:linear-gradient(180deg,#F7F9F8 0%,#E6F2EC 100%)}
+.wave .pill.go,.green .pill.go,.globe .pill.go,.hero.teal .pill.go{background:#C20028;color:#FFFFFF;border-color:rgba(255,255,255,.75)}
+.wave .pill.go:hover,.green .pill.go:hover,.globe .pill.go:hover{background:#95141D;color:#FFFFFF}
+.statement{font-size:56px;line-height:1.06;letter-spacing:-.035em;font-weight:500}
+.chn{font-size:14px;text-transform:none;letter-spacing:.02em}
+.ip-big dd{font-size:80px;letter-spacing:-.05em}
+.iprow{font-size:16px}
+.names span{font-size:20px}
+.quote{font-size:26px}
+.pillar{padding:32px;border-radius:28px}
+.pillar .k{font-size:15px}
+.fig figcaption{font-size:15px}
+.boardnote{font-size:14px}
+.mstrip{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mchip{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1px solid #E3E7E4;font-size:15px;font-weight:500;color:#0B0F0C}
+.mchip i{width:10px;height:10px;border-radius:50%;background:#2E7562;display:inline-block;flex:none}
+.mchip.out{background:transparent;border-style:dashed;color:#4A524D}
+.mchip.out i{background:#68716B}
+.agent{display:grid;grid-template-columns:64px minmax(0,1.2fr) minmax(0,2fr) 150px 170px;gap:20px;align-items:center;padding:24px 0;border-bottom:1px solid #E3E7E4}
+.agent .no{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;color:#0B5F33;font-weight:500}
+.agent h3{font-size:22px}
+.screen{border-radius:18px;aspect-ratio:16/10;background:radial-gradient(420px 220px at 88% -6%,rgba(46,117,98,.38),rgba(46,117,98,0) 62%),linear-gradient(160deg,#EFF2F0 0%,#E3F0EF 100%);border:1px solid #E3E7E4;display:flex;align-items:flex-end;padding:16px;font-size:14px;color:#4A524D}
+.qa{display:flex;flex-direction:column;gap:10px;padding:28px;border-radius:24px;background:#FFFFFF;border:1px solid #E3E7E4}
+.qa h3{font-size:22px}
+.qa p{color:#3A413C}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid #B0D1C4;font-size:14px;font-weight:500;color:#18493D}
+.sw{display:flex;flex-direction:column;gap:8px}
+.sw b{display:block;height:88px;border-radius:18px;border:1px solid rgba(11,15,12,.08)}
+.gfield{border-radius:28px;min-height:260px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.trow{display:grid;grid-template-columns:220px minmax(0,1fr) 300px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E3E7E4}
+@media (max-width:760px){.agent{grid-template-columns:44px minmax(0,1fr)}.agent>*:nth-child(n+3){grid-column:2}.trow{grid-template-columns:minmax(0,1fr)}}
+
+/* v11 · design kit v0.11.4, colour v5 (2026-11-23, D-490): white canvas, ink #0B0F0C, black everyday buttons,
+   red #C20028 only for the one main action, emerald links and focus, flat glass, one forest-and-signal field
+   under the hero only, teal and green moments as flat tints, deep forest closing band */
+body{background:#FFFFFF;color:#0B0F0C}
+a{color:#0B5F33}a:hover{color:#0C2822}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0B5F33;outline-offset:2px}
+.hero{background:radial-gradient(620px 420px at 88% 20%,rgba(46,117,98,.40),rgba(46,117,98,0) 70%),radial-gradient(380px 280px at 76% 4%,rgba(19,252,74,.18),rgba(19,252,74,0) 70%),#FFFFFF !important}
+.hero.teal,.globe{background:#E3F0EF !important;color:#0B0F0C}
+.band{background:#E6F2EC !important}
+.wave{background:#0C2822 !important;color:#FFFFFF}
+.green{background:#E6F2EC !important;color:#0B0F0C;border:1px solid #B0D1C4}
+.screen{background:#EFF2F0 !important}
+.panel,.gen,.proj,.post,.door,.stage,.pillar,.qa,.fam,.fig,.ladder,.mchip,.glass{background:#F7F9F8;border:1px solid #E3E7E4;box-shadow:none}
+:is(.hero.teal,.globe,.band,.green,.wave) :is(.panel,.gen,.proj,.post,.door,.stage,.pillar,.qa,.fam,.fig,.glass){background:#FFFFFF}
+.glass.g{background:#E6F2EC !important;border-color:#B0D1C4 !important;color:#0B0F0C !important}
+.glass.t{background:#E3F0EF !important;border-color:#B0D1C4 !important;color:#0B0F0C !important}
+:is(.hero.teal,.globe,.green,.glass.g,.glass.t,.attn) :is(h1,h2,h3,h4,p,li,span,small,b,strong,em,i,figcaption,div,dt,dd,td,th,blockquote){color:#0B0F0C !important}
+:is(.hero.teal,.globe,.green,.glass.g,.glass.t,.attn) :is(.meta,.meta *,small){color:#3A433D !important}
+:is(.hero.teal,.globe,.green,.glass.g,.glass.t,.attn) :is(.cap,.chn,.num,.k,.no){color:#0B5F33 !important}
+:is(.hero.teal,.globe,.green,.glass.g,.glass.t,.attn) a:not(.pill){color:#0B5F33 !important}
+:is(.hero.teal,.globe,.green,.glass.g,.glass.t,.attn) .tag{background:#FFFFFF !important;color:#0B5F33 !important}
+:is(.hero.teal,.globe,.green,.glass.g,.glass.t,.attn) .thumb{background:#FFFFFF !important;border-color:#E3E7E4 !important}
+.pill{background:#0B0F0C;color:#FFFFFF;border-color:#0B0F0C}
+.pill:hover{background:#1A1E1B;color:#FFFFFF;border-color:#1A1E1B}
+.pill *{color:inherit}
+.pill.go{background:#C20028;color:#FFFFFF;border-color:#C20028}
+.pill.go:hover{background:#95141D;color:#FFFFFF;border-color:#95141D}
+:is(div,p,nav):has(> .pill ~ .pill ~ .pill) > .pill:not(.go){background:#FFFFFF;color:#0B0F0C;border-color:#CDD3CF}
+:is(div,p,nav):has(> .pill ~ .pill ~ .pill) > .pill:not(.go):hover{background:#FFFFFF;color:#0B0F0C;border-color:#0B0F0C}
+.pill.on,:is(div,p,nav):has(> .pill ~ .pill ~ .pill) > .pill.on{background:#0B0F0C !important;color:#FFFFFF !important;border-color:#0B0F0C !important}
+:is(.hero.teal,.globe,.green,.glass.g,.glass.t,.attn) .pill:not(.go){background:#0B0F0C !important;color:#FFFFFF !important;border-color:#0B0F0C !important}
+:is(.hero.teal,.globe,.green,.glass.g,.glass.t,.attn) .pill.go{background:#C20028 !important;border-color:#C20028 !important}
+:is(.hero.teal,.globe,.green,.glass.g,.glass.t,.attn) .pill *{color:#FFFFFF !important}
+.wave .pill:not(.go){background:#FFFFFF;color:#0B0F0C;border-color:#FFFFFF}
+.wave .pill.go{background:#C20028;color:#FFFFFF;border-color:rgba(255,255,255,.75)}
+.wave :is(.cap,.meta){color:#B0D1C4}
+header .pill.go{background:#0B0F0C;border-color:#0B0F0C}
+header .pill.go:hover{background:#1A1E1B;border-color:#1A1E1B}
+.nav a.on{background:#0B0F0C;color:#FFFFFF}
+.nav a:hover{background:#EFF2F0;color:#0B0F0C}
+.play{background:#0B0F0C;border-color:#0B0F0C}
+/* v11.1 · attention blocks, closing cards, thumbnails and avatars */
+.attn{background:#E6F2EC !important;border:1px solid #B0D1C4 !important;color:#0B0F0C !important;box-shadow:none !important}
+.gen.attn .g{color:#0B5F33 !important}
+.thumb.wave{background:#E3F0EF !important;color:#0B0F0C}
+.close{background:#0C2822 !important;color:#FFFFFF}
+:is(.wave,.close) .pill:not(.go){background:#FFFFFF;color:#0B0F0C;border-color:#FFFFFF}
+:is(.wave,.close) .pill:not(.go):hover{background:#E6F2EC;color:#0B0F0C;border-color:#E6F2EC}
+:is(.wave,.close) .pill.go{background:#C20028;color:#FFFFFF;border-color:rgba(255,255,255,.75)}
+.wave :is(.panel,.glass,.card) :is(.cap,.meta){color:#4A524D}
+:is(.hero.teal,.globe,.green,.glass.g,.glass.t,.attn) .av.ink,.av.ink{background:#0B0F0C !important;color:#FFFFFF !important;border-color:transparent !important}
+/* v11.1 (2026-11-24, D-498): the design kit's brain mark and the imagery set */
+.lg-tile{border-radius:24px;height:220px;display:flex;align-items:center;justify-content:center}
+.lg-card{display:flex;flex-direction:column;gap:8px}
+.lg-table{width:100%;border-collapse:collapse;font-size:16px;line-height:1.5}
+.lg-table th{text-align:left;font-weight:600;font-size:14px;color:#0B5F33;padding:0 16px 10px 0;border-bottom:1px solid #E3E7E4}
+.lg-table td{padding:14px 16px 14px 0;border-bottom:1px solid #E3E7E4;vertical-align:top}
+.lg-table td:first-child{font-weight:600;width:220px}
+.lg-table .file{font-weight:500;color:#0B0F0C;word-break:break-word}
+.im-fig{margin:0;display:flex;flex-direction:column;gap:8px}
+.im-fig img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid #E3E7E4;background:#E6F2EC}
+/* Imagery board (v11.1, 2026-11-24, D-498) */
+.im-hero{position:relative;margin:0;display:flex;flex-direction:column;gap:10px}
+.im-hero .frame{position:relative;border-radius:20px;overflow:hidden;border:1px solid #E3E7E4;background:#FFFFFF}
+.im-hero img{display:block;width:100%;height:auto}
+.im-hero .mock{position:absolute;left:6%;top:50%;transform:translateY(-50%);max-width:46%;display:flex;flex-direction:column;gap:6px}
+.im-hero .mock span{font-size:13px;font-weight:600;color:#0B5F33}
+.im-hero .mock b{font-size:26px;line-height:1.08;font-weight:500;letter-spacing:-.02em;color:#0B0F0C}
+.th-groups{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 20px}
+.th-group{grid-column:span 2;display:flex;flex-direction:column;gap:12px}
+.th-group.wide{grid-column:span 4}
+.th-set{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.th-group.wide .th-set{grid-template-columns:repeat(4,minmax(0,1fr))}
+.th-note{grid-column:span 2;align-self:stretch;background:#FFFFFF;border:1px solid #E3E7E4;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:10px;font-size:16px}
+.im-fig{margin:0;display:flex;flex-direction:column;gap:8px}
+.im-fig img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid #E3E7E4;background:#E6F2EC}
+.im-fig figcaption{font-size:14px;color:#4A524D}
+.im-fig figcaption b{color:#0B0F0C;font-weight:600}
+.lg-table{width:100%;border-collapse:collapse;font-size:16px;line-height:1.5}
+.lg-table th{text-align:left;font-weight:600;font-size:14px;color:#0B5F33;padding:0 16px 10px 0;border-bottom:1px solid #E3E7E4}
+.lg-table td{padding:14px 16px 14px 0;border-bottom:1px solid #E3E7E4;vertical-align:top}
+.lg-table td:first-child{font-weight:600;width:220px}
+.lg-table .file{font-weight:500;color:#0B0F0C;word-break:break-word}
+@media (max-width:900px){.th-groups{grid-template-columns:minmax(0,1fr)}.th-group,.th-group.wide,.th-note{grid-column:auto}.th-group.wide .th-set{grid-template-columns:repeat(2,minmax(0,1fr))}.im-hero .mock b{font-size:18px}}
+.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lg-table td.file{width:340px}
+@media (max-width:900px){.grid.two{grid-template-columns:minmax(0,1fr)}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#F7F9F8">
+<section class="hero"><div class="wrap" style="padding-top:88px;padding-bottom:64px;display:flex;flex-direction:column;gap:20px">
+  <p class="cap">Imagery · v11.1</p>
+  <h1 style="font-size:72px;line-height:1;font-weight:500;letter-spacing:-.04em;max-width:1000px">Heroes, thumbnails, tiles and patterns from the mark.</h1>
+  <p style="font-size:22px;color:#3A413C;max-width:780px">Every picture is drawn by script from the brain mark's lobes and sparks, in the design kit's colours. None carries text, so one file works for any title. The files are in the theme pack under images.</p>
+</div></section>
+<main class="wrap" style="display:flex;flex-direction:column;gap:88px;padding-top:72px;padding-bottom:96px">
+  <section class="sec" id="heroes"><div><p class="cap">Heroes</p><h2 class="h2">Four hero backgrounds, 2880 × 1200</h2><p style="color:#4A524D;margin-top:10px;max-width:760px;font-size:17px">The art sits on the right; the left half stays clear for the title. Meadow is the default, and the other three are for heroes with text only.</p></div>
+    <div class="grid two">
+      <figure class="im-hero"><div class="frame"><img src="/_blob/f55ec34fe712526d124d9c7d9bacf871" alt="White hero with a soft green field at the top right" width="1440" height="600"><div class="mock" aria-hidden="true"><span>Page title</span><b>How the mandate is delivered.</b></div></div><figcaption class="meta"><b style="color:#0B0F0C;font-weight:600">Meadow.</b> The default for every page hero. The soft field sits top right, clear of the title.</figcaption></figure>
+      <figure class="im-hero"><div class="frame"><img src="/_blob/973e52d538e880eaea2820bb17f8a518" alt="White hero with pale brain lobes rising at the bottom right" width="1440" height="600"><div class="mock" aria-hidden="true"><span>Products</span><b>Owned models, inside the boundary.</b></div></div><figcaption class="meta"><b style="color:#0B0F0C;font-weight:600">Meadow with lobes.</b> For a hero with text only: the lobes rise from the bottom right.</figcaption></figure>
+      <figure class="im-hero"><div class="frame"><img src="/_blob/e212bc94a431324b2dd18fc8855f28e7" alt="White hero with two sparks at the right" width="1440" height="600"><div class="mock" aria-hidden="true"><span>Release</span><b>TLM4: Core, Distil and Domain.</b></div></div><figcaption class="meta"><b style="color:#0B0F0C;font-weight:600">Meadow with sparks.</b> For releases, the quarterly awards and ThinkLatent Day.</figcaption></figure>
+      <figure class="im-hero"><div class="frame"><img src="/_blob/732879db9109dd1090ecc72f72bdccd3" alt="White hero with dotted orbits and two sparks at the right" width="1440" height="600"><div class="mock" aria-hidden="true"><span>AI Perspectives</span><b>What the session means here.</b></div></div><figcaption class="meta"><b style="color:#0B0F0C;font-weight:600">Meadow with an orbit.</b> For AI Perspectives and events.</figcaption></figure>
+    </div>
+  </section>
+  <section class="sec" id="thumbnails"><div><p class="cap">Post thumbnails</p><h2 class="h2">Two per category, 1600 × 900</h2><p style="color:#4A524D;margin-top:10px;max-width:760px;font-size:17px">One category for each template. Set a post's thumbnail in Page details, as the last step before posting.</p></div>
+    <div class="th-groups">
+      <div class="th-group"><div><p style="font-weight:600;font-size:19px">Perspective</p><p class="meta">Blog post, Perspective template · images/thumbnails/perspective-a.png and -b</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/2cd2a4574f72299e3a10b75da2b9208a" alt="Brain lobes with two sparks (a)" width="800" height="450"><figcaption><b>perspective-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/0161af6e19a65b55040e903d6a97e317" alt="Brain lobes with two sparks (b)" width="800" height="450"><figcaption><b>perspective-b</b></figcaption></figure></div></div>
+      <div class="th-group"><div><p style="font-weight:600;font-size:19px">Deep dive</p><p class="meta">Blog post, Deep dive template · images/thumbnails/deep-dive-a.png and -b</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/e9cee65998b42d6b44297ac768509c3c" alt="Split rings with two sparks (a)" width="800" height="450"><figcaption><b>deep-dive-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/1d64eb2f0eab4768641835f2e12ada08" alt="Split rings with two sparks (b)" width="800" height="450"><figcaption><b>deep-dive-b</b></figcaption></figure></div></div>
+      <div class="th-group"><div><p style="font-weight:600;font-size:19px">Win</p><p class="meta">Win story template · images/thumbnails/win-a.png and -b</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/5957997671e94f766eff54be3eb804a4" alt="Circles growing to the right, two sparks on the largest (a)" width="800" height="450"><figcaption><b>win-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/99040dbfc5412f416f77889a438637a1" alt="Circles growing to the right, two sparks on the largest (b)" width="800" height="450"><figcaption><b>win-b</b></figcaption></figure></div></div>
+      <div class="th-group"><div><p style="font-weight:600;font-size:19px">Use case</p><p class="meta">Use case template · images/thumbnails/use-case-a.png and -b</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/548927a27c1dd9795eab4e4016516592" alt="Lobes inside a rounded frame with two sparks (a)" width="800" height="450"><figcaption><b>use-case-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/7b1ebd37c66aace1f4d0d3479d8d2967" alt="Lobes inside a rounded frame with two sparks (b)" width="800" height="450"><figcaption><b>use-case-b</b></figcaption></figure></div></div>
+      <div class="th-group"><div><p style="font-weight:600;font-size:19px">Paper</p><p class="meta">Paper explained template · images/thumbnails/paper-a.png and -b</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/3246c0e79946752e4f8bd03439784936" alt="Outlined circles and a spark (a)" width="800" height="450"><figcaption><b>paper-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/b51b06cc0880fc0ca2a1b8ff6ee94d42" alt="Outlined circles and a spark (b)" width="800" height="450"><figcaption><b>paper-b</b></figcaption></figure></div></div>
+      <div class="th-group"><div><p style="font-weight:600;font-size:19px">Model card</p><p class="meta">Model card template · images/thumbnails/model-card-a.png and -b</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/b5311311595b8ab65e6224e15b0eca7a" alt="A grid of shapes with one spark tile (a)" width="800" height="450"><figcaption><b>model-card-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/54c7bc42ada88be3c7ea491c7f4fec21" alt="A grid of shapes with one spark tile (b)" width="800" height="450"><figcaption><b>model-card-b</b></figcaption></figure></div></div>
+      <div class="th-group"><div><p style="font-weight:600;font-size:19px">Release</p><p class="meta">Release notes template · images/thumbnails/release-a.png and -b</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/e7a128c7df5f241870266ce9488adb78" alt="Rising half circles with two sparks on the tallest (a)" width="800" height="450"><figcaption><b>release-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/89a96ca03b92afcfa2c3264196da04a8" alt="Rising half circles with two sparks on the tallest (b)" width="800" height="450"><figcaption><b>release-b</b></figcaption></figure></div></div>
+      <div class="th-group"><div><p style="font-weight:600;font-size:19px">Leadership</p><p class="meta">Leadership series template · images/thumbnails/leadership-a.png and -b</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/ae393637ef3b22f7cf69680ee612ab3e" alt="Half a brain in greys with two sparks (a)" width="800" height="450"><figcaption><b>leadership-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/e787d626a9130e3ca475efc352823ca6" alt="Half a brain in greys with two sparks (b)" width="800" height="450"><figcaption><b>leadership-b</b></figcaption></figure></div></div>
+      <div class="th-group wide"><div><p style="font-weight:600;font-size:19px">Session</p><p class="meta">AI Perspectives session template · images/thumbnails/session-a.png to -d</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/572f174ff229619fec90e2a2c18e59de" alt="A small brain inside dotted orbits (a)" width="800" height="450"><figcaption><b>session-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/3cf7e83b8231030ddcbc5fe0fcfdcc06" alt="A small brain inside dotted orbits (b)" width="800" height="450"><figcaption><b>session-b</b></figcaption></figure><figure class="im-fig"><img src="/_blob/3c6679c694c3c1d1271450ad2f22f72c" alt="A small brain inside dotted orbits (c)" width="800" height="450"><figcaption><b>session-c</b></figcaption></figure><figure class="im-fig"><img src="/_blob/544b420ab8c868b512b7154cff7f3ced" alt="A small brain inside dotted orbits (d)" width="800" height="450"><figcaption><b>session-d</b></figcaption></figure></div></div>
+      <div class="th-group"><div><p style="font-weight:600;font-size:19px">Roundup</p><p class="meta">Conference roundup template · images/thumbnails/roundup-a.png and -b</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/54dbca1ab1de610af5ec2dba11f26d5c" alt="Scattered dots around a spark (a)" width="800" height="450"><figcaption><b>roundup-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/d633830d736444d83eac3b82fac47402" alt="Scattered dots around a spark (b)" width="800" height="450"><figcaption><b>roundup-b</b></figcaption></figure></div></div>
+      <div class="th-group"><div><p style="font-weight:600;font-size:19px">Partner</p><p class="meta">New partner template · images/thumbnails/partner-a.png and -b</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/d5972a4cb42ae0db59a4b54acf4a3369" alt="Two brain halves apart, a spark between (a)" width="800" height="450"><figcaption><b>partner-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/bc43005b58d99846dcad5b5297ab7461" alt="Two brain halves apart, a spark between (b)" width="800" height="450"><figcaption><b>partner-b</b></figcaption></figure></div></div>
+      <div class="th-group"><div><p style="font-weight:600;font-size:19px">Awards</p><p class="meta">ThinkLatent quarterly awards template · images/thumbnails/awards-a.png and -b</p></div><div class="th-set"><figure class="im-fig"><img src="/_blob/c42c4696a4d2d9da6dcb8c9aebcf10b0" alt="Sparks and lobes on green glass (a)" width="800" height="450"><figcaption><b>awards-a</b></figcaption></figure><figure class="im-fig"><img src="/_blob/9084d807023933a20e329c427f12e33d" alt="Sparks and lobes on green glass (b)" width="800" height="450"><figcaption><b>awards-b</b></figcaption></figure></div></div>
+      <div class="th-note"><p style="font-weight:600;font-size:19px">How the pairs work</p><p>Each category has an a and a b, so two posts of one kind can sit side by side in News without repeating. Sessions have four, one per session in a row.</p><p>The focus sits inside the centre 4:3 of every thumbnail, so the News web part's 4:3, 16:9 and 21:9 crops and the 16:9 of Highlighted content all keep it.</p></div>
+    </div>
+  </section>
+  <section class="sec" id="tiles"><div><p class="cap">Product tiles</p><h2 class="h2">Six tiles, 1600 × 1200</h2><p style="color:#4A524D;margin-top:10px;max-width:760px;font-size:17px">At 4:3, for Quick links in the Tiles layout and the Hero web part's tiles.</p></div>
+    <div class="grid g3">
+      <figure class="im-fig"><img src="/_blob/71c837473b9fd47eadcf6da24375afe6" alt="Large brain mark on quiet glass" width="800" height="600"><figcaption><b>TLM.</b> The TLM product card and its Hero tile.</figcaption></figure>
+      <figure class="im-fig"><img src="/_blob/09837521aa3f8a88efe7d5f7c35ccb5c" alt="A grid of rounded tiles, one holding a spark" width="800" height="600"><figcaption><b>ThinkLatent Portal.</b> The portal card until real screens replace it.</figcaption></figure>
+      <figure class="im-fig"><img src="/_blob/752104d9ab10d92b53b5e84751bb4423" alt="Dots placed along five lines, one a spark" width="800" height="600"><figcaption><b>TL Index.</b> The index tile: models placed along their scores.</figcaption></figure>
+      <figure class="im-fig"><img src="/_blob/1666a5c508532667ed777187836be054" alt="Lobes inside a rounded frame" width="800" height="600"><figcaption><b>How we build responsibly.</b> The governance card.</figcaption></figure>
+      <figure class="im-fig"><img src="/_blob/7a644fbc1d16b900c28a949b1561fff1" alt="Circles with a spark inside a dotted ring" width="800" height="600"><figcaption><b>Bring us a problem.</b> The ask on Wins and Home.</figcaption></figure>
+      <figure class="im-fig"><img src="/_blob/4d51b201436894808c51748df579c5cc" alt="Circles growing to the right in teal" width="800" height="600"><figcaption><b>Outcomes.</b> The proof panel and win round-ups.</figcaption></figure>
+    </div>
+  </section>
+  <section class="sec" id="patterns"><div><p class="cap">Patterns</p><h2 class="h2">Five patterns, optional</h2><p style="color:#4A524D;margin-top:10px;max-width:760px;font-size:17px">At most one a page, behind a section with little text; never behind a hero or the closing band.</p></div>
+    <div class="grid g2">
+      <figure class="im-fig"><img src="/_blob/e854068b654bfad01b435b4f1c225dc3" alt="Small green and grey dots spaced on white" width="1440" height="600"><figcaption><b>Dots.</b> On white. 240 px tile (SVG, PNG) and a 2880 × 1200 PNG.</figcaption></figure>
+      <figure class="im-fig"><img src="/_blob/9832e30bd3cbf0d8650ed50fd267b8a3" alt="Small sparks spaced on green glass" width="1440" height="600"><figcaption><b>Sparks.</b> On Mint rise, the green glass. 240 px tile (SVG, PNG) and a 2880 × 1200 PNG.</figcaption></figure>
+      <figure class="im-fig"><img src="/_blob/30988dba3477b336a39e66170c148127" alt="Thin rings spaced on teal glass" width="1440" height="600"><figcaption><b>Rings.</b> On Lagoon, the teal glass. 240 px tile (SVG, PNG) and a 2880 × 1200 PNG.</figcaption></figure>
+      <figure class="im-fig"><img src="/_blob/c8350d3f9ac3b8b63b220988666eb49e" alt="Fine linked circles on white" width="1440" height="600"><figcaption><b>Lace.</b> On white, at the lowest contrast. 240 px tile (SVG, PNG) and a 2880 × 1200 PNG.</figcaption></figure>
+      <figure class="im-fig"><img src="/_blob/a64a1a745d1e968a16b8f6e0f1c5e5b0" alt="Half circles in rows on green glass" width="1440" height="600"><figcaption><b>Halves.</b> On Mint rise. 240 px tile (SVG, PNG) and a 2880 × 1200 PNG.</figcaption></figure>
+    </div>
+  </section>
+  <section class="sec" id="sharepoint"><div><p class="cap">SharePoint</p><h2 class="h2">Where each file goes</h2></div>
+    <table class="lg-table">
+      <thead><tr><th scope="col">What</th><th scope="col">Where</th><th scope="col">File in the theme pack</th></tr></thead>
+      <tbody>
+        <tr><td>Site logo thumbnail</td><td>Settings &gt; Change the look &gt; Header &gt; Site logo thumbnail. Recommended 64 × 64.</td><td class="file">logo/site-logo-thumbnail-white-tile-256.png</td></tr>
+        <tr><td>Site logo</td><td>Settings &gt; Change the look &gt; Header &gt; Site logo.</td><td class="file">logo/brain-full-colour-256.png</td></tr>
+        <tr><td>A post's thumbnail</td><td>Edit &gt; Page details &gt; Change thumbnail. Set it last, after the final edit, then check it in News: SharePoint can swap it for the first image in the post.</td><td class="file">images/thumbnails/[category]-a.png or -b.png</td></tr>
+        <tr><td>Product tiles</td><td>Quick links (Tiles layout) or the Hero web part: edit the item &gt; Change image.</td><td class="file">images/tiles/[name].png</td></tr>
+        <tr><td>A page hero</td><td>Edit section &gt; Background &gt; Image, on the top section.</td><td class="file">images/heroes/meadow-[variant].png</td></tr>
+        <tr><td>A quiet section</td><td>Edit section &gt; Background &gt; Image.</td><td class="file">images/patterns/[name]-2880x1200.png</td></tr>
+      </tbody>
+    </table>
+    <p class="boardnote"><b>Board note.</b> Drawn by script from the design kit's mark geometry and colour tokens: no photographs and no image model. To change a picture, change the script in the theme pack (tools/imagery) and run it again, so the set stays one family. Previews on this board are WebP; the pack holds the full-size PNG files.</p>
+  </section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7400}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

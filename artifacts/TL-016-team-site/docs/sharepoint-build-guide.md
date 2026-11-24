@@ -2,7 +2,7 @@
 
 Nov 16, 2026 · @Jithin Pradeep
 
-This guide builds the ThinkLatent site in SharePoint Online from design canvas v11 (D-490, the design kit's colour v5, updated 23 Nov 2026), on a test site first. A site owner can do nearly all of it with native web parts, the theme's colour pairs and image backgrounds; the type scale is typed into each Text web part, and one IT request (custom.css) makes it automatic and brings the pill buttons, the red main action and emerald links.
+This guide builds the ThinkLatent site in SharePoint Online from design canvas v11.1 (D-490, the design kit's colour v5, 23 Nov 2026; D-498, the kit's brain mark and the pictures drawn from it, 24 Nov 2026), on a test site first. A site owner can do nearly all of it with native web parts, the theme's colour pairs and image backgrounds; the type scale is typed into each Text web part, and one IT request (custom.css) makes it automatic and brings the pill buttons, the red main action and emerald links.
 
 ## Before you start
 
@@ -53,7 +53,7 @@ The theme makes every button the kit's black button, and its colour pairs carry 
 1. **Theme, no admin (tier 1).** Settings > Site branding > Theme > + New theme. With + Add color, add #0B0F0C as the primary colour and #FFFFFF, #0B5F33, #E6F2EC, #E3F0EF and #0C2822 as secondary colours. With + New combination, add three pairs: background #E6F2EC with accent #0B0F0C (Mint rise), background #E3F0EF with accent #0B0F0C (Lagoon), background #0C2822 with accent #FFFFFF (Canopy). Name it ThinkLatent v11, save, then apply it under Settings > Change the look > Theme. SharePoint builds its own shades from black, so hover and selected states are greys, and it sets text on each pair to black or white by contrast.
 2. **Theme for the whole tenant (tier 1a).** A SharePoint administrator runs Add-ThinkLatentTheme.ps1 from the pack; it registers the four colour pairs exactly (Add-SPOTheme -ColorPairs), or the full palette with -Legacy on an older management shell. Then the site owner applies it: Settings > Change the look > Theme > From your organization > ThinkLatent v11. The legacy palette has no pairs, so its tints go in as images, and its Strong section background is black: do not use it.
 3. **Fonts (tier 1a).** Custom fonts come only through the Brand Center: a brand manager uploads Inter there. The site owner then creates a font package under Settings > Site branding > Font packages, with Inter for headings and body. Without it the site uses SharePoint's own font.
-4. **Header.** Site title "ThinkLatent". The logo stays the red TL tile until the ThinkLatent mark can be shared.
+4. **Header.** Site title "ThinkLatent". Logo (tier 1), in the same Header pane: Site logo thumbnail > Change > logo/site-logo-thumbnail-white-tile-256.png (required and square; SharePoint shows it in search results, on site cards and wherever a square logo is needed; 64 × 64 recommended). Site logo > Change > logo/brain-full-colour-256.png (transparent, shown in the header beside the site title; 64 × 64 up to 192 × 64). Both are the design kit's brain mark. The kit has not yet chosen between its two candidate marks; the other one, two sparks, is in logo/alternate.
 
 ## Step 3 · Navigation and footer
 
@@ -107,16 +107,20 @@ Create each list from its CSV in the pack: New > List > From CSV, then check eac
 | Ask for an AI Perspectives topic | Topic; why it matters to your team; would you present | AI Perspectives lead |
 | ThinkLatent Day sign-up | Team; idea in one line; business sponsor | Deferred until the Summit date is set |
 
-## Step 5 · Backgrounds and drawings
+## Step 5 · Backgrounds, drawings and pictures
 
 Meadow, the white hero with its one soft field, is an image; the three flat backgrounds are the theme's colour pairs, with flat images of the same colours where a pair is not offered. None needs an IT request. Tier 1.
 
-1. Upload the theme pack's gradients and drawings folders to Site Assets, in a folder named ThinkLatent.
+1. Upload the theme pack's gradients, drawings and images folders to Site Assets, in a folder named ThinkLatent.
 2. **Hero sections:** edit the top section of each page > Edit section > Background > Image > meadow-2880x1200.png. SharePoint adds a see-through overlay to image backgrounds for readability; set it as low as it goes so the field stays soft.
 3. **Closing band:** the last section of every page takes the Canopy colour pair (background #0C2822), with the Call to action web part in it; give the Call to action canopy-2880x900.png as its background. White text, a white button, or the red main action once custom.css is on.
 4. **Teal moments:** the Lagoon colour pair (background #E3F0EF), or lagoon-2880x1200.png, behind the AI Perspectives hero, the university lab on Research, and Where TLM works on Products.
 5. **Attention sections:** the Mint rise colour pair (background #E6F2EC), or mint-rise-2880x600.png, on the sections the page copy names, such as the four doors on Home. Every other section stays white, and no section is black.
 6. **Drawings:** Image web part, the PNG from the drawings folder, alt text from the canvas caption. No text is typed over an image.
+7. **Hero variants:** for a hero with text only, a picture from images/heroes can take Meadow's place in item 2: meadow-lobes, meadow-spark for releases, the awards and ThinkLatent Day, meadow-orbit for AI Perspectives and events. The art sits on the right, so the title stays in the left half.
+8. **Thumbnails:** every post and page gets its category's picture from images/thumbnails: Edit > Page details > Change thumbnail. Each category has an a and a b, so two posts of one kind side by side do not repeat; sessions have four. Set it as the last step before posting and check it on Home's News web part, because SharePoint can swap it for the first image in the post.
+9. **Product tiles:** the product cards (Quick links, Tiles layout) and the Hero web part's tiles take the 4:3 files in images/tiles.
+10. **Patterns (optional):** at most one a page, as the background image of a section with little text: dots or lace on white, sparks or halves on Mint rise, rings on Lagoon. Never behind a hero or the closing band.
 
 When a news post is sent as email, SharePoint swaps section backgrounds for theme colours. That is expected and needs no fix.
 
@@ -216,7 +220,7 @@ Same method: one row per section, words from the page copy doc, the closing band
 | ThinkLatent at a glance | One plain page of headings and lists, every number with its source, refreshed each quarter, so search and Copilot can answer "what has ThinkLatent done on X?" · closing band | Text only; Call to action |
 | Write for ThinkLatent | Hero · the eleven templates · Perspective or Deep dive · three steps, reviewed within five working days · how the blog runs · the ThinkLatent voice · submit · closing band | Quick links (grid); Text; Forms; Call to action |
 
-**Templates.** Build each one once as a page with the blocks listed for it in the page copy doc, set its Category, then Page details > Save as template. Authors start every post from these.
+**Templates.** Build each one once as a page with the blocks listed for it in the page copy doc, set its Category and its thumbnail (its category's a picture from images/thumbnails: win-a for Win story, session-a for AI Perspectives session, and so on), then Page details > Save as template. Authors start every post from these.
 
 | Template | Category | What it holds |
 | --- | --- | --- |
@@ -281,7 +285,7 @@ The site goes past the test site only when every box below is ticked. The dated 
 
 ## Sources
 
-Checked 16 Nov 2026; the theme sources again on 23 Nov 2026. Test each step on the test site, because SharePoint changes month to month.
+Checked 16 Nov 2026; the theme sources again on 23 Nov 2026; the logo and picture sources on 24 Nov 2026. Test each step on the test site, because SharePoint changes month to month.
 
 - [Site branding: site owners create themes; font packages come from Brand Center fonts](https://support.microsoft.com/en-us/sharepoint/sites-in-sharepoint/site-branding) (Microsoft Support)
 - [Site owners can create and apply custom themes without IT](https://sharepointmaven.com/how-to-configure-and-apply-a-custom-theme-in-sharepoint-online) (SharePoint Maven)
@@ -302,3 +306,7 @@ Checked 16 Nov 2026; the theme sources again on 23 Nov 2026. Test each step on t
 - [Add-SPOTheme -ColorPairs, up to 16 colour pairs](https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/add-spotheme) (Microsoft Learn)
 - [Theme JSON schema 2.0.0: secondary colour pairs and the accent slot](https://learn.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-theming/sharepoint-site-theming-json-schema) (Microsoft Learn)
 - [Section backgrounds come from white, neutralLighter, themeLighterAlt and themePrimary](https://learn.microsoft.com/en-us/answers/questions/469680/sharepoint-online-section-background-color) (Microsoft Q&A)
+- [Site logo thumbnail and site logo: sizes, formats and where each shows](https://support.microsoft.com/office/customize-your-sharepoint-site-320b43e5-b047-4fda-8381-f61e8ac7f59b) (Microsoft Support)
+- [Image sizing: Hero tiles 4:3; News 4:3, 16:9 or 21:9; Highlighted content 16:9](https://support.microsoft.com/office/image-sizing-and-scaling-in-sharepoint-modern-pages-dc510065-b5a5-4654-bc94-e3ecbbb57d8d) (Microsoft Support)
+- [Page details: change a page's thumbnail](https://support.microsoft.com/en-au/sharepoint/sites-pages/view-edit-and-add-page-details) (Microsoft Support)
+- [A chosen news thumbnail replaced by the first image in the post](https://techcommunity.microsoft.com/discussions/sharepoint_general/unexpected-thumbnail-behavior-in-sharepoint-news-pages/4416292) (Microsoft Tech Community, a user report, May 2025)

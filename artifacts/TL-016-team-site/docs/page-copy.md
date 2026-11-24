@@ -1949,6 +1949,7 @@ News post template, Category = Perspective or Deep dive. Build it once as a post
 | --- | --- |
 | Label | Page properties |
 | Page property | Category Blog (preset) |
+| Page property | Thumbnail perspective-a or -b; deep-dive-a or -b for a deep dive (images/thumbnails in the theme pack; Page details > Change thumbnail, as the last step before posting) |
 | Page property | Function \[Research · Applied Research · AI Products\] |
 | Page property | Author \[You\] |
 | Page property | Why it matters \[One line; shows on the card\] |
@@ -2017,6 +2018,7 @@ News post template, Category = Win. Build it once as a post with the blocks belo
 | --- | --- |
 | Label | Page properties |
 | Page property | Category Win (preset) |
+| Page property | Thumbnail win-a or win-b (images/thumbnails in the theme pack; Page details > Change thumbnail, as the last step before posting) |
 | Page property | Partner team \[Team\] |
 | Page property | Business unit \[Unit\] |
 | Page property | Product \[TLM tier\] |
@@ -2075,6 +2077,7 @@ News post template, Category = Paper explained. Build it once as a post with the
 | --- | --- |
 | Label | Page properties |
 | Page property | Category Paper (preset) |
+| Page property | Thumbnail paper-a or paper-b (images/thumbnails in the theme pack; Page details > Change thumbnail, as the last step before posting) |
 | Page property | Theme \[Autonomous AI · Trustworthy AI · Cybersecurity\] |
 | Page property | Venue and year \[Venue, YEAR\] |
 | Page property | Authors \[Names\] |
@@ -2141,6 +2144,7 @@ News post template, Category = Model card. Build it once as a post with the bloc
 | --- | --- |
 | Label | Page properties |
 | Page property | Category Model card (preset) |
+| Page property | Thumbnail model-card-a or model-card-b (images/thumbnails in the theme pack; Page details > Change thumbnail, as the last step before posting) |
 | Page property | Product \[TLM Core · Distil · Domain · other\] |
 | Page property | Version \[Value\] |
 | Page property | Owner \[Name\] |
@@ -2222,6 +2226,7 @@ News post template, Category = Release. Build it once as a post with the blocks 
 | --- | --- |
 | Label | Page properties |
 | Page property | Category Release (preset) |
+| Page property | Thumbnail release-a or release-b (images/thumbnails in the theme pack; Page details > Change thumbnail, as the last step before posting) |
 | Page property | Product \[TLM Core · Distil · Domain · Portal · Index · Gateway\] |
 | Page property | Generation or version \[Value\] |
 | Page property | Index run \[Reference\] |
@@ -2274,6 +2279,7 @@ News post template, Category = Leadership. Build it once as a post with the bloc
 | --- | --- |
 | Label | Page properties |
 | Page property | Category Leadership (preset) |
+| Page property | Thumbnail leadership-a or leadership-b (images/thumbnails in the theme pack; Page details > Change thumbnail, as the last step before posting) |
 | Page property | Series \[Series name\] |
 | Page property | Number \[N\] |
 | Page property | Leader \[Name, role\] |
@@ -2336,6 +2342,7 @@ News post template, Category = Use case. Build it once as a post with the blocks
 | --- | --- |
 | Label | Page properties |
 | Page property | Category Win (preset) |
+| Page property | Thumbnail use-case-a or use-case-b (images/thumbnails in the theme pack; Page details > Change thumbnail, as the last step before posting) |
 | Page property | Partner team \[Team\] |
 | Page property | Partner owner \[Name, role\] |
 | Page property | Consent reference required \[Email or record, DATE\] |
@@ -2407,6 +2414,7 @@ News post template, Category = Session. Build it once as a post with the blocks 
 | --- | --- |
 | Label | Page properties |
 | Page property | Category Session (preset) |
+| Page property | Thumbnail session-a to session-d, in turn (images/thumbnails in the theme pack; Page details > Change thumbnail, as the last step before posting) |
 | Page property | Session date \[DATE\] |
 | Page property | Host \[Name\] |
 | Page property | Paper or source \[Link\] |
@@ -2472,6 +2480,7 @@ News post template, Category = Roundup. Build it once as a post with the blocks 
 | --- | --- |
 | Label | Page properties |
 | Page property | Category Roundup (preset) |
+| Page property | Thumbnail roundup-a or roundup-b (images/thumbnails in the theme pack; Page details > Change thumbnail, as the last step before posting) |
 | Page property | Conference \[Name\] |
 | Page property | Year \[Year\] |
 | Page property | Attendees \[Names\] |
@@ -2534,6 +2543,7 @@ News post template, Category = Partner. Build it once as a post with the blocks 
 | --- | --- |
 | Label | Page properties |
 | Page property | Category Partner (preset) |
+| Page property | Thumbnail partner-a or partner-b (images/thumbnails in the theme pack; Page details > Change thumbnail, as the last step before posting) |
 | Page property | Business unit \[Unit\] |
 | Page property | ThinkLatent lead \[Name\] |
 | Page property | Ladder step \[Consult · Co-build · Dedicated model\] |
@@ -2662,6 +2672,7 @@ News post template, Category = Awards. Build it once as a post with the blocks b
 | --- | --- |
 | Label | Page properties |
 | Page property | Category Award (preset) |
+| Page property | Thumbnail awards-a or awards-b (images/thumbnails in the theme pack; Page details > Change thumbnail, as the last step before posting) |
 | Page property | Quarter Q\[N\] \[YEAR\] |
 | Page property | Review date \[DATE of leadership review\] |
 | Page property | Consent to name and photo required \[Yes, for every winner\] |

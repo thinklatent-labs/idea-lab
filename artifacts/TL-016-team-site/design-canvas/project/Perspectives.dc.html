@@ -234,13 +234,29 @@ header .pill.go:hover{background:#1A1E1B;border-color:#1A1E1B}
 :is(.wave,.close) .pill.go{background:#C20028;color:#FFFFFF;border-color:rgba(255,255,255,.75)}
 .wave :is(.panel,.glass,.card) :is(.cap,.meta){color:#4A524D}
 :is(.hero.teal,.globe,.green,.glass.g,.glass.t,.attn) .av.ink,.av.ink{background:#0B0F0C !important;color:#FFFFFF !important;border-color:transparent !important}
+/* v11.1 (2026-11-24, D-498): post thumbnails and product tiles drawn from the design kit's brain mark */
+.thumb.img.img.img{background-color:#E6F2EC !important;background-position:center !important;background-size:cover !important;background-repeat:no-repeat !important;border-color:#E3E7E4 !important;overflow:hidden}
+.thumb.img.img-thumb-session-c.img{background-image:url(/_blob/3c6679c694c3c1d1271450ad2f22f72c) !important}
+.thumb.img.img-thumb-session-b.img{background-image:url(/_blob/3cf7e83b8231030ddcbc5fe0fcfdcc06) !important}
+.thumb.img.img-thumb-session-a.img{background-image:url(/_blob/572f174ff229619fec90e2a2c18e59de) !important}
+.thumb.img.img-thumb-session-d.img{background-image:url(/_blob/544b420ab8c868b512b7154cff7f3ced) !important}
+.thumb.img.img .tag{background:#FFFFFF !important;color:#0B5F33 !important;box-shadow:0 1px 2px rgba(11,15,12,.10)}
+.thumb.img.img .tag.teal{color:#12382F !important}
+.thumb.img.img .tag.grey{color:#3A413C !important}
+.thumb.img.img .tag.steel{color:#445664 !important}
+.thumb.img.img .tag.terra{color:#3A433D !important}
+.thumb.img.img .tag.red{background:#FCE6E4 !important;color:#95141D !important}
+.thumb.img.img .tag.dark{background:#0B0F0C !important;color:#FFFFFF !important;box-shadow:none}
+.thumb.img.img.rec{align-items:flex-end !important;justify-content:flex-start !important;padding:14px !important}
+/* the play mark stays white in every context (fixes v11, where the teal and globe contexts turned it black) */
+.play.play.play,.play.play.play *{color:#FFFFFF !important}
 </style>
 </helmet>
 <div style="min-height:100vh;display:flex;flex-direction:column">
 <header style="background:#FFFFFF;border-top:4px solid #C20028;border-bottom:1px solid #E3E7E4">
   <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
     <a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#0B0F0C" aria-label="Home">
-      <span style="width:40px;height:40px;border-radius:12px;background:#C20028;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px">TL</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="25.5 33.5 194 194" aria-hidden="true" focusable="false" style="flex:none;display:block"><defs><clipPath id="hdr-half"><rect x="2.2" y="-90" width="100" height="180"/></clipPath></defs><g transform="translate(112 138) scale(1.5 1.5)"><g clip-path="url(#hdr-half)"><circle cx="20" cy="31" r="18" fill="#1F5E4E"/><circle cx="35" cy="11" r="20" fill="#2E7562"/><circle cx="14" cy="0" r="25" fill="#2E8F6A"/><circle cx="33" cy="-15" r="22" fill="#34B370"/><circle cx="15" cy="-33" r="21" fill="#4CC787"/></g></g><g transform="translate(112 138) scale(-1.5 1.5)"><g clip-path="url(#hdr-half)"><circle cx="20" cy="31" r="18" fill="#1F5E4E"/><circle cx="35" cy="11" r="20" fill="#2E7562"/><circle cx="14" cy="0" r="25" fill="#2E8F6A"/><circle cx="33" cy="-15" r="22" fill="#34B370"/><circle cx="15" cy="-33" r="21" fill="#4CC787"/></g></g><path d="M184.9 71.8 Q188.1 88.9 205.2 92.1 Q188.1 95.3 184.9 112.3 Q181.7 95.3 164.7 92.1 Q181.7 88.9 184.9 71.8Z" fill="#18493D" stroke="#18493D" stroke-width="6.9" stroke-linejoin="round"/><path d="M164.7 92.1 Q181.7 88.9 184.9 71.8 Q188.1 88.9 205.2 92.1" fill="none" stroke="#4CC787" stroke-width="4.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M164.7 92.1 Q181.7 95.3 184.9 112.3 Q188.1 95.3 205.2 92.1" fill="none" stroke="#FFFFFF" stroke-width="4.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M204.1 51.6 Q205.6 59.3 213.3 60.7 Q205.6 62.2 204.1 69.8 Q202.7 62.2 195.0 60.7 Q202.7 59.3 204.1 51.6Z" fill="#18493D" stroke="#18493D" stroke-width="4.3" stroke-linejoin="round"/><path d="M195.0 60.7 Q202.7 59.3 204.1 51.6 Q205.6 59.3 213.3 60.7" fill="none" stroke="#4CC787" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M195.0 60.7 Q202.7 62.2 204.1 69.8 Q205.6 62.2 213.3 60.7" fill="none" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span style="display:flex;flex-direction:column;line-height:1.25"><span style="font-weight:600;font-size:16px">ThinkLatent</span><span style="font-size:13px;color:#4A524D">Team site</span></span>
     </a>
     <nav class="nav" aria-label="Site" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
@@ -259,7 +275,7 @@ header .pill.go:hover{background:#1A1E1B;border-color:#1A1E1B}
       <div style="display:flex;flex-wrap:wrap;gap:12px"><a class="pill go" href="#next">Join the next session</a><a class="pill" href="#ask">Ask for it on the roadmap</a></div>
     </div>
     <div class="glass t card" style="max-width:420px;justify-self:end;gap:14px">
-      <div class="thumb" style="display:flex;align-items:center;justify-content:center;aspect-ratio:16/9"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+      <div class="thumb img img-thumb-session-c rec" style="display:flex;align-items:center;justify-content:center;aspect-ratio:16/9"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
       <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="tag">Last session</span><span class="meta">[DATE] · [N] attended</span></div>
       <h3 style="font-size:24px">[Session topic]: what it means for the Enterprise</h3>
       <p class="meta">Recording, the Enterprise slide and the [N] requests it raised.</p>
@@ -297,9 +313,9 @@ header .pill.go:hover{background:#1A1E1B;border-color:#1A1E1B}
   <section class="sec">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px"><div><p class="cap">Recordings library</p><h2 class="h2">Past sessions, with the Enterprise slide</h2><p style="color:#4A524D;margin-top:8px;max-width:720px">Every recording carries its requests and their answer dates. New joiners watch three of these in their first week.</p></div><a class="pill" href="#">All recordings · Stream</a></div>
     <div class="grid g3">
-      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb net" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:21px">Aligning pretraining data with downstream uses: small models, done right</h3><p class="meta">With the university project team · [DATE] · [N] requests · 41 min</p></div></a>
-      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb wave" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:21px">M-cube: red teaming a model before an attacker does</h3><p class="meta">Research · [DATE] · [N] requests · 38 min</p></div></a>
-      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb globe" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:21px">Decision models: a yes or no in under 50 milliseconds</h3><p class="meta">Applied Research · [DATE] · [N] requests · 44 min</p></div></a>
+      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb net img img-thumb-session-b rec" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:21px">Aligning pretraining data with downstream uses: small models, done right</h3><p class="meta">With the university project team · [DATE] · [N] requests · 41 min</p></div></a>
+      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb wave img img-thumb-session-a rec" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:21px">M-cube: red teaming a model before an attacker does</h3><p class="meta">Research · [DATE] · [N] requests · 38 min</p></div></a>
+      <a class="panel card" href="TplSession.dc.html" style="padding:12px;gap:0"><div class="thumb globe img img-thumb-session-d rec" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center"><span class="play" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div><div style="padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px"><h3 style="font-size:21px">Decision models: a yes or no in under 50 milliseconds</h3><p class="meta">Applied Research · [DATE] · [N] requests · 44 min</p></div></a>
     </div>
   </section>
 
