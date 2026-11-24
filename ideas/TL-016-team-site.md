@@ -78,6 +78,7 @@ _None recorded._
 | ThinkLatent site — SharePoint build guide (v10) | doc | [artifacts/TL-016-team-site/docs/sharepoint-build-guide.md](../artifacts/TL-016-team-site/docs/sharepoint-build-guide.md) | [claude.ai](https://claude.ai/artifact/8aaC53w8XNkk4UVcoErQMr) | 2026-11-24 |
 | ThinkLatent site — theme pack v11.1 | files | [artifacts/TL-016-team-site/theme-pack/README.md](../artifacts/TL-016-team-site/theme-pack/README.md) |  | 2026-11-24 |
 | ThinkLatent site — page copy for SharePoint (v10) | doc | [artifacts/TL-016-team-site/docs/page-copy.md](../artifacts/TL-016-team-site/docs/page-copy.md) | [claude.ai](https://claude.ai/artifact/SYuzrTCs1uxD9f5b3H9Ru5) | 2026-11-24 |
+| ThinkLatent site — build tools | files | [artifacts/TL-016-team-site/tools/README.md](../artifacts/TL-016-team-site/tools/README.md) |  | 2026-11-24 |
 
 ### Decision log
 | ID | Date | Decision | By | Status |

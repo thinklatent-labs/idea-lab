@@ -5,7 +5,7 @@ The ThinkLatent team site, designed in the Idea Lab and built by hand in the Ent
 ## See the design
 
 - **Live and editable:** [design canvas v11.1](https://claude.ai/artifact/4uZUcDCHWPTqtzMXZrLKQD) on claude.ai, 27 boards, on the design kit's colour v5 (D-490, 23 Nov 2026): black buttons, red only on the one main action, emerald links, a white hero with one soft field, flat green and teal tints, a deep forest closing band. v11.1 (D-498, 24 Nov 2026) puts the kit's brain mark in the header and adds pictures drawn from it: hero variants, post thumbnails, product tiles and patterns, all on the Imagery board.
-- **Here in GitHub:** an image of every board in `design-canvas/previews/` (they open in the browser), and the boards as HTML in `design-canvas/project/`, which open in Chrome or Edge after a `git pull`.
+- **Here in GitHub:** an image of every board in `design-canvas/previews/` (they open in the browser), and the boards as HTML in `design-canvas/project/`, which open in Chrome or Edge after a `git pull`. Opened from disk, the boards show no pictures, because the canvas serves them from its own store; the previews include them.
 
 ![The fourteen pages and the design system](design-canvas/previews/overview.jpg)
 
@@ -49,6 +49,7 @@ The ThinkLatent team site, designed in the Idea Lab and built by hand in the Ent
 | `docs/launch-brackets.md` | The 171 values only the Enterprise holds, grouped by the system they come from ([live doc](https://claude.ai/artifact/38RGiipB795FZiQZCkzwAu)) |
 | `design-canvas/` | The design: boards as HTML, previews as images |
 | `idea-card.md` | The idea card |
+| `tools/` | The scripts that made and check these files: board previews, the contrast check, and the record of how each version was made ([tools/README.md](tools/README.md)) |
 
 ## How the theme pack helps SharePoint
 
